@@ -1,0 +1,191 @@
+﻿@model IDIMWorkBranchProject.Models.WBP.ProjectStatusVm
+@{
+    ViewBag.Title = "Project Status";
+}
+
+<div class='col-xs-12'>
+    <div class="page-title">
+        <div class="pull-left">
+            <h1 class="title">Project Status</h1>
+        </div>
+        <div class="pull-right hidden-xs">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("List","ProjectStatus")">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        Project Status
+                    </a>
+                </li>
+                <li class="active">
+                    <strong>Delete</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Delete</h2>
+            <div class="actions panel_actions pull-right">
+                <a href="@Url.Action("Create","ProjectStatus")" class="btn btn-success">Create New</a>
+                <a href="@Url.Action("Edit","ProjectStatus", new { id = Model.ProjectStatusId })" class="btn btn-success">Edit</a>
+                <a href="@Url.Action("List","ProjectStatus")" class="btn">List</a>
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ProjectCode, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DisplayFor(m => m.ProjectCode)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ProjectName, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DisplayFor(m => m.ProjectName)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.AuthorizeUnitId, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DisplayFor(m => m.AuthorizeUnitId)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.FiscalYearId, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DisplayFor(m => m.FiscalYearId)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.PicMeetingNo, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DisplayFor(m => m.PicMeetingNo)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ApprovalDate, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DisplayFor(m => m.ApprovalDate)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ProjectStartDate, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DisplayFor(m => m.ProjectStartDate)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ProjectEndDate, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DisplayFor(m => m.ProjectEndDate)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ProjectDirector, new { @class = "col-md-2 form-label" })
+                                    <div class="col-md-10">
+                                        @Html.DisplayFor(m => m.ProjectDirector)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.BudgetCapital, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DisplayFor(m => m.BudgetCapital)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.BudgetRevenue, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DisplayFor(m => m.BudgetRevenue)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Description, new { @class = "col-md-2 form-label" })
+                                    <div class="col-md-10">
+                                        @Html.DisplayFor(m => m.Description)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Remark, new { @class = "col-md-2 form-label" })
+                                    <div class="col-md-10">
+                                        @Html.DisplayFor(m => m.Remark)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    @using (Html.BeginForm("Delete", "Project", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("ProjectId")
+
+                        <a href="@Url.Action("List", "Project")" class="btn">Cancel</a>
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-success" value="Delete" />
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

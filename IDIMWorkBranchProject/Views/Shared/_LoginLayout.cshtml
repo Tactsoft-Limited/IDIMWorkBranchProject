@@ -1,0 +1,52 @@
+﻿@using IDIMWorkBranchProject.Extentions.Session
+@using IDIMWorkBranchProject.Models.User
+
+<!DOCTYPE html>
+<html class=" ">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>IDIM Central Store : @ViewBag.Title </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <link rel="apple-touch-icon-precomposed" href="">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="">
+    @{
+        ViewBag.User = UserExtention.Get<UserInformation>("UserInformation");
+    }
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/vectormap")
+    @Styles.Render("~/Content/form")
+    @Styles.Render("~/Content/datatable")
+    @RenderSection("styles", required: false)
+    @Styles.Render("~/Content/irms")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <div class="page-container row-fluid container-fluid">
+        @Html.Partial("Partial/_Message")
+        @RenderBody()
+    </div>
+
+    @*@Scripts.Render("~/bundles/modernizr")*@
+
+    @Scripts.Render("~/bundles/jquerymig")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/theme")
+    @*@Scripts.Render("~/bundles/dashboard")*@
+
+    @Scripts.Render("~/bundles/form")
+    @Scripts.Render("~/bundles/datatable")
+    @Scripts.Render("~/bundles/irms")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

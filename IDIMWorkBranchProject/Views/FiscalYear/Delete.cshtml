@@ -1,0 +1,83 @@
+﻿@model IDIMWorkBranchProject.Models.Setup.FiscalYearVm
+@{
+    ViewBag.Title = "Fiscal Year";
+}
+
+<div class='col-xs-12'>
+    <div class="page-title">
+        <div class="pull-left">
+            <h1 class="title">Fiscal Year</h1>
+        </div>
+        <div class="pull-right hidden-xs">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("List","FiscalYear")">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        Fiscal Year
+                    </a>
+                </li>
+                <li class="active">
+                    <strong>Delete</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Delete</h2>
+            <div class="actions panel_actions pull-right">
+                <a href="@Url.Action("Create","FiscalYear")" class="btn btn-success">Create New</a>
+                <a href="@Url.Action("Edit","FiscalYear", new { id = Model.FiscalYearId })" class="btn btn-success">Edit</a>
+                <a href="@Url.Action("List","FiscalYear")" class="btn">List</a>
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.FiscalYearDescription, new { @class = "col-md-2 form-label" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(m => m.FiscalYearDescription, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.StartDate, new { @class = "col-md-2 form-label" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(m => m.StartDate, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.EndDate, new { @class = "col-md-2 form-label" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(m => m.EndDate, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </form>
+
+                    @using (Html.BeginForm("Delete", "FiscalYear", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("FiscalYearId")
+
+                        <a href="@Url.Action("List", "FiscalYear")" class="btn">Cancel</a>
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-success" value="Delete" />
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

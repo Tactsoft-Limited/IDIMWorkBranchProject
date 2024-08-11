@@ -1,0 +1,100 @@
+﻿@model IDIMWorkBranchProject.Models.User.MenuVm
+@{
+
+    ViewBag.Title = "Menu";
+}
+
+<div class='col-xs-12'>
+    <div class="page-title">
+        <div class="pull-left">
+            <h1 class="title">Menu</h1>
+        </div>
+        <div class="pull-right hidden-xs">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("List", "Menu")">
+                        <i class="fa fa-list"></i>
+                        Menu
+                    </a>
+                </li>
+                <li class="active">
+                    <strong>Delete</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Delete</h2>
+            <div class="actions panel_actions pull-right">
+                <a href="@Url.Action("Create","Menu")" class="btn btn-success">Create New</a>
+                <a href="@Url.Action("Edit","Menu", new { id = Model.MenuId })" class="btn btn-success">Edit</a>
+                <a href="@Url.Action("List","Menu")" class="btn">List</a>
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.MenuId, new { @class = "col-md-2 form-label" })
+                            <div class="controls col-md-10">
+                                @Html.DisplayFor(m => m.MenuId)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ApplicationName, new { @class = "col-md-2 form-label" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(m => m.ApplicationName, new { @class = "form-control", disabled = "disabled" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Title, new { @class = "col-md-2 form-label" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(m => m.Title, new { @class = "form-control", disabled = "disabled" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ControllerName, new { @class = "col-md-2 form-label" })
+                            <div class="col-md-10">
+                                @Html.DisplayFor(m => m.ControllerName, new { @class = "form-control", disabled = "disabled" })
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Icon, new { @class = "col-md-2 form-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Icon, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Icon)
+                            </div>
+                        </div>
+                        
+                    </form>
+
+                    @using (Html.BeginForm("Delete", "Menu", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("MenuId")
+
+                        <a href="@Url.Action("List", "Menu")" class="btn">Cancel</a>
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-success" value="Delete" />
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

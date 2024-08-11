@@ -1,0 +1,252 @@
+﻿@using IDIMWorkBranchProject.Models.User
+@{
+    var user = ViewBag.User as UserInformation ?? new UserInformation();
+}
+
+<div class="page-sidebar fixedscroll">
+    <div class="page-sidebar-wrapper" id="main-menu-wrapper">
+        <ul class='wraplist'>
+            <li class='menusection'>Main</li>
+            <li class="">
+                <a href="/Dashboard">
+                    <i class="fa fa-dashboard"></i>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+
+            <li class='menusection'>Information</li>
+
+            @*<li class="">
+            <a href="#">
+                <i class="fa fa-legal"></i>
+                <span class="title">Purchase</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu" >
+                <li class="">
+                    <a href="@Url.Action("List","PurchaseBudget")">
+                        <span class="title">Purchase Budget</span>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="@Url.Action("List","PurchasePlan")">
+                        <span class="title">Purchase Plan</span>
+                    </a>
+                </li>
+            </ul>
+        </li>*@
+
+            <li class="">
+                <a href="@Url.Action("List","Project")">
+                    <i class="fa fa-legal"></i>
+                    <span class="title">Project</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("List","SubProject")">
+                    <i class="fa fa-money"></i>
+                    <span class="title">Sub Project</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("List","SubProjectDetails")">
+                    <i class="fa fa-money"></i>
+                    <span class="title">Subproject Details</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="@Url.Action("List","SecurityDeposit")">
+                    <i class="fa fa-money"></i>
+                    <span class="title">Security Deposit</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="@Url.Action("List", "BillPayment")">
+                    <i class="fa fa-legal"></i>
+                    <span class="title">Bill Payment</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("List","ProjectExtend")">
+                    <i class="fa fa-square"></i>
+                    <span class="title">Project Extend</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("List","ProjectStatus")">
+                    <i class="fa fa-envelope"></i>
+                    <span class="title">Project Status</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("List","ProjectProblem")">
+                    <i class="fa fa-cubes"></i>
+                    <span class="title">Project Problem</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("List","ReceiptPayment")">
+                    <i class="fa fa-pencil-square-o"></i>
+                    <span class="title">Receipt Payment</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("List","ConsultancyActivities")">
+                    <i class="fa fa-pencil-square-o"></i>
+                    <span class="title">Consultancy Activities</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("List","ConsultancyFees")">
+                    <i class="fa fa-pencil-square-o"></i>
+                    <span class="title">Consultancy Fees</span>
+                </a>
+            </li>
+            <li class='menusection'>Setup</li>
+            <li class="">
+                <a href="@Url.Action("List","FiscalYear")">
+                    <i class="fa fa-calendar"></i>
+                    <span class="title">Fiscal Year</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="@Url.Action("List","Consultant")">
+                    <i class="fa fa-calendar"></i>
+                    <span class="title">Consultant</span>
+                </a>
+            </li>
+            @*<li class="">
+            <a href="@Url.Action("List","Quarter")">
+                <i class="fa fa-bars"></i>
+                <span class="title">Item</span>
+            </a>
+        </li>
+
+        <li class="">
+            <a href="@Url.Action("List","Unit")">
+                <i class="fa fa-filter"></i>
+                <span class="title">Product Unit</span>
+            </a>
+        </li>*@
+            <li class="">
+                <a href="@Url.Action("List","BillType")">
+                    <i class="fa fa-cube"></i>
+                    <span class="title">Bill Type</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="@Url.Action("List","Quarter")">
+                    <i class="fa fa-quora"></i>
+                    <span class="title">Quarter</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="@Url.Action("List","ConstructionFirm")">
+                    <i class="fa fa-calendar"></i>
+                    <span class="title">Supplier</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="@Url.Action("List","Unit")">
+                    <i class="fa fa-flag"></i>
+                    <span class="title">Unit</span>
+                </a>
+            </li>
+
+            <li class='menusection'>Report</li>
+
+            <li class="">
+                <a href="@Url.Action("ProjectStatus","Report")">
+                    <i class="fa fa-envelope"></i>
+                    <span class="title">Project Status</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="@Url.Action("ProjectInformation", "Report")">
+                    <i class="fa fa-circle"></i>
+                    <span class="title">Project Information</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("SubProject", "Report")">
+                    <i class="fa fa-circle"></i>
+                    <span class="title">Sub-Project</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("ProjectProblem", "Report")">
+                    <i class="fa fa-circle"></i>
+                    <span class="title">Sub-Project Problem</span>
+                </a>
+            </li>
+
+
+
+            <li class="">
+                <a href="@Url.Action("Index", "ProjectReport")">
+                    <i class="fa fa-circle"></i>
+                    <span class="title">Project List</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("Index", "ReportBillPayment")">
+                    <i class="fa fa-circle"></i>
+                    <span class="title">Bill Payment</span>
+                </a>
+            </li>
+
+
+
+            <li class="">
+                <a href="@Url.Action("ProjectPaymentDeposit", "Report")">
+                    <i class="fa fa-circle"></i>
+                    <span class="title">Project Payment Deposit</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("ConstructionCheckList", "Report")">
+                    <i class="fa fa-circle"></i>
+                    <span class="title">Construction Check List</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("ConsultancyFees", "Report")">
+                    <i class="fa fa-circle"></i>
+                    <span class="title">Consultancy Fees Amount</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("ConstructionReport", "Report")">
+                    <i class="fa fa-circle"></i>
+                    <span class="title">Construction Report</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="@Url.Action("YearlyConstructionReport", "Report")">
+                    <i class="fa fa-circle"></i>
+                    <span class="title">Yearly Construction Report</span>
+                </a>
+            </li>
+
+            @************Pages Addde By Rocky**************@
+
+
+        </ul>
+    </div>
+</div>

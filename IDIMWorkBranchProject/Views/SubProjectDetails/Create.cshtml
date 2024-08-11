@@ -1,0 +1,279 @@
+﻿@using IDIMWorkBranchProject.Models.WBP
+@model IDIMWorkBranchProject.Models.WBP.SubProjectDetailsVm
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div id="message"></div>
+<div class='col-md-12'>
+    <div class="page-title">
+        <div class="pull-left">
+            <h1 class="title">SubProject Details </h1>
+        </div>
+        <div class="pull-right hidden-xs">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("List","SubProjectDetails")">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        SubProject Details
+                    </a>
+                </li>
+                <li class="active">
+                    <strong>Create</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="col-lg-12">
+    <section class="box">
+        <header class="panel_header">
+            <h2 class="title pull-left">Create</h2>
+            <div class="actions panel_actions pull-right">
+                <a href="@Url.Action("List","SubProjectDetails")" class="btn">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    List
+                </a>
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-md-12">
+                    @using (Html.BeginForm("Create", "SubProjectDetails", FormMethod.Post, new { @class = "form-horizontal", id = "SubProjectDetails-create-form", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.SubProjectId, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DropDownListFor(m => m.SubProjectId, Model.SubProjectDropdown, "Select Sub Project", new { @class = "select2" })
+                                        @Html.ValidationMessageFor(model => model.SubProjectId)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.BGOrPayOrder, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.BGOrPayOrder, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.BGOrPayOrder)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.WorkOrderDate, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            @Html.EditorFor(m => m.WorkOrderDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.WorkOrderDate)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Progress, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.Progress, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Progress)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Installment1, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.Installment1, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Installment1)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Installment2, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.Installment2, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Installment2)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Installment4, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.Installment4, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Installment4)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Installment5, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.Installment5, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Installment5)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.TotalAmmount, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.TotalAmmount, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.TotalAmmount)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.BGBMiscellaneousDeposit, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.BGBMiscellaneousDeposit, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.BGBMiscellaneousDeposit)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.TenPercentPaidFarm, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.TenPercentPaidFarm, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.TenPercentPaidFarm)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.TenPercentPaidSimantoFund, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.TenPercentPaidSimantoFund, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.TenPercentPaidSimantoFund)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ContractorPayable, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.ContractorPayable, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ContractorPayable)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Remark, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.Remark, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Remark)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-check form-check-inline">
+                                    @Html.CheckBoxFor(m => m.hasCompleted, new { @class = "form-check-input" })
+                                    <label class="form-check-label" for="materialInline3">NOA Completed</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-check form-check-inline">
+                                    @Html.CheckBoxFor(m => m.BGConfirmed, new { @class = "form-check-input" })
+                                    <label class="form-check-label" for="materialInline3">BG Confirmed</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-check form-check-inline">
+                                    @Html.CheckBoxFor(m => m.ContractComplete, new { @class = "form-check-input" })
+                                    <label class="form-check-label" for="materialInline3">Contract Completed</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-check form-check-inline">
+                                    @Html.CheckBoxFor(m => m.DesignSent, new { @class = "form-check-input" })
+                                    <label class="form-check-label" for="materialInline3">Schedule & Drawing/Design Sent</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-check form-check-inline">
+                                    @Html.CheckBoxFor(m => m.IsDelivered, new { @class = "form-check-input" })
+                                    <label class="form-check-label" for="materialInline3">Delivered</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-check form-check-inline">
+                                    @Html.CheckBoxFor(m => m.IsFinalBillPaid, new { @class = "form-check-input" })
+                                    <label class="form-check-label" for="materialInline3">Paid Final Bill</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-check form-check-inline">
+                                    @Html.CheckBoxFor(m => m.TenPercentGuarantee, new { @class = "form-check-input" })
+                                    <label class="form-check-label" for="materialInline3">Ten Percent Guarantee</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-check form-check-inline">
+                                    @Html.CheckBoxFor(m => m.FivePercentSecurityMoney, new { @class = "form-check-input" })
+                                    <label class="form-check-label" for="materialInline3">Five Percent Security Money</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-success" value="Save" />
+                            <input type="reset" class="btn" value="Clear" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@*@section scripts{
+    <script>
+
+        $(document).ready(function () {
+            jQuery.validator.methods["date"] = function (value, element) { return true; }
+            $('.datepicker').datepicker({
+                format: 'dd-mm-yyyy'
+            });
+        });
+
+    </script>
+}*@
+

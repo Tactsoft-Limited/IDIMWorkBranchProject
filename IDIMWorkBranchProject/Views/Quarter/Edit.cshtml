@@ -1,0 +1,109 @@
+﻿@model IDIMWorkBranchProject.Models.Setup.QuarterVm
+@{
+    ViewBag.Title = "Quarter";
+}
+
+<div class='col-xs-12'>
+    <div class="page-title">
+        <div class="pull-left">
+            <h1 class="title">Quarter</h1>
+        </div>
+        <div class="pull-right hidden-xs">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("List","Quarter")">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        Quarter
+                    </a>
+                </li>
+                <li class="active">
+                    <strong>Edit</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Edit</h2>
+            <div class="actions panel_actions pull-right">
+                <a href="@Url.Action("Create","Quarter")" class="btn btn-success">Create New</a>
+                <a href="@Url.Action("Delete", "Quarter", new { id = Model.QuarterId })" class="btn btn-danger">Delete</a>
+                <a href="@Url.Action("List","Quarter")" class="btn">List</a>
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    @using (Html.BeginForm("Edit", "Quarter", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.QuarterId)
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.QuarterName, new { @class = "col-md-2 form-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.QuarterName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.QuarterName)
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.YearFrom, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DropDownListFor(m => m.YearFrom, new List<SelectListItem>(), "Select Year From", new { @class = "select2" })
+                                        @Html.ValidationMessageFor(model => model.YearFrom)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.YearTo, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DropDownListFor(m => m.YearTo, new List<SelectListItem>(), "Select Year To", new { @class = "select2" })
+                                        @Html.ValidationMessageFor(model => model.YearTo)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.MonthFrom, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DropDownListFor(m => m.MonthFrom, Model.MonthFromDropdown, "Select Month From", new { @class = "select2" })
+                                        @Html.ValidationMessageFor(model => model.MonthFrom)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.MonthTo, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DropDownListFor(m => m.MonthTo, Model.MonthToDropdown, "Select Month To", new { @class = "select2" })
+                                        @Html.ValidationMessageFor(model => model.MonthTo)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-success" value="Update" />
+                            <input type="reset" class="btn" value="Clear" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

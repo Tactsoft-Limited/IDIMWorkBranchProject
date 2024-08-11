@@ -1,0 +1,156 @@
+﻿@model IDIMWorkBranchProject.Models.Setup.ConstructionFirmVm
+@{
+    ViewBag.Title = "Supplier";
+}
+
+<div class='col-xs-12'>
+    <div class="page-title">
+        <div class="pull-left">
+            <h1 class="title">Construction Firm</h1>
+        </div>
+        <div class="pull-right hidden-xs">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("List","ConstructionFirm")">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        Construction Firm
+                    </a>
+                </li>
+                <li class="active">
+                    <strong>Create</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Create</h2>
+            <div class="actions panel_actions pull-right">
+                <a href="@Url.Action("List","ConstructionFirm")" class="btn">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    List
+                </a>
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    @using (Html.BeginForm("Create", "ConstructionFirm", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ConstructionFirmName, new { @class = "col-md-4 form-label required" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.ConstructionFirmName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ConstructionFirmName)
+                                    </div>
+                                </div>
+                            </div>
+                       
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Address, new { @class = "col-md-2 form-label" })
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(m => m.Address, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Address)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ContactPerson, new { @class = "col-md-2 form-label" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(m => m.ContactPerson, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ContactPerson)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ContactPhone, new { @class = "col-md-4 form-label required" })
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            @Html.TextBoxFor(m => m.ContactPhone, new { @class = "form-control" })
+                                            <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.ContactPhone)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Email, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                            <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.Email)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @*<div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Enlisted, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.CheckBoxFor(m => m.Enlisted, new { @class = "form-control  iCheck" })
+                                        @Html.ValidationMessageFor(model => model.Enlisted)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Status, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.CheckBoxFor(m => m.Status, new { @class = "form-control  iCheck" })
+                                        @Html.ValidationMessageFor(model => model.Status)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Comments, new { @class = "col-md-2 form-label" })
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(m => m.Comments, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Comments)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-success" value="Save" />
+                            <input type="reset" class="btn" value="Clear" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

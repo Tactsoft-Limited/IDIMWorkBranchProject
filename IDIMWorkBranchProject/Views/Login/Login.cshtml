@@ -1,0 +1,74 @@
+﻿@model IDIMWorkBranchProject.Models.User.LoginVm
+
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    ViewBag.Title = "Login";
+}
+
+<div class="login-wrapper row">
+    <div class="col-md-5 bgb_left">
+        <div class="row">
+            <div class="login_left text-center">
+                <span style="color: #ffffff; font-weight: bold; font-size:30px">Work Branch Project</span><br />
+                <div class="bgb_logo">
+                    <img src="../Content/images/bgb-logo.png" alt=""><br />
+                    <span style="color: #ffffff; font-weight: bold; font-size: 30px; font-family: verdana">BGB</span><br />
+                    <span style="color: #ffffff; font-weight: bold; font-size: 30px; font-family: verdana">Border Guard Bangladesh</span>
+                    <p>
+                        Pheelkhana, Dhaka-1208, Bangladesh
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="login_right">
+            <div class="form_top">
+                <span>
+                    <img src="../Content/images/idim.png" alt="">
+                </span>
+               
+            </div>
+            <h1 class="form_heading">Sign In</h1>
+            <div class="form_area row">
+                @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary()
+                    <div class="col-sm-12 single_input">
+                        @Html.LabelFor(model => model.Username)
+                        @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @placeholder = "Enter username" })
+                    </div>
+                    <div class="col-sm-12 single_input">
+                        @Html.LabelFor(model => model.Password)
+                        @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Enter username" })
+                    </div>
+                    <div class="col-sm-12 form_bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <a href="#">Privacy policy</a>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a href="#">Forget Password</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 btn_submit">
+                        <button type="submit">Sign In</button>
+                    </div>
+                }
+            </div>
+            <div class="login_right_bottom text-right">
+                <p>   © Copyright 2018 Border Guard Bangladesh- All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles
+{
+    @Styles.Render("~/content/login")   
+}
+

@@ -1,0 +1,46 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@{
+    ViewBag.Title = "Get";
+    DateTime? date = DateTime.Now;
+}
+
+<h2>Get</h2>
+
+<p>@date.ToNullableShortDateString()</p>
+<p>@date.ToNullableLongDateString()</p>
+<p>@date.ToNullableShortDateStringOrNull()</p>
+
+<p>
+    <ul>
+
+        @foreach (var m in DateExtention.GetMonthNumbers())
+        {
+            <li>@m</li>
+        }
+    </ul>
+</p>
+<p>
+    <ul>
+
+        @foreach (var m in DateExtention.GetMonths())
+        {
+            <li>@m</li>
+        }
+    </ul>
+</p>
+<p>@date.GetFirstDayOfMonth()</p>
+<p>@date.GetLastDayOfMonth()</p>
+<p>@DateExtention.GetMonthName(6)</p>
+<p>@date.GetMonthName()</p>
+<p>
+    <ul>
+
+        @foreach (var m in DateExtention.GetYears())
+        {
+            <li>@m</li>
+        }
+    </ul>
+</p>
+
+
+

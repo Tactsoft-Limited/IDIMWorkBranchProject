@@ -1,0 +1,72 @@
+﻿@model IDIMWorkBranchProject.Models.Report.ReportFilterVm
+@{
+    ViewBag.Title = "Report";
+}
+
+<div class='col-xs-12'>
+    <div class="page-title">
+        <div class="pull-left">
+            <h4 class="title">Project Payment Receipt</h4>
+        </div>
+        <div class="pull-right hidden-xs">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        Report ProjectPaymentReceipt
+                    </a>
+                </li>
+                <li class="active">
+                    <strong>Filter</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Filter</h2>
+            <div class="actions panel_actions pull-right">
+                <a href="#" class="btn">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    List
+                </a>
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    @using (Html.BeginForm("ProjectPaymentReceiptRpt", "Report", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group">
+                            @Html.Label("FiscalYear", new { @class = "col-md-2 form-label" })
+                            <div class="col-md-4">
+                                @Html.DropDownList("FiscalYearId", Model.FiscalYearDropdown, "Select FiscalYear", new { @class = "select2" })
+                            </div>
+                        </div>
+
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-success" value="Generate Report" />
+                            <input type="reset" class="btn" value="Clear" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
