@@ -3,19 +3,22 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.Setup;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 
 namespace IDIMWorkBranchProject.Controllers.Setup
 {
-    public class FiscalYearController : Controller
+    public class FiscalYearController : BaseController
     {
         protected IFiscalYearService FiscalYearService { get; set; }
-
-        public FiscalYearController(IFiscalYearService fiscalYearService)
+        public FiscalYearController(IActivityLogService activityLogService, IFiscalYearService fiscalYearService) : base(activityLogService)
         {
             FiscalYearService = fiscalYearService;
         }
-        
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
         public async Task<ActionResult> List()
         {
             var list = await FiscalYearService.GetAllAsync();
@@ -127,7 +130,7 @@ namespace IDIMWorkBranchProject.Controllers.Setup
             catch (Exception exception)
             {
                 var model = await FiscalYearService.GetByIdAsync(id);
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), exception.Message); 
+                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), exception.Message);
 
                 return View(model);
             }

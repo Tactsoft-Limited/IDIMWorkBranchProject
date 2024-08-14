@@ -5,14 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
+using BGB.Data.Database;
+using BGB.Data.Entities.Pm;
 using IDIMWorkBranchProject.Extentions;
-using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.WBP;
 
 namespace IDIMWorkBranchProject.Services.WBP
 {
-    public class ConsultantService: IConsultantService
+    public class ConsultantService : IConsultantService
     {
         protected IDIMDBEntities Context { get; set; }
         protected IMapper Mapper { get; set; }

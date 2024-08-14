@@ -4,25 +4,25 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
-using IDIMWorkBranchProject.Services.Setup;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.WBP;
 
 namespace IDIMWorkBranchProject.Controllers.WBP
 {
-    public class SubProjectDetailsController : Controller
+    public class SubProjectDetailsController : BaseController
     {
         protected ISubProjectDetailsService SubProjectDetailsService { get; set; }
         protected ISubProjectService SubProjectService { get; set; }
-
-        public SubProjectDetailsController(
-            ISubProjectDetailsService subProjectDetailsService,
-            ISubProjectService subProjectService
-            )
+        public SubProjectDetailsController(IActivityLogService activityLogService, ISubProjectDetailsService subProjectDetailsService, ISubProjectService subProjectService) : base(activityLogService)
         {
             SubProjectDetailsService = subProjectDetailsService;
             SubProjectService = subProjectService;
         }
 
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
         public async Task<ActionResult> List()
         {
 
@@ -56,7 +56,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
 
         [HttpPost]
         public async Task<ActionResult> Create(SubProjectDetailsVm model)
-            {
+        {
             Message message;
 
             try

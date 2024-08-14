@@ -1,15 +1,14 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 
 namespace IDIMWorkBranchProject.Controllers.Setup
 {
-    public class UnitController : Controller
+    public class UnitController : BaseController
     {
         protected IUnitService UnitService { get; set; }
-
-        public UnitController(
-            IUnitService unitService)
+        public UnitController(IActivityLogService activityLogService, IUnitService unitService) : base(activityLogService)
         {
             UnitService = unitService;
         }

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Models.Report
@@ -29,7 +26,7 @@ namespace IDIMWorkBranchProject.Models.Report
         public int? ConstructionFirmId { get; set; }
 
         [DisplayName("Letter No")]
-        public string Letterno { get; set; }
+        public string LetterNumber { get; set; }
 
         [DisplayName("Consultant")]
         public int? ConsultantId { get; set; }

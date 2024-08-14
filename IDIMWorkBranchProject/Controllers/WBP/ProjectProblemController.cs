@@ -4,12 +4,13 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
 
 namespace IDIMWorkBranchProject.Controllers.WBP
 {
-    public class ProjectProblemController : Controller
+    public class ProjectProblemController : BaseController
     {
         protected IBillTypeService BillTypeService { get; set; }
         protected IProjectProblemService ProjectProblemService { get; set; }
@@ -17,12 +18,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
         protected ISubProjectService SubProjectService { get; set; }
         protected IUnitService UnitService { get; set; }
 
-        public ProjectProblemController(
-            IBillTypeService billTypeService,
-            IProjectProblemService projectProblemService,
-            IFiscalYearService fiscalYearService,
-            ISubProjectService subProjectService,
-            IUnitService unitService)
+        public ProjectProblemController(IActivityLogService activityLogService, IBillTypeService billTypeService, IProjectProblemService projectProblemService, IFiscalYearService fiscalYearService, ISubProjectService subProjectService, IUnitService unitService) : base(activityLogService)
         {
             BillTypeService = billTypeService;
             ProjectProblemService = projectProblemService;
@@ -30,7 +26,10 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             SubProjectService = subProjectService;
             UnitService = unitService;
         }
-
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
         public async Task<ActionResult> List()
         {
             var model = new ProjectProblemSearchVm

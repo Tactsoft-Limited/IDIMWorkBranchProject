@@ -4,22 +4,22 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
-using IDIMWorkBranchProject.Services.Setup;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.WBP;
 
 namespace IDIMWorkBranchProject.Controllers.WBP
 {
-    public class ConsultantController : Controller
+    public class ConsultantController : BaseController
     {
         protected IConsultantService ConsultantService { get; set; }
-
-        public ConsultantController(
-            IConsultantService consultantService
-            )
+        public ConsultantController(IActivityLogService activityLogService, IConsultantService consultantService) : base(activityLogService)
         {
             ConsultantService = consultantService;
         }
-
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
         public async Task<ActionResult> List()
         {
 
@@ -39,7 +39,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             return View(model);
         }
 
-        public async Task<ActionResult> Create()
+        public ActionResult Create()
         {
             var model = new ConsultantVm
             {

@@ -31,11 +31,11 @@ namespace IDIMWorkBranchProject.Controllers.User
             return View(menus);
         }
 
-        public async Task<ActionResult> Create()
+        public ActionResult Create()
         {
             var model = new MenuVm
             {
-                ApplicationDropdown = await ApplicationService.GetDropDownAsync()
+                //ApplicationDropdown = await ApplicationService.GetDropDownAsync()
             };
 
             return View(model);
@@ -65,7 +65,7 @@ namespace IDIMWorkBranchProject.Controllers.User
                 message = Messages.InvalidInput(MessageType.Create.ToString());
             }
 
-            model.ApplicationDropdown = await ApplicationService.GetDropDownAsync(model.ApplicationId);
+            //model.ApplicationDropdown = await ApplicationService.GetDropDownAsync(model.ApplicationId);
 
             ViewBag.Message = message;
 
@@ -78,7 +78,7 @@ namespace IDIMWorkBranchProject.Controllers.User
             if (model == null)
                 return HttpNotFound();
 
-            model.ApplicationDropdown = await ApplicationService.GetDropDownAsync(model.ApplicationId);
+            //model.ApplicationDropdown = await ApplicationService.GetDropDownAsync(model.ApplicationId);
 
             return View(model);
         }
@@ -105,7 +105,7 @@ namespace IDIMWorkBranchProject.Controllers.User
                 message = Messages.InvalidInput(MessageType.Update.ToString());
             }
 
-            model.ApplicationDropdown = await ApplicationService.GetDropDownAsync(model.ApplicationId);
+            //model.ApplicationDropdown = await ApplicationService.GetDropDownAsync(model.ApplicationId);
 
             ViewBag.Message = message;
 
@@ -145,7 +145,7 @@ namespace IDIMWorkBranchProject.Controllers.User
         public ActionResult Generate()
         {
             return View();
-        }   
+        }
 
         /// <summary>
         /// All menu data

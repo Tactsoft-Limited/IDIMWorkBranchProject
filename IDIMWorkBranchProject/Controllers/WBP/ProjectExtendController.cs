@@ -4,25 +4,20 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
 
 namespace IDIMWorkBranchProject.Controllers.WBP
 {
-    public class ProjectExtendController : Controller
+    public class ProjectExtendController : BaseController
     {
         protected IBillTypeService BillTypeService { get; set; }
         protected IProjectExtendService ProjectExtendService { get; set; }
         protected IFiscalYearService FiscalYearService { get; set; }
         protected ISubProjectService SubProjectService { get; set; }
         protected IUnitService UnitService { get; set; }
-
-        public ProjectExtendController(
-            IBillTypeService billTypeService,
-            IProjectExtendService projectExtendService,
-            IFiscalYearService fiscalYearService,
-            ISubProjectService subProjectService,
-            IUnitService unitService)
+        public ProjectExtendController(IActivityLogService activityLogService, IBillTypeService billTypeService, IProjectExtendService projectExtendService, IFiscalYearService fiscalYearService, ISubProjectService subProjectService, IUnitService unitService) : base(activityLogService)
         {
             BillTypeService = billTypeService;
             ProjectExtendService = projectExtendService;
@@ -30,7 +25,10 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             SubProjectService = subProjectService;
             UnitService = unitService;
         }
-
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
         public async Task<ActionResult> List()
         {
             var model = new ProjectExtendSearchVm

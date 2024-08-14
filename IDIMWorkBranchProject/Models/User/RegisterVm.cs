@@ -43,7 +43,7 @@ namespace IDIMWorkBranchProject.Models.User
         public DateTime? UpdatedDateTime { get; set; }
         public int UpdateNo { get; set; }
         
-        //public virtual ICollection<UserApplication> UserApplications { get; set; }
+        //public virtual ICollection<Application> Applications { get; set; }
         //public virtual ICollection<UserDevice> UserDevices { get; set; }
         //public virtual ICollection<UserLoginDevice> UserLoginDevices { get; set; }
         //public virtual ICollection<UserPriviledge> UserPriviledges { get; set; }

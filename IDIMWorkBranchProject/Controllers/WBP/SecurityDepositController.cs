@@ -4,25 +4,24 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
-using IDIMWorkBranchProject.Services.Setup;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.WBP;
 
 namespace IDIMWorkBranchProject.Controllers.WBP
 {
-    public class SecurityDepositController : Controller
+    public class SecurityDepositController : BaseController
     {
         protected ISecurityDepositService SecurityDepositService { get; set; }
         protected ISubProjectService SubProjectService { get; set; }
-
-        public SecurityDepositController(
-            ISecurityDepositService securityDepositService,
-            ISubProjectService subProjectService
-            )
+        public SecurityDepositController(IActivityLogService activityLogService, ISecurityDepositService securityDepositService, ISubProjectService subProjectService) : base(activityLogService)
         {
             SecurityDepositService = securityDepositService;
             SubProjectService = subProjectService;
         }
-
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
         public async Task<ActionResult> List()
         {
 

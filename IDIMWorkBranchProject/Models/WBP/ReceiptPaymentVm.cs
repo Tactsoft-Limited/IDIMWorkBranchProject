@@ -1,6 +1,9 @@
-﻿using System;
+﻿using BGB.Data.Entities.Central;
+using BGB.Data.Entities.Pm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Models.WBP
@@ -49,6 +52,9 @@ namespace IDIMWorkBranchProject.Models.WBP
         public int? UpdatedUser { get; set; }
         public DateTime? UpdatedDateTime { get; set; }
         public int UpdateNo { get; set; }
+
+        [ForeignKey(nameof(QuarterId))]
+        public virtual PmQuarter Quarter { get; set; }
 
         public IEnumerable<SelectListItem> FiscalYearDropdown { get; set; }
         public IEnumerable<SelectListItem> QuarterDropdown { get; set; }

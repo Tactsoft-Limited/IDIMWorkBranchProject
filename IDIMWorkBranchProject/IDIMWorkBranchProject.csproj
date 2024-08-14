@@ -55,11 +55,17 @@
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
     <Reference Include="FluentValidation, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.7.3.3\lib\net45\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation.Mvc, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.Mvc5.7.2.1\lib\net45\FluentValidation.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="MailKit, Version=4.7.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.4.7.1.1\lib\netstandard2.0\MailKit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
@@ -143,6 +149,9 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
+    <Reference Include="MimeKit, Version=4.7.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.4.7.1\lib\netstandard2.0\MimeKit.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -155,11 +164,15 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Formats.Asn1, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Formats.Asn1.8.0.1\lib\netstandard2.0\System.Formats.Asn1.dll</HintPath>
+    </Reference>
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Management" />
-    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -171,6 +184,28 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Cng, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Cng.5.0.0\lib\net461\System.Security.Cryptography.Cng.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.8.0.0\lib\netstandard2.0\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.8.0.0\lib\netstandard2.0\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -251,14 +286,29 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthBaseController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Report\ConstructionCheckListReportController.cs" />
+    <Compile Include="Controllers\Report\ConstructionReportController.cs" />
+    <Compile Include="Controllers\Report\ConsultancyFeesReportController.cs" />
+    <Compile Include="Controllers\Report\FullPaymentProjectReportController.cs" />
+    <Compile Include="Controllers\Report\PartialPaymentProjectReportController.cs" />
     <Compile Include="Controllers\Report\ProjectExtendedController.cs" />
+    <Compile Include="Controllers\Report\ProjectInformationReportController.cs" />
+    <Compile Include="Controllers\Report\ProjectPaymentDepositReportController.cs" />
+    <Compile Include="Controllers\Report\ProjectPaymentReceiptReportController.cs" />
+    <Compile Include="Controllers\Report\ProjectProblemReportController.cs" />
     <Compile Include="Controllers\Report\ProjectReportController.cs" />
     <Compile Include="Controllers\Report\ReportBillPaymentController.cs" />
     <Compile Include="Controllers\Report\ReportController.cs" />
     <Compile Include="Controllers\Report\ReportProblemController.cs" />
+    <Compile Include="Controllers\Report\SubProjectReportController.cs" />
+    <Compile Include="Controllers\Report\YearlyConstructionReportController.cs" />
     <Compile Include="Controllers\Setup\AttachmentController.cs" />
     <Compile Include="Controllers\Setup\BillTypeController.cs" />
     <Compile Include="Controllers\Setup\ConstructionFirmController.cs" />
@@ -282,144 +332,7 @@
     <Compile Include="Controllers\WBP\SecurityDepositController.cs" />
     <Compile Include="Controllers\WBP\SubProjectController.cs" />
     <Compile Include="Controllers\WBP\SubProjectDetailsController.cs" />
-    <Compile Include="Entity\Application.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Attachment.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\BillPayment.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\BillType.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ConstructionFirm.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ConsultancyActivity.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ConsultancyFee.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Consultant.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Device.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\FiscalYear.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\FundRelease.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\GeneralInformation.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Menu.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\PicMeeting.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Project.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ProjectExtend.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ProjectProblem.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ProjectStatu.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Quarter.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ReceiptPayment.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\SecurityDeposit.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\SetupLocation.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\SetupUnit.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\sp_ProjectStatus_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\sp_ProjectStatus_Result1.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\SubProject.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\SubProjectDetail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\User.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\UserApplication.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\UserDevice.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\UserLoginDevice.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\UserPriviledge.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ViewExtended.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ViewProjectBillPayment.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ViewProjectInformationRpt.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ViewProjectList.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ViewProjectPaymentReceiptRpt.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ViewProjectProblem.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ViewProjectProblemRpt.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ViewProjectSubProjectDetailsRpt.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\ViewProjectWiseSubProjectRpt.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Extentions\Ad\LdapExtention.cs" />
     <Compile Include="Extentions\BoolExtention.cs" />
     <Compile Include="Extentions\ClassExtentions.cs" />
     <Compile Include="Extentions\Collections\Select2\Select2PagedResult.cs" />
@@ -429,6 +342,8 @@
     <Compile Include="Extentions\DefaultData.cs" />
     <Compile Include="Extentions\EnumExtensions.cs" />
     <Compile Include="Extentions\Exceptions\CustomExceptionAttribute.cs" />
+    <Compile Include="Extentions\File\FileExtention.cs" />
+    <Compile Include="Extentions\Healper\ReportHelper.cs" />
     <Compile Include="Extentions\Message.cs" />
     <Compile Include="Extentions\Messages.cs" />
     <Compile Include="Extentions\MessageType.cs" />
@@ -440,6 +355,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Common\ReportConfig.cs" />
     <Compile Include="Models\Dashboard\DashboardVm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -456,6 +372,8 @@
     <Compile Include="Models\User\ApplicationDetailVm.cs" />
     <Compile Include="Models\User\ApplicationVm.cs" />
     <Compile Include="Models\User\ChangePasswordVm.cs" />
+    <Compile Include="Models\User\ActivityLogVm.cs" />
+    <Compile Include="Models\User\UserProfile.cs" />
     <Compile Include="Models\User\DeviceAssignVm.cs" />
     <Compile Include="Models\User\DeviceVm.cs" />
     <Compile Include="Models\User\EditInformation.cs" />
@@ -466,6 +384,7 @@
     <Compile Include="Models\User\MenuAssignVm.cs" />
     <Compile Include="Models\User\MenuGroupByVm.cs" />
     <Compile Include="Models\User\MenuInformation.cs" />
+    <Compile Include="Models\User\MenuType.cs" />
     <Compile Include="Models\User\MenuVm.cs" />
     <Compile Include="Models\User\RegisterVm.cs" />
     <Compile Include="Models\User\UserApplicationAssignVm.cs" />
@@ -527,6 +446,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WPDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Services\ActivityLogService.cs" />
+    <Compile Include="Services\IActivityLogService.cs" />
     <Compile Include="Services\Dashboard\DashboardService.cs" />
     <Compile Include="Services\Dashboard\IDashboardService.cs" />
     <Compile Include="Services\Setup\BillTypeService.cs" />
@@ -542,6 +463,8 @@
     <Compile Include="Services\Setup\QuarterService.cs" />
     <Compile Include="Services\Setup\UnitService.cs" />
     <Compile Include="Services\User\ApplicationService.cs" />
+    <Compile Include="Services\User\ProfileService.cs" />
+    <Compile Include="Services\User\IProfileService.cs" />
     <Compile Include="Services\User\DeviceService.cs" />
     <Compile Include="Services\User\IApplicationService.cs" />
     <Compile Include="Services\User\IDeviceService.cs" />
@@ -582,10 +505,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\animate.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\font-awesome\css\font-awesome.css" />
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
@@ -617,16 +554,6 @@
     <Content Include="Content\responsive.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
-    <Content Include="Entity\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Entity\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -703,6 +630,10 @@
     <Content Include="Images\Profile\93256.jpg" />
     <Content Include="Images\Profile\93256.png" />
     <Content Include="Images\Profile\avatar.png" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\default.js" />
@@ -713,13 +644,20 @@
     <Content Include="Report\Data\WPDataSet.xsc">
       <DependentUpon>WPDataSet.xsd</DependentUpon>
     </Content>
-    <EntityDeploy Include="Entity\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Entity\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Properties\PublishProfiles\project.pubxml" />
     <None Include="Report\Data\WPDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
@@ -729,6 +667,12 @@
     <Content Include="Report\Data\WPDataSet.xss">
       <DependentUpon>WPDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -2743,8 +2687,25 @@
     <Content Include="Views\Report\ConsultancyFees.cshtml" />
     <Content Include="Views\Report\ConstructionReport.cshtml" />
     <Content Include="Views\Report\YearlyConstructionReport.cshtml" />
-    <Content Include="Views\Report\FullPaymentByProjectReport.cshtml" />
-    <Content Include="Views\Report\PartialPaymentByProjectReport.cshtml" />
+    <Content Include="Views\Report\FullPaymentProjectReport.cshtml" />
+    <Content Include="Views\Report\PartialPaymentProjectReport.cshtml" />
+    <Content Include="Views\Error\Forbidden.cshtml" />
+    <Content Include="Views\Error\NonAuthoriative.cshtml" />
+    <Content Include="Views\Error\NotAllowed.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\ReportProblem\Index.cshtml" />
+    <Content Include="Views\ProjectExtended\Index.cshtml" />
+    <Content Include="Views\ConstructionCheckListReport\ConstructionCheckList.cshtml" />
+    <Content Include="Views\ConstructionReport\ConstructionReport.cshtml" />
+    <Content Include="Views\ConsultancyFeesReport\ConsultancyFees.cshtml" />
+    <Content Include="Views\FullPaymentProjectReport\FullPaymentProjectReport.cshtml" />
+    <Content Include="Views\PartialPaymentProjectReport\PartialPaymentProjectReport.cshtml" />
+    <Content Include="Views\ProjectInformationReport\ProjectInformation.cshtml" />
+    <Content Include="Views\ProjectPaymentDepositReport\ProjectPaymentDeposit.cshtml" />
+    <Content Include="Views\ProjectPaymentReceiptReport\ProjectPaymentReceipt.cshtml" />
+    <Content Include="Views\ProjectProblemReport\ProjectProblem.cshtml" />
+    <Content Include="Views\SubProjectReport\SubProject.cshtml" />
+    <Content Include="Views\YearlyConstructionReport\YearlyConstructionReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2752,8 +2713,6 @@
     <Folder Include="Scripts\Plugins\jquery-tabledit\" />
     <Folder Include="Views\Attachment\" />
     <Folder Include="Views\GeneralInformation\" />
-    <Folder Include="Views\ProjectExtended\" />
-    <Folder Include="Views\ReportProblem\" />
     <Folder Include="Views\Shared\EditorElements\" />
     <Folder Include="Views\Shared\Others\" />
   </ItemGroup>
@@ -2891,6 +2850,12 @@
     <EmbeddedResource Include="Report\Rdlc\RptProjectWiseReceiptPayment.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RptProjectWiseSubProject.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RptYearlyConstructionDetails.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BGB.Data\BGB.Data.csproj">
+      <Project>{1bbb85b3-f992-49fe-b4e3-1c3308c4f71a}</Project>
+      <Name>BGB.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

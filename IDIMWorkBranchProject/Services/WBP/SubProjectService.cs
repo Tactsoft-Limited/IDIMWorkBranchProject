@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
+using BGB.Data.Database;
+using BGB.Data.Entities.Pm;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.WBP;
@@ -51,7 +52,7 @@ namespace IDIMWorkBranchProject.Services.WBP
                 throw new ArgumentException($"Sub Project Title already exists.");
 
             var entity = Mapper.Map<SubProject>(model);
-           // entity.StatusTypeId = (int)StatusType.Running;
+            // entity.StatusTypeId = (int)StatusType.Running;
             entity.CreatedDateTime = DateTime.Now;
             entity.CreatedUser = UserExtention.GetUserId();
 
@@ -83,7 +84,7 @@ namespace IDIMWorkBranchProject.Services.WBP
             existing.AgreementCost = model.AgreementCost;
             existing.StartDate = model.StartDate;
             existing.EndDate = model.EndDate;
-           // existing.StatusTypeId = (int)model.StatusTypeId;
+            // existing.StatusTypeId = (int)model.StatusTypeId;
             existing.Status = model.Status;
             existing.HandOverDate = model.HandOverDate;
             existing.Remark = model.Remark;

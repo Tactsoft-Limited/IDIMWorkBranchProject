@@ -3,15 +3,15 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.Setup;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 
 namespace IDIMWorkBranchProject.Controllers.Setup
 {
-    public class BillTypeController : Controller
+    public class BillTypeController : BaseController
     {
         protected IBillTypeService BillTypeService { get; set; }
-
-        public BillTypeController(IBillTypeService billTypeService)
+        public BillTypeController(IActivityLogService activityLogService, IBillTypeService billTypeService) : base(activityLogService)
         {
             BillTypeService = billTypeService;
         }

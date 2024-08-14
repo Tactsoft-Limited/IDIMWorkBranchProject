@@ -4,12 +4,13 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
 
 namespace IDIMWorkBranchProject.Controllers.WBP
 {
-    public class ProjectStatusController : Controller
+    public class ProjectStatusController : BaseController
     {
         protected IBillTypeService BillTypeService { get; set; }
         protected IProjectStatusService ProjectStatusService { get; set; }
@@ -17,18 +18,18 @@ namespace IDIMWorkBranchProject.Controllers.WBP
         protected ISubProjectService SubProjectService { get; set; }
         protected IUnitService UnitService { get; set; }
 
-        public ProjectStatusController(
-            IBillTypeService billTypeService,
-            IProjectStatusService projectStatusService,
-            IFiscalYearService fiscalYearService,
-            ISubProjectService subProjectService,
-            IUnitService unitService)
+        public ProjectStatusController(IActivityLogService activityLogService, IBillTypeService billTypeService, IProjectStatusService projectStatusService, IFiscalYearService fiscalYearService, ISubProjectService subProjectService, IUnitService unitService) : base(activityLogService)
         {
             BillTypeService = billTypeService;
             ProjectStatusService = projectStatusService;
             FiscalYearService = fiscalYearService;
             SubProjectService = subProjectService;
             UnitService = unitService;
+        }
+
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
         }
 
         public async Task<ActionResult> List()

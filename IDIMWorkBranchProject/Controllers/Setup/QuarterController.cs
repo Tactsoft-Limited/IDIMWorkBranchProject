@@ -3,19 +3,22 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.Setup;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 
 namespace IDIMWorkBranchProject.Controllers.Setup
 {
-    public class QuarterController : Controller
+    public class QuarterController : BaseController
     {
         protected IQuarterService QuarterService { get; set; }
-
-        public QuarterController(IQuarterService quarterService)
+        public QuarterController(IActivityLogService activityLogService, IQuarterService quarterService) : base(activityLogService)
         {
             QuarterService = quarterService;
         }
-
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
         public async Task<ActionResult> List()
         {
             var list = await QuarterService.GetAllAsync();

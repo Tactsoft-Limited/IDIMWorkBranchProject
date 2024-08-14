@@ -4,14 +4,15 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
+using BGB.Data.Database;
+using BGB.Data.Entities.Budget;
+using BGB.Data.Entities.Pm;
 using IDIMWorkBranchProject.Extentions;
-using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.WBP;
 
 namespace IDIMWorkBranchProject.Services.WBP
 {
-    public class SecurityDepositService: ISecurityDepositService
+    public class SecurityDepositService : ISecurityDepositService
     {
         protected IDIMDBEntities Context { get; set; }
         protected IMapper Mapper { get; set; }
@@ -22,7 +23,7 @@ namespace IDIMWorkBranchProject.Services.WBP
             Mapper = mapper;
         }
 
-        private IQueryable<SecurityDeposit> GetAll()
+        private IQueryable<PmSecurityDeposit> GetAll()
         {
             return Context.SecurityDeposits.OrderByDescending(e => e.SecurityDepositId).AsQueryable();
         }
@@ -45,7 +46,7 @@ namespace IDIMWorkBranchProject.Services.WBP
         public async Task<SecurityDepositVm> InsertAsync(SecurityDepositVm model)
         {
 
-            var entity = Mapper.Map<SecurityDeposit>(model);
+            var entity = Mapper.Map<PmSecurityDeposit>(model);
             //entity.CreatedDateTime = DateTime.Now;
             //entity.CreatedUser = UserExtention.GetUserId();
 
@@ -63,9 +64,9 @@ namespace IDIMWorkBranchProject.Services.WBP
                 throw new ArgumentException($"Project Status  does not exists.");
 
             existing.SubProjectId = model.SubProjectId;
-            existing.Amount = model.Amount;
-            existing.Letterdate = model.Letterdate;
-            existing.Letterno = model.Letterno;
+            existing.SecurityAmount = model.SecurityAmount;
+            existing.LetterDate = model.LetterDate;
+            existing.LetterNumber = model.LetterNumber;
             existing.Remark = model.Remark;
 
             //existing.UpdatedDateTime = DateTime.Now;
@@ -82,7 +83,7 @@ namespace IDIMWorkBranchProject.Services.WBP
 
             var query = GetAll().Where(x =>
                     (!filter.SubProjectId.HasValue || x.SubProjectId == filter.SubProjectId) &&
-                    (filter.Letterno == null || x.Letterno == filter.Letterno))
+                    (filter.LetterNumber == null || x.LetterNumber == filter.LetterNumber))
                 .Take(DefaultData.Take);
 
             var list = await query.ToListAsync();

@@ -1,10 +1,14 @@
-﻿@using IDIMWorkBranchProject.Extentions.Session
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Extentions.File
+@using IDIMWorkBranchProject.Extentions.Session
 @using IDIMWorkBranchProject.Models.User
+
 @{
     UserInformation userInformation = UserExtention.Get<UserInformation>("UserInformation");
     var name = userInformation?.Username ?? "Anonymous";
     var avatar = userInformation?.Avatar;
 }
+
 <div class='page-topbar'>
     <div class='logo-area'>
     </div>
@@ -26,7 +30,7 @@
                         <img src="@avatar" alt="avatar" class="img-circle img-inline">
                         <span>@name <i class="fa fa-angle-down"></i></span>
                     </a>
-                    <ul class="dropdown-menu profile animated fadeIn">
+                    <ul class="dropdown-menu profile animated fadeIn">                        
                         <li>
                             <a href="#settings">
                                 <i class="fa fa-wrench"></i>
@@ -34,7 +38,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#profile">
+                            <a href="@Url.Action("Index","Profile")">
                                 <i class="fa fa-user"></i>
                                 Profile
                             </a>
@@ -46,7 +50,7 @@
                             </a>
                         </li>
                         <li class="last">
-                            <a href="ui-login.html">
+                            <a href="@Url.Action("Logout","Login")">
                                 <i class="fa fa-lock"></i>
                                 Logout
                             </a>

@@ -4,7 +4,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
+using BGB.Data.Database;
+using BGB.Data.Entities.Pm;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.WBP;
@@ -22,7 +23,7 @@ namespace IDIMWorkBranchProject.Services.WBP
             Mapper = mapper;
         }
 
-        private IQueryable<ProjectStatu> GetAll()
+        private IQueryable<ProjectStatus> GetAll()
         {
             return Context.ProjectStatus.OrderByDescending(e => e.ProjectStatusId).AsQueryable();
         }
@@ -45,7 +46,7 @@ namespace IDIMWorkBranchProject.Services.WBP
         public async Task<ProjectStatusVm> InsertAsync(ProjectStatusVm model)
         {
 
-            var entity = Mapper.Map<ProjectStatu>(model);
+            var entity = Mapper.Map<ProjectStatus>(model);
             entity.CreatedDateTime = DateTime.Now;
             entity.CreatedUser = UserExtention.GetUserId();
 
@@ -58,7 +59,7 @@ namespace IDIMWorkBranchProject.Services.WBP
 
         public async Task<ProjectStatusVm> UpdateAsync(ProjectStatusVm model)
         {
-            var existing = await Context.ProjectStatus.FirstOrDefaultAsync(e => e.SubProjectId == model.SubProjectId);
+            var existing = await Context.ProjectStatus.FirstOrDefaultAsync((System.Linq.Expressions.Expression<Func<ProjectStatus, bool>>)(e => e.SubProjectId == model.SubProjectId));
             if (existing == null)
                 throw new ArgumentException($"Project Status  does not exists.");
 
@@ -91,11 +92,11 @@ namespace IDIMWorkBranchProject.Services.WBP
 
         public async Task<ProjectStatusVm> DeleteAsync(int id)
         {
-            var existing = await Context.ProjectStatus.FirstOrDefaultAsync(e => e.SubProjectId == id);
+            var existing = await Context.ProjectStatus.FirstOrDefaultAsync((System.Linq.Expressions.Expression<Func<ProjectStatus, bool>>)(e => e.SubProjectId == id));
             if (existing == null)
                 throw new ArgumentException($"Project Status does not exists.");
 
-            Context.ProjectStatus.Remove(existing);
+            Context.ProjectStatus.Remove((ProjectStatus)existing);
             await Context.SaveChangesAsync();
 
             return Mapper.Map<ProjectStatusVm>(existing);

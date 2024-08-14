@@ -5,7 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
+using BGB.Data.Database;
+using BGB.Data.Entities.Central;
+using BGB.Data.Entities.Pm;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.Setup;
 
@@ -36,14 +38,13 @@ namespace IDIMWorkBranchProject.Services.Setup
             return Mapper.Map<QuarterVm>(entity);
         }
 
-
         public async Task<QuarterVm> InsertAsync(QuarterVm model)
         {
             var existing = await Context.Quarters.FirstOrDefaultAsync(m => m.QuarterName == model.QuarterName);
             if (existing != null)
                 throw new ArgumentException("Quarter already exists ");
 
-            var entity = Mapper.Map<Quarter>(model);
+            var entity = Mapper.Map<PmQuarter>(model);
             entity.CreatedDateTime = DateTime.Now;
             entity.CreatedUser = UserExtention.GetUserId();
 

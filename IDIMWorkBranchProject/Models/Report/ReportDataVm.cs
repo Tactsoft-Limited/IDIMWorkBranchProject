@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace IDIMWorkBranchProject.Models.Report
 {
@@ -9,9 +6,9 @@ namespace IDIMWorkBranchProject.Models.Report
     {
         public string SubProjectTitle { get; set; }
         public string ConstructionFirmName { get; set; }
-        public double Amount { get; set; }
-        public string Letterno { get; set; }
-        public DateTime Letterdate { get; set; }
+        public double SecurityAmount { get; set; }
+        public string LetterNumber { get; set; }
+        public DateTime LetterDate { get; set; }
 
         public double AgreementCost { get; set; }
         public int Status { get; set; }

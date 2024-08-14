@@ -4,28 +4,30 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
 
 namespace IDIMWorkBranchProject.Controllers.WBP
 {
-    public class ProjectController : Controller
+    public class ProjectController : BaseController
     {
         protected IFiscalYearService FiscalYearService { get; set; }
         protected IGeneralInformationService GeneralInformationService { get; set; }
         protected IProjectService ProjectService { get; set; }
         protected IUnitService UnitService { get; set; }
 
-        public ProjectController(
-            IFiscalYearService fiscalYearService,
-            IGeneralInformationService generalInformationService,
-            IProjectService projectService,
-            IUnitService unitService)
+        public ProjectController(IActivityLogService activityLogService, IFiscalYearService fiscalYearService, IGeneralInformationService generalInformationService, IProjectService projectService, IUnitService unitService) : base(activityLogService)
         {
             FiscalYearService = fiscalYearService;
             GeneralInformationService = generalInformationService;
             ProjectService = projectService;
             UnitService = unitService;
+        }
+
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
         }
 
         public async Task<ActionResult> List()
@@ -74,7 +76,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                     await ProjectService.InsertAsync(model);
 
                     ModelState.Clear();
-                    model=new ProjectVm();
+                    model = new ProjectVm();
                     message = Messages.Success(MessageType.Create.ToString());
                 }
                 else

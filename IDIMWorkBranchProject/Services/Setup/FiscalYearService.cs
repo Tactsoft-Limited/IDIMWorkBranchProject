@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
+using BGB.Data.Database;
+using BGB.Data.Entities.Budget;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.Setup;
 

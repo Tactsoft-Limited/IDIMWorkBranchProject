@@ -4,12 +4,13 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
 
 namespace IDIMWorkBranchProject.Controllers.WBP
 {
-    public class ReceiptPaymentController : Controller
+    public class ReceiptPaymentController : BaseController
     {
         protected IBillTypeService BillTypeService { get; set; }
         protected IReceiptPaymentService ReceiptPaymentService { get; set; }
@@ -18,13 +19,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
         protected IQuarterService QuarterService { get; set; }
         protected IUnitService UnitService { get; set; }
 
-        public ReceiptPaymentController(
-            IBillTypeService billTypeService,
-            IReceiptPaymentService receiptPaymentService,
-            IFiscalYearService fiscalYearService,
-            IProjectService projectService,
-            IQuarterService quarterService,
-            IUnitService unitService)
+        public ReceiptPaymentController(IActivityLogService activityLogService, IBillTypeService billTypeService, IReceiptPaymentService receiptPaymentService, IFiscalYearService fiscalYearService, IProjectService projectService, IQuarterService quarterService, IUnitService unitService) : base(activityLogService)
         {
             BillTypeService = billTypeService;
             ReceiptPaymentService = receiptPaymentService;
@@ -34,12 +29,16 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             UnitService = unitService;
         }
 
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
         public async Task<ActionResult> List()
         {
             var model = new ReceiptPaymentSearchVm
             {
                 ReceiptPayments = await ReceiptPaymentService.GetByAsync(),
-                FiscalYearDropdown =  await FiscalYearService.GetDropdownAsync(),
+                FiscalYearDropdown = await FiscalYearService.GetDropdownAsync(),
                 QuarterDropdown = await QuarterService.GetDropdownAsync()
             };
 
@@ -87,7 +86,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                     ModelState.Clear();
                     model = new ReceiptPaymentVm
                     {
-                        ProjectId =  model.ProjectId,
+                        ProjectId = model.ProjectId,
                         ProjectName = model.ProjectName
                     };
                     message = Messages.Success(MessageType.Create.ToString());

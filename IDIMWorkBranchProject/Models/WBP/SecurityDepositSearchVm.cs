@@ -16,7 +16,7 @@ namespace IDIMWorkBranchProject.Models.WBP
         public int? SubProjectId { get; set; }
 
         [Display(Name = "Letter No")]
-        public string Letterno { get; set; }
+        public string LetterNumber { get; set; }
 
         public IEnumerable<SelectListItem> SubProjectDropdown { get; set; }
         public List<SecurityDepositVm> SecurityDeposits { get; set; }

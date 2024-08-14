@@ -4,12 +4,13 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
 
 namespace IDIMWorkBranchProject.Controllers.WBP
 {
-    public class SubProjectController : Controller
+    public class SubProjectController : BaseController
     {
         protected IConstructionFirmService ConstructionFirmService { get; set; }
         protected IFiscalYearService FiscalYearService { get; set; }
@@ -18,13 +19,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
         protected ISubProjectService SubProjectService { get; set; }
         protected IUnitService UnitService { get; set; }
         public int ApplicationId { get; set; }
-
-        public SubProjectController(IConstructionFirmService constructionFirmService,
-            IFiscalYearService fiscalYearService,
-            IGeneralInformationService generalInformationService,
-            IProjectService projectService,
-            ISubProjectService subProjectService,
-            IUnitService unitService)
+        public SubProjectController(IActivityLogService activityLogService, IConstructionFirmService constructionFirmService, IFiscalYearService fiscalYearService, IGeneralInformationService generalInformationService, IProjectService projectService, ISubProjectService subProjectService, IUnitService unitService, int applicationId) : base(activityLogService)
         {
             ConstructionFirmService = constructionFirmService;
             FiscalYearService = fiscalYearService;
@@ -32,9 +27,13 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             ProjectService = projectService;
             SubProjectService = subProjectService;
             UnitService = unitService;
-            ApplicationId = DefaultData.ApplicationId;
+            ApplicationId = applicationId;
         }
 
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
         public async Task<ActionResult> List()
         {
             var model = new SubProjectSearchVm

@@ -3,15 +3,15 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.Setup;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 
 namespace IDIMWorkBranchProject.Controllers.Setup
 {
-    public class ConstructionFirmController : Controller
+    public class ConstructionFirmController : BaseController
     {
         protected IConstructionFirmService ConstructionFirmService { get; set; }
-
-        public ConstructionFirmController(IConstructionFirmService constructionFirmService)
+        public ConstructionFirmController(IActivityLogService activityLogService, IConstructionFirmService constructionFirmService) : base(activityLogService)
         {
             ConstructionFirmService = constructionFirmService;
         }

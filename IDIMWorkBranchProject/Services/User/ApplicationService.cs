@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
+using BGB.Data.Database;
+using BGB.Data.Entities.Admin;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.User;
 
@@ -28,7 +29,7 @@ namespace IDIMWorkBranchProject.Services.User
 
             return Mapper.Map<IList<ApplicationVm>>(list);
         }
-        
+
         public async Task<ApplicationVm> GetByIdAsync(int id)
         {
             var entity = await Context.Applications.FindAsync(id);
@@ -38,8 +39,11 @@ namespace IDIMWorkBranchProject.Services.User
 
         public async Task<IList<ApplicationVm>> GetByUserIdAsync(int userId)
         {
-            var list = await Context.UserApplications.Where(e => e.UserId == userId)
-                .Select(e => e.Application)
+            //var list = await Context.Applications.Where(e => e.UserId == userId)
+            //    .Select(e => e.Application)
+            //    .ToListAsync();
+
+            var list = await Context.Applications
                 .ToListAsync();
 
             return Mapper.Map<IList<ApplicationVm>>(list);

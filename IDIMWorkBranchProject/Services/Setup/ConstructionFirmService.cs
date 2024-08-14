@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Linq;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.Setup;
+using BGB.Data.Database;
+using BGB.Data.Entities.Pm;
 
 namespace IDIMWorkBranchProject.Services.Setup
 {
@@ -84,7 +85,7 @@ namespace IDIMWorkBranchProject.Services.Setup
         public async Task<ConstructionFirmVm> DeleteAsync(int id)
         {
             var existing = await Context.ConstructionFirms
-                .FirstOrDefaultAsync(x =>x.ConstructionFirmId == id);
+                .FirstOrDefaultAsync(x => x.ConstructionFirmId == id);
             if (existing == null)
                 throw new ArgumentException($"Construction Firm does not exists.");
 

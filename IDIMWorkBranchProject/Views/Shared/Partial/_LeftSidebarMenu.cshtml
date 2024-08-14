@@ -1,9 +1,39 @@
 ﻿@using IDIMWorkBranchProject.Models.User
 @{
     var user = ViewBag.User as UserInformation ?? new UserInformation();
+    var menuGroups = user.Menus;
+    var currentControllerName = ViewContext.RouteData.GetRequiredString("controller");
 }
 
 <div class="page-sidebar fixedscroll">
+    <div class="page-sidebar-wrapper" id="main-menu-wrapper" style="list-style:none">
+        <ul class='wraplist'>
+
+            @foreach (var menuGroup in menuGroups)
+            {
+                <li class='menusection'>@menuGroup.MenuType</li>
+
+                foreach (var menu in menuGroup.Menus)
+                {
+                    var active = string.Empty;
+                    if (currentControllerName.ToLower() == menu.ControllerName.ToLower())
+                    {
+                        active = "class='active'";
+                    }
+                    <li>
+                        <a @Html.Raw(active) href="@Url.Action("Index", @menu.ControllerName)">
+                            <i class="fa fa-@menu.Icon"></i>
+                            <span class="title">@menu.Title</span>
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+
+<!--<div class="page-sidebar fixedscroll">
     <div class="page-sidebar-wrapper" id="main-menu-wrapper">
         <ul class='wraplist'>
             <li class='menusection'>Main</li>
@@ -14,30 +44,30 @@
                 </a>
             </li>
 
-            <li class='menusection'>Information</li>
+            <li class='menusection'>Information</li>-->
 
             @*<li class="">
-            <a href="#">
-                <i class="fa fa-legal"></i>
-                <span class="title">Purchase</span>
-                <span class="arrow "></span>
-            </a>
-            <ul class="sub-menu" >
-                <li class="">
-                    <a href="@Url.Action("List","PurchaseBudget")">
-                        <span class="title">Purchase Budget</span>
+                    <a href="#">
+                        <i class="fa fa-legal"></i>
+                        <span class="title">Purchase</span>
+                        <span class="arrow "></span>
                     </a>
-                </li>
+                    <ul class="sub-menu" >
+                        <li class="">
+                            <a href="@Url.Action("List","PurchaseBudget")">
+                                <span class="title">Purchase Budget</span>
+                            </a>
+                        </li>
 
-                <li class="">
-                    <a href="@Url.Action("List","PurchasePlan")">
-                        <span class="title">Purchase Plan</span>
-                    </a>
-                </li>
-            </ul>
-        </li>*@
+                        <li class="">
+                            <a href="@Url.Action("List","PurchasePlan")">
+                                <span class="title">Purchase Plan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>*@
 
-            <li class="">
+            <!--<li class="">
                 <a href="@Url.Action("List","Project")">
                     <i class="fa fa-legal"></i>
                     <span class="title">Project</span>
@@ -123,21 +153,21 @@
                     <i class="fa fa-calendar"></i>
                     <span class="title">Consultant</span>
                 </a>
-            </li>
+            </li>-->
             @*<li class="">
-            <a href="@Url.Action("List","Quarter")">
-                <i class="fa fa-bars"></i>
-                <span class="title">Item</span>
-            </a>
-        </li>
+                    <a href="@Url.Action("List","Quarter")">
+                        <i class="fa fa-bars"></i>
+                        <span class="title">Item</span>
+                    </a>
+                </li>
 
-        <li class="">
-            <a href="@Url.Action("List","Unit")">
-                <i class="fa fa-filter"></i>
-                <span class="title">Product Unit</span>
-            </a>
-        </li>*@
-            <li class="">
+                <li class="">
+                    <a href="@Url.Action("List","Unit")">
+                        <i class="fa fa-filter"></i>
+                        <span class="title">Product Unit</span>
+                    </a>
+                </li>*@
+            <!--<li class="">
                 <a href="@Url.Action("List","BillType")">
                     <i class="fa fa-cube"></i>
                     <span class="title">Bill Type</span>
@@ -242,11 +272,11 @@
                     <i class="fa fa-circle"></i>
                     <span class="title">Yearly Construction Report</span>
                 </a>
-            </li>
+            </li>-->
 
             @************Pages Addde By Rocky**************@
 
 
-        </ul>
+        <!--</ul>
     </div>
-</div>
+</div>-->
