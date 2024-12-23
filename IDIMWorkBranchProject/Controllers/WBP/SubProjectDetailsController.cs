@@ -79,7 +79,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
             }
             model.SubProjectDropdown = await SubProjectService.GetDropdownAsync();
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -119,7 +119,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             }
 
             model.SubProjectDropdown = await SubProjectService.GetDropdownAsync(model.SubProjectId);
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -157,7 +157,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 var model = await SubProjectDetailsService.GetByIdAsync(id);
 
 
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), message);
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), message);
 
                 return View(model);
             }

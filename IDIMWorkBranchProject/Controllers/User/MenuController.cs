@@ -67,7 +67,7 @@ namespace IDIMWorkBranchProject.Controllers.User
 
             //model.ApplicationDropdown = await ApplicationService.GetDropDownAsync(model.ApplicationId);
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -107,7 +107,7 @@ namespace IDIMWorkBranchProject.Controllers.User
 
             //model.ApplicationDropdown = await ApplicationService.GetDropDownAsync(model.ApplicationId);
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -134,7 +134,7 @@ namespace IDIMWorkBranchProject.Controllers.User
             catch (Exception exception)
             {
                 var model = await MenuService.GetByIdAsync(id);
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), exception.Message);
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.Message);
 
                 return View(model);
             }

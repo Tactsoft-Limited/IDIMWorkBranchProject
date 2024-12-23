@@ -86,7 +86,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
             }
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -125,7 +125,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 message = Messages.Failed(MessageType.Update.ToString(), exception.Message);
             }
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -163,7 +163,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 var model = await ProjectProblemService.GetByIdAsync(id);
 
 
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), message);
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), message);
 
                 return View(model);
             }

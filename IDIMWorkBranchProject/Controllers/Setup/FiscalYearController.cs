@@ -70,7 +70,7 @@ namespace IDIMWorkBranchProject.Controllers.Setup
                 message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
             }
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -106,7 +106,7 @@ namespace IDIMWorkBranchProject.Controllers.Setup
                 message = Messages.Failed(MessageType.Update.ToString(), exception.Message);
             }
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
             return View(model);
         }
 
@@ -130,7 +130,7 @@ namespace IDIMWorkBranchProject.Controllers.Setup
             catch (Exception exception)
             {
                 var model = await FiscalYearService.GetByIdAsync(id);
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), exception.Message);
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.Message);
 
                 return View(model);
             }

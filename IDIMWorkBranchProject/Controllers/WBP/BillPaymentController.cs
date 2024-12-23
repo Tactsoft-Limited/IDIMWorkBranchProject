@@ -103,7 +103,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
 
             model.BillTypeDropdown = await BillTypeService.GetDropdownAsync(model.BillTypeId);
             model.FiscalYearDropdown = await FiscalYearService.GetDropdownAsync(model.FiscalYearId);
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -146,7 +146,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
 
             model.BillTypeDropdown = await BillTypeService.GetDropdownAsync(model.BillTypeId);
             model.FiscalYearDropdown = await FiscalYearService.GetDropdownAsync(model.FiscalYearId);
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -184,7 +184,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 var model = await BillPaymentService.GetByIdAsync(id);
 
 
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), message);
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), message);
 
                 return View(model);
             }
