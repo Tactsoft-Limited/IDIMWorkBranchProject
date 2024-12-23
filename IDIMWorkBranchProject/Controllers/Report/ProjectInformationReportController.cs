@@ -47,7 +47,7 @@ namespace IDIMWorkBranchProject.Controllers.Report
             {
                 AuthorizeUnitDropdown = await UnitService.GetDropDownAsync(),
                 FiscalYearDropdown = await FiscalYearService.GetDropdownAsync(),
-                Projects = await ProjectService.GetByAsync()
+                Projects = await ProjectService.GetAllAsync()
             };
 
             return View(model);
@@ -56,9 +56,8 @@ namespace IDIMWorkBranchProject.Controllers.Report
         [HttpPost]
         public async Task<ActionResult> ProjectInformation(ProjectSearchVm model)
         {
-            model.AuthorizeUnitDropdown = await UnitService.GetDropDownAsync(model.AuthorizeUnitId);
             model.FiscalYearDropdown = await FiscalYearService.GetDropdownAsync(model.FiscalYearId);
-            model.Projects = await ProjectService.GetByAsync(model);
+            model.Projects = await ProjectService.GetAllAsync();
 
             return View(model);
         }
