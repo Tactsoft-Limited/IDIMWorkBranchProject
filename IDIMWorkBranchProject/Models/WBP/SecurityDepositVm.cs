@@ -1,7 +1,4 @@
-﻿using BGB.Data.Entities.Irms;
-using BGB.Data.Entities.Pm;
-using IDIMWorkBranchProject.Models.Setup;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using IDIMWorkBranchProject.Extentions;
-using IDIMWorkBranchProject.Models.User;
+﻿using System.Web.Mvc;
 using IDIMWorkBranchProject.Services.User;
 
 namespace IDIMWorkBranchProject.Controllers.User

@@ -4,12 +4,10 @@ using IDIMWorkBranchProject.Models.Report;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Report

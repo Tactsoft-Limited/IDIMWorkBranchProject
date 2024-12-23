@@ -1,5 +1,4 @@
-﻿using Microsoft.Reporting.Map.WebForms.BingMaps;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers
 {

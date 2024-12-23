@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using BGB.Data.Database;
-using IDIMWorkBranchProject.Extentions.Session;
-using IDIMWorkBranchProject.Models.User;
 
 namespace IDIMWorkBranchProject.Services.User
 {

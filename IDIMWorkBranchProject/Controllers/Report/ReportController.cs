@@ -1,20 +1,10 @@
 ﻿using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Web.Mvc;
-using Microsoft.Reporting.WebForms;
-using System.IO;
-using IDIMWorkBranchProject.Models.WBP;
-using IDIMWorkBranchProject.Models.Report;
-using BGB.Data.SqlViews.Pm;
 using BGB.Data.Database;
-using IDIMWorkBranchProject.Extentions.Healper;
 
 namespace IDIMWorkBranchProject.Controllers.Report
 {

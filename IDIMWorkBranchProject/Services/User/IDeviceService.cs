@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using IDIMWorkBranchProject.Models.User;
-
-namespace IDIMWorkBranchProject.Services.User
+﻿namespace IDIMWorkBranchProject.Services.User
 {
     public interface IDeviceService
     {

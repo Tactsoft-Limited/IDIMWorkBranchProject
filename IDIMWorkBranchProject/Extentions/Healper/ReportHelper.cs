@@ -1,7 +1,6 @@
 ﻿using Microsoft.Reporting.WebForms;
 using System.IO;
 using System.Web.Mvc;
-using System.Web.Services.Description;
 
 namespace IDIMWorkBranchProject.Extentions.Healper
 {
