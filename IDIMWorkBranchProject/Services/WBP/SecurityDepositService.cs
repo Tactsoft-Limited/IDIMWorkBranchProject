@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using BGB.Data.Database;
-using BGB.Data.Entities.Budget;
 using BGB.Data.Entities.Pm;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
@@ -23,7 +22,7 @@ namespace IDIMWorkBranchProject.Services.WBP
             Mapper = mapper;
         }
 
-        private IQueryable<PmSecurityDeposit> GetAll()
+        private IQueryable<SecurityDeposit> GetAll()
         {
             return Context.SecurityDeposits.OrderByDescending(e => e.SecurityDepositId).AsQueryable();
         }
@@ -46,7 +45,7 @@ namespace IDIMWorkBranchProject.Services.WBP
         public async Task<SecurityDepositVm> InsertAsync(SecurityDepositVm model)
         {
 
-            var entity = Mapper.Map<PmSecurityDeposit>(model);
+            var entity = Mapper.Map<SecurityDeposit>(model);
             //entity.CreatedDateTime = DateTime.Now;
             //entity.CreatedUser = UserExtention.GetUserId();
 

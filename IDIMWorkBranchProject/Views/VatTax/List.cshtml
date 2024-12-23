@@ -1,0 +1,170 @@
+﻿@model IDIMWorkBranchProject.Models.WBP.VatTaxSearchVm
+@{
+    ViewBag.Title = "Sub Project";
+}
+
+<div class='col-md-12'>
+    <div class="page-title">
+        <div class="pull-left">
+            <h1 class="title">Vat/Tax</h1>
+        </div>
+        <div class="pull-right hidden-xs">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i>Dashboard</a>
+                </li>
+                <li class="active">
+                    <strong>Vat/Tax</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">List</h2>
+            <div class="actions panel_actions pull-right">
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>
+        </header>
+        <div class="content-body">
+            @using (Html.BeginForm("List", "VatTax", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ProjectName, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.ProjectName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ProjectName)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.LetterNumber, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.LetterNumber, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.LetterNumber)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ProjectId, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.ProjectId, Model.ProjectDropdown, "Select Unit", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.ProjectId)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ReceivePaymentId, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.ReceivePaymentId, Model.ReceivePaymentDropdown, "Select Firm", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.ReceivePaymentId)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input id="searchBtn" type="submit" class="btn btn-success pull-right" value="Search" />
+                    </div>
+                </div>
+            }
+
+            <div class="row">
+                <div class="col-md-12">
+                    <table id="vatTaxTable" class="table table-bordered" width="100%">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section scripts {
+    <script>
+    $(document).ready(function () {
+            var table = $('#vatTaxTable').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "/VatTax/LoadData",  // Make sure the URL is correct
+                    "type": "POST",
+                    "data": function (d) {
+                        // Adding extra filters to the request body
+                        d.ProjectName = $('#ProjectName').val();
+                        d.LetterNumber = $('#LetterNumber').val();
+                        d.StartDate = $('#startDate').val();
+                        d.EndDate = $('#endDate').val();
+                        d.ProjectId = $('#ProjectId').val();
+                        d.ReceivePaymentId = $('#ReceivePaymentId').val();
+                        d.length = d.length;  // Ensure DataTable pagination params are included
+                        d.start = d.start;  // Ensure DataTable pagination params are included
+                        d.draw = d.draw;  // Ensure the draw parameter is sent
+                    },
+                    "dataSrc": function (json) {
+                        console.log(json.data);  // Check if data is returned here
+                        return json.data;  // Return the filtered data to DataTable
+                    }
+                },
+                "columns": [
+                    { "data": "VatTaxId", "title": "VatTaxId", "visible": false },  // Hide the ProjectId column
+                    { "data": "ProjectName", "title": "Project Name" },
+                    { "data": "LetterNumber", "title": "Letter Number" },
+                    { "data": "TaxPer", "title": "Tax(%)" },
+                    { "data": "TaxAmount", "title": "Tax Amount" },
+                    { "data": "VatPer", "title": "Vat(%)" },
+                    { "data": "VatAmount", "title": "Vat Amount" },
+                    { "data": "CollateralPer", "title": "Collateral(%)" },
+                    { "data": "CollateralAmount", "title": "Collateral Amount" },
+                    {
+                        "data": "VatTaxId",  // You can use SubProjectId to generate action buttons
+                        "title": "Actions",
+                        "render": function (data, type, row) {
+                            // Generate action buttons dynamically for each row
+                            return `
+                                <a href="/VatTax/Edit?id=${row.VatTaxId}">
+                                    <span class="label label-primary"><i class="fa fa-edit"></i> Edit</span>
+                                </a>
+                                <a href="/VatTax/Delete?id=${row.VatTaxId}">
+                                    <span class="label label-danger"><i class="fa fa-remove"></i> Remove</span>
+                                </a>
+                            `;
+                        }
+                    }
+
+                ],
+                "order": [[1, 'asc']],
+                "rowGroup": {
+                    "dataSrc": ["ProjectId", "ProjectName"]
+                },
+
+                "createdRow": function (row, data, dataIndex) {
+                    var previousRow = table.row(dataIndex - 1).data();
+                    console.log(previousRow)
+                    if (previousRow && previousRow.ProjectId === data.ProjectId && previousRow.ProjectName === data.ProjectName) {
+                        $('td', row).eq(0).text('');
+                        $('td', row).eq(1).text('');
+                    }
+                }
+            });
+
+            $('#searchBtn').on('click', function () {
+                table.ajax.reload();
+            });
+        });</script>
+
+}

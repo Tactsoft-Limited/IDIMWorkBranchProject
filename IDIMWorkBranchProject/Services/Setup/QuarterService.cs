@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
 using BGB.Data.Database;
-using BGB.Data.Entities.Central;
 using BGB.Data.Entities.Pm;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.Setup;
@@ -44,7 +43,7 @@ namespace IDIMWorkBranchProject.Services.Setup
             if (existing != null)
                 throw new ArgumentException("Quarter already exists ");
 
-            var entity = Mapper.Map<PmQuarter>(model);
+            var entity = Mapper.Map<Quarter>(model);
             entity.CreatedDateTime = DateTime.Now;
             entity.CreatedUser = UserExtention.GetUserId();
 

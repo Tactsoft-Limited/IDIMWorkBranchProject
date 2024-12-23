@@ -170,6 +170,9 @@
       <HintPath>..\packages\System.Formats.Asn1.8.0.1\lib\netstandard2.0\System.Formats.Asn1.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Linq.Dynamic.Core, Version=1.4.9.0, Culture=neutral, PublicKeyToken=0f07ec44de6ac832, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.Core.1.4.9\lib\net46\System.Linq.Dynamic.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
@@ -320,18 +323,23 @@
     <Compile Include="Controllers\User\GeneralInformationController.cs" />
     <Compile Include="Controllers\User\MenuController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
+    <Compile Include="Controllers\WBP\BGBFundController.cs" />
     <Compile Include="Controllers\WBP\BillPaymentController.cs" />
     <Compile Include="Controllers\WBP\ConsultancyActivitiesController.cs" />
     <Compile Include="Controllers\WBP\ConsultancyFeesController.cs" />
     <Compile Include="Controllers\WBP\ConsultantController.cs" />
+    <Compile Include="Controllers\WBP\ContractorBillPaymentController.cs" />
+    <Compile Include="Controllers\WBP\ContractorPaymentController.cs" />
     <Compile Include="Controllers\WBP\ProjectController.cs" />
     <Compile Include="Controllers\WBP\ProjectExtendController.cs" />
     <Compile Include="Controllers\WBP\ProjectProblemController.cs" />
     <Compile Include="Controllers\WBP\ProjectStatusController.cs" />
-    <Compile Include="Controllers\WBP\ReceiptPaymentController.cs" />
+    <Compile Include="Controllers\WBP\ReceivePaymentController.cs" />
     <Compile Include="Controllers\WBP\SecurityDepositController.cs" />
+    <Compile Include="Controllers\WBP\SignatoryAuthorityController.cs" />
     <Compile Include="Controllers\WBP\SubProjectController.cs" />
     <Compile Include="Controllers\WBP\SubProjectDetailsController.cs" />
+    <Compile Include="Controllers\WBP\VatTaxController.cs" />
     <Compile Include="Extentions\Ad\LdapExtention.cs" />
     <Compile Include="Extentions\BoolExtention.cs" />
     <Compile Include="Extentions\ClassExtentions.cs" />
@@ -355,6 +363,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DataTablaSearchVm.cs" />
     <Compile Include="Models\Common\ReportConfig.cs" />
     <Compile Include="Models\Dashboard\DashboardVm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -363,6 +372,7 @@
     <Compile Include="Models\Report\ReportFilterVm.cs" />
     <Compile Include="Models\Setup\AttachmentVm.cs" />
     <Compile Include="Models\Setup\BillTypeVm.cs" />
+    <Compile Include="Models\Setup\ConstructionFirmSearchVm.cs" />
     <Compile Include="Models\Setup\ConstructionFirmVm.cs" />
     <Compile Include="Models\Setup\FiscalYearVm.cs" />
     <Compile Include="Models\Setup\GeneralInformationVm.cs" />
@@ -415,6 +425,14 @@
     <Compile Include="Models\Validation\WBP\ProjectVmValidator.cs" />
     <Compile Include="Models\WBP\BillPaymentSearchVm.cs" />
     <Compile Include="Models\WBP\BillPaymentVm.cs" />
+    <Compile Include="Models\WBP\BGBFundVm.cs" />
+    <Compile Include="Models\WBP\ContractorPaymentSearchVm.cs" />
+    <Compile Include="Models\WBP\VatTaxSearchVm.cs" />
+    <Compile Include="Models\WBP\ContractorBillPaymentVm.cs" />
+    <Compile Include="Models\WBP\ContractorPaymentVm.cs" />
+    <Compile Include="Models\WBP\SignatoryAuthoritySearchVm.cs" />
+    <Compile Include="Models\WBP\VatTaxVm.cs" />
+    <Compile Include="Models\WBP\SignatoryAuthorityVm.cs" />
     <Compile Include="Models\WBP\ConsultancyActivitiesSearchVm.cs" />
     <Compile Include="Models\WBP\ConsultancyActivitiesVm.cs" />
     <Compile Include="Models\WBP\ConsultancyFeesSearchVm.cs" />
@@ -431,8 +449,8 @@
     <Compile Include="Models\WBP\ProjectStatusSearchVm.cs" />
     <Compile Include="Models\WBP\ProjectStatusVm.cs" />
     <Compile Include="Models\WBP\ProjectVm.cs" />
-    <Compile Include="Models\WBP\ReceiptPaymentSearchVm.cs" />
-    <Compile Include="Models\WBP\ReceiptPaymentVm.cs" />
+    <Compile Include="Models\WBP\ReceivePaymentSearchVm.cs" />
+    <Compile Include="Models\WBP\ReceivePaymentVm.cs" />
     <Compile Include="Models\WBP\SecurityDepositSearchVm.cs" />
     <Compile Include="Models\WBP\SecurityDepositVm.cs" />
     <Compile Include="Models\WBP\StatusType.cs" />
@@ -480,26 +498,34 @@
     <Compile Include="Services\WBP\ConsultancyActivitiesService.cs" />
     <Compile Include="Services\WBP\ConsultancyFeesService.cs" />
     <Compile Include="Services\WBP\ConsultantService.cs" />
+    <Compile Include="Services\WBP\ContractorBillPaymentService.cs" />
+    <Compile Include="Services\WBP\ContractorPaymentService.cs" />
     <Compile Include="Services\WBP\IBillPaymentService.cs" />
     <Compile Include="Services\WBP\IConsultancyActivitiesService.cs" />
     <Compile Include="Services\WBP\IConsultancyFeesService.cs" />
     <Compile Include="Services\WBP\IConsultantService.cs" />
+    <Compile Include="Services\WBP\IContractorBillPaymentService.cs" />
+    <Compile Include="Services\WBP\IContractorPaymentService.cs" />
     <Compile Include="Services\WBP\IProjectExtendService.cs" />
     <Compile Include="Services\WBP\IProjectProblemService.cs" />
     <Compile Include="Services\WBP\IProjectService.cs" />
     <Compile Include="Services\WBP\IProjectStatusService.cs" />
-    <Compile Include="Services\WBP\IReceiptPaymentService.cs" />
+    <Compile Include="Services\WBP\IReceivePaymentService.cs" />
     <Compile Include="Services\WBP\ISecurityDepositService.cs" />
+    <Compile Include="Services\WBP\ISignatoryAuthorityService.cs" />
     <Compile Include="Services\WBP\ISubProjectDetailsService.cs" />
     <Compile Include="Services\WBP\ISubProjectService.cs" />
+    <Compile Include="Services\WBP\IVatTaxService.cs" />
     <Compile Include="Services\WBP\ProjectExtendService.cs" />
     <Compile Include="Services\WBP\ProjectProblemService.cs" />
     <Compile Include="Services\WBP\ProjectService.cs" />
     <Compile Include="Services\WBP\ProjectStatusService.cs" />
-    <Compile Include="Services\WBP\ReceiptPaymentService.cs" />
+    <Compile Include="Services\WBP\ReceivePaymentService.cs" />
     <Compile Include="Services\WBP\SecurityDepositService.cs" />
+    <Compile Include="Services\WBP\SignatoryAuthorityService.cs" />
     <Compile Include="Services\WBP\SubProjectDetailsService.cs" />
     <Compile Include="Services\WBP\SubProjectService.cs" />
+    <Compile Include="Services\WBP\VatTaxService.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -678,15 +704,15 @@
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
-    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.5.1.js" />
-    <Content Include="Scripts\jquery-3.5.1.min.js" />
-    <Content Include="Scripts\jquery-3.5.1.slim.js" />
-    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
+    <None Include="Scripts\Jquery\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.js" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.slim.min.js" />
     <Content Include="Scripts\jquery-migrate-3.0.0.min.js" />
     <Content Include="Scripts\jquery.easing.min.js" />
-    <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.5.1.min.map" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.slim.min.map" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -2645,10 +2671,10 @@
     <Content Include="Views\Quarter\Delete.cshtml" />
     <Content Include="Views\Quarter\Edit.cshtml" />
     <Content Include="Views\Quarter\List.cshtml" />
-    <Content Include="Views\ReceiptPayment\Create.cshtml" />
-    <Content Include="Views\ReceiptPayment\Delete.cshtml" />
-    <Content Include="Views\ReceiptPayment\Edit.cshtml" />
-    <Content Include="Views\ReceiptPayment\List.cshtml" />
+    <Content Include="Views\ReceivePayment\Create.cshtml" />
+    <Content Include="Views\ReceivePayment\Delete.cshtml" />
+    <Content Include="Views\ReceivePayment\Edit.cshtml" />
+    <Content Include="Views\ReceivePayment\List.cshtml" />
     <Content Include="Views\SubProject\Create.cshtml" />
     <Content Include="Views\SubProject\Delete.cshtml" />
     <Content Include="Views\SubProject\Edit.cshtml" />
@@ -2706,12 +2732,27 @@
     <Content Include="Views\ProjectProblemReport\ProjectProblem.cshtml" />
     <Content Include="Views\SubProjectReport\SubProject.cshtml" />
     <Content Include="Views\YearlyConstructionReport\YearlyConstructionReport.cshtml" />
+    <Content Include="Views\SignatoryAuthority\List.cshtml" />
+    <Content Include="Views\SignatoryAuthority\Create.cshtml" />
+    <Content Include="Views\VatTax\Create.cshtml" />
+    <Content Include="Views\VatTax\Edit.cshtml" />
+    <Content Include="Views\VatTax\List.cshtml" />
+    <Content Include="Views\ContractorPayment\List.cshtml" />
+    <Content Include="Views\ContractorPayment\Create.cshtml" />
+    <Content Include="Views\ContractorPayment\Edit.cshtml" />
+    <Content Include="Views\ContractorPayment\Delete.cshtml" />
+    <Content Include="Content\Documents\20241208_133752_Agreement.pdf" />
+    <Content Include="Content\Documents\20241208_133752_BankGuarantee.pdf" />
+    <Content Include="Content\Documents\20241208_133752_NOA.pdf" />
+    <Content Include="Content\Documents\20241208_133752_WorkOrder.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\Plugins\datatables\extensions\FixedColumns\examples\integration\" />
     <Folder Include="Scripts\Plugins\jquery-tabledit\" />
     <Folder Include="Views\Attachment\" />
+    <Folder Include="Views\BGBFund\" />
+    <Folder Include="Views\ContractorBillPayment\" />
     <Folder Include="Views\GeneralInformation\" />
     <Folder Include="Views\Shared\EditorElements\" />
     <Folder Include="Views\Shared\Others\" />

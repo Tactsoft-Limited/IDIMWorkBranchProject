@@ -1,73 +1,82 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
-using FluentValidation.Attributes;
-using IDIMWorkBranchProject.Models.Validation.WBP;
 
 namespace IDIMWorkBranchProject.Models.WBP
 {
-    [Validator(validatorType: typeof(ProjectVmValidator))]
+
     public class ProjectVm
     {
         public ProjectVm()
         {
-            AuthorizeUnitDropdown = new List<SelectListItem>();
+            ProjectTypeDropdown = new List<SelectListItem>();
             FiscalYearDropdown = new List<SelectListItem>();
         }
 
-        [Display(Name = "Id")]
         public int ProjectId { get; set; }
 
-        [Display(Name = "Authorize Unit")]
-        public int AuthorizeUnitId { get; set; }
-        [Display(Name = "Authorize Unit")]
-        public string AuthorizeUnitName { get; set; }
-        [Display(Name = "Budget Type")]
-        public DevelopmentType DevelopmentTypeId { get; set; }
-        [Display(Name = "Financial Year")]
-        public int FiscalYearId { get; set; }
-        [Display(Name = "Financial Year")]
-        public string FiscalYearName { get; set; }
-        [Display(Name = "Code")]
-        public string ProjectCode { get; set; }
-        [Display(Name = "Project")]
+        [DisplayName("Fiscal Year")]
+        public int? FiscalYearId { get; set; }
+
+        [DisplayName("Fiscal Year")]
+        public string FiscalYearDescription { get; set; }
+
+        [Required(ErrorMessage = "Project Name is required.")]
+        [StringLength(255, ErrorMessage = "Project Name cannot exceed 255 characters.")]
+        [DisplayName("Project Name")]
         public string ProjectName { get; set; }
 
-        [Display(Name = "Approval Date")]
+        [DisplayName("Project Type")]
+        public int ProjectTypeId { get; set; }
+
+        public string ProjectTypeName { get; set; }
+
+        [StringLength(255, ErrorMessage = "Ministry/Department cannot exceed 255 characters.")]
+        [DisplayName("Ministry/Department")]
+        public string MinistryDepartment { get; set; }
+
+        [Range(0, double.MaxValue, ErrorMessage = "Estimated Expenses must be a positive number.")]
+        [DisplayName("Estimated Expenses")]
+        public decimal EstimatedExpenses { get; set; }
+
+        [DisplayName("Start Date")]
         [DataType(DataType.Date)]
-        public DateTime? ApprovalDate { get; set; }
+        public DateTime StartingDate { get; set; }
 
-        [Display(Name = "Start Date")]
+        [DisplayName("End Date")]
         [DataType(DataType.Date)]
-        public DateTime? ProjectStartDate { get; set; }
-        [Display(Name = "End date")]
-        [DataType(DataType.Date)]
-        public DateTime? ProjectEndDate { get; set; }
+        public DateTime EndingDate { get; set; }
 
-        [Display(Name = "Project Director")]
-        public string ProjectDirector { get; set; }
-        [Display(Name = "Allotment")]
-        public double BudgetCapital { get; set; }
-        [Display(Name = "Fund Release")]
-        public double BudgetRevenue { get; set; }
-        public string Description { get; set; }
-        [Display(Name = "PIC Meeting")]
-        public string PicMeetingNo { get; set; }
+        [Range(0, int.MaxValue, ErrorMessage = "Number of Works must be a non-negative number.")]
+        [DisplayName("No Of Work")]
+        public int NoOfWork { get; set; }
 
-        public Nullable<double> Salendar { get; set; }
-        public Nullable<double> Expenditure { get; set; }
-        [Display(Name = "Remark")]
-        public string Remark { get; set; }
+        [Range(0, 100, ErrorMessage = "Economic Progress must be between 0 and 100.")]
+        [DisplayName("Economic Progress")]
+        public decimal EconomicProgress { get; set; }
 
-        
-        public int CreatedUser { get; set; }
-        public DateTime CreatedDateTime { get; set; }
-        public int? UpdatedUser { get; set; }
-        public DateTime? UpdatedDateTime { get; set; }
-        public int UpdateNo { get; set; }
+        [Range(0, 100, ErrorMessage = "Construction Progress must be between 0 and 100.")]
+        [DisplayName("Construction Progress")]
+        public decimal ConstructionProgress { get; set; }
 
-        public IEnumerable<SelectListItem> AuthorizeUnitDropdown { get; set; }
+        [StringLength(255, ErrorMessage = "PD cannot exceed 255 characters.")]
+        [DisplayName("Project Director")]
+        public string PD { get; set; }
+
+        [StringLength(255, ErrorMessage = "DPD cannot exceed 255 characters.")]
+        [DisplayName("Deputy Project Director")]
+        public string DPD { get; set; }
+
+        [StringLength(250, ErrorMessage = "Remarks cannot exceed 250 characters.")]
+        public string Remarks { get; set; }
+
+
+        public IEnumerable<SelectListItem> ProjectTypeDropdown { get; set; }
         public IEnumerable<SelectListItem> FiscalYearDropdown { get; set; }
     }
+
+
 }

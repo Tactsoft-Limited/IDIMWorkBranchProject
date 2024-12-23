@@ -31,103 +31,50 @@
             </div>
         </header>
         <div class="content-body">
-            @using (Html.BeginForm("List", "SubProject", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.ProjectName, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.ProjectName, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ProjectName)
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.SubProjectTitle, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.SubProjectTitle, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.SubProjectTitle)
-                            </div>
-                        </div>
+            <div class="row" id="">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.ProjectName, new { @class = "col-md-4 form-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.ProjectName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ProjectName)
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.UnitId, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.DropDownListFor(m => m.UnitId, Model.UnitDropdown, "Select Unit", new { @class = "select2" })
-                                @Html.ValidationMessageFor(model => model.UnitId)
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.ConstructionFirmId, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.DropDownListFor(m => m.ConstructionFirmId, Model.ConstructionFirmDropdown, "Select Firm", new { @class = "select2" })
-                                @Html.ValidationMessageFor(model => model.ConstructionFirmId)
-                            </div>
-                        </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.SubProjectTitle, new { @class = "col-md-4 form-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.SubProjectTitle, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SubProjectTitle)
                     </div>
                 </div>
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-success pull-right" value="Search" />
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.StartDate, new { @class = "col-md-4 form-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control datepicker" })
+                        @Html.ValidationMessageFor(model => model.StartDate)
                     </div>
                 </div>
-            }
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.EndDate, new { @class = "col-md-4 form-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control datepicker" })
+                        @Html.ValidationMessageFor(model => model.EndDate)
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.ConstructionFirmId, new { @class = "col-md-4 form-label" })
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(m => m.ConstructionFirmId, Model.ConstructionFirmDropdown, "Select Firm", new { @class = "select2" })
+                        @Html.ValidationMessageFor(model => model.ConstructionFirmId)
+                    </div>
+                </div>
+            </div>
+
 
             <div class="row">
                 <div class="col-md-12">
-                    <table id="DataGrid" class="table table-striped table-bordered" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Sub Project</th>
-                                <th>Unit</th>
-                                <th>Supplier</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var v in Model.SubProjects)
-                            {
-                                <tr>
-                                    <td>@v.SubProjectId</td>
-                                    <td>@v.SubProjectTitle</td>
-                                    <td>@v.UnitName</td>
-                                    <td>@v.ConstructionFirmName</td>
-                                    <td>
-                                        <a href="@Url.Action("Create", "BillPayment", new {id = v.SubProjectId})">
-                                            <span class="label label-info"><i class="fa fa-info"></i> Bill</span>
-                                        </a>
-                                        <a href="@Url.Action("Create", "ProjectExtend", new {id = v.SubProjectId})">
-                                            <span class="label label-info"><i class="fa fa-info"></i> Extend</span>
-                                        </a>
-                                        <a href="@Url.Action("Create", "ProjectProblem", new {id = v.SubProjectId})">
-                                            <span class="label label-info"><i class="fa fa-info"></i> Problem</span>
-                                        </a>
-                                        <a href="@Url.Action("Create", "ProjectStatus", new {id = v.SubProjectId})">
-                                            <span class="label label-info"><i class="fa fa-info"></i> Status</span>
-                                        </a>
-                                        <a href="@Url.Action("Edit", "SubProject", new {id = v.SubProjectId})">
-                                            <span class="label label-primary"><i class="fa fa-edit"></i> Edit</span>
-                                        </a>
-                                        <a href="@Url.Action("Delete", "SubProject", new {id = v.SubProjectId})">
-                                            <span class="label label-danger"><i class="fa fa-remove"></i> Remove</span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
+                    <table id="subProjectTable" class="table table-bordered" width="100%">
                     </table>
+
                 </div>
             </div>
         </div>
@@ -135,19 +82,105 @@
 </div>
 
 @section scripts {
+
     <script>
         $(document).ready(function () {
-            $('#DataGrid').DataTable({
-                "aaSorting": [],
+            var table = $('#subProjectTable').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "/SubProject/LoadData",  // Make sure this is correct
+                    "type": "POST",
+                    "contentType": "application/json",  // Sending JSON data
+                    "data": function (d) {
+                        // Manually create a JSON object for the POST request
+                        return JSON.stringify({
+                            SearchValue: d.search.value,  // Global search term
+                            ProjectName: $('#ProjectName').val(),  // Custom project name filter
+                            SubProjectTitle: $('#SubProjectTitle').val(),  // Custom subproject title filter
+                            StartDate: $('#StartDate').val() ? $('#StartDate').val() : null,  // Handle null dates
+                            EndDate: $('#EndDate').val() ? $('#EndDate').val() : null,  // Handle null dates
+                            ConstructionFirmId: $('#ConstructionFirmId').val(),  // Firm filter
+                            Draw: d.draw,
+                            PageIndex: d.start / d.length,  // Pagination: starting index
+                            PageSize: d.length,  // Pagination: number of records per page
+                            SortColumn: d.order[0] ? d.columns[d.order[0].column].data : 'SubProjectId',  // Sorting column
+                            SortDirection: d.order[0] ? d.order[0].dir : 'asc'  // Sorting direction
+                        });
+                    },
+                    "dataSrc": function (json) {
+                        return json.data;  // DataTables expects data in the 'data' property
+                    }
+                },
                 "columns": [
-                    { className: "id", searchable: false },
-                    null,
-                    null,
-                    null,
-                    { width: "405px", "orderable": false }
+                    { "data": "SubProjectId", "title": "SubProjectId", "visible": false },
+                    { "data": "SubProjectTitle", "title": "Sub Project Title" },
+                    {
+                        "data": "ProjectName",
+                        "title": "Project Name",
+                        "render": function (data, type, row) {
+                            return `<a href="/Project/Details?id=${row.ProjectId}">${data}</a>`;
+                        }
+                    },
+                    {
+                        "data": "StartDate",
+                        "title": "Start Date",
+                        "render": function (data) {
+                            if (data && data.startsWith("/Date(")) {
+                                var timestamp = parseInt(data.replace("/Date(", "").replace(")/", ""));
+                                return new Date(timestamp).toLocaleDateString('en-GB');
+                            }
+                            return '';
+                        }
+                    },
+                    {
+                        "data": "EndDate",
+                        "title": "End Date",
+                        "render": function (data) {
+                            if (data && data.startsWith("/Date(")) {
+                                var timestamp = parseInt(data.replace("/Date(", "").replace(")/", ""));
+                                return new Date(timestamp).toLocaleDateString('en-GB');
+                            }
+                            return '';
+                        }
+                    },
+                    { "data": "ConstructionFirmId", "title": "ConstructionFirmId", "visible": false },
+                    { "data": "ConstructionFirmName", "title": "Construction Firm Name" },
+                    {
+                        "data": "SubProjectId",  // You can use SubProjectId to generate action buttons
+                        "title": "Actions",
+                        "render": function (data, type, row) {
+                            return `
+                        <a href="/ContractorPayment/Create?id=${row.SubProjectId}">
+                            <span class="label label-info"><i class="fa fa-info"></i> Contractor Payment</span>
+                        </a>
+                        <a href="/ProjectExtend/Create?id=${row.SubProjectId}">
+                            <span class="label label-info"><i class="fa fa-info"></i> Extend</span>
+                        </a>
+                        <a href="/ProjectProblem/Create?id=${row.SubProjectId}">
+                            <span class="label label-info"><i class="fa fa-info"></i> Problem</span>
+                        </a>
+                        <a href="/ProjectStatus/Create?id=${row.SubProjectId}">
+                            <span class="label label-info"><i class="fa fa-info"></i> Status</span>
+                        </a>
+                        <a href="/SubProject/Edit?id=${row.SubProjectId}">
+                            <span class="label label-primary"><i class="fa fa-edit"></i> Edit</span>
+                        </a>
+                        <a href="/SubProject/Delete?id=${row.SubProjectId}">
+                            <span class="label label-danger"><i class="fa fa-remove"></i> Remove</span>
+                        </a>
+                        `;
+                        }
+                    }
                 ]
             });
-        });
-    </script>
-}
 
+            // Apply filters automatically when the user changes any of the filter fields
+            $('#ProjectName, #SubProjectTitle, #StartDate, #EndDate, #ConstructionFirmId').on('change input keyup', function () {
+                table.ajax.reload();
+            });
+        });
+
+    </script>
+
+}

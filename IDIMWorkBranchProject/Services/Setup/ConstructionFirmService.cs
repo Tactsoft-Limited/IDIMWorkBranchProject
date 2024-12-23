@@ -4,12 +4,15 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Linq;
+using System.Linq.Dynamic.Core;
 using AutoMapper;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.Setup;
 using BGB.Data.Database;
 using BGB.Data.Entities.Pm;
+using IDIMWorkBranchProject.Models.WBP;
+using Microsoft.Ajax.Utilities;
 
 namespace IDIMWorkBranchProject.Services.Setup
 {
@@ -31,6 +34,46 @@ namespace IDIMWorkBranchProject.Services.Setup
             var list = await Context.ConstructionFirms.ToListAsync();
 
             return Mapper.Map<List<ConstructionFirmVm>>(list);
+        }
+        public async Task<object> GetAllAsync(ConstructionFirmSearchVm model)
+        {
+            if (model == null)
+                model = new ConstructionFirmSearchVm();
+
+            // Build the query with the additional filters
+            var query = Context.ConstructionFirms.Where(x =>
+                    (string.IsNullOrEmpty(model.ConstructionFirmName) || x.ConstructionFirmName.Contains(model.ConstructionFirmName)) &&
+                    (string.IsNullOrEmpty(model.ContactPerson) || x.ContactPerson.Contains(model.ContactPerson)) &&
+                    (string.IsNullOrEmpty(model.ContactPhone) || x.ContactPhone.Contains(model.ContactPhone)) &&
+                    (string.IsNullOrEmpty(model.Email) || x.Email.Contains(model.Email)));
+
+            query = !string.IsNullOrEmpty(model.SortColumn) && !string.IsNullOrEmpty(model.SortDirection)
+                ? query.OrderBy($"{model.SortColumn} {model.SortDirection}")
+                : query.OrderBy(x => x.ConstructionFirmId);  // Default ordering by SubProjectId
+
+            var totalRecords = await query.CountAsync();
+            var filteredRecords = await query.CountAsync();
+            var pagedData = await query.Skip(model.PageIndex * model.PageSize).Take(model.PageSize)
+                                              .ToListAsync();
+
+            // Return the response in DataTables format
+            var result = new
+            {
+                draw = model.Draw,
+                recordsTotal = totalRecords,
+                recordsFiltered = filteredRecords,
+                data = pagedData.Select(x => new ConstructionFirmVm
+                {
+                    ConstructionFirmId = x.ConstructionFirmId,
+                    ConstructionFirmName = x.ConstructionFirmName,
+                    ContactPerson = x.ContactPerson,
+                    ContactPhone = x.ContactPhone,
+                    Email = x.Email,
+                    Address = x.Address,
+                })
+            };
+
+            return result;
         }
 
         public async Task<ConstructionFirmVm> GetByIdAsync(int id)
@@ -72,8 +115,11 @@ namespace IDIMWorkBranchProject.Services.Setup
                 throw new ArgumentException($"Name already exists.");
 
             existing.ConstructionFirmName = model.ConstructionFirmName;
-            existing.Address = model.Address;
             existing.ContactPerson = model.ContactPerson;
+            existing.Email = model.Email;
+            existing.ContactPhone = model.ContactPhone;
+            existing.Address = model.Address;
+
             existing.UpdatedDateTime = DateTime.Now;
             existing.UpdatedUser = UserExtention.GetUserId();
             existing.UpdateNo += 1;
@@ -106,5 +152,19 @@ namespace IDIMWorkBranchProject.Services.Setup
                 Selected = e.ConstructionFirmId == selected
             });
         }
+
+        public async Task<IEnumerable<SelectListItem>> GetDropdownBySubProjectAsync(int subProjectId)
+        {
+            return await (from cf in Context.ConstructionFirms
+                          join sp in Context.SubProjects on cf.ConstructionFirmId equals sp.ConstructionFirmId
+                          where sp.SubProjectId == subProjectId
+                          select new SelectListItem
+                          {
+                              Text = cf.ConstructionFirmName,  // Text for the dropdown
+                              Value = cf.ConstructionFirmId.ToString()  // Value for the dropdown item
+                          }).Distinct().ToListAsync();
+        }
+
+
     }
 }

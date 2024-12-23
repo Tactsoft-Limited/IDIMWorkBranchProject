@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Linq.Dynamic.Core;
 using AutoMapper;
 using BGB.Data.Database;
 using BGB.Data.Entities.Pm;
@@ -36,6 +37,74 @@ namespace IDIMWorkBranchProject.Services.WBP
             return Mapper.Map<List<SubProjectVm>>(list);
         }
 
+        public async Task<object> GetAllAsync(SubProjectSearchVm filter)
+        {
+            if (filter == null)
+                filter = new SubProjectSearchVm();
+
+            // Querying SubProjects and including related Project
+            var data = Context.SubProjects
+                .Include(x => x.Project)
+                .Include(x => x.ConstructionFirm)
+                .AsQueryable();
+
+            // Apply filters to the SubProject data
+            var query = data.Where(x =>
+                (string.IsNullOrEmpty(filter.SubProjectTitle) || x.SubProjectTitle.Contains(filter.SubProjectTitle)) &&
+                (string.IsNullOrEmpty(filter.ProjectName) || x.Project.ProjectName.Contains(filter.ProjectName)) &&
+                (!filter.ConstructionFirmId.HasValue || x.ConstructionFirmId == filter.ConstructionFirmId) &&
+                ((!filter.StartDate.HasValue && !filter.EndDate.HasValue) ||
+                (filter.StartDate.HasValue && !filter.EndDate.HasValue &&
+                    DbFunctions.TruncateTime(x.StartDate) >= DbFunctions.TruncateTime(filter.StartDate)) ||
+                (!filter.StartDate.HasValue &&
+                    filter.EndDate.HasValue &&
+                    DbFunctions.TruncateTime(x.EndDate) <= DbFunctions.TruncateTime(filter.EndDate)) ||
+                (filter.StartDate.HasValue &&
+                    filter.EndDate.HasValue &&
+                    DbFunctions.TruncateTime(x.StartDate) >= DbFunctions.TruncateTime(filter.StartDate) &&
+                    DbFunctions.TruncateTime(x.EndDate) <= DbFunctions.TruncateTime(filter.EndDate))));
+
+            // Sorting: Dynamically apply sorting based on DataTable's request
+            query = !string.IsNullOrEmpty(filter.SortColumn) && !string.IsNullOrEmpty(filter.SortDirection)
+                ? query.OrderBy($"{filter.SortColumn} {filter.SortDirection}")
+                : query.OrderBy(x => x.SubProjectId);  // Default ordering by SubProjectId
+
+
+            // Get the total count of records before pagination (for recordsTotal)
+            var totalRecords = await data.CountAsync(); // All records in the database without filter
+                                                        // Get the total count of records after applying filters (for recordsFiltered)
+            var filteredRecords = await query.CountAsync(); // After filters applied
+
+            // Pagination: Apply pagination based on DataTable's filter
+            var pagedRecords = await query
+                .Skip(filter.PageIndex * filter.PageSize)
+                .Take(filter.PageSize)
+                .ToListAsync();
+
+
+            // Return the response in DataTables format
+            var result = new
+            {
+                draw = filter.Draw,
+                recordsTotal = totalRecords,
+                recordsFiltered = filteredRecords,
+                data = pagedRecords.Select(x => new SubProjectVm
+                {
+                    SubProjectId = x.SubProjectId,
+                    SubProjectTitle = x.SubProjectTitle,
+                    ProjectId = x.ProjectId,
+                    ProjectName = x.Project.ProjectName,
+                    StartDate = x.StartDate,
+                    EndDate = x.EndDate,
+                    HandOverDate = x.HandOverDate,
+                    ConstructionFirmId = x.ConstructionFirmId,
+                    ConstructionFirmName = x.ConstructionFirm.ConstructionFirmName,
+                })
+            };
+
+            return result;
+        }
+
 
         public async Task<SubProjectVm> GetByIdAsync(int id)
         {
@@ -52,7 +121,6 @@ namespace IDIMWorkBranchProject.Services.WBP
                 throw new ArgumentException($"Sub Project Title already exists.");
 
             var entity = Mapper.Map<SubProject>(model);
-            // entity.StatusTypeId = (int)StatusType.Running;
             entity.CreatedDateTime = DateTime.Now;
             entity.CreatedUser = UserExtention.GetUserId();
 
@@ -78,16 +146,22 @@ namespace IDIMWorkBranchProject.Services.WBP
                 throw new ArgumentException($"Sub Project Title  already exists.");
 
             existing.SubProjectTitle = model.SubProjectTitle;
-            existing.UnitId = model.UnitId;
             existing.Description = model.Description;
             existing.ConstructionFirmId = model.ConstructionFirmId;
             existing.AgreementCost = model.AgreementCost;
             existing.StartDate = model.StartDate;
             existing.EndDate = model.EndDate;
-            // existing.StatusTypeId = (int)model.StatusTypeId;
-            existing.Status = model.Status;
             existing.HandOverDate = model.HandOverDate;
+            existing.BankGuarantee = model.BankGuarantee;
+            existing.BankGuaranteeEndDate = model.BankGuaranteeEndDate;
+            existing.NOA = model.NOA;
+            existing.NOADate = model.NOADate;
+            existing.Agreement = model.Agreement;
+            existing.AgreementDate = model.AgreementDate;
+            existing.WorkOrder = model.WorkOrder;
+            existing.WorkOrderDate = model.WorkOrderDate;
             existing.Remark = model.Remark;
+
             existing.UpdatedDateTime = DateTime.Now;
             existing.UpdatedUser = UserExtention.GetUserId();
             existing.UpdateNo += 1;
@@ -114,18 +188,35 @@ namespace IDIMWorkBranchProject.Services.WBP
         {
             if (filter == null)
                 filter = new SubProjectSearchVm();
-
-            var query = GetAll().Where(x =>
+            var data = Context.SubProjects.Include(x => x.Project).Include(x => x.ConstructionFirm).AsQueryable();
+            // Start query with GetAll() (presumably getting all SubProject entities)
+            var query = data.Where(x =>
                     (string.IsNullOrEmpty(filter.SubProjectTitle) || x.SubProjectTitle.Contains(filter.SubProjectTitle)) &&
                     (string.IsNullOrEmpty(filter.ProjectName) || x.Project.ProjectName.Contains(filter.ProjectName)) &&
-                    (!filter.UnitId.HasValue || x.UnitId == filter.UnitId) &&
-                    (!filter.ConstructionFirmId.HasValue || x.ConstructionFirmId == filter.ConstructionFirmId))
-                .Take(DefaultData.Take);
+                    (!filter.ConstructionFirmId.HasValue || x.ConstructionFirmId == filter.ConstructionFirmId));
 
-            var list = await query.ToListAsync();
+            // Group by ProjectName (you can include other properties in the grouping if needed)
+            var groupedQuery = query
+                .GroupBy(x => x.ProjectId)  // Group by ProjectId
+                .Select(g => new
+                {
+                    ProjectId = g.Key,  // The ProjectId (group key)
+                    ProjectName = g.Select(x => x.Project.ProjectName).FirstOrDefault(),  // Get the ProjectName (assumes one Project per ProjectId)
+                    TotalProjects = g.Count(),  // Total number of SubProjects in this group
+                    SubProjects = g.ToList()  // List of SubProjects in this group
+                });
 
-            return Mapper.Map<List<SubProjectVm>>(list);
+            // Take the desired number of records from the grouped query
+            var groupedList = await groupedQuery.ToListAsync();
+
+            // Flatten the groups into a list of SubProjectVm
+            var result = groupedList.SelectMany(g => g.SubProjects)  // Flatten the grouped SubProjects
+                .ToList();
+
+            // Map the result to SubProjectVm and return
+            return Mapper.Map<List<SubProjectVm>>(result);
         }
+
 
         public async Task<IEnumerable<SelectListItem>> GetDropdownAsync(int? selected = 0)
         {
@@ -138,5 +229,25 @@ namespace IDIMWorkBranchProject.Services.WBP
                 Selected = e.SubProjectId == selected
             });
         }
+
+        public async Task<IEnumerable<SelectListItem>> GetAllFirmByProject(int projectId)
+        {
+            return await (from cf in Context.ConstructionFirms
+                          join sp in Context.SubProjects on cf.ConstructionFirmId equals sp.ConstructionFirmId
+                          join p in Context.Projects on sp.ProjectId equals p.ProjectId
+                          where p.ProjectId == projectId
+                          select new SelectListItem
+                          {
+                              Text = cf.ConstructionFirmName,  // Text for the dropdown
+                              Value = cf.ConstructionFirmId.ToString()  // Value for the dropdown item
+                          }).Distinct().ToListAsync();
+        }
+
+        public async Task<SubProjectVm> GetByProjectIdAsync(int projectId)
+        {
+            var result = await Context.SubProjects.Where(x => x.ProjectId == projectId).FirstOrDefaultAsync();
+            return Mapper.Map<SubProjectVm>(result);
+        }
+
     }
 }

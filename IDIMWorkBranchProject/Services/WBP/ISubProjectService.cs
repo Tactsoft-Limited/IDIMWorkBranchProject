@@ -15,5 +15,8 @@ namespace IDIMWorkBranchProject.Services.WBP
 
         Task<List<SubProjectVm>> GetByAsync(SubProjectSearchVm filter = null);
         Task<IEnumerable<SelectListItem>> GetDropdownAsync(int? selected = 0);
+        Task<object> GetAllAsync(SubProjectSearchVm filter);
+        Task<IEnumerable<SelectListItem>> GetAllFirmByProject(int projectId);
+        Task<SubProjectVm> GetByProjectIdAsync(int projectId);
     }
 }

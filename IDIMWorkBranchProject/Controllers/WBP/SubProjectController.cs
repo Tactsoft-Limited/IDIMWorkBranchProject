@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
@@ -18,8 +22,8 @@ namespace IDIMWorkBranchProject.Controllers.WBP
         protected IProjectService ProjectService { get; set; }
         protected ISubProjectService SubProjectService { get; set; }
         protected IUnitService UnitService { get; set; }
-        public int ApplicationId { get; set; }
-        public SubProjectController(IActivityLogService activityLogService, IConstructionFirmService constructionFirmService, IFiscalYearService fiscalYearService, IGeneralInformationService generalInformationService, IProjectService projectService, ISubProjectService subProjectService, IUnitService unitService, int applicationId) : base(activityLogService)
+
+        public SubProjectController(IActivityLogService activityLogService, IConstructionFirmService constructionFirmService, IFiscalYearService fiscalYearService, IGeneralInformationService generalInformationService, IProjectService projectService, ISubProjectService subProjectService, IUnitService unitService) : base(activityLogService)
         {
             ConstructionFirmService = constructionFirmService;
             FiscalYearService = fiscalYearService;
@@ -27,7 +31,6 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             ProjectService = projectService;
             SubProjectService = subProjectService;
             UnitService = unitService;
-            ApplicationId = applicationId;
         }
 
         public ActionResult Index()
@@ -38,27 +41,32 @@ namespace IDIMWorkBranchProject.Controllers.WBP
         {
             var model = new SubProjectSearchVm
             {
-                UnitDropdown = await UnitService.GetDropDownAsync(),
-                ConstructionFirmDropdown = await ConstructionFirmService.GetDropdownAsync(),
-                SubProjects = await SubProjectService.GetByAsync()
+                ConstructionFirmDropdown = await ConstructionFirmService.GetDropdownAsync()
             };
 
             return View(model);
         }
 
         [HttpPost]
-        public async Task<ActionResult> List(SubProjectSearchVm model)
+        public async Task<ActionResult> LoadData(SubProjectSearchVm model)
         {
-            model.UnitDropdown = await UnitService.GetDropDownAsync(model.UnitId);
-            model.ConstructionFirmDropdown = await ConstructionFirmService.GetDropdownAsync(model.ConstructionFirmId);
-            model.SubProjects = await SubProjectService.GetByAsync(model);
-
-            return View(model);
+            try
+            {
+                var data = await SubProjectService.GetAllAsync(model);
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                // Handle any errors that occur during data fetching
+                return Json(new { error = ex.Message });
+            }
         }
+
 
         public async Task<ActionResult> Create(int id)
         {
             var project = await ProjectService.GetByIdAsync(id);
+
             if (project == null)
                 return HttpNotFound();
 
@@ -66,7 +74,6 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             {
                 ProjectId = project.ProjectId,
                 ProjectName = project.ProjectName,
-                UnitDropdown = await UnitService.GetDropDownAsync(),
                 ConstructionFirmDropdown = await ConstructionFirmService.GetDropdownAsync()
             };
 
@@ -82,6 +89,12 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             {
                 if (ModelState.IsValid)
                 {
+                    // Process each file upload (BankGuarantee, NOA, Agreement, WorkOrder)
+                    ProcessFileUpload(model.BankGuaranteeFile, "BankGuarantee", model);
+                    ProcessFileUpload(model.NOAFile, "NOA", model);
+                    ProcessFileUpload(model.AgreementFile, "Agreement", model);
+                    ProcessFileUpload(model.WorkOrderFile, "WorkOrder", model);
+
                     await SubProjectService.InsertAsync(model);
 
                     ModelState.Clear();
@@ -102,9 +115,8 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
             }
 
-            model.UnitDropdown = await UnitService.GetDropDownAsync(model.UnitId);
             model.ConstructionFirmDropdown = await ConstructionFirmService.GetDropdownAsync(model.ConstructionFirmId);
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -116,7 +128,6 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             if (model == null)
                 return HttpNotFound();
 
-            model.UnitDropdown = await UnitService.GetDropDownAsync(model.UnitId);
             model.ConstructionFirmDropdown = await ConstructionFirmService.GetDropdownAsync(model.ConstructionFirmId);
 
             return View(model);
@@ -145,10 +156,9 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 message = Messages.Failed(MessageType.Update.ToString(), exception.Message);
             }
 
-            model.UnitDropdown = await UnitService.GetDropDownAsync(model.UnitId);
             model.ConstructionFirmDropdown = await ConstructionFirmService.GetDropdownAsync(model.ConstructionFirmId);
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -186,12 +196,44 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 var model = await SubProjectService.GetByIdAsync(id);
 
 
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), message);
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), message);
 
                 return View(model);
             }
 
             return RedirectToAction("List");
+        }
+
+
+        public void ProcessFileUpload(HttpPostedFileBase file, string filePrefix, SubProjectVm model)
+        {
+            if (file != null && file.ContentLength > 0)
+            {
+                try
+                {
+                    var fileExtension = Path.GetExtension(file.FileName);
+                    string currentDate = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                    var fileName = $"{currentDate}_{filePrefix}{fileExtension}";
+                    var uploadsFolder = Server.MapPath("~/Content/Documents");
+
+                    // Check if the directory exists; if not, create it
+                    if (!Directory.Exists(uploadsFolder))
+                    {
+                        Directory.CreateDirectory(uploadsFolder);
+                    }
+
+                    var path = Path.Combine(uploadsFolder, fileName);
+                    file.SaveAs(path); // Save the file to the specified path
+
+                    // Assign the saved file name to the respective property on the model
+                    typeof(SubProjectVm).GetProperty(filePrefix)?.SetValue(model, fileName);
+                }
+                catch (Exception ex)
+                {
+                    TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), ex.Message);
+                    throw; // Re-throw the exception to handle it in the calling method
+                }
+            }
         }
     }
 }

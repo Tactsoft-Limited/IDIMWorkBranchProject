@@ -1,0 +1,187 @@
+﻿@model IDIMWorkBranchProject.Models.WBP.VatTaxVm
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div id="message"></div>
+<div class='col-md-12'>
+    <div class="page-title">
+        <div class="pull-left">
+            <h1 class="title">Vat / Tax</h1>
+        </div>
+        <div class="pull-right hidden-xs">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("List","VatTax")">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        Vat / Tax
+                    </a>
+                </li>
+                <li class="active">
+                    <strong>Create</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="col-lg-12">
+    <section class="box">
+        <header class="panel_header">
+            <h2 class="title pull-left">Create</h2>
+            <div class="actions panel_actions pull-right">
+                <a href="@Url.Action("List","VatTax")" class="btn">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    List
+                </a>
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-md-12">
+                    @using (Html.BeginForm("Create", "VatTax", FormMethod.Post, new { @class = "form-horizontal", id = "ReceivePayment-create-form", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(m => m.ProjectId)
+                        @Html.HiddenFor(m => m.ProjectName)
+                        @Html.HiddenFor(m => m.ReceivePaymentId)
+                        @Html.HiddenFor(m => m.LetterNumber)
+                        @Html.HiddenFor(m => m.ReceiveAmount)
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ProjectName, new { @class = "col-md-2 form-label" })
+                                    <div class="col-md-10">
+                                        <span class="label label-primary">
+                                            @Html.DisplayFor(model => model.ProjectName)
+                                        </span>
+                                        @Html.ValidationMessageFor(model => model.ProjectName)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.LetterNumber, new { @class = "col-md-2 form-label" })
+                                    <div class="col-md-10">
+                                        <span class="label label-primary">
+                                            @Html.DisplayFor(model => model.LetterNumber)
+                                        </span>
+                                        @Html.ValidationMessageFor(model => model.LetterNumber)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.VatPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.VatPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.VatPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.VatAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.VatAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.VatAmount)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.TaxPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.TaxPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TaxPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.TaxAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.TaxAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TaxAmount)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.CollateralPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.CollateralPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CollateralPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.CollateralAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.CollateralAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CollateralAmount)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                @Html.LabelFor(m => m.Remarks, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(m => m.Remarks, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Remarks)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-success" value="Save" />
+                            <input type="reset" class="btn" value="Clear" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section scripts{
+
+    <script type="text/javascript">
+        // Wait until the DOM is fully loaded
+        $(document).ready(function () {
+            // Function to calculate the amounts
+            function calculateAmounts() {
+                // Get values from the form
+                var receiveAmount = parseFloat($('#ReceiveAmount').val()) || 0;  // Get receiveAmount value
+                var vatPer = parseFloat($('#VatPer').val()) || 0;  // Get VAT percentage
+                var taxPer = parseFloat($('#TaxPer').val()) || 0;  // Get Tax percentage
+                var collateralPer = parseFloat($('#CollateralPer').val()) || 0;  // Get Collateral percentage
+
+                // Calculate amounts based on the input
+                var vatAmount = Math.round(receiveAmount * (vatPer / 100));  // Calculate VAT amount
+                var taxAmount = Math.round(receiveAmount * (taxPer / 100));  // Calculate Tax amount
+                var collateralAmount = Math.round(receiveAmount * (collateralPer / 100));  // Calculate Collateral amount
+
+                // Set calculated amounts in the corresponding fields
+                $('#VatAmount').val(vatAmount.toFixed(2));  // Set VAT amount
+                $('#TaxAmount').val(taxAmount.toFixed(2));  // Set Tax amount
+                $('#CollateralAmount').val(collateralAmount.toFixed(2));  // Set Collateral amount
+            }
+
+            // Bind the calculateAmounts function to input fields' keyup and change events
+            $('#ReceiveAmount, #VatPer, #TaxPer, #CollateralPer').on('input', function () {
+                calculateAmounts();
+            });
+
+            // Initial calculation when page is loaded (in case the fields are pre-filled)
+            calculateAmounts();
+        });
+    </script>
+}

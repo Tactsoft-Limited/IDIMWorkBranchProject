@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace IDIMWorkBranchProject.Services.Dashboard
 {
-    public   interface IDashboardService
+    public interface IDashboardService
     {
         Task<DashboardVm> GetAll();
-    Task<List<ProjectVm>> ProjectList();
+        Task<List<ProjectVm>> ProjectList();
     }
 }

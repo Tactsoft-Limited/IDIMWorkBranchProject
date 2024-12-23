@@ -51,146 +51,168 @@
                         @Html.HiddenFor(m => m.ProjectName)
 
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.ProjectId, new { @class = "col-md-4 form-label" })
-                                    <div class="col-md-8">
-                                        <span class="label label-primary">
-                                            @Html.DisplayFor(m => m.ProjectName, new { @class = "form-control" })
-                                        </span>
-                                    </div>
+                            <div class="form-group col-md-12">
+                                @Html.LabelFor(m => m.ProjectId, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
+                                    <span class="label label-primary">
+                                        @Html.DisplayFor(m => m.ProjectName, new { @class = "form-control" })
+                                    </span>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.UnitId, new { @class = "col-md-4 form-label" })
-                                    <div class="col-md-8">
-                                        @Html.DropDownListFor(m => m.UnitId, Model.UnitDropdown, "Select Unit", new { @class = "select2" })
-                                        @Html.ValidationMessageFor(model => model.UnitId)
-                                    </div>
+                            <div class="form-group col-md-12">
+                                @Html.LabelFor(m => m.SubProjectTitle, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.SubProjectTitle, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.SubProjectTitle)
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.StatusTypeId, new { @class = "col-md-4 form-label" })
-                                    <div class="col-md-8">
-                                        @Html.EnumDropDownListFor(m => m.StatusTypeId, "Select Status Type", new { @class = "select2" })
-                                        @Html.ValidationMessageFor(model => model.StatusTypeId)
-                                    </div>
+                            <div class="form-group col-md-12">
+                                @Html.LabelFor(m => m.Description, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Description)
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.SubProjectTitle, new { @class = "col-md-2 form-label" })
-                                    <div class="col-md-10">
-                                        @Html.TextBoxFor(m => m.SubProjectTitle, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.SubProjectTitle)
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.StartDate, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.StartDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     </div>
+                                    @Html.ValidationMessageFor(model => model.StartDate)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.EndDate, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.EndDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.EndDate)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.HandOverDate, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.HandOverDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.HandOverDate)
                                 </div>
                             </div>
 
                         </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ConstructionFirmId, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(m => m.ConstructionFirmId, Model.ConstructionFirmDropdown, "Select Firm", new { @class = "select2" })
+                                    @Html.ValidationMessageFor(model => model.ConstructionFirmId)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.AgreementCost, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.AgreementCost, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.AgreementCost)
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.Description, new { @class = "col-md-2 form-label" })
-                                    <div class="col-md-10">
-                                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.Description)
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.BankGuarantee, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.BankGuarantee, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.BankGuarantee)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.BankGuaranteeEndDate, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.BankGuaranteeEndDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     </div>
+                                    @Html.ValidationMessageFor(model => model.BankGuaranteeEndDate)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.NOA, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.NOA, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.NOA)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.NOADate, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.NOADate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.NOADate)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.Agreement, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.Agreement, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Agreement)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.AgreementDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.AgreementDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.AgreementDate)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.WorkOrder, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.WorkOrder, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.WorkOrder)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.WorkOrderDate, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.WorkOrderDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.WorkOrderDate)
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.ConstructionFirmId, new { @class = "col-md-4 form-label" })
-                                    <div class="col-md-8">
-                                        @Html.DropDownListFor(m => m.ConstructionFirmId, Model.ConstructionFirmDropdown, "Select Firm", new { @class = "select2" })
-                                        @Html.ValidationMessageFor(model => model.ConstructionFirmId)
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.AgreementCost, new { @class = "col-md-4 form-label" })
-                                    <div class="col-md-8">
-                                        @Html.TextBoxFor(m => m.AgreementCost, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.AgreementCost)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.StartDate, new { @class = "col-md-4 form-label" })
-                                    <div class="col-md-8">
-                                        <div class="input-group">
-                                            @Html.EditorFor(m => m.StartDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                        </div>
-                                        @Html.ValidationMessageFor(model => model.StartDate)
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.EndDate, new { @class = "col-md-4 form-label" })
-                                    <div class="col-md-8">
-                                        <div class="input-group">
-                                            @Html.EditorFor(m => m.EndDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                        </div>
-                                        @Html.ValidationMessageFor(model => model.EndDate)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.HandOverDate, new { @class = "col-md-4 form-label" })
-                                    <div class="col-md-8">
-                                        <div class="input-group">
-                                            @Html.EditorFor(m => m.HandOverDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                        </div>
-                                        @Html.ValidationMessageFor(model => model.HandOverDate)
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.Status, new { @class = "col-md-4 form-label" })
-                                    <div class="col-md-8">
-                                        @Html.TextBoxFor(m => m.Status, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.Status)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.Remark, new { @class = "col-md-2 form-label" })
-                                    <div class="col-md-10">
-                                        @Html.TextAreaFor(m => m.Remark, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.Remark)
-                                    </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.Remark, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextAreaFor(m => m.Remark, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Remark)
                                 </div>
                             </div>
                         </div>

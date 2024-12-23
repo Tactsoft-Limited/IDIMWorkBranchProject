@@ -18,7 +18,7 @@ namespace IDIMWorkBranchProject.Extentions
         public static DateTime? ToDateTime(this string dateString)
         {
             DateTime date;
-            var dateParse = DateTime.TryParse(dateString, out  date);
+            var dateParse = DateTime.TryParse(dateString, out date);
             return dateParse ? date : new DateTime?();
         }
 
@@ -40,6 +40,11 @@ namespace IDIMWorkBranchProject.Extentions
         public static string ToNullableShortDateString(this DateTime? date)
         {
             return date.HasValue ? DateTime.Parse(date.ToString()).ToShortDateString() : string.Empty;
+        }
+
+        public static string ToShortDateString(this DateTime date)
+        {
+            return DateTime.Parse(date.ToString()).ToShortDateString();
         }
 
         public static string ToNullableLongDateString(this DateTime? date)

@@ -27,7 +27,7 @@ namespace IDIMWorkBranchProject.Services.Dashboard
                 Project = await Context.Projects.CountAsync(),
                 Subproject = await Context.SubProjects.CountAsync(),
                 TotalBillPayment = await Context.BillPayments.SumAsync(x => (double?)x.PaymentAmount) ?? 0,
-                TotalBillReceived = await Context.ReceiptPayments.SumAsync(x => (double?)x.ReceiptAmount) ?? 0,
+                TotalBillReceived = await Context.ReceivePayments.SumAsync(x => (double?)x.BillAmount) ?? 0,
 
                 ProjectExtended = await Context.ProjectExtends.CountAsync(),
                 ProjectProblem = await Context.ProjectProblems.CountAsync()
@@ -46,9 +46,8 @@ namespace IDIMWorkBranchProject.Services.Dashboard
 
             var model = projectDis.Select(e => new ProjectVm()
             {
-                ProjectCode = e.ProjectCode,
                 ProjectName = e.ProjectName,
-                ProjectStartDate = e.ProjectStartDate
+                StartingDate = e.StartingDate,
             }).ToList();
 
             return model;

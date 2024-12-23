@@ -73,24 +73,6 @@
                 }
             });
     });
-    @*$(document).ready(function () {
-        var items = $('#main-menu-wrapper a');
-        $.each(items,
-            function(i) {
-                var link = this.href;
-                var controllerName = link.split('/')[3];
-                if ('@currentControllerName'.toLowerCase() == controllerName.toLowerCase()) {
-                    //var isMultiLevel = $(this).parent().parent().hasClass('sub-menu');
-                    //if (isMultiLevel === true) {
-                    $(this).addClass("active")
-                        .closest('.sub-menu').css({ display: 'block' })
-                        .closest('li').addClass('open');
-                    //} else {
-                    //    $(this).parent().addClass("open");
-                    //}
-                }
-            });
-    });*@
     </script>
 </body>
 </html>
