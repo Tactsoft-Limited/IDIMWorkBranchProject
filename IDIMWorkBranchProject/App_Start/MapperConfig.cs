@@ -3,9 +3,11 @@ using BGB.Data.Entities.Admin;
 using BGB.Data.Entities.Budget;
 using BGB.Data.Entities.Irms;
 using BGB.Data.Entities.Pm;
+using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.Setup;
 using IDIMWorkBranchProject.Models.User;
 using IDIMWorkBranchProject.Models.WBP;
+using System.Web.Mvc.Html;
 
 namespace IDIMWorkBranchProject
 {
@@ -15,21 +17,39 @@ namespace IDIMWorkBranchProject
         {
             #region wbp 
             CreateMap<ProjectVm, Project>();
-            // .ForMember(d => d.SetupUnit, opts => opts.Ignore());
-
             CreateMap<Project, ProjectVm>()
-                .ForMember(d => d.AuthorizeUnitDropdown, opts => opts.Ignore())
-                .ForMember(d => d.FiscalYearDropdown, opts => opts.Ignore());
-            // .ForMember(d => d.FiscalYearName, opts => opts.MapFrom(d=>d.FiscalYear.FiscalYearDescription));
+                .ForMember(d => d.FiscalYearDropdown, opts => opts.Ignore())
+                .ForMember(d => d.FiscalYearDescription, opt => opt.MapFrom(x => x.FiscalYear.FiscalYearDescription))
+                .ForMember(d => d.ProjectTypeName, opt => opt.MapFrom(x => x.ProjectType.ProjectTypeName));
 
-            CreateMap<SubProjectVm, SubProject>()
-                .ForMember(d => d.IrmsSetupUnit, opts => opts.Ignore());
+
+            CreateMap<SubProjectVm, SubProject>();
             CreateMap<SubProject, SubProjectVm>()
-                .ForMember(d => d.UnitDropdown, opts => opts.Ignore())
                 .ForMember(d => d.ConstructionFirmDropdown, opts => opts.Ignore())
                 .ForMember(d => d.ProjectName, opts => opts.MapFrom(src => src.Project.ProjectName))
-                .ForMember(d => d.UnitName, opts => opts.MapFrom(src => src.IrmsSetupUnit.UnitName))
                 .ForMember(d => d.ConstructionFirmName, opts => opts.MapFrom(src => src.ConstructionFirm.ConstructionFirmName));
+
+            CreateMap<SignatoryAuthorityVm, SignatoryAuthority>();
+            CreateMap<SignatoryAuthority, SignatoryAuthorityVm>()
+                .ForMember(d => d.ProjectName, opt => opt.MapFrom(src => src.Project.ProjectName))
+                .ForMember(d => d.LetterNumber, opt => opt.MapFrom(src => src.ReceivePayment.LetterNo));
+
+            CreateMap<VatTaxVm, VatTax>();
+            CreateMap<VatTax, VatTaxVm>()
+                .ForMember(d => d.ProjectName, opt => opt.MapFrom(src => src.Project.ProjectName))
+                .ForMember(d => d.LetterNumber, opt => opt.MapFrom(src => src.ReceivePayment.LetterNo))
+                .ForMember(d => d.ReceiveAmount, opt => opt.MapFrom(src => src.ReceivePayment.BillAmount));
+
+            CreateMap<BGBFundVm, BGBFund>();
+            CreateMap<BGBFund, BGBFundVm>();
+
+            CreateMap<ContractorPaymentVm, ContractorPayment>();
+            CreateMap<ContractorPayment, ContractorPaymentVm>()
+                .ForMember(d => d.ConstructionFirmName, opts => opts.MapFrom(src => src.ConstructionFirm.ConstructionFirmName))
+                .ForMember(d => d.SubProjectTitle, opt => opt.MapFrom(d => d.SubProject.SubProjectTitle));
+
+            CreateMap<ContractorBillPaymentVm, ContractorBillPayment>();
+            CreateMap<ContractorBillPayment, ContractorBillPaymentVm>();
 
             CreateMap<BillPaymentVm, BillPayment>()
                 .ForMember(d => d.SubProject, opts => opts.Ignore());
@@ -52,13 +72,10 @@ namespace IDIMWorkBranchProject
             CreateMap<ProjectStatus, ProjectStatusVm>()
                 .ForMember(d => d.SubProjectTitle, opts => opts.MapFrom(src => src.SubProject.SubProjectTitle));
 
-            CreateMap<ReceiptPaymentVm, ReceiptPayment>();
-            CreateMap<ReceiptPayment, ReceiptPaymentVm>()
-                .ForMember(d => d.FiscalYearDropdown, opts => opts.Ignore())
-                .ForMember(d => d.QuarterDropdown, opts => opts.Ignore())
+            CreateMap<ReceivePaymentVm, ReceivePayment>();
+            CreateMap<ReceivePayment, ReceivePaymentVm>()
                 .ForMember(d => d.ProjectName, opts => opts.MapFrom(src => src.Project.ProjectName))
-                .ForMember(d => d.FiscalYearName, opts => opts.MapFrom(src => src.FiscalYear.FiscalYearDescription))
-                .ForMember(d => d.QuarterName, opts => opts.MapFrom(src => src.Quarter.QuarterName));
+                .ForMember(d => d.ConstructionFirmName, opts => opts.MapFrom(src => src.ConstructionFirm.ConstructionFirmName));
 
             CreateMap<ConsultantVm, Consultant>();
 
@@ -82,8 +99,8 @@ namespace IDIMWorkBranchProject
                 .ForMember(d => d.SubProjectTitle, opts => opts.MapFrom(src => src.SubProject.SubProjectTitle))
                 .ForMember(d => d.ConsultantName, opts => opts.MapFrom(src => src.Consultant.Name));
 
-            CreateMap<SecurityDepositVm, PmSecurityDeposit>();
-            CreateMap<PmSecurityDeposit, SecurityDepositVm>()
+            CreateMap<SecurityDepositVm, SecurityDeposit>();
+            CreateMap<SecurityDeposit, SecurityDepositVm>()
                 .ForMember(d => d.SubProjectDropdown, opts => opts.Ignore())
                 .ForMember(d => d.SubProjectTitle, opts => opts.MapFrom(src => src.SubProject.SubProjectTitle));
 
@@ -96,8 +113,8 @@ namespace IDIMWorkBranchProject
             CreateMap<BillTypeVm, BillType>();
             CreateMap<BillType, BillTypeVm>();
 
-            CreateMap<QuarterVm, PmQuarter>();
-            CreateMap<PmQuarter, QuarterVm>();
+            CreateMap<QuarterVm, Quarter>();
+            CreateMap<Quarter, QuarterVm>();
 
             CreateMap<UnitVm, IrmsSetupUnit>();
             CreateMap<IrmsSetupUnit, UnitVm>();
