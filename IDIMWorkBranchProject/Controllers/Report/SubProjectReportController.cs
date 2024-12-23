@@ -3,12 +3,9 @@ using IDIMWorkBranchProject.Extentions.Healper;
 using IDIMWorkBranchProject.Models.WBP;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Report
@@ -59,7 +56,7 @@ namespace IDIMWorkBranchProject.Controllers.Report
             {
                 AuthorizeUnitDropdown = await UnitService.GetDropDownAsync(),
                 FiscalYearDropdown = await FiscalYearService.GetDropdownAsync(),
-                Projects = await ProjectService.GetByAsync()
+                Projects = await ProjectService.GetAllAsync()
             };
 
             return View(model);
@@ -68,9 +65,8 @@ namespace IDIMWorkBranchProject.Controllers.Report
         [HttpPost]
         public async Task<ActionResult> SubProject(ProjectSearchVm model)
         {
-            model.AuthorizeUnitDropdown = await UnitService.GetDropDownAsync(model.AuthorizeUnitId);
             model.FiscalYearDropdown = await FiscalYearService.GetDropdownAsync(model.FiscalYearId);
-            model.Projects = await ProjectService.GetByAsync(model);
+            model.Projects = await ProjectService.GetAllAsync();
 
             return View(model);
         }
