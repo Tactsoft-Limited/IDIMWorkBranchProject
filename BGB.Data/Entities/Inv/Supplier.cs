@@ -1,4 +1,3 @@
-using BGB.Data.Entities.Budget;
 using BGB.Data.Entities.Admin;
 using System;
 using System.Collections.Generic;
@@ -13,7 +12,7 @@ namespace BGB.Data.Entities.Inv
     {
         public Supplier()
         {
-            SecurityDeposits = new HashSet<PmSecurityDeposit>();
+            SecurityDeposits = new HashSet<SecurityDeposit>();
         }
 
         public int SupplierId { get; set; }
@@ -56,6 +55,6 @@ namespace BGB.Data.Entities.Inv
 
         public virtual Application Application { get; set; }
 
-        public virtual ICollection<PmSecurityDeposit> SecurityDeposits { get; set; }
+        public virtual ICollection<SecurityDeposit> SecurityDeposits { get; set; }
     }
 }
