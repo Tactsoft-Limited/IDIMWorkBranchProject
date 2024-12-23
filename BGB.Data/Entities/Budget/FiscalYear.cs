@@ -12,7 +12,7 @@ namespace BGB.Data.Entities.Budget
         public FiscalYear()
         {
             BillPayments = new HashSet<BillPayment>();
-            ReceiptPayments = new HashSet<ReceiptPayment>();
+            Projects = new HashSet<Project>();
         }
 
         public int FiscalYearId { get; set; }
@@ -37,7 +37,9 @@ namespace BGB.Data.Entities.Budget
 
 
 
+        #region Navigation Properties
+        public virtual ICollection<Project> Projects { get; set; }
         public virtual ICollection<BillPayment> BillPayments { get; set; }
-        public virtual ICollection<ReceiptPayment> ReceiptPayments { get; set; }
+        #endregion
     }
 }
