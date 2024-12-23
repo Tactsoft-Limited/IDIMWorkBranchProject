@@ -8,7 +8,13 @@ namespace BGB.Data.Entities.Pm
     [Table("pm.ConstructionFirm")]
     public partial class ConstructionFirm
     {
-        public ConstructionFirm() { SubProjects = new HashSet<SubProject>(); }
+        public ConstructionFirm()
+        {
+            SubProjects = new HashSet<SubProject>();
+            ReceivePayments = new HashSet<ReceivePayment>();
+            ContractorPayments = new HashSet<ContractorPayment>();
+            BGBFunds = new HashSet<BGBFund>();
+        }
 
         public int ConstructionFirmId { get; set; }
 
@@ -38,6 +44,11 @@ namespace BGB.Data.Entities.Pm
 
         public int UpdateNo { get; set; }
 
+        #region Navigation Properties
         public virtual ICollection<SubProject> SubProjects { get; set; }
+        public virtual ICollection<ReceivePayment> ReceivePayments { get; set; }
+        public virtual ICollection<ContractorPayment> ContractorPayments { get; set; }
+        public virtual ICollection<BGBFund> BGBFunds { get; set; }
+        #endregion
     }
 }
