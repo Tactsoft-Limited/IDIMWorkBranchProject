@@ -33,6 +33,7 @@ namespace BGB.Data.Entities.Pm
 
         public int UpdateNo { get; set; }
 
+        [ForeignKey(nameof(SubProjectId))]
         public virtual SubProject SubProject { get; set; }
     }
 }
