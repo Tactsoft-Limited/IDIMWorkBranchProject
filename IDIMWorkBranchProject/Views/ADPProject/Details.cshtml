@@ -1,0 +1,229 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model ADPProjectDetailVm
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="page-title">
+    <div class="pull-left">
+        <h3 class="title">Project Details</h3>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li class="active">
+                <strong>Project Details</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">List</h2>
+        <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("Edit", "ADPProject", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                <i class="fa fa-pencil-square-o"></i> সংশোধন
+            </a>
+            <a href="@Url.Action("Create", "ProjectDirector", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                <i class="fa fa-pencil-square-o"></i> প্রকল্প পরিচালক সংযুক্ত করুন
+            </a>
+            <a href="@Url.Action("Create", "FinancialYearAllocation", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                <i class="fa fa-pencil-square-o"></i> প্রকপ্লের বরাদ্দ সংযুক্ত করুন
+            </a>
+            <a href="@Url.Action("Create", "FiscalYearExpense", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                <i class="fa fa-pencil-square-o"></i> প্রকপ্লের ব্যয় সংযুক্ত করুন
+            </a>
+            <a href="@Url.Action("Create", "FormalMeeting", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                <i class="fa fa-pencil-square-o"></i> প্রকপ্লের সভা সংযুক্ত করুন
+            </a>
+
+            <a class="box_toggle fa fa-chevron-down"></a>
+        </div>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="form-display col-md-12">
+                @Html.LabelFor(m => m.ADPProjectDetail.ProjectTitle, new { @class = "label-display" })
+                @Html.DisplayFor(m => m.ADPProjectDetail.ProjectTitle)
+            </div>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.ADPProjectDetail.MinistryDepartment, new { @class = "label-display" })
+                @Html.DisplayFor(m => m.ADPProjectDetail.MinistryDepartment)
+            </div>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.ADPProjectDetail.EstimatedExpenses, new { @class = "label-display" })
+                @Html.DisplayFor(m => m.ADPProjectDetail.EstimatedExpenses)
+            </div>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.ADPProjectDetail.NoOfWork, new { @class = "label-display" })
+                @Html.DisplayFor(m => m.ADPProjectDetail.NoOfWork)
+            </div>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.ADPProjectDetail.StartingDate, new { @class = "label-display" })
+                @Html.DisplayFor(m => m.ADPProjectDetail.StartingDate)
+            </div>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.ADPProjectDetail.EndingDate, new { @class = "label-display" })
+                @Html.DisplayFor(m => m.ADPProjectDetail.EndingDate)
+            </div>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.ADPProjectDetail.FinancialProgress, new { @class = "label-display" })
+                @Html.DisplayFor(m => m.ADPProjectDetail.FinancialProgress)
+            </div>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.ADPProjectDetail.PhysicalProgress, new { @class = "label-display" })
+                @Html.DisplayFor(m => m.ADPProjectDetail.PhysicalProgress)
+            </div>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.ADPProjectDetail.Remarks, new { @class = "label-display" })
+                @Html.DisplayFor(m => m.ADPProjectDetail.Remarks)
+            </div>
+        </div>
+        <fieldset>
+            <legend>প্রকল্প পরিচালকঃ</legend>
+            <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>প্রকল্প পরিচালক</th>
+                        <th>যোগদানের তারিখ</th>
+                        <th>বদলীর তারিখ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ProjectDirector)
+                    {
+                        <tr style="background-color: @(item.IsActive ? "#d4edda" : "transparent")">
+                            <td>@item.ProjectDirectorName</td>
+                            <td>@item.JoiningDate</td>
+                            <td>@item.TransferDate</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>অর্থ বছর ভিত্তিক বরাদ্দঃ</legend>
+            <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>অর্থ বছর</th>
+                        <th>মোট বরাদ্দ</th>
+                        <th>এডিপি বরাদ্দ</th>
+                        <th>আরএডিপি</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.FinancialYearAllocation)
+                    {
+                        <tr>
+                            <td>@item.FiscalYearDescription</td>
+                            <td>@item.TotalAllocation</td>
+                            <td>@item.ADPAllocation</td>
+                            <td>@item.RADPAllocation</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>অর্থ বছর ভিত্তিক ব্যয়ঃ</legend>
+            <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>অর্থ বছর</th>
+                        <th>মোট ব্যয়</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.FiscalYearExpense)
+                    {
+                        <tr>
+                            <td>@item.FiscalYearDescription</td>
+                            <td>@item.TotalExpense</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>অনুষ্ঠিত সভাঃ</legend>
+            <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>মিটিং শিরোনাম</th>
+                        <th>মিটিং তারিখ</th>
+                        <th>মিটিং সংখ্যা</th>
+                        <th>ডকুমেন্ট</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.FormalMeeting)
+                    {
+                        <tr>
+                            <td>@item.MeetingTitle</td>
+                            <td>@item.MeetingDate</td>
+                            <td>@item.NumberOfMeeting</td>
+                            <td>@item.MeetingDocument</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>চলমান কাজ সমূহঃ</legend>
+            <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th rowspan="2" style="text-align: center; vertical-align: middle;">নির্মাণ কাজের নাম</th>
+                        <th rowspan="2" style="text-align: center; vertical-align: middle;">ঠিকাদারি প্রতিষ্ঠান</th>
+                        <th rowspan="2" style="text-align: center; vertical-align: middle;">প্রাক্কলিত ব্যয়</th>
+                        <th colspan="2" style="text-align: center; vertical-align: middle;">কার্যাদেশের মেয়াদ</th>
+                        <th rowspan="2" style="text-align: center; vertical-align: middle;">ব্যাংক গ্যারান্টি/পারফর্মেন্স সিকিউরিটির মেয়াদ</th>
+                        <th rowspan="2" style="text-align: center; vertical-align: middle;">নির্মাণ কাজের অগ্রগতি</th>
+                        <th colspan="2" style="text-align: center; vertical-align: middle;">বিল প্রদান</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="2" style="text-align: center; vertical-align: middle;">শুরু</th>
+                        <th rowspan="2" style="text-align: center; vertical-align: middle;">শেষ</th>
+                        <th rowspan="2" style="text-align: center; vertical-align: middle;">সিজিএ</th>
+                        <th rowspan="2" style="text-align: center; vertical-align: middle;">বিবিধ ফান্ড</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model.ProjectWorks)
+                    {
+                        <tr>
+                            <td>@item.ProjectTitle</td>
+                            <td>@item.FirmName</td>
+                            <td>@item.EstimatedCost</td>
+                            <td>@item.WorkStartDate</td>
+                            <td>@item.WorkEndDate</td>
+                            <td>@item.BankGuaranteeEndDate</td>
+                            <td>@item.ConstructionProgress</td>
+                            <td>
+                                <a href="@Url.Action("Create", "FormalMeeting", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                                    <i class="fa fa-money"></i> পেমেন্ট গ্রহণ
+                                </a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Create", "FormalMeeting", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                                    <i class="fa fa-money"></i> পেমেন্ট প্রদান
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
+
+    <partial name="_ModalPartial" />
+</section>
+
+
