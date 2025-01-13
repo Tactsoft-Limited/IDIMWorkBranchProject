@@ -57,6 +57,11 @@ namespace IDIMWorkBranchProject.Extentions.Session
         {
             return Get<UserInformation>(nameof(UserInformation)).DeviceId;
         }
+        public static bool IsAuthenticated()
+        {
+            var userInformation = Get<UserInformation>(nameof(UserInformation));
+            return userInformation != null && userInformation.UserId > 0;
+        }
 
     }
 }

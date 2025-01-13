@@ -4,8 +4,8 @@ using System.Data;
 using System.Linq;
 using System.Web.Mvc;
 using System.IO;
-using BGB.Data.Database;
 using IDIMWorkBranchProject.Extentions.Healper;
+using IDIMWorkBranchProject.Data.Database;
 namespace IDIMWorkBranchProject.Controllers.Report
 {
     public class ReportProblemController : Controller

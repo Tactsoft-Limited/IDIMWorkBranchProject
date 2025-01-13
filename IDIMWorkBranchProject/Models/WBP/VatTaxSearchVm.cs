@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Models.WBP
 {
-    public class VatTaxSearchVm : DataTablaSearchVm
+    public class VatTaxSearchVm : DataTablaVm
     {
         public VatTaxSearchVm()
         {

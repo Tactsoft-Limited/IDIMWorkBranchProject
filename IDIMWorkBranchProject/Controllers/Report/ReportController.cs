@@ -1,10 +1,10 @@
-﻿using IDIMWorkBranchProject.Services.Setup;
+﻿using IDIMWorkBranchProject.Data.Database;
+using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Mvc;
-using BGB.Data.Database;
 
 namespace IDIMWorkBranchProject.Controllers.Report
 {

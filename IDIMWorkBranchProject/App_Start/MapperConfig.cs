@@ -3,11 +3,11 @@ using BGB.Data.Entities.Admin;
 using BGB.Data.Entities.Budget;
 using BGB.Data.Entities.Irms;
 using BGB.Data.Entities.Pm;
-using IDIMWorkBranchProject.Extentions;
+using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Models.Setup;
 using IDIMWorkBranchProject.Models.User;
 using IDIMWorkBranchProject.Models.WBP;
-using System.Web.Mvc.Html;
+using IDIMWorkBranchProject.Models.Wbpm;
 
 namespace IDIMWorkBranchProject
 {
@@ -103,6 +103,44 @@ namespace IDIMWorkBranchProject
             CreateMap<SecurityDeposit, SecurityDepositVm>()
                 .ForMember(d => d.SubProjectDropdown, opts => opts.Ignore())
                 .ForMember(d => d.SubProjectTitle, opts => opts.MapFrom(src => src.SubProject.SubProjectTitle));
+
+            #endregion
+
+            #region Wbpm
+
+            CreateMap<ProjectDirectorVm, ProjectDirector>();
+            CreateMap<ProjectDirector, ProjectDirectorVm>()
+                .ForMember(x => x.ProjectTitle, opt => opt.MapFrom(x => x.ADPProjects.ProjectTitle));
+
+            CreateMap<ConstructionCompany, ConstructionCompanyVm>();
+            CreateMap<ConstructionCompanyVm, ConstructionCompany>();
+
+            CreateMap<ADPProjectVm, ADPProject>();
+            CreateMap<ADPProject, ADPProjectVm>();
+
+            CreateMap<MasterplanVm, Masterplan>();
+            CreateMap<Masterplan, MasterplanVm>();
+
+            CreateMap<FinancialYearAllocationVm, FinancialYearAllocation>();
+            CreateMap<FinancialYearAllocation, FinancialYearAllocationVm>();
+
+            CreateMap<FiscalYearExpenseVm, FiscalYearExpense>();
+            CreateMap<FiscalYearExpense, FiscalYearExpenseVm>();
+
+            CreateMap<FormalMeetingVm, FormalMeeting>();
+            CreateMap<FormalMeeting, FormalMeetingVm>();
+
+            CreateMap<ProjectWorkVm, ProjectWork>();
+            CreateMap<ProjectWork, ProjectWorkVm>();
+
+            CreateMap<ADPReceivePaymentVm, ADPReceivePayment>();
+            CreateMap<ADPReceivePayment, ADPReceivePaymentVm>();
+
+            CreateMap<BGBMiscellaneousFundVm, BGBMiscellaneousFund>();
+            CreateMap<BGBMiscellaneousFund, BGBMiscellaneousFundVm>();
+
+            CreateMap<ContractorCompanyPaymentVm, ContractorCompanyPayment>();
+            CreateMap<ContractorCompanyPayment, ContractorCompanyPaymentVm>();
 
             #endregion
 

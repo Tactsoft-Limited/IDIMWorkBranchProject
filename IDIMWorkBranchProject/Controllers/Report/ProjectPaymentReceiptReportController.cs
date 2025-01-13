@@ -5,9 +5,9 @@ using System.IO;
 using System.Threading.Tasks;
 using System;
 using System.Web.Mvc;
-using BGB.Data.Database;
 using IDIMWorkBranchProject.Services.WBP;
 using System.Linq;
+using IDIMWorkBranchProject.Data.Database;
 
 namespace IDIMWorkBranchProject.Controllers.Report
 {

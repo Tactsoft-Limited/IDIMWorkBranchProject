@@ -1,10 +1,72 @@
-﻿using System.Net;
+﻿using System.IO;
+using System;
+using System.Net;
 using System.Web;
 
 namespace IDIMWorkBranchProject.Extentions.File
 {
     public static class FileExtention
     {
+        /// <summary>
+        /// Upload file to folder and save the file name to the database
+        /// </summary>
+        /// <param name="file">The file to be uploaded</param>
+        /// <param name="uploadFolder">Folder to upload the file to</param>
+        /// <param name="connectionString">Connection string to the database</param>
+        /// <returns>File name if successful, or an error message</returns>
+        public static string UploadFile(this HttpPostedFileBase file, string uploadFolder)
+        {
+            if (file == null || file.ContentLength == 0)
+            {
+                return "No file selected.";
+            }
+
+            try
+            {
+                uploadFolder = uploadFolder.TrimEnd(Path.DirectorySeparatorChar);
+                uploadFolder.ToFolder();
+
+                string originalFileName = Path.GetFileName(file.FileName);
+                string fileExtension = Path.GetExtension(originalFileName);
+                string dateTimeString = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                string fileName = $"{Path.GetFileNameWithoutExtension(originalFileName)}_{dateTimeString}{fileExtension}";
+
+                string filePath = Path.Combine(HttpContext.Current.Server.MapPath("~/" + uploadFolder), fileName);
+                file.SaveAs(filePath);
+                return fileName;
+            }
+            catch (Exception ex)
+            {
+                return $"Error: {ex.Message}";
+            }
+        }
+
+
+        public static string DeleteFile(string fileName, string uploadFolder)
+        {
+            try
+            {
+                uploadFolder = uploadFolder.TrimEnd(Path.DirectorySeparatorChar);
+                string filePath = Path.Combine(HttpContext.Current.Server.MapPath("~/" + uploadFolder), fileName);
+
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                    return "File deleted successfully.";
+                }
+                else
+                {
+                    return "File not found.";
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Error: {ex.Message}";
+            }
+        }
+
+
+
         /// <summary>
         /// Create folder from path if not exists
         /// </summary>
@@ -14,11 +76,14 @@ namespace IDIMWorkBranchProject.Extentions.File
             if (string.IsNullOrEmpty(path))
                 return;
 
-            var exists = System.IO.Directory.Exists(path);
+            string fullPath = HttpContext.Current.Server.MapPath("~/" + path);
+
+            var exists = System.IO.Directory.Exists(fullPath);
 
             if (!exists)
-                System.IO.Directory.CreateDirectory(HttpContext.Current.Server.MapPath(path));
+                System.IO.Directory.CreateDirectory(fullPath);
         }
+
 
         /// <summary>
         /// Check file exists in http path

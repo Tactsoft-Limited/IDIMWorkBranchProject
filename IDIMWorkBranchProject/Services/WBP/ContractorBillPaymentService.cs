@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BGB.Data.Database;
+using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Models.WBP;
 using System.Collections.Generic;
 using System.Threading.Tasks;

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BGB.Data.Database;
+using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.Ad;
 using IDIMWorkBranchProject.Extentions.File;

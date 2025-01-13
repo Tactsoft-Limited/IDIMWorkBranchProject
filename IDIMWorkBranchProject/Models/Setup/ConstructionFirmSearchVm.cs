@@ -1,13 +1,9 @@
-﻿using IDIMWorkBranchProject.Models.WBP;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace IDIMWorkBranchProject.Models.Setup
 {
-    public class ConstructionFirmSearchVm : DataTablaSearchVm
+    public class ConstructionFirmSearchVm : DataTablaVm
     {
         [Display(Name = " Company Name")]
         public string ConstructionFirmName { get; set; }

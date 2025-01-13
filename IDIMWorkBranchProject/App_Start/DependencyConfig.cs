@@ -3,8 +3,8 @@ using System.Web.Mvc;
 using Autofac;
 using AutoMapper;
 using Autofac.Integration.Mvc;
-using BGB.Data.Database;
 using System.Reflection;
+using IDIMWorkBranchProject.Data.Database;
 
 namespace IDIMWorkBranchProject
 {

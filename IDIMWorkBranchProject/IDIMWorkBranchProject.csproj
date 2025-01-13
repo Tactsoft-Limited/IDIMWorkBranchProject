@@ -323,6 +323,9 @@
     <Compile Include="Controllers\User\GeneralInformationController.cs" />
     <Compile Include="Controllers\User\MenuController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
+    <Compile Include="Controllers\Wbpm\ADPProjectController.cs" />
+    <Compile Include="Controllers\Wbpm\ConstructionCompanyController.cs" />
+    <Compile Include="Controllers\Wbpm\ProjectDirectorController.cs" />
     <Compile Include="Controllers\WBP\BGBFundController.cs" />
     <Compile Include="Controllers\WBP\BillPaymentController.cs" />
     <Compile Include="Controllers\WBP\ConsultancyActivitiesController.cs" />
@@ -340,6 +343,10 @@
     <Compile Include="Controllers\WBP\SubProjectController.cs" />
     <Compile Include="Controllers\WBP\SubProjectDetailsController.cs" />
     <Compile Include="Controllers\WBP\VatTaxController.cs" />
+    <Compile Include="Database\IDIMDBContext.Functions.cs" />
+    <Compile Include="Database\IDIMDBContextProcedures.cs" />
+    <Compile Include="Database\IDIMDBEntities.cs" />
+    <Compile Include="Database\IIDIMDBContextProcedures.cs" />
     <Compile Include="Extentions\Ad\LdapExtention.cs" />
     <Compile Include="Extentions\BoolExtention.cs" />
     <Compile Include="Extentions\ClassExtentions.cs" />
@@ -363,7 +370,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\DataTablaSearchVm.cs" />
+    <Compile Include="Models\DataTablaVm.cs" />
     <Compile Include="Models\Common\ReportConfig.cs" />
     <Compile Include="Models\Dashboard\DashboardVm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -422,7 +429,33 @@
     <Compile Include="Models\Validation\User\MenuVmValidator.cs" />
     <Compile Include="Models\Validation\User\RegisterVmValidator.cs" />
     <Compile Include="Models\Validation\User\UserVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\ADPProjectVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\ADPReceivePaymentVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\BGBMiscellaneousFundVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\ProjectWorkVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\MasterplanVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\FormalMeetingVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\FiscalYearExpenseVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\FinancialYearAllocationVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\ContractorCompanyPaymentVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\ConstructionCompanyVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\ProjectDirectorVmValidator.cs" />
     <Compile Include="Models\Validation\WBP\ProjectVmValidator.cs" />
+    <Compile Include="Models\Wbpm\ADPProjectDetailVm.cs" />
+    <Compile Include="Models\Wbpm\ADPProjectSearchVm.cs" />
+    <Compile Include="Models\Wbpm\ADPProjectVm.cs" />
+    <Compile Include="Models\Wbpm\ADPReceivePaymentVm.cs" />
+    <Compile Include="Models\Wbpm\BGBMiscellaneousFundVm.cs" />
+    <Compile Include="Models\Wbpm\ConstructionCompanySearchVm.cs" />
+    <Compile Include="Models\Wbpm\ContractorCompanyPaymentVm.cs" />
+    <Compile Include="Models\Wbpm\ProjectDirectorSearchVm.cs" />
+    <Compile Include="Models\Wbpm\ProjectWorkVm.cs" />
+    <Compile Include="Models\Wbpm\FormalMeetingVm.cs" />
+    <Compile Include="Models\Wbpm\FiscalYearExpenseVm.cs" />
+    <Compile Include="Models\Wbpm\FinancialYearAllocationVm.cs" />
+    <Compile Include="Models\Wbpm\MasterplanVm.cs" />
+    <Compile Include="Models\Wbpm\ConstructionCompanyVm.cs" />
+    <Compile Include="Models\Wbpm\ProjectDirectorVm.cs" />
     <Compile Include="Models\WBP\BillPaymentSearchVm.cs" />
     <Compile Include="Models\WBP\BillPaymentVm.cs" />
     <Compile Include="Models\WBP\BGBFundVm.cs" />
@@ -465,6 +498,8 @@
       <DependentUpon>WPDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Services\ActivityLogService.cs" />
+    <Compile Include="Services\Base\BaseService.cs" />
+    <Compile Include="Services\Base\IBaseService.cs" />
     <Compile Include="Services\IActivityLogService.cs" />
     <Compile Include="Services\Dashboard\DashboardService.cs" />
     <Compile Include="Services\Dashboard\IDashboardService.cs" />
@@ -494,6 +529,28 @@
     <Compile Include="Services\User\UserApplicationService.cs" />
     <Compile Include="Services\User\UserPriviledgeService.cs" />
     <Compile Include="Services\User\UserService.cs" />
+    <Compile Include="Services\Wbpm\ADPProjectService.cs" />
+    <Compile Include="Services\Wbpm\ADPReceivePaymentService.cs" />
+    <Compile Include="Services\Wbpm\BGBMiscellaneousFundService.cs" />
+    <Compile Include="Services\Wbpm\ConstructionCompanyService.cs" />
+    <Compile Include="Services\Wbpm\ContractorCompanyPaymentService.cs" />
+    <Compile Include="Services\Wbpm\FinancialYearAllocationService.cs" />
+    <Compile Include="Services\Wbpm\FiscalYearExpenseService.cs" />
+    <Compile Include="Services\Wbpm\FormalMeetingService.cs" />
+    <Compile Include="Services\Wbpm\IADPProjectService.cs" />
+    <Compile Include="Services\Wbpm\IADPReceivePaymentService.cs" />
+    <Compile Include="Services\Wbpm\IBGBMiscellaneousFundService.cs" />
+    <Compile Include="Services\Wbpm\IConstructionCompanyService.cs" />
+    <Compile Include="Services\Wbpm\IContractorCompanyPaymentService.cs" />
+    <Compile Include="Services\Wbpm\IFinancialYearAllocationService.cs" />
+    <Compile Include="Services\Wbpm\IFiscalYearExpenseService.cs" />
+    <Compile Include="Services\Wbpm\IFormalMeetingService.cs" />
+    <Compile Include="Services\Wbpm\IMasterplanService.cs" />
+    <Compile Include="Services\Wbpm\IProjectDirectorService.cs" />
+    <Compile Include="Services\Wbpm\IProjectWorkService.cs" />
+    <Compile Include="Services\Wbpm\MasterplanService.cs" />
+    <Compile Include="Services\Wbpm\ProjectDirectorService.cs" />
+    <Compile Include="Services\Wbpm\ProjectWorkService.cs" />
     <Compile Include="Services\WBP\BillPaymentService.cs" />
     <Compile Include="Services\WBP\ConsultancyActivitiesService.cs" />
     <Compile Include="Services\WBP\ConsultancyFeesService.cs" />
@@ -684,6 +741,8 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Documents\ProjectDirectorFiles\Kamrul Hasan_20250111_121350.pdf" />
+    <Content Include="Documents\ProjectDirectorFiles\Print PC - PC Builder - Star Tech_20250111_123411.pdf" />
     <None Include="Properties\PublishProfiles\project.pubxml" />
     <None Include="Report\Data\WPDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
@@ -2745,14 +2804,22 @@
     <Content Include="Content\Documents\20241208_133752_BankGuarantee.pdf" />
     <Content Include="Content\Documents\20241208_133752_NOA.pdf" />
     <Content Include="Content\Documents\20241208_133752_WorkOrder.pdf" />
+    <Content Include="Views\ProjectDirector\List.cshtml" />
+    <Content Include="Views\ProjectDirector\Create.cshtml" />
+    <Content Include="Views\ProjectDirector\Edit.cshtml" />
+    <Content Include="Views\Shared\_ModalPartial.cshtml" />
+    <Content Include="Views\ConstructionCompany\List.cshtml" />
+    <Content Include="Views\ConstructionCompany\Create.cshtml" />
+    <Content Include="Views\ConstructionCompany\Edit.cshtml" />
+    <Content Include="Views\ADPProject\List.cshtml" />
+    <Content Include="Views\ADPProject\Create.cshtml" />
+    <Content Include="Views\ADPProject\Details.cshtml" />
+    <Content Include="Views\ADPProject\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\Plugins\datatables\extensions\FixedColumns\examples\integration\" />
     <Folder Include="Scripts\Plugins\jquery-tabledit\" />
-    <Folder Include="Views\Attachment\" />
-    <Folder Include="Views\BGBFund\" />
-    <Folder Include="Views\ContractorBillPayment\" />
     <Folder Include="Views\GeneralInformation\" />
     <Folder Include="Views\Shared\EditorElements\" />
     <Folder Include="Views\Shared\Others\" />
@@ -2916,7 +2983,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>27620</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:27620/</IISUrl>
+          <IISUrl>http://localhost:27620/wbpm</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

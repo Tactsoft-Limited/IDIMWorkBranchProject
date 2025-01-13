@@ -9,10 +9,8 @@ using AutoMapper;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.Setup;
-using BGB.Data.Database;
 using BGB.Data.Entities.Pm;
-using IDIMWorkBranchProject.Models.WBP;
-using Microsoft.Ajax.Utilities;
+using IDIMWorkBranchProject.Data.Database;
 
 namespace IDIMWorkBranchProject.Services.Setup
 {

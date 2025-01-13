@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Models.WBP
 {
-    public class SignatoryAuthoritySearchVm : DataTablaSearchVm
+    public class SignatoryAuthoritySearchVm : DataTablaVm
     {
         public SignatoryAuthoritySearchVm()
         {

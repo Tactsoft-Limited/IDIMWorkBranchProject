@@ -48,10 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\IDIMDBContext.Functions.cs" />
-    <Compile Include="Database\IDIMDBContextProcedures.cs" />
-    <Compile Include="Database\IDIMDBEntities.cs" />
-    <Compile Include="Database\IIDIMDBContextProcedures.cs" />
     <Compile Include="Entities\Admin\ActivityLog.cs" />
     <Compile Include="Entities\Admin\Application.cs" />
     <Compile Include="Entities\Admin\Menu.cs" />
@@ -60,6 +56,7 @@
     <Compile Include="Entities\Admin\SlideImage.cs" />
     <Compile Include="Entities\Admin\User.cs" />
     <Compile Include="Entities\Admin\UserPrivilege.cs" />
+    <Compile Include="Entities\Base\BaseEntity.cs" />
     <Compile Include="Entities\Budget\FiscalYear.cs" />
     <Compile Include="Entities\Inv\Supplier.cs" />
     <Compile Include="Entities\Irms\GeneralInformation.cs" />
@@ -89,6 +86,17 @@
     <Compile Include="Entities\Pm\ReceivePayment.cs" />
     <Compile Include="Entities\Pm\SubProject.cs" />
     <Compile Include="Entities\Pm\SubProjectDetail.cs" />
+    <Compile Include="Entities\Wbpm\ADPProject.cs" />
+    <Compile Include="Entities\Wbpm\ADPReceivePayment.cs" />
+    <Compile Include="Entities\Wbpm\BGBMiscellaneousFund.cs" />
+    <Compile Include="Entities\Wbpm\ConstructionCompany.cs" />
+    <Compile Include="Entities\Wbpm\ContractorCompanyPayment.cs" />
+    <Compile Include="Entities\Wbpm\FinancialYearAllocation.cs" />
+    <Compile Include="Entities\Wbpm\FiscalYearExpense.cs" />
+    <Compile Include="Entities\Wbpm\FormalMeeting.cs" />
+    <Compile Include="Entities\Wbpm\Masterplan.cs" />
+    <Compile Include="Entities\Wbpm\ProjectDirector.cs" />
+    <Compile Include="Entities\Wbpm\ProjectWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlViews\Pm\ViewExtended.cs" />
     <Compile Include="SqlViews\Pm\ViewProjectBillPayment.cs" />
@@ -150,5 +158,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Models.WBP
 {
-    public class ProjectSearchVm : DataTablaSearchVm
+    public class ProjectSearchVm : DataTablaVm
     {
         public ProjectSearchVm()
         {

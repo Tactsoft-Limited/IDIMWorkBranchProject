@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.IO;
 using IDIMWorkBranchProject.Models.Report;
-using BGB.Data.Database;
 using IDIMWorkBranchProject.Extentions.Healper;
+using IDIMWorkBranchProject.Data.Database;
 namespace IDIMWorkBranchProject.Controllers.Report
 {
     public class ReportBillPaymentController : Controller

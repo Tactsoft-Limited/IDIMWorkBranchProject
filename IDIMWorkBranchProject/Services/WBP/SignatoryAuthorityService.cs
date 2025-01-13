@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using BGB.Data.Database;
 using BGB.Data.Entities.Pm;
 using System;
 using System.Collections.Generic;
@@ -11,6 +10,7 @@ using IDIMWorkBranchProject.Models.WBP;
 using IDIMWorkBranchProject.Extentions;
 using System.Data.Entity;
 using IDIMWorkBranchProject.Extentions.Session;
+using IDIMWorkBranchProject.Data.Database;
 
 namespace IDIMWorkBranchProject.Services.WBP
 {

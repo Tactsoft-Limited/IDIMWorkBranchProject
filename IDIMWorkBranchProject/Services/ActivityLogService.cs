@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using BGB.Data.Database;
 using BGB.Data.Entities.Admin;
+using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Models.User;
 
 namespace IDIMWorkBranchProject.Services
