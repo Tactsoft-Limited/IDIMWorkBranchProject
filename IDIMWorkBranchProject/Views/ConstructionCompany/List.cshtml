@@ -1,0 +1,109 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model ConstructionCompanySearchVm
+
+
+@{
+    ViewBag.Title = "List";
+}
+
+
+<div class="page-title">
+    <div class="pull-left">
+        <h3 class="title">Project Director</h3>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li class="active">
+                <strong>Project Director</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">List</h2>
+        <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("Create","ConstructionCompany")" class="btn btn-success"><i class="fa fa-plus"></i> Create New</a>
+            <a class="box_toggle fa fa-chevron-down"></a>
+        </div>
+    </header>
+    <div class="content-body">
+       
+        <div class="row">
+            <div class="col-xs-12">
+                <table id="constructionCompanyTable" class="table table-striped table-bordered" width="100%" cellspacing="0">
+                </table>
+            </div>
+        </div>
+
+        <partial name="_ModalPartial" />
+    </div>
+</section>
+
+
+@section scripts {
+
+    <script>
+        $(document).ready(function () {
+            var table = $('#constructionCompanyTable').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": baseUrl + "/ConstructionCompany/LoadData",  // Make sure this is correct
+                    "type": "POST",
+                    "contentType": "application/json",  // Sending JSON data
+                    "data": function (d) {
+                        // Manually create a JSON object for the POST request
+                        return JSON.stringify({
+                            SearchValue: d.search.value,  // Global search term
+                            Draw: d.draw,
+                            PageIndex: d.start / d.length,  // Pagination: starting index
+                            PageSize: d.length,  // Pagination: number of records per page
+                            SortColumn: d.order[0] ? d.columns[d.order[0].column].data : 'ConstructionCompanyId',
+                            SortDirection: d.order[0] ? d.order[0].dir : 'asc'
+                        });
+                    },
+                    "dataSrc": function (json) {
+                        console.log(json.data)
+                        return json.data;
+                    }
+                },
+                "columns": [
+                    { "data": "ConstructionCompanyId", "title": "আইডি", "visible": false },
+                    { "data": "FirmName", "title": "ফার্মের নাম" },
+                    { "data": "ContactPerson", "title": "যোগাযোগের ব্যক্তি" },
+                    { "data": "ContactPhone", "title": "ফোন নম্বর" },
+                    { "data": "Email", "title": "ইমেইল" },
+                    { "data": "FirmAddress", "title": "ফার্মের ঠিকানা" },
+                    {
+                        "data": "ConstructionCompanyId",  // You can use ProjectId to generate action buttons
+                        "title": "অ্যাকশন",
+                        "width": "140px",
+                        "orderable": false,
+                        "render": function (data, type, row) {
+                            return `
+                                <a href="${baseUrl}/ConstructionCompany/Edit?id=${row.ConstructionCompanyId}" class="btn btn-xs btn-primary">
+                                <i class="fa fa-edit"></i> Edit
+                                </a>
+                                <a class="btn btn-danger btn-xs show-bs-modal" data-id='${row.ConstructionCompanyId}' data-entity='ProjectDirector' value='${row.ConstructionCompanyId}'>
+                                    <i class="fa fa-trash"></i> Remove </a>`;
+                        }
+                    }
+                ]
+            });
+
+            // Apply filters automatically when the user changes any of the filter fields
+            $('#ProjectName, #StartingDate, #EndingDate, #FiscalYearId, #ProjectTypeId').on('change input keyup', function () {
+                table.ajax.reload();
+            });
+        });
+
+    </script>
+
+}
+
