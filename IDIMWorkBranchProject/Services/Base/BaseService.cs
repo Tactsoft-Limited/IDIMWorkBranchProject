@@ -54,7 +54,10 @@ namespace IDIMWorkBranchProject.Services.Base
             entity.UpdatedDateTime = DateTime.Now;
             entity.UpdateNo += 1;
             _context.Entry(entity).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+			// Exclude CreatedUser and CreatedDateTime from being modified
+			_context.Entry(entity).Property(e => e.CreatedUser).IsModified = false;
+			_context.Entry(entity).Property(e => e.CreatedDateTime).IsModified = false;
+			await _context.SaveChangesAsync();
             return entity;
         }
 
