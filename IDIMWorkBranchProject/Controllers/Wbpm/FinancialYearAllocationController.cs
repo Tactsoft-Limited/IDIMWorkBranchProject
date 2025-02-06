@@ -89,6 +89,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 return View(model);
             }
         }
+
         public async Task<ActionResult> Edit(int id)
         {
 
@@ -97,7 +98,9 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync(model.FiscalYearId);
             return View(model);
         }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(FinancialYearAllocationVm model)
         {
             try
@@ -110,7 +113,6 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 }
 
                 var entity = _mapper.Map<FinancialYearAllocation>(model);
-                //entity.CreatedUser=
                 await _financialYearAllocationService.UpdateAsync(entity);
 
                 TempData["Message"] = Messages.Success(MessageType.Update.ToString());
@@ -118,7 +120,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             }
             catch (Exception exception)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Update.ToString(), exception.Message);
+                TempData["Message"] = Messages.Failed(MessageType.Update.ToString(), exception.InnerException.Message);
                 model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync(model.FiscalYearId);
                 return View(model);
             }
