@@ -16,7 +16,7 @@ namespace BGB.Data.Entities.Wbpm
 
         public int ADPProjectId { get; set; }
         public int FiscalYearId { get; set; }
-        public float TotalExpense { get; set; }
+        public double TotalExpense { get; set; }
 
 
         #region  Navigation Property
