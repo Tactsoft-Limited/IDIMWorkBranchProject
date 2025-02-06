@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Web.Mvc;
 using FluentValidation.Attributes;
 using IDIMWorkBranchProject.Models.Validation.Wbpm;
 
@@ -7,6 +9,10 @@ namespace IDIMWorkBranchProject.Models.Wbpm
     [Validator(typeof(FinancialYearAllocationVmValidator))]
     public class FinancialYearAllocationVm
     {
+        public FinancialYearAllocationVm()
+        {
+            FiscalYearDropdown = new List<SelectListItem>();
+        }
 
         public int FinancialYearAllocationId { get; set; }
 
@@ -23,13 +29,16 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public string FiscalYearDescription { get; set; }
 
         [DisplayName("মোট বরাদ্দ")]
-        public float TotalAllocation { get; set; }
+        public double TotalAllocation { get; set; }
 
         [DisplayName("এডিপি বরাদ্দ")]
-        public float ADPAllocation { get; set; }
+        public double ADPAllocation { get; set; }
 
         [DisplayName("আরএডিপি বরাদ্দ")]
-        public float RADPAllocation { get; set; }
+        public double RADPAllocation { get; set; }
+
+
+        public IEnumerable<SelectListItem> FiscalYearDropdown { get; set; }
 
     }
 }
