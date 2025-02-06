@@ -1,4 +1,9 @@
-﻿using IDIMWorkBranchProject.Data.Database;
+﻿using BGB.Data.Entities.Base;
+
+using IDIMWorkBranchProject.Data.Database;
+using IDIMWorkBranchProject.Extentions.Session;
+
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -6,8 +11,8 @@ using System.Threading.Tasks;
 
 namespace IDIMWorkBranchProject.Services.Base
 {
-    public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class
-    {
+    public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : BaseEntity
+	{
         protected readonly IDIMDBEntities _context;
         protected readonly DbSet<TEntity> _dbSet;
 
@@ -25,7 +30,9 @@ namespace IDIMWorkBranchProject.Services.Base
         // Create
         public virtual async Task<TEntity> CreateAsync(TEntity entity)
         {
-            _dbSet.Add(entity);
+			entity.CreatedUser =  UserExtention.GetUserId();
+			entity.CreatedDateTime = DateTime.Now;
+			_dbSet.Add(entity);
             await _context.SaveChangesAsync();
             return entity;
         }
@@ -43,6 +50,9 @@ namespace IDIMWorkBranchProject.Services.Base
         // Update
         public virtual async Task<TEntity> UpdateAsync(TEntity entity)
         {
+            entity.UpdatedUser = UserExtention.GetUserId();
+            entity.UpdatedDateTime = DateTime.Now;
+            entity.UpdateNo += 1;
             _context.Entry(entity).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return entity;
