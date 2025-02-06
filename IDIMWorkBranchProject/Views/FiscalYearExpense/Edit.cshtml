@@ -1,0 +1,88 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model FiscalYearExpenseVm
+
+@{
+    ViewBag.Title = "Ctrate";
+}
+
+
+
+<div class="page-title">
+    <div class="pull-left">
+        <h3 class="title">Fiscal Year Expense</h3>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","FiscalYearExpense")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Fiscal Year Expense
+                </a>
+            </li>
+            <li class="active">
+                <strong>Create</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">Create</h2>
+        <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("List","FiscalYearExpense")" class="btn">
+                <i class="fa fa-list" aria-hidden="true"></i>
+                List
+            </a>
+            <a class="box_toggle fa fa-chevron-down"></a>
+        </div>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("Create", "FiscalYearExpense", FormMethod.Post, new { enctype = "multipart/form-data", id = "ProjectDirector-create-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.FiscalYearExpenseId)
+                    @Html.HiddenFor(x => x.ADPProjectId)
+
+                    <div class="row">
+                        <div class="row">
+                            <div class="form-display col-md-12">
+                                @Html.LabelFor(m => m.ProjectTitle, new { @class = "label-display" })
+                                @Html.TextBoxFor(m => m.ProjectTitle, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.FiscalYearId, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.FiscalYearId, Model.FiscalYearDropdown, "Select Fiscal Year", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.FiscalYearId)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.TotalExpense, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.TotalExpense, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TotalExpense)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
