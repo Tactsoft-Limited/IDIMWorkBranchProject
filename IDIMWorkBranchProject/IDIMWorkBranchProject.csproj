@@ -2825,6 +2825,7 @@
     <Content Include="Views\FiscalYearExpense\List.cshtml" />
     <Content Include="Views\FiscalYearExpense\Create.cshtml" />
     <Content Include="Views\FiscalYearExpense\Edit.cshtml" />
+    <Content Include="Views\FinancialYearAllocation\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

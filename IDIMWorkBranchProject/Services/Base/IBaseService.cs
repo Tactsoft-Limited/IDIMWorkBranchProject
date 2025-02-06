@@ -12,5 +12,6 @@ namespace IDIMWorkBranchProject.Services.Base
         Task<TEntity> GetByIdAsync(object id);
         Task<TEntity> UpdateAsync(TEntity entity);
         Task<TEntity> DeleteAsync(object id);
+        Task<TEntity> DeleteAsync(TEntity entity);
     }
 }

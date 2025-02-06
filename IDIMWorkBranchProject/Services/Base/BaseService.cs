@@ -69,6 +69,20 @@ namespace IDIMWorkBranchProject.Services.Base
                 return null;
             }
 
+
+            _dbSet.Remove(entity);
+            await _context.SaveChangesAsync();
+            return entity;
+        }
+
+
+        public async Task<TEntity> DeleteAsync(TEntity entity)
+        {
+            if (entity == null)
+            {
+                return null;
+            }
+
             _dbSet.Remove(entity);
             await _context.SaveChangesAsync();
             return entity;

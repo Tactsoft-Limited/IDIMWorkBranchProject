@@ -80,7 +80,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 var entity = _mapper.Map<FinancialYearAllocation>(model);
                 await _financialYearAllocationService.CreateAsync(entity);
                 TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                return RedirectToAction("details/"+ model.ADPProjectId, "ADPProject");
+                return RedirectToAction("details/" + model.ADPProjectId, "ADPProject");
             }
             catch (Exception exception)
             {
@@ -125,5 +125,53 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 return View(model);
             }
         }
+
+
+        [HttpGet]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var entity = await _financialYearAllocationService.GetByIdAsync(id);
+
+            if (entity == null)
+            {
+                TempData["Message"] = "The requested record was not found.";
+                return RedirectToAction("details/" + entity.ADPProjectId, "ADPProject");
+            }
+
+            var model = _mapper.Map<FinancialYearAllocationVm>(entity);
+            model.ProjectTitle = await _aDPProjectService.GetAdpProjectTitle(entity.ADPProjectId);
+            return View(model); // Load the delete confirmation view
+        }
+
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(FinancialYearAllocationVm model)
+        {
+            var entity = await _financialYearAllocationService.GetByIdAsync(model.FinancialYearAllocationId);
+            try
+            {
+               
+                if (entity == null)
+                {
+                    TempData["Message"] = "Record Not Found";
+                    return RedirectToAction("Details/" + entity.ADPProjectId, "ADPProject");
+                }
+
+                await _financialYearAllocationService.DeleteAsync(entity);
+
+                TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
+                return RedirectToAction("Details/" + entity.ADPProjectId, "ADPProject" );
+            }
+            catch (Exception exception)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
+                return RedirectToAction("Details/" + entity.ADPProjectId, "ADPProject" ); // Avoids null reference
+            }
+        }
+
+
     }
 }
