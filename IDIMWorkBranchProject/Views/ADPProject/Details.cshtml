@@ -115,6 +115,7 @@
                         <th>মোট বরাদ্দ</th>
                         <th>এডিপি বরাদ্দ</th>
                         <th>আরএডিপি</th>
+                        <th style="width:120px;">সংশোধন</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -125,6 +126,14 @@
                             <td>@item.TotalAllocation</td>
                             <td>@item.ADPAllocation</td>
                             <td>@item.RADPAllocation</td>
+                            <td>
+                                <a href="@Url.Action("Edit", "FinancialYearAllocation", new { id = item.FinancialYearAllocationId })" class="btn btn-primary btn-xs">
+                                    <i class="fa fa-pencil-square-o"></i> সংশোধন
+                                </a>
+                                <a href="@Url.Action("Delete", "FinancialYearAllocation", new { id = item.FinancialYearAllocationId })" class="btn btn-danger btn-xs">
+                                    <i class="fa fa-trash-o"></i> অপসারণ
+                                </a>
+                            </td>
                         </tr>
                     }
                 </tbody>

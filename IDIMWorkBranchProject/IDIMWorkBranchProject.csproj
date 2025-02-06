@@ -325,6 +325,7 @@
     <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="Controllers\Wbpm\ADPProjectController.cs" />
     <Compile Include="Controllers\Wbpm\ConstructionCompanyController.cs" />
+    <Compile Include="Controllers\Wbpm\FinancialYearAllocationController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectDirectorController.cs" />
     <Compile Include="Controllers\WBP\BGBFundController.cs" />
     <Compile Include="Controllers\WBP\BillPaymentController.cs" />
@@ -448,6 +449,7 @@
     <Compile Include="Models\Wbpm\BGBMiscellaneousFundVm.cs" />
     <Compile Include="Models\Wbpm\ConstructionCompanySearchVm.cs" />
     <Compile Include="Models\Wbpm\ContractorCompanyPaymentVm.cs" />
+    <Compile Include="Models\Wbpm\FinancialYearAllocationSearchVm.cs" />
     <Compile Include="Models\Wbpm\ProjectDirectorSearchVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkVm.cs" />
     <Compile Include="Models\Wbpm\FormalMeetingVm.cs" />
@@ -2815,6 +2817,9 @@
     <Content Include="Views\ADPProject\Create.cshtml" />
     <Content Include="Views\ADPProject\Details.cshtml" />
     <Content Include="Views\ADPProject\Edit.cshtml" />
+    <Content Include="Views\FinancialYearAllocation\List.cshtml" />
+    <Content Include="Views\FinancialYearAllocation\Create.cshtml" />
+    <Content Include="Views\FinancialYearAllocation\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

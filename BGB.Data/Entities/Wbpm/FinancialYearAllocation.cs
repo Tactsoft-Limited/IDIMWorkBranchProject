@@ -17,9 +17,9 @@ namespace BGB.Data.Entities.Wbpm
 
         public int ADPProjectId { get; set; }
         public int FiscalYearId { get; set; }
-        public float TotalAllocation { get; set; }
-        public float ADPAllocation { get; set; }
-        public float RADPAllocation { get; set; }
+        public double TotalAllocation { get; set; }
+        public double ADPAllocation { get; set; }
+        public double RADPAllocation { get; set; }
 
 
         #region Navigation Property
