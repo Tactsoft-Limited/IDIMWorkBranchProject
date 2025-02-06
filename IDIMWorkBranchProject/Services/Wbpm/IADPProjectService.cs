@@ -7,6 +7,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
 {
     public interface IADPProjectService : IBaseService<ADPProject>
     {
+        Task<string> GetAdpProjectTitle(int aDPProjectId);
         Task<object> GetPagedAsync(ADPProjectSearchVm model);
     }
 }

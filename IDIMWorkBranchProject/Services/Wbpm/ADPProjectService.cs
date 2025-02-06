@@ -15,6 +15,11 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         {
         }
 
+        public async Task<string> GetAdpProjectTitle(int aDPProjectId)
+        {
+            return await _context.ADPProjects.Where(x => x.ADPProjectId == aDPProjectId).Select(x=>x.ProjectTitle).FirstOrDefaultAsync();
+        }
+
         public async Task<object> GetPagedAsync(ADPProjectSearchVm model)
         {
             var query = _context.ADPProjects.Where(x =>

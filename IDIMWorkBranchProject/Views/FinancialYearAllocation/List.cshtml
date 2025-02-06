@@ -1,6 +1,6 @@
 ﻿@using IDIMWorkBranchProject.Extentions
 @using IDIMWorkBranchProject.Models.Wbpm
-@model ADPProjectSearchVm
+@model FinancialYearAllocationSearchVm
 
 @{
     ViewBag.Title = "List";
@@ -27,14 +27,14 @@
     <header class="panel_header">
         <h2 class="title pull-left">List</h2>
         @*<div class="actions panel_actions pull-right">
-            <a href="@Url.Action("Create","ADPProject")" class="btn btn-success"><i class="fa fa-plus"></i> নতুন প্রকল্প যুক্ত করুন</a>
+            <a href="@Url.Action("Create","FinancialYearAllocation")" class="btn btn-success"><i class="fa fa-plus"></i> নতুন প্রকল্প যুক্ত করুন</a>
 
             <a class="box_toggle fa fa-chevron-down"></a>
         </div>*@
     </header>
     <div class="content-body">
         <div class="row">
-            <div class="form-group col-md-6">
+            @*<div class="form-group col-md-6">
                 @Html.LabelFor(m => m.StartingDate, new { @class = "col-md-4 form-label" })
                 <div class="col-md-8">
                     @Html.TextBoxFor(m => m.StartingDate, new { @class = "form-control datepicker" })
@@ -47,13 +47,13 @@
                     @Html.TextBoxFor(m => m.EndingDate, new { @class = "form-control datepicker" })
                     @Html.ValidationMessageFor(model => model.EndingDate)
                 </div>
-            </div>
+            </div>*@
         </div>
 
 
         <div class="row">
             <div class="col-xs-12">
-                <table id="aDPProjectTable" class="table table-striped table-bordered" width="100%" cellspacing="0">
+                <table id="financialYearAllocation" class="table table-striped table-bordered" width="100%" cellspacing="0">
                 </table>
             </div>
         </div>
@@ -67,23 +67,23 @@
 
     <script>
         $(document).ready(function () {
-            var table = $('#aDPProjectTable').DataTable({
+            var table = $('#financialYearAllocation').DataTable({
                 "processing": true,
                 "serverSide": true,
                 "ajax": {
-                    "url": baseUrl + "/ADPProject/LoadData",  // Make sure this is correct
+                    "url": baseUrl + "/FinancialYearAllocation/LoadData",  // Make sure this is correct
                     "type": "POST",
                     "contentType": "application/json",  // Sending JSON data
                     "data": function (d) {
                         // Manually create a JSON object for the POST request
                         return JSON.stringify({
                             SearchValue: d.search.value,  // Global search term
-                            StartingDate: $('#StartingDate').val() ? $('#StartingDate').val() : null,
-                            EndingDate: $('#EndingDate').val() ? $('#EndingDate').val() : null,
+                            //StartingDate: $('#StartingDate').val() ? $('#StartingDate').val() : null,
+                            //EndingDate: $('#EndingDate').val() ? $('#EndingDate').val() : null,
                             Draw: d.draw,
                             PageIndex: d.start / d.length,  // Pagination: starting index
                             PageSize: d.length,  // Pagination: number of records per page
-                            SortColumn: d.order[0] ? d.columns[d.order[0].column].data : 'ADPProjectId',
+                            SortColumn: d.order[0] ? d.columns[d.order[0].column].data : 'FiscalYearId',
                             SortDirection: d.order[0] ? d.order[0].dir : 'asc'
                         });
                     },
@@ -93,40 +93,33 @@
                     }
                 },
                 "columns": [
-                    { "data": "ADPProjectId", "title": "আইডি", "visible": false },
+                    { "data": "FiscalYearId", "title": "আইডি", "visible": false },
                     {
-                        "data": "ProjectTitle",
-                        "title": "প্রকল্পের নাম",
+                        "data": "TotalAllocation",
+                        "title": "মোট বরাদ্দ",
                         "render": function (data, type, row) {
                             // Assuming 'id' is the unique identifier for the project
                             return `<a href="${baseUrl}/ADPProject/Details/${row.ADPProjectId}">${data}</a>`;
                         }
                     },
-                    { "data": "MinistryDepartment", "title": "মন্ত্রণালয়/বিভাগ" },
-                    { "data": "EstimatedExpenses", "title": "প্রাক্কলিত ব্যয়" },
                     {
-                        "data": "StartingDate",
-                        "title": "শুরুর তারিখ",
-                        "render": function (data) {
-                            if (data && data.startsWith("/Date(")) {
-                                var timestamp = parseInt(data.replace("/Date(", "").replace(")/", ""));
-                                return new Date(timestamp).toLocaleDateString('en-GB');
-                            }
-                            return '';
-                        }
+                        "data": "ProjectTitle",
+                        "title": "প্রকল্পের নাম",
                     },
                     {
-                        "data": "EndingDate",
-                        "title": "শেষের তারিখ",
-                        "render": function (data) {
-                            if (data && data.startsWith("/Date(")) {
-                                var timestamp = parseInt(data.replace("/Date(", "").replace(")/", ""));
-                                return new Date(timestamp).toLocaleDateString('en-GB');
-                            }
-                            return '';
-                        }
+                        "data": "FiscalYearDescription",
+                        "title": "অর্থ বছর",
                     },
-                    { "data": "NoOfWork", "title": "কাজের সংখ্যা" }
+                    {
+                        "data": "ADPAllocation",
+                        "title": "এ ডি পি বরাদ্দ",
+                    },
+                    {
+                        "data": "RADPAllocation",
+                        "title": "আর ডি পি বরাদ্দ",
+                    },
+                  
+                    
                 ]
             });
 

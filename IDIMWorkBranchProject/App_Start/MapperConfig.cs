@@ -122,7 +122,8 @@ namespace IDIMWorkBranchProject
             CreateMap<Masterplan, MasterplanVm>();
 
             CreateMap<FinancialYearAllocationVm, FinancialYearAllocation>();
-            CreateMap<FinancialYearAllocation, FinancialYearAllocationVm>();
+            CreateMap<FinancialYearAllocation, FinancialYearAllocationVm>()
+                .ForMember(x=>x.FiscalYearDescription, opt=>opt.MapFrom(x=>x.FiscalYear.FiscalYearDescription));
 
             CreateMap<FiscalYearExpenseVm, FiscalYearExpense>();
             CreateMap<FiscalYearExpense, FiscalYearExpenseVm>();
