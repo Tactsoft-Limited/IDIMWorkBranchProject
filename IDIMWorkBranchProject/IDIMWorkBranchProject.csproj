@@ -2819,6 +2819,7 @@
     <Content Include="Views\ADPProject\Edit.cshtml" />
     <Content Include="Views\FinancialYearAllocation\List.cshtml" />
     <Content Include="Views\FinancialYearAllocation\Create.cshtml" />
+    <Content Include="Views\FinancialYearAllocation\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -73,6 +73,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 if (!ModelState.IsValid)
                 {
                     TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                    model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync(model.FiscalYearId);
                     return View(model);
                 }
 
@@ -84,6 +85,41 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             catch (Exception exception)
             {
                 TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync(model.FiscalYearId);
+                return View(model);
+            }
+        }
+        public async Task<ActionResult> Edit(int id)
+        {
+
+            var model = _mapper.Map<FinancialYearAllocationVm>(await _financialYearAllocationService.GetByIdAsync(id));
+            model.ProjectTitle = await _aDPProjectService.GetAdpProjectTitle(model.ADPProjectId);
+            model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync(model.FiscalYearId);
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<ActionResult> Edit(FinancialYearAllocationVm model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    TempData["Message"] = Messages.InvalidInput(MessageType.Update.ToString());
+                    model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync(model.FiscalYearId);
+                    return View(model);
+                }
+
+                var entity = _mapper.Map<FinancialYearAllocation>(model);
+                //entity.CreatedUser=
+                await _financialYearAllocationService.UpdateAsync(entity);
+
+                TempData["Message"] = Messages.Success(MessageType.Update.ToString());
+                return RedirectToAction("details/" + model.ADPProjectId, "ADPProject");  // Redirect to list after success
+            }
+            catch (Exception exception)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Update.ToString(), exception.Message);
+                model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync(model.FiscalYearId);
                 return View(model);
             }
         }
