@@ -21,8 +21,7 @@ namespace IDIMWorkBranchProject.Models.Validation.Wbpm
                 .GreaterThan(0).WithMessage("মিটিং সংখ্যা অবশ্যই ১ বা তার বেশি হতে হবে।");
 
             RuleFor(x => x.MeetingDate)
-                .NotEmpty().WithMessage("মিটিং তারিখ অবশ্যই পূর্ণ করতে হবে।")
-                .LessThanOrEqualTo(DateTime.Now).WithMessage("মিটিং তারিখ ভবিষ্যতের হতে পারে না।");
+                .NotEmpty().WithMessage("মিটিং তারিখ অবশ্যই পূর্ণ করতে হবে।");
 
             //RuleFor(x => x.MeetingDocument)
             //    .Length(1, 150).WithMessage("মিটিং ডকুমেন্ট নাম ১ থেকে ১৫০ অক্ষরের মধ্যে হতে হবে।");
