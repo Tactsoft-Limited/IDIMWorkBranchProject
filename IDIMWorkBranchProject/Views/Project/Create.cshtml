@@ -31,248 +31,200 @@
 <div class="clearfix"></div>
 
 <div class="col-lg-12">
-<section class="box">
-<header class="panel_header">
-    <h2 class="title pull-left">Create</h2>
-    <div class="actions panel_actions pull-right">
-        <a href="@Url.Action("List","Project")" class="btn">
-            <i class="fa fa-list" aria-hidden="true"></i>
-            List
-        </a>
-        <a class="box_toggle fa fa-chevron-down"></a>
-    </div>
-</header>
-<div class="content-body">
-    <div class="row">
-        <div class="col-md-12">
-            @using (Html.BeginForm("Create", "Project", FormMethod.Post, new { @class = "form-horizontal", id = "Project-create-form", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
+    <section class="box">
+        <header class="panel_header">
+            <h2 class="title pull-left">Create</h2>
+            <div class="actions panel_actions pull-right">
+                <a href="@Url.Action("List","Project")" class="btn">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    List
+                </a>
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-md-12">
+                    @using (Html.BeginForm("Create", "Project", FormMethod.Post, new { @class = "form-horizontal", id = "Project-create-form", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.DevelopmentTypeId, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.EnumDropDownListFor(m=>m.DevelopmentTypeId, "Select Budget Type", new { @class = "select2" })
-                                @Html.ValidationMessageFor(model => model.DevelopmentTypeId)
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.FiscalYearId, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.DropDownListFor(m => m.FiscalYearId, Model.FiscalYearDropdown, "Select Fiscal Year", new { @class = "select2" })
-                                @Html.ValidationMessageFor(model => model.FiscalYearId)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.ProjectCode, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.ProjectCode, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ProjectCode)
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.ProjectName, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                          
-                                @Html.TextAreaFor(m => m.ProjectName, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ProjectName)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.AuthorizeUnitId, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.DropDownListFor(m => m.AuthorizeUnitId, Model.AuthorizeUnitDropdown, "Select Unit", new { @class = "select2" })
-                                @Html.ValidationMessageFor(model => model.AuthorizeUnitId)
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.ApprovalDate, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    @Html.EditorFor(m => m.ApprovalDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ProjectTypeId, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(m => m.ProjectTypeId, Model.ProjectTypeDropdown, "Select Project Type", new { @class = "select2" })
+                                    @Html.ValidationMessageFor(model => model.ProjectTypeId)
                                 </div>
-                                @Html.ValidationMessageFor(model => model.ApprovalDate)
                             </div>
-                        </div>
-                    </div>
-                </div>
-                      
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.PicMeetingNo, new {@class = "col-md-2 form-label"})
-                            <div class="col-md-10">
-                                @Html.TextAreaFor(m => m.PicMeetingNo, new {@class = "form-control"})
-                                @Html.ValidationMessageFor(model => model.PicMeetingNo)
+                            <div class="form-group col-md-6" id="fiscalYearContainer">
+                                @Html.LabelFor(m => m.FiscalYearId, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(m => m.FiscalYearId, Model.FiscalYearDropdown, "Select Fiscal Year", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FiscalYearId)
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                            <div class="form-group col-md-6" id="ministryDepartmentContainer">
+                                @Html.LabelFor(m => m.MinistryDepartment, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
 
-                        @*<div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.ProjectStartDate, new { @class = "col-md-4 form-label" })
-                                    <div class="col-md-8">
-                                        <div class="input-group">
-                                            @Html.EditorFor(m => m.ProjectStartDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                        </div>
-                                        @Html.ValidationMessageFor(model => model.ProjectStartDate)
+                                    @Html.TextBoxFor(m => m.MinistryDepartment, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MinistryDepartment)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                @Html.LabelFor(m => m.ProjectName, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
+
+                                    @Html.TextBoxFor(m => m.ProjectName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProjectName)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.StartingDate, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        @Html.EditorFor(m => m.StartingDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     </div>
+                                    @Html.ValidationMessageFor(model => model.StartingDate)
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.ProjectEndDate, new { @class = "col-md-4 form-label" })
-                                    <div class="col-md-8">
-                                        <div class="input-group">
-                                            @Html.EditorFor(m => m.ProjectEndDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                        </div>
-                                        @Html.ValidationMessageFor(model => model.ProjectEndDate)
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.EndingDate, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        @Html.EditorFor(m => m.EndingDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     </div>
+                                    @Html.ValidationMessageFor(model => model.EndingDate)
                                 </div>
                             </div>
-                        </div>*@
+                        </div>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.ProjectDirector, new { @class = "col-md-2 form-label" })
-                            <div class="col-md-10">
-                                @Html.TextAreaFor(m => m.ProjectDirector, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ProjectDirector)
+                        <div class="row" id="pdDpdContainer">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.PD, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.PD, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PD)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.DPD, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.DPD, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DPD)
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.BudgetCapital, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.BudgetCapital, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.BudgetCapital)
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.EstimatedExpenses, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.EstimatedExpenses, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EstimatedExpenses)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.NoOfWork, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.NoOfWork, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.NoOfWork)
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.BudgetRevenue, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.BudgetRevenue, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.BudgetRevenue)
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Salendar, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.Salendar, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Salendar)
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.EconomicProgress, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.EconomicProgress, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EconomicProgress)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ConstructionProgress, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.ConstructionProgress, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ConstructionProgress)
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Expenditure, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.Expenditure, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Expenditure)
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                @Html.LabelFor(m => m.Remarks, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(m => m.Remarks, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Remarks)
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Description, new { @class = "col-md-2 form-label" })
-                            <div class="col-md-10">
-                                @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Description)
-                            </div>
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-success" value="Save" />
+                            <input type="reset" class="btn" value="Clear" />
                         </div>
-                    </div>
+                    }
                 </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Remark, new { @class = "col-md-2 form-label" })
-                            <div class="col-md-10">
-                                @Html.TextAreaFor(m => m.Remark, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Remark)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pull-right">
-                    <input type="submit" class="btn btn-success" value="Save" />
-                    <input type="reset" class="btn" value="Clear" />
-                </div>
-            }
+            </div>
         </div>
-    </div>
-</div>
-</section>
+    </section>
 </div>
 
 @section scripts{
-    <script>
-        
-        var loadId = $("#DevelopmentTypeId").val();
-        loadForm(loadId);
-        $(document).ready(function() {
-            $(".select2").on("change", function() {
-                var id = $("#DevelopmentTypeId").select2('val');
-                loadForm(id);
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Initially check if a Project Type is selected and update the visibility
+            toggleFieldsBasedOnProjectType();
+
+            // Bind change event to the Project Type dropdown
+            $('#ProjectTypeId').change(function () {
+                toggleFieldsBasedOnProjectType();
             });
         });
 
-        function loadForm(id) {
-            if (id == 1) {
-                $("#Salendar").closest(".form-group").show();
-                $("#Expenditure").closest(".form-group").show();
-                $("#ApprovalDate").closest(".form-group").show();
-                $("#PicMeetingNo").closest(".form-group").show();
-                $("#ProjectDirector").closest(".form-group").show();
-            } else if (id == 2) {
-                $("#PicMeetingNo").closest(".form-group").hide();
-                $("#ProjectDirector").closest(".form-group").hide();
-                $("#ApprovalDate").closest(".form-group").hide();
-                $("#Salendar").closest(".form-group").hide();
-                $("#Expenditure").closest(".form-group").hide();
+        function toggleFieldsBasedOnProjectType() {
+            // Get the selected Project Type value
+            var projectType = $('#ProjectTypeId').val();
+
+            // ADPProject = 1, Revenue = 2
+            switch (projectType) {
+                case '1': // ADPProject
+                    // Hide FiscalYear and show PD, DPD
+                    $('#fiscalYearContainer').hide();
+                    $('#ministryDepartmentContainer').show();
+                    $('#pdDpdContainer').show();
+                    $('#PD').prop('required', true);
+                    $('#DPD').prop('required', true);
+                    $('#MinistryDepartment').prop('required', true);
+                    $('#FiscalYearId').prop('required', false);
+                    break;
+
+                case '2': // Revenue
+                    // Show FiscalYear and make it required
+                    $('#fiscalYearContainer').show();
+                    $('#ministryDepartmentContainer').hide();
+                    $('#pdDpdContainer').hide();
+                    $('#PD').prop('required', false);
+                    $('#DPD').prop('required', false);
+                    $('#MinistryDepartment').prop('required', false);
+                    $('#FiscalYearId').prop('required', true);
+                    break;
+
+                default:
+                    // Default case, hide both PD/DPD and FiscalYear
+                    $('#fiscalYearContainer').hide();
+                    $('#pdDpdContainer').hide();
+                    $('#ministryDepartmentContainer').hide();
+                    break;
             }
         }
     </script>
-}
 
+}

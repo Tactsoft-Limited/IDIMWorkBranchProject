@@ -1,0 +1,123 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model ConstructionCompanyVm
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div class="page-title">
+    <div class="pull-left">
+        <h3 class="title">Construction Firm</h3>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","ConstructionCompany")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Construction Firm
+                </a>
+            </li>
+            <li class="active">
+                <strong>Create</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">Create</h2>
+        <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("List","ConstructionCompany")" class="btn">
+                <i class="fa fa-list" aria-hidden="true"></i>
+                List
+            </a>
+            <a class="box_toggle fa fa-chevron-down"></a>
+        </div>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("Create", "ConstructionCompany", FormMethod.Post, new { enctype = "multipart/form-data", id = "ProjectDirector-create-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.FirmName, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.FirmName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.FirmName)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.FirmNameB, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.FirmNameB, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.FirmNameB)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ContactPerson, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.ContactPerson, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ContactPerson)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ContactPersonB, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.ContactPersonB, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ContactPersonB)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ContactPhone, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.ContactPhone, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ContactPhone)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.Email, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Email)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.FirmAddress, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextAreaFor(m => m.FirmAddress, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.FirmAddress)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.FirmAddressB, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextAreaFor(m => m.FirmAddressB, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.FirmAddressB)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

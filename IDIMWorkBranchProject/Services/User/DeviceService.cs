@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using AutoMapper;
-using IDIMWorkBranchProject.Entity;
-using IDIMWorkBranchProject.Extentions.Session;
-using IDIMWorkBranchProject.Models.User;
+﻿using AutoMapper;
+using IDIMWorkBranchProject.Data.Database;
 
 namespace IDIMWorkBranchProject.Services.User
 {
@@ -22,90 +14,90 @@ namespace IDIMWorkBranchProject.Services.User
             Context = new IDIMDBEntities();
         }
 
-        public async Task<IList<DeviceVm>> GetAllAsync()
-        {
-            var list = await Context.Devices.ToListAsync();
+        //public async Task<IList<DeviceVm>> GetAllAsync()
+        //{
+        //    var list = await Context.Devices.ToListAsync();
 
-            return Mapper.Map<IList<DeviceVm>>(list);
-        }
+        //    return Mapper.Map<IList<DeviceVm>>(list);
+        //}
 
-        public async Task<DeviceVm> GetByIdAsync(int id)
-        {
-            var entity = await Context.Devices.FindAsync(id);
+        //public async Task<DeviceVm> GetByIdAsync(int id)
+        //{
+        //    var entity = await Context.Devices.FindAsync(id);
 
-            return Mapper.Map<DeviceVm>(entity);
-        }
+        //    return Mapper.Map<DeviceVm>(entity);
+        //}
 
-        public async Task<IList<DeviceVm>> GetByUserIdAsync(int userId)
-        {
-            var entity = await Context.UserDevices.Where(e=>e.UserId == userId)
-                .Select(m=>m.Device)
-                .ToListAsync();
+        //public async Task<IList<DeviceVm>> GetByUserIdAsync(int userId)
+        //{
+        //    var entity = await Context.UserDevices.Where(e => e.UserId == userId)
+        //        .Select(m => m.Device)
+        //        .ToListAsync();
 
-            return Mapper.Map<IList<DeviceVm>>(entity);
-        }
+        //    return Mapper.Map<IList<DeviceVm>>(entity);
+        //}
 
-        public async Task<DeviceVm> InsertAsync(DeviceVm model)
-        {
-            var existing = await Context.Devices.FirstOrDefaultAsync(m => m.DeviceName == model.DeviceName);
-            if (existing != null)
-                throw new ArgumentException($"Name already exists.");
+        //public async Task<DeviceVm> InsertAsync(DeviceVm model)
+        //{
+        //    var existing = await Context.Devices.FirstOrDefaultAsync(m => m.DeviceName == model.DeviceName);
+        //    if (existing != null)
+        //        throw new ArgumentException($"Name already exists.");
 
-            var entity = Mapper.Map<Device>(model);
-            entity.CreatedDateTime = DateTime.Now;
-            entity.CreatedUser = UserExtention.GetUserId();
+        //    var entity = Mapper.Map<Device>(model);
+        //    entity.CreatedDateTime = DateTime.Now;
+        //    entity.CreatedUser = UserExtention.GetUserId();
 
-            var added = Context.Devices.Add(entity);
-            await Context.SaveChangesAsync();
+        //    var added = Context.Devices.Add(entity);
+        //    await Context.SaveChangesAsync();
 
-            return Mapper.Map<DeviceVm>(added);
-        }
+        //    return Mapper.Map<DeviceVm>(added);
+        //}
 
-        public async Task<DeviceVm> UpdateAsync(DeviceVm model)
-        {
-            var existing = await Context.Devices.FindAsync(model.DeviceId);
+        //public async Task<DeviceVm> UpdateAsync(DeviceVm model)
+        //{
+        //    var existing = await Context.Devices.FindAsync(model.DeviceId);
 
-            if (existing == null)
-                throw new ArgumentException($"Device does not exists.");
+        //    if (existing == null)
+        //        throw new ArgumentException($"Device does not exists.");
 
-            var duplicate = await Context.Devices.Where(e => e.DeviceId != model.DeviceId).FirstOrDefaultAsync(e => e.DeviceName == model.DeviceName);
+        //    var duplicate = await Context.Devices.Where(e => e.DeviceId != model.DeviceId).FirstOrDefaultAsync(e => e.DeviceName == model.DeviceName);
 
-            if (duplicate != null)
-                throw new ArgumentException($"Name already exists.");
+        //    if (duplicate != null)
+        //        throw new ArgumentException($"Name already exists.");
 
-            existing.DeviceName = model.DeviceName;
-            existing.UpdatedDateTime = DateTime.Now;
-            existing.UpdatedUser = UserExtention.GetUserId();
-            existing.UpdateNo += 1;
+        //    existing.DeviceName = model.DeviceName;
+        //    existing.UpdatedDateTime = DateTime.Now;
+        //    existing.UpdatedUser = UserExtention.GetUserId();
+        //    existing.UpdateNo += 1;
 
-            await Context.SaveChangesAsync();
+        //    await Context.SaveChangesAsync();
 
-            return Mapper.Map<DeviceVm>(existing);
-        }
+        //    return Mapper.Map<DeviceVm>(existing);
+        //}
 
-        public async Task<DeviceVm> DeleteAsync(int id)
-        {
-            var existing = await Context.Devices.FindAsync(id);
+        //public async Task<DeviceVm> DeleteAsync(int id)
+        //{
+        //    var existing = await Context.Devices.FindAsync(id);
 
-            if (existing == null)
-                throw new ArgumentException($"Device does not exists.");
+        //    if (existing == null)
+        //        throw new ArgumentException($"Device does not exists.");
 
-            Context.Entry(existing).State = EntityState.Deleted;
-            await Context.SaveChangesAsync();
+        //    Context.Entry(existing).State = EntityState.Deleted;
+        //    await Context.SaveChangesAsync();
 
-            return Mapper.Map<DeviceVm>(existing);
-        }
+        //    return Mapper.Map<DeviceVm>(existing);
+        //}
 
-        public async Task<IEnumerable<SelectListItem>> GetDropDownAsync(int? selected = 0)
-        {
-            var devices = await Context.Devices.ToListAsync();
+        //public async Task<IEnumerable<SelectListItem>> GetDropDownAsync(int? selected = 0)
+        //{
+        //    var devices = await Context.Devices.ToListAsync();
 
-            return devices.Select(e => new SelectListItem
-            {
-                Text = e.DeviceName,
-                Value = e.DeviceId.ToString(),
-                Selected = e.DeviceId == selected
-            });
-        }
+        //    return devices.Select(e => new SelectListItem
+        //    {
+        //        Text = e.DeviceName,
+        //        Value = e.DeviceId.ToString(),
+        //        Selected = e.DeviceId == selected
+        //    });
+        //}
     }
 }

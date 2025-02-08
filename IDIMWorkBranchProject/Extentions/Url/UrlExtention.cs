@@ -1,7 +1,4 @@
-﻿using System.IO;
-using System.Web;
-
-namespace IDIMWorkBranchProject.Extentions.Url
+﻿namespace IDIMWorkBranchProject.Extentions.Url
 {
     public static class UrlExtention
     {
@@ -14,11 +11,10 @@ namespace IDIMWorkBranchProject.Extentions.Url
                 return url;
             }
 
-            var path = string.Concat(DefaultData.AvatarLocation, "/", "avatar.png");
-           // var path = string.Concat(DefaultData.AvatarLocation, "/", pictureName);
-            var file = HttpContext.Current.Server.MapPath(path);
+            var path = string.Concat(DefaultData.AvatarLocation, pictureName);
+            var file = System.Web.HttpContext.Current.Server.MapPath(url);
 
-            if (File.Exists(file))
+            if (System.IO.File.Exists(file))
             {
                 return path;
             }

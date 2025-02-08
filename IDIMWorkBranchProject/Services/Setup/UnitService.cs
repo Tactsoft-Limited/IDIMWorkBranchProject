@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
+using BGB.Data.Entities.Irms;
+using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.Setup;
 
@@ -42,7 +43,7 @@ namespace IDIMWorkBranchProject.Services.Setup
             if (existing != null)
                 throw new ArgumentException($"Name already exists.");
 
-            var entity = Mapper.Map<SetupUnit>(model);
+            var entity = Mapper.Map<IrmsSetupUnit>(model);
             entity.CreatedDateTime = DateTime.Now;
             entity.CreatedUser = UserExtention.GetUserId();
 
@@ -69,7 +70,7 @@ namespace IDIMWorkBranchProject.Services.Setup
             existing.UnitName = model.UnitName;
             existing.UnitNameB = model.UnitNameB;
             existing.CoreId = model.CoreId;
-           // existing.PlaceId = model.PlaceId;
+            // existing.PlaceId = model.PlaceId;
             existing.Remark = model.Remark;
             existing.Israb = model.Israb;
             existing.SectorId = model.SectorId;

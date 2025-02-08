@@ -15,19 +15,34 @@ namespace IDIMWorkBranchProject.Models.User
         [DisplayName("Name")]
         public string ApplicationName { get; set; }
 
+        [DisplayName("Short Name")]
+        public string ApplicationShortName { get; set; }
+
         [DisplayName("Code")]
         public string ApplicationCode { get; set; }
-        public string Url { get; set; }
-        public string Icon { get; set; }
-        public bool IsPublished { get; set; }
+
+        public int Priority { get; set; } = 10;
+
+        public string Url { get; set; } = "#";
+
+        public string Icon { get; set; } = "check";
+
+        public string Color { get; set; } = "A72D32";
+
+        public bool IsPublished { get; set; } = true;
 
         public int CreatedUser { get; set; }
+
         public DateTime CreatedDateTime { get; set; }
+
         public int? UpdateUser { get; set; }
+
         public DateTime? UpdateDateTime { get; set; }
+
         public int UpdateNo { get; set; }
 
         public virtual ICollection<MenuVm> Menus { get; set; }
+
         public virtual ICollection<UserApplicationVm> UserApplications { get; set; }
     }
 }

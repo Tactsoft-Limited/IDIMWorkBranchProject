@@ -1,179 +1,129 @@
-﻿@model IDIMWorkBranchProject.Models.Dashboard.DashboardVm
-@using IDIMWorkBranchProject.Models.WBP
+﻿@using IDIMWorkBranchProject.Models.WBP
+@using IDIMWorkBranchProject.Extentions
 
+@model IDIMWorkBranchProject.Models.Dashboard.DashboardVm
 
+@{
+    ViewBag.Title = "Dashboard";
+    var Project = (IList<ProjectVm>)ViewBag.ProjectList;
+}
 
- 
-    @{
-        ViewBag.Title = "Dashboard";
-        var Project = (IList<ProjectVm>)ViewBag.ProjectList;
-    }
-
-    <div class="col-lg-12">
-        <section class="box nobox ">
-            <div class="content-body">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="r4_counter db_box">
-                            <i class='pull-left fa fa-building icon-md icon-rounded icon-primary'></i>
-                            <div class="stats">
-                                <h4><strong>@Model.Project</strong></h4>
-                                <span>Projects</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="r4_counter db_box">
-                            <i class='pull-left fa fa-list icon-md icon-rounded icon-accent'></i>
-                            <div class="stats">
-                                <h4><strong>@Model.Subproject</strong></h4>
-                                <span>Subprojects</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="r4_counter db_box">
-                            <i class='pull-left fa fa-desktop icon-md icon-rounded icon-purple'></i>
-                            <div class="stats">
-                                <h4><strong>@Model.TotalBillPayment</strong></h4>
-                                <span>Total Bill Payment</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="r4_counter db_box">
-                            <i class='pull-left fa fa-users icon-md icon-rounded icon-warning'></i>
-                            <div class="stats">
-                                <h4><strong>@Model.TotalBillReceived</strong></h4>
-                                <span> Payment Received </span>
-                            </div>
+<div class="col-lg-12">
+    <section class="box nobox ">
+        <div class="content-body">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="r4_counter db_box">
+                        <i class='pull-left fa fa-building icon-md icon-rounded icon-primary'></i>
+                        <div class="stats">
+                            <h4><strong>@Model.Project</strong></h4>
+                            <span>Projects</span>
                         </div>
                     </div>
                 </div>
-
-
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="r4_counter db_box">
-                            <i class='pull-left fa fa-thumbs-up icon-md icon-rounded icon-primary'></i>
-                            <div class="stats">
-                                <h4><strong>@Model.ProjectExtended</strong></h4>
-                                <span> No of Project Extended </span>
-                            </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="r4_counter db_box">
+                        <i class='pull-left fa fa-list icon-md icon-rounded icon-accent'></i>
+                        <div class="stats">
+                            <h4><strong>@Model.Subproject</strong></h4>
+                            <span>Subprojects</span>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="r4_counter db_box">
-                            <i class='pull-left fa fa-shopping-cart icon-md icon-rounded icon-accent'></i>
-                            <div class="stats">
-                                <h4><strong>@Model.ProjectProblem</strong></h4>
-                                <span> No of Project's Problem </span>
-                            </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="r4_counter db_box">
+                        <i class='pull-left fa fa-desktop icon-md icon-rounded icon-purple'></i>
+                        <div class="stats">
+                            <h4><strong>@Model.TotalBillPayment</strong></h4>
+                            <span>Total Bill Payment</span>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="r4_counter db_box">
-                            <i class='pull-left fa fa-dollar icon-md icon-rounded icon-purple'></i>
-                            <div class="stats">
-                                <h4><strong>0</strong></h4>
-                                <span>Budget</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="r4_counter db_box">
-                            <i class='pull-left fa fa-users icon-md icon-rounded icon-warning'></i>
-                            <div class="stats">
-                                <h4><strong>1</strong></h4>
-                                <span>Users</span>
-                            </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="r4_counter db_box">
+                        <i class='pull-left fa fa-users icon-md icon-rounded icon-warning'></i>
+                        <div class="stats">
+                            <h4><strong>@Model.TotalBillReceived</strong></h4>
+                            <span> Payment Received </span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
 
-    <div class="col-lg-6">
-        <section class="box ">
-            <header class="panel_header">
-                <h2 class="title pull-left">Project List</h2>
-                <div class="actions panel_actions pull-right">
-                    <a class="box_toggle fa fa-chevron-down"></a>
-                    <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
-                    <a class="box_close fa fa-times"></a>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="r4_counter db_box">
+                        <i class='pull-left fa fa-thumbs-up icon-md icon-rounded icon-primary'></i>
+                        <div class="stats">
+                            <h4><strong>@Model.ProjectExtended</strong></h4>
+                            <span> No of Project Extended </span>
+                        </div>
+                    </div>
                 </div>
-            </header>
-            <div class="content-body">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th style="width:25%">Project Code</th>
-                            <th style="width:45%">Project Name</th>
-                            <th style="width:30%">Project Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="r4_counter db_box">
+                        <i class='pull-left fa fa-shopping-cart icon-md icon-rounded icon-accent'></i>
+                        <div class="stats">
+                            <h4><strong>@Model.ProjectProblem</strong></h4>
+                            <span> No of Project's Problem </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="r4_counter db_box">
+                        <i class='pull-left fa fa-dollar icon-md icon-rounded icon-purple'></i>
+                        <div class="stats">
+                            <h4><strong>0</strong></h4>
+                            <span>Budget</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="r4_counter db_box">
+                        <i class='pull-left fa fa-users icon-md icon-rounded icon-warning'></i>
+                        <div class="stats">
+                            <h4><strong>1</strong></h4>
+                            <span>Users</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="col-lg-6">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Project List</h2>
+            <div class="actions panel_actions pull-right">
+                <a class="box_toggle fa fa-chevron-down"></a>
+                <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
+                <a class="box_close fa fa-times"></a>
+            </div>
+        </header>
+        <div class="content-body">
+            @*<table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th style="width:70%">Project Name</th>
+                        <th style="width:30%">Starting Date</th>
+                    </tr>
+                </thead>
+                <tbody>
                     @foreach (var project in Project)
                     {
                         <tr>
-                            <td style="width: 25%;text-align: left">@project.ProjectCode</td>
-                          
-                            <td style="width:45%;text-align: left">@project.ProjectName</td>
-                            <td style="width:30%;text-align: left">@project.ProjectStartDate</td>
+                            <td style="width:70%;text-align: left">@project.ProjectName</td>
+                            <td style="width:30%;text-align: left">@project.StartingDate.ToShortDateString()</td>
                         </tr>
                     }
-               
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </div>
 
-    <div class="col-lg-6">
-        <section class="box ">
-            <header class="panel_header">
-                <h2 class="title pull-left"></h2>
-                <div class="actions panel_actions pull-right">
-                    <a class="box_toggle fa fa-chevron-down"></a>
-                    <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
-                    <a class="box_close fa fa-times"></a>
-                </div>
-            </header>
-            <div class="content-body">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th style="width:60%"></th>
-                            <th style="width:30%"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </div>
+                </tbody>
+            </table>*@
+        </div>
+    </section>
+</div>
 
 

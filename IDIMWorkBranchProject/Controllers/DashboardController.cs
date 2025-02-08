@@ -1,13 +1,14 @@
-﻿using IDIMWorkBranchProject.Services.Dashboard;
+﻿using IDIMWorkBranchProject.Services;
+using IDIMWorkBranchProject.Services.Dashboard;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers
 {
-    public class DashboardController : Controller
+    public class DashboardController : BaseController
     {
         protected IDashboardService DashboardService { get; set; }
-        public DashboardController(IDashboardService dashboardService)
+        public DashboardController(IActivityLogService activityLogService, IDashboardService dashboardService) : base(activityLogService)
         {
             DashboardService = dashboardService;
         }
@@ -15,10 +16,10 @@ namespace IDIMWorkBranchProject.Controllers
         public async Task<ActionResult> Index()
         {
             var model = await DashboardService.GetAll();
-            ViewBag.ProjectList = await DashboardService.ProjectList();
+            // ViewBag.ProjectList = await DashboardService.ProjectList();
             return View(model);
         }
-        
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

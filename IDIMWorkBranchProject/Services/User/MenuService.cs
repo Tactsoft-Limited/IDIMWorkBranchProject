@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
+using BGB.Data.Entities.Admin;
+using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.User;
 
@@ -43,7 +44,7 @@ namespace IDIMWorkBranchProject.Services.User
             return Mapper.Map<MenuVm>(entity);
         }
 
-       
+
         public async Task<MenuVm> InsertAsync(MenuVm model)
         {
             var existing = await Context.Menus.FirstOrDefaultAsync(m => m.ControllerName == model.ControllerName && m.ApplicationId == model.ApplicationId);

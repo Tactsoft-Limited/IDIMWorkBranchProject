@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
+using BGB.Data.Entities.Pm;
+using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.Setup;
 
@@ -35,7 +36,6 @@ namespace IDIMWorkBranchProject.Services.Setup
 
             return Mapper.Map<QuarterVm>(entity);
         }
-
 
         public async Task<QuarterVm> InsertAsync(QuarterVm model)
         {

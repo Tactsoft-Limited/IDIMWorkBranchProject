@@ -4,31 +4,33 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
 
 namespace IDIMWorkBranchProject.Controllers.WBP
 {
-    public class BillPaymentController : Controller
+    public class BillPaymentController : BaseController
     {
+
         protected IBillTypeService BillTypeService { get; set; }
         protected IBillPaymentService BillPaymentService { get; set; }
         protected IFiscalYearService FiscalYearService { get; set; }
         protected ISubProjectService SubProjectService { get; set; }
         protected IUnitService UnitService { get; set; }
 
-        public BillPaymentController(
-            IBillTypeService billTypeService,
-            IBillPaymentService billPaymentService,
-            IFiscalYearService fiscalYearService,
-            ISubProjectService subProjectService,
-            IUnitService unitService)
+        public BillPaymentController(IActivityLogService activityLogService, IBillTypeService billTypeService, IBillPaymentService billPaymentService, IFiscalYearService fiscalYearService, ISubProjectService subProjectService, IUnitService unitService) : base(activityLogService)
         {
             BillTypeService = billTypeService;
             BillPaymentService = billPaymentService;
             FiscalYearService = fiscalYearService;
             SubProjectService = subProjectService;
             UnitService = unitService;
+        }
+
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
         }
 
         public async Task<ActionResult> List()
@@ -61,8 +63,8 @@ namespace IDIMWorkBranchProject.Controllers.WBP
 
             var model = new BillPaymentVm
             {
-                SubProjectId =  subproject.SubProjectId,
-                SubProjectTitle =  subproject.SubProjectTitle,
+                SubProjectId = subproject.SubProjectId,
+                SubProjectTitle = subproject.SubProjectTitle,
                 BillTypeDropdown = await BillTypeService.GetDropdownAsync(),
                 FiscalYearDropdown = await FiscalYearService.GetDropdownAsync()
             };
@@ -101,7 +103,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
 
             model.BillTypeDropdown = await BillTypeService.GetDropdownAsync(model.BillTypeId);
             model.FiscalYearDropdown = await FiscalYearService.GetDropdownAsync(model.FiscalYearId);
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -144,7 +146,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
 
             model.BillTypeDropdown = await BillTypeService.GetDropdownAsync(model.BillTypeId);
             model.FiscalYearDropdown = await FiscalYearService.GetDropdownAsync(model.FiscalYearId);
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -182,7 +184,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 var model = await BillPaymentService.GetByIdAsync(id);
 
 
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), message);
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), message);
 
                 return View(model);
             }

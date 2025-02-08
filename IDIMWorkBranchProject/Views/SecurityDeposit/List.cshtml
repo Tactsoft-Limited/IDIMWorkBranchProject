@@ -47,10 +47,10 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            @Html.LabelFor(m => m.Letterno, new { @class = "col-md-4 form-label" })
+                            @Html.LabelFor(m => m.LetterNumber, new { @class = "col-md-4 form-label" })
                             <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.Letterno, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Letterno)
+                                @Html.TextBoxFor(m => m.LetterNumber, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.LetterNumber)
                             </div>
                         </div>
                         </div>
@@ -83,9 +83,9 @@
                                 <tr>
                                     <td>@v.SecurityDepositId</td>
                                     <td>@v.SubProjectTitle</td>
-                                    <td>@v.Amount</td>
-                                    <td>@v.Letterdate.ToNullableShortDateString()</td>
-                                    <td>@v.Letterno</td>
+                                    <td>@v.SecurityAmount</td>
+                                    <td>@v.LetterDate.ToNullableShortDateString()</td>
+                                    <td>@v.LetterNumber</td>
                                     <td>@v.Remark</td>
                                     <td>
                                         <a href="@Url.Action("Edit", "SecurityDeposit", new {id = v.SecurityDepositId})">

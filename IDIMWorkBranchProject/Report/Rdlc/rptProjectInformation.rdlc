@@ -46,7 +46,6 @@
                               <Value>SlNo</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -58,9 +57,30 @@
                       <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
+                          <Color>Gray</Color>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -81,7 +101,6 @@
                               <Value>Approval Date</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -93,9 +112,30 @@
                       <rd:DefaultName>Textbox64</rd:DefaultName>
                       <Style>
                         <Border>
+                          <Color>Gray</Color>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -116,7 +156,6 @@
                               <Value> Start Date</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -128,9 +167,30 @@
                       <rd:DefaultName>Textbox6</rd:DefaultName>
                       <Style>
                         <Border>
+                          <Color>Gray</Color>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -151,7 +211,6 @@
                               <Value>End Date</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -163,9 +222,30 @@
                       <rd:DefaultName>Textbox20</rd:DefaultName>
                       <Style>
                         <Border>
+                          <Color>Gray</Color>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -186,7 +266,6 @@
                               <Value>Project Director</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -198,9 +277,30 @@
                       <rd:DefaultName>Textbox22</rd:DefaultName>
                       <Style>
                         <Border>
+                          <Color>Gray</Color>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -221,7 +321,6 @@
                               <Value>Budget Capital</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -233,9 +332,30 @@
                       <rd:DefaultName>Textbox24</rd:DefaultName>
                       <Style>
                         <Border>
+                          <Color>Gray</Color>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -256,7 +376,6 @@
                               <Value>Budget Revenue</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -268,9 +387,30 @@
                       <rd:DefaultName>Textbox26</rd:DefaultName>
                       <Style>
                         <Border>
+                          <Color>Gray</Color>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -291,7 +431,6 @@
                               <Value>Pic meeting No</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -303,9 +442,30 @@
                       <rd:DefaultName>Textbox30</rd:DefaultName>
                       <Style>
                         <Border>
+                          <Color>Gray</Color>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -342,12 +502,30 @@
                       <rd:DefaultName>Textbox3</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -379,12 +557,30 @@
                       <rd:DefaultName>ApprovalDate</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -416,12 +612,30 @@
                       <rd:DefaultName>ProjectStartDate</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -453,12 +667,30 @@
                       <rd:DefaultName>ProjectEndDate</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -492,12 +724,30 @@
                       <rd:DefaultName>ProjectDirector</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -535,12 +785,30 @@
                       <rd:DefaultName>BudgetCapital</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -572,12 +840,30 @@
                       <rd:DefaultName>BudgetRevenue</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -611,12 +897,30 @@
                       <rd:DefaultName>PicMeetingNo</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -653,12 +957,30 @@
                       <rd:DefaultName>Textbox43</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -690,12 +1012,30 @@
                       <rd:DefaultName>Description</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -727,12 +1067,30 @@
                       <rd:DefaultName>Textbox44</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -764,12 +1122,30 @@
                       <rd:DefaultName>Textbox45</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -802,12 +1178,30 @@
                       <rd:DefaultName>Textbox46</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -841,12 +1235,30 @@
                       <rd:DefaultName>Textbox47</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -880,12 +1292,30 @@
                       <rd:DefaultName>Textbox48</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -917,12 +1347,30 @@
                       <rd:DefaultName>Textbox50</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -976,12 +1424,30 @@
                       <rd:DefaultName>Textbox4</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1038,12 +1504,30 @@
                       <rd:DefaultName>Textbox67</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </TopBorder>
                         <BottomBorder>
-                          <Style>Dotted</Style>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
                         </BottomBorder>
+                        <LeftBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Gray</Color>
+                          <Style>Solid</Style>
+                          <Width>0.5pt</Width>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1114,7 +1598,7 @@
   <Width>7.17324in</Width>
   <Page>
     <PageHeader>
-      <Height>1.75986in</Height>
+      <Height>1.9557in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1125,7 +1609,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Project Information</Value>
+                  <Value> প্রজেক্ট ইনফরমেশন</Value>
                   <Style>
                     <FontFamily>Californian FB</FontFamily>
                     <FontSize>18pt</FontSize>
@@ -1138,7 +1622,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.21125in</Top>
+          <Top>0.22222in</Top>
           <Height>0.34375in</Height>
           <Width>7.17323in</Width>
           <Style>
@@ -1160,7 +1644,7 @@
                 <TextRun>
                   <Value>Project Code</Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
+                    <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1170,10 +1654,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox11</rd:DefaultName>
-          <Top>1.30292in</Top>
-          <Left>0.05676in</Left>
+          <Top>0.60986in</Top>
+          <Left>4.7236in</Left>
           <Height>0.22917in</Height>
-          <Width>1.11854in</Width>
+          <Width>0.96125in</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -1206,8 +1690,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox5</rd:DefaultName>
-          <Top>1.30292in</Top>
-          <Left>1.18468in</Left>
+          <Top>0.60986in</Top>
+          <Left>5.69874in</Left>
           <Height>0.22917in</Height>
           <Width>0.09375in</Width>
           <ZIndex>2</ZIndex>
@@ -1230,7 +1714,7 @@
                 <TextRun>
                   <Value>Fiscal Year </Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
+                    <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1240,10 +1724,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox11</rd:DefaultName>
-          <Top>1.05986in</Top>
-          <Left>4.68072in</Left>
+          <Top>0.85986in</Top>
+          <Left>4.7236in</Left>
           <Height>0.22917in</Height>
-          <Width>0.95292in</Width>
+          <Width>0.96125in</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -1264,7 +1748,7 @@
                 <TextRun>
                   <Value>Unit </Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
+                    <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1274,10 +1758,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox11</rd:DefaultName>
-          <Top>1.30292in</Top>
-          <Left>4.68072in</Left>
+          <Top>1.10292in</Top>
+          <Left>4.7236in</Left>
           <Height>0.22917in</Height>
-          <Width>0.95292in</Width>
+          <Width>0.96125in</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
@@ -1296,9 +1780,9 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Project Name</Value>
+                  <Value>প্রোজেক্টের নাম</Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
+                    <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1308,10 +1792,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox11</rd:DefaultName>
-          <Top>1.05986in</Top>
+          <Top>1.43486in</Top>
           <Left>0.05676in</Left>
           <Height>0.22917in</Height>
-          <Width>1.11854in</Width>
+          <Width>0.81298in</Width>
           <ZIndex>5</ZIndex>
           <Style>
             <Border>
@@ -1344,10 +1828,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox5</rd:DefaultName>
-          <Top>1.05986in</Top>
-          <Left>5.64716in</Left>
+          <Top>0.85639in</Top>
+          <Left>5.69874in</Left>
           <Height>0.22917in</Height>
-          <Width>0.125in</Width>
+          <Width>0.09375in</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>
@@ -1380,10 +1864,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox5</rd:DefaultName>
-          <Top>1.30292in</Top>
-          <Left>5.64716in</Left>
+          <Top>1.10292in</Top>
+          <Left>5.69874in</Left>
           <Height>0.22917in</Height>
-          <Width>0.125in</Width>
+          <Width>0.09375in</Width>
           <ZIndex>7</ZIndex>
           <Style>
             <Border>
@@ -1416,8 +1900,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox5</rd:DefaultName>
-          <Top>1.05986in</Top>
-          <Left>1.18468in</Left>
+          <Top>1.43486in</Top>
+          <Left>0.86974in</Left>
           <Height>0.22917in</Height>
           <Width>0.09375in</Width>
           <ZIndex>8</ZIndex>
@@ -1440,7 +1924,7 @@
                 <TextRun>
                   <Value>=First(Fields!ProjectCode.Value, "DsWorkBranch")</Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
+                    <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1450,10 +1934,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ProjectCode</rd:DefaultName>
-          <Top>1.30292in</Top>
-          <Left>1.28607in</Left>
+          <Top>0.60986in</Top>
+          <Left>5.78468in</Left>
           <Height>0.22917in</Height>
-          <Width>2.375in</Width>
+          <Width>1.26042in</Width>
           <ZIndex>9</ZIndex>
           <Style>
             <Border>
@@ -1474,7 +1958,7 @@
                 <TextRun>
                   <Value>=First(Fields!ProjectName.Value, "DsWorkBranch")</Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
+                    <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1484,10 +1968,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ProjectName</rd:DefaultName>
-          <Top>1.05986in</Top>
-          <Left>1.28607in</Left>
+          <Top>1.43486in</Top>
+          <Left>0.97113in</Left>
           <Height>0.22917in</Height>
-          <Width>2.375in</Width>
+          <Width>6.07397in</Width>
           <ZIndex>10</ZIndex>
           <Style>
             <Border>
@@ -1508,7 +1992,7 @@
                 <TextRun>
                   <Value>=First(Fields!UnitName.Value, "DsWorkBranch")</Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
+                    <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1518,7 +2002,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>UnitName</rd:DefaultName>
-          <Top>1.30292in</Top>
+          <Top>1.10292in</Top>
           <Left>5.78468in</Left>
           <Height>0.22917in</Height>
           <Width>1.26042in</Width>
@@ -1542,7 +2026,7 @@
                 <TextRun>
                   <Value>=First(Fields!FiscalYearDescription.Value, "DsWorkBranch")</Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
+                    <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1552,7 +2036,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>FiscalYearDescription</rd:DefaultName>
-          <Top>1.05986in</Top>
+          <Top>0.85986in</Top>
           <Left>5.78468in</Left>
           <Height>0.22917in</Height>
           <Width>1.26042in</Width>
@@ -1574,7 +2058,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>HEADQUARTERS BORDER GUARD BANGLADESH</Value>
+                  <Value>হেডকোয়ার্টার্স বর্ডার গার্ড বাংলাদেশ</Value>
                   <Style>
                     <FontFamily>Calibri</FontFamily>
                     <FontWeight>Bold</FontWeight>

@@ -7,9 +7,9 @@ namespace IDIMWorkBranchProject.Models.Validation.WBP
     {
         public ProjectVmValidator()
         {
-            RuleFor(m=>m.DevelopmentTypeId)
+            RuleFor(m => m.ProjectName)
                 .NotEmpty()
-                .WithMessage("Budget Type required");
+                .WithMessage("Project Name required");
         }
     }
 }

@@ -42,7 +42,7 @@
 
                 <div class="col-lg-12" id="footer">
                     <div class="pull-right">
-                    
+
                     </div>
                 </div>
 
@@ -59,6 +59,9 @@
     @Scripts.Render("~/bundles/form")
     @Scripts.Render("~/bundles/datatable")
     @Scripts.Render("~/bundles/commstore")
+    <script>var baseUrl = "/wbpm"</script>
+   
+
     @RenderSection("scripts", required: false)
 
     <script>
@@ -73,24 +76,6 @@
                 }
             });
     });
-    @*$(document).ready(function () {
-        var items = $('#main-menu-wrapper a');
-        $.each(items,
-            function(i) {
-                var link = this.href;
-                var controllerName = link.split('/')[3];
-                if ('@currentControllerName'.toLowerCase() == controllerName.toLowerCase()) {
-                    //var isMultiLevel = $(this).parent().parent().hasClass('sub-menu');
-                    //if (isMultiLevel === true) {
-                    $(this).addClass("active")
-                        .closest('.sub-menu').css({ display: 'block' })
-                        .closest('li').addClass('open');
-                    //} else {
-                    //    $(this).parent().addClass("open");
-                    //}
-                }
-            });
-    });*@
     </script>
 </body>
 </html>

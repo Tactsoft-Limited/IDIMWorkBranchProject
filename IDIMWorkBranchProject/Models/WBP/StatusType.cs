@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using Microsoft.Reporting.WebForms;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace IDIMWorkBranchProject.Models.WBP
 {

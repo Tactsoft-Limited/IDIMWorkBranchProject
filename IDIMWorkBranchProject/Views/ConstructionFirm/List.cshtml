@@ -1,4 +1,5 @@
-﻿@model IEnumerable<IDIMWorkBranchProject.Models.Setup.ConstructionFirmVm>
+﻿@model IDIMWorkBranchProject.Models.Setup.ConstructionFirmSearchVm
+
 @{
     ViewBag.Title = "Supplier";
 }
@@ -33,40 +34,45 @@
         </header>
         <div class="content-body">
             <div class="row">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.ConstructionFirmName, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.ConstructionFirmName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ConstructionFirmName)
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.ContactPerson, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.ContactPerson, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ContactPerson)
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.ContactPhone, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.ContactPhone, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ContactPhone)
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div class="form-group">
+                        <button type="button" id="resetButton" class="btn btn-secondary">Reset Filter</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
                 <div class="col-xs-12">
-                    <table id="DataGrid" class="table table-striped table-bordered" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th style="width:35px;">@Html.DisplayNameFor(m => m.ConstructionFirmId)</th>
-                                <th>@Html.DisplayNameFor(m => m.ConstructionFirmName)</th>
-                              
-                                <th>@Html.DisplayNameFor(m => m.ContactPerson)</th>
-                                <th>@Html.DisplayNameFor(m => m.ContactPhone)</th>
-                                
-                                <th style="width:137px">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var v in Model)
-                            {
-                                <tr>
-                                    <td>@v.ConstructionFirmId</td>
-                                    <td>@v.ConstructionFirmName</td>
-                                
-                                    <td>@v.ContactPerson</td>
-                                    <td>@v.ContactPhone</td>
-                                
-                                    <td>
-                                        <a href="@Url.Action("Edit", "ConstructionFirm", new {id = v.ConstructionFirmId})">
-                                            <span class="label label-primary"><i class="fa fa-edit"></i> Edit</span>
-                                        </a>
-                                        <a href="@Url.Action("Delete", "ConstructionFirm", new {id = v.ConstructionFirmId})">
-                                            <span class="label label-danger"><i class="fa fa-remove"></i> Remove</span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
+                    <table id="constructionFirmTable" class="table table-striped table-bordered" width="100%" cellspacing="0">
                     </table>
                 </div>
             </div>
@@ -78,19 +84,79 @@
 @section scripts {
     <script>
         $(document).ready(function () {
-            $('#DataGrid').DataTable({
-                "aaSorting": [],
+            var table = $('#constructionFirmTable').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "/ConstructionFirm/LoadData",  // Correct URL
+                    "type": "POST",
+                    "contentType": "application/json",  // Sending JSON data
+                    "data": function (d) {
+                        return JSON.stringify({
+                            SearchValue: d.search.value,
+                            ConstructionFirmName: $('#ConstructionFirmName').val(),
+                            ContactPerson: $('#ContactPerson').val(),
+                            ContactPhone: $('#ContactPhone').val(),
+                            Email: $('#Email').val(),
+                            Draw: d.draw,
+                            PageIndex: d.start / d.length,
+                            PageSize: d.length,
+                            SortColumn: d.order[0] ? d.columns[d.order[0].column].data : 'ReceivePaymentId',
+                            SortDirection: d.order[0] ? d.order[0].dir : 'asc'
+                        });
+                    },
+                    "dataSrc": function (json) {
+                        console.log("Fetching data:", json.data);
+                        // This ensures the DataTable can read the response and render the data
+                        return json.data;  // Ensure your JSON response matches this format
+                    },
+                    "error": function (xhr, error, thrown) {
+                        console.log("Error fetching data:", thrown);
+                        alert("Error: " + thrown);
+                    }
+                },
                 "columns": [
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    { "orderable": false },
-                    { "orderable": false }
+                    { "data": "ConstructionFirmId", "title": "ConstructionFirmId", "visible": false },
+                    { "data": "ConstructionFirmName", "title": "Firm Name" },
+                    { "data": "ContactPerson", "title": "Contact Person" },
+                    { "data": "ContactPhone", "title": "Phone Number" },
+                    { "data": "Email", "title": "Email Address" },
+                    {
+                        "data": "ConstructionFirmId",
+                        "title": "Actions",
+                        "render": function (data, type, row) {
+                            return `
+                            <a href="/ConstructionFirm/Edit?id=${row.ConstructionFirmId}">
+                                <span class="label label-primary"><i class="fa fa-edit"></i> Edit</span>
+                            </a>
+                            <a href="/ConstructionFirm/Delete?id=${row.ConstructionFirmId}">
+                                <span class="label label-danger"><i class="fa fa-remove"></i> Remove</span>
+                            </a>`;
+                        }
+                    }
                 ]
+            });
+
+            // Apply filters automatically when the user changes any of the filter fields
+            $('#ConstructionFirmName,#ContactPerson, #ContactPhone, #Email').on('change input keyup', function () {
+                table.ajax.reload();
+            });
+
+            // Reset button click handler
+            $("#resetButton").click(function () {
+                // Clear all text inputs
+                $("input[type='text']").val("");
+
+                // Clear all dropdowns (if using select2)
+                $("select").val("").trigger("change");
+
+                // Clear date fields (datepicker)
+                $("input[type='date']").val("");
+
+                // Remove validation messages
+                $(".field-validation-error").remove();
             });
         });
     </script>
-}
 
+}

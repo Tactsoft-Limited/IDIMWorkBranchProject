@@ -1,15 +1,16 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions.Collections.Select2;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 
 namespace IDIMWorkBranchProject.Controllers.User
 {
-    public class GeneralInformationController : Controller
+    public class GeneralInformationController : BaseController
     {
         protected IGeneralInformationService GeneralInformationService { get; set; }
 
-        public GeneralInformationController(IGeneralInformationService generalInformationService)
+        public GeneralInformationController(IActivityLogService activityLogService, IGeneralInformationService generalInformationService) : base(activityLogService)
         {
             GeneralInformationService = generalInformationService;
         }

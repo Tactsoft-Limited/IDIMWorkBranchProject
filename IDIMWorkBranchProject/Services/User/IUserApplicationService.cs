@@ -1,16 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using IDIMWorkBranchProject.Models.User;
-
-namespace IDIMWorkBranchProject.Services.User
+﻿namespace IDIMWorkBranchProject.Services.User
 {
     public interface IUserApplicationService
     {
-        Task<IList<UserApplicationVm>> GetAllAsync();
-        Task<UserApplicationVm> GetByIdAsync(int id);
-        Task<UserApplicationVm> InsertAsync(UserApplicationVm model);
-        Task<UserApplicationVm> UpdateAsync(UserApplicationVm model);
-        Task<UserApplicationVm> DeleteAsync(int id);
-        Task InsertDeleteAsync(int userId, IList<ApplicationAssignVm> applications);
+        //Task<IList<UserApplicationVm>> GetAllAsync();
+        //Task<UserApplicationVm> GetByIdAsync(int id);
+        //Task<UserApplicationVm> InsertAsync(UserApplicationVm model);
+        //Task<UserApplicationVm> UpdateAsync(UserApplicationVm model);
+        //Task<UserApplicationVm> DeleteAsync(int id);
+        //Task InsertDeleteAsync(int userId, IList<ApplicationAssignVm> applications);
     }
 }

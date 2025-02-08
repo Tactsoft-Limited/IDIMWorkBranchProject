@@ -4,10 +4,11 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.Setup;
 using System.Linq;
+using BGB.Data.Entities.Pm;
+using IDIMWorkBranchProject.Data.Database;
 
 namespace IDIMWorkBranchProject.Services.Setup
 {

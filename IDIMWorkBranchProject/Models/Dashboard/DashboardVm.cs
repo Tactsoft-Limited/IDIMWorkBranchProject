@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace IDIMWorkBranchProject.Models.Dashboard
+﻿namespace IDIMWorkBranchProject.Models.Dashboard
 {
     public class DashboardVm
     {

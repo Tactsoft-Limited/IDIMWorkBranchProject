@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
+using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Extentions.Collections.Select2;
 
 namespace IDIMWorkBranchProject.Services.Setup

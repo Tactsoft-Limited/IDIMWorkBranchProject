@@ -3,19 +3,22 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.Setup;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 
 namespace IDIMWorkBranchProject.Controllers.Setup
 {
-    public class QuarterController : Controller
+    public class QuarterController : BaseController
     {
         protected IQuarterService QuarterService { get; set; }
-
-        public QuarterController(IQuarterService quarterService)
+        public QuarterController(IActivityLogService activityLogService, IQuarterService quarterService) : base(activityLogService)
         {
             QuarterService = quarterService;
         }
-
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
         public async Task<ActionResult> List()
         {
             var list = await QuarterService.GetAllAsync();
@@ -61,7 +64,7 @@ namespace IDIMWorkBranchProject.Controllers.Setup
                 message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
             }
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -99,7 +102,7 @@ namespace IDIMWorkBranchProject.Controllers.Setup
                 message = Messages.Failed(MessageType.Update.ToString(), exception.Message);
             }
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
             return View(model);
         }
 
@@ -123,7 +126,7 @@ namespace IDIMWorkBranchProject.Controllers.Setup
             catch (Exception exception)
             {
                 var model = await QuarterService.GetByIdAsync(id);
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), exception.Message);
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.Message);
 
                 return View(model);
             }

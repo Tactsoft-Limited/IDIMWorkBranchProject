@@ -4,11 +4,13 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Linq.Dynamic.Core;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
+using BGB.Data.Entities.Pm;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.WBP;
+using IDIMWorkBranchProject.Data.Database;
 
 namespace IDIMWorkBranchProject.Services.WBP
 {
@@ -45,10 +47,6 @@ namespace IDIMWorkBranchProject.Services.WBP
 
         public async Task<ProjectVm> InsertAsync(ProjectVm model)
         {
-            //var existing = await Context.Projects.FirstOrDefaultAsync(e => e.ProjectCode == model.ProjectCode);
-            //if (existing != null)
-            //    throw new ArgumentException($"Project No already exists.");
-
             var entity = Mapper.Map<Project>(model);
             entity.CreatedDateTime = DateTime.Now;
             entity.CreatedUser = UserExtention.GetUserId();
@@ -65,29 +63,24 @@ namespace IDIMWorkBranchProject.Services.WBP
             var existing = await Context.Projects
                 .Where(e => e.ProjectId == model.ProjectId)
                 .FirstOrDefaultAsync();
+
             if (existing == null)
                 throw new ArgumentException($"Project does not exists.");
 
-            //var duplicate = await Context.Projects
-            //    .Where(e => e.ProjectId != model.ProjectId)
-            //    .FirstOrDefaultAsync(e => e.ProjectCode == model.ProjectCode);
-            //if (duplicate != null)
-            //    throw new ArgumentException($"Project No already exists.");
-
-            existing.DevelopmentTypeId = (int)model.DevelopmentTypeId;
-            existing.AuthorizeUnitId = model.AuthorizeUnitId;
+            existing.ProjectTypeId = model.ProjectTypeId;
             existing.FiscalYearId = model.FiscalYearId;
-            existing.ProjectCode = model.ProjectCode;
             existing.ProjectName = model.ProjectName;
-            existing.ApprovalDate = model.ApprovalDate;
-            existing.ProjectStartDate = model.ProjectStartDate;
-            existing.ProjectEndDate = model.ProjectEndDate;
-            existing.ProjectDirector = model.ProjectDirector;
-            existing.BudgetCapital = model.BudgetCapital;
-            existing.BudgetRevenue = model.BudgetRevenue;
-            existing.Description = model.Description;
-            existing.PicMeetingNo = model.PicMeetingNo;
-            existing.Remark = model.Remark;
+            existing.MinistryDepartment = model.MinistryDepartment;
+            existing.EstimatedExpenses = model.EstimatedExpenses;
+            existing.StartingDate = model.StartingDate;
+            existing.EndingDate = model.EndingDate;
+            existing.NoOfWork = model.NoOfWork;
+            existing.EconomicProgress = model.EconomicProgress;
+            existing.ConstructionProgress = model.ConstructionProgress;
+            existing.PD = model.PD;
+            existing.DPD = model.DPD;
+            existing.Remarks = model.Remarks;
+
             existing.UpdatedDateTime = DateTime.Now;
             existing.UpdatedUser = UserExtention.GetUserId();
             existing.UpdateNo += 1;
@@ -101,6 +94,7 @@ namespace IDIMWorkBranchProject.Services.WBP
             var existing = await Context.Projects
                 .Where(e => e.ProjectId == id)
                 .FirstOrDefaultAsync();
+
             if (existing == null)
                 throw new ArgumentException($"Project does not exists.");
 
@@ -110,21 +104,54 @@ namespace IDIMWorkBranchProject.Services.WBP
             return Mapper.Map<ProjectVm>(existing);
         }
 
-        public async Task<List<ProjectVm>> GetByAsync(ProjectSearchVm filter = null)
+        public async Task<object> GetByAsync(ProjectSearchVm filter = null)
         {
             if (filter == null)
                 filter = new ProjectSearchVm();
 
-            var query = GetAll().Where(x =>
-                    (string.IsNullOrEmpty(filter.ProjectCode) || x.ProjectCode.Contains(filter.ProjectCode)) &&
+            // Build the query with the additional filters
+            var query = Context.Projects.Include(x => x.ProjectType).Include(x => x.FiscalYear).Where(x =>
                     (string.IsNullOrEmpty(filter.ProjectName) || x.ProjectName.Contains(filter.ProjectName)) &&
                     (!filter.FiscalYearId.HasValue || x.FiscalYearId == filter.FiscalYearId) &&
-                    (!filter.AuthorizeUnitId.HasValue || x.AuthorizeUnitId == filter.AuthorizeUnitId))
-                .Take(DefaultData.Take);
+                    (!filter.ProjectTypeId.HasValue || x.ProjectTypeId == filter.ProjectTypeId) &&
+                    (!filter.StartingDate.HasValue || x.StartingDate >= filter.StartingDate.Value) &&
+                    (!filter.EndingDate.HasValue || x.EndingDate <= filter.EndingDate.Value));
 
-            var list = await query.ToListAsync();
+            query = !string.IsNullOrEmpty(filter.SortColumn) && !string.IsNullOrEmpty(filter.SortDirection)
+                ? query.OrderBy($"{filter.SortColumn} {filter.SortDirection}")
+                : query.OrderBy(x => x.ProjectId);  // Default ordering by SubProjectId
 
-            return Mapper.Map<List<ProjectVm>>(list);
+            var totalRecords = await query.CountAsync();
+            var filteredRecords = await query.CountAsync();
+            var pagedData = await query.Skip(filter.PageIndex * filter.PageSize).Take(filter.PageSize).ToListAsync();
+
+            // Return the response in DataTables format
+            var result = new
+            {
+                draw = filter.Draw,
+                recordsTotal = totalRecords,
+                recordsFiltered = filteredRecords,
+                data = pagedData.Select(x => new ProjectVm
+                {
+                    ProjectId = x.ProjectId,
+                    ProjectTypeId = x.ProjectTypeId,
+                    ProjectTypeName = x.ProjectType.ProjectTypeName,
+                    FiscalYearId = x.FiscalYearId,
+                    FiscalYearDescription = x.FiscalYear != null ? x.FiscalYear.FiscalYearDescription : "-",
+                    ProjectName = x.ProjectName,
+                    MinistryDepartment = x.MinistryDepartment,
+                    EstimatedExpenses = x.EstimatedExpenses,
+                    StartingDate = x.StartingDate,
+                    EndingDate = x.EndingDate,
+                    NoOfWork = x.NoOfWork,
+                    EconomicProgress = x.EconomicProgress,
+                    ConstructionProgress = x.ConstructionProgress,
+                    PD = x.PD,
+                    DPD = x.DPD,
+                })
+            };
+
+            return result;
         }
 
 
@@ -134,10 +161,27 @@ namespace IDIMWorkBranchProject.Services.WBP
 
             return projects.Select(e => new SelectListItem
             {
-                Text = $"{e.ProjectCode} - {e.ProjectName}",
+                Text = e.ProjectName,
                 Value = e.ProjectId.ToString(),
                 Selected = e.ProjectId == selected
             });
+        }
+
+        public async Task<IEnumerable<SelectListItem>> GetProductTypeDropdown(int? selected = 0)
+        {
+            var result = Context.ProjectTypes.Select(e => new SelectListItem
+            {
+                Value = e.ProjectTypeId.ToString(),
+                Text = e.ProjectTypeName,
+                Selected = e.ProjectTypeId == selected
+            }).ToList();
+
+            return await Task.FromResult(result); // Wrap the result in a completed Task
+        }
+
+        public async Task<decimal> GetEstimatedExpenses(int id)
+        {
+            return await Context.Projects.Where(x => x.ProjectId == id).Select(x => x.EstimatedExpenses).FirstOrDefaultAsync();
         }
     }
 }

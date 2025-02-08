@@ -9,9 +9,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>= "চলতি " &amp; Fields!FiscalYearDescription.Value &amp; " অর্থ বছরে " &amp; Count(Fields!SubProjectTitle.Value) &amp; "টি নির্মান কাজের তালিকা"</Value>
+                <Value>="চলতি " &amp; First(Fields!FiscalYearDescription.Value, "YearlyConstructionDetailsDataSet") &amp; " অর্থ বছরে " &amp; 
+Count(Fields!SubProjectTitle.Value, "YearlyConstructionDetailsDataSet") &amp; "টি নির্মান কাজের তালিকা"</Value>
                 <Style>
-                  <FontFamily>solaimanLipi</FontFamily>
                   <FontSize>11pt</FontSize>
                   <TextDecoration>Underline</TextDecoration>
                 </Style>
@@ -24,9 +24,8 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>0.2875in</Top>
-        <Left>0in</Left>
         <Height>0.25in</Height>
-        <Width>11.41542in</Width>
+        <Width>10.1932in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -59,7 +58,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Height>0.25in</Height>
-        <Width>11.41542in</Width>
+        <Width>10.1932in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -79,13 +78,13 @@
               <Width>0.33333in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.47792in</Width>
+              <Width>1.27653in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.85542in</Width>
+              <Width>0.66792in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.74875in</Width>
+              <Width>0.65153in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.58333in</Width>
@@ -94,22 +93,22 @@
               <Width>0.39708in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.51042in</Width>
+              <Width>0.38542in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.45833in</Width>
+              <Width>0.33333in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.5625in</Width>
+              <Width>0.3229in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.60417in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.64583in</Width>
+              <Width>0.52208in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.54167in</Width>
+              <Width>0.45587in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.625in</Width>
@@ -118,13 +117,13 @@
               <Width>0.65625in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.625in</Width>
+              <Width>0.80085in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.60417in</Width>
+              <Width>0.49553in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.74875in</Width>
+              <Width>0.64458in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.4375in</Width>
@@ -143,9 +142,34 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ক্র/নং</Value>
+                              <Value>ক্র/ </Value>
                               <Style>
-                                <FontFamily>solaimanLipi</FontFamily>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>নং</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
                                 <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
@@ -184,7 +208,6 @@
                             <TextRun>
                               <Value>কাজের নাম</Value>
                               <Style>
-                                <FontFamily>solaimanLipi</FontFamily>
                                 <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
@@ -223,7 +246,6 @@
                             <TextRun>
                               <Value>ফার্মের নাম</Value>
                               <Style>
-                                <FontFamily>solaimanLipi</FontFamily>
                                 <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
@@ -265,7 +287,6 @@
                             <TextRun>
                               <Value>মোবাইল নাম্বার</Value>
                               <Style>
-                                <FontFamily>solaimanLipi</FontFamily>
                                 <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
@@ -349,7 +370,7 @@
                             <TextRun>
                               <Value>NOA</Value>
                               <Style>
-                                <FontFamily>solaimanLipi</FontFamily>
+                                <FontFamily>arial</FontFamily>
                                 <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
@@ -599,7 +620,35 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>কাজ শুরু ও শেষের তারিখ</Value>
+                              <Value>কাজ শুরু </Value>
+                              <Style>
+                                <FontFamily>solaimanLipi</FontFamily>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>ও</Value>
+                              <Style>
+                                <FontFamily>solaimanLipi</FontFamily>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value> শেষের তারিখ</Value>
                               <Style>
                                 <FontFamily>solaimanLipi</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -641,7 +690,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>শিডিউল এবং ড্রইং/ডিজাইন প্রেরণ</Value>
+                              <Value>শিডিউল এবং ড্রইং / ডিজাইন প্রেরণ</Value>
                               <Style>
                                 <FontFamily>solaimanLipi</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -915,7 +964,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -948,7 +999,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -981,7 +1034,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1014,7 +1069,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1047,7 +1104,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1080,7 +1139,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1113,7 +1174,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1146,7 +1209,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1179,7 +1244,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1212,7 +1279,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1245,7 +1314,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1278,7 +1349,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1311,7 +1384,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1428,7 +1503,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1461,7 +1538,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1494,7 +1573,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1708,7 +1789,6 @@
                             <TextRun>
                               <Value>=IIF(Fields!hasCompleted.Value = true, "হ্যাঁ", "না")</Value>
                               <Style>
-                                <FontFamily>solaimanLipi</FontFamily>
                                 <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
@@ -1779,7 +1859,6 @@
                             <TextRun>
                               <Value>=IIF(Fields!BGConfirmed.Value = true, "হ্যাঁ", "না")</Value>
                               <Style>
-                                <FontFamily>solaimanLipi</FontFamily>
                                 <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
@@ -1815,7 +1894,6 @@
                             <TextRun>
                               <Value>=IIF(Fields!ContractComplete.Value = true, "হ্যাঁ", "না")</Value>
                               <Style>
-                                <FontFamily>solaimanLipi</FontFamily>
                                 <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
@@ -1851,7 +1929,6 @@
                             <TextRun>
                               <Value>=IIF(IsNothing(Fields!WorkOrderDate.Value), "","হ্যাঁ" + System.Environment.NewLine + CDate(Fields!WorkOrderDate.Value).ToString("dd-MM-yy") +"")</Value>
                               <Style>
-                                <FontFamily>solaimanLipi</FontFamily>
                                 <FontSize>8pt</FontSize>
                                 <Format>dd-mm-yy</Format>
                               </Style>
@@ -1888,7 +1965,6 @@
                             <TextRun>
                               <Value>=CDate(Fields!StartDate.Value).ToString("dd-MM-yy") + System.Environment.NewLine + "-" + System.Environment.NewLine + CDate(Fields!EndDate.Value).ToString("dd-MM-yy")</Value>
                               <Style>
-                                <FontFamily>solaimanLipi</FontFamily>
                                 <FontSize>8pt</FontSize>
                                 <Format>dd-mm-yy</Format>
                               </Style>
@@ -1925,7 +2001,6 @@
                             <TextRun>
                               <Value>=IIF(Fields!DesignSent.Value = True, "হ্যাঁ", "না")</Value>
                               <Style>
-                                <FontFamily>solaimanLipi</FontFamily>
                                 <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
@@ -1996,7 +2071,6 @@
                             <TextRun>
                               <Value>=Fields!Installment1.Value &amp; "," &amp; System.Environment.NewLine &amp; Fields!Installment2.Value</Value>
                               <Style>
-                                <FontFamily>solaimanLipi</FontFamily>
                                 <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
@@ -2032,7 +2106,6 @@
                             <TextRun>
                               <Value>=Fields!Installment4.Value &amp; "," &amp; System.Environment.NewLine &amp; Fields!Installment5.Value</Value>
                               <Style>
-                                <FontFamily>solaimanLipi</FontFamily>
                                 <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
@@ -2137,7 +2210,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2199,7 +2274,7 @@
         <DataSetName>YearlyConstructionDetailsDataSet</DataSetName>
         <Top>0.64042in</Top>
         <Height>0.75in</Height>
-        <Width>11.41542in</Width>
+        <Width>10.1932in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -2211,10 +2286,10 @@
     <Height>1.61458in</Height>
     <Style />
   </Body>
-  <Width>11.41542in</Width>
+  <Width>10.1932in</Width>
   <Page>
     <PageFooter>
-      <Height>1in</Height>
+      <Height>0.28472in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -2237,8 +2312,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox12</rd:DefaultName>
-          <Top>0.83333in</Top>
-          <Left>8.91524in</Left>
+          <Top>0.06944in</Top>
+          <Left>7.69302in</Left>
           <Height>0.16667in</Height>
           <Width>0.88561in</Width>
           <Style>
@@ -2268,8 +2343,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox13</rd:DefaultName>
-          <Top>0.83333in</Top>
-          <Left>9.80084in</Left>
+          <Top>0.06944in</Top>
+          <Left>8.57862in</Left>
           <Height>0.16667in</Height>
           <Width>1.61458in</Width>
           <ZIndex>1</ZIndex>

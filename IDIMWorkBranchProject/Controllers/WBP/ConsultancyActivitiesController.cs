@@ -4,28 +4,28 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
-using IDIMWorkBranchProject.Services.Setup;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.WBP;
 
 namespace IDIMWorkBranchProject.Controllers.WBP
 {
-    public class ConsultancyActivitiesController : Controller
+    public class ConsultancyActivitiesController : BaseController
     {
         protected IConsultancyActivitiesService ConsultancyActivitiesService { get; set; }
         protected ISubProjectService SubProjectService { get; set; }
         protected IConsultantService ConsultantService { get; set; }
 
-        public ConsultancyActivitiesController(
-            IConsultancyActivitiesService consultancyActivitiesService,
-            ISubProjectService subProjectService,
-            IConsultantService consultantService
-            )
+        public ConsultancyActivitiesController(IActivityLogService activityLogService, IConsultancyActivitiesService consultancyActivitiesService, ISubProjectService subProjectService, IConsultantService consultantService) : base(activityLogService)
         {
             ConsultancyActivitiesService = consultancyActivitiesService;
             SubProjectService = subProjectService;
             ConsultantService = consultantService;
         }
 
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
         public async Task<ActionResult> List()
         {
 
@@ -86,7 +86,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             }
             model.SubProjectDropdown = await SubProjectService.GetDropdownAsync();
             model.ConsultantDropdown = await ConsultantService.GetDropdownAsync();
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -128,7 +128,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
 
             model.SubProjectDropdown = await SubProjectService.GetDropdownAsync(model.SubProjectId);
             model.ConsultantDropdown = await ConsultantService.GetDropdownAsync(model.ConsultantId);
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -166,7 +166,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 var model = await ConsultancyActivitiesService.GetByIdAsync(id);
 
 
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), message);
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), message);
 
                 return View(model);
             }

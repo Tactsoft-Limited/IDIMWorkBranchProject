@@ -1,0 +1,183 @@
+﻿@model IDIMWorkBranchProject.Models.WBP.ReceivePaymentVm
+@{
+    ViewBag.Title = "Receipt Payment";
+}
+
+<div class='col-xs-12'>
+    <div class="page-title">
+        <div class="pull-left">
+            <h1 class="title">Receipt Payment </h1>
+        </div>
+        <div class="pull-right hidden-xs">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("List","ReceivePayment")">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        Receipt Payment
+                    </a>
+                </li>
+                <li class="active">
+                    <strong>Delete</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Delete</h2>
+            <div class="actions panel_actions pull-right">
+                <a href="@Url.Action("Create","ReceivePayment")" class="btn btn-success">Create New</a>
+                <a href="@Url.Action("Edit","ReceivePayment", new { id = Model.ReceivePaymentId })" class="btn btn-success">Edit</a>
+                <a href="@Url.Action("List","ReceivePayment")" class="btn">List</a>
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ProjectId, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        <span class="label label-primary">
+                                            @Html.DisplayFor(model => model.ProjectName)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.LetterNo, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <span class="form-control">
+                                        @Html.DisplayFor(m => m.LetterNo)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.BillDate, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <span class="form-control">
+                                        @Html.DisplayFor(m => m.BillDate)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.BillPaymentSector, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <span class="form-control">
+                                        @Html.DisplayFor(m => m.BillPaymentSector)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ExtraTime, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <span class="form-control">
+                                        @Html.DisplayFor(m => m.ExtraTime)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.Budget, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <span class="form-control">
+                                        @Html.DisplayFor(m => m.Budget)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.WorkProgress, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <span class="form-control">
+                                        @Html.DisplayFor(m => m.WorkProgress)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.FinancialProgress, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <span class="form-control">
+                                        @Html.DisplayFor(m => m.FinancialProgress)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.BillNumber, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <span class="form-control">
+                                        @Html.DisplayFor(m => m.BillNumber)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.BillPercentage, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <span class="form-control">
+                                        @Html.DisplayFor(m => m.BillPercentage)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.BillAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    <span class="form-control">
+                                        @Html.DisplayFor(m => m.BillAmount)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                @Html.LabelFor(m => m.Remarks, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
+                                    <span class="form-control">
+                                        @Html.DisplayFor(m => m.Remarks)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+                    @using (Html.BeginForm("Delete", "ReceivePayment", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("ReceivePaymentId")
+
+                        <a href="@Url.Action("List", "ReceivePayment")" class="btn">Cancel</a>
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-success" value="Delete" />
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

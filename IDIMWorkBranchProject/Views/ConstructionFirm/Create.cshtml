@@ -111,39 +111,6 @@
                             </div>
                         </div>
 
-                        @*<div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.Enlisted, new { @class = "col-md-4 form-label" })
-                                    <div class="col-md-8">
-                                        @Html.CheckBoxFor(m => m.Enlisted, new { @class = "form-control  iCheck" })
-                                        @Html.ValidationMessageFor(model => model.Enlisted)
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.Status, new { @class = "col-md-4 form-label" })
-                                    <div class="col-md-8">
-                                        @Html.CheckBoxFor(m => m.Status, new { @class = "form-control  iCheck" })
-                                        @Html.ValidationMessageFor(model => model.Status)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>*@
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.Comments, new { @class = "col-md-2 form-label" })
-                                    <div class="col-md-10">
-                                        @Html.TextAreaFor(m => m.Comments, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.Comments)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="pull-right">
                             <input type="submit" class="btn btn-success" value="Save" />
                             <input type="reset" class="btn" value="Clear" />

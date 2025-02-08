@@ -1,8 +1,5 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Mvc;
-using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.User;
 using IDIMWorkBranchProject.Services.User;
 
@@ -41,198 +38,198 @@ namespace IDIMWorkBranchProject.Controllers.User
         {
             var model = new UserSearchVm
             {
-                ApplicationDropdown =  await ApplicationService.GetDropDownAsync(),
-                DeviceDropdown = await DeviceService.GetDropDownAsync(),
-                Users = await UserService.GetUserByFilterAsync()
+                ApplicationDropdown = await ApplicationService.GetDropDownAsync(),
+                //DeviceDropdown = await DeviceService.GetDropDownAsync(),
+                //Users = await UserService.GetUserByFilterAsync()
             };
 
             return View(model);
         }
 
-        [HttpPost]
-        public async Task<ActionResult> List(UserSearchVm model)
-        {
-            model.ApplicationDropdown = await ApplicationService.GetDropDownAsync(model.ApplicationId);
-            model.DeviceDropdown = await DeviceService.GetDropDownAsync();
-            model.Users = await UserService.GetUserByFilterAsync(model.Username, model.Regiment, model.ApplicationId, model.DeviceId, model.IsActive);
+        //[HttpPost]
+        //public async Task<ActionResult> List(UserSearchVm model)
+        //{
+        //    model.ApplicationDropdown = await ApplicationService.GetDropDownAsync(model.ApplicationId);
+        //    model.DeviceDropdown = await DeviceService.GetDropDownAsync();
+        //    model.Users = await UserService.GetUserByFilterAsync(model.Username, model.Regiment, model.ApplicationId, model.DeviceId, model.IsActive);
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
-        public async Task<ActionResult> Details(int id)
-        {
-            var menus = await UserService.GetUserMenuAsync(id);
-            menus = menus.Where(e => e.Menus.Any(m => m.IsAssigned)).ToList();
+        //public async Task<ActionResult> Details(int id)
+        //{
+        //    var menus = await UserService.GetUserMenuAsync(id);
+        //    menus = menus.Where(e => e.Menus.Any(m => m.IsAssigned)).ToList();
 
-            var model = new UserDetailVm
-            {
-                User = await UserService.GetByIdAsync(id),
-                Applications = await ApplicationService.GetByUserIdAsync(id),
-                Devices = await DeviceService.GetByUserIdAsync(id),
-                Menus = menus
-            };
+        //    var model = new UserDetailVm
+        //    {
+        //        User = await UserService.GetByIdAsync(id),
+        //        Applications = await ApplicationService.GetByUserIdAsync(id),
+        //        Devices = await DeviceService.GetByUserIdAsync(id),
+        //        Menus = menus
+        //    };
 
-            return View(model);
-        }
-        
+        //    return View(model);
+        //}
+
         public ActionResult Create()
         {
             return View(new RegisterVm());
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(RegisterVm model)
-        {
-            Message message;
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Create(RegisterVm model)
+        //{
+        //    Message message;
 
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    await UserService.InsertAsync(model);
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            await UserService.InsertAsync(model);
 
-                    ModelState.Clear();
-                    model = new RegisterVm();
+        //            ModelState.Clear();
+        //            model = new RegisterVm();
 
-                    message = Messages.Success(MessageType.Create.ToString());
+        //            message = Messages.Success(MessageType.Create.ToString());
 
-                }
-                else
-                {
-                    message = Messages.InvalidInput(MessageType.Create.ToString());
-                }
-            }
-            catch (Exception exception)
-            {
-                message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
-            }
+        //        }
+        //        else
+        //        {
+        //            message = Messages.InvalidInput(MessageType.Create.ToString());
+        //        }
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+        //    }
 
-            ViewBag.Message = message;
+        //    ViewBag.Message = message;
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
-        public async Task<ActionResult> Edit(int id)
-        {
-            var user = await UserService.GetByIdAsync(id);
+        //public async Task<ActionResult> Edit(int id)
+        //{
+        //    var user = await UserService.GetByIdAsync(id);
 
-            return View(user);
-        }
+        //    return View(user);
+        //}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(UserVm model)
-        {
-            Message message;
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Edit(UserVm model)
+        //{
+        //    Message message;
 
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    await UserService.UpdateAsync(model);
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            await UserService.UpdateAsync(model);
 
-                    message = Messages.Success(MessageType.Update.ToString());
-                }
-                else
-                {
-                    message = Messages.InvalidInput(MessageType.Update.ToString());
-                }
-            }
-            catch (Exception exception)
-            {
-                message = Messages.Failed(MessageType.Update.ToString(), exception.Message);
-            }
+        //            message = Messages.Success(MessageType.Update.ToString());
+        //        }
+        //        else
+        //        {
+        //            message = Messages.InvalidInput(MessageType.Update.ToString());
+        //        }
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        message = Messages.Failed(MessageType.Update.ToString(), exception.Message);
+        //    }
 
-            ViewBag.Message = message;
+        //    ViewBag.Message = message;
 
-            return View(model);
-        }
-        
-        public async Task<ActionResult> ChangePassword(int id)
-        {
-            var user = await UserService.GetByIdAsync(id);
-            if (user == null)
-                return HttpNotFound();
+        //    return View(model);
+        //}
 
-            var model = new ChangePasswordVm
-            {
-                UserId    = user.UserId,
-                Username = user.Username
-            };
+        //public async Task<ActionResult> ChangePassword(int id)
+        //{
+        //    var user = await UserService.GetByIdAsync(id);
+        //    if (user == null)
+        //        return HttpNotFound();
 
-            return View(model);
-        }
+        //    var model = new ChangePasswordVm
+        //    {
+        //        UserId = user.UserId,
+        //        Username = user.Username
+        //    };
 
-        [HttpPost]
-        public ActionResult ChangePassword(ChangePasswordVm model)
-        {
-            return View();
-        }
+        //    return View(model);
+        //}
 
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+        //[HttpPost]
+        //public ActionResult ChangePassword(ChangePasswordVm model)
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
+        //public ActionResult Delete(int id)
+        //{
+        //    return View();
+        //}
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //[HttpPost]
+        //public ActionResult Delete(int id, FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add delete logic here
 
-        [Route("user/{id:int}/application")]
-        public async Task<ActionResult> Application(int id)
-        {
-            var user = await UserService.GetByIdAsync(id);
-            var model = new UserApplicationAssignVm 
-            {
-                UserId = user.UserId,
-                RegimentNo = user.RegimentNo,
-                Username = user.Username,
-                Applications = await UserService.GetUserApplicationAsync(id),
-            };
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
-            return View(model);
-        }
+        //[Route("user/{id:int}/application")]
+        //public async Task<ActionResult> Application(int id)
+        //{
+        //    var user = await UserService.GetByIdAsync(id);
+        //    var model = new UserApplicationAssignVm
+        //    {
+        //        UserId = user.UserId,
+        //        RegimentNo = user.RegimentNo,
+        //        Username = user.Username,
+        //        Applications = await UserService.GetUserApplicationAsync(id),
+        //    };
 
-        [HttpPost]
-        [Route("user/{id:int}/application")]
-        public async Task<ActionResult> Application(UserApplicationAssignVm model)
-        {
-            Message message;
+        //    return View(model);
+        //}
 
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    await UserApplicationService.InsertDeleteAsync(model.UserId, model.Applications);
+        //[HttpPost]
+        //[Route("user/{id:int}/application")]
+        //public async Task<ActionResult> Application(UserApplicationAssignVm model)
+        //{
+        //    Message message;
 
-                    message = Messages.Success("Applications assigne");
-                }
-                else
-                {
-                    message = Messages.InvalidInput(MessageType.Create.ToString());
-                }
-            }
-            catch (Exception exception)
-            {
-                message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
-            }
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            await UserApplicationService.InsertDeleteAsync(model.UserId, model.Applications);
 
-            ViewBag.Message = message;
+        //            message = Messages.Success("Applications assigne");
+        //        }
+        //        else
+        //        {
+        //            message = Messages.InvalidInput(MessageType.Create.ToString());
+        //        }
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+        //    }
 
-            return View(model);
-        }
+        //    ViewBag.Message = message;
+
+        //    return View(model);
+        //}
 
         public async Task<ActionResult> Device(int id)
         {
@@ -246,46 +243,46 @@ namespace IDIMWorkBranchProject.Controllers.User
             return View(model);
         }
 
-        public async Task<ActionResult> Menu(int id)
-        {
-            var user = await UserService.GetByIdAsync(id);
-            var model = new UserMenuAssignVm
-            {
-                UserId = user.UserId,
-                RegimentNo = user.RegimentNo,
-                Username = user.Username,
-                Menus = await UserService.GetUserMenuAsync(id),
-            };
+        //public async Task<ActionResult> Menu(int id)
+        //{
+        //    var user = await UserService.GetByIdAsync(id);
+        //    var model = new UserMenuAssignVm
+        //    {
+        //        UserId = user.UserId,
+        //        RegimentNo = user.RegimentNo,
+        //        Username = user.Username,
+        //        Menus = await UserService.GetUserMenuAsync(id),
+        //    };
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
-        [HttpPost]
-        public async Task<ActionResult> Menu(UserMenuAssignVm model)
-        {
-            Message message;
+        //[HttpPost]
+        //public async Task<ActionResult> Menu(UserMenuAssignVm model)
+        //{
+        //    Message message;
 
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    await UserPriviledgeService.InsertDeleteAsync(model.UserId, model.Menus);
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            await UserPriviledgeService.InsertDeleteAsync(model.UserId, model.Menus);
 
-                    message = Messages.Success("Menus assigne");
-                }
-                else
-                {
-                    message = Messages.InvalidInput(MessageType.Create.ToString());
-                }
-            }
-            catch (Exception exception)
-            {
-                message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
-            }
+        //            message = Messages.Success("Menus assigne");
+        //        }
+        //        else
+        //        {
+        //            message = Messages.InvalidInput(MessageType.Create.ToString());
+        //        }
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+        //    }
 
-            ViewBag.Message = message;
+        //    ViewBag.Message = message;
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
     }
 }

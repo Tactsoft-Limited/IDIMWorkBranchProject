@@ -1,0 +1,143 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model ProjectDirectorVm
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="page-title">
+    <div class="pull-left">
+        <h3 class="title">Project Director</h3>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","ProjectDirector")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Project Director
+                </a>
+            </li>
+            <li class="active">
+                <strong>Create</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">Create</h2>
+        <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("List","ProjectDirector")" class="btn">
+                <i class="fa fa-list" aria-hidden="true"></i>
+                List
+            </a>
+            <a class="box_toggle fa fa-chevron-down"></a>
+        </div>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("Create", "ProjectDirector", FormMethod.Post, new { enctype = "multipart/form-data", id = "ProjectDirector-create-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.ADPProjectId)
+
+                    <div class="row">
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ProjectTitle, new { @class = "label-display" })
+                            @Html.TextBoxFor(m => m.ProjectTitle, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ProjectDirectorName, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.ProjectDirectorName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ProjectDirectorName)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.Designation, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.Designation, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Designation)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.JoiningDate, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.JoiningDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.JoiningDate)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.TransferDate, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.TransferDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.TransferDate)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.PDDocumentFile, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                <!-- Add id="pdfInput" to the file input element -->
+                                @Html.TextBoxFor(m => m.PDDocumentFile, new { @class = "form-control", type = "file", accept = ".pdf", id = "pdfInput" })
+                                @Html.ValidationMessageFor(model => model.PDDocumentFile)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div id="pdfPreview" style="height: 300px; border: 1px solid #ccc; display: none;">
+                                <iframe id="pdfViewer" style="width: 100%; height: 100%;" frameborder="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Change the ID to match the one used in the HTML: pdfInput
+            document.getElementById('pdfInput').addEventListener('change', function (event) {
+                var file = event.target.files[0];
+
+                if (file && file.type === 'application/pdf') {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        var pdfViewer = document.getElementById('pdfViewer');
+                        pdfViewer.src = e.target.result;
+                        document.getElementById('pdfPreview').style.display = 'block';
+                    };
+
+                    reader.readAsDataURL(file);
+                } else {
+                    document.getElementById('pdfPreview').style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+}

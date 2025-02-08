@@ -1,9 +1,14 @@
-﻿using System.Web.Mvc;
+﻿using IDIMWorkBranchProject.Services;
+using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Setup
 {
-    public class AttachmentController : Controller
+    public class AttachmentController : BaseController
     {
+        public AttachmentController(IActivityLogService activityLogService) : base(activityLogService)
+        {
+        }
+
         // GET: Attachment
         public ActionResult Index()
         {

@@ -4,12 +4,13 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
 
 namespace IDIMWorkBranchProject.Controllers.WBP
 {
-    public class ProjectProblemController : Controller
+    public class ProjectProblemController : BaseController
     {
         protected IBillTypeService BillTypeService { get; set; }
         protected IProjectProblemService ProjectProblemService { get; set; }
@@ -17,12 +18,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
         protected ISubProjectService SubProjectService { get; set; }
         protected IUnitService UnitService { get; set; }
 
-        public ProjectProblemController(
-            IBillTypeService billTypeService,
-            IProjectProblemService projectProblemService,
-            IFiscalYearService fiscalYearService,
-            ISubProjectService subProjectService,
-            IUnitService unitService)
+        public ProjectProblemController(IActivityLogService activityLogService, IBillTypeService billTypeService, IProjectProblemService projectProblemService, IFiscalYearService fiscalYearService, ISubProjectService subProjectService, IUnitService unitService) : base(activityLogService)
         {
             BillTypeService = billTypeService;
             ProjectProblemService = projectProblemService;
@@ -30,7 +26,10 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             SubProjectService = subProjectService;
             UnitService = unitService;
         }
-
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
         public async Task<ActionResult> List()
         {
             var model = new ProjectProblemSearchVm
@@ -87,7 +86,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
             }
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -126,7 +125,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 message = Messages.Failed(MessageType.Update.ToString(), exception.Message);
             }
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -164,7 +163,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 var model = await ProjectProblemService.GetByIdAsync(id);
 
 
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), message);
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), message);
 
                 return View(model);
             }

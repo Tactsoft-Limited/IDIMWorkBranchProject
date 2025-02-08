@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace IDIMWorkBranchProject
 {
@@ -70,7 +69,7 @@ namespace IDIMWorkBranchProject
                 "~/Scripts/Plugins/morris-chart/js/raphael-min.js",
                 "~/Scripts/Plugins/morris-chart/js/morris.min.js",
                 "~/Scripts/Theme/chart-sparkline.js"
-                //"~/Scripts/Theme/dashboard.js"
+            //"~/Scripts/Theme/dashboard.js"
             ));
             #endregion
 
@@ -116,6 +115,8 @@ namespace IDIMWorkBranchProject
                 "~/Scripts/Plugins/datatables/extensions/Responsive/bootstrap/3/dataTables.bootstrap.css"
             ));
             #endregion
+
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

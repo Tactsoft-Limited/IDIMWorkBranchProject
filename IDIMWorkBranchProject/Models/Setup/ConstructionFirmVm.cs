@@ -17,9 +17,6 @@ namespace IDIMWorkBranchProject.Models.Setup
         [Display(Name = " Company Name")]
         public string ConstructionFirmName { get; set; }
 
-        [Display(Name = "Company")]
-        public string CompanyName { get; set; }
-
         [Display(Name = "Address")]
         public string Address { get; set; }
 
@@ -31,15 +28,6 @@ namespace IDIMWorkBranchProject.Models.Setup
 
         [Display(Name = "Contact Email")]
         public string Email { get; set; }
-
-        [Display(Name = "Enlisted")]
-        public bool Enlisted { get; set; }
-
-        [Display(Name = "Comment")]
-        public string Comments { get; set; }
-
-        [Display(Name = "Status")]
-        public bool Status { get; set; }
 
         public int CreatedUser { get; set; }
         public DateTime CreatedDateTime { get; set; }

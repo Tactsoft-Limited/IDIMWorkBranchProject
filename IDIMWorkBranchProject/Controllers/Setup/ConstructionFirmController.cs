@@ -3,15 +3,15 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.Setup;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 
 namespace IDIMWorkBranchProject.Controllers.Setup
 {
-    public class ConstructionFirmController : Controller
+    public class ConstructionFirmController : BaseController
     {
         protected IConstructionFirmService ConstructionFirmService { get; set; }
-
-        public ConstructionFirmController(IConstructionFirmService constructionFirmService)
+        public ConstructionFirmController(IActivityLogService activityLogService, IConstructionFirmService constructionFirmService) : base(activityLogService)
         {
             ConstructionFirmService = constructionFirmService;
         }
@@ -21,17 +21,34 @@ namespace IDIMWorkBranchProject.Controllers.Setup
             return RedirectToAction("List");
         }
 
-        public async Task<ActionResult> List()
+        public ActionResult List()
         {
-            var list = await ConstructionFirmService.GetAllAsync();
+            var model = new ConstructionFirmSearchVm();
+            return View(model);
+        }
 
-            return View(list);
+        [HttpPost]
+        public async Task<ActionResult> LoadData(ConstructionFirmSearchVm model)
+        {
+            // Fetch filter parameters from the request
+
+            try
+            {
+                var data = await ConstructionFirmService.GetAllAsync(model);
+
+                // Return the JSON result
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                // Handle any errors that occur during data fetching
+                return Json(new { error = ex.Message });
+            }
         }
 
         public ActionResult Create()
         {
             var model = new ConstructionFirmVm();
-
             return View(model);
         }
 
@@ -60,7 +77,7 @@ namespace IDIMWorkBranchProject.Controllers.Setup
                 message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
             }
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -99,7 +116,7 @@ namespace IDIMWorkBranchProject.Controllers.Setup
                 message = Messages.Failed(MessageType.Update.ToString(), exception.Message);
             }
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -126,7 +143,7 @@ namespace IDIMWorkBranchProject.Controllers.Setup
             {
                 var model = await ConstructionFirmService.GetByIdAsync(id);
 
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), exception.Message);
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.Message);
 
                 return View(model);
             }

@@ -4,14 +4,15 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using IDIMWorkBranchProject.Entity;
+using BGB.Data.Entities.Pm;
+using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Models.WBP;
 
 namespace IDIMWorkBranchProject.Services.WBP
 {
-    public class ConsultancyFeesService:IConsultancyFeesService
+    public class ConsultancyFeesService : IConsultancyFeesService
     {
         protected IDIMDBEntities Context { get; set; }
         protected IMapper Mapper { get; set; }

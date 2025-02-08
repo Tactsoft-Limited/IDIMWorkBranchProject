@@ -3,15 +3,15 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.Setup;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 
 namespace IDIMWorkBranchProject.Controllers.Setup
 {
-    public class BillTypeController : Controller
+    public class BillTypeController : BaseController
     {
         protected IBillTypeService BillTypeService { get; set; }
-
-        public BillTypeController(IBillTypeService billTypeService)
+        public BillTypeController(IActivityLogService activityLogService, IBillTypeService billTypeService) : base(activityLogService)
         {
             BillTypeService = billTypeService;
         }
@@ -60,7 +60,7 @@ namespace IDIMWorkBranchProject.Controllers.Setup
                 message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
             }
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -99,7 +99,7 @@ namespace IDIMWorkBranchProject.Controllers.Setup
                 message = Messages.Failed(MessageType.Update.ToString(), exception.Message);
             }
 
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -124,7 +124,7 @@ namespace IDIMWorkBranchProject.Controllers.Setup
             {
                 var model = await BillTypeService.GetByIdAsync(id);
 
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), exception.Message);
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.Message);
 
                 return View(model);
             }

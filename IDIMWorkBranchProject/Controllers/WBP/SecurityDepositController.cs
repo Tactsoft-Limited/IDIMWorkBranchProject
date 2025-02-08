@@ -4,25 +4,24 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
-using IDIMWorkBranchProject.Services.Setup;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.WBP;
 
 namespace IDIMWorkBranchProject.Controllers.WBP
 {
-    public class SecurityDepositController : Controller
+    public class SecurityDepositController : BaseController
     {
         protected ISecurityDepositService SecurityDepositService { get; set; }
         protected ISubProjectService SubProjectService { get; set; }
-
-        public SecurityDepositController(
-            ISecurityDepositService securityDepositService,
-            ISubProjectService subProjectService
-            )
+        public SecurityDepositController(IActivityLogService activityLogService, ISecurityDepositService securityDepositService, ISubProjectService subProjectService) : base(activityLogService)
         {
             SecurityDepositService = securityDepositService;
             SubProjectService = subProjectService;
         }
-
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
         public async Task<ActionResult> List()
         {
 
@@ -79,7 +78,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
             }
             model.SubProjectDropdown = await SubProjectService.GetDropdownAsync();
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -119,7 +118,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             }
 
             model.SubProjectDropdown = await SubProjectService.GetDropdownAsync(model.SubProjectId);
-            ViewBag.Message = message;
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -157,7 +156,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 var model = await SecurityDepositService.GetByIdAsync(id);
 
 
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), message);
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), message);
 
                 return View(model);
             }

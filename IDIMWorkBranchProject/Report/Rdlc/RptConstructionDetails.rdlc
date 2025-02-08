@@ -9,9 +9,11 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Fields!FiscalYearDescription.Value &amp; " অর্থ বছরের " &amp; Fields!YearlyData.Value &amp; "টি নির্মান কাজের মধ্যে " &amp; Fields!ConsultantName.Value &amp; " এর " &amp; Count(Fields!SubProjectTitle.Value) &amp; "টি নির্মাণ কাজের বিবরণ"</Value>
+                <Value>=First(Fields!FiscalYearDescription.Value, "ConstructionDetailsDataSet") &amp; 
+" অর্থ বছরের " &amp; First(Fields!YearlyData.Value, "ConstructionDetailsDataSet") &amp; 
+"টি নির্মান কাজের মধ্যে " &amp; First(Fields!ConsultantName.Value, "ConstructionDetailsDataSet") &amp; 
+" এর " &amp; Count(Fields!SubProjectTitle.Value, "ConstructionDetailsDataSet") &amp; "টি নির্মাণ কাজের বিবরণ"</Value>
                 <Style>
-                  <FontFamily>solaimanLipi</FontFamily>
                   <FontSize>11pt</FontSize>
                   <TextDecoration>Underline</TextDecoration>
                 </Style>
@@ -25,7 +27,7 @@
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>0.225in</Top>
         <Height>0.25in</Height>
-        <Width>8in</Width>
+        <Width>7.625in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -57,7 +59,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
         <Height>0.25in</Height>
-        <Width>8in</Width>
+        <Width>7.625in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -77,9 +79,8 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Fields!ConsultantName.Value</Value>
+                <Value>=First(Fields!ConsultantName.Value, "ConstructionDetailsDataSet")</Value>
                 <Style>
-                  <FontFamily>solaimanLipi</FontFamily>
                   <FontSize>9pt</FontSize>
                   <TextDecoration>Underline</TextDecoration>
                 </Style>
@@ -91,8 +92,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>0.50694in</Top>
-        <Left>0in</Left>
+        <Top>0.53194in</Top>
         <Height>0.25in</Height>
         <Width>3.52083in</Width>
         <ZIndex>2</ZIndex>
@@ -127,10 +127,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>0.50694in</Top>
-        <Left>6.625in</Left>
+        <Top>0.53194in</Top>
+        <Left>6.25in</Left>
         <Height>0.25in</Height>
-        <Width>1.375in</Width>
+        <Width>1in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -153,10 +153,10 @@
               <Width>1.59374in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.6875in</Width>
+              <Width>0.56944in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.89583in</Width>
+              <Width>0.63889in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.64585in</Width>
@@ -1757,9 +1757,8 @@
         </TablixRowHierarchy>
         <DataSetName>ConstructionDetailsDataSet</DataSetName>
         <Top>0.85917in</Top>
-        <Left>0in</Left>
         <Height>1in</Height>
-        <Width>8in</Width>
+        <Width>7.625in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -1768,13 +1767,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.88542in</Height>
+    <Height>2.19098in</Height>
     <Style />
   </Body>
-  <Width>8.01042in</Width>
+  <Width>7.625in</Width>
   <Page>
     <PageFooter>
-      <Height>1in</Height>
+      <Height>0.16667in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1797,8 +1796,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox12</rd:DefaultName>
-          <Top>0.83333in</Top>
-          <Left>5.49982in</Left>
+          <Left>5.12482in</Left>
           <Height>0.16667in</Height>
           <Width>0.88561in</Width>
           <Style>
@@ -1828,8 +1826,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox13</rd:DefaultName>
-          <Top>0.83333in</Top>
-          <Left>6.38542in</Left>
+          <Left>6.01042in</Left>
           <Height>0.16667in</Height>
           <Width>1.61458in</Width>
           <ZIndex>1</ZIndex>

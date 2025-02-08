@@ -13,7 +13,9 @@ namespace IDIMWorkBranchProject.Services.WBP
         Task<ProjectVm> UpdateAsync(ProjectVm model);
         Task<ProjectVm> DeleteAsync(int id);
 
-        Task<List<ProjectVm>> GetByAsync(ProjectSearchVm filter = null);
+        Task<object> GetByAsync(ProjectSearchVm filter = null);
         Task<IEnumerable<SelectListItem>> GetDropdownAsync(int? selected = 0);
+        Task<IEnumerable<SelectListItem>> GetProductTypeDropdown(int? selected = 0);
+        Task<decimal> GetEstimatedExpenses(int id);
     }
 }

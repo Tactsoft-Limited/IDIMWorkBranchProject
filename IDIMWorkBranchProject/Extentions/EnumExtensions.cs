@@ -1,25 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Extentions
 {
     public static class EnumExtensions
     {
+        public static string GetDisplayName(this Enum value)
+        {
+            var field = value.GetType().GetField(value.ToString());
+            var attribute = (DisplayAttribute)Attribute.GetCustomAttribute(field, typeof(DisplayAttribute));
+            return attribute?.Name ?? value.ToString();
+        }
+
         public static IEnumerable<SelectListItem> ToSelectList(this Enum enumValue)
         {
             return from Enum e in Enum.GetValues(enumValue.GetType())
-                select new SelectListItem
-                {
-                    Selected = e.Equals(enumValue),
-                    Text = e.GetDisplayValue(),
-                    Value = Convert.ToInt32(e).ToString()
-                };
+                   select new SelectListItem
+                   {
+                       Selected = e.Equals(enumValue),
+                       Text = e.GetDisplayValue(),
+                       Value = Convert.ToInt32(e).ToString()
+                   };
         }
 
         public static string GetDisplayValue(this Enum value)
@@ -30,13 +35,13 @@ namespace IDIMWorkBranchProject.Extentions
                 typeof(DisplayAttribute), false) as DisplayAttribute[];
 
             if (descriptionAttributes[0].ResourceType != null)
-                return lookupResource(descriptionAttributes[0].ResourceType, descriptionAttributes[0].Name);
+                return LookupResource(descriptionAttributes[0].ResourceType, descriptionAttributes[0].Name);
 
             if (descriptionAttributes == null) return string.Empty;
             return (descriptionAttributes.Length > 0) ? descriptionAttributes[0].Name : value.ToString();
         }
 
-        private static string lookupResource(Type resourceManagerProvider, string resourceKey)
+        private static string LookupResource(Type resourceManagerProvider, string resourceKey)
         {
             foreach (PropertyInfo staticProperty in resourceManagerProvider.GetProperties(BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public))
             {

@@ -1,0 +1,200 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.WBP
+
+@model ReceivePaymentSearchVm
+
+@{
+    ViewBag.Title = "Receive Payment";
+}
+
+<div class='col-xs-12'>
+    <div class="page-title">
+        <div class="pull-left">
+            <h1 class="title">Receive Payment </h1>
+        </div>
+        <div class="pull-right hidden-xs">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i>Dashboard</a>
+                </li>
+                <li class="active">
+                    <strong>Receive Payment</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">List</h2>
+            <div class="actions panel_actions pull-right">
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.ProjectName, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.ProjectName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ProjectName)
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.ConstructionFirmName, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.ConstructionFirmName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ConstructionFirmName)
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.LetterNo, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.LetterNo, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LetterNo)
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.BillDate, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.BillDate, new { @class = "form-control datepicker" })
+                        @Html.ValidationMessageFor(model => model.BillDate)
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.ProjectId, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(m => m.ProjectId, Model.ProjectDropdown, "Select Project", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ProjectId)
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(m => m.ConstructionFirmId, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(m => m.ConstructionFirmId, Model.ConstructionFirmDropdown, "Select Firm", new { @class = "select2" })
+                        @Html.ValidationMessageFor(model => model.ConstructionFirmId)
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div class="form-group">
+                        <button type="button" id="resetButton" class="btn btn-secondary">Reset Filter</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <table id="receivePaymentTable" class="table table-bordered" width="100%">
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            var table = $('#receivePaymentTable').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "/ReceivePayment/LoadData",  // Correct URL
+                    "type": "POST",
+                    "contentType": "application/json",  // Sending JSON data
+                    "data": function (d) {
+                        return JSON.stringify({
+                            SearchValue: d.search.value,
+                            ProjectName: $('#ProjectName').val(),
+                            ConstructionFirmName: $('#ConstructionFirmName').val(),
+                            LetterNo: $('#LetterNo').val(),
+                            BillDate: $('#BillDate').val() ? $('#BillDate').val() : null,
+                            ProjectId: $('#ProjectId').val(),
+                            ConstructionFirmId: $('#ConstructionFirmId').val(),
+                            Draw: d.draw,
+                            PageIndex: d.start / d.length,
+                            PageSize: d.length,
+                            SortColumn: d.order[0] ? d.columns[d.order[0].column].data : 'ReceivePaymentId',
+                            SortDirection: d.order[0] ? d.order[0].dir : 'asc'
+                        });
+                    },
+                    "dataSrc": function (json) {
+                        console.log("Fetching data:", json.data);
+                        // This ensures the DataTable can read the response and render the data
+                        return json.data;  // Ensure your JSON response matches this format
+                    },
+                    "error": function (xhr, error, thrown) {
+                        console.log("Error fetching data:", thrown);
+                        alert("Error: " + thrown);
+                    }
+                },
+                "columns": [
+                    { "data": "ReceivePaymentId", "title": "ReceivePaymentId", "visible": false },
+                    { "data": "ProjectId", "title": "ProjectId", "visible": false },
+                    { "data": "ProjectName", "title": "Project Name" },
+                    { "data": "LetterNo", "title": "Letter No" },
+                    { "data": "BillNumber", "title": "Bill No" },
+                    {
+                        "data": "BillDate",
+                        "title": "Bill Date",
+                        "render": function (data) {
+                            if (data && data.startsWith("/Date(")) {
+                                var timestamp = parseInt(data.replace("/Date(", "").replace(")/", ""));
+                                return new Date(timestamp).toLocaleDateString('en-GB');
+                            }
+                            return '';
+                        }
+                    },
+                    { "data": "ConstructionFirmId", "title": "ConstructionFirmId", "visible": false },
+                    { "data": "ConstructionFirmName", "title": "Firm Name" },
+                    { "data": "BillAmount", "title": "Bill Amount" },
+                    {
+                        "data": "ReceivePaymentId",
+                        "title": "Actions",
+                        "render": function (data, type, row) {
+                            return `
+                                    <a href="/SignatoryAuthority/Create?receivePaymentId=${row.ReceivePaymentId}&projectId=${row.ProjectId}">
+                                        <span class="label label-info"><i class="fa fa-info"></i>Signatory Authority</span>
+                                    </a>
+                                    <a href="/VatTax/Create?receivePaymentId=${row.ReceivePaymentId}&projectId=${row.ProjectId}">
+                                        <span class="label label-info"><i class="fa fa-info"></i>Vat/Tax</span>
+                                    </a>
+                                    <a href="/ReceivePayment/Edit?id=${row.ReceivePaymentId}">
+                                        <span class="label label-primary"><i class="fa fa-edit"></i> Edit</span>
+                                    </a>
+                                    <a href="/ReceivePayment/Delete?id=${row.ReceivePaymentId}">
+                                        <span class="label label-danger"><i class="fa fa-remove"></i> Remove</span>
+                                    </a>
+                                `;
+                        }
+                    }
+                ]
+            });
+
+            // Apply filters automatically when the user changes any of the filter fields
+            $('#ProjectName, #ConstructionFirmName, #LetterNo, #BillDate, #ProjectId, #ConstructionFirmId').on('change input keyup', function () {
+                table.ajax.reload();
+            });
+
+            // Reset button click handler
+            $("#resetButton").click(function () {
+                // Clear all text inputs
+                $("input[type='text']").val("");
+
+                // Clear all dropdowns (if using select2)
+                $("select").val("").trigger("change");
+
+                // Clear date fields (datepicker)
+                $("input[type='date']").val("");
+
+                // Remove validation messages
+                $(".field-validation-error").remove();
+            });
+        });
+    </script>
+
+}

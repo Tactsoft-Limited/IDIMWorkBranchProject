@@ -41,13 +41,17 @@ namespace IDIMWorkBranchProject.Models
 
     public class ChangePasswordViewModel
     {
+        public string Username { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Current password")]
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [RegularExpression(
+            @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$",
+            ErrorMessage = "The password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.")]
         [DataType(DataType.Password)]
         [Display(Name = "New password")]
         public string NewPassword { get; set; }

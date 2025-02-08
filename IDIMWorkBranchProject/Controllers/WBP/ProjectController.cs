@@ -4,28 +4,31 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
+using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
 
 namespace IDIMWorkBranchProject.Controllers.WBP
 {
-    public class ProjectController : Controller
+    public class ProjectController : BaseController
     {
-        protected IFiscalYearService FiscalYearService { get; set; }
-        protected IGeneralInformationService GeneralInformationService { get; set; }
-        protected IProjectService ProjectService { get; set; }
-        protected IUnitService UnitService { get; set; }
+        protected IFiscalYearService _fiscalYearService;
+        protected IGeneralInformationService _generalInformationService;
+        protected IProjectService _projectService;
+        protected ISubProjectService _subProjectService;
+        protected IUnitService _unitService;
 
-        public ProjectController(
-            IFiscalYearService fiscalYearService,
-            IGeneralInformationService generalInformationService,
-            IProjectService projectService,
-            IUnitService unitService)
+        public ProjectController(IActivityLogService activityLogService, IFiscalYearService fiscalYearService, IGeneralInformationService generalInformationService, IProjectService projectService, IUnitService unitService) : base(activityLogService)
         {
-            FiscalYearService = fiscalYearService;
-            GeneralInformationService = generalInformationService;
-            ProjectService = projectService;
-            UnitService = unitService;
+            _fiscalYearService = fiscalYearService;
+            _generalInformationService = generalInformationService;
+            _projectService = projectService;
+            _unitService = unitService;
+        }
+
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
         }
 
         public async Task<ActionResult> List()
@@ -33,30 +36,37 @@ namespace IDIMWorkBranchProject.Controllers.WBP
 
             var model = new ProjectSearchVm
             {
-                AuthorizeUnitDropdown = await UnitService.GetDropDownAsync(),
-                FiscalYearDropdown = await FiscalYearService.GetDropdownAsync(),
-                Projects = await ProjectService.GetByAsync()
+                ProjectTypeDropdown = await _projectService.GetProductTypeDropdown(),
+                FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync(),
             };
 
             return View(model);
         }
 
         [HttpPost]
-        public async Task<ActionResult> List(ProjectSearchVm model)
+        public async Task<ActionResult> LoadData(ProjectSearchVm model)
         {
-            model.AuthorizeUnitDropdown = await UnitService.GetDropDownAsync(model.AuthorizeUnitId);
-            model.FiscalYearDropdown = await FiscalYearService.GetDropdownAsync(model.FiscalYearId);
-            model.Projects = await ProjectService.GetByAsync(model);
+            // Fetch filter parameters from the request
 
-            return View(model);
+            try
+            {
+                var data = await _projectService.GetByAsync(model);
+
+                // Return the JSON result
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                // Handle any errors that occur during data fetching
+                return Json(new { error = ex.Message });
+            }
         }
-
         public async Task<ActionResult> Create()
         {
             var model = new ProjectVm
             {
-                AuthorizeUnitDropdown = await UnitService.GetDropDownAsync(),
-                FiscalYearDropdown = await FiscalYearService.GetDropdownAsync()
+                ProjectTypeDropdown = await _projectService.GetProductTypeDropdown(),
+                FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync()
             };
 
             return View(model);
@@ -71,10 +81,10 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             {
                 if (ModelState.IsValid)
                 {
-                    await ProjectService.InsertAsync(model);
+                    await _projectService.InsertAsync(model);
 
                     ModelState.Clear();
-                    model=new ProjectVm();
+                    model = new ProjectVm();
                     message = Messages.Success(MessageType.Create.ToString());
                 }
                 else
@@ -87,22 +97,22 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
             }
 
-            model.AuthorizeUnitDropdown = await UnitService.GetDropDownAsync();
-            model.FiscalYearDropdown = await FiscalYearService.GetDropdownAsync();
-            ViewBag.Message = message;
+            model.ProjectTypeDropdown = await _projectService.GetProductTypeDropdown();
+            model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync();
+            TempData["Message"] = message;
 
             return View(model);
         }
 
         public async Task<ActionResult> Edit(int id)
         {
-            var model = await ProjectService.GetByIdAsync(id);
+            var model = await _projectService.GetByIdAsync(id);
 
             if (model == null)
                 return HttpNotFound();
 
-            model.AuthorizeUnitDropdown = await UnitService.GetDropDownAsync(model.AuthorizeUnitId);
-            model.FiscalYearDropdown = await FiscalYearService.GetDropdownAsync(model.FiscalYearId);
+            model.ProjectTypeDropdown = await _projectService.GetProductTypeDropdown();
+            model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync(model.FiscalYearId);
 
             return View(model);
         }
@@ -116,7 +126,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             {
                 if (ModelState.IsValid)
                 {
-                    await ProjectService.UpdateAsync(model);
+                    await _projectService.UpdateAsync(model);
 
                     message = Messages.Success(MessageType.Update.ToString());
                 }
@@ -130,9 +140,9 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                 message = Messages.Failed(MessageType.Update.ToString(), exception.Message);
             }
 
-            model.AuthorizeUnitDropdown = await UnitService.GetDropDownAsync(model.AuthorizeUnitId);
-            model.FiscalYearDropdown = await FiscalYearService.GetDropdownAsync(model.FiscalYearId);
-            ViewBag.Message = message;
+            model.ProjectTypeDropdown = await _projectService.GetProductTypeDropdown();
+            model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync(model.FiscalYearId);
+            TempData["Message"] = message;
 
             return View(model);
         }
@@ -145,7 +155,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
             int projectId;
             int.TryParse(id, out projectId);
 
-            var model = await ProjectService.GetByIdAsync(projectId);
+            var model = await _projectService.GetByIdAsync(projectId);
 
 
             return View(model);
@@ -156,7 +166,7 @@ namespace IDIMWorkBranchProject.Controllers.WBP
         {
             try
             {
-                await ProjectService.DeleteAsync(id);
+                await _projectService.DeleteAsync(id);
             }
             catch (Exception exception)
             {
@@ -167,10 +177,10 @@ namespace IDIMWorkBranchProject.Controllers.WBP
                     message = "Can not delete due to reference table.";
                 }
 
-                var model = await ProjectService.GetByIdAsync(id);
+                var model = await _projectService.GetByIdAsync(id);
 
 
-                ViewBag.Message = Messages.Failed(MessageType.Delete.ToString(), message);
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), message);
 
                 return View(model);
             }
