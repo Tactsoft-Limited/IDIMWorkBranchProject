@@ -126,7 +126,8 @@ namespace IDIMWorkBranchProject
                 .ForMember(x=>x.FiscalYearDescription, opt=>opt.MapFrom(x=>x.FiscalYear.FiscalYearDescription));
 
             CreateMap<FiscalYearExpenseVm, FiscalYearExpense>();
-            CreateMap<FiscalYearExpense, FiscalYearExpenseVm>();
+            CreateMap<FiscalYearExpense, FiscalYearExpenseVm>()
+				.ForMember(x => x.FiscalYearDescription, opt => opt.MapFrom(x => x.FiscalYear.FiscalYearDescription)); ;
 
             CreateMap<FormalMeetingVm, FormalMeeting>();
             CreateMap<FormalMeeting, FormalMeetingVm>();
