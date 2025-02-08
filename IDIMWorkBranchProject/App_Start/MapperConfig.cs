@@ -127,13 +127,15 @@ namespace IDIMWorkBranchProject
 
             CreateMap<FiscalYearExpenseVm, FiscalYearExpense>();
             CreateMap<FiscalYearExpense, FiscalYearExpenseVm>()
-				.ForMember(x => x.FiscalYearDescription, opt => opt.MapFrom(x => x.FiscalYear.FiscalYearDescription)); ;
+				.ForMember(x => x.FiscalYearDescription, opt => opt.MapFrom(x => x.FiscalYear.FiscalYearDescription)); 
 
             CreateMap<FormalMeetingVm, FormalMeeting>();
             CreateMap<FormalMeeting, FormalMeetingVm>();
 
             CreateMap<ProjectWorkVm, ProjectWork>();
-            CreateMap<ProjectWork, ProjectWorkVm>();
+            CreateMap<ProjectWork, ProjectWorkVm>()
+                .ForMember(x => x.ProjectTitle, opt => opt.MapFrom(x => x.ADPProject.ProjectTitle))
+                .ForMember(x => x.FirmName, opt => opt.MapFrom(x => x.ConstructionCompany.FirmName));
 
             CreateMap<ADPReceivePaymentVm, ADPReceivePayment>();
             CreateMap<ADPReceivePayment, ADPReceivePaymentVm>();

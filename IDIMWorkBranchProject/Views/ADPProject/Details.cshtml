@@ -42,6 +42,7 @@
                 <i class="fa fa-pencil-square-o"></i> প্রকপ্লের সভা সংযুক্ত করুন
             </a>
             <a href="@Url.Action("Create", "ProjectWork", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                @(Model.ADPProjectDetail.NoOfWork==Model.ProjectWorks.Count()?"disabled":"")
                 <i class="fa fa-pencil-square-o"></i> নির্মাণ কাজ সংযুক্ত করুন
             </a>
             <a class="box_toggle fa fa-chevron-down"></a>
@@ -201,8 +202,8 @@
                     <tr>
                         <th rowspan="2" style="text-align: center; vertical-align: middle;">শুরু</th>
                         <th rowspan="2" style="text-align: center; vertical-align: middle;">শেষ</th>
-                        <th rowspan="2" style="text-align: center; vertical-align: middle;">সিজিএ</th>
-                        <th rowspan="2" style="text-align: center; vertical-align: middle;">বিবিধ ফান্ড</th>
+                        <th rowspan="2" style="text-align: center; vertical-align: middle; width:80px;">সিজিএ</th>
+                        <th rowspan="2" style="text-align: center; vertical-align: middle; width: 80px;">বিবিধ ফান্ড</th>
                     </tr>
                 </thead>
 
@@ -210,20 +211,24 @@
                     @foreach (var item in Model.ProjectWorks)
                     {
                         <tr>
-                            <td>@item.ProjectTitle</td>
+                            <td>
+                                <a href="@Url.Action("Details", "ProjectWork", new { id = item.ProjectWorkId })">
+                                    @item.ProjectWorkTitle
+                                </a>
+                            </td>
                             <td>@item.FirmName</td>
                             <td>@item.EstimatedCost</td>
-                            <td>@item.WorkStartDate</td>
-                            <td>@item.WorkEndDate</td>
-                            <td>@item.BankGuaranteeEndDate</td>
+                            <td>@item.WorkStartDate.ToShortDateString()</td>
+                            <td>@item.WorkEndDate.ToShortDateString()</td>
+                            <td>@item.BankGuaranteeEndDate.ToShortDateString()</td>
                             <td>@item.ConstructionProgress</td>
                             <td>
-                                <a href="@Url.Action("Create", "FormalMeeting", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                                <a href="@Url.Action("Create", "FormalMeeting", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary btn-xs">
                                     <i class="fa fa-money"></i> পেমেন্ট গ্রহণ
                                 </a>
                             </td>
                             <td>
-                                <a href="@Url.Action("Create", "FormalMeeting", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                                <a href="@Url.Action("Create", "FormalMeeting", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-success btn-xs">
                                     <i class="fa fa-money"></i> পেমেন্ট প্রদান
                                 </a>
                             </td>
