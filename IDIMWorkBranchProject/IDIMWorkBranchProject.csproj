@@ -328,6 +328,7 @@
     <Compile Include="Controllers\Wbpm\FinancialYearAllocationController.cs" />
     <Compile Include="Controllers\Wbpm\FiscalYearExpenseController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectDirectorController.cs" />
+    <Compile Include="Controllers\Wbpm\ProjectWorkController.cs" />
     <Compile Include="Controllers\WBP\BGBFundController.cs" />
     <Compile Include="Controllers\WBP\BillPaymentController.cs" />
     <Compile Include="Controllers\WBP\ConsultancyActivitiesController.cs" />
@@ -453,6 +454,7 @@
     <Compile Include="Models\Wbpm\FinancialYearAllocationSearchVm.cs" />
     <Compile Include="Models\Wbpm\FiscalYearExpenseSearchVm.cs" />
     <Compile Include="Models\Wbpm\ProjectDirectorSearchVm.cs" />
+    <Compile Include="Models\Wbpm\ProjectWorkSearchVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkVm.cs" />
     <Compile Include="Models\Wbpm\FormalMeetingVm.cs" />
     <Compile Include="Models\Wbpm\FiscalYearExpenseVm.cs" />
@@ -2826,6 +2828,8 @@
     <Content Include="Views\FiscalYearExpense\Create.cshtml" />
     <Content Include="Views\FiscalYearExpense\Edit.cshtml" />
     <Content Include="Views\FinancialYearAllocation\Delete.cshtml" />
+    <Content Include="Views\ProjectWork\List.cshtml" />
+    <Content Include="Views\ProjectWork\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

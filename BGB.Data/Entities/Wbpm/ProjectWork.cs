@@ -27,14 +27,13 @@ namespace BGB.Data.Entities.Wbpm
         public DateTime NOADate { get; set; }
         public DateTime AgreementDate { get; set; }
         public DateTime WorkOrderDate { get; set; }
-        public DateTime WorkOrderTime { get; set; }
         public DateTime WorkStartDate { get; set; }
         public DateTime WorkEndDate { get; set; }
         public DateTime? OnFieldStartDate { get; set; }
         public DateTime? OnFieldEndDate { get; set; }
         public DateTime HandOverDate { get; set; }
         public DateTime BankGuaranteeEndDate { get; set; }
-        public float ConstructionProgress { get; set; }
+        public double ConstructionProgress { get; set; }
         public string BankGuaranteeDocument { get; set; }
         public string NOADocument { get; set; }
         public string AgreementDocument { get; set; }

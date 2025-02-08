@@ -2,10 +2,12 @@
 using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services.Base;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Services.Wbpm
 {
@@ -13,6 +15,16 @@ namespace IDIMWorkBranchProject.Services.Wbpm
     {
         public ConstructionCompanyService(IDIMDBEntities context) : base(context)
         {
+        }
+
+        public async Task<IEnumerable<SelectListItem>> GetDropdownAsync(int? selected=0)
+        {
+            return await _context.ConstructionCompanies.Select(s => new SelectListItem
+            {
+                Text = s.FirmName,
+                Value = s.ConstructionCompanyId.ToString(),
+                Selected = s.ConstructionCompanyId == selected
+            }).ToListAsync();
         }
 
         public async Task<object> GetPagedAsync(ConstructionCompanySearchVm model)
