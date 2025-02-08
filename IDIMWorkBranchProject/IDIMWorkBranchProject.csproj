@@ -455,6 +455,7 @@
     <Compile Include="Models\Wbpm\FinancialYearAllocationSearchVm.cs" />
     <Compile Include="Models\Wbpm\FiscalYearExpenseSearchVm.cs" />
     <Compile Include="Models\Wbpm\ProjectDirectorSearchVm.cs" />
+    <Compile Include="Models\Wbpm\ProjectWorkDetailsVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkSearchVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkVm.cs" />
     <Compile Include="Models\Wbpm\FormalMeetingVm.cs" />
@@ -2834,7 +2835,8 @@
     <Content Include="Views\FormalMeeting\Create.cshtml" />
     <Content Include="Views\FormalMeeting\Edit.cshtml" />
     <Content Include="Views\FormalMeeting\List.cshtml" />
-
+    <Content Include="Views\ProjectWork\Edit.cshtml" />
+    <Content Include="Views\ProjectWork\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

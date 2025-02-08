@@ -23,7 +23,7 @@
                 </a>
             </li>
             <li class="active">
-                <strong>নির্মান কাজ সংযুক্ত </strong>
+                <strong>নির্মান কাজ সংশোধন </strong>
             </li>
         </ol>
     </div>
@@ -31,7 +31,7 @@
 
 <section class="box">
     <header class="panel_header">
-        <h2 class="title pull-left">নির্মান কাজ সংযুক্ত</h2>
+        <h2 class="title pull-left">নির্মান কাজ সংশোধন </h2>
         <div class="actions panel_actions pull-right">
             <a href="@Url.Action("List","ProjectWork")" class="btn">
                 <i class="fa fa-list" aria-hidden="true"></i>
@@ -43,10 +43,11 @@
     <div class="content-body">
         <div class="row">
             <div class="col-md-12">
-                @using (Html.BeginForm("Create", "ProjectWork", FormMethod.Post, new { enctype = "multipart/form-data", id = "ProjectDirector-create-form", role = "form" }))
+                @using (Html.BeginForm("Edit", "ProjectWork", FormMethod.Post, new { enctype = "multipart/form-data", id = "ProjectDirector-create-form", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(x => x.ADPProjectId)
+                    @Html.HiddenFor(x => x.ProjectWorkId)
 
                     <div class="row">
                         <div class="form-display col-md-12">
@@ -207,3 +208,4 @@
         </div>
     </div>
 </section>
+
