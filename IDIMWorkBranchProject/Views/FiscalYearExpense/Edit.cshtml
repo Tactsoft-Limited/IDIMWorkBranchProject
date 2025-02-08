@@ -10,7 +10,7 @@
 
 <div class="page-title">
     <div class="pull-left">
-        <h3 class="title">Fiscal Year Expense</h3>
+        <h3 class="title">অর্থ বছর ভিত্তিক ব্যয়</h3>
     </div>
     <div class="pull-right hidden-xs">
         <ol class="breadcrumb">
@@ -20,11 +20,11 @@
             <li>
                 <a href="@Url.Action("List","FiscalYearExpense")">
                     <i class="fa fa-list" aria-hidden="true"></i>
-                    Fiscal Year Expense
+                    অর্থ বছর ভিত্তিক ব্যয়
                 </a>
             </li>
             <li class="active">
-                <strong>Create</strong>
+                <strong>সংশোধন</strong>
             </li>
         </ol>
     </div>
@@ -32,7 +32,7 @@
 
 <section class="box">
     <header class="panel_header">
-        <h2 class="title pull-left">Create</h2>
+        <h2 class="title pull-left">সংশোধন</h2>
         <div class="actions panel_actions pull-right">
             <a href="@Url.Action("List","FiscalYearExpense")" class="btn">
                 <i class="fa fa-list" aria-hidden="true"></i>
@@ -44,16 +44,16 @@
     <div class="content-body">
         <div class="row">
             <div class="col-md-12">
-                @using (Html.BeginForm("Create", "FiscalYearExpense", FormMethod.Post, new { enctype = "multipart/form-data", id = "ProjectDirector-create-form", role = "form" }))
+                @using (Html.BeginForm("Edit", "FiscalYearExpense", FormMethod.Post, new { enctype = "multipart/form-data", id = "ProjectDirector-create-form", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(x => x.FiscalYearExpenseId)
                     @Html.HiddenFor(x => x.ADPProjectId)
 
                     <div class="row">
-                        <div class="row">
-                            <div class="form-display col-md-12">
-                                @Html.LabelFor(m => m.ProjectTitle, new { @class = "label-display" })
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ProjectTitle, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
                                 @Html.TextBoxFor(m => m.ProjectTitle, new { @class = "form-control", @readonly = "readonly" })
                             </div>
                         </div>
@@ -65,8 +65,6 @@
                                 @Html.ValidationMessageFor(model => model.FiscalYearId)
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="form-group col-md-6">
                             @Html.LabelFor(m => m.TotalExpense, new { @class = "col-md-4 form-label" })
                             <div class="col-md-8">
@@ -75,6 +73,7 @@
                             </div>
                         </div>
                     </div>
+
 
                     <div class="pull-right">
                         <input type="submit" class="btn btn-success" value="Save" />

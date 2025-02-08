@@ -146,7 +146,6 @@ body {
 
 .label-display {
     padding-right: 15px;
-    width: 110px;
 }
 
 legend {
@@ -1354,7 +1353,7 @@ section.box .actions {
 }
 
     section.box .actions a {
-        color: #bcbcbc;
+        /*color: #bcbcbc;*/
         font-size: 12px;
         margin-left: 0px;
         padding: 5px;

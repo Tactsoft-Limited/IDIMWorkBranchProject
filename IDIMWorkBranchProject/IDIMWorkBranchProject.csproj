@@ -327,6 +327,7 @@
     <Compile Include="Controllers\Wbpm\ConstructionCompanyController.cs" />
     <Compile Include="Controllers\Wbpm\FinancialYearAllocationController.cs" />
     <Compile Include="Controllers\Wbpm\FiscalYearExpenseController.cs" />
+    <Compile Include="Controllers\Wbpm\FormalMeetingController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectDirectorController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectWorkController.cs" />
     <Compile Include="Controllers\WBP\BGBFundController.cs" />
@@ -2830,6 +2831,10 @@
     <Content Include="Views\FinancialYearAllocation\Delete.cshtml" />
     <Content Include="Views\ProjectWork\List.cshtml" />
     <Content Include="Views\ProjectWork\Create.cshtml" />
+    <Content Include="Views\FormalMeeting\Create.cshtml" />
+    <Content Include="Views\FormalMeeting\Edit.cshtml" />
+    <Content Include="Views\FormalMeeting\List.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
