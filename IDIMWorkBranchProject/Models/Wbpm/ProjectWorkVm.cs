@@ -4,12 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.Web;
 using FluentValidation.Attributes;
 using IDIMWorkBranchProject.Models.Validation.Wbpm;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
     [Validator(typeof(ProjectWorkVmValidator))]
     public class ProjectWorkVm
     {
+        public ProjectWorkVm()
+        {
+            ConstructionFirmDropdown = new List<SelectListItem>();
+        }
 
         public int ProjectWorkId { get; set; }
 
@@ -19,7 +25,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("প্রকল্পের শিরোনাম")]
         public string ProjectTitle { get; set; }
 
-        [DisplayName("নির্মাণ কোম্পানি আইডি")]
+        [DisplayName("নির্মাণ কোম্পানি")]
         public int ConstructionCompanyId { get; set; }
 
         [Display(Name = "ফার্মের নাম")]
@@ -39,9 +45,6 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [DisplayName("কার্যাদেশের তারিখ")]
         public DateTime WorkOrderDate { get; set; }
-
-        [DisplayName("কার্যাদেশের সময়")]
-        public DateTime WorkOrderTime { get; set; }
 
         [DisplayName("কাজ শুরুর তারিখ")]
         public DateTime WorkStartDate { get; set; }
@@ -64,6 +67,12 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("নির্মাণ অগ্রগতি")]
         public float ConstructionProgress { get; set; }
 
+        [DisplayName("কাজের অবস্থা")]
+        public string WorkStatus { get; set; }
+
+        [DisplayName("মন্তব্য")]
+        public string Remarks { get; set; }
+
         [DisplayName("ব্যাংক গ্যারান্টি ডকুমেন্ট")]
         public string BankGuaranteeDocument { get; set; }
 
@@ -76,12 +85,6 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("কার্যাদেশ ডকুমেন্ট")]
         public string WorkOrderDocument { get; set; }
 
-        [DisplayName("কাজের অবস্থা")]
-        public string WorkStatus { get; set; }
-
-        [DisplayName("মন্তব্য")]
-        public string Remarks { get; set; }
-
 
         [DisplayName("ব্যাংক গ্যারান্টি ডকুমেন্ট")]
         public HttpPostedFileBase BankGuaranteeDocumentFile { get; set; }
@@ -91,5 +94,8 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public HttpPostedFileBase AgreementDocumentFile { get; set; }
         [DisplayName("কার্যাদেশ ডকুমেন্ট")]
         public HttpPostedFileBase WorkOrderDocumentFile { get; set; }
+
+
+        public IEnumerable<SelectListItem> ConstructionFirmDropdown { get; set; }
     }
 }

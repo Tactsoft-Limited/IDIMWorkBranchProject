@@ -8,9 +8,6 @@ namespace IDIMWorkBranchProject.Models.Validation.Wbpm
     {
         public ProjectWorkVmValidator()
         {
-            // ADPProjectId - required field
-            RuleFor(x => x.ADPProjectId)
-                .NotEmpty().WithMessage("প্রকল্প আইডি অবশ্যই পূর্ণ করতে হবে।");
 
             // ConstructionCompanyId - required field
             RuleFor(x => x.ConstructionCompanyId)
@@ -27,22 +24,15 @@ namespace IDIMWorkBranchProject.Models.Validation.Wbpm
 
             // NOADate - required field and must be a valid date
             RuleFor(x => x.NOADate)
-                .NotEmpty().WithMessage("এনওএইচ তারিখ অবশ্যই পূর্ণ করতে হবে।")
-                .LessThanOrEqualTo(DateTime.Now).WithMessage("এনওএইচ তারিখ ভবিষ্যতের হতে পারে না।");
+                .NotEmpty().WithMessage("এনওএইচ তারিখ অবশ্যই পূর্ণ করতে হবে।");
 
             // AgreementDate - required field and must be a valid date
             RuleFor(x => x.AgreementDate)
-                .NotEmpty().WithMessage("চুক্তির তারিখ অবশ্যই পূর্ণ করতে হবে।")
-                .LessThanOrEqualTo(DateTime.Now).WithMessage("চুক্তির তারিখ ভবিষ্যতের হতে পারে না।");
+                .NotEmpty().WithMessage("চুক্তির তারিখ অবশ্যই পূর্ণ করতে হবে।");
 
             // WorkOrderDate - required field and must be a valid date
             RuleFor(x => x.WorkOrderDate)
-                .NotEmpty().WithMessage("কার্যাদেশের তারিখ অবশ্যই পূর্ণ করতে হবে।")
-                .LessThanOrEqualTo(DateTime.Now).WithMessage("কার্যাদেশের তারিখ ভবিষ্যতের হতে পারে না।");
-
-            // WorkOrderTime - required field
-            RuleFor(x => x.WorkOrderTime)
-                .NotEmpty().WithMessage("কার্যাদেশের সময় অবশ্যই পূর্ণ করতে হবে.");
+                .NotEmpty().WithMessage("কার্যাদেশের তারিখ অবশ্যই পূর্ণ করতে হবে।");
 
             // WorkStartDate - required field
             RuleFor(x => x.WorkStartDate)
@@ -54,15 +44,15 @@ namespace IDIMWorkBranchProject.Models.Validation.Wbpm
                 .NotEmpty().WithMessage("কাজ শেষের তারিখ অবশ্যই পূর্ণ করতে হবে.")
                 .GreaterThanOrEqualTo(x => x.WorkStartDate).WithMessage("কাজ শেষের তারিখ কাজ শুরুর তারিখের পর হতে হবে।");
 
-            // OnFieldStartDate - optional
-            RuleFor(x => x.OnFieldStartDate)
-                .LessThanOrEqualTo(x => x.WorkStartDate).When(x => x.OnFieldStartDate.HasValue)
-                .WithMessage("সরেজমিনে শুরুর তারিখ কাজ শুরুর তারিখের পর হতে পারে না।");
+            //// OnFieldStartDate - optional
+            //RuleFor(x => x.OnFieldStartDate)
+            //    .LessThanOrEqualTo(x => x.WorkStartDate).When(x => x.OnFieldStartDate.HasValue)
+            //    .WithMessage("সরেজমিনে শুরুর তারিখ কাজ শুরুর তারিখের পর হতে পারে না।");
 
-            // OnFieldEndDate - optional
-            RuleFor(x => x.OnFieldEndDate)
-                .LessThanOrEqualTo(x => x.WorkEndDate).When(x => x.OnFieldEndDate.HasValue)
-                .WithMessage("সরেজমিনে শেষের তারিখ কাজ শেষের তারিখের পর হতে পারে না।");
+            //// OnFieldEndDate - optional
+            //RuleFor(x => x.OnFieldEndDate)
+            //    .LessThanOrEqualTo(x => x.WorkEndDate).When(x => x.OnFieldEndDate.HasValue)
+            //    .WithMessage("সরেজমিনে শেষের তারিখ কাজ শেষের তারিখের পর হতে পারে না।");
 
             // HandOverDate - required field
             RuleFor(x => x.HandOverDate)

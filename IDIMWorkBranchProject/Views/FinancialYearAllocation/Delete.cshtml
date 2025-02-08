@@ -1,0 +1,35 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model FinancialYearAllocationVm
+
+@{
+    ViewData["Title"] = "Delete Financial Year Allocation";
+}
+
+<h2 class="mb-0">Delete Financial Year Allocation</h2>
+
+<p>Are you sure you want to delete this record?</p>
+
+<div class="card shadow-lg border-0 rounded">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0 text-light">Financial Year Allocation Details</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Project Title:</strong> @Model.ProjectTitle</li>
+            <li class="list-group-item"><strong>Fiscal Year:</strong> @Model.FiscalYearDescription</li>
+            <li class="list-group-item"><strong>Total Allocation:</strong> @Model.TotalAllocation</li>
+        </ul>
+    </div>
+    @using (Html.BeginForm("DeleteConfirmed", "FinancialYearAllocation", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x => x.FinancialYearAllocationId)
+
+        <div class="card-footer text-end">
+            <a href="@Url.Action("details/"+Model.ADPProjectId, "ADPProject") class="btn btn-secondary">Cancel</a>
+            <input type="submit" class="btn btn-danger" value="Delete" />
+        </div>
+    }
+
+</div>
