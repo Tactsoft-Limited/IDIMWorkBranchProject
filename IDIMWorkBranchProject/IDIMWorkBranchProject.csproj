@@ -751,6 +751,13 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Documents\ProjectDirectorFiles\Kamrul Hasan_20250111_121350.pdf" />
     <Content Include="Documents\ProjectDirectorFiles\Print PC - PC Builder - Star Tech_20250111_123411.pdf" />
+    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20241001_20250208_133543.pdf" />
+    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20241117 %281%29_20250208_134805.pdf" />
+    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20250202 %281%29_20250208_133536.pdf" />
+    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20250202 %281%29_20250208_134805.pdf" />
+    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20250202_20250208_133539.pdf" />
+    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-Q_20250208_133545.pdf" />
+    <Content Include="Documents\ProjectWorkFile\OID1025778134_20250208_134805.pdf" />
     <None Include="Properties\PublishProfiles\project.pubxml" />
     <None Include="Report\Data\WPDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
