@@ -274,7 +274,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     var entity = _mapper.Map<ProjectWork>(model);
                     await _projectWorkService.UpdateAsync(entity);
                     TempData["Message"] = Messages.Success(MessageType.Update.ToString());
-                    return View(new ProjectWorkVm());  // Reset model after success
+                    return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");  // Reset model after success
                 }
 
                 TempData["Message"] = Messages.InvalidInput(MessageType.Update.ToString());
