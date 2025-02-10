@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
-    public class ADPProjectDetailVm
+	public class ADPProjectDetailVm
     {
         public ADPProjectVm ADPProjectDetail { get; set; }
         public List<ProjectDirectorVm> ProjectDirector { get; set; }

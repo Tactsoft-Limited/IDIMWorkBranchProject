@@ -2,10 +2,11 @@
 using System;
 using FluentValidation.Attributes;
 using IDIMWorkBranchProject.Models.Validation.Wbpm;
+using System.ComponentModel.DataAnnotations;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
-    [Validator(typeof(ADPReceivePaymentVmValidator))]
+	[Validator(typeof(ADPReceivePaymentVmValidator))]
     public class ADPReceivePaymentVm
     {
 
@@ -17,7 +18,10 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("নির্মাণ কাজের নাম")]
         public string ProjectWorkTitle { get; set; }
 
-        [DisplayName("লেটার নম্বর")]
+		[Display(Name = "ফার্মের নাম")]
+		public string ConstructionFirm { get; set; }
+
+		[DisplayName("লেটার নম্বর")]
         public string LetterNo { get; set; }
 
         [DisplayName("বিল নম্বর")]
@@ -27,7 +31,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public DateTime BillDate { get; set; }
 
         [DisplayName("অতিরিক্ত সময়")]
-        public DateTime ExtraTime { get; set; }
+        public DateTime? ExtraTime { get; set; }
 
         [DisplayName("বিল পেমেন্ট সেক্টর")]
         public string BillPaymentSector { get; set; }
@@ -36,36 +40,42 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public decimal? EstimatedCost { get; set; }
 
         [DisplayName("কাজের বাস্তব অগ্রগতি (ভৌত %)")]
-        public float ActualWorkProgressPer { get; set; }
+        public double ActualWorkProgressPer { get; set; }
 
         [DisplayName("আর্থিক অগ্রগতি (%)")]
-        public float FinancialProgressPer { get; set; }
+        public double FinancialProgressPer { get; set; }
 
-        [DisplayName("বিল পরিশোধ (%)")]
-        public float BillPaidPer { get; set; }
+		[DisplayName("এ পর্যন্ত বিল পরিশোধ")]
+		public decimal? BillPaidTillDate { get; set; }
+
+		[DisplayName("বিল পরিশোধ (%)")]
+        public double BillPaidPer { get; set; }
 
         [DisplayName("বিল পরিশোধের পরিমাণ")]
         public decimal BillPaidAmount { get; set; }
 
-        [DisplayName("ট্যাক্স (%)")]
-        public float TaxPer { get; set; }
+		[DisplayName("বিল পরিশোধের পরিমাণ (কথায়)")]
+		public string BillPaidAmountInWord { get; set; }
+
+		[DisplayName("ট্যাক্স (%)")]
+        public double TaxPer { get; set; }
 
         [DisplayName("ট্যাক্স পরিমাণ")]
         public decimal TaxAmount { get; set; }
 
         [DisplayName("ভ্যাট (%)")]
-        public float VatPer { get; set; }
+        public double VatPer { get; set; }
 
         [DisplayName("ভ্যাট পরিমাণ")]
         public decimal VatAmount { get; set; }
 
         [DisplayName("জামানত (%)")]
-        public float CollateralPer { get; set; }
+        public double CollateralPer { get; set; }
 
         [DisplayName("জামানত পরিমাণ")]
         public decimal CollateralAmount { get; set; }
 
-        [DisplayName("মোট কাটা পরিমাণ")]
+        [DisplayName("মোট কর্তনের পরিমাণ")]
         public decimal TotalDeductionAmount { get; set; }
 
         [DisplayName("বিবিধ ফান্ডে জমা")]
@@ -76,5 +86,13 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [DisplayName("মন্তব্য")]
         public string Remarks { get; set; }
-    }
+
+
+        [DisplayName("সিজিএ হতে উত্তোলিত অর্থ")]
+        public decimal TotalWithdrawAmount { get; set; }
+
+		[DisplayName("সিজিএ হতে উত্তোলিত অর্থ (%)")]
+		public double TotalWithdrawPer { get; set; }
+
+	}
 }
