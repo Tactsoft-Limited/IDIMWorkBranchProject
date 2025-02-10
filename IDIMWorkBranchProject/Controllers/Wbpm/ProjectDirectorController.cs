@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
-using IDIMWorkBranchProject.Extentions.File;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
-using IDIMWorkBranchProject.Services.WBP;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
 using System.Threading.Tasks;
@@ -12,7 +10,7 @@ using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
 {
-    public class ProjectDirectorController : BaseController
+	public class ProjectDirectorController : BaseController
     {
         private readonly IProjectDirectorService _projectDirectorService;
         private readonly IADPProjectService _aDPProjectService;

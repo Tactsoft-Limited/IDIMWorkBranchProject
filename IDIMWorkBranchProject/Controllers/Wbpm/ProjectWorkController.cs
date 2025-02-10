@@ -1,20 +1,20 @@
 ﻿using AutoMapper;
+
 using BGB.Data.Entities.Wbpm;
+
 using IDIMWorkBranchProject.Extentions;
-using IDIMWorkBranchProject.Extentions.File;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
+
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
 {
-    public class ProjectWorkController : BaseController
+	public class ProjectWorkController : BaseController
     {
         private readonly IProjectWorkService _projectWorkService;
         protected readonly IConstructionCompanyService _constructionCompanyService;
