@@ -102,8 +102,8 @@
                     {
                         <tr style="background-color: @(item.IsActive ? "#d4edda" : "transparent")">
                             <td>@item.ProjectDirectorName</td>
-                            <td>@item.JoiningDate</td>
-                            <td>@item.TransferDate</td>
+                            <td>@item.JoiningDate.ToNullableShortDateString()</td>
+                            <td>@item.TransferDate.ToNullableShortDateString()</td>
                         </tr>
                     }
                 </tbody>
@@ -223,12 +223,12 @@
                             <td>@item.BankGuaranteeEndDate.ToShortDateString()</td>
                             <td>@item.ConstructionProgress</td>
                             <td>
-                                <a href="@Url.Action("Create", "FormalMeeting", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary btn-xs">
+                                <a href="@Url.Action("Create", "ADPReceivePayment", new { id = item.ProjectWorkId })" class="btn btn-primary btn-xs">
                                     <i class="fa fa-money"></i> পেমেন্ট গ্রহণ
                                 </a>
                             </td>
                             <td>
-                                <a href="@Url.Action("Create", "FormalMeeting", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-success btn-xs">
+                                <a href="@Url.Action("Create", "ContractorCompanyPayment", new { id = item.ProjectWorkId })" class="btn btn-success btn-xs">
                                     <i class="fa fa-money"></i> পেমেন্ট প্রদান
                                 </a>
                             </td>

@@ -1,20 +1,16 @@
 ﻿using BGB.Data.Entities.Admin;
-using BGB.Data.Entities.Base;
 using BGB.Data.Entities.Budget;
 using BGB.Data.Entities.Irms;
 using BGB.Data.Entities.Pm;
 using BGB.Data.Entities.Wbpm;
 using BGB.Data.SqlViews.Pm;
-using IDIMWorkBranchProject.Extentions.Session;
-using IDIMWorkBranchProject.Models.User;
-using System;
+using BGB.Data.SqlViews.Wbpm;
+
 using System.Data.Entity;
-using System.Threading.Tasks;
-using System.Threading;
 
 namespace IDIMWorkBranchProject.Data.Database
 {
-    public partial class IDIMDBEntities : DbContext
+	public partial class IDIMDBEntities : DbContext
     {
         public IDIMDBEntities() : base("name=IDIMDBEntities")
         {
@@ -237,6 +233,7 @@ namespace IDIMWorkBranchProject.Data.Database
         public virtual DbSet<ViewExtended> ViewExtendeds { get; set; }
         public virtual DbSet<ViewProjectProblem> ViewProjectProblems { get; set; }
         public virtual DbSet<SecurityDeposit> SecurityDeposits { get; set; }
-    }
+        public virtual DbSet<ViewADPReceivePayment> ViewADPReceivePayments { get; set; }
+	}
 }
 

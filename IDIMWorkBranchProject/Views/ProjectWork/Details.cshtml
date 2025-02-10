@@ -7,7 +7,7 @@
 }
 <div class="page-title">
     <div class="pull-left">
-        <h3 class="title">Project Work</h3>
+        <h3 class="title">নির্মাণ কাজ</h3>
     </div>
     <div class="pull-right hidden-xs">
         <ol class="breadcrumb">
@@ -15,7 +15,7 @@
                 <a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i>Dashboard</a>
             </li>
             <li class="active">
-                <strong>Project Work</strong>
+                <strong>নির্মাণ কাজ</strong>
             </li>
         </ol>
     </div>
@@ -26,7 +26,7 @@
         <h2 class="title pull-left">List</h2>
         <div class="actions panel_actions pull-right">
             <a href="@Url.Action("Edit", "ProjectWork", new { id = Model.ProjectWorks.ProjectWorkId })" class="btn btn-primary">
-                <i class="fa fa-pencil-square-o"></i> সংশোধন
+                <i class="fa fa-pencil-square-o"></i> নির্মাণ কাজ সংশোধন
             </a>
             @*<a href="@Url.Action("Create", "ProjectDirector", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
                     <i class="fa fa-pencil-square-o"></i> প্রকল্প পরিচালক সংযুক্ত করুন
@@ -93,9 +93,9 @@
                 @Html.DisplayFor(m => m.ProjectWorks.Remarks)
             </div>
         </div>
-        
+
         <fieldset>
-            <legend>অর্থ বছর ভিত্তিক বরাদ্দঃ</legend>
+            <legend>মন্ত্রণালয় থেকে গৃহীত অর্থঃ</legend>
             <table class="table table-striped table-bordered" width="100%" cellspacing="0">
                 <thead>
                     <tr>
@@ -104,9 +104,10 @@
                         <th>বিল তারিখ</th>
                         <th>পেমেন্ট সেকটর</th>
                         <th>বিল পরিশোধিত পরিমান</th>
-                        <th>কর্তন পরিমান</th>
+                        <th>কর্তন (ট্যাক্স, ভ্যাট ও জামানত)</th>
                         <th>বিবিধ জমা পরিমান</th>
                         <th style="width:120px;">সংশোধন</th>
+                        <th style="width:120px;">প্রিন্ট করুন</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -120,13 +121,21 @@
                             <td>@item.BillPaidAmount</td>
                             <td>@item.TotalDeductionAmount</td>
                             <td>@item.DepositInBGBFund</td>
-                            
+
                             <td>
-                                <a href="@Url.Action("Edit", "FinancialYearAllocation", new { id = item.ADPReceivePaymentId })" class="btn btn-primary btn-xs">
+                                <a href="@Url.Action("Edit", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-primary btn-xs">
                                     <i class="fa fa-pencil-square-o"></i> সংশোধন
                                 </a>
-                                <a href="@Url.Action("Delete", "FinancialYearAllocation", new { id = item.ADPReceivePaymentId })" class="btn btn-danger btn-xs">
+                                <a href="@Url.Action("Delete", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-danger btn-xs">
                                     <i class="fa fa-trash-o"></i> অপসারণ
+                                </a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("PrintADPReceivePayment", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-info btn-xs">
+                                    <i class="fa fa-print"></i> বিল প্রিন্ট করুন
+                                </a>
+                                <a href="@Url.Action("PrintTaxVat", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-accent btn-xs">
+                                    <i class="fa fa-print"></i> ট্যাক্স/ভ্যাট প্রিন্ট করুন
                                 </a>
                             </td>
                         </tr>
@@ -135,7 +144,7 @@
             </table>
         </fieldset>
         <fieldset>
-            <legend>অর্থ বছর ভিত্তিক ব্যয়ঃ</legend>
+            <legend>ঠিকাদার প্রতিষ্ঠানকে প্রদত্ত অর্থঃ</legend>
             <table class="table table-striped table-bordered" width="100%" cellspacing="0">
                 <thead>
                     <tr>
@@ -143,7 +152,7 @@
                         <th>পুর্বে পরিশোধ</th>
                         <th>বর্তমান বিল পরিশোধ</th>
                         <th>মোট পরিশোধ</th>
-                        
+
                     </tr>
                 </thead>
                 <tbody>
@@ -159,7 +168,7 @@
                 </tbody>
             </table>
         </fieldset>
-       
+
     </div>
 </section>
 
