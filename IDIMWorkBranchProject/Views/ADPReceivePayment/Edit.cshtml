@@ -65,22 +65,22 @@
                             </div>
                         </div>
                         <div class="form-display col-md-12">
-                            <div class="col-md-6">
-                                @Html.LabelFor(m => m.TotalWithdrawAmount, "সিজিএ হতে উত্তোলিত অর্থ (%)", new { @class = "label-display col-md-4" })
-                                <div class="col-md-2">
-                                    @Html.TextBoxFor(m => m.TotalWithdrawPer, new { @class = "form-control", @readonly = "readonly" })
-                                </div>
-                                <div class="col-md-4">
-                                    @Html.TextBoxFor(m => m.TotalWithdrawAmount, new { @class = "form-control", @readonly = "readonly" })
-                                </div>
-
+                            @Html.LabelFor(m => m.EstimatedCost, new { @class = "col-md-2 label-display" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.EstimatedCost, new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.EstimatedCost)
                             </div>
-                            @*<div class="col-md-4">
-                        @Html.LabelFor(m => m.TotalWithdrawPer, new { @class = "label-display col-md-6" })
-                        <div class="col-md-6">
-                            @Html.TextBoxFor(m => m.TotalWithdrawPer, new { @class = "form-control", @readonly = "readonly" })
                         </div>
-                    </div>*@
+                        <div class="form-display col-md-12">
+                            <div class="col-md-6" style="padding:0px;">
+                                @Html.LabelFor(m => m.BillPaidPerTillDate, "সিজিএ হতে উত্তোলিত অর্থ (%)", new { @class = "label-display col-md-4" })
+                                <div class="col-md-3">
+                                    @Html.TextBoxFor(m => m.BillPaidPerTillDate, new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                                <div class="col-md-5">
+                                    @Html.TextBoxFor(m => m.BillPaidAmountTillDate, new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -103,10 +103,10 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.EstimatedCost, new { @class = "col-md-4 form-label" })
+                            @Html.LabelFor(m => m.BillNumber, new { @class = "col-md-4 form-label" })
                             <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.EstimatedCost, new { @class = "form-control", @readonly = "readonly" })
-                                @Html.ValidationMessageFor(model => model.EstimatedCost)
+                                @Html.TextBoxFor(m => m.BillNumber, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BillNumber)
                             </div>
                         </div>
                         <div class="form-group col-md-6">
@@ -129,7 +129,6 @@
                                 @Html.ValidationMessageFor(model => model.ExtraTime)
                             </div>
                         </div>
-
                         <div class="form-group col-md-6">
                             @Html.LabelFor(m => m.ActualWorkProgressPer, new { @class = "col-md-4 form-label" })
                             <div class="col-md-8">
@@ -142,20 +141,6 @@
                             <div class="col-md-8">
                                 @Html.TextBoxFor(m => m.FinancialProgressPer, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.FinancialProgressPer)
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.BillPaidTillDate, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.BillPaidTillDate, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.BillPaidTillDate)
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.BillNumber, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.BillNumber, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.BillNumber)
                             </div>
                         </div>
                         <div class="form-group col-md-6">
@@ -172,6 +157,35 @@
                                 @Html.ValidationMessageFor(model => model.BillPaidAmount)
                             </div>
                         </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.BillPaidAmountInWord, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.BillPaidAmountInWord, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BillPaidAmountInWord)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.TotalReceivePer, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.TotalReceivePer, new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.TotalReceivePer)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.TotalReceiveAmount, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.TotalReceiveAmount, new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.TotalReceiveAmount)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.TotalReceiveAmountInWord, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.TotalReceiveAmountInWord, new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.TotalReceiveAmountInWord)
+                            </div>
+                        </div>
+
                         <div class="form-group col-md-12">
                             @Html.LabelFor(m => m.Remarks, new { @class = "col-md-2 form-label" })
                             <div class="col-md-10">
@@ -227,15 +241,15 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.TotalDeductionAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.TotalDeductionAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.TotalDeductionAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.TotalDeductionAmount)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.DepositInBGBFund, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.DepositInBGBFund, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.DepositInBGBFund, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.DepositInBGBFund)
                                 </div>
@@ -254,10 +268,22 @@
 </section>
 
 @section scripts{
-
+    <script src="~/Scripts/banglaNumberConverter.js"></script>
     <script>
+
         $(document).ready(function () {
+            $('#BillPaidAmount').on('input', function () {
+                const amount = parseInt($(this).val()); // Get value using jQuery
+                console.log(amount);
+                if (!isNaN(amount)) {
+                    $('#BillPaidAmountInWord').val(getBanglaWord(amount)); // Convert and show
+                } else {
+                    $('#BillPaidAmountInWord').val(''); // Reset if invalid
+                }
+            });
             function calculateBillPaidAmount() {
+                const billPaidPerTillDate = parseFloat($('#BillPaidPerTillDate').val()) || 0;
+                const billPaidAmountTillDate = parseFloat($('#BillPaidAmountTillDate').val()) || 0;
                 const estimatedCost = parseFloat($('#EstimatedCost').val()) || 0;
                 const billPaidPer = parseFloat($('#BillPaidPer').val()) || 0;
                 const taxPer = parseFloat($('#TaxPer').val()) || 0; // Get Tax percentage
@@ -269,22 +295,32 @@
                 const taxAmount = Math.round(billPaidAmount * (taxPer / 100)).toFixed(2); // Calculate Tax amount
                 const vatAmount = Math.round(billPaidAmount * (vatPer / 100)).toFixed(2); // Calculate VAT amount
                 const collateralAmount = Math.round(billPaidAmount * (collateralPer / 100)).toFixed(2); // Calculate Collateral amount
+                const totalPaidePer = (billPaidPerTillDate + billPaidPer).toFixed(2);
+                const totalPaideAmount = (billPaidAmountTillDate + parseFloat(billPaidAmount)).toFixed(2);
 
                 // Convert amounts to numbers for addition
                 const totalDeduction = Math.round(parseFloat(taxAmount) + parseFloat(vatAmount) + parseFloat(collateralAmount)).toFixed(2);
                 const depositInBGBFund = Math.round(parseFloat(billPaidAmount) - parseFloat(totalDeduction)).toFixed(2);
-
+                const billPaidAmountinWord = getBanglaWord(parseFloat(billPaidAmount));
+                const totalPaideAmountInWord = getBanglaWord(parseFloat(totalPaideAmount));
                 // Update the input fields with the calculated values
                 $('#BillPaidAmount').val(billPaidAmount);
+                $('#BillPaidAmountInWord').val(billPaidAmountinWord);
+                $('#TotalReceivePer').val(totalPaidePer);
+                $('#TotalReceiveAmount').val(totalPaideAmount);
+                $('#TotalReceiveAmountInWord').val(totalPaideAmountInWord);
                 $('#TaxAmount').val(taxAmount);
                 $('#VatAmount').val(vatAmount);
                 $('#CollateralAmount').val(collateralAmount);
                 $('#TotalDeductionAmount').val(totalDeduction);
                 $('#DepositInBGBFund').val(depositInBGBFund); // Corrected here
+
             }
 
             // Trigger calculation on input change
             $('#EstimatedCost, #BillPaidPer, #TaxPer, #VatPer, #CollateralPer').on('input', calculateBillPaidAmount);
         });
     </script>
+
+
 }
