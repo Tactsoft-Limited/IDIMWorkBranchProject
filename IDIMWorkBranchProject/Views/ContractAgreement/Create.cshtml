@@ -113,4 +113,26 @@
         </div>
     </div>
 </section>
+@section scripts{
+    <script src="~/Scripts/banglaNumberConverter.js"></script>
+    <script>
+        function convertTobanglaWord() {
+            const agreementCost = parseFloat($('#AgreementCost').val()) || 0;
+            const agreementCostInWord = getBanglaWord(parseFloat(agreementCost));
+            // Update the input fields with the calculated values
+            $('#AgreementCostInWord').val(agreementCostInWord);
+
+        }
+        $(document).ready(function () {
+            // Call the function on page load
+            convertTobanglaWord();
+            //// Call the function when the input changes
+            $('#AgreementCost').on('input', convertTobanglaWord);
+        })
+
+        // Trigger calculation on input change
+        /*$('#AgreementCost').on('input', convertTobanglaWord);*/
+    </script>
+
+}
 
