@@ -18,7 +18,7 @@ namespace BGB.Data.SqlViews.Wbpm
         public DateTime? ExtraTime { get; set; }
         public string BillPaymentSector { get; set; }
         public double ActualWorkProgressPer { get; set; }
-        public double FinancialProgressPer { get; set; }
+        public double? FinancialProgressPer { get; set; }
         public double? BillPaidPerTillDate { get; set; }
         public decimal? BillPaidAmountTillDate { get; set; }
         public double BillPaidPer { get; set; }
