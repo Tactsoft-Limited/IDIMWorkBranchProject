@@ -363,22 +363,33 @@
                 $('#NetProgressAmount').val(netProgressAmountAfterDeduction); // Corrected here
 
 
-               // //data retrieve
-               // const estimatedCost = parseFloat($('#EstimatedCost').val()) || 0;
-               // const PerformanceSecurityPer = parseFloat($('#PerformanceSecurityPer').val()) || 0;
+               //মেজারমেন্ট হিসাব
+               //data retrieve
+                const performancesecurityper = parseFloat($('#PerformanceSecurityPer').val()) || 0;
+                const ContactorProgressPer = parseFloat($('#ContactorProgressPer').val()) || 0;
 
 
 
-               // //calculate
-               // const PerformanceSecurityamount = Math.round(estimatedCost * (PerformanceSecurityPer / 100)).toFixed(2); // Calculate Tax amount
+
+
+
+
+                // //calculate
+                const PerformanceSecurityamount = Math.round(estimatedCost * (performancesecurityper / 100)).toFixed(2);// Calculate Tax amount
+                const ContactorProgressAmount = Math.round(netAmountAfterDeduction * (ContactorProgressPer / 100)).toFixed(2);
 
                // //parsing String
 
-               ///* const netAmountAfterDeduction = Math.round(parseFloat(estimatedCost) - parseFloat(PerformanceSecurityPer)).toFixed(2);*/
+              // const netAmountAfterDeduction = Math.round(parseFloat(estimatedCost) - parseFloat(PerformanceSecurityPer)).toFixed(2);
 
 
-               // //showing the amount
-               // $('#PerformanceSecurityAmount').val(PerformanceSecurityamount);
+               //showing the amount
+               $('#PerformanceSecurityAmount').val(PerformanceSecurityamount);
+
+               $('#ContactorProgressAmount').val(ContactorProgressAmount);
+
+               $('#PayableAmountOnCurrentBill').val(ContactorProgressAmount);
+
 
 
 
@@ -387,7 +398,7 @@
 
           
             // Trigger calculation on input change
-            $('#EstimatedCost, #EstimatedCostTaxPer, #EstimatedCostVatPer, #EstimatedCostCollateralPer,#ProgressTaxPer,#ProgressVatPer,#ProgressCollateralPer ').on('input', calculateEstimatedCost);
+            $('#EstimatedCost, #EstimatedCostTaxPer, #EstimatedCostVatPer, #EstimatedCostCollateralPer,#ProgressTaxPer,#ProgressVatPer,#ProgressCollateralPer,#PerformanceSecurityPer,#ContactorProgressPer').on('input', calculateEstimatedCost);
 
         });
     </script>
