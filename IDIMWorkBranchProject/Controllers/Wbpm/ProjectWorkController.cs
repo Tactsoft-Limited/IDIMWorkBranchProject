@@ -203,9 +203,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     // Step 1: Check if file is uploaded
                     if (model.BankGuaranteeDocumentFile != null && model.BankGuaranteeDocumentFile.ContentLength > 0)
                     {
-                        //Delete Old File
-                        if (model.BankGuaranteeDocumentFile != null)
-                            FileExtention.DeleteFile(fileStorePath, model.BankGuaranteeDocument);
+                        FileExtention.DeleteFile(model.BankGuaranteeDocument, fileStorePath);
 
                         fileName = FileExtention.UploadFile(model.BankGuaranteeDocumentFile, fileStorePath);
 
@@ -222,9 +220,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     }
                     if (model.AgreementDocumentFile != null && model.AgreementDocumentFile.ContentLength > 0)
                     {
-                        //Delete Old File
-                        if (model.AgreementDocumentFile != null)
-                            FileExtention.DeleteFile(fileStorePath, model.AgreementDocument);
+                        FileExtention.DeleteFile( model.AgreementDocument, fileStorePath);
 
                         fileName = FileExtention.UploadFile(model.AgreementDocumentFile, fileStorePath);
 
@@ -242,8 +238,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     if (model.NOADocumentFile != null && model.NOADocumentFile.ContentLength > 0)
                     {
                         //Delete Old File
-                        if (model.NOADocumentFile != null)
-                            FileExtention.DeleteFile(fileStorePath, model.NOADocument);
+                        FileExtention.DeleteFile(model.NOADocument, fileStorePath);
 
                         fileName = FileExtention.UploadFile(model.NOADocumentFile, fileStorePath);
 
@@ -261,8 +256,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     if (model.WorkOrderDocumentFile != null && model.WorkOrderDocumentFile.ContentLength > 0)
                     {
                         //Delete Old File
-                        if (model.WorkOrderDocumentFile != null)
-                            FileExtention.DeleteFile(fileStorePath, model.WorkOrderDocument);
+                        FileExtention.DeleteFile(model.WorkOrderDocument, fileStorePath);
 
                         fileName = FileExtention.UploadFile(model.WorkOrderDocumentFile, fileStorePath);
 
@@ -280,7 +274,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     var entity = _mapper.Map<ProjectWork>(model);
                     await _projectWorkService.UpdateAsync(entity);
                     TempData["Message"] = Messages.Success(MessageType.Update.ToString());
-                    return View(new ProjectWorkVm());  // Reset model after success
+                    return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");  // Reset model after success
                 }
 
                 TempData["Message"] = Messages.InvalidInput(MessageType.Update.ToString());
