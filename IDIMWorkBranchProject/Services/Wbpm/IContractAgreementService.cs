@@ -10,10 +10,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
 {
     public interface IContractAgreementService : IBaseService<ContractAgreement>
     {
-        Task<List<ContractAgreement>> GetByProjectWorkIdAsync(int id);
-        Task<List<ContractAgreement>> GetByContructionFirmIdAsync(int id);
-        Task<string> GetContactDayAsync(int? contracAgreementId);
-
-
     }
+
+
 }

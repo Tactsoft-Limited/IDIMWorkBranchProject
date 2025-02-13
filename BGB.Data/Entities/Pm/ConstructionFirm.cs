@@ -15,7 +15,6 @@ namespace BGB.Data.Entities.Pm
             ReceivePayments = new HashSet<ReceivePayment>();
             ContractorPayments = new HashSet<ContractorPayment>();
             BGBFunds = new HashSet<BGBFund>();
-            ContractAgreements = new HashSet<ContractAgreement>();
         }
 
         public int ConstructionFirmId { get; set; }
@@ -51,7 +50,6 @@ namespace BGB.Data.Entities.Pm
         public virtual ICollection<ReceivePayment> ReceivePayments { get; set; }
         public virtual ICollection<ContractorPayment> ContractorPayments { get; set; }
         public virtual ICollection<BGBFund> BGBFunds { get; set; }
-        public virtual ICollection<ContractAgreement> ContractAgreements { get; set; }
         #endregion
     }
 }

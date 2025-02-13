@@ -107,8 +107,12 @@ namespace IDIMWorkBranchProject
             #endregion
 
             #region Wbpm
+
             CreateMap<ContractAgreementVm, ContractAgreement>();
-            CreateMap<ContractAgreement,ContractAgreementVm>();
+            CreateMap<ContractAgreement, ContractAgreementVm>()
+                .ForMember(d => d.ProjectWorkTitle, opt => opt.MapFrom(x=>x.ProjectWork.ProjectWorkTitle))
+                .ForMember(d => d.ConstructionFirm, opt => opt.MapFrom(x=>x.ProjectWork.ConstructionCompany.FirmNameB));
+
             CreateMap<ProjectDirectorVm, ProjectDirector>();
             CreateMap<ProjectDirector, ProjectDirectorVm>()
                 .ForMember(x => x.ProjectTitle, opt => opt.MapFrom(x => x.ADPProjects.ProjectTitle));

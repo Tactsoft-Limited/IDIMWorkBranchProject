@@ -103,10 +103,11 @@ namespace IDIMWorkBranchProject.Data.Database
                 .WillCascadeOnDelete(false);
             #endregion
 
+            #region Old Entity
             modelBuilder.Entity<Project>()
-                .HasMany(e => e.ReceivePayments)
-                .WithRequired(e => e.Project)
-                .WillCascadeOnDelete(false);
+                    .HasMany(e => e.ReceivePayments)
+                    .WithRequired(e => e.Project)
+                    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Project>()
                 .HasMany(e => e.SubProjects)
@@ -163,7 +164,8 @@ namespace IDIMWorkBranchProject.Data.Database
             modelBuilder.Entity<GeneralInformation>()
                 .HasMany(e => e.Users)
                 .WithRequired(e => e.GeneralInformation)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(false); 
+            #endregion
         }
 
 
@@ -195,6 +197,7 @@ namespace IDIMWorkBranchProject.Data.Database
         public DbSet<ADPReceivePayment> ADPReceivePayments { get; set; }
         public DbSet<BGBMiscellaneousFund> BGBMiscellaneousFunds { get; set; }
         public DbSet<ContractorCompanyPayment> ContractorCompanyPayments { get; set; }
+        public DbSet<ContractAgreement> ContractAgreements { get; set; }
         #endregion
         public virtual DbSet<ProjectType> ProjectTypes { get; set; }
         public virtual DbSet<SignatoryAuthority> SignatoryAuthorities { get; set; }
@@ -234,7 +237,6 @@ namespace IDIMWorkBranchProject.Data.Database
         public virtual DbSet<ViewProjectProblem> ViewProjectProblems { get; set; }
         public virtual DbSet<SecurityDeposit> SecurityDeposits { get; set; }
         public virtual DbSet<ViewADPReceivePayment> ViewADPReceivePayments { get; set; }
-        public virtual DbSet<ContractAgreement> ContractAgreement { get; set; }
     }
 }
 

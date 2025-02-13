@@ -398,8 +398,8 @@
     <Compile Include="Controllers\Wbpm\ADPProjectController.cs" />
     <Compile Include="Controllers\Wbpm\ADPReceivePaymentController.cs" />
     <Compile Include="Controllers\Wbpm\ConstructionCompanyController.cs" />
-    <Compile Include="Controllers\Wbpm\ContractorCompanyPaymentController.cs" />
     <Compile Include="Controllers\Wbpm\ContractAgreementController.cs" />
+    <Compile Include="Controllers\Wbpm\ContractorCompanyPaymentController.cs" />
     <Compile Include="Controllers\Wbpm\FinancialYearAllocationController.cs" />
     <Compile Include="Controllers\Wbpm\FiscalYearExpenseController.cs" />
     <Compile Include="Controllers\Wbpm\FormalMeetingController.cs" />
@@ -516,7 +516,6 @@
     <Compile Include="Models\Validation\Wbpm\ADPProjectVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\ADPReceivePaymentVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\BGBMiscellaneousFundVmValidator.cs" />
-    <Compile Include="Models\Validation\Wbpm\ContractAgreementVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\ProjectWorkVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\MasterplanVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\FormalMeetingVmValidator.cs" />
@@ -627,6 +626,7 @@
     <Compile Include="Services\Wbpm\BGBMiscellaneousFundService.cs" />
     <Compile Include="Services\Wbpm\ConstructionCompanyService.cs" />
     <Compile Include="Services\Wbpm\ContractAgreementService.cs" />
+    <Compile Include="Services\Wbpm\IContractAgreementService.cs" />
     <Compile Include="Services\Wbpm\ContractorCompanyPaymentService.cs" />
     <Compile Include="Services\Wbpm\FinancialYearAllocationService.cs" />
     <Compile Include="Services\Wbpm\FiscalYearExpenseService.cs" />
@@ -635,7 +635,6 @@
     <Compile Include="Services\Wbpm\IADPReceivePaymentService.cs" />
     <Compile Include="Services\Wbpm\IBGBMiscellaneousFundService.cs" />
     <Compile Include="Services\Wbpm\IConstructionCompanyService.cs" />
-    <Compile Include="Services\Wbpm\IContractAgreementService.cs" />
     <Compile Include="Services\Wbpm\IContractorCompanyPaymentService.cs" />
     <Compile Include="Services\Wbpm\IFinancialYearAllocationService.cs" />
     <Compile Include="Services\Wbpm\IFiscalYearExpenseService.cs" />

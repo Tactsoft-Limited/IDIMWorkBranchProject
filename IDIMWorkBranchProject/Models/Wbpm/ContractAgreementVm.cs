@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
@@ -13,17 +11,16 @@ namespace IDIMWorkBranchProject.Models.Wbpm
     {
         public ContractAgreementVm()
         {
-            ConstructionFirmDropdown = new List<SelectListItem>();
+    
         }
         [Key]
         public int ContractAgreementId { get; set; }
 
         [Display(Name ="নির্মান কাজ আইডি")]
         public int ProjectWorkId { get; set; }
+
         [DisplayName("নির্মান কাজের শিরোনাম")]
         public string ProjectWorkTitle { get; set; }
-        [Display(Name = "চুক্তির পরিমান কথায়")]
-        public string AgreementCostInWord { get; set; }
 
         [Display(Name = "ঠিকাদার প্রতিষ্ঠান")]
         public string ConstructionFirm { get; set; }
@@ -32,12 +29,12 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public string ContractDay { get; set; }
         [Display(Name = "চুক্তির তারিখ")]
         public DateTime ContractDate { get; set; }
-        [Display(Name = "ঠিকাদার প্রতিষ্ঠান")]
-        public int ConstructionCompanyId { get; set; }
 
         [Display(Name = "চুক্তির পরিমান")]
         public decimal? AgreementCost { get; set; }
 
-        public IEnumerable<SelectListItem> ConstructionFirmDropdown { get; set; }
+        [Display(Name = "চুক্তির পরিমান কথায়")]
+        public string AgreementCostInWord { get; set; }
+
     }
 }

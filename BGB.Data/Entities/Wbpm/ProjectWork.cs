@@ -14,7 +14,6 @@ namespace BGB.Data.Entities.Wbpm
             ContractorCompanyPayments = new HashSet<ContractorCompanyPayment>();
             ADPReceivePayments = new HashSet<ADPReceivePayment>();
             BGBMiscellaneousFunds = new HashSet<BGBMiscellaneousFund>();
-            ContractAgreements = new HashSet<ContractAgreement>();
         }
 
 
@@ -52,7 +51,6 @@ namespace BGB.Data.Entities.Wbpm
         public virtual ICollection<ContractorCompanyPayment> ContractorCompanyPayments { get; set; }
         public virtual ICollection<ADPReceivePayment> ADPReceivePayments { get; set; }
         public virtual ICollection<BGBMiscellaneousFund> BGBMiscellaneousFunds { get; set; }
-        public virtual ICollection<ContractAgreement> ContractAgreements { get; set; }
         #endregion
     }
 }
