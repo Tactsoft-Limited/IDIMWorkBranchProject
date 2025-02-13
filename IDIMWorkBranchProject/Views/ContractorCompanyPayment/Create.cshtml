@@ -126,8 +126,8 @@
                             <div class="form-group col-md-6">
                                 @Html.LabelFor(m => m.EstimatedCostCollateralAmount, new { @class = "col-md-2 form-label" })
                                 <div class="col-md-10">
-                                    @Html.TextBoxFor(m => m.EstimatedCostCollateralPer, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.EstimatedCostCollateralPer)
+                                    @Html.TextBoxFor(m => m.EstimatedCostCollateralAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EstimatedCostCollateralAmount)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
@@ -300,8 +300,12 @@
                             </div>
                         </fieldset>
                     </div>
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
 
-                 }
+                }
             </div>
         </div>
     </div>
@@ -312,34 +316,79 @@
     <script>
 
         $(document).ready(function () {
-            function calculateBillPaidAmount() {
+            function calculateEstimatedCost() {    
+                //Estimated Cost Vat Tax Calculation
                 const estimatedCost = parseFloat($('#EstimatedCost').val()) || 0;
-                const billPaidPer = parseFloat($('#BillPaidPer').val()) || 0;
-                const taxPer = parseFloat($('#TaxPer').val()) || 0; // Get Tax percentage
-                const vatPer = parseFloat($('#VatPer').val()) || 0; // Get VAT percentage
-                const collateralPer = parseFloat($('#CollateralPer').val()) || 0; // Get Collateral percentage
+                const estimatedCostTaxPer = parseFloat($('#EstimatedCostTaxPer').val()) || 0; // Get Tax percentage
+                const estimatedCostVatPer = parseFloat($('#EstimatedCostVatPer').val()) || 0; // Get VAT percentage
+                const estimatedCostCollateralPer = parseFloat($('#EstimatedCostCollateralPer').val()) || 0; // Get Collateral percentage
 
                 // Calculate amounts based on the input
-                const billPaidAmount = Math.round(estimatedCost * (billPaidPer / 100)).toFixed(2);
-                const taxAmount = Math.round(billPaidAmount * (taxPer / 100)).toFixed(2); // Calculate Tax amount
-                const vatAmount = Math.round(billPaidAmount * (vatPer / 100)).toFixed(2); // Calculate VAT amount
-                const collateralAmount = Math.round(billPaidAmount * (collateralPer / 100)).toFixed(2); // Calculate Collateral amount
+                const estimatedCostTaxAmount = Math.round(estimatedCost * (estimatedCostTaxPer / 100)).toFixed(2); // Calculate Tax amount
+                const estimatedCostVatAmount = Math.round(estimatedCost * (estimatedCostVatPer / 100)).toFixed(2); // Calculate VAT amount
+                const estimatedCostCollateralAmount = Math.round(estimatedCost * (estimatedCostCollateralPer / 100)).toFixed(2); // Calculate Collateral amount
 
                 // Convert amounts to numbers for addition
-                const totalDeduction = Math.round(parseFloat(taxAmount) + parseFloat(vatAmount) + parseFloat(collateralAmount)).toFixed(2);
-                const depositInBGBFund = Math.round(parseFloat(billPaidAmount) - parseFloat(totalDeduction)).toFixed(2);
+                const estimatedCostTotalDeduction = Math.round(parseFloat(estimatedCostTaxAmount) + parseFloat(estimatedCostVatAmount) + parseFloat(estimatedCostCollateralAmount)).toFixed(2);
+                const netAmountAfterDeduction = Math.round(parseFloat(estimatedCost) - parseFloat(estimatedCostTotalDeduction)).toFixed(2);
 
                 // Update the input fields with the calculated values
-                $('#BillPaidAmount').val(billPaidAmount);
-                $('#TaxAmount').val(taxAmount);
-                $('#VatAmount').val(vatAmount);
-                $('#CollateralAmount').val(collateralAmount);
-                $('#TotalDeductionAmount').val(totalDeduction);
-                $('#DepositInBGBFund').val(depositInBGBFund); // Corrected here
+                $('#EstimatedCostTaxAmount').val(estimatedCostTaxAmount);
+                $('#EstimatedCostVatAmount').val(estimatedCostVatAmount);
+                $('#EstimatedCostCollateralAmount').val(estimatedCostCollateralAmount);
+                $('#EstimatedCostDeductionAmount').val(estimatedCostTotalDeduction);
+                $('#NetEstimatedCostAmount').val(netAmountAfterDeduction); // Corrected here
+
+                //Progress Calculation
+
+                const progressAmount = parseFloat($('#ProgressAmount').val()) || 0;
+                const progressTaxPer = parseFloat($('#ProgressTaxPer').val()) || 0; // Get Tax percentage
+                const progressVatPer = parseFloat($('#ProgressVatPer').val()) || 0; // Get VAT percentage
+                const progressCollateralPer = parseFloat($('#ProgressCollateralPer').val()) || 0; // Get Collateral percentage
+
+                // Calculate amounts based on the input
+                const progressTaxAmount = Math.round(progressAmount * (progressTaxPer / 100)).toFixed(2); // Calculate Tax amount
+                const progressVatAmount = Math.round(progressAmount * (progressVatPer / 100)).toFixed(2); // Calculate VAT amount
+                const progressCollateralAmount = Math.round(progressAmount * (progressCollateralPer / 100)).toFixed(2); // Calculate Collateral amount
+
+                // Convert amounts to numbers for addition
+                const progressTotalDeduction = Math.round(parseFloat(progressTaxAmount) + parseFloat(progressVatAmount) + parseFloat(progressCollateralAmount)).toFixed(2);
+                const netProgressAmountAfterDeduction = Math.round(parseFloat(progressAmount) - parseFloat(progressTotalDeduction)).toFixed(2);
+
+                // Update the input fields with the calculated values
+                $('#ProgressTaxAmount').val(progressTaxAmount);
+                $('#ProgressVatAmount').val(progressVatAmount);
+                $('#ProgressCollateralAmount').val(progressCollateralAmount);
+                $('#ProgressDeductionAmount').val(progressTotalDeduction);
+                $('#NetProgressAmount').val(netProgressAmountAfterDeduction); // Corrected here
+
+
+               // //data retrieve
+               // const estimatedCost = parseFloat($('#EstimatedCost').val()) || 0;
+               // const PerformanceSecurityPer = parseFloat($('#PerformanceSecurityPer').val()) || 0;
+
+
+
+               // //calculate
+               // const PerformanceSecurityamount = Math.round(estimatedCost * (PerformanceSecurityPer / 100)).toFixed(2); // Calculate Tax amount
+
+               // //parsing String
+
+               ///* const netAmountAfterDeduction = Math.round(parseFloat(estimatedCost) - parseFloat(PerformanceSecurityPer)).toFixed(2);*/
+
+
+               // //showing the amount
+               // $('#PerformanceSecurityAmount').val(PerformanceSecurityamount);
+
+
+
+
             }
 
+          
             // Trigger calculation on input change
-            $('#EstimatedCost, #BillPaidPer, #TaxPer, #VatPer, #CollateralPer').on('input', calculateBillPaidAmount);
+            $('#EstimatedCost, #EstimatedCostTaxPer, #EstimatedCostVatPer, #EstimatedCostCollateralPer,#ProgressTaxPer,#ProgressVatPer,#ProgressCollateralPer ').on('input', calculateEstimatedCost);
+
         });
     </script>
 
