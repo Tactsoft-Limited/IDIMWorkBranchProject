@@ -2921,12 +2921,12 @@
     <Content Include="Views\ProjectWork\Details.cshtml" />
     <Content Include="Views\ADPReceivePayment\Create.cshtml" />
     <Content Include="Views\ADPReceivePayment\Edit.cshtml" />
+    <Content Include="Views\ContractorCompanyPayment\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\Plugins\datatables\extensions\FixedColumns\examples\integration\" />
     <Folder Include="Scripts\Plugins\jquery-tabledit\" />
-    <Folder Include="Views\ContractorCompanyPayment\" />
     <Folder Include="Views\Shared\EditorElements\" />
     <Folder Include="Views\Shared\Others\" />
   </ItemGroup>
