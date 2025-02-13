@@ -9,5 +9,6 @@ namespace IDIMWorkBranchProject.Services.Wbpm
     public interface IProjectWorkService : IBaseService<ProjectWork>
     {
         Task<List<ProjectWork>> GetAllByProjectId(int id);
+        Task<string> GetProjectWorkTitle(int? projectWorkId);
     }
 }

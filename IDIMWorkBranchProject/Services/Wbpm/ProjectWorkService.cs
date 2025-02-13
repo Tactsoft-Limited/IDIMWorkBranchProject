@@ -19,5 +19,9 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         {
             return await _context.ProjectWorks.Where(x => x.ADPProjectId == id).ToListAsync();
         }
+        public async Task<string> GetProjectWorkTitle(int? ProjectWorkId)
+        {
+            return await _context.ProjectWorks.Where(x => x.ProjectWorkId == ProjectWorkId).Select(x => x.ProjectWorkTitle).FirstOrDefaultAsync();
+        }
     }
 }

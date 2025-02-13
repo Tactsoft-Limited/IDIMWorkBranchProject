@@ -237,6 +237,7 @@ namespace IDIMWorkBranchProject.Data.Database
         public virtual DbSet<ViewExtended> ViewExtendeds { get; set; }
         public virtual DbSet<ViewProjectProblem> ViewProjectProblems { get; set; }
         public virtual DbSet<SecurityDeposit> SecurityDeposits { get; set; }
+        public virtual DbSet<ContractAgreement> ContractAgreement { get; set; }
     }
 }
 
