@@ -43,7 +43,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public double ActualWorkProgressPer { get; set; }
 
         [DisplayName("আর্থিক অগ্রগতি (%)")]
-        public double FinancialProgressPer { get; set; }
+        public double? FinancialProgressPer { get; set; }
 
         [DisplayName("এ পর্যন্ত বিল পরিশোধ (%)")]
         public double? BillPaidPerTillDate { get; set; }

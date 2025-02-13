@@ -1208,7 +1208,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Code.ConvertToBangla(Fields!FinancialProgressPer.Value)</Value>
+                              <Value>=IIf(IsNothing(Fields!FinancialProgressPer.Value)=0, "", Code.ConvertToBangla(Fields!FinancialProgressPer.Value))</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -1278,7 +1278,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Code.ConvertToBangla(Fields!BillPaidTillDate.Value)</Value>
+                              <Value>=IIf(IsNothing(Fields!BillPaidAmountTillDate.Value)=0, "", Code.ConvertToBangla(Fields!BillPaidAmountTillDate.Value))</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
