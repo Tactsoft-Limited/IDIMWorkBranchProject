@@ -8,9 +8,6 @@ namespace BGB.Data.Entities.Wbpm
     [Table("BGBMiscellaneousFund", Schema = "wbpm")]
     public class BGBMiscellaneousFund : BaseEntity
     {
-
-
-
         [Key]
         public int FundId { get; set; }
 

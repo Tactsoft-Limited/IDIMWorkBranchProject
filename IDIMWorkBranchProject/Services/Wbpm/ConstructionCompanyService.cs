@@ -17,6 +17,11 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         {
         }
 
+        public async Task<string> GetConstructionFirm(int constructionCompanyId)
+        {
+            return await _context.ConstructionCompanies.Where(x => x.ConstructionCompanyId == constructionCompanyId).Select(x => x.FirmNameB).FirstOrDefaultAsync();
+        }
+
         public async Task<IEnumerable<SelectListItem>> GetDropdownAsync(int? selected=0)
         {
             return await _context.ConstructionCompanies.Select(s => new SelectListItem
