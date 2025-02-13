@@ -1,9 +1,14 @@
 ﻿using IDIMWorkBranchProject.Data.Database;
-using IDIMWorkBranchProject.Extentions.Healper;
+using IDIMWorkBranchProject.Extentions.ReportHealper;
+using IDIMWorkBranchProject.Extentions.ReportHelper;
 using IDIMWorkBranchProject.Models.Report;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
+
+using Microsoft.Reporting.WebForms;
+
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -12,7 +17,7 @@ using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Report
 {
-    public class ConstructionReportController : Controller
+	public class ConstructionReportController : Controller
     {
         protected IFiscalYearService FiscalYearService { get; set; }
         protected IGeneralInformationService GeneralInformationService { get; set; }
@@ -63,16 +68,24 @@ namespace IDIMWorkBranchProject.Controllers.Report
         [HttpPost]
         public ActionResult ConstructionReport(ReportFilterVm model)
         {
-            string type = "PDF";
             int consultantId = (model.ConsultantId != null) ? Convert.ToInt32(model.ConsultantId) : 0;
             int fiscalYearId = (model.FiscalYearId != null) ? Convert.ToInt32(model.FiscalYearId) : 0;
             var Param1 = new SqlParameter("@ConsultantId", consultantId);
             var Param2 = new SqlParameter("@FiscalYearId", fiscalYearId);
             string SP_SQL = "[pm].[GetDetailsOfConstructionRpt] @ConsultantId, @FiscalYearId";
             var data = _dbContext.Database.SqlQuery<ReportDataVm>(SP_SQL, Param1, Param2).ToList();
-            var reportPath = Path.Combine(Server.MapPath("~/Report/rdlc"), "RptConstructionDetails.rdlc");
-            return ReportHelper.GenerateReport(reportPath, "ConstructionDetailsDataSet", data, false, type);
-        }
+			var reportDataSource = new List<ReportDataSource>
+			{
+				new ReportDataSource("ConstructionDetailsDataSet", data)
+			};
+
+			var config = new ReportConfig
+			{
+				ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "RptConstructionDetails.rdlc")
+			};
+
+			return new ReportResult(config, reportDataSource);
+		}
 
     }
 }

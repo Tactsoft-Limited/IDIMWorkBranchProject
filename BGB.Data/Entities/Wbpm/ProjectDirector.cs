@@ -1,12 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Collections.Generic;
 using BGB.Data.Entities.Base;
 
 namespace BGB.Data.Entities.Wbpm
 {
-    [Table("ProjectDirector", Schema = "wbpm")]
+	[Table("ProjectDirector", Schema = "wbpm")]
     public class ProjectDirector : BaseEntity
     {
 

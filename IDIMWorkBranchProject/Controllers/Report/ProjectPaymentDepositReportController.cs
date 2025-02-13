@@ -1,9 +1,14 @@
 ﻿using IDIMWorkBranchProject.Data.Database;
-using IDIMWorkBranchProject.Extentions.Healper;
+using IDIMWorkBranchProject.Extentions.ReportHealper;
+using IDIMWorkBranchProject.Extentions.ReportHelper;
 using IDIMWorkBranchProject.Models.Report;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
+
+using Microsoft.Reporting.WebForms;
+
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -12,7 +17,7 @@ using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Report
 {
-    public class ProjectPaymentDepositReportController : Controller
+	public class ProjectPaymentDepositReportController : Controller
     {
         protected IFiscalYearService FiscalYearService { get; set; }
         protected IGeneralInformationService GeneralInformationService { get; set; }
@@ -64,7 +69,6 @@ namespace IDIMWorkBranchProject.Controllers.Report
 
         public ActionResult ProjectPaymentDepositRpt(ReportFilterVm model)
         {
-            string type = "PDF";
 
             int subProjectId = (model.SubProjectId != null) ? Convert.ToInt32(model.SubProjectId) : 0;
             int constructorFirmId = (model.ConstructionFirmId != null) ? Convert.ToInt32(model.ConstructionFirmId) : 0;
@@ -75,9 +79,18 @@ namespace IDIMWorkBranchProject.Controllers.Report
             string SP_SQL = "[pm].[GetProjectPaymentDepositRpt] @SubProjectId, @ConstructorFirmId, @Letterno";
             var data = _dbContext.Database.SqlQuery<ReportDataVm>(SP_SQL, Param1, Param2, Param3).ToList();
 
-            var reportPath = Path.Combine(Server.MapPath("~/Report/rdlc"), "RptProjectPaymentDeposit.rdlc");
-            return ReportHelper.GenerateReport(reportPath, "ProjectPaymentDepositDataSet", data, false, type);
-        }
+            var reportDataSource = new List<ReportDataSource>
+            {
+	            new ReportDataSource("ProjectPaymentDepositDataSet", data)
+            };
+
+			var config = new ReportConfig
+			{
+				ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "RptProjectPaymentDeposit.rdlc")
+			};
+
+			return new ReportResult(config, reportDataSource);
+		}
 
     }
 }

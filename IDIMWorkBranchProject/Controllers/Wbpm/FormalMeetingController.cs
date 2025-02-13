@@ -8,15 +8,12 @@ using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
 {
-    public class FormalMeetingController : BaseController
+	public class FormalMeetingController : BaseController
     {
         protected readonly IFormalMeetingService _formalMeetingService;
 		protected readonly IADPProjectService _aDPProjectService;

@@ -1,8 +1,15 @@
 ﻿using IDIMWorkBranchProject.Data.Database;
-using IDIMWorkBranchProject.Extentions.Healper;
+using IDIMWorkBranchProject.Extentions.ReportHealper;
+using IDIMWorkBranchProject.Extentions.ReportHelper;
+using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.WBP;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
+
+using Microsoft.Reporting.WebForms;
+
+using System.Collections.Generic;
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,7 +17,7 @@ using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Report
 {
-    public class SubProjectReportController : Controller
+	public class SubProjectReportController : Controller
     {
         protected IFiscalYearService FiscalYearService { get; set; }
         protected IGeneralInformationService GeneralInformationService { get; set; }
@@ -73,9 +80,27 @@ namespace IDIMWorkBranchProject.Controllers.Report
 
         public ActionResult SubProjectRpt(int id, string type)
         {
-            var reportPath = Path.Combine(Server.MapPath("~/Report/rdlc"), "RptProjectWiseSubProject.rdlc");
-            var data = _dbContext.ViewProjectWiseSubProjectRpts.Where(i => i.ProjectId == id).ToList();
-            return ReportHelper.GenerateReport(reportPath, "DsSubProject", data, true, type);
-        }
+			try
+			{
+				var data = _dbContext.ViewProjectWiseSubProjectRpts.Where(i => i.ProjectId == id).ToList();
+				var reportDataSource = new List<ReportDataSource>
+		        {
+			        new ReportDataSource("DsArmyDisease", data)
+		        };
+
+				var config = new ReportConfig
+				{
+					ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "RptProjectWiseSubProject.rdlc")
+				};
+
+				return new ReportResult(config, reportDataSource);
+			}
+			catch (Exception exception)
+			{
+				// Log the exception if necessary
+				// You can also throw a custom exception if you want
+				throw new InvalidOperationException("An error occurred while generating the report.", exception);
+			}
+		}
     }
 }

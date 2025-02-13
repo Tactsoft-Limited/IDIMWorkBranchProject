@@ -1,9 +1,14 @@
 ﻿using IDIMWorkBranchProject.Data.Database;
-using IDIMWorkBranchProject.Extentions.Healper;
+using IDIMWorkBranchProject.Extentions.ReportHealper;
+using IDIMWorkBranchProject.Extentions.ReportHelper;
 using IDIMWorkBranchProject.Models.Report;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
+
+using Microsoft.Reporting.WebForms;
+
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -12,7 +17,7 @@ using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Report
 {
-    public class YearlyConstructionReportController : Controller
+	public class YearlyConstructionReportController : Controller
     {
         protected IFiscalYearService FiscalYearService { get; set; }
         protected IGeneralInformationService GeneralInformationService { get; set; }
@@ -63,14 +68,21 @@ namespace IDIMWorkBranchProject.Controllers.Report
         [HttpPost]
         public ActionResult YearlyConstructionReport(ReportFilterVm model)
         {
-            string type = "PDF";
             int fiscalYearId = (model.FiscalYearId != null) ? Convert.ToInt32(model.FiscalYearId) : 0;
             var Param1 = new SqlParameter("@FiscalYearId", fiscalYearId);
             string SP_SQL = "[pm].[GetYearlyConstructionDetailsRpt] @FiscalYearId";
             var data = _dbContext.Database.SqlQuery<ReportDataVm>(SP_SQL, Param1).ToList();
-            var reportPath = Path.Combine(Server.MapPath("~/Report/rdlc"), "RptYearlyConstructionDetails.rdlc");
-            return ReportHelper.GenerateReport(reportPath, "YearlyConstructionDetailsDataSet", data, true, type);
+			var reportDataSource = new List<ReportDataSource>
+            {
+	            new ReportDataSource("YearlyConstructionDetailsDataSet", data)
+            };
+			var config = new ReportConfig
+			{
+				ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "RptYearlyConstructionDetails.rdlc")
+			};
 
-        }
+			return new ReportResult(config, reportDataSource);
+
+		}
     }
 }

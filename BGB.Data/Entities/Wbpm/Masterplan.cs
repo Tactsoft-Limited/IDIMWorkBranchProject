@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System;
 using BGB.Data.Entities.Base;
 
 namespace BGB.Data.Entities.Wbpm
 {
-    [Table("Masterplan", Schema = "wbpm")]
+	[Table("Masterplan", Schema = "wbpm")]
     public class Masterplan : BaseEntity
     {
 
