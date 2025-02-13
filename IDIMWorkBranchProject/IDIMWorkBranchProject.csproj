@@ -431,6 +431,7 @@
     <Compile Include="Extentions\Collections\Select2\Select2PagedResult.cs" />
     <Compile Include="Extentions\Collections\Select2\Select2Param.cs" />
     <Compile Include="Extentions\Collections\Select2\Select2Result.cs" />
+    <Compile Include="Extentions\Conversion\NumberToBangla.cs" />
     <Compile Include="Extentions\DateExtention.cs" />
     <Compile Include="Extentions\DefaultData.cs" />
     <Compile Include="Extentions\EnumExtensions.cs" />
@@ -802,6 +803,7 @@
     <Content Include="Images\Profile\93256.jpg" />
     <Content Include="Images\Profile\93256.png" />
     <Content Include="Images\Profile\avatar.png" />
+    <Content Include="Scripts\banglaNumberConverter.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -3047,6 +3049,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Report\Rdlc\ADPReceivePaymentReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RDLCBill.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RDLCProblem.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RptConstructionCheckList.rdlc" />

@@ -21,22 +21,22 @@ using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
 {
-	public class ADPReceivePaymentController : BaseController
+    public class ADPReceivePaymentController : BaseController
     {
         private readonly IADPReceivePaymentService _aDPReceivePaymentService;
         private readonly IProjectWorkService _projectWorkService;
-		private readonly IReportService _reportService;
-		private readonly IMapper _mapper;
-		public ADPReceivePaymentController(IActivityLogService activityLogService, IADPReceivePaymentService aDPReceivePaymentService, IMapper mapper, IProjectWorkService projectWorkService, IReportService reportService) : base(activityLogService)
-		{
-			_aDPReceivePaymentService = aDPReceivePaymentService;
-			_mapper = mapper;
-			_projectWorkService = projectWorkService;
-			_reportService = reportService;
-		}
+        private readonly IReportService _reportService;
+        private readonly IMapper _mapper;
+        public ADPReceivePaymentController(IActivityLogService activityLogService, IADPReceivePaymentService aDPReceivePaymentService, IMapper mapper, IProjectWorkService projectWorkService, IReportService reportService) : base(activityLogService)
+        {
+            _aDPReceivePaymentService = aDPReceivePaymentService;
+            _mapper = mapper;
+            _projectWorkService = projectWorkService;
+            _reportService = reportService;
+        }
 
-		// GET: ADPReceivePayment
-		public ActionResult Index()
+        // GET: ADPReceivePayment
+        public ActionResult Index()
         {
             return View();
         }
@@ -45,6 +45,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         {
             var projectWork = await _projectWorkService.GetByIdAsync(id);
             var receivePayments = await _aDPReceivePaymentService.GetByProjectWorkIdAsync(id);
+
+            if (receivePayments.Sum(x => x.BillPaidPer) == 100 || receivePayments.Sum(x => x.BillPaidAmount) == projectWork.EstimatedCost)
+                throw new Exception("Full Payment already received");
+
             var model = new ADPReceivePaymentVm
             {
                 ProjectWorkId = projectWork.ProjectWorkId,
@@ -52,98 +56,97 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 ProjectWorkTitle = projectWork.ProjectWorkTitle,
                 ConstructionFirm = projectWork.ConstructionCompany.FirmName,
                 BillNumber = receivePayments.Count() + 1,
-				FinancialProgressPer = receivePayments.Sum(x=>x.BillPaidPer),
-				BillPaidTillDate = receivePayments.Sum(x=>x.BillPaidAmount),
-				TotalWithdrawAmount = receivePayments.Sum(x => x.BillPaidAmount),
-                TotalWithdrawPer = receivePayments.Sum(x => x.BillPaidPer)
+                FinancialProgressPer = receivePayments.Sum(x => x.BillPaidPer),
+                BillPaidPerTillDate = receivePayments.Sum(x => x.BillPaidPer),
+                BillPaidAmountTillDate = receivePayments.Sum(x => x.BillPaidAmount),
             };
             return View(model);
         }
 
-		[HttpPost]
-		public async Task<ActionResult> Create(ADPReceivePaymentVm model)
-		{
-			try
-			{
-				if (!ModelState.IsValid)
-				{
-					TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString()); 
-					return View(model);
-				}
+        [HttpPost]
+        public async Task<ActionResult> Create(ADPReceivePaymentVm model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                    return View(model);
+                }
 
-				var entity = _mapper.Map<ADPReceivePayment>(model);
-				await _aDPReceivePaymentService.CreateAsync(entity);
-				TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-				return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
-			}
-			catch (Exception exception)
-			{
-				TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
-				return View(model);
-			}
-		}
+                var entity = _mapper.Map<ADPReceivePayment>(model);
+                await _aDPReceivePaymentService.CreateAsync(entity);
+                TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+            }
+            catch (Exception exception)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                return View(model);
+            }
+        }
 
-		public async Task<ActionResult> Edit(int id)
-		{
-			var model = _mapper.Map<ADPReceivePaymentVm>(await _aDPReceivePaymentService.GetByIdAsync(id));
-			var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
-			model.ProjectWorkTitle = projectWork.ProjectWorkTitle;
-			model.ConstructionFirm = projectWork.ConstructionCompany.FirmName;
-			model.EstimatedCost = projectWork.EstimatedCost;
-		
-			return View(model);
-		}
+        public async Task<ActionResult> Edit(int id)
+        {
+            var model = _mapper.Map<ADPReceivePaymentVm>(await _aDPReceivePaymentService.GetByIdAsync(id));
+            var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
+            model.ProjectWorkTitle = projectWork.ProjectWorkTitle;
+            model.ConstructionFirm = projectWork.ConstructionCompany.FirmName;
+            model.EstimatedCost = projectWork.EstimatedCost;
 
-		[HttpPost]
-		public async Task<ActionResult> Edit(ADPReceivePaymentVm model)
-		{
-			try
-			{
-				if (!ModelState.IsValid)
-				{
-					TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
-					return View(model);
-				}
+            return View(model);
+        }
 
-				var entity = _mapper.Map<ADPReceivePayment>(model);
-				await _aDPReceivePaymentService.UpdateAsync(entity);
-				TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-				return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
-			}
-			catch (Exception exception)
-			{
-				TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
-				return View(model);
-			}
-		}
+        [HttpPost]
+        public async Task<ActionResult> Edit(ADPReceivePaymentVm model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                    return View(model);
+                }
+
+                var entity = _mapper.Map<ADPReceivePayment>(model);
+                await _aDPReceivePaymentService.UpdateAsync(entity);
+                TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+            }
+            catch (Exception exception)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                return View(model);
+            }
+        }
 
 
-		public async Task<ActionResult> PrintReceivePayment(int id)
-		{
-			try
-			{
-				var data = await _reportService.GetADPReceivePaymenAsync(id);
+        public async Task<ActionResult> PrintADPReceivePayment(int id)
+        {
+            try
+            {
+                var data = await _reportService.GetADPReceivePaymenAsync(id);
 
-				var reportDataSource = new List<ReportDataSource>
-				{
-					new ReportDataSource("DsADPReceivePayment", data)
-				};
+                var reportDataSource = new List<ReportDataSource>
+                {
+                    new ReportDataSource("DsADPReceivePayment", data)
+                };
 
-				var config = new ReportConfig
-				{
-					ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "ADPReceivePaymentReport.rdlc")
-				};
+                var config = new ReportConfig
+                {
+                    ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "ADPReceivePaymentReport.rdlc")
+                };
 
-				return new ReportResult(config, reportDataSource);
-			}
-			catch (Exception exception)
-			{
-				// Log the exception if necessary
-				// You can also throw a custom exception if you want
-				throw new InvalidOperationException("An error occurred while generating the report.", exception);
-			}
-		}
+                return new ReportResult(config, reportDataSource);
+            }
+            catch (Exception exception)
+            {
+                // Log the exception if necessary
+                // You can also throw a custom exception if you want
+                throw new InvalidOperationException("An error occurred while generating the report.", exception);
+            }
+        }
 
-		
-	}
+
+    }
 }

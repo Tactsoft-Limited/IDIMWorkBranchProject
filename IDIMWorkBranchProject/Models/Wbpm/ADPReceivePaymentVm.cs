@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
-	[Validator(typeof(ADPReceivePaymentVmValidator))]
+    [Validator(typeof(ADPReceivePaymentVmValidator))]
     public class ADPReceivePaymentVm
     {
 
@@ -18,10 +18,10 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("নির্মাণ কাজের নাম")]
         public string ProjectWorkTitle { get; set; }
 
-		[Display(Name = "ফার্মের নাম")]
-		public string ConstructionFirm { get; set; }
+        [Display(Name = "ফার্মের নাম")]
+        public string ConstructionFirm { get; set; }
 
-		[DisplayName("লেটার নম্বর")]
+        [DisplayName("লেটার নম্বর")]
         public string LetterNo { get; set; }
 
         [DisplayName("বিল নম্বর")]
@@ -45,19 +45,30 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("আর্থিক অগ্রগতি (%)")]
         public double FinancialProgressPer { get; set; }
 
-		[DisplayName("এ পর্যন্ত বিল পরিশোধ")]
-		public decimal? BillPaidTillDate { get; set; }
+        [DisplayName("এ পর্যন্ত বিল পরিশোধ (%)")]
+        public double? BillPaidPerTillDate { get; set; }
+        [DisplayName("এ পর্যন্ত বিল পরিশোধ")]
+        public decimal? BillPaidAmountTillDate { get; set; }
 
-		[DisplayName("বিল পরিশোধ (%)")]
+        [DisplayName("বিল পরিশোধ (%)")]
         public double BillPaidPer { get; set; }
 
         [DisplayName("বিল পরিশোধের পরিমাণ")]
         public decimal BillPaidAmount { get; set; }
 
-		[DisplayName("বিল পরিশোধের পরিমাণ (কথায়)")]
-		public string BillPaidAmountInWord { get; set; }
+        [DisplayName("বিল পরিশোধের পরিমাণ (কথায়)")]
+        public string BillPaidAmountInWord { get; set; }
 
-		[DisplayName("ট্যাক্স (%)")]
+        [DisplayName("মোট পরিশোধ (%)")]
+        public double? TotalReceivePer { get; set; }
+
+        [DisplayName("মোট পরিশোধ অর্থ")]
+        public decimal? TotalReceiveAmount { get; set; }
+
+        [DisplayName("মোট পরিশোধ অর্থ (কথায়)")]
+        public string TotalReceiveAmountInWord { get; set; }
+
+        [DisplayName("ট্যাক্স (%)")]
         public double TaxPer { get; set; }
 
         [DisplayName("ট্যাক্স পরিমাণ")]
@@ -87,12 +98,5 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("মন্তব্য")]
         public string Remarks { get; set; }
 
-
-        [DisplayName("সিজিএ হতে উত্তোলিত অর্থ")]
-        public decimal TotalWithdrawAmount { get; set; }
-
-		[DisplayName("সিজিএ হতে উত্তোলিত অর্থ (%)")]
-		public double TotalWithdrawPer { get; set; }
-
-	}
+    }
 }

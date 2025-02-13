@@ -21,11 +21,15 @@ namespace BGB.Data.Entities.Wbpm
         public string BillPaymentSector { get; set; }
         public double ActualWorkProgressPer { get; set; }
         public double FinancialProgressPer { get; set; }
-		public decimal? BillPaidTillDate { get; set; }
-		public double BillPaidPer { get; set; }
+        public double? BillPaidPerTillDate { get; set; }
+        public decimal? BillPaidAmountTillDate { get; set; }
+        public double BillPaidPer { get; set; }
         public decimal BillPaidAmount { get; set; }
-		public string BillPaidAmountInWord { get; set; }
-		public double TaxPer { get; set; }
+        public string BillPaidAmountInWord { get; set; }
+        public double? TotalReceivePer { get; set; }
+        public decimal? TotalReceiveAmount { get; set; }
+        public string TotalReceiveAmountInWord { get; set; }
+        public double TaxPer { get; set; }
         public decimal TaxAmount { get; set; }
         public double VatPer { get; set; }
         public decimal VatAmount { get; set; }
