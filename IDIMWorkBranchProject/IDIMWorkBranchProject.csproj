@@ -2944,6 +2944,7 @@
     <Content Include="Views\ContractAgreement\Edit.cshtml" />
     <Content Include="Views\RecruitmentCommittee\Create.cshtml" />
     <Content Include="Views\RecruitmentCommittee\List.cshtml" />
+    <Content Include="Views\RecruitmentCommittee\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

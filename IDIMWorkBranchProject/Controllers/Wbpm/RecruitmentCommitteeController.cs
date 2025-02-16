@@ -73,5 +73,35 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 return View(model);
             }
         }
+
+        public async Task<ActionResult> Edit(int id)
+        {
+
+            var model = _mapper.Map<RecruitmentCommitteeVm>(await _recruitmentCommitteeService.GetByIdAsync(id));
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(RecruitmentCommitteeVm model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var entity = _mapper.Map<RecruitmentCommittee>(model);
+                    await _recruitmentCommitteeService.UpdateAsync(entity);
+                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());
+                    return RedirectToAction("List", "RecruitmentCommittee");  // Reset model after success
+                }
+
+                TempData["Message"] = Messages.InvalidInput(MessageType.Update.ToString());
+            }
+            catch (Exception exception)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Update.ToString(), exception.Message);
+            }
+
+            return View(model);
+        }
     }
 }
