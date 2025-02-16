@@ -65,7 +65,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 var entity = _mapper.Map<RecruitmentCommittee>(model);
                 await _recruitmentCommitteeService.CreateAsync(entity);
                 TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             catch (Exception exception)
             {
@@ -102,6 +102,45 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var entity = await _recruitmentCommitteeService.GetByIdAsync(id);
+
+            if (entity == null)
+            {
+                TempData["Message"] = "The requested record was not found.";
+                return RedirectToAction("List", "RecruitmentCommittee");
+            }
+            var model = _mapper.Map<RecruitmentCommitteeVm>(entity);
+            return View(model); // Load the delete confirmation view
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(RecruitmentCommitteeVm model)
+        {
+            var entity = await _recruitmentCommitteeService.GetByIdAsync(model.RecruitmentCommitteeId);
+            try
+            {
+
+                if (entity == null)
+                {
+                    TempData["Message"] = "Record Not Found";
+                    return RedirectToAction("List", "RecruitmentCommittee");
+                }
+
+                await _recruitmentCommitteeService.DeleteAsync(entity);
+
+                TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
+                return RedirectToAction("List", "RecruitmentCommittee");
+            }
+            catch (Exception exception)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
+                return RedirectToAction("List", "RecruitmentCommittee"); // Avoids null reference
+            }
         }
     }
 }
