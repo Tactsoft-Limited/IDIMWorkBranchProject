@@ -23,7 +23,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         // GET: RecruitmentCommittee
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("List");
         }
         public ActionResult List()
         {

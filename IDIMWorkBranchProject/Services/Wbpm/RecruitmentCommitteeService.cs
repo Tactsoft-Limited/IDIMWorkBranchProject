@@ -9,6 +9,7 @@ using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Services.Wbpm
 {
@@ -16,6 +17,15 @@ namespace IDIMWorkBranchProject.Services.Wbpm
     {
         public RecruitmentCommitteeService(IDIMDBEntities context) : base(context)
         {
+        }
+        public async Task<IEnumerable<SelectListItem>>DropdownAsync(int? selected = 0)
+        {
+            return await _context.RecruitmentCommittees.Select(d => new SelectListItem
+            {   
+                Text = $"{d.DesignationB}  {d.NameB}",
+                Value = d.RecruitmentCommitteeId.ToString(),
+                Selected = d.RecruitmentCommitteeId == selected
+            }).ToListAsync();
         }
 
         public async Task<object> GetPagedAsync(RecruitmentCommitteeSearchVm model)

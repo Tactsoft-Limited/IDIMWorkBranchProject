@@ -26,11 +26,11 @@
 <section class="box">
     <header class="panel_header">
         <h2 class="title pull-left">List</h2>
-        @*<div class="actions panel_actions pull-right">
-                <a href="@Url.Action("Create","ADPProject")" class="btn btn-success"><i class="fa fa-plus"></i> নতুন প্রকল্প যুক্ত করুন</a>
+        <div class="actions panel_actions pull-right">
+                <a href="@Url.Action("Create","RecruitmentCommittee")" class="btn btn-success"><i class="fa fa-plus"></i> নতুন নিয়োগ কমিটি যোগ করুন</a>
 
                 <a class="box_toggle fa fa-chevron-down"></a>
-            </div>*@
+            </div>
     </header>
     <div class="content-body">
         <div class="row">
@@ -87,14 +87,6 @@
                         "title": "বাংলা নাম",                        
                     },
                     {
-                        "data": "Title",
-                        "title": "শিরোনাম",                        
-                    },
-                    {
-                        "data": "TitleB",
-                        "title": "শিরোনাম বাংলায়",
-                    },
-                    {
                         "data": "Designation",
                         "title": "পদবি",
                     },
@@ -103,12 +95,28 @@
                         "title": "পদবি বাংলায়",
                     },
                     {
+                        "data": "Title",
+                        "title": "শিরোনাম",                        
+                    },
+                    {
+                        "data": "TitleB",
+                        "title": "শিরোনাম বাংলায়",
+                    },                    
+                    {
                         "data": "Address",
                         "title": "ঠিকানা ",
                     },
                     {
                         "data": "AddressB",
                         "title": "ঠিকানা বাংলায়",
+                    },
+                    {
+                        "render": function (data, type, row) {
+                         //Assuming 'id' is the unique identifier for the project
+                            return `<a href="${baseUrl}/RecruitmentCommittee/Edit/${row.RecruitmentCommitteeId}" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square"></i> সংশোধন</a>
+                            <a href="${baseUrl}/RecruitmentCommittee/Delete/${row.RecruitmentCommitteeId}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> মুছুন</a>
+                            `;
+                    }
                     },
                 ]
             });
