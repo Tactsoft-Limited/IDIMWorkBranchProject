@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using FluentValidation.Attributes;
 using IDIMWorkBranchProject.Models.Validation.Wbpm;
 
@@ -17,22 +18,22 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public string ProjectWorkTitle { get; set; }
 
         [DisplayName("প্রাক্কলিত ব্যয়")]
-        public decimal EstimatedCost { get; set; }
+        public decimal? EstimatedCost { get; set; }
 
         [DisplayName("ট্যাক্স (%)")]
-        public float EstimatedCostTaxPer { get; set; }
+        public double EstimatedCostTaxPer { get; set; }
 
         [DisplayName("ট্যাক্স পরিমান")]
         public decimal EstimatedCostTaxAmount { get; set; }
 
         [DisplayName("ভ্যাট (%)")]
-        public float EstimatedCostVatPer { get; set; }
+        public double EstimatedCostVatPer { get; set; }
 
         [DisplayName("ভ্যাট পরিমান")]
         public decimal EstimatedCostVatAmount { get; set; }
 
         [DisplayName("জামানত (%)")]
-        public float EstimatedCostCollateralPer { get; set; }
+        public double EstimatedCostCollateralPer { get; set; }
 
         [DisplayName("জামানত পরিমান")]
         public decimal EstimatedCostCollateralAmount { get; set; }
@@ -44,28 +45,28 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public decimal NetEstimatedCostAmount { get; set; }
 
         [DisplayName("অগ্রগতি (%)")]
-        public float ProgressPer { get; set; }
+        public double ProgressPer { get; set; }
 
         [DisplayName("অগ্রগতি পরিমান")]
         public decimal ProgressAmount { get; set; }
 
         [DisplayName("ট্যাক্স (%)")]
-        public float ProgressTaxPer { get; set; }
+        public double ProgressTaxPer { get; set; }
 
         [DisplayName("ট্যাক্স পরিমান")]
-        public float ProgressTaxAmount { get; set; }
+        public double ProgressTaxAmount { get; set; }
 
         [DisplayName("ভ্যাট (%)")]
-        public float ProgressVatPer { get; set; }
+        public double ProgressVatPer { get; set; }
 
         [DisplayName("ভ্যাট পরিমান")]
-        public float ProgressVatAmount { get; set; }
+        public double ProgressVatAmount { get; set; }
 
         [DisplayName("জামানত (%)")]
-        public float ProgressCollateralPer { get; set; }
+        public double ProgressCollateralPer { get; set; }
 
         [DisplayName("জামানত পরিমান")]
-        public float ProgressCollateralAmount { get; set; }
+        public double ProgressCollateralAmount { get; set; }
 
         [DisplayName("মোট কর্তনের পরিমান")]
         public decimal ProgressDeductionAmount { get; set; }
@@ -74,13 +75,13 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public decimal NetProgressAmount { get; set; }
 
         [DisplayName("পারফরম্যান্স সিকিউরিটি (%)")]
-        public float PerformanceSecurityPer { get; set; }
+        public double PerformanceSecurityPer { get; set; }
 
         [DisplayName("পারফরম্যান্স সিকিউরিটি পরিমান")]
         public decimal PerformanceSecurityAmount { get; set; }
 
         [DisplayName("অগ্রগতি (%) অনুসারে ঠিকাদারের প্রাপ্য")]
-        public float ContactorProgressPer { get; set; }
+        public double ContactorProgressPer { get; set; }
 
         [DisplayName("অগ্রগতি অনুসারে ঠিকাদারের প্রাপ্য পরিমান")]
         public decimal ContactorProgressAmount { get; set; }
@@ -102,5 +103,15 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [DisplayName("সংশ্লিষ্ট ফার্মের নামে বিজিবি বিবিধ ফান্ডে জমা")]
         public decimal TotalDepositsInFund { get; set; }
+
+        public decimal TotalWithdrawFromMinistry { get; set; }
+
+        public double TotalWithdrawPercent { get; set; }
+
+        public DateTime WorkStarted { get; set; }
+
+        public DateTime WorkEnded { get; set; }
+
+        public string ConstructionCompany {get; set;}
     }
 }
