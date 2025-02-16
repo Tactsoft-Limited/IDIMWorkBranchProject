@@ -2941,7 +2941,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\Plugins\datatables\extensions\FixedColumns\examples\integration\" />
     <Folder Include="Scripts\Plugins\jquery-tabledit\" />
-    <Folder Include="Views\ContractorCompanyPayment\" />
     <Folder Include="Views\Shared\EditorElements\" />
     <Folder Include="Views\Shared\Others\" />
   </ItemGroup>
