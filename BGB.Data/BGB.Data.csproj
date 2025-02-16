@@ -68,7 +68,6 @@
     <Compile Include="Entities\Pm\ContractorBillPayment.cs" />
     <Compile Include="Entities\Pm\ProjectType.cs" />
     <Compile Include="Entities\Pm\VatTax.cs" />
-    <Compile Include="Entities\Pm\SignatoryAuthority.cs" />
     <Compile Include="Entities\Pm\ContractorPayment.cs" />
     <Compile Include="Entities\Pm\ConstructionFirm.cs" />
     <Compile Include="Entities\Pm\ConsultancyActivity.cs" />
@@ -98,6 +97,7 @@
     <Compile Include="Entities\Wbpm\Masterplan.cs" />
     <Compile Include="Entities\Wbpm\ProjectDirector.cs" />
     <Compile Include="Entities\Wbpm\ProjectWork.cs" />
+    <Compile Include="Entities\Wbpm\SignatoryAuthority.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlViews\Pm\ViewExtended.cs" />
     <Compile Include="SqlViews\Pm\ViewProjectBillPayment.cs" />

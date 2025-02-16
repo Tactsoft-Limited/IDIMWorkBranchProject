@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using IDIMWorkBranchProject.Models.Wbpm;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 

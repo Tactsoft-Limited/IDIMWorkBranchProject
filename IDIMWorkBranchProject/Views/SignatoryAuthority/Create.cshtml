@@ -1,4 +1,4 @@
-﻿@model IDIMWorkBranchProject.Models.WBP.SignatoryAuthorityVm
+﻿@model IDIMWorkBranchProject.Models.Wbpm.SignatoryAuthorityVm
 
 @{
     ViewBag.Title = "Create";
@@ -15,12 +15,12 @@
                 <li>
                     <a href="#"><i class="fa fa-home"></i>Dashboard</a>
                 </li>
-                <li>
-                    <a href="@Url.Action("List","SignatoryAuthority")">
-                        <i class="fa fa-list" aria-hidden="true"></i>
-                        Signatory Authority
-                    </a>
-                </li>
+                @*<li>
+                        <a href="@Url.Action("List","SignatoryAuthority")">
+                            <i class="fa fa-list" aria-hidden="true"></i>
+                            Signatory Authority
+                        </a>
+                    </li>*@
                 <li class="active">
                     <strong>Create</strong>
                 </li>
@@ -35,10 +35,10 @@
         <header class="panel_header">
             <h2 class="title pull-left">Create</h2>
             <div class="actions panel_actions pull-right">
-                <a href="@Url.Action("List","SignatoryAuthority")" class="btn">
-                    <i class="fa fa-list" aria-hidden="true"></i>
-                    List
-                </a>
+                @*<a href="@Url.Action("List","SignatoryAuthority")" class="btn">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        List
+                    </a>*@
                 <a class="box_toggle fa fa-chevron-down"></a>
             </div>
         </header>
@@ -48,59 +48,36 @@
                     @using (Html.BeginForm("Create", "SignatoryAuthority", FormMethod.Post, new { @class = "form-horizontal", id = "ReceivePayment-create-form", role = "form" }))
                     {
                         @Html.AntiForgeryToken()
-                        @Html.HiddenFor(m => m.ProjectId)
-                        @Html.HiddenFor(m => m.ProjectName)
-                        @Html.HiddenFor(m => m.ReceivePaymentId)
-                        @Html.HiddenFor(m => m.LetterNumber)
+                            @Html.HiddenFor(m => m.SignatoryAuthorityId)
+                          
 
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.ProjectName, new { @class = "col-md-2 form-label" })
-                                    <div class="col-md-10">
-                                        <span class="label label-primary">
-                                            @Html.DisplayFor(model => model.ProjectName)
-                                        </span>
-                                        @Html.ValidationMessageFor(model => model.ProjectName)
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.LetterNumber, new { @class = "col-md-2 form-label" })
-                                    <div class="col-md-10">
-                                        <span class="label label-primary">
-                                            @Html.DisplayFor(model => model.LetterNumber)
-                                        </span>
-                                        @Html.ValidationMessageFor(model => model.LetterNumber)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.AuthorityName, new { @class = "col-md-4 form-label" })
-                                <div class="col-md-8">
+                                @Html.LabelFor(m => m.AuthorityName, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
                                     @Html.TextBoxFor(m => m.AuthorityName, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.AuthorityName)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.Designation, new { @class = "col-md-4 form-label" })
-                                <div class="col-md-8">
+                                @Html.LabelFor(m => m.AuthorityNameB, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.AuthorityNameB, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.AuthorityNameB)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.Designation, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
                                     @Html.TextBoxFor(m => m.Designation, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.Designation)
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group col-md-12">
-                                @Html.LabelFor(m => m.Note, new { @class = "col-md-2 form-label" })
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.DesignationB, new { @class = "col-md-2 form-label" })
                                 <div class="col-md-10">
-                                    @Html.TextAreaFor(m => m.Note, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.Note)
+                                    @Html.TextBoxFor(m => m.DesignationB, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DesignationB)
                                 </div>
                             </div>
                         </div>
@@ -109,7 +86,7 @@
                             <input type="submit" class="btn btn-success" value="Save" />
                             <input type="reset" class="btn" value="Clear" />
                         </div>
-                    }
+                     }
                 </div>
             </div>
         </div>
