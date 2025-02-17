@@ -15,7 +15,6 @@ namespace BGB.Data.Entities.Pm
             SubProjects = new HashSet<SubProject>();
             VatTaxes = new HashSet<VatTax>();
             BGBFunds = new HashSet<BGBFund>();
-            SignatoryAuthorities = new HashSet<SignatoryAuthority>();
         }
 
         [Key]
@@ -51,7 +50,6 @@ namespace BGB.Data.Entities.Pm
         public virtual ICollection<SubProject> SubProjects { get; set; }
         public virtual ICollection<VatTax> VatTaxes { get; set; }
         public virtual ICollection<BGBFund> BGBFunds { get; set; }
-        public virtual ICollection<SignatoryAuthority> SignatoryAuthorities { get; set; }
         #endregion
     }
 }

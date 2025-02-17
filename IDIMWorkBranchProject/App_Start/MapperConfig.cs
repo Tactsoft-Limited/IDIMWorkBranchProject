@@ -30,9 +30,8 @@ namespace IDIMWorkBranchProject
                 .ForMember(d => d.ConstructionFirmName, opts => opts.MapFrom(src => src.ConstructionFirm.ConstructionFirmName));
 
             CreateMap<SignatoryAuthorityVm, SignatoryAuthority>();
-            CreateMap<SignatoryAuthority, SignatoryAuthorityVm>()
-                .ForMember(d => d.ProjectName, opt => opt.MapFrom(src => src.Project.ProjectName))
-                .ForMember(d => d.LetterNumber, opt => opt.MapFrom(src => src.ReceivePayment.LetterNo));
+            CreateMap<SignatoryAuthority, SignatoryAuthorityVm>();
+
 
             CreateMap<VatTaxVm, VatTax>();
             CreateMap<VatTax, VatTaxVm>()

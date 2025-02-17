@@ -149,10 +149,10 @@ namespace IDIMWorkBranchProject.Data.Database
                 .WithRequired(e => e.Project)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Project>()
-                .HasMany(e => e.SignatoryAuthorities)
-                .WithRequired(e => e.Project)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Project>()
+            //    .HasMany(e => e.SignatoryAuthorities)
+            //    .WithRequired(e => e.Project)
+            //    .WillCascadeOnDelete(false);
 
 
             modelBuilder.Entity<SubProject>()
