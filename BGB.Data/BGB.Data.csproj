@@ -90,6 +90,7 @@
     <Compile Include="Entities\Wbpm\ADPReceivePayment.cs" />
     <Compile Include="Entities\Wbpm\BGBMiscellaneousFund.cs" />
     <Compile Include="Entities\Wbpm\ConstructionCompany.cs" />
+    <Compile Include="Entities\Wbpm\ContractAgreement.cs" />
     <Compile Include="Entities\Wbpm\ContractorCompanyPayment.cs" />
     <Compile Include="Entities\Wbpm\FinancialYearAllocation.cs" />
     <Compile Include="Entities\Wbpm\FiscalYearExpense.cs" />

@@ -398,6 +398,7 @@
     <Compile Include="Controllers\Wbpm\ADPProjectController.cs" />
     <Compile Include="Controllers\Wbpm\ADPReceivePaymentController.cs" />
     <Compile Include="Controllers\Wbpm\ConstructionCompanyController.cs" />
+    <Compile Include="Controllers\Wbpm\ContractAgreementController.cs" />
     <Compile Include="Controllers\Wbpm\ContractorCompanyPaymentController.cs" />
     <Compile Include="Controllers\Wbpm\FinancialYearAllocationController.cs" />
     <Compile Include="Controllers\Wbpm\FiscalYearExpenseController.cs" />
@@ -530,6 +531,7 @@
     <Compile Include="Models\Wbpm\ADPReceivePaymentVm.cs" />
     <Compile Include="Models\Wbpm\BGBMiscellaneousFundVm.cs" />
     <Compile Include="Models\Wbpm\ConstructionCompanySearchVm.cs" />
+    <Compile Include="Models\Wbpm\ContractAgreementVm.cs" />
     <Compile Include="Models\Wbpm\ContractorCompanyPaymentVm.cs" />
     <Compile Include="Models\Wbpm\FinancialYearAllocationSearchVm.cs" />
     <Compile Include="Models\Wbpm\FiscalYearExpenseSearchVm.cs" />
@@ -623,6 +625,8 @@
     <Compile Include="Services\Wbpm\ADPReceivePaymentService.cs" />
     <Compile Include="Services\Wbpm\BGBMiscellaneousFundService.cs" />
     <Compile Include="Services\Wbpm\ConstructionCompanyService.cs" />
+    <Compile Include="Services\Wbpm\ContractAgreementService.cs" />
+    <Compile Include="Services\Wbpm\IContractAgreementService.cs" />
     <Compile Include="Services\Wbpm\ContractorCompanyPaymentService.cs" />
     <Compile Include="Services\Wbpm\FinancialYearAllocationService.cs" />
     <Compile Include="Services\Wbpm\FiscalYearExpenseService.cs" />
@@ -834,6 +838,13 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Documents\ProjectDirectorFiles\Kamrul Hasan_20250111_121350.pdf" />
     <Content Include="Documents\ProjectDirectorFiles\Print PC - PC Builder - Star Tech_20250111_123411.pdf" />
+    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20241001_20250208_133543.pdf" />
+    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20241117 %281%29_20250208_134805.pdf" />
+    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20250202 %281%29_20250208_133536.pdf" />
+    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20250202 %281%29_20250208_134805.pdf" />
+    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20250202_20250208_133539.pdf" />
+    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-Q_20250208_133545.pdf" />
+    <Content Include="Documents\ProjectWorkFile\OID1025778134_20250208_134805.pdf" />
     <None Include="Properties\PublishProfiles\project.pubxml" />
     <None Include="Report\Data\WPDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
@@ -2923,12 +2934,13 @@
     <Content Include="Views\ProjectWork\Details.cshtml" />
     <Content Include="Views\ADPReceivePayment\Create.cshtml" />
     <Content Include="Views\ADPReceivePayment\Edit.cshtml" />
+    <Content Include="Views\ContractAgreement\Create.cshtml" />
+    <Content Include="Views\ContractAgreement\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\Plugins\datatables\extensions\FixedColumns\examples\integration\" />
     <Folder Include="Scripts\Plugins\jquery-tabledit\" />
-    <Folder Include="Views\ContractorCompanyPayment\" />
     <Folder Include="Views\Shared\EditorElements\" />
     <Folder Include="Views\Shared\Others\" />
   </ItemGroup>

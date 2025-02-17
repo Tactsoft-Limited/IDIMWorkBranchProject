@@ -136,8 +136,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     if (model.PDDocumentFile != null && model.PDDocumentFile.ContentLength > 0)
                     {
                         //Delete Old File
-                        if (model.PDDocument != null)
-                            FileExtention.DeleteFile(fileStorePath, model.PDDocument);
+                        FileExtention.DeleteFile( model.PDDocument, fileStorePath);
 
                         fileName = FileExtention.UploadFile(model.PDDocumentFile, fileStorePath);
 

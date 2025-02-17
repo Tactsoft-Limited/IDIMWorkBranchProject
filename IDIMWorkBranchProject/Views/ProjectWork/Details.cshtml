@@ -25,25 +25,28 @@
     <header class="panel_header">
         <h2 class="title pull-left">List</h2>
         <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("Create", "ContractAgreement", new { id = Model.ProjectWorks.ProjectWorkId })" class="btn btn-primary">
+                <i class="fa fa-pencil-square-o"></i> নির্মান চুক্তি
+            </a>
             <a href="@Url.Action("Edit", "ProjectWork", new { id = Model.ProjectWorks.ProjectWorkId })" class="btn btn-primary">
                 <i class="fa fa-pencil-square-o"></i> নির্মাণ কাজ সংশোধন
             </a>
             @*<a href="@Url.Action("Create", "ProjectDirector", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
-                    <i class="fa fa-pencil-square-o"></i> প্রকল্প পরিচালক সংযুক্ত করুন
-                </a>
-                <a href="@Url.Action("Create", "FinancialYearAllocation", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
-                    <i class="fa fa-pencil-square-o"></i> প্রকপ্লের বরাদ্দ সংযুক্ত করুন
-                </a>
-                <a href="@Url.Action("Create", "FiscalYearExpense", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
-                    <i class="fa fa-pencil-square-o"></i> প্রকপ্লের ব্যয় সংযুক্ত করুন
-                </a>
-                <a href="@Url.Action("Create", "FormalMeeting", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
-                    <i class="fa fa-pencil-square-o"></i> প্রকপ্লের সভা সংযুক্ত করুন
-                </a>
-                <a href="@Url.Action("Create", "ProjectWork", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
-                    @(Model.ADPProjectDetail.NoOfWork==Model.ProjectWorks.Count()?"disabled":"")
-                    <i class="fa fa-pencil-square-o"></i> নির্মাণ কাজ সংযুক্ত করুন
-                </a>*@
+            <i class="fa fa-pencil-square-o"></i> প্রকল্প পরিচালক সংযুক্ত করুন
+        </a>
+        <a href="@Url.Action("Create", "FinancialYearAllocation", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+            <i class="fa fa-pencil-square-o"></i> প্রকপ্লের বরাদ্দ সংযুক্ত করুন
+        </a>
+        <a href="@Url.Action("Create", "FiscalYearExpense", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+            <i class="fa fa-pencil-square-o"></i> প্রকপ্লের ব্যয় সংযুক্ত করুন
+        </a>
+        <a href="@Url.Action("Create", "FormalMeeting", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+            <i class="fa fa-pencil-square-o"></i> প্রকপ্লের সভা সংযুক্ত করুন
+        </a>
+        <a href="@Url.Action("Create", "ProjectWork", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+            @(Model.ADPProjectDetail.NoOfWork==Model.ProjectWorks.Count()?"disabled":"")
+            <i class="fa fa-pencil-square-o"></i> নির্মাণ কাজ সংযুক্ত করুন
+        </a>*@
         </div>
     </header>
     <div class="content-body">
