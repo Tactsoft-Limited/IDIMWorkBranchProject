@@ -107,6 +107,8 @@ namespace IDIMWorkBranchProject
             #endregion
 
             #region Wbpm
+            CreateMap<TenderEvaluationCommitteeVm, TenderEvaluationCommittee>();
+            CreateMap<TenderEvaluationCommittee, TenderEvaluationCommitteeVm>();
 
             CreateMap<RecruitmentCommitteeVm, RecruitmentCommittee>();
             CreateMap<RecruitmentCommittee, RecruitmentCommitteeVm>();

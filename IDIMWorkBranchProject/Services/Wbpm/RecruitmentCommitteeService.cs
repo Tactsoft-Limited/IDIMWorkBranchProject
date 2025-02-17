@@ -18,11 +18,11 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         public RecruitmentCommitteeService(IDIMDBEntities context) : base(context)
         {
         }
-        public async Task<IEnumerable<SelectListItem>>DropdownAsync(int? selected = 0)
+        public async Task<IEnumerable<SelectListItem>>GetDropdownAsync(int? selected = 0)
         {
             return await _context.RecruitmentCommittees.Select(d => new SelectListItem
-            {   
-                Text = $"{d.DesignationB}  {d.NameB}",
+            {
+                Text = d.DesignationB + " " + d.NameB, // String concatenation instead of interpolation
                 Value = d.RecruitmentCommitteeId.ToString(),
                 Selected = d.RecruitmentCommitteeId == selected
             }).ToListAsync();

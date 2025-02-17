@@ -406,6 +406,7 @@
     <Compile Include="Controllers\Wbpm\ProjectDirectorController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectWorkController.cs" />
     <Compile Include="Controllers\Wbpm\RecruitmentCommitteeController.cs" />
+    <Compile Include="Controllers\Wbpm\TenderEvaluationCommitteeController.cs" />
     <Compile Include="Controllers\WBP\BGBFundController.cs" />
     <Compile Include="Controllers\WBP\BillPaymentController.cs" />
     <Compile Include="Controllers\WBP\ConsultancyActivitiesController.cs" />
@@ -550,6 +551,8 @@
     <Compile Include="Models\Wbpm\ProjectDirectorVm.cs" />
     <Compile Include="Models\Wbpm\RecruitmentCommitteeSearchVm.cs" />
     <Compile Include="Models\Wbpm\RecruitmentCommitteeVm.cs" />
+    <Compile Include="Models\Wbpm\TenderEvaluationCommitteeSearchVm.cs" />
+    <Compile Include="Models\Wbpm\TenderEvaluationCommitteeVm.cs" />
     <Compile Include="Models\WBP\BillPaymentSearchVm.cs" />
     <Compile Include="Models\WBP\BillPaymentVm.cs" />
     <Compile Include="Models\WBP\BGBFundVm.cs" />
@@ -647,10 +650,12 @@
     <Compile Include="Services\Wbpm\IProjectDirectorService.cs" />
     <Compile Include="Services\Wbpm\IProjectWorkService.cs" />
     <Compile Include="Services\Wbpm\IRecruitmentCommitteeService.cs" />
+    <Compile Include="Services\Wbpm\ITenderEvaluationCommitteeService.cs" />
     <Compile Include="Services\Wbpm\MasterplanService.cs" />
     <Compile Include="Services\Wbpm\ProjectDirectorService.cs" />
     <Compile Include="Services\Wbpm\ProjectWorkService.cs" />
     <Compile Include="Services\Wbpm\RecruitmentCommitteeService.cs" />
+    <Compile Include="Services\Wbpm\TenderEvaluationCommitteeService.cs" />
     <Compile Include="Services\WBP\BillPaymentService.cs" />
     <Compile Include="Services\WBP\ConsultancyActivitiesService.cs" />
     <Compile Include="Services\WBP\ConsultancyFeesService.cs" />
@@ -2946,6 +2951,9 @@
     <Content Include="Views\RecruitmentCommittee\List.cshtml" />
     <Content Include="Views\RecruitmentCommittee\Edit.cshtml" />
     <Content Include="Views\RecruitmentCommittee\Delete.cshtml" />
+    <Content Include="Views\TenderEvaluationCommittee\Create.cshtml" />
+    <Content Include="Views\TenderEvaluationCommittee\List.cshtml" />
+    <Content Include="Views\TenderEvaluationCommittee\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -13,6 +13,6 @@ namespace IDIMWorkBranchProject.Services.Wbpm
     public interface IRecruitmentCommitteeService : IBaseService<RecruitmentCommittee>
     {
         Task<object> GetPagedAsync(RecruitmentCommitteeSearchVm model);
-        Task<IEnumerable<SelectListItem>> DropdownAsync(int? selected = 0);
+        Task<IEnumerable<SelectListItem>> GetDropdownAsync(int? selected = 0);
     }
 }
