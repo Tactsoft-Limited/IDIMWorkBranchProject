@@ -419,7 +419,7 @@
     <Compile Include="Controllers\WBP\ProjectStatusController.cs" />
     <Compile Include="Controllers\WBP\ReceivePaymentController.cs" />
     <Compile Include="Controllers\WBP\SecurityDepositController.cs" />
-    <Compile Include="Controllers\WBP\SignatoryAuthorityController.cs" />
+    <Compile Include="Controllers\Wbpm\SignatoryAuthorityController.cs" />
     <Compile Include="Controllers\WBP\SubProjectController.cs" />
     <Compile Include="Controllers\WBP\SubProjectDetailsController.cs" />
     <Compile Include="Controllers\WBP\VatTaxController.cs" />
@@ -559,7 +559,7 @@
     <Compile Include="Models\WBP\ContractorPaymentVm.cs" />
     <Compile Include="Models\WBP\SignatoryAuthoritySearchVm.cs" />
     <Compile Include="Models\WBP\VatTaxVm.cs" />
-    <Compile Include="Models\WBP\SignatoryAuthorityVm.cs" />
+    <Compile Include="Models\Wbpm\SignatoryAuthorityVm.cs" />
     <Compile Include="Models\WBP\ConsultancyActivitiesSearchVm.cs" />
     <Compile Include="Models\WBP\ConsultancyActivitiesVm.cs" />
     <Compile Include="Models\WBP\ConsultancyFeesSearchVm.cs" />
@@ -669,7 +669,7 @@
     <Compile Include="Services\WBP\IProjectStatusService.cs" />
     <Compile Include="Services\WBP\IReceivePaymentService.cs" />
     <Compile Include="Services\WBP\ISecurityDepositService.cs" />
-    <Compile Include="Services\WBP\ISignatoryAuthorityService.cs" />
+    <Compile Include="Services\Wbpm\ISignatoryAuthorityService.cs" />
     <Compile Include="Services\WBP\ISubProjectDetailsService.cs" />
     <Compile Include="Services\WBP\ISubProjectService.cs" />
     <Compile Include="Services\WBP\IVatTaxService.cs" />
@@ -679,7 +679,7 @@
     <Compile Include="Services\WBP\ProjectStatusService.cs" />
     <Compile Include="Services\WBP\ReceivePaymentService.cs" />
     <Compile Include="Services\WBP\SecurityDepositService.cs" />
-    <Compile Include="Services\WBP\SignatoryAuthorityService.cs" />
+    <Compile Include="Services\Wbpm\SignatoryAuthorityService.cs" />
     <Compile Include="Services\WBP\SubProjectDetailsService.cs" />
     <Compile Include="Services\WBP\SubProjectService.cs" />
     <Compile Include="Services\WBP\VatTaxService.cs" />
@@ -3092,7 +3092,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BGB.Data\BGB.Data.csproj">
-      <Project>{1bbb85b3-f992-49fe-b4e3-1c3308c4f71a}</Project>
+      <Project>{1BBB85B3-F992-49FE-B4E3-1C3308C4F71A}</Project>
       <Name>BGB.Data</Name>
     </ProjectReference>
   </ItemGroup>

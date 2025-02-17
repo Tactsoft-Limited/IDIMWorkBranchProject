@@ -10,7 +10,6 @@ namespace BGB.Data.Entities.Pm
     {
         public ReceivePayment()
         {
-            SignatoryAuthorities = new HashSet<SignatoryAuthority>();
             VatTaxes = new HashSet<VatTax>();
         }
 
@@ -60,7 +59,6 @@ namespace BGB.Data.Entities.Pm
         public virtual ConstructionFirm ConstructionFirm { get; set; }
 
         #region Navigation Properties
-        public virtual ICollection<SignatoryAuthority> SignatoryAuthorities { get; set; }
         public virtual ICollection<VatTax> VatTaxes { get; set; }
         #endregion
     }
