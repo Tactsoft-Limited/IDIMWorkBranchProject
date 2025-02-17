@@ -52,9 +52,13 @@
                 @Html.LabelFor(m => m.ProjectWorks.ProjectTitle, new { @class = "label-display" })
                 @Html.DisplayFor(m => m.ProjectWorks.ProjectTitle)
             </div>
-            <div class="form-display col-md-6">
+            <div class="form-display col-md-12">
                 @Html.LabelFor(m => m.ProjectWorks.ProjectWorkTitle, new { @class = "label-display" })
                 @Html.DisplayFor(m => m.ProjectWorks.ProjectWorkTitle)
+            </div>
+            <div class="form-display col-md-12">
+                @Html.LabelFor(m => m.ProjectWorks.FirmName, new { @class = "label-display" })
+                @Html.DisplayFor(m => m.ProjectWorks.FirmName)
             </div>
             <div class="form-display col-md-6">
                 @Html.LabelFor(m => m.ProjectWorks.EstimatedCost, new { @class = "label-display" })
