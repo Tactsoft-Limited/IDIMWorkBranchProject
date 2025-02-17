@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-
 using BGB.Data.Entities.Wbpm;
-
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.ReportHealper;
 using IDIMWorkBranchProject.Extentions.ReportHelper;
@@ -9,9 +7,7 @@ using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Report;
 using IDIMWorkBranchProject.Services.Wbpm;
-
 using Microsoft.Reporting.WebForms;
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -54,7 +50,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 ProjectWorkId = projectWork.ProjectWorkId,
                 EstimatedCost = projectWork.EstimatedCost,
                 ProjectWorkTitle = projectWork.ProjectWorkTitle,
-                ConstructionFirm = projectWork.ConstructionCompany.FirmName,
+                ConstructionFirm = projectWork.ConstructionCompany.FirmNameB,
                 BillNumber = receivePayments.Count() + 1,
                 FinancialProgressPer = receivePayments.Sum(x => x.BillPaidPer),
                 BillPaidPerTillDate = receivePayments.Sum(x => x.BillPaidPer),
