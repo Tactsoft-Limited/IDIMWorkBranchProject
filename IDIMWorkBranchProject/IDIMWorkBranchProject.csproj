@@ -3092,7 +3092,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BGB.Data\BGB.Data.csproj">
-      <Project>{1bbb85b3-f992-49fe-b4e3-1c3308c4f71a}</Project>
+      <Project>{1BBB85B3-F992-49FE-B4E3-1C3308C4F71A}</Project>
       <Name>BGB.Data</Name>
     </ProjectReference>
   </ItemGroup>
