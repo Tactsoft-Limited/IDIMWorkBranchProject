@@ -405,6 +405,7 @@
     <Compile Include="Controllers\Wbpm\FormalMeetingController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectDirectorController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectWorkController.cs" />
+    <Compile Include="Controllers\Wbpm\RecruitmentCommitteeController.cs" />
     <Compile Include="Controllers\WBP\BGBFundController.cs" />
     <Compile Include="Controllers\WBP\BillPaymentController.cs" />
     <Compile Include="Controllers\WBP\ConsultancyActivitiesController.cs" />
@@ -524,6 +525,7 @@
     <Compile Include="Models\Validation\Wbpm\ContractorCompanyPaymentVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\ConstructionCompanyVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\ProjectDirectorVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\RecruitmentCommitteeVmValidator.cs" />
     <Compile Include="Models\Validation\WBP\ProjectVmValidator.cs" />
     <Compile Include="Models\Wbpm\ADPProjectDetailVm.cs" />
     <Compile Include="Models\Wbpm\ADPProjectSearchVm.cs" />
@@ -546,6 +548,8 @@
     <Compile Include="Models\Wbpm\MasterplanVm.cs" />
     <Compile Include="Models\Wbpm\ConstructionCompanyVm.cs" />
     <Compile Include="Models\Wbpm\ProjectDirectorVm.cs" />
+    <Compile Include="Models\Wbpm\RecruitmentCommitteeSearchVm.cs" />
+    <Compile Include="Models\Wbpm\RecruitmentCommitteeVm.cs" />
     <Compile Include="Models\WBP\BillPaymentSearchVm.cs" />
     <Compile Include="Models\WBP\BillPaymentVm.cs" />
     <Compile Include="Models\WBP\BGBFundVm.cs" />
@@ -642,9 +646,11 @@
     <Compile Include="Services\Wbpm\IMasterplanService.cs" />
     <Compile Include="Services\Wbpm\IProjectDirectorService.cs" />
     <Compile Include="Services\Wbpm\IProjectWorkService.cs" />
+    <Compile Include="Services\Wbpm\IRecruitmentCommitteeService.cs" />
     <Compile Include="Services\Wbpm\MasterplanService.cs" />
     <Compile Include="Services\Wbpm\ProjectDirectorService.cs" />
     <Compile Include="Services\Wbpm\ProjectWorkService.cs" />
+    <Compile Include="Services\Wbpm\RecruitmentCommitteeService.cs" />
     <Compile Include="Services\WBP\BillPaymentService.cs" />
     <Compile Include="Services\WBP\ConsultancyActivitiesService.cs" />
     <Compile Include="Services\WBP\ConsultancyFeesService.cs" />
@@ -2936,6 +2942,10 @@
     <Content Include="Views\ADPReceivePayment\Edit.cshtml" />
     <Content Include="Views\ContractAgreement\Create.cshtml" />
     <Content Include="Views\ContractAgreement\Edit.cshtml" />
+    <Content Include="Views\RecruitmentCommittee\Create.cshtml" />
+    <Content Include="Views\RecruitmentCommittee\List.cshtml" />
+    <Content Include="Views\RecruitmentCommittee\Edit.cshtml" />
+    <Content Include="Views\RecruitmentCommittee\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
