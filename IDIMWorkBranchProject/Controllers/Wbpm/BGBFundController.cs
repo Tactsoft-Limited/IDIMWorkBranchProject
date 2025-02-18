@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace IDIMWorkBranchProject.Controllers.WBP
+namespace IDIMWorkBranchProject.Controllers.Wbpm
 {
     public class BGBFundController : Controller
     {

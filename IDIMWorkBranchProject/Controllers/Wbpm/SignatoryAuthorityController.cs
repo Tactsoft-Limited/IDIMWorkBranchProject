@@ -1,5 +1,4 @@
-﻿using IDIMWorkBranchProject.Models.WBP;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System;
 using System.Web.Mvc;
 using IDIMWorkBranchProject.Extentions;
@@ -87,10 +86,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 if (ModelState.IsValid)
                 {
-                    var entity = _mapper.Map<SignatoryAuthority>(model);                    
+                    var entity = _mapper.Map<SignatoryAuthority>(model);
                     await _signatoryAuthorityService.CreateAsync(entity);
 
-                    ModelState.Clear();             
+                    ModelState.Clear();
 
                     message = Messages.Success(MessageType.Create.ToString());
                 }
@@ -119,7 +118,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             if (model == null)
                 return HttpNotFound();
 
-            
+
 
             return View(model);
         }
@@ -148,7 +147,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 message = Messages.Failed(MessageType.Update.ToString(), exception.Message);
             }
 
-           
+
 
             TempData["Message"] = message;
 
