@@ -105,7 +105,7 @@
               <Width>0.22049in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.34549in</Width>
+              <Width>4.49131in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1699,7 +1699,7 @@
         <DataSetName>DsADPReceivePayment</DataSetName>
         <Top>0.75in</Top>
         <Height>3.10417in</Height>
-        <Width>7.02779in</Width>
+        <Width>7.17361in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -1714,7 +1714,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value />
+                <Value>২।  সদয় অবগতি ও পরবর্তী নির্দেশের জন্য উপস্থাপন করা হলো।</Value>
                 <Style>
                   <FontFamily>SolaimanLipi</FontFamily>
                   <FontSize>12pt</FontSize>
@@ -1726,9 +1726,8 @@
         </Paragraphs>
         <rd:DefaultName>Textbox54</rd:DefaultName>
         <Top>4.03in</Top>
-        <Left>4.32861in</Left>
         <Height>0.25in</Height>
-        <Width>1in</Width>
+        <Width>7.17361in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>

@@ -1,6 +1,4 @@
-﻿
-
-using BGB.Data.Entities.Base;
+﻿using BGB.Data.Entities.Base;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

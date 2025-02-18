@@ -1,6 +1,5 @@
 ﻿using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Services.Setup;
-using IDIMWorkBranchProject.Services.WBP;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -12,33 +11,18 @@ namespace IDIMWorkBranchProject.Controllers.Report
     {
         protected IFiscalYearService FiscalYearService { get; set; }
         protected IGeneralInformationService GeneralInformationService { get; set; }
-        protected IProjectService ProjectService { get; set; }
         protected IUnitService UnitService { get; set; }
-        protected IProjectProblemService ProjectProblemService { get; set; }
-        protected ISubProjectService SubProjectService { get; set; }
-        protected IConstructionFirmService ConstructionFirmService { get; set; }
-        protected IConsultantService ConsultantService { get; set; }
         private readonly IDIMDBEntities _dbContext;
 
         public ReportController(
             IFiscalYearService fiscalYearService,
             IGeneralInformationService generalInformationService,
-            IProjectService projectService,
             IUnitService unitService,
-            IProjectProblemService projectProblemService,
-            ISubProjectService subProjectService,
-            IConstructionFirmService constructionFirmService,
-            IConsultantService consultantService,
             IDIMDBEntities dbContext)
         {
             FiscalYearService = fiscalYearService;
             GeneralInformationService = generalInformationService;
-            ProjectService = projectService;
             UnitService = unitService;
-            ProjectProblemService = projectProblemService;
-            SubProjectService = subProjectService;
-            ConstructionFirmService = constructionFirmService;
-            ConsultantService = consultantService;
             _dbContext = dbContext;
         }
         // GET: Report

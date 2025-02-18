@@ -176,9 +176,9 @@
                                 @Html.ValidationMessageFor(model => model.TotalReceiveAmount)
                             </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.TotalReceiveAmountInWord, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
+                        <div class="form-group col-md-12">
+                            @Html.LabelFor(m => m.TotalReceiveAmountInWord, new { @class = "col-md-2 form-label" })
+                            <div class="col-md-10">
                                 @Html.TextBoxFor(m => m.TotalReceiveAmountInWord, new { @class = "form-control", @readonly = "readonly" })
                                 @Html.ValidationMessageFor(model => model.TotalReceiveAmountInWord)
                             </div>
@@ -270,48 +270,45 @@
     <script>
 
         $(document).ready(function () {
-            $('#BillPaidAmount').on('input', function () {
-                const amount = parseInt($(this).val()); // Get value using jQuery
-                console.log(amount);
-                if (!isNaN(amount)) {
-                    $('#BillPaidAmountInWord').val(getBanglaWord(amount)); // Convert and show
-                } else {
-                    $('#BillPaidAmountInWord').val(''); // Reset if invalid
-                }
-            });
             function calculateBillPaidAmount() {
-                const billPaidPerTillDate = parseFloat($('#BillPaidPerTillDate').val()) || 0;
-                const billPaidAmountTillDate = parseFloat($('#BillPaidAmountTillDate').val()) || 0;
-                const estimatedCost = parseFloat($('#EstimatedCost').val()) || 0;
-                const billPaidPer = parseFloat($('#BillPaidPer').val()) || 0;
-                const taxPer = parseFloat($('#TaxPer').val()) || 0; // Get Tax percentage
-                const vatPer = parseFloat($('#VatPer').val()) || 0; // Get VAT percentage
-                const collateralPer = parseFloat($('#CollateralPer').val()) || 0; // Get Collateral percentage
+                const getFloat = (selector) => parseFloat($(selector).val()) || 0;
 
-                // Calculate amounts based on the input
-                const billPaidAmount = Math.round(estimatedCost * (billPaidPer / 100)).toFixed(2);
-                const taxAmount = Math.round(billPaidAmount * (taxPer / 100)).toFixed(2); // Calculate Tax amount
-                const vatAmount = Math.round(billPaidAmount * (vatPer / 100)).toFixed(2); // Calculate VAT amount
-                const collateralAmount = Math.round(billPaidAmount * (collateralPer / 100)).toFixed(2); // Calculate Collateral amount
-                const totalPaidePer = (billPaidPerTillDate + billPaidPer).toFixed(2);
-                const totalPaideAmount = (billPaidAmountTillDate + parseFloat(billPaidAmount)).toFixed(2);
+                const billPaidPerTillDate = getFloat('#BillPaidPerTillDate');
+                const billPaidAmountTillDate = getFloat('#BillPaidAmountTillDate');
+                const estimatedCost = getFloat('#EstimatedCost');
+                const billPaidPer = getFloat('#BillPaidPer');
+                const taxPer = getFloat('#TaxPer');
+                const vatPer = getFloat('#VatPer');
+                const collateralPer = getFloat('#CollateralPer');
 
-                // Convert amounts to numbers for addition
-                const totalDeduction = Math.round(parseFloat(taxAmount) + parseFloat(vatAmount) + parseFloat(collateralAmount)).toFixed(2);
-                const depositInBGBFund = Math.round(parseFloat(billPaidAmount) - parseFloat(totalDeduction)).toFixed(2);
-                const billPaidAmountinWord = getBanglaWord(parseFloat(billPaidAmount));
-                const totalPaideAmountInWord = getBanglaWord(parseFloat(totalPaideAmount));
+                // Calculate bill paid amount and deductions
+                const billPaidAmount = +(estimatedCost * (billPaidPer / 100)).toFixed(2);
+                const taxAmount = +(billPaidAmount * (taxPer / 100)).toFixed(2);
+                const vatAmount = +(billPaidAmount * (vatPer / 100)).toFixed(2);
+                const collateralAmount = +(billPaidAmount * (collateralPer / 100)).toFixed(2);
+
+                const totalPaidPer = (billPaidPerTillDate + billPaidPer).toFixed(2);
+                const totalPaidAmount = (billPaidAmountTillDate + billPaidAmount).toFixed(2);
+
+                // Calculate total deductions and remaining amount
+                const totalDeduction = +(taxAmount + vatAmount + collateralAmount).toFixed(2);
+                const depositInBGBFund = +(billPaidAmount - totalDeduction).toFixed(2);
+
+                // Convert amounts to words (assuming `getBanglaWord` is defined)
+                const billPaidAmountInWord = getBanglaWord(billPaidAmount);
+                const totalPaidAmountInWord = getBanglaWord(parseFloat(totalPaidAmount));
+
                 // Update the input fields with the calculated values
                 $('#BillPaidAmount').val(billPaidAmount);
-                $('#BillPaidAmountInWord').val(billPaidAmountinWord);
-                $('#TotalReceivePer').val(totalPaidePer);
-                $('#TotalReceiveAmount').val(totalPaideAmount);
-                $('#TotalReceiveAmountInWord').val(totalPaideAmountInWord);
+                $('#BillPaidAmountInWord').val(billPaidAmountInWord);
+                $('#TotalReceivePer').val(totalPaidPer);
+                $('#TotalReceiveAmount').val(totalPaidAmount);
+                $('#TotalReceiveAmountInWord').val(totalPaidAmountInWord);
                 $('#TaxAmount').val(taxAmount);
                 $('#VatAmount').val(vatAmount);
                 $('#CollateralAmount').val(collateralAmount);
                 $('#TotalDeductionAmount').val(totalDeduction);
-                $('#DepositInBGBFund').val(depositInBGBFund); // Corrected here
+                $('#DepositInBGBFund').val(depositInBGBFund);
 
             }
 
@@ -319,6 +316,4 @@
             $('#EstimatedCost, #BillPaidPer, #TaxPer, #VatPer, #CollateralPer').on('input', calculateBillPaidAmount);
         });
     </script>
-
-
 }

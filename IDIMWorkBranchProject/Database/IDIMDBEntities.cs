@@ -1,7 +1,6 @@
 ﻿using BGB.Data.Entities.Admin;
 using BGB.Data.Entities.Budget;
 using BGB.Data.Entities.Irms;
-using BGB.Data.Entities.Pm;
 using BGB.Data.Entities.Wbpm;
 using BGB.Data.SqlViews.Pm;
 using BGB.Data.SqlViews.Wbpm;
@@ -10,7 +9,7 @@ using System.Data.Entity;
 
 namespace IDIMWorkBranchProject.Data.Database
 {
-	public partial class IDIMDBEntities : DbContext
+    public partial class IDIMDBEntities : DbContext
     {
         public IDIMDBEntities() : base("name=IDIMDBEntities")
         {
@@ -21,31 +20,6 @@ namespace IDIMWorkBranchProject.Data.Database
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             #region Wbpm
-            modelBuilder.Entity<TenderEvaluationCommittee>()
-               .HasRequired(p => p.RecruitmentCommitteeAddDG)
-               .WithMany(x => x.TenderEvaluationCommitteeAddDG)
-               .HasForeignKey(p => p.AddDG)
-               .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<TenderEvaluationCommittee>()
-               .HasRequired(p => p.RecruitmentCommitteeDDG)
-               .WithMany(x => x.TenderEvaluationCommitteeDDG)
-               .HasForeignKey(p => p.DDG)
-               .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<TenderEvaluationCommittee>()
-               .HasRequired(p => p.RecruitmentCommitteeProjectDirector)
-               .WithMany(x => x.TenderEvaluationCommitteeProjectDirector)
-               .HasForeignKey(p => p.ProjectDirector)
-               .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<TenderEvaluationCommittee>()
-               .HasRequired(p => p.RecruitmentCommitteeDirector)
-               .WithMany(x => x.TenderEvaluationCommitteeDirector)
-               .HasForeignKey(p => p.Director)
-               .WillCascadeOnDelete(false);
-
-
             modelBuilder.Entity<ProjectDirector>()
                .HasRequired(p => p.ADPProjects)
                .WithMany(x => x.ProjectDirectors)
@@ -129,47 +103,6 @@ namespace IDIMWorkBranchProject.Data.Database
             #endregion
 
             #region Old Entity
-            modelBuilder.Entity<Project>()
-                    .HasMany(e => e.ReceivePayments)
-                    .WithRequired(e => e.Project)
-                    .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Project>()
-                .HasMany(e => e.SubProjects)
-                .WithRequired(e => e.Project)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Project>()
-                .HasMany(e => e.VatTaxes)
-                .WithRequired(e => e.Project)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Project>()
-                .HasMany(e => e.BGBFunds)
-                .WithRequired(e => e.Project)
-                .WillCascadeOnDelete(false);
-
-            //modelBuilder.Entity<Project>()
-            //    .HasMany(e => e.SignatoryAuthorities)
-            //    .WithRequired(e => e.Project)
-            //    .WillCascadeOnDelete(false);
-
-
-            modelBuilder.Entity<SubProject>()
-                .HasMany(e => e.BillPayments)
-                .WithRequired(e => e.SubProject)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<SubProject>()
-              .HasMany(e => e.ProjectStatus)
-              .WithRequired(e => e.SubProject)
-              .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<SubProject>()
-              .HasMany(e => e.ContractorPayments)
-              .WithRequired(e => e.SubProject)
-              .WillCascadeOnDelete(false);
-
 
             modelBuilder.Entity<BGB.Data.Entities.Admin.Application>()
                 .HasMany(x => x.ActivityLogs)
@@ -189,7 +122,7 @@ namespace IDIMWorkBranchProject.Data.Database
             modelBuilder.Entity<GeneralInformation>()
                 .HasMany(e => e.Users)
                 .WithRequired(e => e.GeneralInformation)
-                .WillCascadeOnDelete(false); 
+                .WillCascadeOnDelete(false);
             #endregion
         }
 
@@ -223,50 +156,24 @@ namespace IDIMWorkBranchProject.Data.Database
         public DbSet<BGBMiscellaneousFund> BGBMiscellaneousFunds { get; set; }
         public DbSet<ContractorCompanyPayment> ContractorCompanyPayments { get; set; }
         public DbSet<ContractAgreement> ContractAgreements { get; set; }
-        public virtual DbSet<RecruitmentCommittee> RecruitmentCommittees { get; set; }
-        public virtual DbSet<TenderEvaluationCommittee> TenderEvaluationCommittees { get; set; }
-        #endregion
-        #region PM
-        public virtual DbSet<ProjectType> ProjectTypes { get; set; }
         public virtual DbSet<SignatoryAuthority> SignatoryAuthorities { get; set; }
-        public virtual DbSet<VatTax> VatTaxes { get; set; }
-        public virtual DbSet<BGBFund> BGBFunds { get; set; }
-        public virtual DbSet<ContractorPayment> ContractorPayments { get; set; }
-        public virtual DbSet<ContractorBillPayment> ContractorBillPayments { get; set; }
+        #endregion
+
         public virtual DbSet<IrmsSetupLocation> SetupLocations { get; set; }
-        public virtual DbSet<Attachment> Attachments { get; set; }
-        public virtual DbSet<BillPayment> BillPayments { get; set; }
-        public virtual DbSet<BillType> BillTypes { get; set; }
-        public virtual DbSet<ConstructionFirm> ConstructionFirms { get; set; }
-        public virtual DbSet<ProjectExtend> ProjectExtends { get; set; }
-        public virtual DbSet<ProjectProblem> ProjectProblems { get; set; }
-        public virtual DbSet<ProjectStatus> ProjectStatus { get; set; }
-        public virtual DbSet<Quarter> Quarters { get; set; }
-        public virtual DbSet<ReceivePayment> ReceivePayments { get; set; }
+        public virtual DbSet<FiscalYear> FiscalYears { get; set; }
+        public virtual DbSet<IrmsSetupUnit> SetupUnits { get; set; }
+        public virtual DbSet<GeneralInformation> GeneralInformations { get; set; }
         public virtual DbSet<ViewProjectInformationRpt> ViewProjectInformationRpts { get; set; }
         public virtual DbSet<ViewProjectPaymentReceiptRpt> ViewProjectPaymentReceiptRpts { get; set; }
         public virtual DbSet<ViewProjectProblemRpt> ViewProjectProblemRpts { get; set; }
         public virtual DbSet<ViewProjectSubProjectDetailsRpt> ViewProjectSubProjectDetailsRpts { get; set; }
         public virtual DbSet<ViewProjectWiseSubProjectRpt> ViewProjectWiseSubProjectRpts { get; set; }
-        public virtual DbSet<FiscalYear> FiscalYears { get; set; }
-        public virtual DbSet<PicMeeting> PicMeetings { get; set; }
-        public virtual DbSet<Project> Projects { get; set; }
-        public virtual DbSet<IrmsSetupUnit> SetupUnits { get; set; }
-        public virtual DbSet<SubProject> SubProjects { get; set; }
-        public virtual DbSet<GeneralInformation> GeneralInformations { get; set; }
-        public virtual DbSet<ConsultancyActivity> ConsultancyActivities { get; set; }
-        public virtual DbSet<ConsultancyFee> ConsultancyFees { get; set; }
-        public virtual DbSet<Consultant> Consultants { get; set; }
-        public virtual DbSet<SubProjectDetail> SubProjectDetails { get; set; }
         public virtual DbSet<ViewProjectList> ViewProjectLists { get; set; }
         public virtual DbSet<ViewProjectBillPayment> ViewProjectBillPayments { get; set; }
-        public virtual DbSet<FundRelease> FundReleases { get; set; }
         public virtual DbSet<ViewExtended> ViewExtendeds { get; set; }
         public virtual DbSet<ViewProjectProblem> ViewProjectProblems { get; set; }
-        public virtual DbSet<SecurityDeposit> SecurityDeposits { get; set; }
         public virtual DbSet<ViewADPReceivePayment> ViewADPReceivePayments { get; set; }
-        #endregion
-        
+        public virtual DbSet<RecruitmentCommittee> RecruitmentCommittees { get; set; }
     }
 }
 
