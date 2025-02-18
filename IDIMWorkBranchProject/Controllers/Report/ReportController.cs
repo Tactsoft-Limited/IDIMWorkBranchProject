@@ -86,8 +86,8 @@ namespace IDIMWorkBranchProject.Controllers.Report
         public ActionResult ProjectStatus()
         {
             string conString = ConfigurationManager.ConnectionStrings["IDIMDBConnectionString"].ConnectionString;
-            DataSet dataset = new DataSet();
-            using (SqlConnection connection = new SqlConnection(conString))
+            var dataset = new DataSet();
+            using (var connection = new SqlConnection(conString))
             using (SqlCommand command = new SqlCommand("sp_ProjectStatus", connection))
             using (SqlDataAdapter adapter = new SqlDataAdapter(command))
             {

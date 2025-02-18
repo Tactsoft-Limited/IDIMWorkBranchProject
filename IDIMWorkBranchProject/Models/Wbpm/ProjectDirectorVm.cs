@@ -4,13 +4,11 @@ using System.Web;
 using FluentValidation.Attributes;
 using IDIMWorkBranchProject.Models.Validation.Wbpm;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Collections.Generic;
-using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
-    [Validator(typeof(ProjectDirectorVmValidator))]
+	[Validator(typeof(ProjectDirectorVmValidator))]
     public class ProjectDirectorVm
     {
 

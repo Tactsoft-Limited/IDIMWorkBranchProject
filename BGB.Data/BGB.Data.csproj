@@ -68,7 +68,6 @@
     <Compile Include="Entities\Pm\ContractorBillPayment.cs" />
     <Compile Include="Entities\Pm\ProjectType.cs" />
     <Compile Include="Entities\Pm\VatTax.cs" />
-    <Compile Include="Entities\Pm\SignatoryAuthority.cs" />
     <Compile Include="Entities\Pm\ContractorPayment.cs" />
     <Compile Include="Entities\Pm\ConstructionFirm.cs" />
     <Compile Include="Entities\Pm\ConsultancyActivity.cs" />
@@ -90,6 +89,7 @@
     <Compile Include="Entities\Wbpm\ADPReceivePayment.cs" />
     <Compile Include="Entities\Wbpm\BGBMiscellaneousFund.cs" />
     <Compile Include="Entities\Wbpm\ConstructionCompany.cs" />
+    <Compile Include="Entities\Wbpm\ContractAgreement.cs" />
     <Compile Include="Entities\Wbpm\ContractorCompanyPayment.cs" />
     <Compile Include="Entities\Wbpm\FinancialYearAllocation.cs" />
     <Compile Include="Entities\Wbpm\FiscalYearExpense.cs" />
@@ -97,6 +97,9 @@
     <Compile Include="Entities\Wbpm\Masterplan.cs" />
     <Compile Include="Entities\Wbpm\ProjectDirector.cs" />
     <Compile Include="Entities\Wbpm\ProjectWork.cs" />
+    <Compile Include="Entities\Wbpm\SignatoryAuthority.cs" />
+    <Compile Include="Entities\Wbpm\RecruitmentCommittee.cs" />
+    <Compile Include="Entities\Wbpm\TenderEvaluationCommittee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlViews\Pm\ViewExtended.cs" />
     <Compile Include="SqlViews\Pm\ViewProjectBillPayment.cs" />
@@ -107,6 +110,7 @@
     <Compile Include="SqlViews\Pm\ViewProjectProblemRpt.cs" />
     <Compile Include="SqlViews\Pm\ViewProjectSubProjectDetailsRpt.cs" />
     <Compile Include="SqlViews\Pm\ViewProjectWiseSubProjectRpt.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewADPReceivePayment.cs" />
     <Compile Include="StoreProcedure\dbo\Deposit_GetSingleDetailsResult.cs" />
     <Compile Include="StoreProcedure\dbo\DirectReceived_GetDetailsWithItemsDboResult.cs" />
     <Compile Include="StoreProcedure\dbo\DirectReceived_GetSingleDetailsDboResult.cs" />

@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
+
 using IDIMWorkBranchProject.Models.Wbpm;
-using System;
 
 namespace IDIMWorkBranchProject.Models.Validation.Wbpm
 {
-    public class ProjectWorkVmValidator : AbstractValidator<ProjectWorkVm>
+	public class ProjectWorkVmValidator : AbstractValidator<ProjectWorkVm>
     {
         public ProjectWorkVmValidator()
         {

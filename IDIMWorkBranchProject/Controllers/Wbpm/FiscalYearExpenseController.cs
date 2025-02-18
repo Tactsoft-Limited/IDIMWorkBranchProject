@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
-
-
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.Wbpm;
-
 using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -21,10 +18,12 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 		protected readonly IADPProjectService _aDPProjectService;
 		protected readonly IFiscalYearService _fiscalYearService;
 
-		public FiscalYearExpenseController(IActivityLogService activityLogService, IFiscalYearExpenseService fiscalYearExpenseService, IMapper mapper) : base(activityLogService)
+		public FiscalYearExpenseController(IActivityLogService activityLogService, IFiscalYearExpenseService fiscalYearExpenseService, IMapper mapper, IADPProjectService aDPProjectService, IFiscalYearService fiscalYearService) : base(activityLogService)
 		{
 			_fiscalYearExpenseService = fiscalYearExpenseService;
 			_mapper = mapper;
+			_aDPProjectService = aDPProjectService;
+			_fiscalYearService = fiscalYearService;
 		}
 
 
@@ -43,14 +42,13 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 		public async Task<ActionResult> Create(int id)
 		{
 			var data = await _aDPProjectService.GetByIdAsync(id);
-
 			var model = new FiscalYearExpenseVm
 			{
 				ADPProjectId = data.ADPProjectId,
 				ProjectTitle = data.ProjectTitle,
 				FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync()
 			};
-			
+
 			return View(model);
 		}
 
@@ -63,17 +61,53 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 				if (!ModelState.IsValid)
 				{
 					TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+					model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync(model.FiscalYearId);
 					return View(model);
 				}
 
-				var entity = _mapper.Map<ADPProject>(model);
-				await _aDPProjectService.CreateAsync(entity);
+				var entity = _mapper.Map<FiscalYearExpense>(model);
+				await _fiscalYearExpenseService.CreateAsync(entity);
 				TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-				return RedirectToAction("Details/"+model.ADPProjectId, "ADPProject");
+				return RedirectToAction("Details/" + model.ADPProjectId, "ADPProject");
 			}
 			catch (Exception exception)
 			{
 				TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+				model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync();
+				return View(model);
+			}
+		}
+
+		public async Task<ActionResult> Edit(int id)
+		{
+			var model = _mapper.Map<FiscalYearExpenseVm>(await _fiscalYearExpenseService.GetByIdAsync(id));
+			model.ProjectTitle = await _aDPProjectService.GetAdpProjectTitle(model.ADPProjectId);
+			model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync();
+			return View(model);
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<ActionResult> Edit(FiscalYearExpenseVm model)
+		{
+			try
+			{
+				if (!ModelState.IsValid)
+				{
+					TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+					model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync(model.FiscalYearId);
+					return View(model);
+				}
+
+				var entity = _mapper.Map<FiscalYearExpense>(model);
+				await _fiscalYearExpenseService.UpdateAsync(entity);
+				TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+				return RedirectToAction("Details/" + model.ADPProjectId, "ADPProject");
+			}
+			catch (Exception exception)
+			{
+				TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+				model.FiscalYearDropdown = await _fiscalYearService.GetDropdownAsync(model.FiscalYearId);
 				return View(model);
 			}
 		}

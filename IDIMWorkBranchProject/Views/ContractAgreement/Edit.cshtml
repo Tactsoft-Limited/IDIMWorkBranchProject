@@ -1,0 +1,142 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model ContractAgreementVm
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="page-title">
+    <div class="pull-left">
+        <h3 class="title">Contract Agreement</h3>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","ContractAgreement")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Contract Agreement
+                </a>
+            </li>
+            <li class="active">
+                <strong>Update</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">Create</h2>
+        <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("List","ContractAgreement")" class="btn">
+                <i class="fa fa-list" aria-hidden="true"></i>
+                List
+            </a>
+            <a class="box_toggle fa fa-chevron-down"></a>
+        </div>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("Edit", "ContractAgreement", FormMethod.Post, new { enctype = "multipart/form-data", id = "ContractAgreement-Edit-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.ContractAgreementId)
+                    @Html.HiddenFor(x => x.ProjectWorkId)
+                    @Html.HiddenFor(x => x.ConstructionCompanyId)
+
+                    <div class="row">
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ProjectWorkTitle, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ProjectWorkTitle, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ConstructionFirm, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ConstructionFirm, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ContractDay, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.ContractDay,
+                                    new List<SelectListItem>
+                                    {
+                                        new SelectListItem { Value = "Monday", Text = "Monday" },
+                                        new SelectListItem { Value = "Tuesday", Text = "Tuesday" },
+                                        new SelectListItem { Value = "Wednesday", Text = "Wednesday" },
+                                        new SelectListItem { Value = "Thursday", Text = "Thursday" },
+                                        new SelectListItem { Value = "Friday", Text = "Friday" },
+                                        new SelectListItem { Value = "Saturday", Text = "Saturday" },
+                                        new SelectListItem { Value = "Sunday", Text = "Sunday" }
+                                    },
+                                    "Select a Day",
+                                    new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ContractDay)
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ContractDate, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.ContractDate, DateTime.Now.ToString("dd-MMM-yyyy"), new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.ContractDate)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.AgreementCost, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.AgreementCost, new { @class = "form-control", type = "number" })
+                                @Html.ValidationMessageFor(model => model.AgreementCost)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.AgreementCostInWord, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.AgreementCostInWord, new { @class = "form-control", })
+                                @Html.ValidationMessageFor(model => model.AgreementCostInWord)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script src="~/Scripts/banglaNumberConverter.js"></script>
+    <script>
+        function convertTobanglaWord() {
+            const agreementCost = parseFloat($('#AgreementCost').val()) || 0;
+
+            const agreementCostInWord = getBanglaWord(parseFloat(agreementCost));
+            // Update the input fields with the calculated values
+            $('#AgreementCostInWord').val(agreementCostInWord);
+
+        }
+        $(document).ready(function () {
+            // Call the function on page load
+            convertTobanglaWord();
+
+            //// Call the function when the input changes
+            $('#AgreementCost').on('input', convertTobanglaWord);
+        })
+
+        // Trigger calculation on input change
+        /*$('#AgreementCost').on('input', convertTobanglaWord);*/
+    </script>
+
+}
+

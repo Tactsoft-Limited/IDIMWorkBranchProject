@@ -1,9 +1,14 @@
 ﻿using IDIMWorkBranchProject.Data.Database;
-using IDIMWorkBranchProject.Extentions.Healper;
+using IDIMWorkBranchProject.Extentions.ReportHealper;
+using IDIMWorkBranchProject.Extentions.ReportHelper;
 using IDIMWorkBranchProject.Models.Report;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
+
+using Microsoft.Reporting.WebForms;
+
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -12,7 +17,7 @@ using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Report
 {
-    public class ConstructionCheckListReportController : Controller
+	public class ConstructionCheckListReportController : Controller
     {
         protected IFiscalYearService FiscalYearService { get; set; }
         protected IGeneralInformationService GeneralInformationService { get; set; }
@@ -66,7 +71,6 @@ namespace IDIMWorkBranchProject.Controllers.Report
         [HttpPost]
         public ActionResult ConstructionCheckList(ReportFilterVm model)
         {
-            string type = "PDF";
             int subProjectId = (model.SubProjectId != null) ? Convert.ToInt32(model.SubProjectId) : 0;
             int constructorFirmId = (model.ConstructionFirmId != null) ? Convert.ToInt32(model.ConstructionFirmId) : 0;
             int fiscalYearId = (model.FiscalYearId != null) ? Convert.ToInt32(model.FiscalYearId) : 0;
@@ -75,10 +79,18 @@ namespace IDIMWorkBranchProject.Controllers.Report
             var Param3 = new SqlParameter("@FiscalYearId", fiscalYearId);
             string SP_SQL = "[pm].[GetConstructionChecklistRpt] @SubProjectId, @ConstructorFirmId, @FiscalYearId";
             var data = _dbContext.Database.SqlQuery<ReportDataVm>(SP_SQL, Param1, Param2, Param3).ToList();
-            var reportPath = Path.Combine(Server.MapPath("~/Report/rdlc"), "RptConstructionCheckList.rdlc");
-            return ReportHelper.GenerateReport(reportPath, "ConstructionCheckListDataSet", data, false, type);
+			var reportDataSource = new List<ReportDataSource>
+            {
+	            new ReportDataSource("ConstructionCheckListDataSet", data)
+            };
 
-        }
+			var config = new ReportConfig
+			{
+				ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "RptConstructionCheckList.rdlc")
+			};
+
+			return new ReportResult(config, reportDataSource);
+		}
 
     }
 }

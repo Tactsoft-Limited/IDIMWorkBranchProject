@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.IO;
 using IDIMWorkBranchProject.Models.Report;
-using IDIMWorkBranchProject.Extentions.Healper;
 using IDIMWorkBranchProject.Data.Database;
+using IDIMWorkBranchProject.Extentions.ReportHealper;
+using IDIMWorkBranchProject.Extentions.ReportHelper;
+using Microsoft.Reporting.WebForms;
+using System.Collections.Generic;
 namespace IDIMWorkBranchProject.Controllers.Report
 {
-    public class ReportBillPaymentController : Controller
+	public class ReportBillPaymentController : Controller
     {
         protected IFiscalYearService FiscalYearService { get; set; }
         protected IGeneralInformationService GeneralInformationService { get; set; }
@@ -48,11 +51,19 @@ namespace IDIMWorkBranchProject.Controllers.Report
         [HttpPost]
         public ActionResult Index(ReportFilterVm model)
         {
-            string type = "PDF";
             int subProjectid = (model.SubProjectId != null) ? Convert.ToInt32(model.SubProjectId) : 0;
-            var reportPath = Path.Combine(Server.MapPath("~/Report/rdlc"), "rptProjectBillPayment.rdlc");
             var data = _dbContext.ViewExtendeds.Where(i => i.SubProjectId == subProjectid).ToList();
-            return ReportHelper.GenerateReport(reportPath, "DsBillPayment", data, false, type);
-        }
+			var reportDataSource = new List<ReportDataSource>
+            {
+	            new ReportDataSource("DsBillPayment", data)
+            };
+
+			var config = new ReportConfig
+			{
+				ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "rptProjectBillPayment.rdlc")
+			};
+
+			return new ReportResult(config, reportDataSource);
+		}
     }
 }

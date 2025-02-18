@@ -1,13 +1,12 @@
 ﻿using BGB.Data.Entities.Budget;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System;
 using BGB.Data.Entities.Base;
 
 namespace BGB.Data.Entities.Wbpm
 {
 
-    [Table("FinancialYearAllocation", Schema = "wbpm")]
+	[Table("FinancialYearAllocation", Schema = "wbpm")]
     public class FinancialYearAllocation : BaseEntity
     {
 

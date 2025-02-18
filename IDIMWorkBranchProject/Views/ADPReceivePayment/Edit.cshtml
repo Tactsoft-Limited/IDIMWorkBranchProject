@@ -1,0 +1,326 @@
+﻿@model IDIMWorkBranchProject.Models.Wbpm.ADPReceivePaymentVm
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<div id="message"></div>
+
+<div class="page-title">
+    <div class="pull-left">
+        <h1 class="title">Receipt Payment </h1>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","ADPReceivePayment")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Receipt Payment
+                </a>
+            </li>
+            <li class="active">
+                <strong>Create</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">Create</h2>
+        <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("List","ADPReceivePayment")" class="btn">
+                <i class="fa fa-list" aria-hidden="true"></i>
+                List
+            </a>
+            <a class="box_toggle fa fa-chevron-down"></a>
+        </div>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+
+                @using (Html.BeginForm("Edit", "ADPReceivePayment", FormMethod.Post, new { @class = "form-horizontal", id = "ReceivePayment-create-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.ADPReceivePaymentId)
+                    @Html.HiddenFor(m => m.ProjectWorkId)
+
+                    <div class="row">
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ProjectWorkTitle, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ProjectWorkTitle, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ConstructionFirm, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ConstructionFirm, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.EstimatedCost, new { @class = "col-md-2 label-display" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.EstimatedCost, new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.EstimatedCost)
+                            </div>
+                        </div>
+                        <div class="form-display col-md-12">
+                            <div class="col-md-6" style="padding:0px;">
+                                @Html.LabelFor(m => m.BillPaidPerTillDate, "সিজিএ হতে উত্তোলিত অর্থ (%)", new { @class = "label-display col-md-4" })
+                                <div class="col-md-3">
+                                    @Html.TextBoxFor(m => m.BillPaidPerTillDate, new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                                <div class="col-md-5">
+                                    @Html.TextBoxFor(m => m.BillPaidAmountTillDate, new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            @Html.LabelFor(m => m.BillPaymentSector, new { @class = "col-md-2 form-label" })
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(m => m.BillPaymentSector, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BillPaymentSector)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.LetterNo, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.LetterNo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.LetterNo)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.BillNumber, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.BillNumber, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BillNumber)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.BillDate, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.BillDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                @Html.ValidationMessageFor(model => model.BillDate)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ExtraTime, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.ExtraTime, new { @class = "form-control datepicker" })
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                @Html.ValidationMessageFor(model => model.ExtraTime)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ActualWorkProgressPer, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.ActualWorkProgressPer, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ActualWorkProgressPer)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.FinancialProgressPer, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.FinancialProgressPer, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.FinancialProgressPer)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.BillPaidPer, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.BillPaidPer, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BillPaidPer)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.BillPaidAmount, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.BillPaidAmount, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BillPaidAmount)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.BillPaidAmountInWord, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.BillPaidAmountInWord, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BillPaidAmountInWord)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.TotalReceivePer, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.TotalReceivePer, new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.TotalReceivePer)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.TotalReceiveAmount, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.TotalReceiveAmount, new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.TotalReceiveAmount)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.TotalReceiveAmountInWord, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.TotalReceiveAmountInWord, new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.TotalReceiveAmountInWord)
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            @Html.LabelFor(m => m.Remarks, new { @class = "col-md-2 form-label" })
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(m => m.Remarks, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Remarks)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <fieldset>
+                            <legend></legend>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.TaxPer, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.TaxPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TaxPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.TaxAmount, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.TaxAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TaxAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.VatPer, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.VatPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.VatPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.VatAmount, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.VatAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.VatAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.CollateralPer, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.CollateralPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CollateralPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.CollateralAmount, new { @class = "col-md-2 form-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.CollateralAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CollateralAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.TotalDeductionAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.TotalDeductionAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TotalDeductionAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.DepositInBGBFund, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.DepositInBGBFund, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DepositInBGBFund)
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script src="~/Scripts/banglaNumberConverter.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('#BillPaidAmount').on('input', function () {
+                const amount = parseInt($(this).val()); // Get value using jQuery
+                console.log(amount);
+                if (!isNaN(amount)) {
+                    $('#BillPaidAmountInWord').val(getBanglaWord(amount)); // Convert and show
+                } else {
+                    $('#BillPaidAmountInWord').val(''); // Reset if invalid
+                }
+            });
+            function calculateBillPaidAmount() {
+                const billPaidPerTillDate = parseFloat($('#BillPaidPerTillDate').val()) || 0;
+                const billPaidAmountTillDate = parseFloat($('#BillPaidAmountTillDate').val()) || 0;
+                const estimatedCost = parseFloat($('#EstimatedCost').val()) || 0;
+                const billPaidPer = parseFloat($('#BillPaidPer').val()) || 0;
+                const taxPer = parseFloat($('#TaxPer').val()) || 0; // Get Tax percentage
+                const vatPer = parseFloat($('#VatPer').val()) || 0; // Get VAT percentage
+                const collateralPer = parseFloat($('#CollateralPer').val()) || 0; // Get Collateral percentage
+
+                // Calculate amounts based on the input
+                const billPaidAmount = Math.round(estimatedCost * (billPaidPer / 100)).toFixed(2);
+                const taxAmount = Math.round(billPaidAmount * (taxPer / 100)).toFixed(2); // Calculate Tax amount
+                const vatAmount = Math.round(billPaidAmount * (vatPer / 100)).toFixed(2); // Calculate VAT amount
+                const collateralAmount = Math.round(billPaidAmount * (collateralPer / 100)).toFixed(2); // Calculate Collateral amount
+                const totalPaidePer = (billPaidPerTillDate + billPaidPer).toFixed(2);
+                const totalPaideAmount = (billPaidAmountTillDate + parseFloat(billPaidAmount)).toFixed(2);
+
+                // Convert amounts to numbers for addition
+                const totalDeduction = Math.round(parseFloat(taxAmount) + parseFloat(vatAmount) + parseFloat(collateralAmount)).toFixed(2);
+                const depositInBGBFund = Math.round(parseFloat(billPaidAmount) - parseFloat(totalDeduction)).toFixed(2);
+                const billPaidAmountinWord = getBanglaWord(parseFloat(billPaidAmount));
+                const totalPaideAmountInWord = getBanglaWord(parseFloat(totalPaideAmount));
+                // Update the input fields with the calculated values
+                $('#BillPaidAmount').val(billPaidAmount);
+                $('#BillPaidAmountInWord').val(billPaidAmountinWord);
+                $('#TotalReceivePer').val(totalPaidePer);
+                $('#TotalReceiveAmount').val(totalPaideAmount);
+                $('#TotalReceiveAmountInWord').val(totalPaideAmountInWord);
+                $('#TaxAmount').val(taxAmount);
+                $('#VatAmount').val(vatAmount);
+                $('#CollateralAmount').val(collateralAmount);
+                $('#TotalDeductionAmount').val(totalDeduction);
+                $('#DepositInBGBFund').val(depositInBGBFund); // Corrected here
+
+            }
+
+            // Trigger calculation on input change
+            $('#EstimatedCost, #BillPaidPer, #TaxPer, #VatPer, #CollateralPer').on('input', calculateBillPaidAmount);
+        });
+    </script>
+
+
+}

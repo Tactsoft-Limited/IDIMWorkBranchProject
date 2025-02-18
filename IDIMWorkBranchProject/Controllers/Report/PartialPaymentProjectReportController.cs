@@ -1,9 +1,14 @@
 ﻿using IDIMWorkBranchProject.Data.Database;
-using IDIMWorkBranchProject.Extentions.Healper;
+using IDIMWorkBranchProject.Extentions.ReportHealper;
+using IDIMWorkBranchProject.Extentions.ReportHelper;
 using IDIMWorkBranchProject.Models.Report;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
+
+using Microsoft.Reporting.WebForms;
+
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -12,7 +17,7 @@ using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Report
 {
-    public class PartialPaymentProjectReportController : Controller
+	public class PartialPaymentProjectReportController : Controller
     {
         protected IFiscalYearService FiscalYearService { get; set; }
         protected IGeneralInformationService GeneralInformationService { get; set; }
@@ -63,13 +68,22 @@ namespace IDIMWorkBranchProject.Controllers.Report
         [HttpPost]
         public ActionResult PartialPaymentProjectReport(ReportFilterVm model)
         {
-            string type = "PDF";
             int subProjectId = (model.SubProjectId != null) ? Convert.ToInt32(model.SubProjectId) : 0;
             var Param1 = new SqlParameter("@SubProjectId", subProjectId);
             string SP_SQL = "[pm].[GetPartialPaymentByProjectRpt] @SubProjectId";
             var data = _dbContext.Database.SqlQuery<ReportDataVm>(SP_SQL, Param1).ToList();
-            var reportPath = Path.Combine(Server.MapPath("~/Report/rdlc"), "RptPartialPaymentByProjectDetails.rdlc");
-            return ReportHelper.GenerateReport(reportPath, "PartialPaymentByProjectDataSet", data, false, type);
-        }
+
+			var reportDataSource = new List<ReportDataSource>
+			{
+				new ReportDataSource("PartialPaymentByProjectDataSet", data)
+			};
+
+			var config = new ReportConfig
+			{
+				ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "RptPartialPaymentByProjectDetails.rdlc")
+			};
+
+			return new ReportResult(config, reportDataSource);
+		}
     }
 }

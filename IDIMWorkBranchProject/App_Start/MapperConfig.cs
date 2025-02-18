@@ -30,9 +30,8 @@ namespace IDIMWorkBranchProject
                 .ForMember(d => d.ConstructionFirmName, opts => opts.MapFrom(src => src.ConstructionFirm.ConstructionFirmName));
 
             CreateMap<SignatoryAuthorityVm, SignatoryAuthority>();
-            CreateMap<SignatoryAuthority, SignatoryAuthorityVm>()
-                .ForMember(d => d.ProjectName, opt => opt.MapFrom(src => src.Project.ProjectName))
-                .ForMember(d => d.LetterNumber, opt => opt.MapFrom(src => src.ReceivePayment.LetterNo));
+            CreateMap<SignatoryAuthority, SignatoryAuthorityVm>();
+
 
             CreateMap<VatTaxVm, VatTax>();
             CreateMap<VatTax, VatTaxVm>()
@@ -107,6 +106,16 @@ namespace IDIMWorkBranchProject
             #endregion
 
             #region Wbpm
+            CreateMap<TenderEvaluationCommitteeVm, TenderEvaluationCommittee>();
+            CreateMap<TenderEvaluationCommittee, TenderEvaluationCommitteeVm>();
+
+            CreateMap<RecruitmentCommitteeVm, RecruitmentCommittee>();
+            CreateMap<RecruitmentCommittee, RecruitmentCommitteeVm>();
+
+            CreateMap<ContractAgreementVm, ContractAgreement>();
+            CreateMap<ContractAgreement, ContractAgreementVm>()
+                .ForMember(d => d.ProjectWorkTitle, opt => opt.MapFrom(x=>x.ProjectWork.ProjectWorkTitle))
+                .ForMember(d => d.ConstructionFirm, opt => opt.MapFrom(x=>x.ProjectWork.ConstructionCompany.FirmNameB));
 
             CreateMap<ProjectDirectorVm, ProjectDirector>();
             CreateMap<ProjectDirector, ProjectDirectorVm>()
@@ -126,13 +135,16 @@ namespace IDIMWorkBranchProject
                 .ForMember(x=>x.FiscalYearDescription, opt=>opt.MapFrom(x=>x.FiscalYear.FiscalYearDescription));
 
             CreateMap<FiscalYearExpenseVm, FiscalYearExpense>();
-            CreateMap<FiscalYearExpense, FiscalYearExpenseVm>();
+            CreateMap<FiscalYearExpense, FiscalYearExpenseVm>()
+				.ForMember(x => x.FiscalYearDescription, opt => opt.MapFrom(x => x.FiscalYear.FiscalYearDescription)); 
 
             CreateMap<FormalMeetingVm, FormalMeeting>();
             CreateMap<FormalMeeting, FormalMeetingVm>();
 
             CreateMap<ProjectWorkVm, ProjectWork>();
-            CreateMap<ProjectWork, ProjectWorkVm>();
+            CreateMap<ProjectWork, ProjectWorkVm>()
+                .ForMember(x => x.ProjectTitle, opt => opt.MapFrom(x => x.ADPProject.ProjectTitle))
+                .ForMember(x => x.FirmName, opt => opt.MapFrom(x => x.ConstructionCompany.FirmName));
 
             CreateMap<ADPReceivePaymentVm, ADPReceivePayment>();
             CreateMap<ADPReceivePayment, ADPReceivePaymentVm>();

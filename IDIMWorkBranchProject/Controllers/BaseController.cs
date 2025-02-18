@@ -2,7 +2,6 @@
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.User;
 using IDIMWorkBranchProject.Services;
-using Microsoft.Reporting.WebForms;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net;
@@ -10,58 +9,16 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System;
 using System.Linq;
-using IDIMWorkBranchProject.Models.Common;
 
 namespace IDIMWorkBranchProject.Controllers
 {
-    public class BaseController : Controller
+	public class BaseController : Controller
     {
         protected IActivityLogService ActivityLogService { get; set; }
 
         public BaseController(IActivityLogService activityLogService) { ActivityLogService = activityLogService; }
 
-        public FileContentResult RenderReport(ReportConfig reportConfig)
-        {
-            ReportDataSource reportDataSource = new ReportDataSource(
-                reportConfig.ReportSourceName,
-                reportConfig.DataTable);
-            return RenderReport(reportConfig, reportDataSource);
-        }
-
-        public FileContentResult RenderReport(ReportConfig reportConfig, ReportDataSource reportDataSource)
-        {
-            reportConfig.FileName += $"_{DateTime.UtcNow.AddHours(6):dMMMyyyy_hhmmtt}";
-
-            var localReport = new LocalReport { ReportPath = reportConfig.ReportFilePath };
-            localReport.DataSources.Add(reportDataSource);
-
-            var deviceInfo = $@"
-                            <DeviceInfo>
-                                <OutputFormat>PDF</OutputFormat>
-                                <PageWidth>{(reportConfig.IsPortrait ? 8.27 : 11.69)}in</PageWidth>
-                                <PageHeight>{(reportConfig.IsPortrait ? 11.69 : 8.27)}in</PageHeight>
-                                <MarginTop>0.5in</MarginTop>
-                                <MarginLeft>.5in</MarginLeft>
-                                <MarginRight>.27in</MarginRight>
-                                <MarginBottom>0.2in</MarginBottom>
-                            </DeviceInfo>";
-
-            var renderedBytes = localReport.Render(
-                reportConfig.ReportType,
-                deviceInfo,
-                out var mimeType,
-                out var encoding,
-                out var fileNameExtension,
-                out _,
-                out _);
-
-            Response.AddHeader(
-                "content-disposition",
-                $"attachment; filename={reportConfig.FileName}.{fileNameExtension}");
-
-            return File(renderedBytes, mimeType);
-        }
-
+       
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var controller = Request.RequestContext.RouteData.Values["controller"].ToString().ToLower();

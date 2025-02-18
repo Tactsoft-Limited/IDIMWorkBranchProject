@@ -3,7 +3,7 @@ using System;
 using System.Net;
 using System.Web;
 
-namespace IDIMWorkBranchProject.Extentions.File
+namespace IDIMWorkBranchProject.Extentions
 {
     public static class FileExtention
     {

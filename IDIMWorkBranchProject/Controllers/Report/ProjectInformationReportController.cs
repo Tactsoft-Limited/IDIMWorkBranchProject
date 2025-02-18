@@ -1,8 +1,13 @@
 ﻿using IDIMWorkBranchProject.Data.Database;
-using IDIMWorkBranchProject.Extentions.Healper;
+using IDIMWorkBranchProject.Extentions.ReportHealper;
+using IDIMWorkBranchProject.Extentions.ReportHelper;
 using IDIMWorkBranchProject.Models.WBP;
 using IDIMWorkBranchProject.Services.Setup;
 using IDIMWorkBranchProject.Services.WBP;
+
+using Microsoft.Reporting.WebForms;
+
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,7 +15,7 @@ using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Report
 {
-    public class ProjectInformationReportController : Controller
+	public class ProjectInformationReportController : Controller
     {
         protected IFiscalYearService FiscalYearService { get; set; }
         protected IGeneralInformationService GeneralInformationService { get; set; }
@@ -64,9 +69,18 @@ namespace IDIMWorkBranchProject.Controllers.Report
 
         public ActionResult ProjectInformationRpt(int id, string type)
         {
-            var reportPath = Path.Combine(Server.MapPath("~/Report/rdlc"), "rptProjectInformation.rdlc");
             var data = _dbContext.ViewProjectInformationRpts.Where(i => i.ProjectId == id).ToList();
-            return ReportHelper.GenerateReport(reportPath, "DsWorkBranch", data, false, type);
-        }
+			var reportDataSource = new List<ReportDataSource>
+            {
+	            new ReportDataSource("DsWorkBranch", data)
+            };
+
+			var config = new ReportConfig
+			{
+				ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "rptProjectInformation.rdlc")
+			};
+
+			return new ReportResult(config, reportDataSource);
+		}
     }
 }

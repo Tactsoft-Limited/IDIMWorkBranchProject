@@ -38,31 +38,40 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public decimal? EstimatedCost { get; set; }
 
         [DisplayName("এনওএইচ তারিখ")]
-        public DateTime NOADate { get; set; }
+		[DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
+		public DateTime NOADate { get; set; }
 
         [DisplayName("চুক্তির তারিখ")]
-        public DateTime AgreementDate { get; set; }
+		[DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
+		public DateTime AgreementDate { get; set; }
 
         [DisplayName("কার্যাদেশের তারিখ")]
-        public DateTime WorkOrderDate { get; set; }
+		[DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
+		public DateTime WorkOrderDate { get; set; }
 
         [DisplayName("কাজ শুরুর তারিখ")]
-        public DateTime WorkStartDate { get; set; }
+		[DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
+		public DateTime WorkStartDate { get; set; }
 
         [DisplayName("কাজ শেষের তারিখ")]
-        public DateTime WorkEndDate { get; set; }
+		[DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
+		public DateTime WorkEndDate { get; set; }
 
         [DisplayName("সরেজমিনে শুরুর তারিখ")]
-        public DateTime? OnFieldStartDate { get; set; }
+		[DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
+		public DateTime? OnFieldStartDate { get; set; }
 
         [DisplayName("সরেজমিনে শেষের তারিখ")]
-        public DateTime? OnFieldEndDate { get; set; }
+		[DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
+		public DateTime? OnFieldEndDate { get; set; }
 
         [DisplayName("হস্তান্তর তারিখ")]
-        public DateTime HandOverDate { get; set; }
+		[DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
+		public DateTime HandOverDate { get; set; }
 
         [DisplayName("ব্যাংক গ্যারান্টির শেষ তারিখ")]
-        public DateTime BankGuaranteeEndDate { get; set; }
+		[DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
+		public DateTime BankGuaranteeEndDate { get; set; }
 
         [DisplayName("নির্মাণ অগ্রগতি")]
         public float ConstructionProgress { get; set; }

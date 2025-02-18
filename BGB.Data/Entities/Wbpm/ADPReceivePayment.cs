@@ -17,17 +17,23 @@ namespace BGB.Data.Entities.Wbpm
         public string LetterNo { get; set; }
         public int BillNumber { get; set; }
         public DateTime BillDate { get; set; }
-        public DateTime ExtraTime { get; set; }
+        public DateTime? ExtraTime { get; set; }
         public string BillPaymentSector { get; set; }
-        public float ActualWorkProgressPer { get; set; }
-        public float FinancialProgressPer { get; set; }
-        public float BillPaidPer { get; set; }
+        public double ActualWorkProgressPer { get; set; }
+        public double? FinancialProgressPer { get; set; }
+        public double? BillPaidPerTillDate { get; set; }
+        public decimal? BillPaidAmountTillDate { get; set; }
+        public double BillPaidPer { get; set; }
         public decimal BillPaidAmount { get; set; }
-        public float TaxPer { get; set; }
+        public string BillPaidAmountInWord { get; set; }
+        public double? TotalReceivePer { get; set; }
+        public decimal? TotalReceiveAmount { get; set; }
+        public string TotalReceiveAmountInWord { get; set; }
+        public double TaxPer { get; set; }
         public decimal TaxAmount { get; set; }
-        public float VatPer { get; set; }
+        public double VatPer { get; set; }
         public decimal VatAmount { get; set; }
-        public float CollateralPer { get; set; }
+        public double CollateralPer { get; set; }
         public decimal CollateralAmount { get; set; }
         public decimal TotalDeductionAmount { get; set; }
         public decimal DepositInBGBFund { get; set; }
