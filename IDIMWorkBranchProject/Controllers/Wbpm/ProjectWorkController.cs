@@ -14,7 +14,7 @@ using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
 {
-	public class ProjectWorkController : BaseController
+    public class ProjectWorkController : BaseController
     {
         private readonly IProjectWorkService _projectWorkService;
         protected readonly IConstructionCompanyService _constructionCompanyService;
@@ -220,7 +220,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     }
                     if (model.AgreementDocumentFile != null && model.AgreementDocumentFile.ContentLength > 0)
                     {
-                        FileExtention.DeleteFile( model.AgreementDocument, fileStorePath);
+                        FileExtention.DeleteFile(model.AgreementDocument, fileStorePath);
 
                         fileName = FileExtention.UploadFile(model.AgreementDocumentFile, fileStorePath);
 
@@ -283,7 +283,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 TempData["Message"] = Messages.Failed(MessageType.Update.ToString(), exception.Message);
             }
-
+            model.ConstructionFirmDropdown = await _constructionCompanyService.GetDropdownAsync(model.ConstructionCompanyId);
             return View(model);
         }
 

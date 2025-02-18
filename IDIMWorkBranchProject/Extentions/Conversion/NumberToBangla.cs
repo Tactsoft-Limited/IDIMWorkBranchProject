@@ -1,17 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text.RegularExpressions;
 using System.Text;
 
 namespace IDIMWorkBranchProject.Extentions.Conversion
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Text;
-    using System.Text.RegularExpressions;
-
     public class NumberToBangla
     {
         // Store words in an array to convert number to Bangla words

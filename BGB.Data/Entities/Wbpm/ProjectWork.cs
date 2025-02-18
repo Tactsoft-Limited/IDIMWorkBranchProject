@@ -23,7 +23,9 @@ namespace BGB.Data.Entities.Wbpm
         public int ADPProjectId { get; set; }
         public int ConstructionCompanyId { get; set; }
         public string ProjectWorkTitle { get; set; }
+        public string ProjectWorkTitleB { get; set; }
         public decimal? EstimatedCost { get; set; }
+        public string EstimatedCostInWord { get; set; }
         public DateTime NOADate { get; set; }
         public DateTime AgreementDate { get; set; }
         public DateTime WorkOrderDate { get; set; }
