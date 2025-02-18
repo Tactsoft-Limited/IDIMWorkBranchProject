@@ -1,4 +1,3 @@
-using BGB.Data.Entities.Pm;
 using BGB.Data.Entities.Wbpm;
 using System;
 using System.Collections.Generic;
@@ -12,8 +11,6 @@ namespace BGB.Data.Entities.Budget
     {
         public FiscalYear()
         {
-            BillPayments = new HashSet<BillPayment>();
-            Projects = new HashSet<Project>();
             FinancialYearAllocations = new HashSet<FinancialYearAllocation>();
             FiscalYearExpenses = new HashSet<FiscalYearExpense>();
         }
@@ -41,8 +38,6 @@ namespace BGB.Data.Entities.Budget
 
 
         #region Navigation Properties
-        public virtual ICollection<Project> Projects { get; set; }
-        public virtual ICollection<BillPayment> BillPayments { get; set; }
         public virtual ICollection<FinancialYearAllocation> FinancialYearAllocations { get; set; }
         public virtual ICollection<FiscalYearExpense> FiscalYearExpenses { get; set; }
         #endregion
