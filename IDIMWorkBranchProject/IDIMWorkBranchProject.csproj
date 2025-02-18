@@ -560,7 +560,7 @@
     <Compile Include="Models\WBP\VatTaxSearchVm.cs" />
     <Compile Include="Models\WBP\ContractorBillPaymentVm.cs" />
     <Compile Include="Models\WBP\ContractorPaymentVm.cs" />
-    <Compile Include="Models\WBP\SignatoryAuthoritySearchVm.cs" />
+    <Compile Include="Models\Wbpm\SignatoryAuthoritySearchVm.cs" />
     <Compile Include="Models\WBP\VatTaxVm.cs" />
     <Compile Include="Models\Wbpm\SignatoryAuthorityVm.cs" />
     <Compile Include="Models\WBP\ConsultancyActivitiesSearchVm.cs" />
@@ -2954,6 +2954,7 @@
     <Content Include="Views\TenderEvaluationCommittee\Create.cshtml" />
     <Content Include="Views\TenderEvaluationCommittee\List.cshtml" />
     <Content Include="Views\TenderEvaluationCommittee\Edit.cshtml" />
+    <Content Include="Views\SignatoryAuthority\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
