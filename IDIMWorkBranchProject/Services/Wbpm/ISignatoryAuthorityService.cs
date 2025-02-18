@@ -12,5 +12,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
     {
        // Task<object> GetByAsync(SignatoryAuthoritySearchVm filter = null);
         Task<IEnumerable<SelectListItem>> GetDropdownAsync(int? selected = 0);
+
+        Task<object> GetPagedAsync(SignatoryAuthoritySearchVm model);
     }
 }
