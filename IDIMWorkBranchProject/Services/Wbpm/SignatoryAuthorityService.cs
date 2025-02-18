@@ -7,6 +7,7 @@ using System.Data.Entity;
 using IDIMWorkBranchProject.Data.Database;
 using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Services.Base;
+using IDIMWorkBranchProject.Models.Wbpm;
 
 namespace IDIMWorkBranchProject.Services.Wbpm
 {
@@ -75,6 +76,44 @@ namespace IDIMWorkBranchProject.Services.Wbpm
                 Value = e.SignatoryAuthorityId.ToString(),
                 Selected = e.SignatoryAuthorityId == selected
             });
+        }
+
+
+        public async Task<object> GetPagedAsync(SignatoryAuthoritySearchVm model)
+        {
+            var query = _context.SignatoryAuthorities.Where(x =>
+            (string.IsNullOrEmpty(model.SearchValue) ||
+            x.AuthorityName.Contains(model.SearchValue) || x.AuthorityNameB.Contains(model.SearchValue) ||
+            x.Designation.Contains(model.SearchValue) || x.DesignationB.Contains(model.SearchValue) ||
+            x.Designation.Contains(model.SearchValue) || x.DesignationB.Contains(model.SearchValue)));
+
+            query = !string.IsNullOrEmpty(model.SortColumn) && !string.IsNullOrEmpty(model.SortDirection)
+                ? query.OrderBy($"{model.SortColumn} {model.SortDirection}")
+                : query.OrderBy(x => x.SignatoryAuthorityId);
+            // Default ordering by SubProjectId
+
+            var totalRecords = await query.CountAsync();
+            var filteredRecords = await query.CountAsync();
+            var pagedData = await query.Skip(model.PageIndex * model.PageSize).Take(model.PageSize).ToListAsync();
+
+            // Return the response in DataTables format
+            var result = new
+            {
+                draw = model.Draw,
+                recordsTotal = totalRecords,
+                recordsFiltered = filteredRecords,
+                data = pagedData.Select(x => new SignatoryAuthorityVm
+                {
+                    SignatoryAuthorityId = x.SignatoryAuthorityId,
+                    AuthorityName = x.AuthorityName,
+                    AuthorityNameB = x.AuthorityNameB,
+                    Designation = x.Designation,
+                    DesignationB = x.DesignationB,
+                   
+                })
+            };
+
+            return result;
         }
     }
 }

@@ -2844,6 +2844,7 @@
     <Content Include="Views\RecruitmentCommittee\List.cshtml" />
     <Content Include="Views\RecruitmentCommittee\Edit.cshtml" />
     <Content Include="Views\RecruitmentCommittee\Delete.cshtml" />
+    <Content Include="Views\SignatoryAuthority\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

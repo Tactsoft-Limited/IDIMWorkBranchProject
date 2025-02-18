@@ -8,6 +8,7 @@ using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using AutoMapper;
 using BGB.Data.Entities.Wbpm;
+using System.Linq;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
 {
@@ -30,45 +31,24 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         }
         public ActionResult List()
         {
-            var model = new SignatoryAuthoritySearchVm();
+            var model = new SignatoryAuthorityVm();
 
             return View(model);
         }
 
-        //[HttpPost]
-        //public async Task<ActionResult> LoadData()
-        //{
-        //    // Fetch filter parameters from the request
-        //    var length = Request.Form.GetValues("length")?.FirstOrDefault();
-        //    var start = Request.Form.GetValues("start")?.FirstOrDefault();
-        //    //var constructionFirmId = Request.Form.GetValues("constructionFirmId")?.FirstOrDefault();
-        //    //var startDate = Request.Form.GetValues("startDate")?.FirstOrDefault();
-        //    //var endDate = Request.Form.GetValues("endDate")?.FirstOrDefault();
-
-        //    // Construct the view model with filters
-        //    var model = new SignatoryAuthoritySearchVm()
-        //    {
-        //        PageIndex = start != null ? Convert.ToInt32(start) / Convert.ToInt32(length) : 0,
-        //        PageSize = length != null ? Convert.ToInt32(length) : 10,  // Default to 10 if no length is provided
-        //        //ConstructionFirmId = !string.IsNullOrEmpty(constructionFirmId) ? Convert.ToInt32(constructionFirmId) : (int?)null,
-        //        //StartDate = !string.IsNullOrEmpty(startDate) ? DateTime.Parse(startDate) : (DateTime?)null,
-        //        //EndDate = !string.IsNullOrEmpty(endDate) ? DateTime.Parse(endDate) : (DateTime?)null,
-        //    };
-
-        //    try
-        //    {
-        //        var data = await _signatoryAuthorityService.GetByAsync(model);
-
-        //        // Return the JSON result
-        //        return Json(data);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Handle any errors that occur during data fetching
-        //        return Json(new { error = ex.Message });
-        //    }
-        //}
-
+        [HttpPost]
+        public async Task<ActionResult> LoadData(SignatoryAuthoritySearchVm model)
+        {
+            try
+            {
+                var data = await _signatoryAuthorityService.GetPagedAsync(model);
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
+        }
 
         public ActionResult Create()
         {
@@ -113,14 +93,13 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
         public async Task<ActionResult> Edit(int id)
         {
-            var model = await _signatoryAuthorityService.GetByIdAsync(id);
 
-            if (model == null)
-                return HttpNotFound();
+            SignatoryAuthority signatoryAuthority = await _signatoryAuthorityService.GetByIdAsync(id);
 
-
+            var model = _mapper.Map<SignatoryAuthorityVm>(signatoryAuthority);
 
             return View(model);
+           
         }
 
         [HttpPost]
@@ -154,21 +133,9 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             return View(model);
         }
 
-        public async Task<ActionResult> Delete(string id)
-        {
-            if (id == null)
-                return HttpNotFound();
-
-            int projectId;
-            int.TryParse(id, out projectId);
-
-            var model = await _signatoryAuthorityService.GetByIdAsync(projectId);
 
 
-            return View(model);
-        }
-
-        [HttpPost]
+        [HttpGet]
         public async Task<ActionResult> Delete(int id)
         {
             try
