@@ -507,6 +507,7 @@
     <Compile Include="Models\Wbpm\FiscalYearExpenseSearchVm.cs" />
     <Compile Include="Models\Wbpm\PrintADPReceivePaymentVm.cs" />
     <Compile Include="Models\Wbpm\ProjectDirectorSearchVm.cs" />
+    <Compile Include="Models\Wbpm\ProjectSignatoryAuthoritySearchVM.cs" />
     <Compile Include="Models\Wbpm\ProjectSignatoryAuthorityVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkDetailsVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkSearchVm.cs" />
@@ -2858,6 +2859,7 @@
     <Content Include="Views\TenderEvaluationCommittee\Edit.cshtml" />
     <Content Include="Views\SignatoryAuthority\Edit.cshtml" />
     <Content Include="Views\ProjectSignatoryAuthority\Create.cshtml" />
+    <Content Include="Views\ProjectSignatoryAuthority\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

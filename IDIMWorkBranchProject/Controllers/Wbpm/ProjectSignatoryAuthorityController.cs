@@ -29,7 +29,26 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         // GET: ProjectSignatoryAuthority
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("List");
+        }
+
+        public ActionResult List()
+        {
+            var model = new ProjectSignatoryAuthorityVm();
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<ActionResult> LoadData(ProjectSignatoryAuthoritySearchVM model)
+        {
+            try
+            {
+                var data = await _ProjectsignatoryAuthorityService.GetPagedAsync(model);
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
         }
 
 

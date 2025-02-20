@@ -1,4 +1,5 @@
 ﻿using BGB.Data.Entities.Wbpm;
+using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services.Base;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
     public interface IProjectSignatoryAuthorityService : IBaseService<ProjectSignatoryAuthority>
     {
         Task<ProjectSignatoryAuthority> GetByAdpProjectIdAsync(int id);
+        Task<object> GetPagedAsync(ProjectSignatoryAuthoritySearchVM model);
 
     }
 }

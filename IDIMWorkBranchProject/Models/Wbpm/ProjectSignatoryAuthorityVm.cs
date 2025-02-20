@@ -17,7 +17,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
             BranchClerkDropdown = new List<SelectListItem>();
         }
         public int ProjectSignatoryAuthorityId { get; set; }
-
+        [Display(Name = "প্রকল্পের নাম")]
         public int? ADPProjectId { get; set; }
         [Display(Name = "প্রকল্পের নাম")]
         public string ADPProjectTitle { get; set; }
