@@ -88,6 +88,7 @@
     <Compile Include="SqlViews\Pm\ViewProjectWiseSubProjectRpt.cs" />
     <Compile Include="SqlViews\Wbpm\ViewADPReceivePayment.cs" />
     <Compile Include="SqlViews\Wbpm\ViewContactAgreement.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewVatTaxReport.cs" />
     <Compile Include="StoreProcedure\dbo\Deposit_GetSingleDetailsResult.cs" />
     <Compile Include="StoreProcedure\dbo\DirectReceived_GetDetailsWithItemsDboResult.cs" />
     <Compile Include="StoreProcedure\dbo\DirectReceived_GetSingleDetailsDboResult.cs" />
