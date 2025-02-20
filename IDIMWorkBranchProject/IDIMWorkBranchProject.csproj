@@ -386,6 +386,7 @@
     <Compile Include="Controllers\Wbpm\FiscalYearExpenseController.cs" />
     <Compile Include="Controllers\Wbpm\FormalMeetingController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectDirectorController.cs" />
+    <Compile Include="Controllers\Wbpm\ProjectSignatoryAuthorityController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectWorkController.cs" />
     <Compile Include="Controllers\Wbpm\RecruitmentCommitteeController.cs" />
     <Compile Include="Controllers\Wbpm\BGBFundController.cs" />
@@ -506,6 +507,7 @@
     <Compile Include="Models\Wbpm\FiscalYearExpenseSearchVm.cs" />
     <Compile Include="Models\Wbpm\PrintADPReceivePaymentVm.cs" />
     <Compile Include="Models\Wbpm\ProjectDirectorSearchVm.cs" />
+    <Compile Include="Models\Wbpm\ProjectSignatoryAuthorityVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkDetailsVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkSearchVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkVm.cs" />
@@ -575,11 +577,13 @@
     <Compile Include="Services\Wbpm\IFormalMeetingService.cs" />
     <Compile Include="Services\Wbpm\IMasterplanService.cs" />
     <Compile Include="Services\Wbpm\IProjectDirectorService.cs" />
+    <Compile Include="Services\Wbpm\IProjectSignatoryAuthorityService.cs" />
     <Compile Include="Services\Wbpm\IProjectWorkService.cs" />
     <Compile Include="Services\Wbpm\IRecruitmentCommitteeService.cs" />
     <Compile Include="Services\Wbpm\ITenderEvaluationCommitteeService.cs" />
     <Compile Include="Services\Wbpm\MasterplanService.cs" />
     <Compile Include="Services\Wbpm\ProjectDirectorService.cs" />
+    <Compile Include="Services\Wbpm\ProjectSignatoryAuthorityService.cs" />
     <Compile Include="Services\Wbpm\ProjectWorkService.cs" />
     <Compile Include="Services\Wbpm\RecruitmentCommitteeService.cs" />
     <Compile Include="Services\Wbpm\ISignatoryAuthorityService.cs" />
@@ -2853,6 +2857,7 @@
     <Content Include="Views\TenderEvaluationCommittee\List.cshtml" />
     <Content Include="Views\TenderEvaluationCommittee\Edit.cshtml" />
     <Content Include="Views\SignatoryAuthority\Edit.cshtml" />
+    <Content Include="Views\ProjectSignatoryAuthority\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

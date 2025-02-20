@@ -1,6 +1,6 @@
 ﻿@using IDIMWorkBranchProject.Extentions
 @using IDIMWorkBranchProject.Models.Wbpm
-@model TenderEvaluationCommitteeVm
+@model ProjectSignatoryAuthorityVm
 
 @{
     ViewBag.Title = "Create";
@@ -43,10 +43,10 @@
     <div class="content-body">
         <div class="row">
             <div class="col-md-12">
-                @using (Html.BeginForm("Create", "TenderEvaluationCommittee", FormMethod.Post, new { enctype = "multipart/form-data", id = "TenderEvaluationCommittee-create-form", role = "form" }))
+                @using (Html.BeginForm("Create", "ProjectSignatoryAuthority", FormMethod.Post, new { enctype = "multipart/form-data", id = "TenderEvaluationCommittee-create-form", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
-                    @Html.HiddenFor(x => x.TenderEvaluationCommitteeId)
+                    @Html.HiddenFor(x => x.ProjectSignatoryAuthorityId)
                     @Html.HiddenFor(x => x.ADPProjectId)
 
                     <div class="row">
@@ -60,31 +60,31 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.AddDG, new { @class = "col-md-4 form-label" })
+                            @Html.LabelFor(m => m.HeadAssistant, new { @class = "col-md-4 form-label" })
                             <div class="col-md-8">
-                                @Html.DropDownListFor(m => m.AddDG, Model.AddDGDropdown, "Select One", new { @class = "select2" })
-                                @Html.ValidationMessageFor(model => model.AddDG)
+                                @Html.DropDownListFor(m => m.HeadAssistant, Model.HeadAssistantDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.HeadAssistant)
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.DDG, new { @class = "col-md-3 form-label" })
+                            @Html.LabelFor(m => m.ConcernedEngineer, new { @class = "col-md-3 form-label" })
                             <div class="col-md-9">
-                                @Html.DropDownListFor(m => m.DDG, Model.DDGDropdown, "Select One", new { @class = "select2" })
-                                @Html.ValidationMessageFor(model => model.DDG)
+                                @Html.DropDownListFor(m => m.ConcernedEngineer, Model.ConcernedEngineerDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.ConcernedEngineer)
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.ProjectDirector, new { @class = "col-md-4 form-label" })
+                            @Html.LabelFor(m => m.SectionICT, new { @class = "col-md-4 form-label" })
                             <div class="col-md-8">
-                                @Html.DropDownListFor(m => m.ProjectDirector, Model.ProjectdirectorDropdown, "Select One", new { @class = "select2" })
-                                @Html.ValidationMessageFor(model => model.ProjectDirector)
+                                @Html.DropDownListFor(m => m.SectionICT, Model.SectionICTDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.SectionICT)
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.Director, new { @class = "col-md-3 form-label" })
+                            @Html.LabelFor(m => m.BranchClerk, new { @class = "col-md-3 form-label" })
                             <div class="col-md-9">
-                                @Html.DropDownListFor(m => m.Director, Model.DirectorDropdown, "Select One", new { @class = "select2" })
-                                @Html.ValidationMessageFor(model => model.Director)
+                                @Html.DropDownListFor(m => m.BranchClerk, Model.BranchClerkDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.BranchClerk)
                             </div>
                         </div>
                     </div>

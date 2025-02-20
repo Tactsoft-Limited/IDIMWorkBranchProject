@@ -63,6 +63,9 @@ namespace IDIMWorkBranchProject
             CreateMap<ContractorCompanyPaymentVm, ContractorCompanyPayment>();
             CreateMap<ContractorCompanyPayment, ContractorCompanyPaymentVm>();
 
+            CreateMap<ProjectSignatoryAuthorityVm, ProjectSignatoryAuthority>();
+
+
             #endregion
 
             #region setup 
