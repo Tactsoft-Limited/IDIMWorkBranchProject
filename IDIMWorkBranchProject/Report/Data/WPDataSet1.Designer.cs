@@ -9237,11 +9237,21 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             private global::System.Data.DataColumn columnFinancialProgressPer;
             
+            private global::System.Data.DataColumn columnBillPaidAmountTillDate;
+            
+            private global::System.Data.DataColumn columnBillPaidPerTillDate;
+            
             private global::System.Data.DataColumn columnBillPaidPer;
             
             private global::System.Data.DataColumn columnBillPaidAmount;
             
             private global::System.Data.DataColumn columnBillPaidAmountInWord;
+            
+            private global::System.Data.DataColumn columnTotalReceivePer;
+            
+            private global::System.Data.DataColumn columnTotalReceiveAmount;
+            
+            private global::System.Data.DataColumn columnTotalReceiveAmountInWord;
             
             private global::System.Data.DataColumn columnTotalDeductionAmount;
             
@@ -9251,25 +9261,13 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             private global::System.Data.DataColumn columnFirmName;
             
-            private global::System.Data.DataColumn columnProjectWorkTitle;
+            private global::System.Data.DataColumn columnProjectWorkTitleB;
             
             private global::System.Data.DataColumn columnEstimatedCost;
             
             private global::System.Data.DataColumn columnWorkStartDate;
             
             private global::System.Data.DataColumn columnWorkEndDate;
-            
-            private global::System.Data.DataColumn columnBillPaidTillDate;
-            
-            private global::System.Data.DataColumn columnBillPaidAmountTillDate;
-            
-            private global::System.Data.DataColumn columnBillPaidPerTillDate;
-            
-            private global::System.Data.DataColumn columnTotalReceivePer;
-            
-            private global::System.Data.DataColumn columnTotalReceiveAmount;
-            
-            private global::System.Data.DataColumn columnTotalReceiveAmountInWord;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -9370,6 +9368,22 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BillPaidAmountTillDateColumn {
+                get {
+                    return this.columnBillPaidAmountTillDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BillPaidPerTillDateColumn {
+                get {
+                    return this.columnBillPaidPerTillDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn BillPaidPerColumn {
                 get {
                     return this.columnBillPaidPer;
@@ -9389,6 +9403,30 @@ namespace IDIMWorkBranchProject.Report.Data {
             public global::System.Data.DataColumn BillPaidAmountInWordColumn {
                 get {
                     return this.columnBillPaidAmountInWord;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TotalReceivePerColumn {
+                get {
+                    return this.columnTotalReceivePer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TotalReceiveAmountColumn {
+                get {
+                    return this.columnTotalReceiveAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TotalReceiveAmountInWordColumn {
+                get {
+                    return this.columnTotalReceiveAmountInWord;
                 }
             }
             
@@ -9426,9 +9464,9 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ProjectWorkTitleColumn {
+            public global::System.Data.DataColumn ProjectWorkTitleBColumn {
                 get {
-                    return this.columnProjectWorkTitle;
+                    return this.columnProjectWorkTitleB;
                 }
             }
             
@@ -9453,54 +9491,6 @@ namespace IDIMWorkBranchProject.Report.Data {
             public global::System.Data.DataColumn WorkEndDateColumn {
                 get {
                     return this.columnWorkEndDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BillPaidTillDateColumn {
-                get {
-                    return this.columnBillPaidTillDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BillPaidAmountTillDateColumn {
-                get {
-                    return this.columnBillPaidAmountTillDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BillPaidPerTillDateColumn {
-                get {
-                    return this.columnBillPaidPerTillDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TotalReceivePerColumn {
-                get {
-                    return this.columnTotalReceivePer;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TotalReceiveAmountColumn {
-                get {
-                    return this.columnTotalReceiveAmount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TotalReceiveAmountInWordColumn {
-                get {
-                    return this.columnTotalReceiveAmountInWord;
                 }
             }
             
@@ -9550,23 +9540,22 @@ namespace IDIMWorkBranchProject.Report.Data {
                         string BillPaymentSector, 
                         double ActualWorkProgressPer, 
                         double FinancialProgressPer, 
+                        decimal BillPaidAmountTillDate, 
+                        double BillPaidPerTillDate, 
                         double BillPaidPer, 
                         decimal BillPaidAmount, 
                         string BillPaidAmountInWord, 
+                        double TotalReceivePer, 
+                        decimal TotalReceiveAmount, 
+                        string TotalReceiveAmountInWord, 
                         decimal TotalDeductionAmount, 
                         decimal DepositInBGBFund, 
                         string FirmNameB, 
                         string FirmName, 
-                        string ProjectWorkTitle, 
+                        string ProjectWorkTitleB, 
                         decimal EstimatedCost, 
                         System.DateTime WorkStartDate, 
-                        System.DateTime WorkEndDate, 
-                        decimal BillPaidTillDate, 
-                        decimal BillPaidAmountTillDate, 
-                        double BillPaidPerTillDate, 
-                        double TotalReceivePer, 
-                        decimal TotalReceiveAmount, 
-                        string TotalReceiveAmountInWord) {
+                        System.DateTime WorkEndDate) {
                 ViewADPReceivePaymentsRow rowViewADPReceivePaymentsRow = ((ViewADPReceivePaymentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ADPReceivePaymentId,
@@ -9577,23 +9566,22 @@ namespace IDIMWorkBranchProject.Report.Data {
                         BillPaymentSector,
                         ActualWorkProgressPer,
                         FinancialProgressPer,
+                        BillPaidAmountTillDate,
+                        BillPaidPerTillDate,
                         BillPaidPer,
                         BillPaidAmount,
                         BillPaidAmountInWord,
+                        TotalReceivePer,
+                        TotalReceiveAmount,
+                        TotalReceiveAmountInWord,
                         TotalDeductionAmount,
                         DepositInBGBFund,
                         FirmNameB,
                         FirmName,
-                        ProjectWorkTitle,
+                        ProjectWorkTitleB,
                         EstimatedCost,
                         WorkStartDate,
-                        WorkEndDate,
-                        BillPaidTillDate,
-                        BillPaidAmountTillDate,
-                        BillPaidPerTillDate,
-                        TotalReceivePer,
-                        TotalReceiveAmount,
-                        TotalReceiveAmountInWord};
+                        WorkEndDate};
                 rowViewADPReceivePaymentsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowViewADPReceivePaymentsRow);
                 return rowViewADPReceivePaymentsRow;
@@ -9631,23 +9619,22 @@ namespace IDIMWorkBranchProject.Report.Data {
                 this.columnBillPaymentSector = base.Columns["BillPaymentSector"];
                 this.columnActualWorkProgressPer = base.Columns["ActualWorkProgressPer"];
                 this.columnFinancialProgressPer = base.Columns["FinancialProgressPer"];
+                this.columnBillPaidAmountTillDate = base.Columns["BillPaidAmountTillDate"];
+                this.columnBillPaidPerTillDate = base.Columns["BillPaidPerTillDate"];
                 this.columnBillPaidPer = base.Columns["BillPaidPer"];
                 this.columnBillPaidAmount = base.Columns["BillPaidAmount"];
                 this.columnBillPaidAmountInWord = base.Columns["BillPaidAmountInWord"];
+                this.columnTotalReceivePer = base.Columns["TotalReceivePer"];
+                this.columnTotalReceiveAmount = base.Columns["TotalReceiveAmount"];
+                this.columnTotalReceiveAmountInWord = base.Columns["TotalReceiveAmountInWord"];
                 this.columnTotalDeductionAmount = base.Columns["TotalDeductionAmount"];
                 this.columnDepositInBGBFund = base.Columns["DepositInBGBFund"];
                 this.columnFirmNameB = base.Columns["FirmNameB"];
                 this.columnFirmName = base.Columns["FirmName"];
-                this.columnProjectWorkTitle = base.Columns["ProjectWorkTitle"];
+                this.columnProjectWorkTitleB = base.Columns["ProjectWorkTitleB"];
                 this.columnEstimatedCost = base.Columns["EstimatedCost"];
                 this.columnWorkStartDate = base.Columns["WorkStartDate"];
                 this.columnWorkEndDate = base.Columns["WorkEndDate"];
-                this.columnBillPaidTillDate = base.Columns["BillPaidTillDate"];
-                this.columnBillPaidAmountTillDate = base.Columns["BillPaidAmountTillDate"];
-                this.columnBillPaidPerTillDate = base.Columns["BillPaidPerTillDate"];
-                this.columnTotalReceivePer = base.Columns["TotalReceivePer"];
-                this.columnTotalReceiveAmount = base.Columns["TotalReceiveAmount"];
-                this.columnTotalReceiveAmountInWord = base.Columns["TotalReceiveAmountInWord"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9669,12 +9656,22 @@ namespace IDIMWorkBranchProject.Report.Data {
                 base.Columns.Add(this.columnActualWorkProgressPer);
                 this.columnFinancialProgressPer = new global::System.Data.DataColumn("FinancialProgressPer", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFinancialProgressPer);
+                this.columnBillPaidAmountTillDate = new global::System.Data.DataColumn("BillPaidAmountTillDate", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBillPaidAmountTillDate);
+                this.columnBillPaidPerTillDate = new global::System.Data.DataColumn("BillPaidPerTillDate", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBillPaidPerTillDate);
                 this.columnBillPaidPer = new global::System.Data.DataColumn("BillPaidPer", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBillPaidPer);
                 this.columnBillPaidAmount = new global::System.Data.DataColumn("BillPaidAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBillPaidAmount);
                 this.columnBillPaidAmountInWord = new global::System.Data.DataColumn("BillPaidAmountInWord", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBillPaidAmountInWord);
+                this.columnTotalReceivePer = new global::System.Data.DataColumn("TotalReceivePer", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalReceivePer);
+                this.columnTotalReceiveAmount = new global::System.Data.DataColumn("TotalReceiveAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalReceiveAmount);
+                this.columnTotalReceiveAmountInWord = new global::System.Data.DataColumn("TotalReceiveAmountInWord", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalReceiveAmountInWord);
                 this.columnTotalDeductionAmount = new global::System.Data.DataColumn("TotalDeductionAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalDeductionAmount);
                 this.columnDepositInBGBFund = new global::System.Data.DataColumn("DepositInBGBFund", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -9683,26 +9680,14 @@ namespace IDIMWorkBranchProject.Report.Data {
                 base.Columns.Add(this.columnFirmNameB);
                 this.columnFirmName = new global::System.Data.DataColumn("FirmName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFirmName);
-                this.columnProjectWorkTitle = new global::System.Data.DataColumn("ProjectWorkTitle", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProjectWorkTitle);
+                this.columnProjectWorkTitleB = new global::System.Data.DataColumn("ProjectWorkTitleB", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProjectWorkTitleB);
                 this.columnEstimatedCost = new global::System.Data.DataColumn("EstimatedCost", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstimatedCost);
                 this.columnWorkStartDate = new global::System.Data.DataColumn("WorkStartDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWorkStartDate);
                 this.columnWorkEndDate = new global::System.Data.DataColumn("WorkEndDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWorkEndDate);
-                this.columnBillPaidTillDate = new global::System.Data.DataColumn("BillPaidTillDate", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBillPaidTillDate);
-                this.columnBillPaidAmountTillDate = new global::System.Data.DataColumn("BillPaidAmountTillDate", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBillPaidAmountTillDate);
-                this.columnBillPaidPerTillDate = new global::System.Data.DataColumn("BillPaidPerTillDate", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBillPaidPerTillDate);
-                this.columnTotalReceivePer = new global::System.Data.DataColumn("TotalReceivePer", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalReceivePer);
-                this.columnTotalReceiveAmount = new global::System.Data.DataColumn("TotalReceiveAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalReceiveAmount);
-                this.columnTotalReceiveAmountInWord = new global::System.Data.DataColumn("TotalReceiveAmountInWord", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalReceiveAmountInWord);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnADPReceivePaymentId}, true));
                 this.columnADPReceivePaymentId.AllowDBNull = false;
@@ -9714,20 +9699,19 @@ namespace IDIMWorkBranchProject.Report.Data {
                 this.columnBillPaymentSector.AllowDBNull = false;
                 this.columnBillPaymentSector.MaxLength = 200;
                 this.columnActualWorkProgressPer.AllowDBNull = false;
-                this.columnFinancialProgressPer.AllowDBNull = false;
                 this.columnBillPaidPer.AllowDBNull = false;
                 this.columnBillPaidAmount.AllowDBNull = false;
                 this.columnBillPaidAmountInWord.MaxLength = 500;
+                this.columnTotalReceiveAmountInWord.MaxLength = 500;
                 this.columnTotalDeductionAmount.AllowDBNull = false;
                 this.columnDepositInBGBFund.AllowDBNull = false;
                 this.columnFirmNameB.AllowDBNull = false;
                 this.columnFirmNameB.MaxLength = 200;
                 this.columnFirmName.AllowDBNull = false;
                 this.columnFirmName.MaxLength = 200;
-                this.columnProjectWorkTitle.MaxLength = 500;
+                this.columnProjectWorkTitleB.MaxLength = 500;
                 this.columnWorkStartDate.AllowDBNull = false;
                 this.columnWorkEndDate.AllowDBNull = false;
-                this.columnTotalReceiveAmountInWord.MaxLength = 500;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16998,10 +16982,50 @@ namespace IDIMWorkBranchProject.Report.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public double FinancialProgressPer {
                 get {
-                    return ((double)(this[this.tableViewADPReceivePayments.FinancialProgressPerColumn]));
+                    try {
+                        return ((double)(this[this.tableViewADPReceivePayments.FinancialProgressPerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FinancialProgressPer\' in table \'ViewADPReceivePayments\' is " +
+                                "DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableViewADPReceivePayments.FinancialProgressPerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal BillPaidAmountTillDate {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewADPReceivePayments.BillPaidAmountTillDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BillPaidAmountTillDate\' in table \'ViewADPReceivePayments\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewADPReceivePayments.BillPaidAmountTillDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double BillPaidPerTillDate {
+                get {
+                    try {
+                        return ((double)(this[this.tableViewADPReceivePayments.BillPaidPerTillDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BillPaidPerTillDate\' in table \'ViewADPReceivePayments\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewADPReceivePayments.BillPaidPerTillDateColumn] = value;
                 }
             }
             
@@ -17041,157 +17065,6 @@ namespace IDIMWorkBranchProject.Report.Data {
                 }
                 set {
                     this[this.tableViewADPReceivePayments.BillPaidAmountInWordColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal TotalDeductionAmount {
-                get {
-                    return ((decimal)(this[this.tableViewADPReceivePayments.TotalDeductionAmountColumn]));
-                }
-                set {
-                    this[this.tableViewADPReceivePayments.TotalDeductionAmountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal DepositInBGBFund {
-                get {
-                    return ((decimal)(this[this.tableViewADPReceivePayments.DepositInBGBFundColumn]));
-                }
-                set {
-                    this[this.tableViewADPReceivePayments.DepositInBGBFundColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string FirmNameB {
-                get {
-                    return ((string)(this[this.tableViewADPReceivePayments.FirmNameBColumn]));
-                }
-                set {
-                    this[this.tableViewADPReceivePayments.FirmNameBColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string FirmName {
-                get {
-                    return ((string)(this[this.tableViewADPReceivePayments.FirmNameColumn]));
-                }
-                set {
-                    this[this.tableViewADPReceivePayments.FirmNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string ProjectWorkTitle {
-                get {
-                    try {
-                        return ((string)(this[this.tableViewADPReceivePayments.ProjectWorkTitleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProjectWorkTitle\' in table \'ViewADPReceivePayments\' is DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tableViewADPReceivePayments.ProjectWorkTitleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal EstimatedCost {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableViewADPReceivePayments.EstimatedCostColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EstimatedCost\' in table \'ViewADPReceivePayments\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableViewADPReceivePayments.EstimatedCostColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime WorkStartDate {
-                get {
-                    return ((global::System.DateTime)(this[this.tableViewADPReceivePayments.WorkStartDateColumn]));
-                }
-                set {
-                    this[this.tableViewADPReceivePayments.WorkStartDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime WorkEndDate {
-                get {
-                    return ((global::System.DateTime)(this[this.tableViewADPReceivePayments.WorkEndDateColumn]));
-                }
-                set {
-                    this[this.tableViewADPReceivePayments.WorkEndDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal BillPaidTillDate {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableViewADPReceivePayments.BillPaidTillDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BillPaidTillDate\' in table \'ViewADPReceivePayments\' is DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tableViewADPReceivePayments.BillPaidTillDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal BillPaidAmountTillDate {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableViewADPReceivePayments.BillPaidAmountTillDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BillPaidAmountTillDate\' in table \'ViewADPReceivePayments\' i" +
-                                "s DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableViewADPReceivePayments.BillPaidAmountTillDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double BillPaidPerTillDate {
-                get {
-                    try {
-                        return ((double)(this[this.tableViewADPReceivePayments.BillPaidPerTillDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BillPaidPerTillDate\' in table \'ViewADPReceivePayments\' is D" +
-                                "BNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableViewADPReceivePayments.BillPaidPerTillDateColumn] = value;
                 }
             }
             
@@ -17248,6 +17121,106 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal TotalDeductionAmount {
+                get {
+                    return ((decimal)(this[this.tableViewADPReceivePayments.TotalDeductionAmountColumn]));
+                }
+                set {
+                    this[this.tableViewADPReceivePayments.TotalDeductionAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal DepositInBGBFund {
+                get {
+                    return ((decimal)(this[this.tableViewADPReceivePayments.DepositInBGBFundColumn]));
+                }
+                set {
+                    this[this.tableViewADPReceivePayments.DepositInBGBFundColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string FirmNameB {
+                get {
+                    return ((string)(this[this.tableViewADPReceivePayments.FirmNameBColumn]));
+                }
+                set {
+                    this[this.tableViewADPReceivePayments.FirmNameBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string FirmName {
+                get {
+                    return ((string)(this[this.tableViewADPReceivePayments.FirmNameColumn]));
+                }
+                set {
+                    this[this.tableViewADPReceivePayments.FirmNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ProjectWorkTitleB {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewADPReceivePayments.ProjectWorkTitleBColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProjectWorkTitleB\' in table \'ViewADPReceivePayments\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewADPReceivePayments.ProjectWorkTitleBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal EstimatedCost {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewADPReceivePayments.EstimatedCostColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EstimatedCost\' in table \'ViewADPReceivePayments\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableViewADPReceivePayments.EstimatedCostColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime WorkStartDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tableViewADPReceivePayments.WorkStartDateColumn]));
+                }
+                set {
+                    this[this.tableViewADPReceivePayments.WorkStartDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime WorkEndDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tableViewADPReceivePayments.WorkEndDateColumn]));
+                }
+                set {
+                    this[this.tableViewADPReceivePayments.WorkEndDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsExtraTimeNull() {
                 return this.IsNull(this.tableViewADPReceivePayments.ExtraTimeColumn);
             }
@@ -17260,50 +17233,14 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsBillPaidAmountInWordNull() {
-                return this.IsNull(this.tableViewADPReceivePayments.BillPaidAmountInWordColumn);
+            public bool IsFinancialProgressPerNull() {
+                return this.IsNull(this.tableViewADPReceivePayments.FinancialProgressPerColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetBillPaidAmountInWordNull() {
-                this[this.tableViewADPReceivePayments.BillPaidAmountInWordColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsProjectWorkTitleNull() {
-                return this.IsNull(this.tableViewADPReceivePayments.ProjectWorkTitleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetProjectWorkTitleNull() {
-                this[this.tableViewADPReceivePayments.ProjectWorkTitleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEstimatedCostNull() {
-                return this.IsNull(this.tableViewADPReceivePayments.EstimatedCostColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEstimatedCostNull() {
-                this[this.tableViewADPReceivePayments.EstimatedCostColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsBillPaidTillDateNull() {
-                return this.IsNull(this.tableViewADPReceivePayments.BillPaidTillDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetBillPaidTillDateNull() {
-                this[this.tableViewADPReceivePayments.BillPaidTillDateColumn] = global::System.Convert.DBNull;
+            public void SetFinancialProgressPerNull() {
+                this[this.tableViewADPReceivePayments.FinancialProgressPerColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17328,6 +17265,18 @@ namespace IDIMWorkBranchProject.Report.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetBillPaidPerTillDateNull() {
                 this[this.tableViewADPReceivePayments.BillPaidPerTillDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBillPaidAmountInWordNull() {
+                return this.IsNull(this.tableViewADPReceivePayments.BillPaidAmountInWordColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBillPaidAmountInWordNull() {
+                this[this.tableViewADPReceivePayments.BillPaidAmountInWordColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17364,6 +17313,30 @@ namespace IDIMWorkBranchProject.Report.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTotalReceiveAmountInWordNull() {
                 this[this.tableViewADPReceivePayments.TotalReceiveAmountInWordColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsProjectWorkTitleBNull() {
+                return this.IsNull(this.tableViewADPReceivePayments.ProjectWorkTitleBColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetProjectWorkTitleBNull() {
+                this[this.tableViewADPReceivePayments.ProjectWorkTitleBColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEstimatedCostNull() {
+                return this.IsNull(this.tableViewADPReceivePayments.EstimatedCostColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEstimatedCostNull() {
+                this[this.tableViewADPReceivePayments.EstimatedCostColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -20980,13 +20953,13 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class ViewADPReceivePaymentsTableAdapter : global::System.ComponentModel.Component {
         
-        private global::Microsoft.Data.SqlClient.SqlDataAdapter _adapter;
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
-        private global::Microsoft.Data.SqlClient.SqlConnection _connection;
+        private global::System.Data.SqlClient.SqlConnection _connection;
         
-        private global::Microsoft.Data.SqlClient.SqlTransaction _transaction;
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
         
-        private global::Microsoft.Data.SqlClient.SqlCommand[] _commandCollection;
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
         
         private bool _clearBeforeFill;
         
@@ -20998,7 +20971,7 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::Microsoft.Data.SqlClient.SqlDataAdapter Adapter {
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
             get {
                 if ((this._adapter == null)) {
                     this.InitAdapter();
@@ -21009,7 +20982,7 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::Microsoft.Data.SqlClient.SqlConnection Connection {
+        internal global::System.Data.SqlClient.SqlConnection Connection {
             get {
                 if ((this._connection == null)) {
                     this.InitConnection();
@@ -21029,7 +21002,7 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
                 }
                 for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
                     if ((this.CommandCollection[i] != null)) {
-                        ((global::Microsoft.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
                     }
                 }
             }
@@ -21037,7 +21010,7 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::Microsoft.Data.SqlClient.SqlTransaction Transaction {
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
             get {
                 return this._transaction;
             }
@@ -21063,7 +21036,7 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::Microsoft.Data.SqlClient.SqlCommand[] CommandCollection {
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
             get {
                 if ((this._commandCollection == null)) {
                     this.InitCommandCollection();
@@ -21086,7 +21059,7 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitAdapter() {
-            this._adapter = new global::Microsoft.Data.SqlClient.SqlDataAdapter();
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "ViewADPReceivePayments";
@@ -21098,41 +21071,39 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("BillPaymentSector", "BillPaymentSector");
             tableMapping.ColumnMappings.Add("ActualWorkProgressPer", "ActualWorkProgressPer");
             tableMapping.ColumnMappings.Add("FinancialProgressPer", "FinancialProgressPer");
+            tableMapping.ColumnMappings.Add("BillPaidAmountTillDate", "BillPaidAmountTillDate");
+            tableMapping.ColumnMappings.Add("BillPaidPerTillDate", "BillPaidPerTillDate");
             tableMapping.ColumnMappings.Add("BillPaidPer", "BillPaidPer");
             tableMapping.ColumnMappings.Add("BillPaidAmount", "BillPaidAmount");
             tableMapping.ColumnMappings.Add("BillPaidAmountInWord", "BillPaidAmountInWord");
+            tableMapping.ColumnMappings.Add("TotalReceivePer", "TotalReceivePer");
+            tableMapping.ColumnMappings.Add("TotalReceiveAmount", "TotalReceiveAmount");
+            tableMapping.ColumnMappings.Add("TotalReceiveAmountInWord", "TotalReceiveAmountInWord");
             tableMapping.ColumnMappings.Add("TotalDeductionAmount", "TotalDeductionAmount");
             tableMapping.ColumnMappings.Add("DepositInBGBFund", "DepositInBGBFund");
             tableMapping.ColumnMappings.Add("FirmNameB", "FirmNameB");
             tableMapping.ColumnMappings.Add("FirmName", "FirmName");
-            tableMapping.ColumnMappings.Add("ProjectWorkTitle", "ProjectWorkTitle");
+            tableMapping.ColumnMappings.Add("ProjectWorkTitleB", "ProjectWorkTitleB");
             tableMapping.ColumnMappings.Add("EstimatedCost", "EstimatedCost");
             tableMapping.ColumnMappings.Add("WorkStartDate", "WorkStartDate");
             tableMapping.ColumnMappings.Add("WorkEndDate", "WorkEndDate");
-            tableMapping.ColumnMappings.Add("BillPaidTillDate", "BillPaidTillDate");
-            tableMapping.ColumnMappings.Add("BillPaidAmountTillDate", "BillPaidAmountTillDate");
-            tableMapping.ColumnMappings.Add("BillPaidPerTillDate", "BillPaidPerTillDate");
-            tableMapping.ColumnMappings.Add("TotalReceivePer", "TotalReceivePer");
-            tableMapping.ColumnMappings.Add("TotalReceiveAmount", "TotalReceiveAmount");
-            tableMapping.ColumnMappings.Add("TotalReceiveAmountInWord", "TotalReceiveAmountInWord");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
-            this._connection = new global::Microsoft.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["IDIMDBEntities"].ConnectionString;
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["IDIMDBConnectionString"].ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::Microsoft.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        wbpm.ViewADPReceivePayments.*\r\nFROM            wbpm.ViewADPReceiveP" +
-                "ayments";
+            this._commandCollection[0].CommandText = "SELECT wbpm.ViewADPReceivePayments.*\r\nFROM   wbpm.ViewADPReceivePayments";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
