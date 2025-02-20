@@ -24,6 +24,23 @@
     <Shape ID="DesignTable:GetPartialPaymentByProjectRpt" ZOrder="6" X="1164" Y="140" Height="75" Width="300" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="254" SplitterPosition="24" />
     <Shape ID="DesignTable:ViewADPReceivePayments" ZOrder="5" X="8" Y="19" Height="425" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="358" />
     <Shape ID="DesignTable:ViewContactAgreement" ZOrder="1" X="352" Y="41" Height="365" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
+    <Shape ID="DesignTable:ViewProjectWiseSubProjectRpt" ZOrder="6" X="455" Y="301" Height="305" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:ViewProjectSubProjectDetailsRpt" ZOrder="17" X="1448" Y="115" Height="305" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:ViewProjectProblemRpt" ZOrder="7" X="773" Y="359" Height="286" Width="283" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="235" />
+    <Shape ID="DesignTable:ViewProjectPaymentReceiptRpt" ZOrder="16" X="904" Y="25" Height="305" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:ViewProjectInformationRpt" ZOrder="15" X="1145" Y="382" Height="305" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:ViewProjectList" ZOrder="14" X="1266" Y="280" Height="365" Width="277" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
+    <Shape ID="DesignTable:ViewProjectBillPayment" ZOrder="13" X="545" Y="151" Height="365" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
+    <Shape ID="DesignTable:ViewExtended" ZOrder="12" X="1547" Y="569" Height="365" Width="268" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
+    <Shape ID="DesignTable:ViewProjectProblem" ZOrder="4" X="1154" Y="778" Height="365" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
+    <Shape ID="DesignTable:GetProjectPaymentDepositRpt" ZOrder="3" X="586" Y="636" Height="290" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="196" />
+    <Shape ID="DesignTable:GetConstructionChecklistRpt" ZOrder="5" X="138" Y="261" Height="286" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="235" />
+    <Shape ID="DesignTable:GetConsultantFeeAmountRpt" ZOrder="11" X="115" Y="643" Height="305" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:GetDetailsOfConstructionRpt" ZOrder="10" X="457" Y="959" Height="305" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:GetYearlyConstructionDetailsRpt" ZOrder="9" X="111" Y="1004" Height="305" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:GetFullPaymentByProjectRpt" ZOrder="8" X="925" Y="744" Height="305" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:GetPartialPaymentByProjectRpt" ZOrder="2" X="383" Y="10" Height="75" Width="300" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="254" SplitterPosition="24" />
+    <Shape ID="DesignTable:ViewADPReceivePayments" ZOrder="1" X="20" Y="-7" Height="425" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="358" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

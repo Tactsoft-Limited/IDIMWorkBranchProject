@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -117,7 +118,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         }
 
 
-        public async Task<ActionResult> PrintADPReceivePayment(int id)
+        public async Task<ActionResult> PrintADPReceivePayment(int id, string type)
         {
             try
             {
@@ -130,7 +131,9 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
                 var config = new ReportConfig
                 {
-                    ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "ADPReceivePaymentReport.rdlc")
+                    ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "ADPReceivePaymentReport.rdlc"),
+                    ReportType = type,
+                    DeviceInfo = new Extentions.ReportHelper.DeviceInfo(type).LegalPortrait(),
                 };
 
                 return new ReportResult(config, reportDataSource);

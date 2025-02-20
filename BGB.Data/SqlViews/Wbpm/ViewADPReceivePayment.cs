@@ -30,7 +30,7 @@ namespace BGB.Data.SqlViews.Wbpm
         public decimal DepositInBGBFund { get; set; }
         public string FirmNameB { get; set; }
         public string FirmName { get; set; }
-        public string ProjectWorkTitle { get; set; }
+        public string ProjectWorkTitleB { get; set; }
         public decimal EstimatedCost { get; set; }
         public DateTime WorkStartDate { get; set; }
         public DateTime WorkEndDate { get; set; }
