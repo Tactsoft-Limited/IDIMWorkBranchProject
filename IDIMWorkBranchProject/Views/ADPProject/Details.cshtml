@@ -2,6 +2,8 @@
 @using IDIMWorkBranchProject.Models.Wbpm
 @model ADPProjectDetailVm
 
+
+
 @{
     ViewBag.Title = "Details";
 }
@@ -26,6 +28,9 @@
     <header class="panel_header">
         <h2 class="title pull-left">List</h2>
         <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("Create", "TenderEvaluationCommittee", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                <i class="fa fa-pencil-square-o"></i> টেন্ডার মুল্যায়ন কমিটি সংযুক্ত করুন
+            </a>
             <a href="@Url.Action("Edit", "ADPProject", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
                 <i class="fa fa-pencil-square-o"></i> সংশোধন
             </a>
