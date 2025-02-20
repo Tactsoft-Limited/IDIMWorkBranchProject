@@ -1,9 +1,18 @@
 ﻿using IDIMWorkBranchProject.Data.Database;
+using IDIMWorkBranchProject.Extentions.ReportHealper;
+using IDIMWorkBranchProject.Extentions.ReportHelper;
+using IDIMWorkBranchProject.Services.Report;
 using IDIMWorkBranchProject.Services.Setup;
+using Microsoft.Reporting.WebForms;
+using System.Collections.Generic;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
+using System.IO;
 using System.Web.Mvc;
+using System.Threading.Tasks;
 
 namespace IDIMWorkBranchProject.Controllers.Report
 {
@@ -11,18 +20,20 @@ namespace IDIMWorkBranchProject.Controllers.Report
     {
         protected IFiscalYearService FiscalYearService { get; set; }
         protected IGeneralInformationService GeneralInformationService { get; set; }
+        protected IReportService _reportService {  get; set; }
         protected IUnitService UnitService { get; set; }
         private readonly IDIMDBEntities _dbContext;
 
         public ReportController(
             IFiscalYearService fiscalYearService,
             IGeneralInformationService generalInformationService,
-            IUnitService unitService,
+            IUnitService unitService, IReportService reportService,
             IDIMDBEntities dbContext)
         {
             FiscalYearService = fiscalYearService;
             GeneralInformationService = generalInformationService;
             UnitService = unitService;
+            _reportService= reportService;
             _dbContext = dbContext;
         }
         // GET: Report
@@ -85,5 +96,32 @@ namespace IDIMWorkBranchProject.Controllers.Report
             return View();
         }
 
+        public async Task<ActionResult> PrintContactAgreement(int id)
+        {
+           
+            try
+            {
+                 var data = await _reportService.GetContractAgreementAsync(id);
+
+                var reportDataSource = new List<ReportDataSource>
+                {
+                    new ReportDataSource("DsContractAgreement", data)
+                };
+
+                var config = new ReportConfig
+                {
+                    ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "ContractAgreementReport.rdlc")
+                };
+
+                return new ReportResult(config, reportDataSource);
+            }
+            catch (Exception exception)
+            {
+                // Log the exception if necessary
+                // You can also throw a custom exception if you want
+                throw new InvalidOperationException("An error occurred while generating the report.", exception);
+            }
+
+        }
     }
 }

@@ -2979,6 +2979,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Report\Rdlc\ADPReceivePaymentReport.rdlc" />
+    <EmbeddedResource Include="Report\Rdlc\ContractAgreementReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RDLCBill.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RDLCProblem.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RptConstructionCheckList.rdlc" />
@@ -2986,6 +2987,7 @@
     <EmbeddedResource Include="Report\Rdlc\RptConsultantFeeAmount.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RptPartialPaymentByProjectDetails.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RptFullPaymentByProjectDetails.rdlc" />
+    <EmbeddedResource Include="Report\Rdlc\RptPermanentDeposit.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\rptProjectBillPayment.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RptProjectExtend.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\rptProjectInformation.rdlc" />

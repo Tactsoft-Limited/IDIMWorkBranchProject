@@ -25,8 +25,8 @@
     <header class="panel_header">
         <h2 class="title pull-left">List</h2>
         <div class="actions panel_actions pull-right">
-            <a href="@Url.Action("Create", "ContractAgreement", new { id = Model.ProjectWorks.ProjectWorkId })" class="btn btn-primary">
-                <i class="fa fa-pencil-square-o"></i> নির্মান চুক্তি
+            <a href="@Url.Action("PrintContactAgreement", "Report", new { id = Model.ProjectWorks.ProjectWorkId })" class="btn btn-primary">
+                <i class="fa fa-print"></i> নির্মান চুক্তি প্রিন্ট করুণ
             </a>
             <a href="@Url.Action("Edit", "ProjectWork", new { id = Model.ProjectWorks.ProjectWorkId })" class="btn btn-primary">
                 <i class="fa fa-pencil-square-o"></i> নির্মাণ কাজ সংশোধন

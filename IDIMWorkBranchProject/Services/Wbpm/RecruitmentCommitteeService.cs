@@ -20,7 +20,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         {
             return await _context.RecruitmentCommittees.Select(d => new SelectListItem
             {   
-                Text = $"{d.DesignationB}  {d.NameB}",
+                Text = d.DesignationB + " " +  d.NameB,
                 Value = d.RecruitmentCommitteeId.ToString(),
                 Selected = d.RecruitmentCommitteeId == selected
             }).ToListAsync();
