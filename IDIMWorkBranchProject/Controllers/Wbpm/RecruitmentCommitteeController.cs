@@ -43,10 +43,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 return Json(new { error = ex.Message });
             }
         }
-        public async Task<ActionResult> Create()
+        public ActionResult Create()
         {
             var model = new RecruitmentCommitteeVm();
-           
+
             return View(model);
         }
 
