@@ -142,11 +142,17 @@
                                 </a>
                             </td>
                             <td>
-                                <a href="@Url.Action("PrintADPReceivePayment", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-info btn-xs">
-                                    <i class="fa fa-print"></i> বিল প্রিন্ট করুন
+                                <a href="@Url.Action("PrintADPReceivePayment", "ADPReceivePayment", new { id = item.ADPReceivePaymentId, type="pdf" })" class="btn btn-info btn-xs">
+                                    <i class="fa fa-print"></i> বিল প্রিন্ট pdf
                                 </a>
-                                <a href="@Url.Action("PrintTaxVat", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-accent btn-xs">
-                                    <i class="fa fa-print"></i> ট্যাক্স/ভ্যাট প্রিন্ট করুন
+                                <a href="@Url.Action("PrintADPReceivePayment", "ADPReceivePayment", new { id = item.ADPReceivePaymentId, type="word" })" class="btn btn-info btn-xs">
+                                    <i class="fa fa-print"></i> বিল প্রিন্ট word
+                                </a>
+                                <a href="@Url.Action("PrintTaxVat", "ADPReceivePayment", new { id = item.ADPReceivePaymentId, type="pdf" })" class="btn btn-accent btn-xs">
+                                    <i class="fa fa-print"></i> ট্যাক্স/ভ্যাট প্রিন্ট pdf
+                                </a>
+                                <a href="@Url.Action("PrintTaxVat", "ADPReceivePayment", new { id = item.ADPReceivePaymentId, type="word" })" class="btn btn-accent btn-xs">
+                                    <i class="fa fa-print"></i> ট্যাক্স/ভ্যাট প্রিন্ট word
                                 </a>
                             </td>
                         </tr>

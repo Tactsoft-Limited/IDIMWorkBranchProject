@@ -183,7 +183,7 @@
                     {
                         <tr>
                             <td>@item.MeetingTitle</td>
-                            <td>@item.MeetingDate</td>
+                            <td>@item.MeetingDate.ToShortDateString()</td>
                             <td>@item.NumberOfMeeting</td>
                             <td>@item.MeetingDocument</td>
                         </tr>
@@ -222,7 +222,7 @@
                         <tr>
                             <td>
                                 <a href="@Url.Action("Details", "ProjectWork", new { id = item.ProjectWorkId })">
-                                    @item.ProjectWorkTitle
+                                    @item.ProjectWorkTitleB
                                 </a>
                             </td>
                             <td>@item.FirmName</td>

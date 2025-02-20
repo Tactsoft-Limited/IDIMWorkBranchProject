@@ -27,10 +27,10 @@
     <header class="panel_header">
         <h2 class="title pull-left">List</h2>
         <div class="actions panel_actions pull-right">
-                <a href="@Url.Action("Create","RecruitmentCommittee")" class="btn btn-success"><i class="fa fa-plus"></i> নতুন নিয়োগ কমিটি যোগ করুন</a>
+            <a href="@Url.Action("Create","RecruitmentCommittee")" class="btn btn-success"><i class="fa fa-plus"></i> নতুন নিয়োগ কমিটি যোগ করুন</a>
 
-                <a class="box_toggle fa fa-chevron-down"></a>
-            </div>
+            <a class="box_toggle fa fa-chevron-down"></a>
+        </div>
     </header>
     <div class="content-body">
         <div class="row">
@@ -59,7 +59,7 @@
                     "data": function (d) {
                         // Manually create a JSON object for the POST request
                         return JSON.stringify({
-                            SearchValue: d.search.value,  // Global search term                            
+                            SearchValue: d.search.value,  // Global search term
                             Draw: d.draw,
                             PageIndex: d.start / d.length,  // Pagination: starting index
                             PageSize: d.length,  // Pagination: number of records per page
@@ -77,14 +77,10 @@
                     {
                         "data": "Name",
                         "title": "নাম",
-                        //"render": function (data, type, row) {
-                        //    // Assuming 'id' is the unique identifier for the project
-                        //    /*return `<a href="${baseUrl}/ADPProject/Details/${row.ADPProjectId}">${data}</a>`;*/
-                        //}
                     },
                     {
                         "data": "NameB",
-                        "title": "বাংলা নাম",                        
+                        "title": "বাংলা নাম",
                     },
                     {
                         "data": "Designation",
@@ -96,12 +92,12 @@
                     },
                     {
                         "data": "Title",
-                        "title": "শিরোনাম",                        
+                        "title": "শিরোনাম",
                     },
                     {
                         "data": "TitleB",
                         "title": "শিরোনাম বাংলায়",
-                    },                    
+                    },
                     {
                         "data": "Address",
                         "title": "ঠিকানা ",
@@ -111,12 +107,13 @@
                         "title": "ঠিকানা বাংলায়",
                     },
                     {
+                        "title": "Action",
+                        "orderable": false,
                         "render": function (data, type, row) {
-                         //Assuming 'id' is the unique identifier for the project
                             return `<a href="${baseUrl}/RecruitmentCommittee/Edit/${row.RecruitmentCommitteeId}" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square"></i> সংশোধন</a>
-                            <a href="${baseUrl}/RecruitmentCommittee/Delete/${row.RecruitmentCommitteeId}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> মুছুন</a>
-                            `;
-                    }
+                                <a href="${baseUrl}/RecruitmentCommittee/Delete/${row.RecruitmentCommitteeId}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> মুছুন</a>
+                                `;
+                        }
                     },
                 ]
             });
