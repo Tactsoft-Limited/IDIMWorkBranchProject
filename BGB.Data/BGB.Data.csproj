@@ -76,6 +76,7 @@
     <Compile Include="Entities\Wbpm\SignatoryAuthority.cs" />
     <Compile Include="Entities\Wbpm\RecruitmentCommittee.cs" />
     <Compile Include="Entities\Wbpm\TenderEvaluationCommittee.cs" />
+    <Compile Include="Entities\Wbpm\VatTaxCollateral.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlViews\Pm\ViewExtended.cs" />
     <Compile Include="SqlViews\Pm\ViewProjectBillPayment.cs" />

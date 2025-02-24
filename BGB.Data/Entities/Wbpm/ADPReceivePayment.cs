@@ -9,6 +9,11 @@ namespace BGB.Data.Entities.Wbpm
     [Table("ADPReceivePayment", Schema = "wbpm")]
     public class ADPReceivePayment : BaseEntity
     {
+        public ADPReceivePayment()
+        {
+            VatTaxCollaterals = new HashSet<VatTaxCollateral>();
+        }
+
 
         [Key]
         public int ADPReceivePaymentId { get; set; }
@@ -46,6 +51,7 @@ namespace BGB.Data.Entities.Wbpm
         public virtual ProjectWork ProjectWork { get; set; }
 
         public virtual ICollection<BGBMiscellaneousFund> BGBMiscellaneousFunds { get; set; }
+        public ICollection<VatTaxCollateral> VatTaxCollaterals { get; set; }
         #endregion
     }
 }
