@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BGB.Data.SqlViews.Wbpm
 {
-    [Table("VatTaxReport", Schema = "wbpm")]
+    [Table("ViewVatTaxReport", Schema = "wbpm")]
     public class ViewVatTaxReport
     {
         [Key]
@@ -18,6 +18,7 @@ namespace BGB.Data.SqlViews.Wbpm
         public string ProjectTitle { get; set; }
         public string ProjectWorkTitleB { get; set; }
         public string FirmNameB { get; set; }
+        public int BillNumber { get; set; }
         public double TaxPer { get; set; }
         public decimal TaxAmount { get; set; }
         public double VatPer { get; set; }

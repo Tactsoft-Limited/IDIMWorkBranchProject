@@ -160,7 +160,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 {
                     ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "VatTaxReport.rdlc"),
                     ReportType = type,
-                    DeviceInfo = new Extentions.ReportHelper.DeviceInfo(type).LegalPortrait(),
+                    DeviceInfo = new Extentions.ReportHelper.DeviceInfo(type).Portrait(),
                 };
 
                 return new ReportResult(config, reportDataSource);

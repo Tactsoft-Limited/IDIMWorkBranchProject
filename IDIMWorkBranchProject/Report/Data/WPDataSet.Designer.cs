@@ -1643,6 +1643,8 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             private global::System.Data.DataColumn columnTotalDeductionAmountInWord;
             
+            private global::System.Data.DataColumn columnBillNumber;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ViewVatTaxReportDataTable() {
@@ -1782,6 +1784,14 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BillNumberColumn {
+                get {
+                    return this.columnBillNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1817,7 +1827,7 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ViewVatTaxReportRow AddViewVatTaxReportRow(int ADPReceivePaymentId, string ProjectTitle, string ProjectWorkTitleB, string FirmNameB, double TaxPer, decimal TaxAmount, double VatPer, decimal VatAmount, double CollateralPer, decimal CollateralAmount, decimal BillPaidAmount, decimal TotalDeductionAmount, string TotalDeductionAmountInWord) {
+            public ViewVatTaxReportRow AddViewVatTaxReportRow(int ADPReceivePaymentId, string ProjectTitle, string ProjectWorkTitleB, string FirmNameB, double TaxPer, decimal TaxAmount, double VatPer, decimal VatAmount, double CollateralPer, decimal CollateralAmount, decimal BillPaidAmount, decimal TotalDeductionAmount, string TotalDeductionAmountInWord, int BillNumber) {
                 ViewVatTaxReportRow rowViewVatTaxReportRow = ((ViewVatTaxReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ADPReceivePaymentId,
@@ -1832,7 +1842,8 @@ namespace IDIMWorkBranchProject.Report.Data {
                         CollateralAmount,
                         BillPaidAmount,
                         TotalDeductionAmount,
-                        TotalDeductionAmountInWord};
+                        TotalDeductionAmountInWord,
+                        BillNumber};
                 rowViewVatTaxReportRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowViewVatTaxReportRow);
                 return rowViewVatTaxReportRow;
@@ -1875,6 +1886,7 @@ namespace IDIMWorkBranchProject.Report.Data {
                 this.columnBillPaidAmount = base.Columns["BillPaidAmount"];
                 this.columnTotalDeductionAmount = base.Columns["TotalDeductionAmount"];
                 this.columnTotalDeductionAmountInWord = base.Columns["TotalDeductionAmountInWord"];
+                this.columnBillNumber = base.Columns["BillNumber"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1906,6 +1918,8 @@ namespace IDIMWorkBranchProject.Report.Data {
                 base.Columns.Add(this.columnTotalDeductionAmount);
                 this.columnTotalDeductionAmountInWord = new global::System.Data.DataColumn("TotalDeductionAmountInWord", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalDeductionAmountInWord);
+                this.columnBillNumber = new global::System.Data.DataColumn("BillNumber", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBillNumber);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnADPReceivePaymentId}, true));
                 this.columnADPReceivePaymentId.AllowDBNull = false;
@@ -1924,6 +1938,7 @@ namespace IDIMWorkBranchProject.Report.Data {
                 this.columnBillPaidAmount.AllowDBNull = false;
                 this.columnTotalDeductionAmount.AllowDBNull = false;
                 this.columnTotalDeductionAmountInWord.MaxLength = 500;
+                this.columnBillNumber.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3352,6 +3367,17 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int BillNumber {
+                get {
+                    return ((int)(this[this.tableViewVatTaxReport.BillNumberColumn]));
+                }
+                set {
+                    this[this.tableViewVatTaxReport.BillNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsProjectWorkTitleBNull() {
                 return this.IsNull(this.tableViewVatTaxReport.ProjectWorkTitleBColumn);
             }
@@ -3996,6 +4022,7 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("BillPaidAmount", "BillPaidAmount");
             tableMapping.ColumnMappings.Add("TotalDeductionAmount", "TotalDeductionAmount");
             tableMapping.ColumnMappings.Add("TotalDeductionAmountInWord", "TotalDeductionAmountInWord");
+            tableMapping.ColumnMappings.Add("BillNumber", "BillNumber");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -4003,7 +4030,7 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::Microsoft.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["IDIMDBConnectionString"].ConnectionString;
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["IDIMDBEntities"].ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
