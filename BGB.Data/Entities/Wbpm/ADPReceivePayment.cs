@@ -34,14 +34,6 @@ namespace BGB.Data.Entities.Wbpm
         public double? TotalReceivePer { get; set; }
         public decimal? TotalReceiveAmount { get; set; }
         public string TotalReceiveAmountInWord { get; set; }
-        public double TaxPer { get; set; }
-        public decimal TaxAmount { get; set; }
-        public double VatPer { get; set; }
-        public decimal VatAmount { get; set; }
-        public double CollateralPer { get; set; }
-        public decimal CollateralAmount { get; set; }
-        public decimal TotalDeductionAmount { get; set; }
-        public decimal DepositInBGBFund { get; set; }
         public bool IsDepositeBGBFund { get; set; }
         public string Remarks { get; set; }
 

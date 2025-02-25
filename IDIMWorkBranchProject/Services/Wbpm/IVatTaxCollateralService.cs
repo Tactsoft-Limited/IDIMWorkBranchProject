@@ -10,5 +10,6 @@ namespace IDIMWorkBranchProject.Services.Wbpm
 {
     public interface IVatTaxCollateralService : IBaseService<VatTaxCollateral>
     {
+        Task<VatTaxCollateral> GetByADPPaymentReceiveIdAsync(int id);
     }
 }
