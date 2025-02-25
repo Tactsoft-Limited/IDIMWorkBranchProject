@@ -14,6 +14,9 @@ namespace IDIMWorkBranchProject
         public MapperConfig()
         {
             #region Wbpm
+            CreateMap<VatTaxCollateralVm, VatTaxCollateral>();
+            CreateMap<VatTaxCollateral, VatTaxCollateralVm>();
+
             CreateMap<SignatoryAuthorityVm, SignatoryAuthority>();
             CreateMap<SignatoryAuthority, SignatoryAuthorityVm>();
 

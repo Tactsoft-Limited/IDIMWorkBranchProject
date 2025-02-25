@@ -76,6 +76,7 @@
     <Compile Include="Entities\Wbpm\SignatoryAuthority.cs" />
     <Compile Include="Entities\Wbpm\RecruitmentCommittee.cs" />
     <Compile Include="Entities\Wbpm\TenderEvaluationCommittee.cs" />
+    <Compile Include="Entities\Wbpm\VatTaxCollateral.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlViews\Pm\ViewExtended.cs" />
     <Compile Include="SqlViews\Pm\ViewProjectBillPayment.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="SqlViews\Pm\ViewProjectWiseSubProjectRpt.cs" />
     <Compile Include="SqlViews\Wbpm\ViewADPReceivePayment.cs" />
     <Compile Include="SqlViews\Wbpm\ViewContactAgreement.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewVatTaxReport.cs" />
     <Compile Include="StoreProcedure\dbo\Deposit_GetSingleDetailsResult.cs" />
     <Compile Include="StoreProcedure\dbo\DirectReceived_GetDetailsWithItemsDboResult.cs" />
     <Compile Include="StoreProcedure\dbo\DirectReceived_GetSingleDetailsDboResult.cs" />
