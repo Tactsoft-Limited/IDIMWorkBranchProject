@@ -30,5 +30,10 @@ namespace IDIMWorkBranchProject.Services.Report
         {
             return await _context.ViewContactAgreements.Where(x => x.ProjectWorkId == id).ToListAsync();
         }
+
+        public async Task<List<ViewVatTaxReport>> GetVatTaxAsync(int id)
+        {
+            return await _context.ViewVatTaxReports.Where(x => x.ADPReceivePaymentId == id).ToListAsync();
+        }
     }
 }

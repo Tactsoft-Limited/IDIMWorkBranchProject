@@ -158,6 +158,7 @@ namespace IDIMWorkBranchProject.Data.Database
         public DbSet<ContractAgreement> ContractAgreements { get; set; }
         public virtual DbSet<SignatoryAuthority> SignatoryAuthorities { get; set; }
         public virtual DbSet<TenderEvaluationCommittee> TenderEvaluationCommittees { get; set; }
+        public virtual DbSet<VatTaxCollateral> VatTaxCollaterals { get; set; }
         #endregion
 
         public virtual DbSet<IrmsSetupLocation> SetupLocations { get; set; }
@@ -175,6 +176,7 @@ namespace IDIMWorkBranchProject.Data.Database
         public virtual DbSet<ViewProjectProblem> ViewProjectProblems { get; set; }
         public virtual DbSet<ViewADPReceivePayment> ViewADPReceivePayments { get; set; }
         public virtual DbSet<ViewContactAgreement> ViewContactAgreements { get; set; }
+        public virtual DbSet<ViewVatTaxReport> ViewVatTaxReports { get; set; }
         public virtual DbSet<RecruitmentCommittee> RecruitmentCommittees { get; set; }
     }
 }
