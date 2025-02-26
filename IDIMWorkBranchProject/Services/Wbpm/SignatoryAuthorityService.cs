@@ -68,14 +68,12 @@ namespace IDIMWorkBranchProject.Services.Wbpm
 
         public async Task<IEnumerable<SelectListItem>> GetDropdownAsync(int? selected = 0)
         {
-            var projects = await _context.SignatoryAuthorities.ToListAsync();
-
-            return projects.Select(e => new SelectListItem
+            return await _context.SignatoryAuthorities.Select(e => new SelectListItem
             {
                 Text = e.AuthorityName,
                 Value = e.SignatoryAuthorityId.ToString(),
                 Selected = e.SignatoryAuthorityId == selected
-            });
+            }).ToListAsync();
         }
 
 
@@ -109,7 +107,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
                     AuthorityNameB = x.AuthorityNameB,
                     Designation = x.Designation,
                     DesignationB = x.DesignationB,
-                   
+
                 })
             };
 
