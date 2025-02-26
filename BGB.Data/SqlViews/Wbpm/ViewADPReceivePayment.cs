@@ -26,8 +26,6 @@ namespace BGB.Data.SqlViews.Wbpm
         public double? TotalReceivePer { get; set; }
         public decimal? TotalReceiveAmount { get; set; }
         public string TotalReceiveAmountInWord { get; set; }
-        public decimal TotalDeductionAmount { get; set; }
-        public decimal DepositInBGBFund { get; set; }
         public string FirmNameB { get; set; }
         public string FirmName { get; set; }
         public string ProjectWorkTitleB { get; set; }

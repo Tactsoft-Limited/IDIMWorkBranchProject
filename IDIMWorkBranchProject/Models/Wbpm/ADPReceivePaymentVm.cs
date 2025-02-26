@@ -68,30 +68,6 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("মোট পরিশোধ অর্থ (কথায়)")]
         public string TotalReceiveAmountInWord { get; set; }
 
-        [DisplayName("ট্যাক্স (%)")]
-        public double TaxPer { get; set; }
-
-        [DisplayName("ট্যাক্স পরিমাণ")]
-        public decimal TaxAmount { get; set; }
-
-        [DisplayName("ভ্যাট (%)")]
-        public double VatPer { get; set; }
-
-        [DisplayName("ভ্যাট পরিমাণ")]
-        public decimal VatAmount { get; set; }
-
-        [DisplayName("জামানত (%)")]
-        public double CollateralPer { get; set; }
-
-        [DisplayName("জামানত পরিমাণ")]
-        public decimal CollateralAmount { get; set; }
-
-        [DisplayName("মোট কর্তনের পরিমাণ")]
-        public decimal TotalDeductionAmount { get; set; }
-
-        [DisplayName("বিবিধ ফান্ডে জমা")]
-        public decimal DepositInBGBFund { get; set; }
-
         [DisplayName("বিবিধ ফান্ডে জমা করা হয়েছে?")]
         public bool IsDepositeBGBFund { get; set; }
 

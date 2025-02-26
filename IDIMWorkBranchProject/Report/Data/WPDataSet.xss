@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:ViewADPReceivePayments" ZOrder="3" X="30" Y="20" Height="425" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="358" />
     <Shape ID="DesignTable:ViewContactAgreement" ZOrder="2" X="345" Y="19" Height="425" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="358" />
-    <Shape ID="DesignTable:ViewVatTaxReport" ZOrder="1" X="659" Y="22" Height="365" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
+    <Shape ID="DesignTable:ViewVatTaxReport" ZOrder="1" X="672" Y="26" Height="365" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
   </Shapes>
   <Connectors />
 </DiagramLayout>
