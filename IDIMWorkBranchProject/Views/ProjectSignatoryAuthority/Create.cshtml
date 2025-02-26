@@ -1,0 +1,102 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model ProjectSignatoryAuthorityVm
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="page-title">
+    <div class="pull-left">
+        <h3 class="title">প্রকল্প স্বাক্ষরকারী</h3>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","ProjectSignatoryAuthority")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Signatory Authority
+                </a>
+            </li>
+            <li class="active">
+                <strong>Signatory Authority </strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<section class="box">
+    <header class="panel_header">
+        <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("List","ProjectSignatoryAuthority")" class="btn">
+                <i class="fa fa-list" aria-hidden="true"></i>
+                List
+            </a>
+        </div>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("Create", "ProjectSignatoryAuthority", FormMethod.Post, new { enctype = "multipart/form-data", id = "ProjectSignatoryAuthority-create-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.ProjectSignatoryAuthorityId)
+                    @Html.HiddenFor(x => x.ADPProjectId)
+
+                    <div class="row">
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ADPProjectId, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ADPProjectTitle, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.HeadAssistant, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.HeadAssistant, Model.HeadAssistantDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.HeadAssistant)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ConcernedEngineer, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.DropDownListFor(m => m.ConcernedEngineer, Model.ConcernedEngineerDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.ConcernedEngineer)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.SectionICT, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.SectionICT, Model.SectionICTDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.SectionICT)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.BranchClerk, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.DropDownListFor(m => m.BranchClerk, Model.BranchClerkDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.BranchClerk)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
