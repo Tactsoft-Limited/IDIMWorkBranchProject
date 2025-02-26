@@ -3,6 +3,7 @@ using BGB.Data.Entities.Admin;
 using BGB.Data.Entities.Budget;
 using BGB.Data.Entities.Irms;
 using BGB.Data.Entities.Wbpm;
+using BGB.Data.SqlViews.Wbpm;
 using IDIMWorkBranchProject.Models.Setup;
 using IDIMWorkBranchProject.Models.User;
 using IDIMWorkBranchProject.Models.Wbpm;
@@ -14,8 +15,9 @@ namespace IDIMWorkBranchProject
         public MapperConfig()
         {
             #region Wbpm
+
             CreateMap<VatTaxCollateralVm, VatTaxCollateral>();
-            CreateMap<VatTaxCollateral, VatTaxCollateralVm>();
+            CreateMap<VatTaxCollateral, VatTaxCollateralVm>();           
 
             CreateMap<SignatoryAuthorityVm, SignatoryAuthority>();
             CreateMap<SignatoryAuthority, SignatoryAuthorityVm>();

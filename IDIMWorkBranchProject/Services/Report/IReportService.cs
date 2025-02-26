@@ -9,7 +9,7 @@ namespace IDIMWorkBranchProject.Services.Report
     public interface IReportService
     {
         Task<List<ViewADPReceivePayment>> GetADPReceivePaymenAsync(int id);
-        Task<List<VatTaxCollateralVm>> GetVatTaxAsync(int id);
+        Task<List<ViewVatTaxReport>> GetVatTaxAsync(int id);
         Task<List<ViewContactAgreement>> GetContractAgreementAsync(int id);
     }
 }

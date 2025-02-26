@@ -58,7 +58,16 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
             if (data != null)
             {
-                model.VatTaxCollateralId = data.VatTaxCollateralId;                          
+                model.VatTaxCollateralId = data.VatTaxCollateralId;  
+                model.TaxPer = data.TaxPer;
+                model.TaxAmount = data.TaxAmount;
+                model.VatPer = data.VatPer;
+                model.VatAmount = data.VatAmount;
+                model.CollateralPer = data.CollateralPer;
+                model.CollateralAmount = data.CollateralAmount;
+                model.NeetAmount = data.NeetAmount;
+                model.NeetAmountInWord = data.NeetAmountInWord;
+                model.TotalDeductionAmount= data.TotalDeductionAmount;
                 model.AllocatedAmountLetterNo = data.AllocatedAmountLetterNo;
                 model.AllocatedAmountTillNow = data.AllocatedAmountTillNow;
                 model.VoucherNo = data.VoucherNo;

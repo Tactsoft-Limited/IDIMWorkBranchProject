@@ -1617,6 +1617,8 @@ namespace IDIMWorkBranchProject.Report.Data {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ViewVatTaxReportDataTable : global::System.Data.TypedTableBase<ViewVatTaxReportRow> {
             
+            private global::System.Data.DataColumn columnVatTaxCollateralId;
+            
             private global::System.Data.DataColumn columnADPReceivePaymentId;
             
             private global::System.Data.DataColumn columnProjectTitle;
@@ -1624,6 +1626,10 @@ namespace IDIMWorkBranchProject.Report.Data {
             private global::System.Data.DataColumn columnProjectWorkTitleB;
             
             private global::System.Data.DataColumn columnFirmNameB;
+            
+            private global::System.Data.DataColumn columnBillPaidAmount;
+            
+            private global::System.Data.DataColumn columnBillNumber;
             
             private global::System.Data.DataColumn columnTaxPer;
             
@@ -1637,13 +1643,43 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             private global::System.Data.DataColumn columnCollateralAmount;
             
-            private global::System.Data.DataColumn columnBillPaidAmount;
-            
             private global::System.Data.DataColumn columnTotalDeductionAmount;
             
-            private global::System.Data.DataColumn columnTotalDeductionAmountInWord;
+            private global::System.Data.DataColumn columnNeetAmount;
             
-            private global::System.Data.DataColumn columnBillNumber;
+            private global::System.Data.DataColumn columnNeetAmountInWord;
+            
+            private global::System.Data.DataColumn columnCodeNo;
+            
+            private global::System.Data.DataColumn columnEconomicCode;
+            
+            private global::System.Data.DataColumn columnVoucherNo;
+            
+            private global::System.Data.DataColumn columnBillSubmissionNo;
+            
+            private global::System.Data.DataColumn columnBillSubmissionDate;
+            
+            private global::System.Data.DataColumn columnLastBillAmount;
+            
+            private global::System.Data.DataColumn columnAllocatedAmountTillNow;
+            
+            private global::System.Data.DataColumn columnAllocatedAmountLetterNo;
+            
+            private global::System.Data.DataColumn columnReducedAllocatedAmountTillNow;
+            
+            private global::System.Data.DataColumn columnReducedAllocatedAmountLetterNo;
+            
+            private global::System.Data.DataColumn columnNetTotalAmount;
+            
+            private global::System.Data.DataColumn columnLastBillTotalBalance;
+            
+            private global::System.Data.DataColumn columnCurrentBillTotalBalance;
+            
+            private global::System.Data.DataColumn columnRelatedWorkBillAmount;
+            
+            private global::System.Data.DataColumn columnTotalAmount;
+            
+            private global::System.Data.DataColumn columnTotalDeductionAmountInWord;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1680,6 +1716,14 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn VatTaxCollateralIdColumn {
+                get {
+                    return this.columnVatTaxCollateralId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn ADPReceivePaymentIdColumn {
                 get {
                     return this.columnADPReceivePaymentId;
@@ -1707,6 +1751,22 @@ namespace IDIMWorkBranchProject.Report.Data {
             public global::System.Data.DataColumn FirmNameBColumn {
                 get {
                     return this.columnFirmNameB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BillPaidAmountColumn {
+                get {
+                    return this.columnBillPaidAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BillNumberColumn {
+                get {
+                    return this.columnBillNumber;
                 }
             }
             
@@ -1760,14 +1820,6 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BillPaidAmountColumn {
-                get {
-                    return this.columnBillPaidAmount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn TotalDeductionAmountColumn {
                 get {
                     return this.columnTotalDeductionAmount;
@@ -1776,17 +1828,145 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TotalDeductionAmountInWordColumn {
+            public global::System.Data.DataColumn NeetAmountColumn {
                 get {
-                    return this.columnTotalDeductionAmountInWord;
+                    return this.columnNeetAmount;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BillNumberColumn {
+            public global::System.Data.DataColumn NeetAmountInWordColumn {
                 get {
-                    return this.columnBillNumber;
+                    return this.columnNeetAmountInWord;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CodeNoColumn {
+                get {
+                    return this.columnCodeNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn EconomicCodeColumn {
+                get {
+                    return this.columnEconomicCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn VoucherNoColumn {
+                get {
+                    return this.columnVoucherNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BillSubmissionNoColumn {
+                get {
+                    return this.columnBillSubmissionNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BillSubmissionDateColumn {
+                get {
+                    return this.columnBillSubmissionDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LastBillAmountColumn {
+                get {
+                    return this.columnLastBillAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AllocatedAmountTillNowColumn {
+                get {
+                    return this.columnAllocatedAmountTillNow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AllocatedAmountLetterNoColumn {
+                get {
+                    return this.columnAllocatedAmountLetterNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ReducedAllocatedAmountTillNowColumn {
+                get {
+                    return this.columnReducedAllocatedAmountTillNow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ReducedAllocatedAmountLetterNoColumn {
+                get {
+                    return this.columnReducedAllocatedAmountLetterNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NetTotalAmountColumn {
+                get {
+                    return this.columnNetTotalAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LastBillTotalBalanceColumn {
+                get {
+                    return this.columnLastBillTotalBalance;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CurrentBillTotalBalanceColumn {
+                get {
+                    return this.columnCurrentBillTotalBalance;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RelatedWorkBillAmountColumn {
+                get {
+                    return this.columnRelatedWorkBillAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TotalAmountColumn {
+                get {
+                    return this.columnTotalAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TotalDeductionAmountInWordColumn {
+                get {
+                    return this.columnTotalDeductionAmountInWord;
                 }
             }
             
@@ -1827,33 +2007,76 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ViewVatTaxReportRow AddViewVatTaxReportRow(int ADPReceivePaymentId, string ProjectTitle, string ProjectWorkTitleB, string FirmNameB, double TaxPer, decimal TaxAmount, double VatPer, decimal VatAmount, double CollateralPer, decimal CollateralAmount, decimal BillPaidAmount, decimal TotalDeductionAmount, string TotalDeductionAmountInWord, int BillNumber) {
+            public ViewVatTaxReportRow AddViewVatTaxReportRow(
+                        int VatTaxCollateralId, 
+                        int ADPReceivePaymentId, 
+                        string ProjectTitle, 
+                        string ProjectWorkTitleB, 
+                        string FirmNameB, 
+                        decimal BillPaidAmount, 
+                        int BillNumber, 
+                        double TaxPer, 
+                        decimal TaxAmount, 
+                        double VatPer, 
+                        decimal VatAmount, 
+                        double CollateralPer, 
+                        decimal CollateralAmount, 
+                        decimal TotalDeductionAmount, 
+                        decimal NeetAmount, 
+                        string NeetAmountInWord, 
+                        string CodeNo, 
+                        string EconomicCode, 
+                        string VoucherNo, 
+                        int BillSubmissionNo, 
+                        System.DateTime BillSubmissionDate, 
+                        decimal LastBillAmount, 
+                        decimal AllocatedAmountTillNow, 
+                        string AllocatedAmountLetterNo, 
+                        decimal ReducedAllocatedAmountTillNow, 
+                        string ReducedAllocatedAmountLetterNo, 
+                        decimal NetTotalAmount, 
+                        decimal LastBillTotalBalance, 
+                        decimal CurrentBillTotalBalance, 
+                        decimal RelatedWorkBillAmount, 
+                        decimal TotalAmount, 
+                        string TotalDeductionAmountInWord) {
                 ViewVatTaxReportRow rowViewVatTaxReportRow = ((ViewVatTaxReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        VatTaxCollateralId,
                         ADPReceivePaymentId,
                         ProjectTitle,
                         ProjectWorkTitleB,
                         FirmNameB,
+                        BillPaidAmount,
+                        BillNumber,
                         TaxPer,
                         TaxAmount,
                         VatPer,
                         VatAmount,
                         CollateralPer,
                         CollateralAmount,
-                        BillPaidAmount,
                         TotalDeductionAmount,
-                        TotalDeductionAmountInWord,
-                        BillNumber};
+                        NeetAmount,
+                        NeetAmountInWord,
+                        CodeNo,
+                        EconomicCode,
+                        VoucherNo,
+                        BillSubmissionNo,
+                        BillSubmissionDate,
+                        LastBillAmount,
+                        AllocatedAmountTillNow,
+                        AllocatedAmountLetterNo,
+                        ReducedAllocatedAmountTillNow,
+                        ReducedAllocatedAmountLetterNo,
+                        NetTotalAmount,
+                        LastBillTotalBalance,
+                        CurrentBillTotalBalance,
+                        RelatedWorkBillAmount,
+                        TotalAmount,
+                        TotalDeductionAmountInWord};
                 rowViewVatTaxReportRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowViewVatTaxReportRow);
                 return rowViewVatTaxReportRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ViewVatTaxReportRow FindByADPReceivePaymentId(int ADPReceivePaymentId) {
-                return ((ViewVatTaxReportRow)(this.Rows.Find(new object[] {
-                            ADPReceivePaymentId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1873,25 +2096,45 @@ namespace IDIMWorkBranchProject.Report.Data {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
+                this.columnVatTaxCollateralId = base.Columns["VatTaxCollateralId"];
                 this.columnADPReceivePaymentId = base.Columns["ADPReceivePaymentId"];
                 this.columnProjectTitle = base.Columns["ProjectTitle"];
                 this.columnProjectWorkTitleB = base.Columns["ProjectWorkTitleB"];
                 this.columnFirmNameB = base.Columns["FirmNameB"];
+                this.columnBillPaidAmount = base.Columns["BillPaidAmount"];
+                this.columnBillNumber = base.Columns["BillNumber"];
                 this.columnTaxPer = base.Columns["TaxPer"];
                 this.columnTaxAmount = base.Columns["TaxAmount"];
                 this.columnVatPer = base.Columns["VatPer"];
                 this.columnVatAmount = base.Columns["VatAmount"];
                 this.columnCollateralPer = base.Columns["CollateralPer"];
                 this.columnCollateralAmount = base.Columns["CollateralAmount"];
-                this.columnBillPaidAmount = base.Columns["BillPaidAmount"];
                 this.columnTotalDeductionAmount = base.Columns["TotalDeductionAmount"];
+                this.columnNeetAmount = base.Columns["NeetAmount"];
+                this.columnNeetAmountInWord = base.Columns["NeetAmountInWord"];
+                this.columnCodeNo = base.Columns["CodeNo"];
+                this.columnEconomicCode = base.Columns["EconomicCode"];
+                this.columnVoucherNo = base.Columns["VoucherNo"];
+                this.columnBillSubmissionNo = base.Columns["BillSubmissionNo"];
+                this.columnBillSubmissionDate = base.Columns["BillSubmissionDate"];
+                this.columnLastBillAmount = base.Columns["LastBillAmount"];
+                this.columnAllocatedAmountTillNow = base.Columns["AllocatedAmountTillNow"];
+                this.columnAllocatedAmountLetterNo = base.Columns["AllocatedAmountLetterNo"];
+                this.columnReducedAllocatedAmountTillNow = base.Columns["ReducedAllocatedAmountTillNow"];
+                this.columnReducedAllocatedAmountLetterNo = base.Columns["ReducedAllocatedAmountLetterNo"];
+                this.columnNetTotalAmount = base.Columns["NetTotalAmount"];
+                this.columnLastBillTotalBalance = base.Columns["LastBillTotalBalance"];
+                this.columnCurrentBillTotalBalance = base.Columns["CurrentBillTotalBalance"];
+                this.columnRelatedWorkBillAmount = base.Columns["RelatedWorkBillAmount"];
+                this.columnTotalAmount = base.Columns["TotalAmount"];
                 this.columnTotalDeductionAmountInWord = base.Columns["TotalDeductionAmountInWord"];
-                this.columnBillNumber = base.Columns["BillNumber"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
+                this.columnVatTaxCollateralId = new global::System.Data.DataColumn("VatTaxCollateralId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVatTaxCollateralId);
                 this.columnADPReceivePaymentId = new global::System.Data.DataColumn("ADPReceivePaymentId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnADPReceivePaymentId);
                 this.columnProjectTitle = new global::System.Data.DataColumn("ProjectTitle", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1900,6 +2143,10 @@ namespace IDIMWorkBranchProject.Report.Data {
                 base.Columns.Add(this.columnProjectWorkTitleB);
                 this.columnFirmNameB = new global::System.Data.DataColumn("FirmNameB", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFirmNameB);
+                this.columnBillPaidAmount = new global::System.Data.DataColumn("BillPaidAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBillPaidAmount);
+                this.columnBillNumber = new global::System.Data.DataColumn("BillNumber", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBillNumber);
                 this.columnTaxPer = new global::System.Data.DataColumn("TaxPer", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTaxPer);
                 this.columnTaxAmount = new global::System.Data.DataColumn("TaxAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -1912,33 +2159,60 @@ namespace IDIMWorkBranchProject.Report.Data {
                 base.Columns.Add(this.columnCollateralPer);
                 this.columnCollateralAmount = new global::System.Data.DataColumn("CollateralAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCollateralAmount);
-                this.columnBillPaidAmount = new global::System.Data.DataColumn("BillPaidAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBillPaidAmount);
                 this.columnTotalDeductionAmount = new global::System.Data.DataColumn("TotalDeductionAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalDeductionAmount);
+                this.columnNeetAmount = new global::System.Data.DataColumn("NeetAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNeetAmount);
+                this.columnNeetAmountInWord = new global::System.Data.DataColumn("NeetAmountInWord", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNeetAmountInWord);
+                this.columnCodeNo = new global::System.Data.DataColumn("CodeNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCodeNo);
+                this.columnEconomicCode = new global::System.Data.DataColumn("EconomicCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEconomicCode);
+                this.columnVoucherNo = new global::System.Data.DataColumn("VoucherNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVoucherNo);
+                this.columnBillSubmissionNo = new global::System.Data.DataColumn("BillSubmissionNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBillSubmissionNo);
+                this.columnBillSubmissionDate = new global::System.Data.DataColumn("BillSubmissionDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBillSubmissionDate);
+                this.columnLastBillAmount = new global::System.Data.DataColumn("LastBillAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastBillAmount);
+                this.columnAllocatedAmountTillNow = new global::System.Data.DataColumn("AllocatedAmountTillNow", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAllocatedAmountTillNow);
+                this.columnAllocatedAmountLetterNo = new global::System.Data.DataColumn("AllocatedAmountLetterNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAllocatedAmountLetterNo);
+                this.columnReducedAllocatedAmountTillNow = new global::System.Data.DataColumn("ReducedAllocatedAmountTillNow", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReducedAllocatedAmountTillNow);
+                this.columnReducedAllocatedAmountLetterNo = new global::System.Data.DataColumn("ReducedAllocatedAmountLetterNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReducedAllocatedAmountLetterNo);
+                this.columnNetTotalAmount = new global::System.Data.DataColumn("NetTotalAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNetTotalAmount);
+                this.columnLastBillTotalBalance = new global::System.Data.DataColumn("LastBillTotalBalance", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastBillTotalBalance);
+                this.columnCurrentBillTotalBalance = new global::System.Data.DataColumn("CurrentBillTotalBalance", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCurrentBillTotalBalance);
+                this.columnRelatedWorkBillAmount = new global::System.Data.DataColumn("RelatedWorkBillAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRelatedWorkBillAmount);
+                this.columnTotalAmount = new global::System.Data.DataColumn("TotalAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalAmount);
                 this.columnTotalDeductionAmountInWord = new global::System.Data.DataColumn("TotalDeductionAmountInWord", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalDeductionAmountInWord);
-                this.columnBillNumber = new global::System.Data.DataColumn("BillNumber", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBillNumber);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnADPReceivePaymentId}, true));
+                this.columnVatTaxCollateralId.AllowDBNull = false;
                 this.columnADPReceivePaymentId.AllowDBNull = false;
-                this.columnADPReceivePaymentId.Unique = true;
                 this.columnProjectTitle.AllowDBNull = false;
                 this.columnProjectTitle.MaxLength = 500;
                 this.columnProjectWorkTitleB.MaxLength = 500;
                 this.columnFirmNameB.AllowDBNull = false;
                 this.columnFirmNameB.MaxLength = 200;
-                this.columnTaxPer.AllowDBNull = false;
-                this.columnTaxAmount.AllowDBNull = false;
-                this.columnVatPer.AllowDBNull = false;
-                this.columnVatAmount.AllowDBNull = false;
-                this.columnCollateralPer.AllowDBNull = false;
-                this.columnCollateralAmount.AllowDBNull = false;
                 this.columnBillPaidAmount.AllowDBNull = false;
-                this.columnTotalDeductionAmount.AllowDBNull = false;
-                this.columnTotalDeductionAmountInWord.MaxLength = 500;
                 this.columnBillNumber.AllowDBNull = false;
+                this.columnNeetAmountInWord.MaxLength = 500;
+                this.columnCodeNo.MaxLength = 50;
+                this.columnEconomicCode.MaxLength = 150;
+                this.columnVoucherNo.MaxLength = 150;
+                this.columnAllocatedAmountLetterNo.MaxLength = 100;
+                this.columnReducedAllocatedAmountLetterNo.MaxLength = 100;
+                this.columnTotalDeductionAmountInWord.MaxLength = 500;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3213,6 +3487,17 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int VatTaxCollateralId {
+                get {
+                    return ((int)(this[this.tableViewVatTaxReport.VatTaxCollateralIdColumn]));
+                }
+                set {
+                    this[this.tableViewVatTaxReport.VatTaxCollateralIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int ADPReceivePaymentId {
                 get {
                     return ((int)(this[this.tableViewVatTaxReport.ADPReceivePaymentIdColumn]));
@@ -3262,72 +3547,6 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double TaxPer {
-                get {
-                    return ((double)(this[this.tableViewVatTaxReport.TaxPerColumn]));
-                }
-                set {
-                    this[this.tableViewVatTaxReport.TaxPerColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal TaxAmount {
-                get {
-                    return ((decimal)(this[this.tableViewVatTaxReport.TaxAmountColumn]));
-                }
-                set {
-                    this[this.tableViewVatTaxReport.TaxAmountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double VatPer {
-                get {
-                    return ((double)(this[this.tableViewVatTaxReport.VatPerColumn]));
-                }
-                set {
-                    this[this.tableViewVatTaxReport.VatPerColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal VatAmount {
-                get {
-                    return ((decimal)(this[this.tableViewVatTaxReport.VatAmountColumn]));
-                }
-                set {
-                    this[this.tableViewVatTaxReport.VatAmountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double CollateralPer {
-                get {
-                    return ((double)(this[this.tableViewVatTaxReport.CollateralPerColumn]));
-                }
-                set {
-                    this[this.tableViewVatTaxReport.CollateralPerColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal CollateralAmount {
-                get {
-                    return ((decimal)(this[this.tableViewVatTaxReport.CollateralAmountColumn]));
-                }
-                set {
-                    this[this.tableViewVatTaxReport.CollateralAmountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal BillPaidAmount {
                 get {
                     return ((decimal)(this[this.tableViewVatTaxReport.BillPaidAmountColumn]));
@@ -3339,12 +3558,404 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int BillNumber {
+                get {
+                    return ((int)(this[this.tableViewVatTaxReport.BillNumberColumn]));
+                }
+                set {
+                    this[this.tableViewVatTaxReport.BillNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double TaxPer {
+                get {
+                    try {
+                        return ((double)(this[this.tableViewVatTaxReport.TaxPerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TaxPer\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.TaxPerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal TaxAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewVatTaxReport.TaxAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TaxAmount\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.TaxAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double VatPer {
+                get {
+                    try {
+                        return ((double)(this[this.tableViewVatTaxReport.VatPerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VatPer\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.VatPerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal VatAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewVatTaxReport.VatAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VatAmount\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.VatAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double CollateralPer {
+                get {
+                    try {
+                        return ((double)(this[this.tableViewVatTaxReport.CollateralPerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CollateralPer\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.CollateralPerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal CollateralAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewVatTaxReport.CollateralAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CollateralAmount\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.CollateralAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal TotalDeductionAmount {
                 get {
-                    return ((decimal)(this[this.tableViewVatTaxReport.TotalDeductionAmountColumn]));
+                    try {
+                        return ((decimal)(this[this.tableViewVatTaxReport.TotalDeductionAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalDeductionAmount\' in table \'ViewVatTaxReport\' is DBNull" +
+                                ".", e);
+                    }
                 }
                 set {
                     this[this.tableViewVatTaxReport.TotalDeductionAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NeetAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewVatTaxReport.NeetAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NeetAmount\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.NeetAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string NeetAmountInWord {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewVatTaxReport.NeetAmountInWordColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NeetAmountInWord\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.NeetAmountInWordColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CodeNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewVatTaxReport.CodeNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CodeNo\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.CodeNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string EconomicCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewVatTaxReport.EconomicCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EconomicCode\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.EconomicCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string VoucherNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewVatTaxReport.VoucherNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VoucherNo\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.VoucherNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int BillSubmissionNo {
+                get {
+                    try {
+                        return ((int)(this[this.tableViewVatTaxReport.BillSubmissionNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BillSubmissionNo\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.BillSubmissionNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime BillSubmissionDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableViewVatTaxReport.BillSubmissionDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BillSubmissionDate\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.BillSubmissionDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal LastBillAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewVatTaxReport.LastBillAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastBillAmount\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.LastBillAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal AllocatedAmountTillNow {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewVatTaxReport.AllocatedAmountTillNowColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AllocatedAmountTillNow\' in table \'ViewVatTaxReport\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.AllocatedAmountTillNowColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string AllocatedAmountLetterNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewVatTaxReport.AllocatedAmountLetterNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AllocatedAmountLetterNo\' in table \'ViewVatTaxReport\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.AllocatedAmountLetterNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal ReducedAllocatedAmountTillNow {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewVatTaxReport.ReducedAllocatedAmountTillNowColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ReducedAllocatedAmountTillNow\' in table \'ViewVatTaxReport\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.ReducedAllocatedAmountTillNowColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ReducedAllocatedAmountLetterNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewVatTaxReport.ReducedAllocatedAmountLetterNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ReducedAllocatedAmountLetterNo\' in table \'ViewVatTaxReport\'" +
+                                " is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.ReducedAllocatedAmountLetterNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NetTotalAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewVatTaxReport.NetTotalAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NetTotalAmount\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.NetTotalAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal LastBillTotalBalance {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewVatTaxReport.LastBillTotalBalanceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastBillTotalBalance\' in table \'ViewVatTaxReport\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.LastBillTotalBalanceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal CurrentBillTotalBalance {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewVatTaxReport.CurrentBillTotalBalanceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CurrentBillTotalBalance\' in table \'ViewVatTaxReport\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.CurrentBillTotalBalanceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal RelatedWorkBillAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewVatTaxReport.RelatedWorkBillAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RelatedWorkBillAmount\' in table \'ViewVatTaxReport\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.RelatedWorkBillAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal TotalAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewVatTaxReport.TotalAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAmount\' in table \'ViewVatTaxReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewVatTaxReport.TotalAmountColumn] = value;
                 }
             }
             
@@ -3367,17 +3978,6 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int BillNumber {
-                get {
-                    return ((int)(this[this.tableViewVatTaxReport.BillNumberColumn]));
-                }
-                set {
-                    this[this.tableViewVatTaxReport.BillNumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsProjectWorkTitleBNull() {
                 return this.IsNull(this.tableViewVatTaxReport.ProjectWorkTitleBColumn);
             }
@@ -3386,6 +3986,294 @@ namespace IDIMWorkBranchProject.Report.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetProjectWorkTitleBNull() {
                 this[this.tableViewVatTaxReport.ProjectWorkTitleBColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTaxPerNull() {
+                return this.IsNull(this.tableViewVatTaxReport.TaxPerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTaxPerNull() {
+                this[this.tableViewVatTaxReport.TaxPerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTaxAmountNull() {
+                return this.IsNull(this.tableViewVatTaxReport.TaxAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTaxAmountNull() {
+                this[this.tableViewVatTaxReport.TaxAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsVatPerNull() {
+                return this.IsNull(this.tableViewVatTaxReport.VatPerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetVatPerNull() {
+                this[this.tableViewVatTaxReport.VatPerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsVatAmountNull() {
+                return this.IsNull(this.tableViewVatTaxReport.VatAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetVatAmountNull() {
+                this[this.tableViewVatTaxReport.VatAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCollateralPerNull() {
+                return this.IsNull(this.tableViewVatTaxReport.CollateralPerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCollateralPerNull() {
+                this[this.tableViewVatTaxReport.CollateralPerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCollateralAmountNull() {
+                return this.IsNull(this.tableViewVatTaxReport.CollateralAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCollateralAmountNull() {
+                this[this.tableViewVatTaxReport.CollateralAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTotalDeductionAmountNull() {
+                return this.IsNull(this.tableViewVatTaxReport.TotalDeductionAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTotalDeductionAmountNull() {
+                this[this.tableViewVatTaxReport.TotalDeductionAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNeetAmountNull() {
+                return this.IsNull(this.tableViewVatTaxReport.NeetAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNeetAmountNull() {
+                this[this.tableViewVatTaxReport.NeetAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNeetAmountInWordNull() {
+                return this.IsNull(this.tableViewVatTaxReport.NeetAmountInWordColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNeetAmountInWordNull() {
+                this[this.tableViewVatTaxReport.NeetAmountInWordColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCodeNoNull() {
+                return this.IsNull(this.tableViewVatTaxReport.CodeNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCodeNoNull() {
+                this[this.tableViewVatTaxReport.CodeNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEconomicCodeNull() {
+                return this.IsNull(this.tableViewVatTaxReport.EconomicCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEconomicCodeNull() {
+                this[this.tableViewVatTaxReport.EconomicCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsVoucherNoNull() {
+                return this.IsNull(this.tableViewVatTaxReport.VoucherNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetVoucherNoNull() {
+                this[this.tableViewVatTaxReport.VoucherNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBillSubmissionNoNull() {
+                return this.IsNull(this.tableViewVatTaxReport.BillSubmissionNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBillSubmissionNoNull() {
+                this[this.tableViewVatTaxReport.BillSubmissionNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBillSubmissionDateNull() {
+                return this.IsNull(this.tableViewVatTaxReport.BillSubmissionDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBillSubmissionDateNull() {
+                this[this.tableViewVatTaxReport.BillSubmissionDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsLastBillAmountNull() {
+                return this.IsNull(this.tableViewVatTaxReport.LastBillAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetLastBillAmountNull() {
+                this[this.tableViewVatTaxReport.LastBillAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAllocatedAmountTillNowNull() {
+                return this.IsNull(this.tableViewVatTaxReport.AllocatedAmountTillNowColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAllocatedAmountTillNowNull() {
+                this[this.tableViewVatTaxReport.AllocatedAmountTillNowColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAllocatedAmountLetterNoNull() {
+                return this.IsNull(this.tableViewVatTaxReport.AllocatedAmountLetterNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAllocatedAmountLetterNoNull() {
+                this[this.tableViewVatTaxReport.AllocatedAmountLetterNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsReducedAllocatedAmountTillNowNull() {
+                return this.IsNull(this.tableViewVatTaxReport.ReducedAllocatedAmountTillNowColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetReducedAllocatedAmountTillNowNull() {
+                this[this.tableViewVatTaxReport.ReducedAllocatedAmountTillNowColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsReducedAllocatedAmountLetterNoNull() {
+                return this.IsNull(this.tableViewVatTaxReport.ReducedAllocatedAmountLetterNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetReducedAllocatedAmountLetterNoNull() {
+                this[this.tableViewVatTaxReport.ReducedAllocatedAmountLetterNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNetTotalAmountNull() {
+                return this.IsNull(this.tableViewVatTaxReport.NetTotalAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNetTotalAmountNull() {
+                this[this.tableViewVatTaxReport.NetTotalAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsLastBillTotalBalanceNull() {
+                return this.IsNull(this.tableViewVatTaxReport.LastBillTotalBalanceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetLastBillTotalBalanceNull() {
+                this[this.tableViewVatTaxReport.LastBillTotalBalanceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCurrentBillTotalBalanceNull() {
+                return this.IsNull(this.tableViewVatTaxReport.CurrentBillTotalBalanceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCurrentBillTotalBalanceNull() {
+                this[this.tableViewVatTaxReport.CurrentBillTotalBalanceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRelatedWorkBillAmountNull() {
+                return this.IsNull(this.tableViewVatTaxReport.RelatedWorkBillAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRelatedWorkBillAmountNull() {
+                this[this.tableViewVatTaxReport.RelatedWorkBillAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTotalAmountNull() {
+                return this.IsNull(this.tableViewVatTaxReport.TotalAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTotalAmountNull() {
+                this[this.tableViewVatTaxReport.TotalAmountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4009,20 +4897,38 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "ViewVatTaxReport";
+            tableMapping.ColumnMappings.Add("VatTaxCollateralId", "VatTaxCollateralId");
             tableMapping.ColumnMappings.Add("ADPReceivePaymentId", "ADPReceivePaymentId");
             tableMapping.ColumnMappings.Add("ProjectTitle", "ProjectTitle");
             tableMapping.ColumnMappings.Add("ProjectWorkTitleB", "ProjectWorkTitleB");
             tableMapping.ColumnMappings.Add("FirmNameB", "FirmNameB");
+            tableMapping.ColumnMappings.Add("BillPaidAmount", "BillPaidAmount");
+            tableMapping.ColumnMappings.Add("BillNumber", "BillNumber");
             tableMapping.ColumnMappings.Add("TaxPer", "TaxPer");
             tableMapping.ColumnMappings.Add("TaxAmount", "TaxAmount");
             tableMapping.ColumnMappings.Add("VatPer", "VatPer");
             tableMapping.ColumnMappings.Add("VatAmount", "VatAmount");
             tableMapping.ColumnMappings.Add("CollateralPer", "CollateralPer");
             tableMapping.ColumnMappings.Add("CollateralAmount", "CollateralAmount");
-            tableMapping.ColumnMappings.Add("BillPaidAmount", "BillPaidAmount");
             tableMapping.ColumnMappings.Add("TotalDeductionAmount", "TotalDeductionAmount");
+            tableMapping.ColumnMappings.Add("NeetAmount", "NeetAmount");
+            tableMapping.ColumnMappings.Add("NeetAmountInWord", "NeetAmountInWord");
+            tableMapping.ColumnMappings.Add("CodeNo", "CodeNo");
+            tableMapping.ColumnMappings.Add("EconomicCode", "EconomicCode");
+            tableMapping.ColumnMappings.Add("VoucherNo", "VoucherNo");
+            tableMapping.ColumnMappings.Add("BillSubmissionNo", "BillSubmissionNo");
+            tableMapping.ColumnMappings.Add("BillSubmissionDate", "BillSubmissionDate");
+            tableMapping.ColumnMappings.Add("LastBillAmount", "LastBillAmount");
+            tableMapping.ColumnMappings.Add("AllocatedAmountTillNow", "AllocatedAmountTillNow");
+            tableMapping.ColumnMappings.Add("AllocatedAmountLetterNo", "AllocatedAmountLetterNo");
+            tableMapping.ColumnMappings.Add("ReducedAllocatedAmountTillNow", "ReducedAllocatedAmountTillNow");
+            tableMapping.ColumnMappings.Add("ReducedAllocatedAmountLetterNo", "ReducedAllocatedAmountLetterNo");
+            tableMapping.ColumnMappings.Add("NetTotalAmount", "NetTotalAmount");
+            tableMapping.ColumnMappings.Add("LastBillTotalBalance", "LastBillTotalBalance");
+            tableMapping.ColumnMappings.Add("CurrentBillTotalBalance", "CurrentBillTotalBalance");
+            tableMapping.ColumnMappings.Add("RelatedWorkBillAmount", "RelatedWorkBillAmount");
+            tableMapping.ColumnMappings.Add("TotalAmount", "TotalAmount");
             tableMapping.ColumnMappings.Add("TotalDeductionAmountInWord", "TotalDeductionAmountInWord");
-            tableMapping.ColumnMappings.Add("BillNumber", "BillNumber");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -4030,7 +4936,7 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::Microsoft.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["IDIMDBEntities"].ConnectionString;
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["IDIMDBConnectionString"].ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
