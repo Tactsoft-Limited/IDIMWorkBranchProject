@@ -1,6 +1,9 @@
 ﻿using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Services.Base;
+using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace IDIMWorkBranchProject.Services.Wbpm
 {
@@ -10,6 +13,9 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         {
         }
 
-
+        public async Task<BGBMiscellaneousFund> GetByADPPaymentReceiveIdAsync(int id)
+        {
+            return await _context.BGBMiscellaneousFunds.Where(x => x.ADPReceivePaymentId == id).FirstOrDefaultAsync();
+        }
     }
 }
