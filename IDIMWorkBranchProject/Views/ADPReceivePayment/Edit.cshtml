@@ -53,19 +53,19 @@
 
                     <div class="row">
                         <div class="form-display col-md-12">
-                            @Html.LabelFor(m => m.ProjectWorkTitle, new { @class = "label-display col-md-2" })
+                            @Html.LabelFor(m => m.ProjectWorkTitle, new { @class = "form-label col-md-2" })
                             <div class="col-md-10">
                                 @Html.TextBoxFor(m => m.ProjectWorkTitle, new { @class = "form-control", @readonly = "readonly" })
                             </div>
                         </div>
                         <div class="form-display col-md-12">
-                            @Html.LabelFor(m => m.ConstructionFirm, new { @class = "label-display col-md-2" })
+                            @Html.LabelFor(m => m.ConstructionFirm, new { @class = "form-label col-md-2" })
                             <div class="col-md-10">
                                 @Html.TextBoxFor(m => m.ConstructionFirm, new { @class = "form-control", @readonly = "readonly" })
                             </div>
                         </div>
                         <div class="form-display col-md-12">
-                            @Html.LabelFor(m => m.EstimatedCost, new { @class = "col-md-2 label-display" })
+                            @Html.LabelFor(m => m.EstimatedCost, new { @class = "col-md-2 form-label" })
                             <div class="col-md-10">
                                 @Html.TextBoxFor(m => m.EstimatedCost, new { @class = "form-control", @readonly = "readonly" })
                                 @Html.ValidationMessageFor(model => model.EstimatedCost)
@@ -73,7 +73,7 @@
                         </div>
                         <div class="form-display col-md-12">
                             <div class="col-md-6" style="padding:0px;">
-                                @Html.LabelFor(m => m.BillPaidPerTillDate, "সিজিএ হতে উত্তোলিত অর্থ (%)", new { @class = "label-display col-md-4" })
+                                @Html.LabelFor(m => m.BillPaidPerTillDate, "সিজিএ হতে উত্তোলিত অর্থ (%)", new { @class = "form-label col-md-4" })
                                 <div class="col-md-3">
                                     @Html.TextBoxFor(m => m.BillPaidPerTillDate, new { @class = "form-control", @readonly = "readonly" })
                                 </div>

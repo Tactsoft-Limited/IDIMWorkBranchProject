@@ -15,6 +15,16 @@ namespace BGB.Data.Entities.Wbpm
         [Key]
         public int VatTaxCollateralId { get; set; }
         public int ADPReceivePaymentId { get; set; }
+        public double TaxPer { get; set; }
+        public decimal TaxAmount { get; set; }
+        public double VatPer { get; set; }
+        public decimal VatAmount { get; set; }
+        public double CollateralPer { get; set; }
+        public decimal CollateralAmount { get; set; }
+        public decimal TotalDeductionAmount { get; set; }
+        public decimal NeetAmount { get; set; }
+        public string NeetAmountInWord { get; set; }
+        public decimal DepositInBGBFund { get; set; }
         public int BillSubmissionNo { get; set; }
         public DateTime BillSubmissionDate { get; set; }
         public decimal LastBillAmount { get; set; }
@@ -32,6 +42,7 @@ namespace BGB.Data.Entities.Wbpm
         public string VoucherNo { get; set; }
 
         // Navigation Property
+        [ForeignKey(nameof(ADPReceivePaymentId))]
         public ADPReceivePayment ADPReceivePayment { get; set; }
     }
 }

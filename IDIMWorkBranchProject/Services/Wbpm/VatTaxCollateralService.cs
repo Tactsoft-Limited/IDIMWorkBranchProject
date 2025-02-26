@@ -3,7 +3,9 @@ using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Services.Base;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace IDIMWorkBranchProject.Services.Wbpm
@@ -12,6 +14,11 @@ namespace IDIMWorkBranchProject.Services.Wbpm
     {
         public VatTaxCollateralService(IDIMDBEntities context) : base(context)
         {
+        }
+
+        public async Task<VatTaxCollateral> GetByADPPaymentReceiveIdAsync(int id)
+        {
+            return await _context.VatTaxCollaterals.Where(x=>x.ADPReceivePaymentId == id).FirstOrDefaultAsync();
         }
     }
 }

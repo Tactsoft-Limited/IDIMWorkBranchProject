@@ -145,33 +145,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 throw new InvalidOperationException("An error occurred while generating the report.", exception);
             }
         }
-        public async Task<ActionResult> PrintVatTaxReport(int id, string type)
-        {
-            try
-            {
-                var data = await _reportService.GetVatTaxAsync(id);
-
-                var reportDataSource = new List<ReportDataSource>
-                {
-                    new ReportDataSource("DsVatTaxReport", data)
-                };
-
-                var config = new ReportConfig
-                {
-                    ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "VatTaxReport.rdlc"),
-                    ReportType = type,
-                    DeviceInfo = new Extentions.ReportHelper.DeviceInfo(type).Portrait(),
-                };
-
-                return new ReportResult(config, reportDataSource);
-            }
-            catch (Exception exception)
-            {
-                // Log the exception if necessary
-                // You can also throw a custom exception if you want
-                throw new InvalidOperationException("An error occurred while generating the report.", exception);
-            }
-        }
+        
 
 
     }
