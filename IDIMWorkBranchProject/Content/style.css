@@ -148,6 +148,11 @@ body {
     padding-right: 15px;
 }
 
+.display-label::after {
+    content: "\0983 "; /* Unicode for Bengali character */
+}
+
+
 legend {
     font-size: 12pt;
     font-weight: 600;
