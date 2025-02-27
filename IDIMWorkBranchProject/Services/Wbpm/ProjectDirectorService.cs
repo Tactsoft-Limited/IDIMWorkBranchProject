@@ -62,7 +62,9 @@ namespace IDIMWorkBranchProject.Services.Wbpm
                 {
                     ProjectDirectorId = x.ProjectDirectorId,
                     ProjectDirectorName = x.ProjectDirectorName,
+                    ProjectDirectorNameB = x.ProjectDirectorNameB,
                     Designation = x.Designation,
+                    DesignationB = x.DesignationB,
                     JoiningDate = x.JoiningDate,
                     TransferDate = x.TransferDate,
                     PDDocument = x.PDDocument,
