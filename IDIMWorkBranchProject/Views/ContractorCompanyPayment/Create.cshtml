@@ -65,9 +65,9 @@
                             </div>
                         </div>
                         <div class="form-display col-md-12">
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="padding:0px;">
                                 @Html.LabelFor(m => m.TotalWithdrawFromMinistry, "সিজিএ হতে উত্তোলিত অর্থ (%)", new { @class = "label-display col-md-4" })
-                                <div class="col-md-2">
+                                <div class="col-md-4">
                                     @Html.TextBoxFor(m => m.TotalWithdrawPercent, new { @class = "form-control", @readonly = "readonly" })
                                 </div>
                                 <div class="col-md-4">
@@ -89,57 +89,57 @@
                             <legend>কার্যাদেশ অনুসারে নিট টাকার বিবরন :</legend>
 
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.EstimatedCostTaxPer, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.EstimatedCostTaxPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.EstimatedCostTaxPer, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.EstimatedCostTaxPer)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.EstimatedCostTaxAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.EstimatedCostTaxAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.EstimatedCostTaxAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.EstimatedCostTaxAmount)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.EstimatedCostVatPer, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.EstimatedCostVatPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.EstimatedCostVatPer, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.EstimatedCostVatPer)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.EstimatedCostVatAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.EstimatedCostVatAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.EstimatedCostVatAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.EstimatedCostVatAmount)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.EstimatedCostCollateralPer, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.EstimatedCostCollateralPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.EstimatedCostCollateralPer, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.EstimatedCostCollateralPer)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.EstimatedCostCollateralAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.EstimatedCostCollateralAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.EstimatedCostCollateralAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.EstimatedCostCollateralAmount)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.EstimatedCostDeductionAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.EstimatedCostDeductionAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.EstimatedCostDeductionAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.EstimatedCostDeductionAmount)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.NetEstimatedCostAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.NetEstimatedCostAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.NetEstimatedCostAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.NetEstimatedCostAmount)
                                 </div>
@@ -148,15 +148,15 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.ProgressPer, new { @class = "col-md-2 form-label" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(m => m.ProgressPer, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
                                 @Html.TextBoxFor(m => m.ProgressPer, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.ProgressPer)
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.ProgressAmount, new { @class = "col-md-2 form-label" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(m => m.ProgressAmount, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
                                 @Html.TextBoxFor(m => m.ProgressAmount, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.ProgressAmount)
                             </div>
@@ -167,57 +167,57 @@
                             <legend>মন্ত্রণালয় হতে উত্তোলিত টাকার বিবরন :</legend>
 
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.ProgressTaxPer, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.ProgressTaxPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.ProgressTaxPer, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.ProgressTaxPer)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.ProgressTaxAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.ProgressTaxAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.ProgressTaxAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.ProgressTaxAmount)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.ProgressVatPer, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.ProgressVatPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.ProgressVatPer, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.ProgressVatPer)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.ProgressVatAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.ProgressVatAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.ProgressVatAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.ProgressVatAmount)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.ProgressCollateralPer, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.ProgressCollateralPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.ProgressCollateralPer, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.ProgressCollateralPer)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.ProgressCollateralAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.ProgressCollateralAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.ProgressCollateralAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.ProgressCollateralAmount)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.ProgressDeductionAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.ProgressDeductionAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.ProgressDeductionAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.ProgressDeductionAmount)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.NetProgressAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.NetProgressAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.NetProgressAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.NetProgressAmount)
                                 </div>
@@ -229,75 +229,76 @@
                             <legend>মেজারমেন্ট হিসাব :</legend>
 
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.PerformanceSecurityPer, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.PerformanceSecurityPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.PerformanceSecurityPer, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.PerformanceSecurityPer)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.PerformanceSecurityAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.PerformanceSecurityAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.PerformanceSecurityAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.PerformanceSecurityAmount)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.ContactorProgressPer, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.ContactorProgressPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.ContactorProgressPer, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.ContactorProgressPer)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.ContactorProgressAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.ContactorProgressAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.ContactorProgressAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.ContactorProgressAmount)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.BillPaymentNumber, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.BillPaymentNumber, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.BillPaymentNumber, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.BillPaymentNumber)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.PreviouslyPaidAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.PreviouslyPaidAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.PreviouslyPaidAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.PreviouslyPaidAmount)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.PayableAmountOnCurrentBill, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.PayableAmountOnCurrentBill, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.PayableAmountOnCurrentBill, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.PayableAmountOnCurrentBill)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.FinalPaymentAmount, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.TotalDepositsInFund, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.TotalDepositsInFund, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TotalDepositsInFund)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.FinalPaymentAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.FinalPaymentAmount, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.FinalPaymentAmount)
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.Remarks, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.Remarks, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.Remarks, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.Remarks)
                                 </div>
                             </div>
-                            <div class="form-group col-md-6">
-                                @Html.LabelFor(m => m.TotalDepositsInFund, new { @class = "col-md-2 form-label" })
-                                <div class="col-md-10">
-                                    @Html.TextBoxFor(m => m.TotalDepositsInFund, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.TotalDepositsInFund)
-                                </div>
-                            </div>
+
                         </fieldset>
                     </div>
                     <div class="pull-right">

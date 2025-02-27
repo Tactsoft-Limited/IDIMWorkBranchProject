@@ -389,7 +389,7 @@
     <Compile Include="Controllers\Wbpm\ProjectSignatoryAuthorityController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectWorkController.cs" />
     <Compile Include="Controllers\Wbpm\RecruitmentCommitteeController.cs" />
-    <Compile Include="Controllers\Wbpm\BGBFundController.cs" />
+    <Compile Include="Controllers\Wbpm\BGBMiscellaneousFundController.cs" />
     <Compile Include="Controllers\Wbpm\SignatoryAuthorityController.cs" />
     <Compile Include="Controllers\Wbpm\TenderEvaluationCommitteeController.cs" />
     <Compile Include="Controllers\Wbpm\VatTaxCollateralController.cs" />
@@ -2866,6 +2866,8 @@
     <Content Include="Views\VatTaxCollateral\Create.cshtml" />
     <Content Include="Views\ProjectSignatoryAuthority\List.cshtml" />
     <Content Include="Views\ProjectSignatoryAuthority\Create.cshtml" />
+    <Content Include="Views\ContractorCompanyPayment\Create.cshtml" />
+    <Content Include="Views\BGBMiscellaneousFund\CreateOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
