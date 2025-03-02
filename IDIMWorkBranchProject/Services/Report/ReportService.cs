@@ -27,9 +27,9 @@ namespace IDIMWorkBranchProject.Services.Report
             return await _context.ViewADPReceivePayments.Where(x => x.ADPReceivePaymentId == id).ToListAsync();
         }
 
-        public async Task<List<BGBMiscellaneousFund>> GetBGBMiscellaneousFundAsync(int id)
+        public async Task<List<ViewBGBMiscellaneousFund>> GetBGBMiscellaneousFundAsync(int id)
         {
-            return await _context.BGBMiscellaneousFunds.Where(x => x.ADPReceivePaymentId == id).ToListAsync();
+            return await _context.ViewBGBMiscellaneousFunds.Where(x => x.ADPReceivePaymentId == id).ToListAsync();
         }
 
         public async Task<List<ViewContactAgreement>> GetContractAgreementAsync(int id)

@@ -32,7 +32,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             IADPReceivePaymentService aDPReceivePaymentService,
             IProjectWorkService projectWorkService,
             IConstructionCompanyService constructionCompanyService,
-            IReportService reportService) : base(activityLogService)
+            IReportService reportService,
+            IVatTaxCollateralService vatTaxCollateralService) : base(activityLogService)
         {
             _bGBMiscellaneousFundService = bGBMiscellaneousFundService;
             _mapper = mapper;
@@ -40,6 +41,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             _projectWorkService = projectWorkService;
             _constructionCompanyService = constructionCompanyService;
             _reportService = reportService;
+            _vatTaxCollateralService = vatTaxCollateralService;
         }
 
         // GET: BGBFund
