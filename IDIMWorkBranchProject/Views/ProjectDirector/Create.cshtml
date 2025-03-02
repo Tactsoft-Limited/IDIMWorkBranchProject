@@ -8,17 +8,17 @@
 
 <div class="page-title">
     <div class="pull-left">
-        <h3 class="title">Project Director</h3>
+        <h3 class="title">প্রকল্প পরিচালক</h3>
     </div>
     <div class="pull-right hidden-xs">
         <ol class="breadcrumb">
             <li>
-                <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+                <a href="#"><i class="fa fa-home"></i>ড্যাশবোর্ড</a>
             </li>
             <li>
                 <a href="@Url.Action("List","ProjectDirector")">
                     <i class="fa fa-list" aria-hidden="true"></i>
-                    Project Director
+                    প্রকল্প পরিচালক
                 </a>
             </li>
             <li class="active">
@@ -52,10 +52,9 @@
                             @Html.LabelFor(m => m.ProjectTitle, new { @class = "form-label" })
                             @Html.TextBoxFor(m => m.ProjectTitle, new { @class = "form-control", @readonly = "readonly" })
                         </div>
-
                     </div>
-                    <div class="row">
 
+                    <div class="row">
                         <div class="form-group col-md-6">
                             @Html.LabelFor(m => m.ProjectDirectorName, new { @class = "col-md-3 form-label" })
                             <div class="col-md-9">
@@ -64,10 +63,24 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ProjectDirectorNameB, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.ProjectDirectorNameB, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ProjectDirectorNameB)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
                             @Html.LabelFor(m => m.Designation, new { @class = "col-md-3 form-label" })
                             <div class="col-md-9">
                                 @Html.TextBoxFor(m => m.Designation, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.Designation)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.DesignationB, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.DesignationB, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.DesignationB)
                             </div>
                         </div>
                     </div>
@@ -84,6 +97,13 @@
                             <div class="col-md-9">
                                 @Html.TextBoxFor(m => m.TransferDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
                                 @Html.ValidationMessageFor(model => model.TransferDate)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.IsActive, new { @class = "col-md-2 form-label" })
+                            <div class="col-md-9">
+                                @Html.CheckBoxFor(m => m.IsActive, new { @class = "form-check-input" })
+                                @Html.ValidationMessageFor(model => model.IsActive)
                             </div>
                         </div>
                     </div>

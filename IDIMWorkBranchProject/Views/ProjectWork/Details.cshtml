@@ -177,22 +177,23 @@
             <table class="table table-striped table-bordered" width="100%" cellspacing="0">
                 <thead>
                     <tr>
+                        <th>লেটার নং</th>
                         <th>প্রাক্কলিত ব্যয়</th>
                         <th>পুর্বে পরিশোধ</th>
                         <th>বর্তমান বিল পরিশোধ</th>
                         <th>মোট পরিশোধ</th>
                         <th style="width:120px;">প্রিন্ট করুন</th>
-
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model.ContractorCompanyPayments)
                     {
                         <tr>
+                            <td>@item.LetterNo</td>
                             <td>@item.EstimatedCost</td>
                             <td>@item.PreviouslyPaidAmount</td>
-                            <td>@item.PayableAmountOnCurrentBill</td>
                             <td>@item.FinalPaymentAmount</td>
+                            <td>@(item.PreviouslyPaidAmount+item.FinalPaymentAmount)</td>
                             <td>
                                 <a href="@Url.Action("PrintContractorCompanyPaymentReport", "ContractorCompanyPayment", new { id = item.ContractorCompanyPaymentId, type="pdf" })" class="btn btn-info btn-xs">
                                     <i class="fa fa-print"></i> ঠিকাদার প্রতিষ্ঠানকে প্রদত্ত অর্থ প্রিন্ট pdf

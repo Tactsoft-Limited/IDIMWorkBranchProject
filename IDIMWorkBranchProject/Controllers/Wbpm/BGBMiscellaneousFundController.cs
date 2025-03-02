@@ -22,6 +22,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IADPReceivePaymentService _aDPReceivePaymentService;
         private readonly IProjectWorkService _projectWorkService;
         private readonly IConstructionCompanyService _constructionCompanyService;
+        private readonly IVatTaxCollateralService _vatTaxCollateralService;
         private readonly IReportService _reportService;
         private readonly IMapper _mapper;
 
@@ -48,15 +49,31 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         }
         public async Task<ActionResult> CreateOrEdit(int id)
         {
+            var model = new BGBMiscellaneousFundVm();
+
+            // Retrieve the required data in parallel for efficiency
+            var bgbFund = await _bGBMiscellaneousFundService.GetByADPPaymentReceiveIdAsync(id);
             var adpPayment = await _aDPReceivePaymentService.GetByIdAsync(id);
+            var vatTax = await _vatTaxCollateralService.GetByADPPaymentReceiveIdAsync(id);
             var projectWork = await _projectWorkService.GetByIdAsync(adpPayment.ProjectWorkId);
             var data = await _bGBMiscellaneousFundService.GetByADPPaymentReceiveIdAsync(adpPayment.ADPReceivePaymentId);
 
-            var model = new BGBMiscellaneousFundVm();
+            // If the bgbFund is found, map values to the model
+            if (bgbFund != null)
+            {
+                model.FundId = bgbFund.FundId;
+                model.ADPReceivePaymentId = bgbFund.ADPReceivePaymentId;
+                model.ProjectWorkId = bgbFund.ProjectWorkId;
+                model.ProjectWorkTitle = bgbFund.ProjectWork.ProjectWorkTitle;
+            }
+
+            // Map additional values from other services
             model.ADPReceivePaymentId = adpPayment.ADPReceivePaymentId;
             model.ProjectWorkId = projectWork.ProjectWorkId;
-            model.ProjectWorkTitle = projectWork.ProjectWorkTitleB;            
+            model.ProjectWorkTitle = projectWork.ProjectWorkTitleB;
+            model.Amount = vatTax.NeetAmount;
 
+            // If additional data exists, update the model with these values
             if (data != null)
             {
                 model.FundId = data.FundId;
@@ -69,11 +86,11 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 model.BankName = data.BankName;
                 model.BrunchName = data.BrunchName;
                 model.Amount = data.Amount;
-                model.Remarks = data.Remarks;               
+                model.Remarks = data.Remarks;
             }
+
             return View(model);
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
-	[Validator(typeof(ProjectDirectorVmValidator))]
+    [Validator(typeof(ProjectDirectorVmValidator))]
     public class ProjectDirectorVm
     {
 
@@ -23,8 +23,14 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("প্রকল্প পরিচালক")]
         public string ProjectDirectorName { get; set; }
 
+        [DisplayName("প্রকল্প পরিচালক")]
+        public string ProjectDirectorNameB { get; set; }
+
         [DisplayName("পদবী")]
         public string Designation { get; set; }
+
+        [DisplayName("পদবী")]
+        public string DesignationB { get; set; }
 
         [DisplayName("যোগদান তারিখ")]
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]

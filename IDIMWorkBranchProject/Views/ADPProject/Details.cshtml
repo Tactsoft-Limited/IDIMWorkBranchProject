@@ -10,15 +10,15 @@
 
 <div class="page-title">
     <div class="pull-left">
-        <h3 class="title">Project Details</h3>
+        <h3 class="title">প্রকল্পের বিস্তারিত</h3>
     </div>
     <div class="pull-right hidden-xs">
         <ol class="breadcrumb">
             <li>
-                <a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i>Dashboard</a>
+                <a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i>ড্যাশবোর্ড</a>
             </li>
             <li class="active">
-                <strong>Project Details</strong>
+                <strong>প্রকল্পের বিস্তারিত</strong>
             </li>
         </ol>
     </div>
@@ -43,39 +43,39 @@
     <div class="content-body">
         <div class="row">
             <div class="form-display col-md-12">
-                @Html.LabelFor(m => m.ADPProjectDetail.ProjectTitle, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ADPProjectDetail.ProjectTitle, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ADPProjectDetail.ProjectTitle)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ADPProjectDetail.MinistryDepartment, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ADPProjectDetail.MinistryDepartment, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ADPProjectDetail.MinistryDepartment)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ADPProjectDetail.EstimatedExpenses, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ADPProjectDetail.EstimatedExpenses, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ADPProjectDetail.EstimatedExpenses)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ADPProjectDetail.NoOfWork, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ADPProjectDetail.NoOfWork, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ADPProjectDetail.NoOfWork)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ADPProjectDetail.StartingDate, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ADPProjectDetail.StartingDate, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ADPProjectDetail.StartingDate)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ADPProjectDetail.EndingDate, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ADPProjectDetail.EndingDate, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ADPProjectDetail.EndingDate)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ADPProjectDetail.FinancialProgress, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ADPProjectDetail.FinancialProgress, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ADPProjectDetail.FinancialProgress)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ADPProjectDetail.PhysicalProgress, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ADPProjectDetail.PhysicalProgress, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ADPProjectDetail.PhysicalProgress)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ADPProjectDetail.Remarks, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ADPProjectDetail.Remarks, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ADPProjectDetail.Remarks)
             </div>
         </div>
@@ -91,6 +91,7 @@
                         <th>প্রকল্প পরিচালক</th>
                         <th>যোগদানের তারিখ</th>
                         <th>বদলীর তারিখ</th>
+                        <th>সক্রিয়?</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -100,6 +101,7 @@
                             <td>@item.ProjectDirectorName</td>
                             <td>@item.JoiningDate.ToNullableShortDateString()</td>
                             <td>@item.TransferDate.ToNullableShortDateString()</td>
+                            <td>@(item.IsActive ? "Yes" : "No")</td>
                         </tr>
                     }
                 </tbody>
@@ -117,7 +119,7 @@
                         <th>মোট বরাদ্দ</th>
                         <th>এডিপি বরাদ্দ</th>
                         <th>আরএডিপি</th>
-                        <th style="width:120px;">সংশোধন</th>
+                        <th style="width:150px;"></th>
                     </tr>
                 </thead>
                 <tbody>

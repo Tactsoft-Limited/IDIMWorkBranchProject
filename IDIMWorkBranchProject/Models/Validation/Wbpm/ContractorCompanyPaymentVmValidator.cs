@@ -7,8 +7,8 @@ namespace IDIMWorkBranchProject.Models.Validation.Wbpm
     {
         public ContractorCompanyPaymentVmValidator()
         {
-            RuleFor(x => x.EstimatedCost)
-                .GreaterThan(0).WithMessage("প্রাক্কলিত ব্যয় 0 এর বেশি হতে হবে।");
+            RuleFor(x => x.LetterNo)
+               .NotEmpty().WithMessage("লেটার নম্বর আবশ্যক।");
 
             RuleFor(x => x.EstimatedCostTaxPer)
                 .InclusiveBetween(0, 100).WithMessage("ট্যাক্স শতাংশ 0 থেকে 100 এর মধ্যে হতে হবে।");
@@ -87,7 +87,16 @@ namespace IDIMWorkBranchProject.Models.Validation.Wbpm
                 .GreaterThanOrEqualTo(0).WithMessage("চলতি বিলের পরিশোধযোগ্য অর্থ শূন্য বা তার বেশি হতে হবে।");
 
             RuleFor(x => x.FinalPaymentAmount)
-                .GreaterThanOrEqualTo(0).WithMessage("নীট পরিশোধযোগ্য অর্থ শূন্য বা তার বেশি হতে হবে।");
+                .Must(x => x >= 0)
+                .WithMessage("নীট পরিশোধযোগ্য অর্থ শূন্য বা তার বেশি হতে হবে।");
+
+            RuleFor(x => x.FinalPaymentAmount)
+                .Must((model, finalPaymentAmount) => finalPaymentAmount <= model.TotalDepositsInFund)
+                .WithMessage("দুঃখিত বিবিধ ফান্ডে পর্যাপ্ত পরিমান অর্থ জমা নাই! ");
+
+            RuleFor(x => x.WillBeDepositedInFund)
+                .GreaterThanOrEqualTo(0)
+                .WithMessage("দুঃখিত বিবিধ ফান্ডে পর্যাপ্ত পরিমান অর্থ জমা নাই! ");
 
             RuleFor(x => x.Remarks)
                 .MaximumLength(150).WithMessage("মন্তব্য 150 অক্ষরের মধ্যে থাকতে হবে।");

@@ -9,5 +9,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
     public interface IBGBMiscellaneousFundService : IBaseService<BGBMiscellaneousFund>
     {        
         Task<BGBMiscellaneousFund> GetByADPPaymentReceiveIdAsync(int id);
+        Task<List<BGBMiscellaneousFund>> GetByProjectWorkIdAsync(int projectWorkId);
+
     }
 }

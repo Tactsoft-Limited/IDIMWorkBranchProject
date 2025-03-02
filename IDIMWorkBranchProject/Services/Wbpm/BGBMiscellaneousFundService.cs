@@ -18,5 +18,10 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         {
             return await _context.BGBMiscellaneousFunds.Where(x => x.ADPReceivePaymentId == id).FirstOrDefaultAsync();
         }
+
+        public async Task<List<BGBMiscellaneousFund>> GetByProjectWorkIdAsync(int projectWorkId)
+        {
+            return await _context.BGBMiscellaneousFunds.Where(x => x.ProjectWorkId == projectWorkId).ToListAsync();
+        }
     }
 }

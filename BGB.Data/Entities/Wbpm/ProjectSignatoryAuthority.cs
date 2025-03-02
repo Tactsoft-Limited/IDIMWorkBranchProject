@@ -18,12 +18,16 @@ namespace BGB.Data.Entities.Wbpm
 
         [ForeignKey(nameof(ADPProjectId))]
         public virtual ADPProject ADPProject { get; set; }
+
         [ForeignKey(nameof(BranchClerk))]
         public virtual SignatoryAuthority BranchClerkSignatoryAuthority { get; set; }
+
         [ForeignKey(nameof(ConcernedEngineer))]
         public virtual SignatoryAuthority ConcernedEngineerSignatoryAuthority { get; set; }
+
         [ForeignKey(nameof(HeadAssistant))]
         public virtual SignatoryAuthority HeadAssistantSignatoryAuthority { get; set; }
+
         [ForeignKey(nameof(SectionICT))]
         public virtual SignatoryAuthority SectionICTSignatoryAuthority { get; set; }
     }
