@@ -32,21 +32,21 @@
                 <i class="fa fa-pencil-square-o"></i> নির্মাণ কাজ সংশোধন
             </a>
             @*<a href="@Url.Action("Create", "ProjectDirector", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
-            <i class="fa fa-pencil-square-o"></i> প্রকল্প পরিচালক সংযুক্ত করুন
-        </a>
-        <a href="@Url.Action("Create", "FinancialYearAllocation", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
-            <i class="fa fa-pencil-square-o"></i> প্রকপ্লের বরাদ্দ সংযুক্ত করুন
-        </a>
-        <a href="@Url.Action("Create", "FiscalYearExpense", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
-            <i class="fa fa-pencil-square-o"></i> প্রকপ্লের ব্যয় সংযুক্ত করুন
-        </a>
-        <a href="@Url.Action("Create", "FormalMeeting", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
-            <i class="fa fa-pencil-square-o"></i> প্রকপ্লের সভা সংযুক্ত করুন
-        </a>
-        <a href="@Url.Action("Create", "ProjectWork", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
-            @(Model.ADPProjectDetail.NoOfWork==Model.ProjectWorks.Count()?"disabled":"")
-            <i class="fa fa-pencil-square-o"></i> নির্মাণ কাজ সংযুক্ত করুন
-        </a>*@
+                    <i class="fa fa-pencil-square-o"></i> প্রকল্প পরিচালক সংযুক্ত করুন
+                </a>
+                <a href="@Url.Action("Create", "FinancialYearAllocation", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                    <i class="fa fa-pencil-square-o"></i> প্রকপ্লের বরাদ্দ সংযুক্ত করুন
+                </a>
+                <a href="@Url.Action("Create", "FiscalYearExpense", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                    <i class="fa fa-pencil-square-o"></i> প্রকপ্লের ব্যয় সংযুক্ত করুন
+                </a>
+                <a href="@Url.Action("Create", "FormalMeeting", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                    <i class="fa fa-pencil-square-o"></i> প্রকপ্লের সভা সংযুক্ত করুন
+                </a>
+                <a href="@Url.Action("Create", "ProjectWork", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
+                    @(Model.ADPProjectDetail.NoOfWork==Model.ProjectWorks.Count()?"disabled":"")
+                    <i class="fa fa-pencil-square-o"></i> নির্মাণ কাজ সংযুক্ত করুন
+                </a>*@
         </div>
     </header>
     <div class="content-body">
@@ -116,7 +116,7 @@
                         <th>পেমেন্ট সেকটর</th>
                         <th>বিল পরিশোধিত পরিমান</th>
                         @*<th>কর্তন (ট্যাক্স, ভ্যাট ও জামানত)</th>
-                    <th>বিবিধ জমা পরিমান</th>*@
+                            <th>বিবিধ জমা পরিমান</th>*@
                         <th style="width:120px;">সংশোধন</th>
                         <th style="width:120px;">প্রিন্ট করুন</th>
                     </tr>
@@ -131,22 +131,22 @@
                             <td>@item.BillPaymentSector</td>
                             <td>@item.BillPaidAmount</td>
                             @*<td>@item.TotalDeductionAmount</td>
-                        <td>@item.DepositInBGBFund</td>*@
+                                <td>@item.DepositInBGBFund</td>*@
 
-                        <td>
-                            <a href="@Url.Action("Create", "VatTaxCollateral", new { id = item.ADPReceivePaymentId })" class="btn btn-primary btn-xs">
-                                <i class="fa fa-pencil-square-o"></i> ট্যাক্স/ভ্যাট সংযুক্ত করুণ
-                            </a>
-                            <a href="@Url.Action("CreateOrEdit", "BGBMiscellaneousFund", new { id = item.ADPReceivePaymentId })" class="btn btn-primary btn-xs">
-                                <i class="fa fa-pencil-square-o"></i> বিবিধ ফান্ডে জমা 
-                            </a>
-                            <a href="@Url.Action("Edit", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-primary btn-xs">
-                                <i class="fa fa-pencil-square-o"></i> সংশোধন
-                            </a>
-                            <a href="@Url.Action("Delete", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-danger btn-xs">
-                                <i class="fa fa-trash-o"></i> অপসারণ
-                            </a>
-                        </td>
+                            <td>
+                                <a href="@Url.Action("Create", "VatTaxCollateral", new { id = item.ADPReceivePaymentId })" class="btn btn-primary btn-xs">
+                                    <i class="fa fa-pencil-square-o"></i> ট্যাক্স/ভ্যাট সংযুক্ত করুণ
+                                </a>
+                                <a href="@Url.Action("CreateOrEdit", "BGBMiscellaneousFund", new { id = item.ADPReceivePaymentId })" class="btn btn-primary btn-xs">
+                                    <i class="fa fa-pencil-square-o"></i> বিবিধ ফান্ডে জমা
+                                </a>
+                                <a href="@Url.Action("Edit", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-primary btn-xs">
+                                    <i class="fa fa-pencil-square-o"></i> সংশোধন
+                                </a>
+                                <a href="@Url.Action("Delete", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-danger btn-xs">
+                                    <i class="fa fa-trash-o"></i> অপসারণ
+                                </a>
+                            </td>
                             <td>
                                 <a href="@Url.Action("PrintADPReceivePayment", "ADPReceivePayment", new { id = item.ADPReceivePaymentId, type="pdf" })" class="btn btn-info btn-xs">
                                     <i class="fa fa-print"></i> বিল প্রিন্ট pdf
@@ -155,11 +155,11 @@
                                     <i class="fa fa-print"></i> বিল প্রিন্ট word
                                 </a>
                                 <a href="@Url.Action("PrintVatTaxReport", "VatTaxCollateral", new { id = item.ADPReceivePaymentId, type="pdf" })" class="btn btn-accent btn-xs">
-                                <i class="fa fa-print"></i> ট্যাক্স/ভ্যাট প্রিন্ট pdf
-                            </a>
-                            <a href="@Url.Action("PrintVatTaxReport", "VatTaxCollateral", new { id = item.ADPReceivePaymentId, type="word" })" class="btn btn-accent btn-xs">
-                                <i class="fa fa-print"></i> ট্যাক্স/ভ্যাট প্রিন্ট word
-                            </a>
+                                    <i class="fa fa-print"></i> ট্যাক্স/ভ্যাট প্রিন্ট pdf
+                                </a>
+                                <a href="@Url.Action("PrintVatTaxReport", "VatTaxCollateral", new { id = item.ADPReceivePaymentId, type="word" })" class="btn btn-accent btn-xs">
+                                    <i class="fa fa-print"></i> ট্যাক্স/ভ্যাট প্রিন্ট word
+                                </a>
                             </td>
                         </tr>
                     }
@@ -171,6 +171,7 @@
             <table class="table table-striped table-bordered" width="100%" cellspacing="0">
                 <thead>
                     <tr>
+                        <th>লেটার নং</th>
                         <th>প্রাক্কলিত ব্যয়</th>
                         <th>পুর্বে পরিশোধ</th>
                         <th>বর্তমান বিল পরিশোধ</th>
@@ -182,10 +183,13 @@
                     @foreach (var item in Model.ContractorCompanyPayments)
                     {
                         <tr>
+                            <td>@item.LetterNo</td>
                             <td>@item.EstimatedCost</td>
                             <td>@item.PreviouslyPaidAmount</td>
-                            <td>@item.PayableAmountOnCurrentBill</td>
                             <td>@item.FinalPaymentAmount</td>
+                            <td>
+                                @(item.PreviouslyPaidAmount + item.FinalPaymentAmount)
+                            </td>
                         </tr>
                     }
                 </tbody>

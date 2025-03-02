@@ -17,7 +17,7 @@ namespace IDIMWorkBranchProject
             #region Wbpm
 
             CreateMap<VatTaxCollateralVm, VatTaxCollateral>();
-            CreateMap<VatTaxCollateral, VatTaxCollateralVm>();           
+            CreateMap<VatTaxCollateral, VatTaxCollateralVm>();
 
             CreateMap<SignatoryAuthorityVm, SignatoryAuthority>();
             CreateMap<SignatoryAuthority, SignatoryAuthorityVm>();
@@ -67,6 +67,9 @@ namespace IDIMWorkBranchProject
 
             CreateMap<ContractorCompanyPaymentVm, ContractorCompanyPayment>();
             CreateMap<ContractorCompanyPayment, ContractorCompanyPaymentVm>();
+
+            CreateMap<ProjectSignatoryAuthorityVm, ProjectSignatoryAuthority>();
+            CreateMap<ProjectSignatoryAuthority, ProjectSignatoryAuthorityVm>();
 
             #endregion
 

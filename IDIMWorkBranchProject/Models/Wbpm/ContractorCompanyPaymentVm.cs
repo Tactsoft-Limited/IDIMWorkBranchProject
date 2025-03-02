@@ -17,6 +17,9 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("নির্মাণ কাজের নাম")]
         public string ProjectWorkTitle { get; set; }
 
+        [DisplayName("লেটার নং")]
+        public string LetterNo { get; set; }
+
         [DisplayName("প্রাক্কলিত ব্যয়")]
         public decimal? EstimatedCost { get; set; }
 
@@ -89,6 +92,8 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("বিল পেমেন্ট নম্বর")]
         public int BillPaymentNumber { get; set; }
 
+        public int PreviouslyTotalPaidNo { get; set; }
+
         [DisplayName("ইতিপূর্বে ঠিকাদারকে নীট পরিশোধ")]
         public decimal PreviouslyPaidAmount { get; set; }
 
@@ -97,6 +102,12 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [DisplayName("নীট পরিশোধযোগ্য অর্থ")]
         public decimal FinalPaymentAmount { get; set; }
+
+        [DisplayName("নীট পরিশোধযোগ্য অর্থ কথায়")]
+        public string FinalPaymentAmountInWord { get; set; }
+
+        [DisplayName("বিবিধ ফান্ডে অবশিষ্ট জমা থাকবে")]
+        public decimal WillBeDepositedInFund { get; set; }
 
         [DisplayName("মন্তব্য")]
         public string Remarks { get; set; }
@@ -112,6 +123,6 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         public DateTime WorkEnded { get; set; }
 
-        public string ConstructionCompany {get; set;}
+        public string ConstructionCompany { get; set; }
     }
 }
