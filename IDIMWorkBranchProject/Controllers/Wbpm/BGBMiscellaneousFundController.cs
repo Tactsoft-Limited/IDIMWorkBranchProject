@@ -1,10 +1,16 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
+using IDIMWorkBranchProject.Extentions.ReportHealper;
+using IDIMWorkBranchProject.Extentions.ReportHelper;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
+using IDIMWorkBranchProject.Services.Report;
 using IDIMWorkBranchProject.Services.Wbpm;
+using Microsoft.Reporting.WebForms;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -16,6 +22,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IADPReceivePaymentService _aDPReceivePaymentService;
         private readonly IProjectWorkService _projectWorkService;
         private readonly IConstructionCompanyService _constructionCompanyService;
+        private readonly IReportService _reportService;
         private readonly IMapper _mapper;
 
         public BGBMiscellaneousFundController(IActivityLogService activityLogService,
@@ -23,13 +30,15 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             IMapper mapper,
             IADPReceivePaymentService aDPReceivePaymentService,
             IProjectWorkService projectWorkService,
-            IConstructionCompanyService constructionCompanyService) : base(activityLogService)
+            IConstructionCompanyService constructionCompanyService,
+            IReportService reportService) : base(activityLogService)
         {
             _bGBMiscellaneousFundService = bGBMiscellaneousFundService;
             _mapper = mapper;
             _aDPReceivePaymentService = aDPReceivePaymentService;
             _projectWorkService = projectWorkService;
             _constructionCompanyService = constructionCompanyService;
+            _reportService = reportService;
         }
 
         // GET: BGBFund
@@ -89,7 +98,38 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 throw ex;
             }
-
         }
+        public async Task<ActionResult> PrintBGBMiscellaneousFundReport(int id, string type)
+        {
+            try
+            {
+                var data = await _reportService.GetBGBMiscellaneousFundAsync(id);
+
+                if (data == null)
+                    throw new Exception("Data Not Found! Please Create first");
+
+
+                var reportDataSource = new List<ReportDataSource>
+                {
+                    new ReportDataSource("DsBGBMiscellaneousFundReport", data)
+                };
+
+                var config = new ReportConfig
+                {
+                    ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "BGBMiscellaneousFundReport.rdlc"),
+                    ReportType = type,
+                    DeviceInfo = new Extentions.ReportHelper.DeviceInfo(type).Portrait(),
+                };
+
+                return new ReportResult(config, reportDataSource);
+            }
+            catch (Exception exception)
+            {
+                // Log the exception if necessary
+                // You can also throw a custom exception if you want
+                throw new InvalidOperationException("An error occurred while generating the report.", exception);
+            }
+        }
+
     }
 }
