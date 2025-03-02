@@ -18,7 +18,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public string ProjectWorkTitle { get; set; }
 
         [DisplayName("এডিপি পেমেন্ট আইডি")]
-        public int ADPReceivePaymentId { get; set; }
+        public int? ADPReceivePaymentId { get; set; }
 
         [DisplayName("লেটার নম্বর")]
         public string LetterNo { get; set; }
