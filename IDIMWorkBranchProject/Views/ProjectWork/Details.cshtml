@@ -195,6 +195,14 @@
                             <td>@item.FinalPaymentAmount</td>
                             <td>@(item.PreviouslyPaidAmount+item.FinalPaymentAmount)</td>
                             <td>
+                                <a href="@Url.Action("Edit", "ContractorCompanyPayment", new { id = item.ContractorCompanyPaymentId })" class="btn btn-primary btn-xs">
+                                    <i class="fa fa-pencil-square-o"></i> সংশোধন
+                                </a>
+                                <a href="@Url.Action("Delete", "ContractorCompanyPayment", new { id = item.ContractorCompanyPaymentId })" class="btn btn-danger btn-xs">
+                                    <i class="fa fa-trash-o"></i> অপসারণ
+                                </a>
+                            </td>
+                            <td>
                                 <a href="@Url.Action("PrintContractorCompanyPaymentReport", "ContractorCompanyPayment", new { id = item.ContractorCompanyPaymentId, type="pdf" })" class="btn btn-info btn-xs">
                                     <i class="fa fa-print"></i> ঠিকাদার প্রতিষ্ঠানকে প্রদত্ত অর্থ প্রিন্ট pdf
                                 </a>
