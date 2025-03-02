@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-
+using BGB.Data.Entities.Wbpm;
 using BGB.Data.SqlViews.Wbpm;
 
 using IDIMWorkBranchProject.Data.Database;
@@ -27,6 +27,11 @@ namespace IDIMWorkBranchProject.Services.Report
             return await _context.ViewADPReceivePayments.Where(x => x.ADPReceivePaymentId == id).ToListAsync();
         }
 
+        public async Task<List<BGBMiscellaneousFund>> GetBGBMiscellaneousFundAsync(int id)
+        {
+            return await _context.BGBMiscellaneousFunds.Where(x => x.ADPReceivePaymentId == id).ToListAsync();
+        }
+
         public async Task<List<ViewContactAgreement>> GetContractAgreementAsync(int id)
         {
             return await _context.ViewContactAgreements.Where(x => x.ProjectWorkId == id).ToListAsync();
@@ -36,7 +41,12 @@ namespace IDIMWorkBranchProject.Services.Report
         {
             return await _context.ViewVatTaxReports.Where(x => x.ADPReceivePaymentId == id).ToListAsync();
 
-       
         }
+        public async Task<List<ViewContractorCompanyPayment>> GetContractorCompanyPaymentAsync(int id)
+        {
+            return await _context.ViewContractorCompanyPayments.Where(x => x.ContractorCompanyPaymentId == id).ToListAsync();
+
+        }
+
     }
 }

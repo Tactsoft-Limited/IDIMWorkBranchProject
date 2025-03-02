@@ -1362,7 +1362,7 @@
             <DataSetName>DsVatTaxReport</DataSetName>
             <Top>1.51769in</Top>
             <Height>1.72611in</Height>
-            <Width>7.18969in</Width>
+            <Width>7.1897in</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -1733,9 +1733,8 @@
           </Textbox>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Left>0in</Left>
         <Height>5.52109in</Height>
-        <Width>7.18969in</Width>
+        <Width>7.1897in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -3385,7 +3384,7 @@
             <DataSetName>DsVatTaxReport</DataSetName>
             <Top>1.22948in</Top>
             <Height>0.25in</Height>
-            <Width>7.18969in</Width>
+            <Width>7.18973in</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -5235,7 +5234,7 @@
             <DataSetName>DsVatTaxReport</DataSetName>
             <Top>2.25097in</Top>
             <Height>2.93958in</Height>
-            <Width>7.18969in</Width>
+            <Width>7.18968in</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -5597,7 +5596,7 @@
         <KeepTogether>true</KeepTogether>
         <Top>25.63825in</Top>
         <Height>12.46792in</Height>
-        <Width>7.18969in</Width>
+        <Width>7.18973in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -7950,7 +7949,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -8078,7 +8076,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
             <Top>1.9485in</Top>
-            <Left>0in</Left>
             <Height>0.23691in</Height>
             <Width>7.18417in</Width>
             <Style>
@@ -8118,7 +8115,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
             <Top>2.20083in</Top>
-            <Left>0in</Left>
             <Height>0.22768in</Height>
             <Width>7.18417in</Width>
             <ZIndex>1</ZIndex>
@@ -8152,7 +8148,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
             <Top>2.42851in</Top>
-            <Left>0in</Left>
             <Height>0.22768in</Height>
             <Width>7.18417in</Width>
             <ZIndex>2</ZIndex>
@@ -8185,7 +8180,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
             <Top>2.65619in</Top>
-            <Left>0in</Left>
             <Height>0.25in</Height>
             <Width>7.18969in</Width>
             <ZIndex>3</ZIndex>
@@ -8299,7 +8293,6 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
-            <Left>0in</Left>
             <Height>0.28324in</Height>
             <Width>7.18969in</Width>
             <ZIndex>6</ZIndex>
@@ -8480,7 +8473,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
             <Top>0.29712in</Top>
-            <Left>0in</Left>
             <Height>0.90236in</Height>
             <Width>7.18969in</Width>
             <ZIndex>7</ZIndex>
@@ -8685,7 +8677,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
             <Top>2.71581in</Top>
-            <Left>0in</Left>
             <Height>0.22768in</Height>
             <Width>7.18969in</Width>
             <ZIndex>1</ZIndex>
@@ -9178,7 +9169,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox42</rd:DefaultName>
             <Top>1.2471in</Top>
-            <Left>0in</Left>
             <Height>0.30482in</Height>
             <Width>7.18969in</Width>
             <ZIndex>9</ZIndex>
@@ -9212,7 +9202,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox90</rd:DefaultName>
             <Top>1.90148in</Top>
-            <Left>0in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>10</ZIndex>
@@ -9247,7 +9236,7 @@
     <Height>44.45806in</Height>
     <Style />
   </Body>
-  <Width>7.18969in</Width>
+  <Width>7.18973in</Width>
   <Page>
     <PageHeader>
       <Height>0.38333in</Height>
