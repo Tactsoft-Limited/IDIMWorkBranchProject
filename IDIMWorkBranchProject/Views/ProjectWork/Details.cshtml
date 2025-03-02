@@ -160,6 +160,12 @@
                                 <a href="@Url.Action("PrintVatTaxReport", "VatTaxCollateral", new { id = item.ADPReceivePaymentId, type="word" })" class="btn btn-accent btn-xs">
                                     <i class="fa fa-print"></i> ট্যাক্স/ভ্যাট প্রিন্ট word
                                 </a>
+                                <a href="@Url.Action("PrintBGBMiscellaneousFundReport", "BGBMiscellaneousFund", new { id = item.ADPReceivePaymentId, type="pdf" })" class="btn btn-purple btn-xs">
+                                    <i class="fa fa-print"></i> বিজিবি বিবিধ ফান্ড প্রিন্ট pdf
+                                </a>
+                                <a href="@Url.Action("PrintBGBMiscellaneousFundReport", "BGBMiscellaneousFund", new { id = item.ADPReceivePaymentId, type="word" })" class="btn btn-purple btn-xs">
+                                    <i class="fa fa-print"></i> বিজিবি বিবিধ ফান্ড প্রিন্ট word
+                                </a>
                             </td>
                         </tr>
                     }
@@ -176,7 +182,7 @@
                         <th>পুর্বে পরিশোধ</th>
                         <th>বর্তমান বিল পরিশোধ</th>
                         <th>মোট পরিশোধ</th>
-
+                        <th style="width:120px;">প্রিন্ট করুন</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -187,8 +193,14 @@
                             <td>@item.EstimatedCost</td>
                             <td>@item.PreviouslyPaidAmount</td>
                             <td>@item.FinalPaymentAmount</td>
+                            <td>@(item.PreviouslyPaidAmount+item.FinalPaymentAmount)</td>
                             <td>
-                                @(item.PreviouslyPaidAmount + item.FinalPaymentAmount)
+                                <a href="@Url.Action("PrintContractorCompanyPaymentReport", "ContractorCompanyPayment", new { id = item.ContractorCompanyPaymentId, type="pdf" })" class="btn btn-info btn-xs">
+                                    <i class="fa fa-print"></i> ঠিকাদার প্রতিষ্ঠানকে প্রদত্ত অর্থ প্রিন্ট pdf
+                                </a>
+                                <a href="@Url.Action("PrintContractorCompanyPaymentReport", "ContractorCompanyPayment", new { id = item.ContractorCompanyPaymentId, type="word" })" class="btn btn-info btn-xs">
+                                    <i class="fa fa-print"></i> ঠিকাদার প্রতিষ্ঠানকে প্রদত্ত অর্থ প্রিন্ট word
+                                </a>
                             </td>
                         </tr>
                     }

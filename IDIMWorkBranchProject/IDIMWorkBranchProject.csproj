@@ -2997,6 +2997,8 @@
     <EmbeddedResource Include="Report\Rdlc\ContractAgreementReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RDLCBill.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RDLCProblem.rdlc" />
+    <EmbeddedResource Include="Report\Rdlc\BGBMiscellaneousFundReport.rdlc" />
+    <EmbeddedResource Include="Report\Rdlc\ContractorCompanyPaymentReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\VatTaxReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RptConstructionCheckList.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\RptConstructionDetails.rdlc" />

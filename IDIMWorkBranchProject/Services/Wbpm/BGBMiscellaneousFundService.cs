@@ -12,7 +12,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
     {
         public BGBMiscellaneousFundService(IDIMDBEntities context) : base(context)
         {
-        }
+        }   
 
         public async Task<BGBMiscellaneousFund> GetByADPPaymentReceiveIdAsync(int id)
         {
