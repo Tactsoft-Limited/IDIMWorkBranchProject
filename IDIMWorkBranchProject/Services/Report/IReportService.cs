@@ -11,7 +11,7 @@ namespace IDIMWorkBranchProject.Services.Report
         Task<List<ViewADPReceivePayment>> GetADPReceivePaymenAsync(int id);
         Task<List<ViewVatTaxReport>> GetVatTaxAsync(int id);
         Task<List<ViewContactAgreement>> GetContractAgreementAsync(int id);
-        Task<List<BGBMiscellaneousFund>> GetBGBMiscellaneousFundAsync(int id);
+        Task<List<ViewBGBMiscellaneousFund>> GetBGBMiscellaneousFundAsync(int id);
         Task<List<ViewContractorCompanyPayment>> GetContractorCompanyPaymentAsync(int id);
 
 
