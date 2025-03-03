@@ -30,9 +30,9 @@ namespace IDIMWorkBranchProject.Report.Data {
         
         private ViewVatTaxReportDataTable tableViewVatTaxReport;
         
-        private BGBMiscellaneousFundDataTable tableBGBMiscellaneousFund;
-        
         private ViewContractorCompanyPaymentDataTable tableViewContractorCompanyPayment;
+        
+        private ViewBGBMiscellaneousFundDataTable tableViewBGBMiscellaneousFund;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -71,11 +71,11 @@ namespace IDIMWorkBranchProject.Report.Data {
                 if ((ds.Tables["ViewVatTaxReport"] != null)) {
                     base.Tables.Add(new ViewVatTaxReportDataTable(ds.Tables["ViewVatTaxReport"]));
                 }
-                if ((ds.Tables["BGBMiscellaneousFund"] != null)) {
-                    base.Tables.Add(new BGBMiscellaneousFundDataTable(ds.Tables["BGBMiscellaneousFund"]));
-                }
                 if ((ds.Tables["ViewContractorCompanyPayment"] != null)) {
                     base.Tables.Add(new ViewContractorCompanyPaymentDataTable(ds.Tables["ViewContractorCompanyPayment"]));
+                }
+                if ((ds.Tables["ViewBGBMiscellaneousFund"] != null)) {
+                    base.Tables.Add(new ViewBGBMiscellaneousFundDataTable(ds.Tables["ViewBGBMiscellaneousFund"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -129,9 +129,9 @@ namespace IDIMWorkBranchProject.Report.Data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public BGBMiscellaneousFundDataTable BGBMiscellaneousFund {
+        public ViewContractorCompanyPaymentDataTable ViewContractorCompanyPayment {
             get {
-                return this.tableBGBMiscellaneousFund;
+                return this.tableViewContractorCompanyPayment;
             }
         }
         
@@ -139,9 +139,9 @@ namespace IDIMWorkBranchProject.Report.Data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ViewContractorCompanyPaymentDataTable ViewContractorCompanyPayment {
+        public ViewBGBMiscellaneousFundDataTable ViewBGBMiscellaneousFund {
             get {
-                return this.tableViewContractorCompanyPayment;
+                return this.tableViewBGBMiscellaneousFund;
             }
         }
         
@@ -221,11 +221,11 @@ namespace IDIMWorkBranchProject.Report.Data {
                 if ((ds.Tables["ViewVatTaxReport"] != null)) {
                     base.Tables.Add(new ViewVatTaxReportDataTable(ds.Tables["ViewVatTaxReport"]));
                 }
-                if ((ds.Tables["BGBMiscellaneousFund"] != null)) {
-                    base.Tables.Add(new BGBMiscellaneousFundDataTable(ds.Tables["BGBMiscellaneousFund"]));
-                }
                 if ((ds.Tables["ViewContractorCompanyPayment"] != null)) {
                     base.Tables.Add(new ViewContractorCompanyPaymentDataTable(ds.Tables["ViewContractorCompanyPayment"]));
+                }
+                if ((ds.Tables["ViewBGBMiscellaneousFund"] != null)) {
+                    base.Tables.Add(new ViewBGBMiscellaneousFundDataTable(ds.Tables["ViewBGBMiscellaneousFund"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -278,16 +278,16 @@ namespace IDIMWorkBranchProject.Report.Data {
                     this.tableViewVatTaxReport.InitVars();
                 }
             }
-            this.tableBGBMiscellaneousFund = ((BGBMiscellaneousFundDataTable)(base.Tables["BGBMiscellaneousFund"]));
-            if ((initTable == true)) {
-                if ((this.tableBGBMiscellaneousFund != null)) {
-                    this.tableBGBMiscellaneousFund.InitVars();
-                }
-            }
             this.tableViewContractorCompanyPayment = ((ViewContractorCompanyPaymentDataTable)(base.Tables["ViewContractorCompanyPayment"]));
             if ((initTable == true)) {
                 if ((this.tableViewContractorCompanyPayment != null)) {
                     this.tableViewContractorCompanyPayment.InitVars();
+                }
+            }
+            this.tableViewBGBMiscellaneousFund = ((ViewBGBMiscellaneousFundDataTable)(base.Tables["ViewBGBMiscellaneousFund"]));
+            if ((initTable == true)) {
+                if ((this.tableViewBGBMiscellaneousFund != null)) {
+                    this.tableViewBGBMiscellaneousFund.InitVars();
                 }
             }
         }
@@ -306,10 +306,10 @@ namespace IDIMWorkBranchProject.Report.Data {
             base.Tables.Add(this.tableViewContactAgreement);
             this.tableViewVatTaxReport = new ViewVatTaxReportDataTable();
             base.Tables.Add(this.tableViewVatTaxReport);
-            this.tableBGBMiscellaneousFund = new BGBMiscellaneousFundDataTable();
-            base.Tables.Add(this.tableBGBMiscellaneousFund);
             this.tableViewContractorCompanyPayment = new ViewContractorCompanyPaymentDataTable();
             base.Tables.Add(this.tableViewContractorCompanyPayment);
+            this.tableViewBGBMiscellaneousFund = new ViewBGBMiscellaneousFundDataTable();
+            base.Tables.Add(this.tableViewBGBMiscellaneousFund);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -332,13 +332,13 @@ namespace IDIMWorkBranchProject.Report.Data {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeBGBMiscellaneousFund() {
+        private bool ShouldSerializeViewContractorCompanyPayment() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeViewContractorCompanyPayment() {
+        private bool ShouldSerializeViewBGBMiscellaneousFund() {
             return false;
         }
         
@@ -407,10 +407,10 @@ namespace IDIMWorkBranchProject.Report.Data {
         public delegate void ViewVatTaxReportRowChangeEventHandler(object sender, ViewVatTaxReportRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void BGBMiscellaneousFundRowChangeEventHandler(object sender, BGBMiscellaneousFundRowChangeEvent e);
+        public delegate void ViewContractorCompanyPaymentRowChangeEventHandler(object sender, ViewContractorCompanyPaymentRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void ViewContractorCompanyPaymentRowChangeEventHandler(object sender, ViewContractorCompanyPaymentRowChangeEvent e);
+        public delegate void ViewBGBMiscellaneousFundRowChangeEventHandler(object sender, ViewBGBMiscellaneousFundRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2414,543 +2414,6 @@ namespace IDIMWorkBranchProject.Report.Data {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class BGBMiscellaneousFundDataTable : global::System.Data.TypedTableBase<BGBMiscellaneousFundRow> {
-            
-            private global::System.Data.DataColumn columnFundId;
-            
-            private global::System.Data.DataColumn columnProjectWorkId;
-            
-            private global::System.Data.DataColumn columnADPReceivePaymentId;
-            
-            private global::System.Data.DataColumn columnLetterNo;
-            
-            private global::System.Data.DataColumn columnDepositeDate;
-            
-            private global::System.Data.DataColumn columnPayOrderNo;
-            
-            private global::System.Data.DataColumn columnPayOrderDate;
-            
-            private global::System.Data.DataColumn columnBankName;
-            
-            private global::System.Data.DataColumn columnBrunchName;
-            
-            private global::System.Data.DataColumn columnAccountName;
-            
-            private global::System.Data.DataColumn columnAccountNumber;
-            
-            private global::System.Data.DataColumn columnAmount;
-            
-            private global::System.Data.DataColumn columnRemarks;
-            
-            private global::System.Data.DataColumn columnCreatedUser;
-            
-            private global::System.Data.DataColumn columnCreatedDateTime;
-            
-            private global::System.Data.DataColumn columnUpdatedUser;
-            
-            private global::System.Data.DataColumn columnUpdatedDateTime;
-            
-            private global::System.Data.DataColumn columnUpdateNo;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BGBMiscellaneousFundDataTable() {
-                this.TableName = "BGBMiscellaneousFund";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal BGBMiscellaneousFundDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected BGBMiscellaneousFundDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn FundIdColumn {
-                get {
-                    return this.columnFundId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ProjectWorkIdColumn {
-                get {
-                    return this.columnProjectWorkId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ADPReceivePaymentIdColumn {
-                get {
-                    return this.columnADPReceivePaymentId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn LetterNoColumn {
-                get {
-                    return this.columnLetterNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DepositeDateColumn {
-                get {
-                    return this.columnDepositeDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PayOrderNoColumn {
-                get {
-                    return this.columnPayOrderNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PayOrderDateColumn {
-                get {
-                    return this.columnPayOrderDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BankNameColumn {
-                get {
-                    return this.columnBankName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BrunchNameColumn {
-                get {
-                    return this.columnBrunchName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn AccountNameColumn {
-                get {
-                    return this.columnAccountName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn AccountNumberColumn {
-                get {
-                    return this.columnAccountNumber;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn AmountColumn {
-                get {
-                    return this.columnAmount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn RemarksColumn {
-                get {
-                    return this.columnRemarks;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CreatedUserColumn {
-                get {
-                    return this.columnCreatedUser;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CreatedDateTimeColumn {
-                get {
-                    return this.columnCreatedDateTime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn UpdatedUserColumn {
-                get {
-                    return this.columnUpdatedUser;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn UpdatedDateTimeColumn {
-                get {
-                    return this.columnUpdatedDateTime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn UpdateNoColumn {
-                get {
-                    return this.columnUpdateNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BGBMiscellaneousFundRow this[int index] {
-                get {
-                    return ((BGBMiscellaneousFundRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event BGBMiscellaneousFundRowChangeEventHandler BGBMiscellaneousFundRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event BGBMiscellaneousFundRowChangeEventHandler BGBMiscellaneousFundRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event BGBMiscellaneousFundRowChangeEventHandler BGBMiscellaneousFundRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event BGBMiscellaneousFundRowChangeEventHandler BGBMiscellaneousFundRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddBGBMiscellaneousFundRow(BGBMiscellaneousFundRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BGBMiscellaneousFundRow AddBGBMiscellaneousFundRow(
-                        int ProjectWorkId, 
-                        int ADPReceivePaymentId, 
-                        string LetterNo, 
-                        System.DateTime DepositeDate, 
-                        string PayOrderNo, 
-                        System.DateTime PayOrderDate, 
-                        string BankName, 
-                        string BrunchName, 
-                        string AccountName, 
-                        string AccountNumber, 
-                        decimal Amount, 
-                        string Remarks, 
-                        int CreatedUser, 
-                        System.DateTime CreatedDateTime, 
-                        int UpdatedUser, 
-                        System.DateTime UpdatedDateTime, 
-                        int UpdateNo) {
-                BGBMiscellaneousFundRow rowBGBMiscellaneousFundRow = ((BGBMiscellaneousFundRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        ProjectWorkId,
-                        ADPReceivePaymentId,
-                        LetterNo,
-                        DepositeDate,
-                        PayOrderNo,
-                        PayOrderDate,
-                        BankName,
-                        BrunchName,
-                        AccountName,
-                        AccountNumber,
-                        Amount,
-                        Remarks,
-                        CreatedUser,
-                        CreatedDateTime,
-                        UpdatedUser,
-                        UpdatedDateTime,
-                        UpdateNo};
-                rowBGBMiscellaneousFundRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowBGBMiscellaneousFundRow);
-                return rowBGBMiscellaneousFundRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BGBMiscellaneousFundRow FindByFundId(int FundId) {
-                return ((BGBMiscellaneousFundRow)(this.Rows.Find(new object[] {
-                            FundId})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                BGBMiscellaneousFundDataTable cln = ((BGBMiscellaneousFundDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new BGBMiscellaneousFundDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnFundId = base.Columns["FundId"];
-                this.columnProjectWorkId = base.Columns["ProjectWorkId"];
-                this.columnADPReceivePaymentId = base.Columns["ADPReceivePaymentId"];
-                this.columnLetterNo = base.Columns["LetterNo"];
-                this.columnDepositeDate = base.Columns["DepositeDate"];
-                this.columnPayOrderNo = base.Columns["PayOrderNo"];
-                this.columnPayOrderDate = base.Columns["PayOrderDate"];
-                this.columnBankName = base.Columns["BankName"];
-                this.columnBrunchName = base.Columns["BrunchName"];
-                this.columnAccountName = base.Columns["AccountName"];
-                this.columnAccountNumber = base.Columns["AccountNumber"];
-                this.columnAmount = base.Columns["Amount"];
-                this.columnRemarks = base.Columns["Remarks"];
-                this.columnCreatedUser = base.Columns["CreatedUser"];
-                this.columnCreatedDateTime = base.Columns["CreatedDateTime"];
-                this.columnUpdatedUser = base.Columns["UpdatedUser"];
-                this.columnUpdatedDateTime = base.Columns["UpdatedDateTime"];
-                this.columnUpdateNo = base.Columns["UpdateNo"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnFundId = new global::System.Data.DataColumn("FundId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFundId);
-                this.columnProjectWorkId = new global::System.Data.DataColumn("ProjectWorkId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProjectWorkId);
-                this.columnADPReceivePaymentId = new global::System.Data.DataColumn("ADPReceivePaymentId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnADPReceivePaymentId);
-                this.columnLetterNo = new global::System.Data.DataColumn("LetterNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLetterNo);
-                this.columnDepositeDate = new global::System.Data.DataColumn("DepositeDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepositeDate);
-                this.columnPayOrderNo = new global::System.Data.DataColumn("PayOrderNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPayOrderNo);
-                this.columnPayOrderDate = new global::System.Data.DataColumn("PayOrderDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPayOrderDate);
-                this.columnBankName = new global::System.Data.DataColumn("BankName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBankName);
-                this.columnBrunchName = new global::System.Data.DataColumn("BrunchName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBrunchName);
-                this.columnAccountName = new global::System.Data.DataColumn("AccountName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAccountName);
-                this.columnAccountNumber = new global::System.Data.DataColumn("AccountNumber", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAccountNumber);
-                this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAmount);
-                this.columnRemarks = new global::System.Data.DataColumn("Remarks", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRemarks);
-                this.columnCreatedUser = new global::System.Data.DataColumn("CreatedUser", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedUser);
-                this.columnCreatedDateTime = new global::System.Data.DataColumn("CreatedDateTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedDateTime);
-                this.columnUpdatedUser = new global::System.Data.DataColumn("UpdatedUser", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUpdatedUser);
-                this.columnUpdatedDateTime = new global::System.Data.DataColumn("UpdatedDateTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUpdatedDateTime);
-                this.columnUpdateNo = new global::System.Data.DataColumn("UpdateNo", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUpdateNo);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnFundId}, true));
-                this.columnFundId.AutoIncrement = true;
-                this.columnFundId.AutoIncrementSeed = -1;
-                this.columnFundId.AutoIncrementStep = -1;
-                this.columnFundId.AllowDBNull = false;
-                this.columnFundId.ReadOnly = true;
-                this.columnFundId.Unique = true;
-                this.columnProjectWorkId.AllowDBNull = false;
-                this.columnLetterNo.AllowDBNull = false;
-                this.columnLetterNo.MaxLength = 150;
-                this.columnDepositeDate.AllowDBNull = false;
-                this.columnPayOrderNo.AllowDBNull = false;
-                this.columnPayOrderNo.MaxLength = 150;
-                this.columnPayOrderDate.AllowDBNull = false;
-                this.columnBankName.AllowDBNull = false;
-                this.columnBankName.MaxLength = 150;
-                this.columnBrunchName.AllowDBNull = false;
-                this.columnBrunchName.MaxLength = 150;
-                this.columnAccountName.AllowDBNull = false;
-                this.columnAccountName.MaxLength = 150;
-                this.columnAccountNumber.AllowDBNull = false;
-                this.columnAccountNumber.MaxLength = 150;
-                this.columnAmount.AllowDBNull = false;
-                this.columnRemarks.MaxLength = 150;
-                this.columnCreatedUser.AllowDBNull = false;
-                this.columnCreatedDateTime.AllowDBNull = false;
-                this.columnUpdateNo.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BGBMiscellaneousFundRow NewBGBMiscellaneousFundRow() {
-                return ((BGBMiscellaneousFundRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new BGBMiscellaneousFundRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(BGBMiscellaneousFundRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.BGBMiscellaneousFundRowChanged != null)) {
-                    this.BGBMiscellaneousFundRowChanged(this, new BGBMiscellaneousFundRowChangeEvent(((BGBMiscellaneousFundRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.BGBMiscellaneousFundRowChanging != null)) {
-                    this.BGBMiscellaneousFundRowChanging(this, new BGBMiscellaneousFundRowChangeEvent(((BGBMiscellaneousFundRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.BGBMiscellaneousFundRowDeleted != null)) {
-                    this.BGBMiscellaneousFundRowDeleted(this, new BGBMiscellaneousFundRowChangeEvent(((BGBMiscellaneousFundRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.BGBMiscellaneousFundRowDeleting != null)) {
-                    this.BGBMiscellaneousFundRowDeleting(this, new BGBMiscellaneousFundRowChangeEvent(((BGBMiscellaneousFundRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveBGBMiscellaneousFundRow(BGBMiscellaneousFundRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                WPDataSet ds = new WPDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "BGBMiscellaneousFundDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ViewContractorCompanyPaymentDataTable : global::System.Data.TypedTableBase<ViewContractorCompanyPaymentRow> {
             
             private global::System.Data.DataColumn columnContractorCompanyPaymentId;
@@ -3826,6 +3289,465 @@ namespace IDIMWorkBranchProject.Report.Data {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "ViewContractorCompanyPaymentDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ViewBGBMiscellaneousFundDataTable : global::System.Data.TypedTableBase<ViewBGBMiscellaneousFundRow> {
+            
+            private global::System.Data.DataColumn columnFundId;
+            
+            private global::System.Data.DataColumn columnProjectWorkId;
+            
+            private global::System.Data.DataColumn columnADPReceivePaymentId;
+            
+            private global::System.Data.DataColumn columnLetterNo;
+            
+            private global::System.Data.DataColumn columnDepositeDate;
+            
+            private global::System.Data.DataColumn columnPayOrderNo;
+            
+            private global::System.Data.DataColumn columnPayOrderDate;
+            
+            private global::System.Data.DataColumn columnBankName;
+            
+            private global::System.Data.DataColumn columnBrunchName;
+            
+            private global::System.Data.DataColumn columnAccountName;
+            
+            private global::System.Data.DataColumn columnAccountNumber;
+            
+            private global::System.Data.DataColumn columnAmount;
+            
+            private global::System.Data.DataColumn columnProjectWorkTitleB;
+            
+            private global::System.Data.DataColumn columnFirmNameB;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewBGBMiscellaneousFundDataTable() {
+                this.TableName = "ViewBGBMiscellaneousFund";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal ViewBGBMiscellaneousFundDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected ViewBGBMiscellaneousFundDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn FundIdColumn {
+                get {
+                    return this.columnFundId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ProjectWorkIdColumn {
+                get {
+                    return this.columnProjectWorkId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ADPReceivePaymentIdColumn {
+                get {
+                    return this.columnADPReceivePaymentId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LetterNoColumn {
+                get {
+                    return this.columnLetterNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DepositeDateColumn {
+                get {
+                    return this.columnDepositeDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PayOrderNoColumn {
+                get {
+                    return this.columnPayOrderNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PayOrderDateColumn {
+                get {
+                    return this.columnPayOrderDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BankNameColumn {
+                get {
+                    return this.columnBankName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BrunchNameColumn {
+                get {
+                    return this.columnBrunchName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AccountNameColumn {
+                get {
+                    return this.columnAccountName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AccountNumberColumn {
+                get {
+                    return this.columnAccountNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AmountColumn {
+                get {
+                    return this.columnAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ProjectWorkTitleBColumn {
+                get {
+                    return this.columnProjectWorkTitleB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn FirmNameBColumn {
+                get {
+                    return this.columnFirmNameB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewBGBMiscellaneousFundRow this[int index] {
+                get {
+                    return ((ViewBGBMiscellaneousFundRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ViewBGBMiscellaneousFundRowChangeEventHandler ViewBGBMiscellaneousFundRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ViewBGBMiscellaneousFundRowChangeEventHandler ViewBGBMiscellaneousFundRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ViewBGBMiscellaneousFundRowChangeEventHandler ViewBGBMiscellaneousFundRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ViewBGBMiscellaneousFundRowChangeEventHandler ViewBGBMiscellaneousFundRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddViewBGBMiscellaneousFundRow(ViewBGBMiscellaneousFundRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewBGBMiscellaneousFundRow AddViewBGBMiscellaneousFundRow(int FundId, int ProjectWorkId, int ADPReceivePaymentId, string LetterNo, System.DateTime DepositeDate, string PayOrderNo, System.DateTime PayOrderDate, string BankName, string BrunchName, string AccountName, string AccountNumber, decimal Amount, string ProjectWorkTitleB, string FirmNameB) {
+                ViewBGBMiscellaneousFundRow rowViewBGBMiscellaneousFundRow = ((ViewBGBMiscellaneousFundRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        FundId,
+                        ProjectWorkId,
+                        ADPReceivePaymentId,
+                        LetterNo,
+                        DepositeDate,
+                        PayOrderNo,
+                        PayOrderDate,
+                        BankName,
+                        BrunchName,
+                        AccountName,
+                        AccountNumber,
+                        Amount,
+                        ProjectWorkTitleB,
+                        FirmNameB};
+                rowViewBGBMiscellaneousFundRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowViewBGBMiscellaneousFundRow);
+                return rowViewBGBMiscellaneousFundRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewBGBMiscellaneousFundRow FindByFundId(int FundId) {
+                return ((ViewBGBMiscellaneousFundRow)(this.Rows.Find(new object[] {
+                            FundId})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ViewBGBMiscellaneousFundDataTable cln = ((ViewBGBMiscellaneousFundDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ViewBGBMiscellaneousFundDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnFundId = base.Columns["FundId"];
+                this.columnProjectWorkId = base.Columns["ProjectWorkId"];
+                this.columnADPReceivePaymentId = base.Columns["ADPReceivePaymentId"];
+                this.columnLetterNo = base.Columns["LetterNo"];
+                this.columnDepositeDate = base.Columns["DepositeDate"];
+                this.columnPayOrderNo = base.Columns["PayOrderNo"];
+                this.columnPayOrderDate = base.Columns["PayOrderDate"];
+                this.columnBankName = base.Columns["BankName"];
+                this.columnBrunchName = base.Columns["BrunchName"];
+                this.columnAccountName = base.Columns["AccountName"];
+                this.columnAccountNumber = base.Columns["AccountNumber"];
+                this.columnAmount = base.Columns["Amount"];
+                this.columnProjectWorkTitleB = base.Columns["ProjectWorkTitleB"];
+                this.columnFirmNameB = base.Columns["FirmNameB"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnFundId = new global::System.Data.DataColumn("FundId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFundId);
+                this.columnProjectWorkId = new global::System.Data.DataColumn("ProjectWorkId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProjectWorkId);
+                this.columnADPReceivePaymentId = new global::System.Data.DataColumn("ADPReceivePaymentId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnADPReceivePaymentId);
+                this.columnLetterNo = new global::System.Data.DataColumn("LetterNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLetterNo);
+                this.columnDepositeDate = new global::System.Data.DataColumn("DepositeDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDepositeDate);
+                this.columnPayOrderNo = new global::System.Data.DataColumn("PayOrderNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayOrderNo);
+                this.columnPayOrderDate = new global::System.Data.DataColumn("PayOrderDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayOrderDate);
+                this.columnBankName = new global::System.Data.DataColumn("BankName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBankName);
+                this.columnBrunchName = new global::System.Data.DataColumn("BrunchName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBrunchName);
+                this.columnAccountName = new global::System.Data.DataColumn("AccountName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountName);
+                this.columnAccountNumber = new global::System.Data.DataColumn("AccountNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountNumber);
+                this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmount);
+                this.columnProjectWorkTitleB = new global::System.Data.DataColumn("ProjectWorkTitleB", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProjectWorkTitleB);
+                this.columnFirmNameB = new global::System.Data.DataColumn("FirmNameB", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFirmNameB);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnFundId}, true));
+                this.columnFundId.AllowDBNull = false;
+                this.columnFundId.Unique = true;
+                this.columnProjectWorkId.AllowDBNull = false;
+                this.columnLetterNo.AllowDBNull = false;
+                this.columnLetterNo.MaxLength = 150;
+                this.columnDepositeDate.AllowDBNull = false;
+                this.columnPayOrderNo.AllowDBNull = false;
+                this.columnPayOrderNo.MaxLength = 150;
+                this.columnPayOrderDate.AllowDBNull = false;
+                this.columnBankName.AllowDBNull = false;
+                this.columnBankName.MaxLength = 150;
+                this.columnBrunchName.AllowDBNull = false;
+                this.columnBrunchName.MaxLength = 150;
+                this.columnAccountName.AllowDBNull = false;
+                this.columnAccountName.MaxLength = 150;
+                this.columnAccountNumber.AllowDBNull = false;
+                this.columnAccountNumber.MaxLength = 150;
+                this.columnAmount.AllowDBNull = false;
+                this.columnProjectWorkTitleB.MaxLength = 500;
+                this.columnFirmNameB.AllowDBNull = false;
+                this.columnFirmNameB.MaxLength = 200;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewBGBMiscellaneousFundRow NewViewBGBMiscellaneousFundRow() {
+                return ((ViewBGBMiscellaneousFundRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ViewBGBMiscellaneousFundRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ViewBGBMiscellaneousFundRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ViewBGBMiscellaneousFundRowChanged != null)) {
+                    this.ViewBGBMiscellaneousFundRowChanged(this, new ViewBGBMiscellaneousFundRowChangeEvent(((ViewBGBMiscellaneousFundRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ViewBGBMiscellaneousFundRowChanging != null)) {
+                    this.ViewBGBMiscellaneousFundRowChanging(this, new ViewBGBMiscellaneousFundRowChangeEvent(((ViewBGBMiscellaneousFundRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ViewBGBMiscellaneousFundRowDeleted != null)) {
+                    this.ViewBGBMiscellaneousFundRowDeleted(this, new ViewBGBMiscellaneousFundRowChangeEvent(((ViewBGBMiscellaneousFundRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ViewBGBMiscellaneousFundRowDeleting != null)) {
+                    this.ViewBGBMiscellaneousFundRowDeleting(this, new ViewBGBMiscellaneousFundRowChangeEvent(((ViewBGBMiscellaneousFundRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveViewBGBMiscellaneousFundRow(ViewBGBMiscellaneousFundRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                WPDataSet ds = new WPDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ViewBGBMiscellaneousFundDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -5819,289 +5741,6 @@ namespace IDIMWorkBranchProject.Report.Data {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class BGBMiscellaneousFundRow : global::System.Data.DataRow {
-            
-            private BGBMiscellaneousFundDataTable tableBGBMiscellaneousFund;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal BGBMiscellaneousFundRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableBGBMiscellaneousFund = ((BGBMiscellaneousFundDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int FundId {
-                get {
-                    return ((int)(this[this.tableBGBMiscellaneousFund.FundIdColumn]));
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.FundIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ProjectWorkId {
-                get {
-                    return ((int)(this[this.tableBGBMiscellaneousFund.ProjectWorkIdColumn]));
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.ProjectWorkIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ADPReceivePaymentId {
-                get {
-                    try {
-                        return ((int)(this[this.tableBGBMiscellaneousFund.ADPReceivePaymentIdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ADPReceivePaymentId\' in table \'BGBMiscellaneousFund\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.ADPReceivePaymentIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string LetterNo {
-                get {
-                    return ((string)(this[this.tableBGBMiscellaneousFund.LetterNoColumn]));
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.LetterNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime DepositeDate {
-                get {
-                    return ((global::System.DateTime)(this[this.tableBGBMiscellaneousFund.DepositeDateColumn]));
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.DepositeDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string PayOrderNo {
-                get {
-                    return ((string)(this[this.tableBGBMiscellaneousFund.PayOrderNoColumn]));
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.PayOrderNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime PayOrderDate {
-                get {
-                    return ((global::System.DateTime)(this[this.tableBGBMiscellaneousFund.PayOrderDateColumn]));
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.PayOrderDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string BankName {
-                get {
-                    return ((string)(this[this.tableBGBMiscellaneousFund.BankNameColumn]));
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.BankNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string BrunchName {
-                get {
-                    return ((string)(this[this.tableBGBMiscellaneousFund.BrunchNameColumn]));
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.BrunchNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string AccountName {
-                get {
-                    return ((string)(this[this.tableBGBMiscellaneousFund.AccountNameColumn]));
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.AccountNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string AccountNumber {
-                get {
-                    return ((string)(this[this.tableBGBMiscellaneousFund.AccountNumberColumn]));
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.AccountNumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal Amount {
-                get {
-                    return ((decimal)(this[this.tableBGBMiscellaneousFund.AmountColumn]));
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.AmountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Remarks {
-                get {
-                    try {
-                        return ((string)(this[this.tableBGBMiscellaneousFund.RemarksColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Remarks\' in table \'BGBMiscellaneousFund\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.RemarksColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int CreatedUser {
-                get {
-                    return ((int)(this[this.tableBGBMiscellaneousFund.CreatedUserColumn]));
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.CreatedUserColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime CreatedDateTime {
-                get {
-                    return ((global::System.DateTime)(this[this.tableBGBMiscellaneousFund.CreatedDateTimeColumn]));
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.CreatedDateTimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int UpdatedUser {
-                get {
-                    try {
-                        return ((int)(this[this.tableBGBMiscellaneousFund.UpdatedUserColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UpdatedUser\' in table \'BGBMiscellaneousFund\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.UpdatedUserColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime UpdatedDateTime {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableBGBMiscellaneousFund.UpdatedDateTimeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UpdatedDateTime\' in table \'BGBMiscellaneousFund\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.UpdatedDateTimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int UpdateNo {
-                get {
-                    return ((int)(this[this.tableBGBMiscellaneousFund.UpdateNoColumn]));
-                }
-                set {
-                    this[this.tableBGBMiscellaneousFund.UpdateNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsADPReceivePaymentIdNull() {
-                return this.IsNull(this.tableBGBMiscellaneousFund.ADPReceivePaymentIdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetADPReceivePaymentIdNull() {
-                this[this.tableBGBMiscellaneousFund.ADPReceivePaymentIdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsRemarksNull() {
-                return this.IsNull(this.tableBGBMiscellaneousFund.RemarksColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetRemarksNull() {
-                this[this.tableBGBMiscellaneousFund.RemarksColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsUpdatedUserNull() {
-                return this.IsNull(this.tableBGBMiscellaneousFund.UpdatedUserColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetUpdatedUserNull() {
-                this[this.tableBGBMiscellaneousFund.UpdatedUserColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsUpdatedDateTimeNull() {
-                return this.IsNull(this.tableBGBMiscellaneousFund.UpdatedDateTimeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetUpdatedDateTimeNull() {
-                this[this.tableBGBMiscellaneousFund.UpdatedDateTimeColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class ViewContractorCompanyPaymentRow : global::System.Data.DataRow {
             
             private ViewContractorCompanyPaymentDataTable tableViewContractorCompanyPayment;
@@ -6768,6 +6407,211 @@ namespace IDIMWorkBranchProject.Report.Data {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ViewBGBMiscellaneousFundRow : global::System.Data.DataRow {
+            
+            private ViewBGBMiscellaneousFundDataTable tableViewBGBMiscellaneousFund;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal ViewBGBMiscellaneousFundRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableViewBGBMiscellaneousFund = ((ViewBGBMiscellaneousFundDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int FundId {
+                get {
+                    return ((int)(this[this.tableViewBGBMiscellaneousFund.FundIdColumn]));
+                }
+                set {
+                    this[this.tableViewBGBMiscellaneousFund.FundIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ProjectWorkId {
+                get {
+                    return ((int)(this[this.tableViewBGBMiscellaneousFund.ProjectWorkIdColumn]));
+                }
+                set {
+                    this[this.tableViewBGBMiscellaneousFund.ProjectWorkIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ADPReceivePaymentId {
+                get {
+                    try {
+                        return ((int)(this[this.tableViewBGBMiscellaneousFund.ADPReceivePaymentIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ADPReceivePaymentId\' in table \'ViewBGBMiscellaneousFund\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewBGBMiscellaneousFund.ADPReceivePaymentIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string LetterNo {
+                get {
+                    return ((string)(this[this.tableViewBGBMiscellaneousFund.LetterNoColumn]));
+                }
+                set {
+                    this[this.tableViewBGBMiscellaneousFund.LetterNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime DepositeDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tableViewBGBMiscellaneousFund.DepositeDateColumn]));
+                }
+                set {
+                    this[this.tableViewBGBMiscellaneousFund.DepositeDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string PayOrderNo {
+                get {
+                    return ((string)(this[this.tableViewBGBMiscellaneousFund.PayOrderNoColumn]));
+                }
+                set {
+                    this[this.tableViewBGBMiscellaneousFund.PayOrderNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime PayOrderDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tableViewBGBMiscellaneousFund.PayOrderDateColumn]));
+                }
+                set {
+                    this[this.tableViewBGBMiscellaneousFund.PayOrderDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BankName {
+                get {
+                    return ((string)(this[this.tableViewBGBMiscellaneousFund.BankNameColumn]));
+                }
+                set {
+                    this[this.tableViewBGBMiscellaneousFund.BankNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BrunchName {
+                get {
+                    return ((string)(this[this.tableViewBGBMiscellaneousFund.BrunchNameColumn]));
+                }
+                set {
+                    this[this.tableViewBGBMiscellaneousFund.BrunchNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string AccountName {
+                get {
+                    return ((string)(this[this.tableViewBGBMiscellaneousFund.AccountNameColumn]));
+                }
+                set {
+                    this[this.tableViewBGBMiscellaneousFund.AccountNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string AccountNumber {
+                get {
+                    return ((string)(this[this.tableViewBGBMiscellaneousFund.AccountNumberColumn]));
+                }
+                set {
+                    this[this.tableViewBGBMiscellaneousFund.AccountNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Amount {
+                get {
+                    return ((decimal)(this[this.tableViewBGBMiscellaneousFund.AmountColumn]));
+                }
+                set {
+                    this[this.tableViewBGBMiscellaneousFund.AmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ProjectWorkTitleB {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewBGBMiscellaneousFund.ProjectWorkTitleBColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProjectWorkTitleB\' in table \'ViewBGBMiscellaneousFund\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewBGBMiscellaneousFund.ProjectWorkTitleBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string FirmNameB {
+                get {
+                    return ((string)(this[this.tableViewBGBMiscellaneousFund.FirmNameBColumn]));
+                }
+                set {
+                    this[this.tableViewBGBMiscellaneousFund.FirmNameBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsADPReceivePaymentIdNull() {
+                return this.IsNull(this.tableViewBGBMiscellaneousFund.ADPReceivePaymentIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetADPReceivePaymentIdNull() {
+                this[this.tableViewBGBMiscellaneousFund.ADPReceivePaymentIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsProjectWorkTitleBNull() {
+                return this.IsNull(this.tableViewBGBMiscellaneousFund.ProjectWorkTitleBColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetProjectWorkTitleBNull() {
+                this[this.tableViewBGBMiscellaneousFund.ProjectWorkTitleBColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -6873,22 +6717,22 @@ namespace IDIMWorkBranchProject.Report.Data {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class BGBMiscellaneousFundRowChangeEvent : global::System.EventArgs {
+        public class ViewContractorCompanyPaymentRowChangeEvent : global::System.EventArgs {
             
-            private BGBMiscellaneousFundRow eventRow;
+            private ViewContractorCompanyPaymentRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BGBMiscellaneousFundRowChangeEvent(BGBMiscellaneousFundRow row, global::System.Data.DataRowAction action) {
+            public ViewContractorCompanyPaymentRowChangeEvent(ViewContractorCompanyPaymentRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BGBMiscellaneousFundRow Row {
+            public ViewContractorCompanyPaymentRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6907,22 +6751,22 @@ namespace IDIMWorkBranchProject.Report.Data {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class ViewContractorCompanyPaymentRowChangeEvent : global::System.EventArgs {
+        public class ViewBGBMiscellaneousFundRowChangeEvent : global::System.EventArgs {
             
-            private ViewContractorCompanyPaymentRow eventRow;
+            private ViewBGBMiscellaneousFundRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ViewContractorCompanyPaymentRowChangeEvent(ViewContractorCompanyPaymentRow row, global::System.Data.DataRowAction action) {
+            public ViewBGBMiscellaneousFundRowChangeEvent(ViewBGBMiscellaneousFundRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ViewContractorCompanyPaymentRow Row {
+            public ViewBGBMiscellaneousFundRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7529,705 +7373,6 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class BGBMiscellaneousFundTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::Microsoft.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::Microsoft.Data.SqlClient.SqlConnection _connection;
-        
-        private global::Microsoft.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::Microsoft.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public BGBMiscellaneousFundTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::Microsoft.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::Microsoft.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::Microsoft.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::Microsoft.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::Microsoft.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::Microsoft.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "BGBMiscellaneousFund";
-            tableMapping.ColumnMappings.Add("FundId", "FundId");
-            tableMapping.ColumnMappings.Add("ProjectWorkId", "ProjectWorkId");
-            tableMapping.ColumnMappings.Add("ADPReceivePaymentId", "ADPReceivePaymentId");
-            tableMapping.ColumnMappings.Add("LetterNo", "LetterNo");
-            tableMapping.ColumnMappings.Add("DepositeDate", "DepositeDate");
-            tableMapping.ColumnMappings.Add("PayOrderNo", "PayOrderNo");
-            tableMapping.ColumnMappings.Add("PayOrderDate", "PayOrderDate");
-            tableMapping.ColumnMappings.Add("BankName", "BankName");
-            tableMapping.ColumnMappings.Add("BrunchName", "BrunchName");
-            tableMapping.ColumnMappings.Add("AccountName", "AccountName");
-            tableMapping.ColumnMappings.Add("AccountNumber", "AccountNumber");
-            tableMapping.ColumnMappings.Add("Amount", "Amount");
-            tableMapping.ColumnMappings.Add("Remarks", "Remarks");
-            tableMapping.ColumnMappings.Add("CreatedUser", "CreatedUser");
-            tableMapping.ColumnMappings.Add("CreatedDateTime", "CreatedDateTime");
-            tableMapping.ColumnMappings.Add("UpdatedUser", "UpdatedUser");
-            tableMapping.ColumnMappings.Add("UpdatedDateTime", "UpdatedDateTime");
-            tableMapping.ColumnMappings.Add("UpdateNo", "UpdateNo");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::Microsoft.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [wbpm].[BGBMiscellaneousFund] WHERE (([FundId] = @Original_FundId))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            global::Microsoft.Data.SqlClient.SqlParameter param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@Original_FundId";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SqlDbType = global::System.Data.SqlDbType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "FundId";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::Microsoft.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [wbpm].[BGBMiscellaneousFund] ([ProjectWorkId], [ADPReceivePaymentId], [LetterNo], [DepositeDate], [PayOrderNo], [PayOrderDate], [BankName], [BrunchName], [AccountName], [AccountNumber], [Amount], [Remarks], [CreatedUser], [CreatedDateTime], [UpdatedUser], [UpdatedDateTime], [UpdateNo]) VALUES (@ProjectWorkId, @ADPReceivePaymentId, @LetterNo, @DepositeDate, @PayOrderNo, @PayOrderDate, @BankName, @BrunchName, @AccountName, @AccountNumber, @Amount, @Remarks, @CreatedUser, @CreatedDateTime, @UpdatedUser, @UpdatedDateTime, @UpdateNo)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@ProjectWorkId";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SqlDbType = global::System.Data.SqlDbType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "ProjectWorkId";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@ADPReceivePaymentId";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SqlDbType = global::System.Data.SqlDbType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "ADPReceivePaymentId";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@LetterNo";
-            param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "LetterNo";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@DepositeDate";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.SqlDbType = global::System.Data.SqlDbType.DateTime;
-            param.IsNullable = true;
-            param.SourceColumn = "DepositeDate";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@PayOrderNo";
-            param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "PayOrderNo";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@PayOrderDate";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.SqlDbType = global::System.Data.SqlDbType.DateTime;
-            param.IsNullable = true;
-            param.SourceColumn = "PayOrderDate";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@BankName";
-            param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "BankName";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@BrunchName";
-            param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "BrunchName";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@AccountName";
-            param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "AccountName";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@AccountNumber";
-            param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "AccountNumber";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@Amount";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.SqlDbType = global::System.Data.SqlDbType.Decimal;
-            param.IsNullable = true;
-            param.SourceColumn = "Amount";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@Remarks";
-            param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Remarks";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@CreatedUser";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SqlDbType = global::System.Data.SqlDbType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "CreatedUser";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@CreatedDateTime";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.SqlDbType = global::System.Data.SqlDbType.DateTime;
-            param.IsNullable = true;
-            param.SourceColumn = "CreatedDateTime";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@UpdatedUser";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SqlDbType = global::System.Data.SqlDbType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "UpdatedUser";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@UpdatedDateTime";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.SqlDbType = global::System.Data.SqlDbType.DateTime;
-            param.IsNullable = true;
-            param.SourceColumn = "UpdatedDateTime";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@UpdateNo";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SqlDbType = global::System.Data.SqlDbType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "UpdateNo";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            this._adapter.UpdateCommand = new global::Microsoft.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [wbpm].[BGBMiscellaneousFund] SET [ProjectWorkId] = @ProjectWorkId, [ADPReceivePaymentId] = @ADPReceivePaymentId, [LetterNo] = @LetterNo, [DepositeDate] = @DepositeDate, [PayOrderNo] = @PayOrderNo, [PayOrderDate] = @PayOrderDate, [BankName] = @BankName, [BrunchName] = @BrunchName, [AccountName] = @AccountName, [AccountNumber] = @AccountNumber, [Amount] = @Amount, [Remarks] = @Remarks, [CreatedUser] = @CreatedUser, [CreatedDateTime] = @CreatedDateTime, [UpdatedUser] = @UpdatedUser, [UpdatedDateTime] = @UpdatedDateTime, [UpdateNo] = @UpdateNo WHERE (([FundId] = @Original_FundId))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@ProjectWorkId";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SqlDbType = global::System.Data.SqlDbType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "ProjectWorkId";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@ADPReceivePaymentId";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SqlDbType = global::System.Data.SqlDbType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "ADPReceivePaymentId";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@LetterNo";
-            param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "LetterNo";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@DepositeDate";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.SqlDbType = global::System.Data.SqlDbType.DateTime;
-            param.IsNullable = true;
-            param.SourceColumn = "DepositeDate";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@PayOrderNo";
-            param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "PayOrderNo";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@PayOrderDate";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.SqlDbType = global::System.Data.SqlDbType.DateTime;
-            param.IsNullable = true;
-            param.SourceColumn = "PayOrderDate";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@BankName";
-            param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "BankName";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@BrunchName";
-            param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "BrunchName";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@AccountName";
-            param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "AccountName";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@AccountNumber";
-            param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "AccountNumber";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@Amount";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.SqlDbType = global::System.Data.SqlDbType.Decimal;
-            param.IsNullable = true;
-            param.SourceColumn = "Amount";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@Remarks";
-            param.SqlDbType = global::System.Data.SqlDbType.NVarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Remarks";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@CreatedUser";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SqlDbType = global::System.Data.SqlDbType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "CreatedUser";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@CreatedDateTime";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.SqlDbType = global::System.Data.SqlDbType.DateTime;
-            param.IsNullable = true;
-            param.SourceColumn = "CreatedDateTime";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@UpdatedUser";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SqlDbType = global::System.Data.SqlDbType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "UpdatedUser";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@UpdatedDateTime";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.SqlDbType = global::System.Data.SqlDbType.DateTime;
-            param.IsNullable = true;
-            param.SourceColumn = "UpdatedDateTime";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@UpdateNo";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SqlDbType = global::System.Data.SqlDbType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "UpdateNo";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Microsoft.Data.SqlClient.SqlParameter();
-            param.ParameterName = "@Original_FundId";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SqlDbType = global::System.Data.SqlDbType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "FundId";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::Microsoft.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["IDIMDBConnectionString"].ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::Microsoft.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::Microsoft.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT wbpm.BGBMiscellaneousFund.*\r\nFROM     wbpm.BGBMiscellaneousFund";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(WPDataSet.BGBMiscellaneousFundDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual WPDataSet.BGBMiscellaneousFundDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            WPDataSet.BGBMiscellaneousFundDataTable dataTable = new WPDataSet.BGBMiscellaneousFundDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(WPDataSet.BGBMiscellaneousFundDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(WPDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "BGBMiscellaneousFund");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_FundId) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_FundId));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(
-                    int ProjectWorkId, 
-                    global::System.Nullable<int> ADPReceivePaymentId, 
-                    string LetterNo, 
-                    System.DateTime DepositeDate, 
-                    string PayOrderNo, 
-                    System.DateTime PayOrderDate, 
-                    string BankName, 
-                    string BrunchName, 
-                    string AccountName, 
-                    string AccountNumber, 
-                    decimal Amount, 
-                    string Remarks, 
-                    int CreatedUser, 
-                    System.DateTime CreatedDateTime, 
-                    global::System.Nullable<int> UpdatedUser, 
-                    global::System.Nullable<global::System.DateTime> UpdatedDateTime, 
-                    int UpdateNo) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ProjectWorkId));
-            if ((ADPReceivePaymentId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ADPReceivePaymentId.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((LetterNo == null)) {
-                throw new global::System.ArgumentNullException("LetterNo");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(LetterNo));
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(DepositeDate));
-            if ((PayOrderNo == null)) {
-                throw new global::System.ArgumentNullException("PayOrderNo");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(PayOrderNo));
-            }
-            this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(PayOrderDate));
-            if ((BankName == null)) {
-                throw new global::System.ArgumentNullException("BankName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(BankName));
-            }
-            if ((BrunchName == null)) {
-                throw new global::System.ArgumentNullException("BrunchName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(BrunchName));
-            }
-            if ((AccountName == null)) {
-                throw new global::System.ArgumentNullException("AccountName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(AccountName));
-            }
-            if ((AccountNumber == null)) {
-                throw new global::System.ArgumentNullException("AccountNumber");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(AccountNumber));
-            }
-            this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(Amount));
-            if ((Remarks == null)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Remarks));
-            }
-            this.Adapter.InsertCommand.Parameters[12].Value = ((int)(CreatedUser));
-            this.Adapter.InsertCommand.Parameters[13].Value = ((System.DateTime)(CreatedDateTime));
-            if ((UpdatedUser.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((int)(UpdatedUser.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((UpdatedDateTime.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((System.DateTime)(UpdatedDateTime.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.InsertCommand.Parameters[16].Value = ((int)(UpdateNo));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int ProjectWorkId, 
-                    global::System.Nullable<int> ADPReceivePaymentId, 
-                    string LetterNo, 
-                    System.DateTime DepositeDate, 
-                    string PayOrderNo, 
-                    System.DateTime PayOrderDate, 
-                    string BankName, 
-                    string BrunchName, 
-                    string AccountName, 
-                    string AccountNumber, 
-                    decimal Amount, 
-                    string Remarks, 
-                    int CreatedUser, 
-                    System.DateTime CreatedDateTime, 
-                    global::System.Nullable<int> UpdatedUser, 
-                    global::System.Nullable<global::System.DateTime> UpdatedDateTime, 
-                    int UpdateNo, 
-                    int Original_FundId) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ProjectWorkId));
-            if ((ADPReceivePaymentId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(ADPReceivePaymentId.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((LetterNo == null)) {
-                throw new global::System.ArgumentNullException("LetterNo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(LetterNo));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(DepositeDate));
-            if ((PayOrderNo == null)) {
-                throw new global::System.ArgumentNullException("PayOrderNo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(PayOrderNo));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(PayOrderDate));
-            if ((BankName == null)) {
-                throw new global::System.ArgumentNullException("BankName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(BankName));
-            }
-            if ((BrunchName == null)) {
-                throw new global::System.ArgumentNullException("BrunchName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(BrunchName));
-            }
-            if ((AccountName == null)) {
-                throw new global::System.ArgumentNullException("AccountName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(AccountName));
-            }
-            if ((AccountNumber == null)) {
-                throw new global::System.ArgumentNullException("AccountNumber");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(AccountNumber));
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Amount));
-            if ((Remarks == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Remarks));
-            }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(CreatedUser));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(CreatedDateTime));
-            if ((UpdatedUser.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(UpdatedUser.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((UpdatedDateTime.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(UpdatedDateTime.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(UpdateNo));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_FundId));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class ViewContractorCompanyPaymentTableAdapter : global::System.ComponentModel.Component {
         
         private global::Microsoft.Data.SqlClient.SqlDataAdapter _adapter;
@@ -8430,6 +7575,186 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ViewBGBMiscellaneousFundTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::Microsoft.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::Microsoft.Data.SqlClient.SqlConnection _connection;
+        
+        private global::Microsoft.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::Microsoft.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public ViewBGBMiscellaneousFundTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::Microsoft.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::Microsoft.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::Microsoft.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::Microsoft.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::Microsoft.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::Microsoft.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ViewBGBMiscellaneousFund";
+            tableMapping.ColumnMappings.Add("FundId", "FundId");
+            tableMapping.ColumnMappings.Add("ProjectWorkId", "ProjectWorkId");
+            tableMapping.ColumnMappings.Add("ADPReceivePaymentId", "ADPReceivePaymentId");
+            tableMapping.ColumnMappings.Add("LetterNo", "LetterNo");
+            tableMapping.ColumnMappings.Add("DepositeDate", "DepositeDate");
+            tableMapping.ColumnMappings.Add("PayOrderNo", "PayOrderNo");
+            tableMapping.ColumnMappings.Add("PayOrderDate", "PayOrderDate");
+            tableMapping.ColumnMappings.Add("BankName", "BankName");
+            tableMapping.ColumnMappings.Add("BrunchName", "BrunchName");
+            tableMapping.ColumnMappings.Add("AccountName", "AccountName");
+            tableMapping.ColumnMappings.Add("AccountNumber", "AccountNumber");
+            tableMapping.ColumnMappings.Add("Amount", "Amount");
+            tableMapping.ColumnMappings.Add("ProjectWorkTitleB", "ProjectWorkTitleB");
+            tableMapping.ColumnMappings.Add("FirmNameB", "FirmNameB");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::Microsoft.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["IDIMDBConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::Microsoft.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT wbpm.ViewBGBMiscellaneousFund.*\r\nFROM     wbpm.ViewBGBMiscellaneousFund";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(WPDataSet.ViewBGBMiscellaneousFundDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual WPDataSet.ViewBGBMiscellaneousFundDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            WPDataSet.ViewBGBMiscellaneousFundDataTable dataTable = new WPDataSet.ViewBGBMiscellaneousFundDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8440,8 +7765,6 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
     public partial class TableAdapterManager : global::System.ComponentModel.Component {
         
         private UpdateOrderOption _updateOrder;
-        
-        private BGBMiscellaneousFundTableAdapter _bGBMiscellaneousFundTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -8455,20 +7778,6 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public BGBMiscellaneousFundTableAdapter BGBMiscellaneousFundTableAdapter {
-            get {
-                return this._bGBMiscellaneousFundTableAdapter;
-            }
-            set {
-                this._bGBMiscellaneousFundTableAdapter = value;
             }
         }
         
@@ -8491,10 +7800,6 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._bGBMiscellaneousFundTableAdapter != null) 
-                            && (this._bGBMiscellaneousFundTableAdapter.Connection != null))) {
-                    return this._bGBMiscellaneousFundTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -8508,9 +7813,6 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._bGBMiscellaneousFundTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -8522,15 +7824,6 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateUpdatedRows(WPDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._bGBMiscellaneousFundTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.BGBMiscellaneousFund.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._bGBMiscellaneousFundTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -8541,14 +7834,6 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateInsertedRows(WPDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._bGBMiscellaneousFundTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.BGBMiscellaneousFund.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._bGBMiscellaneousFundTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -8559,14 +7844,6 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(WPDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._bGBMiscellaneousFundTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.BGBMiscellaneousFund.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._bGBMiscellaneousFundTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -8606,11 +7883,6 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._bGBMiscellaneousFundTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._bGBMiscellaneousFundTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -8643,15 +7915,6 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._bGBMiscellaneousFundTableAdapter != null)) {
-                    revertConnections.Add(this._bGBMiscellaneousFundTableAdapter, this._bGBMiscellaneousFundTableAdapter.Connection);
-                    this._bGBMiscellaneousFundTableAdapter.Connection = ((global::Microsoft.Data.SqlClient.SqlConnection)(workConnection));
-                    this._bGBMiscellaneousFundTableAdapter.Transaction = ((global::Microsoft.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._bGBMiscellaneousFundTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._bGBMiscellaneousFundTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._bGBMiscellaneousFundTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -8709,10 +7972,6 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._bGBMiscellaneousFundTableAdapter != null)) {
-                    this._bGBMiscellaneousFundTableAdapter.Connection = ((global::Microsoft.Data.SqlClient.SqlConnection)(revertConnections[this._bGBMiscellaneousFundTableAdapter]));
-                    this._bGBMiscellaneousFundTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
