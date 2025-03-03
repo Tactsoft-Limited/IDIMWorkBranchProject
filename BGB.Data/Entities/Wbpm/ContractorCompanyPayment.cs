@@ -43,6 +43,7 @@ namespace BGB.Data.Entities.Wbpm
         public decimal PayableAmountOnCurrentBill { get; set; }
         public decimal FinalPaymentAmount { get; set; }
         public string FinalPaymentAmountInWord { get; set; }
+        public decimal? TotalDepositsInFund { get; set; }
         public decimal WillBeDepositedInFund { get; set; }
         public string Remarks { get; set; }
 

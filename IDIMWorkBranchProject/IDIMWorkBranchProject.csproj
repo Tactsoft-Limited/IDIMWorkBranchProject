@@ -2868,6 +2868,7 @@
     <Content Include="Views\ProjectSignatoryAuthority\Create.cshtml" />
     <Content Include="Views\ContractorCompanyPayment\Create.cshtml" />
     <Content Include="Views\BGBMiscellaneousFund\CreateOrEdit.cshtml" />
+    <Content Include="Views\ContractorCompanyPayment\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
