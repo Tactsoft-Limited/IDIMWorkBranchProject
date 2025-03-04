@@ -119,7 +119,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             }
         }
 
-        
+
         //public async Task<ActionResult> Delete(int id)
         //{
         //    var entity = await _aDPReceivePaymentService.GetByIdAsync(id);
