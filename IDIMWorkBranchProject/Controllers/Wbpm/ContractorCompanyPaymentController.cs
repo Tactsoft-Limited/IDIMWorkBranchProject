@@ -96,6 +96,44 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             }
         }
 
+        public async Task<ActionResult> Edit(int id)
+        {
+            var model = _mapper.Map<ContractorCompanyPaymentVm>(await _contractorCompanyPaymentService.GetByIdAsync(id));
+            var companyPayment = await _contractorCompanyPaymentService.GetByProjectWorkIdAsync(model.ProjectWorkId);
+            var adprecievePayment = await _AdpReceivePaymentService.GetByProjectWorkIdAsync(model.ProjectWorkId);
+            var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
+            model.ProjectWorkTitle = projectWork.ProjectWorkTitleB;
+            model.EstimatedCost = projectWork.EstimatedCost;
+            model.TotalWithdrawFromMinistry = adprecievePayment.Sum(x => x.BillPaidAmount);
+            model.TotalWithdrawPercent = adprecievePayment.Sum(x => x.BillPaidPer);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(ContractorCompanyPaymentVm model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                    return View(model);
+                }
+
+                var entity = _mapper.Map<ContractorCompanyPayment>(model);
+                await _contractorCompanyPaymentService.UpdateAsync(entity);
+                TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+            }
+            catch (Exception exception)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                return View(model);
+            }
+        }
+
+
         public async Task<ActionResult> PrintContractorCompanyPaymentReport(int id, string type)
         {
             try

@@ -113,7 +113,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public string Remarks { get; set; }
 
         [DisplayName("সংশ্লিষ্ট ফার্মের নামে বিজিবি বিবিধ ফান্ডে জমা")]
-        public decimal TotalDepositsInFund { get; set; }
+        public decimal? TotalDepositsInFund { get; set; }
 
         public decimal TotalWithdrawFromMinistry { get; set; }
 

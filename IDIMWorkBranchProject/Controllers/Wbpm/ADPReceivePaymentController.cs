@@ -61,6 +61,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ADPReceivePaymentVm model)
         {
             try
@@ -95,6 +96,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(ADPReceivePaymentVm model)
         {
             try

@@ -1,0 +1,433 @@
+﻿@model IDIMWorkBranchProject.Models.Wbpm.ContractorCompanyPaymentVm
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="message"></div>
+
+<div class="page-title">
+    <div class="pull-left">
+        <h1 class="title">পেমেন্ট প্রদান (ঠিকাদার)</h1> 
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>ড্যাশবোর্ড</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","ADPReceivePayment")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    পেমেন্ট প্রদান
+                </a>
+            </li>
+            <li class="active">
+                <strong>Create</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">Create</h2>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+
+                @using (Html.BeginForm("Edit", "ContractorCompanyPayment", FormMethod.Post, new { @class = "form-horizontal", id = "ContractorCompanyPayment-create-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.ContractorCompanyPaymentId)
+                    @Html.HiddenFor(m => m.ProjectWorkId)
+
+                    <div class="row">
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ProjectWorkTitle, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ProjectWorkTitle, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.EstimatedCost, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.EstimatedCost, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-12">
+                            <div class="col-md-6" style="padding:0px;">
+                                @Html.LabelFor(m => m.TotalWithdrawFromMinistry, "সিজিএ হতে উত্তোলিত অর্থ (%)", new { @class = "label-display col-md-4" })
+                                <div class="col-md-3">
+                                    @Html.TextBoxFor(m => m.TotalWithdrawPercent, new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.TotalWithdrawFromMinistry, new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+
+                            </div>
+                            <div class="col-md-6" style="padding:0px;">
+                                @Html.LabelFor(m => m.PreviouslyPaidAmount, "ইতিপূর্বে পরিশোধিত অর্থ", new { @class = "label-display col-md-4" })
+                                <div class="col-md-3">
+                                    @Html.TextBoxFor(m => m.PreviouslyTotalPaidNo, new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                                <div class="col-md-5">
+                                    @Html.TextBoxFor(m => m.PreviouslyPaidAmount, new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.TotalDepositsInFund, new { @class = "label-display col-md-4" })
+                            <div class="col-md-5">
+                                @Html.TextBoxFor(m => m.TotalDepositsInFund, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            @Html.LabelFor(m => m.LetterNo, new { @class = "col-md-2 form-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.LetterNo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.LetterNo)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <fieldset>
+                            <legend>কার্যাদেশ অনুসারে নিট টাকার বিবরন :</legend>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.EstimatedCostTaxPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.EstimatedCostTaxPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EstimatedCostTaxPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.EstimatedCostTaxAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.EstimatedCostTaxAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EstimatedCostTaxAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.EstimatedCostVatPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.EstimatedCostVatPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EstimatedCostVatPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.EstimatedCostVatAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.EstimatedCostVatAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EstimatedCostVatAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.EstimatedCostCollateralPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.EstimatedCostCollateralPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EstimatedCostCollateralPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.EstimatedCostCollateralAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.EstimatedCostCollateralAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EstimatedCostCollateralAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.EstimatedCostDeductionAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.EstimatedCostDeductionAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EstimatedCostDeductionAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.NetEstimatedCostAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.NetEstimatedCostAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.NetEstimatedCostAmount)
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ProgressPer, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.ProgressPer, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ProgressPer)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ProgressAmount, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.ProgressAmount, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ProgressAmount)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <fieldset>
+                            <legend>মন্ত্রণালয় হতে উত্তোলিত টাকার বিবরন :</legend>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ProgressTaxPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.ProgressTaxPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProgressTaxPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ProgressTaxAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.ProgressTaxAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProgressTaxAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ProgressVatPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.ProgressVatPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProgressVatPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ProgressVatAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.ProgressVatAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProgressVatAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ProgressCollateralPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.ProgressCollateralPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProgressCollateralPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ProgressCollateralAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.ProgressCollateralAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProgressCollateralAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ProgressDeductionAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.ProgressDeductionAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProgressDeductionAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.NetProgressAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.NetProgressAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.NetProgressAmount)
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="row">
+                        <fieldset>
+                            <legend>মেজারমেন্ট হিসাব :</legend>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.PerformanceSecurityPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.PerformanceSecurityPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PerformanceSecurityPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.PerformanceSecurityAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.PerformanceSecurityAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PerformanceSecurityAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ContactorProgressPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.ContactorProgressPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ContactorProgressPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ContactorProgressAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.ContactorProgressAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ContactorProgressAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.BillPaymentNumber, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.BillPaymentNumber, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.BillPaymentNumber)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.PreviouslyPaidAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.PreviouslyPaidAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PreviouslyPaidAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.PayableAmountOnCurrentBill, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.PayableAmountOnCurrentBill, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PayableAmountOnCurrentBill)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.TotalDepositsInFund, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.TotalDepositsInFund, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TotalDepositsInFund)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.FinalPaymentAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.FinalPaymentAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FinalPaymentAmount)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.FinalPaymentAmountInWord, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.FinalPaymentAmountInWord, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FinalPaymentAmountInWord)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.WillBeDepositedInFund, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.WillBeDepositedInFund, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.WillBeDepositedInFund)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.Remarks, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.Remarks, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Remarks)
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script src="~/Scripts/banglaNumberConverter.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            function calculateEstimatedCost() {
+                //Estimated Cost Vat Tax Calculation
+                const estimatedCost = parseFloat($('#EstimatedCost').val()) || 0;
+                const estimatedCostTaxPer = parseFloat($('#EstimatedCostTaxPer').val()) || 0; // Get Tax percentage
+                const estimatedCostVatPer = parseFloat($('#EstimatedCostVatPer').val()) || 0; // Get VAT percentage
+                const estimatedCostCollateralPer = parseFloat($('#EstimatedCostCollateralPer').val()) || 0; // Get Collateral percentage
+
+                // Calculate amounts based on the input
+                const estimatedCostTaxAmount = Math.round(estimatedCost * (estimatedCostTaxPer / 100)).toFixed(2); // Calculate Tax amount
+                const estimatedCostVatAmount = Math.round(estimatedCost * (estimatedCostVatPer / 100)).toFixed(2); // Calculate VAT amount
+                const estimatedCostCollateralAmount = Math.round(estimatedCost * (estimatedCostCollateralPer / 100)).toFixed(2); // Calculate Collateral amount
+
+                // Convert amounts to numbers for addition
+                const estimatedCostTotalDeduction = Math.round(parseFloat(estimatedCostTaxAmount) + parseFloat(estimatedCostVatAmount) + parseFloat(estimatedCostCollateralAmount)).toFixed(2);
+                const netAmountAfterDeduction = Math.round(parseFloat(estimatedCost) - parseFloat(estimatedCostTotalDeduction)).toFixed(2);
+
+                // Update the input fields with the calculated values
+                $('#EstimatedCostTaxAmount').val(estimatedCostTaxAmount);
+                $('#EstimatedCostVatAmount').val(estimatedCostVatAmount);
+                $('#EstimatedCostCollateralAmount').val(estimatedCostCollateralAmount);
+                $('#EstimatedCostDeductionAmount').val(estimatedCostTotalDeduction);
+                $('#NetEstimatedCostAmount').val(netAmountAfterDeduction); // Corrected here
+
+                //Progress Calculation
+
+                const progressAmount = parseFloat($('#ProgressAmount').val()) || 0;
+                const progressTaxPer = parseFloat($('#ProgressTaxPer').val()) || 0; // Get Tax percentage
+                const progressVatPer = parseFloat($('#ProgressVatPer').val()) || 0; // Get VAT percentage
+                const progressCollateralPer = parseFloat($('#ProgressCollateralPer').val()) || 0; // Get Collateral percentage
+
+                // Calculate amounts based on the input
+                const progressTaxAmount = Math.round(progressAmount * (progressTaxPer / 100)).toFixed(2); // Calculate Tax amount
+                const progressVatAmount = Math.round(progressAmount * (progressVatPer / 100)).toFixed(2); // Calculate VAT amount
+                const progressCollateralAmount = Math.round(progressAmount * (progressCollateralPer / 100)).toFixed(2); // Calculate Collateral amount
+
+                // Convert amounts to numbers for addition
+                const progressTotalDeduction = Math.round(parseFloat(progressTaxAmount) + parseFloat(progressVatAmount) + parseFloat(progressCollateralAmount)).toFixed(2);
+                const netProgressAmountAfterDeduction = Math.round(parseFloat(progressAmount) - parseFloat(progressTotalDeduction)).toFixed(2);
+
+                // Update the input fields with the calculated values
+                $('#ProgressTaxAmount').val(progressTaxAmount);
+                $('#ProgressVatAmount').val(progressVatAmount);
+                $('#ProgressCollateralAmount').val(progressCollateralAmount);
+                $('#ProgressDeductionAmount').val(progressTotalDeduction);
+                $('#NetProgressAmount').val(netProgressAmountAfterDeduction); // Corrected here
+
+
+                //মেজারমেন্ট হিসাব
+                //data retrieve
+                const performancesecurityper = parseFloat($('#PerformanceSecurityPer').val()) || 0;
+                const ContactorProgressPer = parseFloat($('#ContactorProgressPer').val()) || 0;
+                const previouslyPaidAmount = parseFloat($('#PreviouslyPaidAmount').val()) || 0;
+
+
+                // //calculate
+                const PerformanceSecurityamount = Math.round(estimatedCost * (performancesecurityper / 100)).toFixed(2);
+                const ContactorProgressAmount = Math.round(netAmountAfterDeduction * (ContactorProgressPer / 100)).toFixed(2);
+                const payableAmountOnCurrentBill = parseFloat(ContactorProgressAmount) - previouslyPaidAmount;
+                // //parsing String
+
+                // const netAmountAfterDeduction = Math.round(parseFloat(estimatedCost) - parseFloat(PerformanceSecurityPer)).toFixed(2);
+
+
+                //showing the amount
+                $('#PerformanceSecurityAmount').val(PerformanceSecurityamount);
+                $('#ContactorProgressAmount').val(ContactorProgressAmount);
+                $('#PayableAmountOnCurrentBill').val(payableAmountOnCurrentBill);
+
+
+                const totalDepositsInFund = parseFloat($('#TotalDepositsInFund').val()) || 0;
+                const finalPaymentAmount = parseFloat($('#FinalPaymentAmount').val()) || 0;
+
+                const willBeDepositedInFund = +(totalDepositsInFund - finalPaymentAmount).toFixed(2);
+                const finalPaymentAmountInWord = getBanglaWord(finalPaymentAmount);
+
+                $('#FinalPaymentAmountInWord').val(finalPaymentAmountInWord);
+                $('#WillBeDepositedInFund').val(willBeDepositedInFund);
+            }
+
+
+            // Trigger calculation on input change
+            $('#FinalPaymentAmount, #EstimatedCost, #EstimatedCostTaxPer, #EstimatedCostVatPer, #EstimatedCostCollateralPer,#ProgressTaxPer,#ProgressVatPer,#ProgressCollateralPer,#PerformanceSecurityPer,#ContactorProgressPer').on('input', calculateEstimatedCost);
+
+        });
+    </script>
+
+
+}
