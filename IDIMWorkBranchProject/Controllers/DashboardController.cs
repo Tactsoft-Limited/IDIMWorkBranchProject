@@ -16,7 +16,6 @@ namespace IDIMWorkBranchProject.Controllers
         public async Task<ActionResult> Index()
         {
             var model = await DashboardService.GetAll();
-            // ViewBag.ProjectList = await DashboardService.ProjectList();
             return View(model);
         }
 
