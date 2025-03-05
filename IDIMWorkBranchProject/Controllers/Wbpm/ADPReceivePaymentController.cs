@@ -120,6 +120,46 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         }
 
 
+        //public async Task<ActionResult> Delete(int id)
+        //{
+        //    var entity = await _aDPReceivePaymentService.GetByIdAsync(id);
+
+        //    if (entity == null)
+        //    {
+        //        TempData["Message"] = "The requested record was not found.";
+        //        return RedirectToAction("details/" + entity.ProjectWorkId, "ProjectWork");
+        //    }
+
+        //    var model = _mapper.Map<ADPReceivePaymentVm>(entity);
+        //    return View(model); // Load the delete confirmation view
+        //}
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> DeleteConfirmed(ADPReceivePaymentVm model)
+        //{
+        //    var entity = await _aDPReceivePaymentService.GetByIdAsync(model.ADPReceivePaymentId);
+        //    try
+        //    {
+
+        //        if (entity == null)
+        //        {
+        //            TempData["Message"] = "Record Not Found";
+        //            return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork");
+        //        }
+
+        //        await _aDPReceivePaymentService.DeleteAsync(entity);
+
+        //        TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
+        //        return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork");
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
+        //        return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork"); // Avoids null reference
+        //    }
+        //}
+
+
         public async Task<ActionResult> PrintADPReceivePayment(int id, string type)
         {
             try

@@ -1789,7 +1789,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>সংশ্লিষ্ট ইঞ্জিনিয়ারঃ</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1798,7 +1800,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1807,7 +1811,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>সেকশন আইসিঃ</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1816,7 +1822,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1825,7 +1833,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>সংশ্লিষ্ট করণিকঃ </Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1854,7 +1864,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -1865,7 +1877,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -1876,7 +1890,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>পরিচালক (পূর্ত)</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -1887,7 +1903,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>পূর্ত শাখা     </Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -1924,6 +1942,7 @@
                             <TextRun>
                               <Value>পরিচালক</Value>
                               <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <TextDecoration>Underline</TextDecoration>
                               </Style>
                             </TextRun>
@@ -1962,6 +1981,7 @@
                             <TextRun>
                               <Value>প্রকল্প পরিচালক</Value>
                               <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <TextDecoration>Underline</TextDecoration>
                               </Style>
                             </TextRun>
@@ -2000,6 +2020,7 @@
                             <TextRun>
                               <Value>উপ-মহাপরিচালক</Value>
                               <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <TextDecoration>Underline</TextDecoration>
                               </Style>
                             </TextRun>
@@ -2038,6 +2059,7 @@
                             <TextRun>
                               <Value>অতিরিক্ত মহাপরিচালক</Value>
                               <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <TextDecoration>Underline</TextDecoration>
                               </Style>
                             </TextRun>
@@ -2076,6 +2098,7 @@
                             <TextRun>
                               <Value>মহাপরিচালক</Value>
                               <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <TextDecoration>Underline</TextDecoration>
                               </Style>
                             </TextRun>
