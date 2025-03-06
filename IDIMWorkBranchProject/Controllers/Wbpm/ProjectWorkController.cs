@@ -43,18 +43,18 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             var model = new ProjectWorkSearchVm();
             return View(model);
         }
-        //public async Task<ActionResult> LoadData(FinancialYearAllocationSearchVm model)
-        //{
-        //    try
-        //    {
-        //        var data = await _projectWorkService.GetPagedAsync(model);
-        //        return Json(data);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return Json(new { error = ex.Message });
-        //    }
-        //}
+        public async Task<ActionResult> LoadData(ProjectWorkSearchVm model)
+        {
+            try
+            {
+                var data = await _projectWorkService.GetPagedAsync(model);
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
+        }
 
 
         public async Task<ActionResult> Details(int id)

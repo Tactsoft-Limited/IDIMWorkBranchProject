@@ -1,6 +1,7 @@
 ﻿namespace IDIMWorkBranchProject.Models.Wbpm
 {
-	public class ProjectWorkSearchVm : DataTablaVm
+    public class ProjectWorkSearchVm : DataTablaVm
     {
+
     }
 }

@@ -17,16 +17,22 @@ namespace IDIMWorkBranchProject.Models.Validation.Wbpm
             RuleFor(x => x.EstimatedExpenses)
                 .GreaterThan(0).WithMessage("প্রাক্কলিত ব্যয় শূন্যের বেশি হতে হবে।");
 
-            // StartingDate: Required and should be a valid future date
             RuleFor(x => x.StartingDate)
-                .NotEmpty().WithMessage("শুরু করার তারিখ আবশ্যক।")
-                .LessThan(x => x.EndingDate).WithMessage("শুরু করার তারিখ শেষ করার তারিখের আগে হতে হবে।")
-                .GreaterThan(DateTime.Now).WithMessage("শুরু করার তারিখ বর্তমান সময়ের পরে হতে হবে।");
+               .NotEmpty().WithMessage("শুরু করার তারিখ আবশ্যক।");
+
+            RuleFor(x => x.EndingDate)
+                .NotEmpty().WithMessage("শেষ করার তারিখ আবশ্যক।");
+
+            // StartingDate: Required and should be a valid future date
+            //RuleFor(x => x.StartingDate)
+            //    .NotEmpty().WithMessage("শুরু করার তারিখ আবশ্যক।")
+            //    .LessThan(x => x.EndingDate).WithMessage("শুরু করার তারিখ শেষ করার তারিখের আগে হতে হবে।")
+            //    .GreaterThan(DateTime.Now).WithMessage("শুরু করার তারিখ বর্তমান সময়ের পরে হতে হবে।");
 
             // EndingDate: Required and should be a valid future date
-            RuleFor(x => x.EndingDate)
-                .NotEmpty().WithMessage("শেষ করার তারিখ আবশ্যক।")
-                .GreaterThan(x => x.StartingDate).WithMessage("শেষ করার তারিখ শুরু করার তারিখের পরে হতে হবে।");
+            //RuleFor(x => x.EndingDate)
+            //    .NotEmpty().WithMessage("শেষ করার তারিখ আবশ্যক।")
+            //    .GreaterThan(x => x.StartingDate).WithMessage("শেষ করার তারিখ শুরু করার তারিখের পরে হতে হবে।");
 
             // NoOfWork: Required and should be greater than 0
             RuleFor(x => x.NoOfWork)

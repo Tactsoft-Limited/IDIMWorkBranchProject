@@ -5,6 +5,12 @@
 @{
     ViewBag.Title = "Details";
 }
+@{
+    var isExpired = Model.ProjectWorks.BankGuaranteeEndDate < DateTime.Now;
+    var isRunning = Model.ProjectWorks.WorkStatus == "Running";
+    var isConditionMet = isExpired && isRunning;
+}
+
 <div class="page-title">
     <div class="pull-left">
         <h3 class="title">নির্মাণ কাজ</h3>
@@ -52,58 +58,138 @@
     <div class="content-body">
         <div class="row">
             <div class="form-display col-md-12">
-                @Html.LabelFor(m => m.ProjectWorks.ProjectTitle, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ProjectWorks.ProjectTitle, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ProjectWorks.ProjectTitle)
             </div>
             <div class="form-display col-md-12">
-                @Html.LabelFor(m => m.ProjectWorks.ProjectWorkTitleB, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ProjectWorks.ProjectWorkTitleB, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ProjectWorks.ProjectWorkTitleB)
             </div>
             <div class="form-display col-md-12">
-                @Html.LabelFor(m => m.ProjectWorks.FirmName, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ProjectWorks.FirmName, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ProjectWorks.FirmName)
             </div>
             <div class="form-display col-md-12">
-                @Html.LabelFor(m => m.ProjectWorks.EstimatedCost, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.EstimatedCost)
+                @Html.LabelFor(m => m.ProjectWorks.EstimatedCost, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.ProjectWorks.EstimatedCost) (@Html.DisplayFor(m => m.ProjectWorks.EstimatedCostInWord))
             </div>
-            <div class="form-group col-md-12">
-                @Html.LabelFor(m => m.ProjectWorks.EstimatedCostInWord, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.EstimatedCostInWord)
-            </div>
+
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.NOADate, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ProjectWorks.NOADate, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ProjectWorks.NOADate)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.AgreementDate, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ProjectWorks.AgreementDate, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ProjectWorks.AgreementDate)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.WorkOrderDate, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ProjectWorks.WorkOrderDate, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ProjectWorks.WorkOrderDate)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.WorkStartDate, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ProjectWorks.WorkStartDate, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ProjectWorks.WorkStartDate)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.WorkEndDate, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ProjectWorks.WorkEndDate, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ProjectWorks.WorkEndDate)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.HandOverDate, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ProjectWorks.HandOverDate, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ProjectWorks.HandOverDate)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.BankGuaranteeEndDate, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.BankGuaranteeEndDate)
+                @Html.LabelFor(m => m.ProjectWorks.BankGuaranteeEndDate, new { @class = "display-label" })
+                <span style="@(isConditionMet ? "color:red;" : "" )">
+                    @Html.DisplayFor(m => m.ProjectWorks.BankGuaranteeEndDate)
+                </span>
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.Remarks, new { @class = "form-label" })
+                @Html.LabelFor(m => m.ProjectWorks.Remarks, new { @class = "display-label" })
                 @Html.DisplayFor(m => m.ProjectWorks.Remarks)
             </div>
         </div>
+
+        <fieldset>
+            <a href="@Url.Action("Create", "Noha", new { id = Model.ProjectWorks.ProjectWorkId })" class="btn btn-primary btn-xs pull-right">
+                <i class="fa fa-pencil-square-o"></i>এনওএইচএ সংযুক্ত করুন
+            </a>
+            <legend>এনওএইচএ</legend>
+
+            <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>এনওএইচ তারিখ</th>
+                        <th>ডকুমেন্ট</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @*@foreach (var item in Model.ProjectDirector)
+                    {
+                        <tr style="background-color: @(item.IsActive ? "#d4edda" : "transparent")">
+                            <td>@item.ProjectDirectorName</td>
+                            <td>@item.JoiningDate.ToNullableShortDateString()</td>
+                            <td>@item.TransferDate.ToNullableShortDateString()</td>
+                            <td>@(item.IsActive ? "Yes" : "No")</td>
+                        </tr>
+                    }*@
+                </tbody>
+            </table>
+        </fieldset>
+
+        <fieldset>
+            <a href="@Url.Action("Create", "Noha", new { id = Model.ProjectWorks.ProjectWorkId })" class="btn btn-primary btn-xs pull-right">
+                <i class="fa fa-pencil-square-o"></i>চুক্তিপত্র সংযুক্ত করুন
+            </a>
+            <legend>চুক্তিপত্র</legend>
+
+            <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>চুক্তির তারিখ</th>
+                        <th>ডকুমেন্ট</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @*@foreach (var item in Model.ProjectDirector)
+                    {
+                        <tr style="background-color: @(item.IsActive ? "#d4edda" : "transparent")">
+                            <td>@item.ProjectDirectorName</td>
+                            <td>@item.JoiningDate.ToNullableShortDateString()</td>
+                            <td>@item.TransferDate.ToNullableShortDateString()</td>
+                            <td>@(item.IsActive ? "Yes" : "No")</td>
+                        </tr>
+                    }*@
+                </tbody>
+            </table>
+        </fieldset>
+
+        <fieldset>
+            <a href="@Url.Action("Create", "Noha", new { id = Model.ProjectWorks.ProjectWorkId })" class="btn btn-primary btn-xs pull-right">
+                <i class="fa fa-pencil-square-o"></i>কার্যাদেশ সংযুক্ত করুন
+            </a>
+            <legend>কার্যাদেশ</legend>
+
+            <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>কার্যাদেশের তারিখ</th>
+                        <th>ডকুমেন্ট</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @*@foreach (var item in Model.ProjectDirector)
+                    {
+                        <tr style="background-color: @(item.IsActive ? "#d4edda" : "transparent")">
+                            <td>@item.ProjectDirectorName</td>
+                            <td>@item.JoiningDate.ToNullableShortDateString()</td>
+                            <td>@item.TransferDate.ToNullableShortDateString()</td>
+                            <td>@(item.IsActive ? "Yes" : "No")</td>
+                        </tr>
+                    }*@
+                </tbody>
+            </table>
+        </fieldset>
 
         <fieldset>
             <legend>মন্ত্রণালয় থেকে গৃহীত অর্থঃ</legend>
@@ -116,7 +202,7 @@
                         <th>পেমেন্ট সেকটর</th>
                         <th>বিল পরিশোধিত পরিমান</th>
                         @*<th>কর্তন (ট্যাক্স, ভ্যাট ও জামানত)</th>
-                            <th>বিবিধ জমা পরিমান</th>*@
+                        <th>বিবিধ জমা পরিমান</th>*@
                         <th style="width:120px;">সংশোধন</th>
                         <th style="width:120px;">প্রিন্ট করুন</th>
                     </tr>
@@ -131,7 +217,7 @@
                             <td>@item.BillPaymentSector</td>
                             <td>@item.BillPaidAmount</td>
                             @*<td>@item.TotalDeductionAmount</td>
-                                <td>@item.DepositInBGBFund</td>*@
+                            <td>@item.DepositInBGBFund</td>*@
 
                             <td>
                                 <a href="@Url.Action("Create", "VatTaxCollateral", new { id = item.ADPReceivePaymentId })" class="btn btn-primary btn-xs">

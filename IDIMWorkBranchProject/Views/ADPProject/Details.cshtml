@@ -231,7 +231,7 @@
                             <td>@item.EstimatedCost</td>
                             <td>@item.WorkStartDate.ToShortDateString()</td>
                             <td>@item.WorkEndDate.ToShortDateString()</td>
-                            <td>@item.BankGuaranteeEndDate.ToShortDateString()</td>
+                            <td style="@(item.WorkStatus == "Running" && item.BankGuaranteeEndDate < DateTime.Now?"color:red":"")">@item.BankGuaranteeEndDate.ToShortDateString()</td>
                             <td>@item.ConstructionProgress</td>
                             <td>
                                 <a href="@Url.Action("Create", "ADPReceivePayment", new { id = item.ProjectWorkId })" class="btn btn-primary btn-xs">

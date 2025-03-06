@@ -71,6 +71,9 @@ namespace IDIMWorkBranchProject
             CreateMap<ProjectSignatoryAuthorityVm, ProjectSignatoryAuthority>();
             CreateMap<ProjectSignatoryAuthority, ProjectSignatoryAuthorityVm>();
 
+            CreateMap<TenderEvaluationCommitteeVm, TenderEvaluationCommittee>();
+            CreateMap<TenderEvaluationCommittee, TenderEvaluationCommitteeVm>();
+
             #endregion
 
             #region setup 
