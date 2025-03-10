@@ -49,11 +49,11 @@ namespace IDIMWorkBranchProject.Services.Wbpm
                     ProjectWorkTitleB = x.ProjectWorkTitleB,
                     ProjectWorkTitle = x.ProjectWorkTitle,
                     EstimatedCost = x.EstimatedCost,
-                    AgreementDate = x.AgreementDate,
-                    WorkStartDate = x.WorkEndDate,
-                    BankGuaranteeEndDate = x.BankGuaranteeEndDate,
-                    HandOverDate = x.HandOverDate,
-                    WorkStatus = x.WorkStatus,
+                    //AgreementDate = x.AgreementDate,
+                    //WorkStartDate = x.WorkEndDate,
+                    //BankGuaranteeEndDate = x.BankGuaranteeEndDate,
+                    //HandOverDate = x.HandOverDate,
+                    //WorkStatus = x.WorkStatus,
                     Remarks = x.Remarks,
                 })
             };
