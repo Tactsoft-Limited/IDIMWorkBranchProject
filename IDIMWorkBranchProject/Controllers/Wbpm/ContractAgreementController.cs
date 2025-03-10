@@ -40,11 +40,11 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 model.ContractAgreementId = data.ContractAgreementId;
                 model.ProjectWorkId = projectWork.ProjectWorkId;
                 model.ProjectWorkTitle = projectWork.ProjectWorkTitle;
-                model.ConstructionFirm = await _constructionCompanyService.GetConstructionFirm(projectWork.ConstructionCompanyId);
-                model.ContractDay = data.ContractDay;
-                model.ContractDate = data.ContractDate;
-                model.AgreementCost = data.AgreementCost;
-                model.AgreementCostInWord = data.AgreementCostInWord;
+                //model.ConstructionFirm = await _constructionCompanyService.GetConstructionFirm(projectWork.ConstructionCompanyId);
+                //model.ContractDay = data.ContractDay;
+                //model.ContractDate = data.ContractDate;
+                //model.AgreementCost = data.AgreementCost;
+                //model.AgreementCostInWord = data.AgreementCostInWord;
             }
             return View(model);
         }
