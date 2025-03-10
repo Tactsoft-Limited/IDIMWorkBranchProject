@@ -4671,7 +4671,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Code.ConvertToBangla(Fields!BillPaidAmount.Value - Fields!VatAmount.Value)</Value>
+                                  <Value>=Code.ConvertToBangla(Fields!NeetAmount.Value)</Value>
                                   <Style>
                                     <FontFamily>SolaimanLipi</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -4715,6 +4715,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
