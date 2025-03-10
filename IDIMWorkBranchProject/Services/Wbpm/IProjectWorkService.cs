@@ -9,7 +9,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
 {
     public interface IProjectWorkService : IBaseService<ProjectWork>
     {
-        Task<List<ProjectWork>> GetAllByProjectId(int id);
+        Task<List<ProjectWorkDetailsVm>> GetAllByAdpProjectId(int id);
         Task<object> GetPagedAsync(ProjectWorkSearchVm model);
         Task<string> GetProjectWorkTitle(int? projectWorkId);
     }
