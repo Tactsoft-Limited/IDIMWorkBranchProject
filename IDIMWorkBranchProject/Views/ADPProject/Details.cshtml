@@ -205,9 +205,10 @@
                         <th rowspan="2" style="text-align: center; vertical-align: middle;">নির্মাণ কাজের নাম</th>
                         <th rowspan="2" style="text-align: center; vertical-align: middle;">ঠিকাদারি প্রতিষ্ঠান</th>
                         <th rowspan="2" style="text-align: center; vertical-align: middle;">প্রাক্কলিত ব্যয়</th>
+                        <th rowspan="2" style="text-align: center; vertical-align: middle;">কার্যাদেশের তারিখ</th>
                         <th colspan="2" style="text-align: center; vertical-align: middle;">কার্যাদেশের মেয়াদ</th>
                         <th rowspan="2" style="text-align: center; vertical-align: middle;">ব্যাংক গ্যারান্টি/পারফর্মেন্স সিকিউরিটির মেয়াদ</th>
-                        <th rowspan="2" style="text-align: center; vertical-align: middle;">নির্মাণ কাজের অগ্রগতি</th>
+                        @*<th rowspan="2" style="text-align: center; vertical-align: middle;">নির্মাণ কাজের অগ্রগতি</th>*@
                         <th colspan="2" style="text-align: center; vertical-align: middle;">বিল প্রদান</th>
                     </tr>
                     <tr>
@@ -227,12 +228,13 @@
                                     @item.ProjectWorkTitleB
                                 </a>
                             </td>
-                            <td>@item.FirmName</td>
+                            <td>@item.FirmNameB</td>
                             <td>@item.EstimatedCost</td>
-                            <td>@item.WorkStartDate.ToShortDateString()</td>
-                            <td>@item.WorkEndDate.ToShortDateString()</td>
-                            <td style="@(item.WorkStatus == "Running" && item.BankGuaranteeEndDate < DateTime.Now?"color:red":"")">@item.BankGuaranteeEndDate.ToShortDateString()</td>
-                            <td>@item.ConstructionProgress</td>
+                            <td>@item.WorkOrderDate.ToNullableShortDateString()</td>
+                            <td>@item.StartDate.ToNullableShortDateString()</td>
+                            <td>@item.EndDate.ToNullableShortDateString()</td>
+                            <td>@item.ExpiryDate.ToNullableShortDateString()</td>
+
                             <td>
                                 <a href="@Url.Action("Create", "ADPReceivePayment", new { id = item.ProjectWorkId })" class="btn btn-primary btn-xs">
                                     <i class="fa fa-money"></i> পেমেন্ট গ্রহণ
