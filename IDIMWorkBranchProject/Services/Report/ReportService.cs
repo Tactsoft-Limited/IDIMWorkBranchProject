@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using BGB.Data.Entities.Wbpm;
 using BGB.Data.SqlViews.Wbpm;
 
 using IDIMWorkBranchProject.Data.Database;
-using IDIMWorkBranchProject.Models.Wbpm;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;

@@ -1,5 +1,4 @@
 ﻿using BGB.Data.Entities.Wbpm;
-using BGB.Data.SqlViews.Wbpm;
 using IDIMWorkBranchProject.Services.Base;
 using System.Collections.Generic;
 using System.Threading.Tasks;

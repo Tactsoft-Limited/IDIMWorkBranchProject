@@ -1,6 +1,4 @@
-﻿using Microsoft.Reporting.Map.WebForms.BingMaps;
-
-namespace IDIMWorkBranchProject.Models.Dashboard
+﻿namespace IDIMWorkBranchProject.Models.Dashboard
 {
     public class DashboardVm
     {

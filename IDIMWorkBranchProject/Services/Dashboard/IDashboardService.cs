@@ -1,5 +1,4 @@
 ﻿using IDIMWorkBranchProject.Models.Dashboard;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace IDIMWorkBranchProject.Services.Dashboard

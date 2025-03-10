@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using IDIMWorkBranchProject.Models.Wbpm;
-using System;
 
 namespace IDIMWorkBranchProject.Models.Validation.Wbpm
 {
