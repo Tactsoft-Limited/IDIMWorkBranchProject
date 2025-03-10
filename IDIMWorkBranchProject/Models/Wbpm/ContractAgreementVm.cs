@@ -1,13 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
+using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
 
     public class ContractAgreementVm
     {
+        public ContractAgreementVm()
+        {
+            AddDGDropdown = new List<SelectListItem>();
+            DDGDropdown = new List<SelectListItem>();
+            ProjectdirectorDropdown = new List<SelectListItem>();
+            DirectorDropdown = new List<SelectListItem>();
+            ConstructionFirmDropdown = new List<SelectListItem>();
+        }
 
         [Key]
         public int ContractAgreementId { get; set; }
@@ -47,5 +57,12 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [DisplayName("চুক্তি ডকুমেন্ট")]
         public HttpPostedFileBase DocumentFile { get; set; }
+
+
+        public IEnumerable<SelectListItem> AddDGDropdown { get; set; }
+        public IEnumerable<SelectListItem> DDGDropdown { get; set; }
+        public IEnumerable<SelectListItem> ProjectdirectorDropdown { get; set; }
+        public IEnumerable<SelectListItem> DirectorDropdown { get; set; }
+        public IEnumerable<SelectListItem> ConstructionFirmDropdown { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
+using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
@@ -14,14 +15,17 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IContractAgreementService _contractAgreementService;
         private readonly IProjectWorkService _projectWorkService;
         private readonly IConstructionCompanyService _constructionCompanyService;
+        private readonly IRecruitmentCommitteeService _recruitmentCommitteeService;
         private readonly IMapper _mapper;
+        private readonly string fileStorePath = "Documents/ContractAggrementFiles";
 
-        public ContractAgreementController(IActivityLogService activityLogService, IContractAgreementService contractAgreementService, IProjectWorkService projectWorkService, IMapper mapper, IConstructionCompanyService constructionCompanyService) : base(activityLogService)
+        public ContractAgreementController(IActivityLogService activityLogService, IContractAgreementService contractAgreementService, IProjectWorkService projectWorkService, IMapper mapper, IConstructionCompanyService constructionCompanyService, IRecruitmentCommitteeService recruitmentCommitteeService) : base(activityLogService)
         {
             _contractAgreementService = contractAgreementService;
             _projectWorkService = projectWorkService;
             _mapper = mapper;
             _constructionCompanyService = constructionCompanyService;
+            _recruitmentCommitteeService = recruitmentCommitteeService;
         }
 
         // GET: ContractAgreement
@@ -32,20 +36,18 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
         public async Task<ActionResult> Create(int id)
         {
-            var data = await _contractAgreementService.GetByIdAsync(id);
-            var projectWork = await _projectWorkService.GetByIdAsync(data.ProjectWorkId);
-            var model = new ContractAgreementVm();
-            if (data != null)
+            var projectWork = await _projectWorkService.GetByIdAsync(id);
+            var contractAgreemen = await _contractAgreementService.GetByProjectWorkIdAsync(id);
+
+
+            var model = new ContractAgreementVm
             {
-                model.ContractAgreementId = data.ContractAgreementId;
-                model.ProjectWorkId = projectWork.ProjectWorkId;
-                model.ProjectWorkTitle = projectWork.ProjectWorkTitle;
-                //model.ConstructionFirm = await _constructionCompanyService.GetConstructionFirm(projectWork.ConstructionCompanyId);
-                //model.ContractDay = data.ContractDay;
-                //model.ContractDate = data.ContractDate;
-                //model.AgreementCost = data.AgreementCost;
-                //model.AgreementCostInWord = data.AgreementCostInWord;
-            }
+                ProjectWorkId = projectWork.ProjectWorkId,
+                ProjectWorkTitle = projectWork.ProjectWorkTitle,
+                ConstructionCompanyId = contractAgreemen?.ConstructionCompanyId ?? 0,
+            };
+
+            await PopulateDropdownsAsync(model, contractAgreemen);
             return View(model);
         }
 
@@ -53,23 +55,87 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ContractAgreementVm model)
         {
+            string fileName = null;
             try
             {
                 if (model.ContractAgreementId > 0)
+                {
+                    if (model.DocumentFile != null && model.DocumentFile.ContentLength > 0)
+                    {
+                        //Delete Old File
+                        FileExtention.DeleteFile(model.ScanDocument, fileStorePath);
+
+                        fileName = FileExtention.UploadFile(model.DocumentFile, fileStorePath);
+
+                        // If file is successfully uploaded, save the file name to the model
+                        if (fileName != null)
+                        {
+                            model.ScanDocument = fileName;
+                        }
+                        else
+                        {
+                            TempData["Message"] = Messages.FileUploadFailed(MessageType.Create.ToString());
+                            return View(model);
+                        }
+                    }
                     await _contractAgreementService.UpdateAsync(_mapper.Map<ContractAgreement>(model));
+
+                }
+
                 else
+                {
+                    // Step 1: Check if file is uploaded
+                    if (model.DocumentFile != null && model.DocumentFile.ContentLength > 0)
+                    {
+                        fileName = FileExtention.UploadFile(model.DocumentFile, fileStorePath);
+
+                        // If file is successfully uploaded, save the file name to the model
+                        if (fileName != null)
+                        {
+                            model.ScanDocument = fileName;
+                        }
+                        else
+                        {
+                            TempData["Message"] = Messages.FileUploadFailed(MessageType.Create.ToString());
+                            return View(model);
+                        }
+                    }
                     await _contractAgreementService.CreateAsync(_mapper.Map<ContractAgreement>(model));
 
+                }
 
-                //TODO: Need to Implement Contract Agreement Report
+                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+            }
+            catch (Exception exception)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), $"An error occurred while processing your request.{exception.InnerException.Message}");
+
+                // Populate dropdowns even if an error occurs
+                await PopulateDropdownsAsync(model, null);
 
                 return View(model);
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
 
+        }
+
+        private async Task PopulateDropdownsAsync(ContractAgreementVm model, ContractAgreement contractAgreement)
+        {
+            if (contractAgreement != null)
+            {
+                model.AddDGDropdown = await _recruitmentCommitteeService.GetDropdownAsync(contractAgreement.AddDGId);
+                model.DDGDropdown = await _recruitmentCommitteeService.GetDropdownAsync(contractAgreement.DDGId);
+                model.ProjectdirectorDropdown = await _recruitmentCommitteeService.GetDropdownAsync(contractAgreement.ProjectDirectorId);
+                model.DirectorDropdown = await _recruitmentCommitteeService.GetDropdownAsync(contractAgreement.DirectorId);
+                model.ConstructionFirmDropdown=await _constructionCompanyService.GetDropdownAsync(contractAgreement.ConstructionCompanyId);
+            }
+            else
+            {
+                model.AddDGDropdown = await _recruitmentCommitteeService.GetDropdownAsync(model.AddDGId);
+                model.DDGDropdown = await _recruitmentCommitteeService.GetDropdownAsync(model.DDGId);
+                model.ProjectdirectorDropdown = await _recruitmentCommitteeService.GetDropdownAsync(model.ProjectDirectorId);
+                model.DirectorDropdown = await _recruitmentCommitteeService.GetDropdownAsync(model.DirectorId);
+                model.ConstructionFirmDropdown = await _constructionCompanyService.GetDropdownAsync(model.ConstructionCompanyId);
+            }
         }
     }
 }
