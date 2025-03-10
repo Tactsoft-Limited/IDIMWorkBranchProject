@@ -64,6 +64,10 @@
     <Compile Include="Entities\Wbpm\ADPProject.cs" />
     <Compile Include="Entities\Wbpm\ADPReceivePayment.cs" />
     <Compile Include="Entities\Wbpm\BGBMiscellaneousFund.cs" />
+    <Compile Include="Entities\Wbpm\ProjectWorkStatus.cs" />
+    <Compile Include="Entities\Wbpm\PerformanceSecurity.cs" />
+    <Compile Include="Entities\Wbpm\WorkOrder.cs" />
+    <Compile Include="Entities\Wbpm\Noha.cs" />
     <Compile Include="Entities\Wbpm\ConstructionCompany.cs" />
     <Compile Include="Entities\Wbpm\ContractAgreement.cs" />
     <Compile Include="Entities\Wbpm\ContractorCompanyPayment.cs" />
