@@ -5,9 +5,14 @@ using BGB.Data.Entities.Base;
 
 namespace BGB.Data.Entities.Wbpm
 {
-	[Table("ConstructionCompany", Schema = "wbpm")]
+    [Table("ConstructionCompany", Schema = "wbpm")]
     public class ConstructionCompany : BaseEntity
     {
+        public ConstructionCompany()
+        {
+            ProjectWorks = new HashSet<ProjectWork>();
+            ContractAgreements = new HashSet<ContractAgreement>();
+        }
 
 
         [Key]
@@ -25,6 +30,7 @@ namespace BGB.Data.Entities.Wbpm
 
         #region  Navigation Property
         public virtual ICollection<ProjectWork> ProjectWorks { get; set; }
+        public virtual ICollection<ContractAgreement> ContractAgreements { get; set; }
         #endregion
     }
 }
