@@ -21,7 +21,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IProjectWorkService _projectWorkService;
         private readonly IMapper _mapper;
 
-        public ADPProjectController(IActivityLogService activityLogService, IADPProjectService aDPProjectService, IMapper mapper, IProjectDirectorService projectDirectorService, IFinancialYearAllocationService financialYearAllocationService, IFiscalYearExpenseService financialYearExpenseService, IFormalMeetingService formalMeetingService, IProjectWorkService projectWorkService) : base(activityLogService)
+        public ADPProjectController(IActivityLogService activityLogService, IADPProjectService aDPProjectService, IMapper mapper,
+            IProjectDirectorService projectDirectorService, IFinancialYearAllocationService financialYearAllocationService,
+            IFiscalYearExpenseService financialYearExpenseService, IFormalMeetingService formalMeetingService,
+            IProjectWorkService projectWorkService) : base(activityLogService)
         {
             _aDPProjectService = aDPProjectService;
             _projectDirectorService = projectDirectorService;
@@ -60,16 +63,23 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
         public async Task<ActionResult> Details(int id)
         {
-            var model = new ADPProjectDetailVm
+            try
             {
-                ADPProjectDetail = _mapper.Map<ADPProjectVm>(await _aDPProjectService.GetByIdAsync(id)),
-                ProjectDirector = _mapper.Map<List<ProjectDirectorVm>>(await _projectDirectorService.GetAllByProjectId(id)),
-                FinancialYearAllocation = _mapper.Map<List<FinancialYearAllocationVm>>(await _financialYearAllocationService.GetAllByProjectId(id)),
-                FiscalYearExpense = _mapper.Map<List<FiscalYearExpenseVm>>(await _financialYearExpenseService.GetAllByProjectId(id)),
-                FormalMeeting = _mapper.Map<List<FormalMeetingVm>>(await _formalMeetingService.GetAllByProjectId(id)),
-                ProjectWorks = _mapper.Map<List<ProjectWorkVm>>(await _projectWorkService.GetAllByProjectId(id)),
-            };
-            return View(model);
+                var model = new ADPProjectDetailVm
+                {
+                    ADPProjectDetail = _mapper.Map<ADPProjectVm>(await _aDPProjectService.GetByIdAsync(id)),
+                    ProjectDirector = _mapper.Map<List<ProjectDirectorVm>>(await _projectDirectorService.GetAllByProjectId(id)),
+                    FinancialYearAllocation = _mapper.Map<List<FinancialYearAllocationVm>>(await _financialYearAllocationService.GetAllByProjectId(id)),
+                    FiscalYearExpense = _mapper.Map<List<FiscalYearExpenseVm>>(await _financialYearExpenseService.GetAllByProjectId(id)),
+                    FormalMeeting = _mapper.Map<List<FormalMeetingVm>>(await _formalMeetingService.GetAllByProjectId(id)),
+                    ProjectWorks = await _projectWorkService.GetAllByAdpProjectId(id),
+                };
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async Task<ActionResult> Create()
