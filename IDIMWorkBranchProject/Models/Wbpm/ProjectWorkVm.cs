@@ -24,6 +24,9 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("নির্মাণ কাজের নাম (বাংলা)")]
         public string ProjectWorkTitleB { get; set; }
 
+        [DisplayName("ঠিকাদারি প্রতিষ্ঠান")]
+        public string FirmNameB { get; set; }
+
         [DisplayName("প্রাক্কলিত ব্যয়")]
         public decimal? EstimatedCost { get; set; }
 
