@@ -13,7 +13,7 @@
 
 <div class="page-title">
     <div class="pull-left">
-        <h3 class="title">নির্মাণ কাজ</h3>
+        <h3 class="title">নির্মাণ কাজের বিস্তারিত</h3>
     </div>
     <div class="pull-right hidden-xs">
         <ol class="breadcrumb">
@@ -29,7 +29,7 @@
 
 <section class="box">
     <header class="panel_header">
-        <h2 class="title pull-left">List</h2>
+        <h2 class="title pull-left">নির্মান কাজের বিস্তারিত</h2>
         <div class="actions panel_actions pull-right">
             <a href="@Url.Action("PrintContactAgreement", "Report", new { id = Model.ProjectWorks.ProjectWorkId })" class="btn btn-primary">
                 <i class="fa fa-print"></i> নির্মান চুক্তি প্রিন্ট করুণ
@@ -229,9 +229,9 @@
                                 <a href="@Url.Action("Edit", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-primary btn-xs">
                                     <i class="fa fa-pencil-square-o"></i> সংশোধন
                                 </a>
-                                <a href="@Url.Action("Delete", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-danger btn-xs">
+                                @*<a href="@Url.Action("Delete", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-danger btn-xs">
                                     <i class="fa fa-trash-o"></i> অপসারণ
-                                </a>
+                                </a>*@
                             </td>
                             <td>
                                 <a href="@Url.Action("PrintADPReceivePayment", "ADPReceivePayment", new { id = item.ADPReceivePaymentId, type="pdf" })" class="btn btn-info btn-xs">

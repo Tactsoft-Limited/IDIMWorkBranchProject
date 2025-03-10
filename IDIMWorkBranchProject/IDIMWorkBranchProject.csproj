@@ -2880,7 +2880,10 @@
     <Content Include="Views\ProjectSignatoryAuthority\Create.cshtml" />
     <Content Include="Views\ContractorCompanyPayment\Create.cshtml" />
     <Content Include="Views\BGBMiscellaneousFund\CreateOrEdit.cshtml" />
+    <Content Include="Views\ProjectWork\Delete.cshtml" />
+    <Content Include="Views\ADPReceivePayment\Delete.cshtml" />
     <Content Include="Views\ContractorCompanyPayment\Edit.cshtml" />
+    <Content Include="Views\ConstructionCompany\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

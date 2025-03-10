@@ -106,6 +106,45 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             return View(model);
         }
 
+        public async Task<ActionResult> Delete(int id)
+        {
+            var entity = await _constructionCompanyService.GetByIdAsync(id);
+
+            if (entity == null)
+            {
+                TempData["Message"] = "The requested record was not found.";
+                return RedirectToAction("List", "ConstructionCompany");
+            }
+
+            var model = _mapper.Map<ConstructionCompanyVm>(entity);
+            return View(model); // Load the delete confirmation view
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(ConstructionCompanyVm model)
+        {
+            var entity = await _constructionCompanyService.GetByIdAsync(model.ConstructionCompanyId);
+            try
+            {
+
+                if (entity == null)
+                {
+                    TempData["Message"] = "Record Not Found";
+                    return RedirectToAction("List", "ConstructionCompany");
+                }
+
+                await _constructionCompanyService.DeleteAsync(entity);
+
+                TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
+                return RedirectToAction("List", "ConstructionCompany");
+            }
+            catch (Exception exception)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
+                return RedirectToAction("List", "ConstructionCompany"); // Avoids null reference
+            }
+        }
+
 
 
     }
