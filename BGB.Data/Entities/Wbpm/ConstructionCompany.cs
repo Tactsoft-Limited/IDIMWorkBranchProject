@@ -10,7 +10,6 @@ namespace BGB.Data.Entities.Wbpm
     {
         public ConstructionCompany()
         {
-            ProjectWorks = new HashSet<ProjectWork>();
             ContractAgreements = new HashSet<ContractAgreement>();
         }
 
@@ -29,7 +28,6 @@ namespace BGB.Data.Entities.Wbpm
 
 
         #region  Navigation Property
-        public virtual ICollection<ProjectWork> ProjectWorks { get; set; }
         public virtual ICollection<ContractAgreement> ContractAgreements { get; set; }
         #endregion
     }
