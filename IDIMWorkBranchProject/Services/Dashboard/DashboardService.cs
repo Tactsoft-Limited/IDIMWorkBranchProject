@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Models.Dashboard;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
 using System.Threading.Tasks;
 namespace IDIMWorkBranchProject.Services.Dashboard
 {
@@ -24,8 +22,8 @@ namespace IDIMWorkBranchProject.Services.Dashboard
             {
                 OngoingProjects = await Context.ADPProjects.CountAsync(),
                 TotalConstructionWork = await Context.ADPProjects.SumAsync(x => x.NoOfWork),
-                ConstructionWorkInProgress = await Context.ProjectWorks.Where(x => x.WorkStatus == "Running").CountAsync(),
-                CompletedConstructionWork = await Context.ProjectWorks.Where(x => x.WorkStatus == "Completed").CountAsync(),
+                //ConstructionWorkInProgress = await Context.ProjectWorks.Where(x => x.WorkStatus == "Running").CountAsync(),
+                //CompletedConstructionWork = await Context.ProjectWorks.Where(x => x.WorkStatus == "Completed").CountAsync(),
 
                 //Project = await Context.Projects.CountAsync(),
                 //Subproject = await Context.SubProjects.CountAsync(),
