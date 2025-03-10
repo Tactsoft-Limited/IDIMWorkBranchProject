@@ -12,7 +12,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -51,7 +50,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 ProjectWorkId = projectWork.ProjectWorkId,
                 EstimatedCost = projectWork.EstimatedCost,
                 ProjectWorkTitle = projectWork.ProjectWorkTitle,
-                ConstructionFirm = projectWork.ConstructionCompany.FirmNameB,
+                //ConstructionFirm = projectWork.FirmNameB,
                 BillNumber = receivePayments.Count() + 1,
                 FinancialProgressPer = receivePayments.Sum(x => x.BillPaidPer),
                 BillPaidPerTillDate = receivePayments.Sum(x => x.BillPaidPer),
@@ -89,7 +88,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             var model = _mapper.Map<ADPReceivePaymentVm>(await _aDPReceivePaymentService.GetByIdAsync(id));
             var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
             model.ProjectWorkTitle = projectWork.ProjectWorkTitle;
-            model.ConstructionFirm = projectWork.ConstructionCompany.FirmName;
+            //model.ConstructionFirm = projectWork.ConstructionCompany.FirmName;
             model.EstimatedCost = projectWork.EstimatedCost;
 
             return View(model);
@@ -147,7 +146,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 throw new InvalidOperationException("An error occurred while generating the report.", exception);
             }
         }
-        
+
 
 
     }
