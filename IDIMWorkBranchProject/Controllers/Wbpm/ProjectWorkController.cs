@@ -67,19 +67,45 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
         public async Task<ActionResult> Details(int id)
         {
+            var projectWorks = await _projectWorkService.GetByIdAsync(id);
+
+            // Mapping with null checks
+            var noha = _mapper.Map<NohaVm>(await _nohaService.GetByProjectWorkIdAsync(id));
+            var performanceSecurity = _mapper.Map<PerformanceSecurityVm>(await _performanceSecurityService.GetByProjectWorkIdAsync(id));
+            var contractAgreement = _mapper.Map<ContractAgreementVm>(await _contractAgreementService.GetByProjectWorkIdAsync(id));
+            var workOrder = _mapper.Map<WorkOrderVm>(await _workOrderService.GetByProjectWorkIdAsync(id));
+            var projectWorkStatus = _mapper.Map<ProjectWorkStatusVm>(await _projectWorkStatusService.GetByProjectWorkIdAsync(id));
+
+            // Building the model
             var model = new ProjectWorkDetailsVm
             {
-                ProjectWorks = _mapper.Map<ProjectWorkVm>(await _projectWorkService.GetByIdAsync(id)),
-                Noha = _mapper.Map<NohaVm>(await _nohaService.GetByProjectWorkIdAsync(id)),
-                PerformanceSecurity = _mapper.Map<PerformanceSecurityVm>(await _performanceSecurityService.GetByProjectWorkIdAsync(id)),
-                ContractAgreement = _mapper.Map<ContractAgreementVm>(await _contractAgreementService.GetByProjectWorkIdAsync(id)),
-                WorkOrder = _mapper.Map<WorkOrderVm>(await _workOrderService.GetByProjectWorkIdAsync(id)),
-                ProjectWorkStatus = _mapper.Map<ProjectWorkStatusVm>(await _projectWorkStatusService.GetByProjectWorkIdAsync(id)),
+                ProjectTitle = projectWorks.ADPProject.ProjectTitle,
+                ProjectWorkTitle = projectWorks.ProjectWorkTitle,
+                ProjectWorkTitleB = projectWorks.ProjectWorkTitleB,
+                EstimatedCost = projectWorks.EstimatedCost,
+                EstimatedCostInWord = projectWorks.EstimatedCostInWord,
+                Remarks = projectWorks.Remarks,
+                FirmNameB = contractAgreement?.ConstructionFirm, // Null-safe access
+                IsNoahCompleted = projectWorks.IsNoahCompleted,
+                NohaDate = noha?.NohaDate, // Null-safe access
+                IsPerformanceSecuritySubmited = projectWorks.IsPerformanceSecuritySubmited,
+                ExpiryDate = performanceSecurity?.ExpiryDate, // Null-safe access
+                IsAgreementCompleted = projectWorks.IsAgreementCompleted,
+                AgreementDate = contractAgreement?.AgreementDate, // Null-safe access
+                IsWorkOrderCompleted = projectWorks.IsWorkOrderCompleted,
+                WorkOrderDate = workOrder?.WorkOrderDate, // Null-safe access
+                StartDate = workOrder?.StartDate, // Null-safe access
+                EndDate = workOrder?.EndDate, // Null-safe access
+                ProjectWorkStatus = projectWorkStatus?.ProjectWorkStatusId, // Null-safe access
+
                 ADPReceivePayments = _mapper.Map<List<ADPReceivePaymentVm>>(await _ADPReceivePaymentService.GetByProjectWorkIdAsync(id)),
                 ContractorCompanyPayments = _mapper.Map<List<ContractorCompanyPaymentVm>>(await _contractorCompanyPaymentService.GetByProjectWorkIdAsync(id))
+
             };
+
             return View(model);
         }
+
 
 
         public async Task<ActionResult> Create(int id)
