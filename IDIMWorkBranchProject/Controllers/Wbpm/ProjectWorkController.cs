@@ -135,7 +135,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
                     // Show success message and reset the form
                     TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                    return View(new ProjectWorkVm());  // Reset model after success
+                    return RedirectToAction("details/" + model.ADPProjectId, "ADPProject");  // Reset model after success
                 }
 
                 // If the model state is not valid
@@ -169,7 +169,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     var entity = _mapper.Map<ProjectWork>(model);
                     await _projectWorkService.UpdateAsync(entity);
                     TempData["Message"] = Messages.Success(MessageType.Update.ToString());
-                    return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");  // Reset model after success
+                    return RedirectToAction("details/" + model.ADPProjectId, "ADPProject");  // Reset model after success
                 }
 
                 TempData["Message"] = Messages.InvalidInput(MessageType.Update.ToString());
