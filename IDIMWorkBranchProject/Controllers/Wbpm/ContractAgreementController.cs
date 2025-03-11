@@ -46,6 +46,12 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 ProjectWorkTitle = projectWork.ProjectWorkTitle,
                 ConstructionCompanyId = contractAgreemen?.ConstructionCompanyId ?? 0,
             };
+            if (contractAgreemen != null) 
+            {
+                model.ContractAgreementId = contractAgreemen.ContractAgreementId;
+                model.AgreementDate = contractAgreemen.AgreementDate;
+                model.ScanDocument = contractAgreemen.ScanDocument;
+            }
 
             await PopulateDropdownsAsync(model, contractAgreemen);
             return View(model);
