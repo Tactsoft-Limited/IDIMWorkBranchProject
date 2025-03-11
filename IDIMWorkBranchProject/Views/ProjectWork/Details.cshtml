@@ -65,6 +65,11 @@
                 @Html.DisplayFor(m => m.EstimatedCost) (@Html.DisplayFor(m => m.EstimatedCostInWord))
             </div>
         </div>
+        <div style="margin-bottom:10px;">
+            <a href="@Url.Action("Create", "Noha", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2">
+                <i class="fa fa-print"></i>  এনওএইচএ সংযুক্ত করুণ
+            </a>
+        </div>
         <fieldset>
             <legend>এনওএইচএ</legend>
             <div class="form-display col-md-6">
@@ -91,8 +96,8 @@
             <a href="@Url.Action("Create", "ContractAgreement", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2">
                 <i class="fa fa-print"></i>  চুক্তিপত্র সংযুক্ত করুণ
             </a>
-        </div>       
-        
+        </div>
+
         <fieldset>
 
             <legend>চুক্তিপত্র</legend>

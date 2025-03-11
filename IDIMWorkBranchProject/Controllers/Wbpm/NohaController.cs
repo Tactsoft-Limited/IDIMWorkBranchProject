@@ -106,5 +106,45 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
         }
 
+        public async Task<ActionResult> Delete(int id)
+        {
+            var entity = await _nohaService.GetByIdAsync(id);
+
+            if (entity == null)
+            {
+                TempData["Message"] = "The requested record was not found.";
+                return RedirectToAction("details/" + entity.ProjectWorkId, "ProjectWork");
+            }
+
+            var model = _mapper.Map<NohaVm>(entity);
+            model.ProjectWorkTitleB = await _projectWorkService.GetProjectWorkTitle(entity.ProjectWorkId);
+            return View(model); // Load the delete confirmation view
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(NohaVm model)
+        {
+            var entity = await _nohaService.GetByIdAsync(model.NohaId);
+            try
+            {
+
+                if (entity == null)
+                {
+                    TempData["Message"] = "Record Not Found";
+                    return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjetWork");
+                }
+
+                await _nohaService.DeleteAsync(entity);
+
+                TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
+                return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork");
+            }
+            catch (Exception exception)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
+                return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork"); // Avoids null reference
+            }
+        }
+
     }
 }

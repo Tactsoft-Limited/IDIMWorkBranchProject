@@ -2887,6 +2887,7 @@
     <Content Include="Views\ConstructionCompany\Delete.cshtml" />
     <Content Include="Views\ContractAgreement\Delete.cshtml" />
     <Content Include="Views\Noha\Create.cshtml" />
+    <Content Include="Views\Noha\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
