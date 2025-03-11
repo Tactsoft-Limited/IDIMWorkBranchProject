@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
@@ -14,7 +16,6 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [DisplayName("প্রকল্পের অবস্থা")]
         public StatusType? StatusTypeId { get; set; }
-
     }
 
     public enum StatusType

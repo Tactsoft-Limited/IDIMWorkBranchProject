@@ -14,7 +14,7 @@ namespace IDIMWorkBranchProject
         public MapperConfig()
         {
             #region Wbpm
-
+            
             CreateMap<VatTaxCollateralVm, VatTaxCollateral>();
             CreateMap<VatTaxCollateral, VatTaxCollateralVm>();
 
@@ -25,7 +25,7 @@ namespace IDIMWorkBranchProject
             CreateMap<RecruitmentCommittee, RecruitmentCommitteeVm>();
 
             CreateMap<NohaVm, Noha>();
-            CreateMap<Noha, NohaVm>();
+            CreateMap<Noha, NohaVm>();           
 
             CreateMap<PerformanceSecurityVm, PerformanceSecurity>();
             CreateMap<PerformanceSecurity, PerformanceSecurityVm>();
@@ -34,7 +34,7 @@ namespace IDIMWorkBranchProject
             CreateMap<WorkOrder, WorkOrderVm>();
 
             CreateMap<ProjectWorkStatusVm, ProjectWorkStatus>();
-            CreateMap<ProjectWorkStatusVm, ProjectWorkStatus>();
+            CreateMap<ProjectWorkStatus,ProjectWorkStatusVm>();
 
             CreateMap<ContractAgreementVm, ContractAgreement>();
             CreateMap<ContractAgreement, ContractAgreementVm>()

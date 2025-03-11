@@ -12,8 +12,6 @@ namespace BGB.Data.Entities.Wbpm
         public int ProjectWorkId { get; set; }
         public int? StatusTypeId { get; set; }
 
-
-
         [ForeignKey(nameof(ProjectWorkId))]
         public virtual ProjectWork ProjectWork { get; set; }
     }

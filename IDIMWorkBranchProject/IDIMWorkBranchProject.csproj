@@ -390,6 +390,7 @@
     <Compile Include="Controllers\Wbpm\ProjectDirectorController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectSignatoryAuthorityController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectWorkController.cs" />
+    <Compile Include="Controllers\Wbpm\ProjectWorkStatusController.cs" />
     <Compile Include="Controllers\Wbpm\RecruitmentCommitteeController.cs" />
     <Compile Include="Controllers\Wbpm\BGBMiscellaneousFundController.cs" />
     <Compile Include="Controllers\Wbpm\SignatoryAuthorityController.cs" />
@@ -2894,6 +2895,7 @@
     <Content Include="Views\PerformanceSecurity\Delete.cshtml" />
     <Content Include="Views\WorkOrder\Create.cshtml" />
     <Content Include="Views\WorkOrder\Delete.cshtml" />
+    <Content Include="Views\ProjectWorkStatus\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
