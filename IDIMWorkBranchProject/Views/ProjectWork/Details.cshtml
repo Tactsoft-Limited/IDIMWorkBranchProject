@@ -81,6 +81,11 @@
                 @Html.DisplayFor(m => m.NohaDate)
             </div>
         </fieldset>
+        <div style="margin-bottom:10px;">
+            <a href="@Url.Action("Create", "PerformanceSecurity", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2">
+                <i class="fa fa-print"></i>  ব্যাংক গ্যারান্টি/পারফরমেন্স সিকিউরিটি সংযুক্ত করুণ
+            </a>
+        </div>
         <fieldset>
             <legend>ব্যাংক গ্যারান্টি/পারফরমেন্স সিকিউরিটি</legend>
             <div class="form-display col-md-6">

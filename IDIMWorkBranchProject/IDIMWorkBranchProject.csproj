@@ -386,6 +386,7 @@
     <Compile Include="Controllers\Wbpm\FiscalYearExpenseController.cs" />
     <Compile Include="Controllers\Wbpm\FormalMeetingController.cs" />
     <Compile Include="Controllers\Wbpm\NohaController.cs" />
+    <Compile Include="Controllers\Wbpm\PerformanceSecurityController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectDirectorController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectSignatoryAuthorityController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectWorkController.cs" />
@@ -2888,6 +2889,8 @@
     <Content Include="Views\ContractAgreement\Delete.cshtml" />
     <Content Include="Views\Noha\Create.cshtml" />
     <Content Include="Views\Noha\Delete.cshtml" />
+    <Content Include="Views\PerformanceSecurity\Create.cshtml" />
+    <Content Include="Views\PerformanceSecurity\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
