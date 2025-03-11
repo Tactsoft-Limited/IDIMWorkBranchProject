@@ -395,6 +395,7 @@
     <Compile Include="Controllers\Wbpm\SignatoryAuthorityController.cs" />
     <Compile Include="Controllers\Wbpm\TenderEvaluationCommitteeController.cs" />
     <Compile Include="Controllers\Wbpm\VatTaxCollateralController.cs" />
+    <Compile Include="Controllers\Wbpm\WorkOrderController.cs" />
     <Compile Include="Database\IDIMDBContext.Functions.cs" />
     <Compile Include="Database\IDIMDBContextProcedures.cs" />
     <Compile Include="Database\IDIMDBEntities.cs" />
@@ -2891,6 +2892,8 @@
     <Content Include="Views\Noha\Delete.cshtml" />
     <Content Include="Views\PerformanceSecurity\Create.cshtml" />
     <Content Include="Views\PerformanceSecurity\Delete.cshtml" />
+    <Content Include="Views\WorkOrder\Create.cshtml" />
+    <Content Include="Views\WorkOrder\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
