@@ -79,6 +79,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                         }
                     }
                     await _contractAgreementService.UpdateAsync(_mapper.Map<ContractAgreement>(model));
+                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());
 
                 }
 
@@ -101,18 +102,16 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                         }
                     }
                     await _contractAgreementService.CreateAsync(_mapper.Map<ContractAgreement>(model));
-
-                }
-
+                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                }             
+                
                 return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
             }
             catch (Exception exception)
             {
                 TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), $"An error occurred while processing your request.{exception.InnerException.Message}");
-
                 // Populate dropdowns even if an error occurs
                 await PopulateDropdownsAsync(model, null);
-
                 return View(model);
             }
 
@@ -135,6 +134,46 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 model.ProjectdirectorDropdown = await _recruitmentCommitteeService.GetDropdownAsync(model.ProjectDirectorId);
                 model.DirectorDropdown = await _recruitmentCommitteeService.GetDropdownAsync(model.DirectorId);
                 model.ConstructionFirmDropdown = await _constructionCompanyService.GetDropdownAsync(model.ConstructionCompanyId);
+            }
+        }
+        [HttpGet]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var entity = await _contractAgreementService.GetByIdAsync(id);
+
+            if (entity == null)
+            {
+                TempData["Message"] = "The requested record was not found.";
+                return RedirectToAction("details/" + entity.ProjectWorkId, "ProjectWork");
+            }
+
+            var model = _mapper.Map<ContractAgreementVm>(entity);
+            model.ProjectWorkTitle = await _projectWorkService.GetProjectWorkTitle(entity.ProjectWorkId);
+            return View(model); // Load the delete confirmation view
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(ContractAgreementVm model)
+        {
+            var entity = await _contractAgreementService.GetByIdAsync(model.ContractAgreementId);
+            try
+            {
+
+                if (entity == null)
+                {
+                    TempData["Message"] = "Record Not Found";
+                    return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjetWork");
+                }
+
+                await _contractAgreementService.DeleteAsync(entity);
+
+                TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
+                return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork");
+            }
+            catch (Exception exception)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
+                return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork"); // Avoids null reference
             }
         }
     }

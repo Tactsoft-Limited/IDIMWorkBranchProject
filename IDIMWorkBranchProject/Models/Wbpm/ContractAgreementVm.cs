@@ -36,18 +36,26 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [Display(Name = "চুক্তির তারিখ")]
         public DateTime? AgreementDate { get; set; }
+        [Display(Name = "অতিরিক্ত মহাপরিচালক")]
 
         public int? AddDGId { get; set; }
+        [Display(Name = "অতিরিক্ত মহাপরিচালক")]
         public string AddDGName { get; set; }
+        [Display(Name = "উপ-মহাপরিচালক")]
         public int? DDGId { get; set; }
+        [Display(Name = "উপ-মহাপরিচালক")]
 
         public string DDGName { get; set; }
+        [Display(Name = "প্রকল্প পরিচালক")]
 
         public int? ProjectDirectorId { get; set; }
+        [Display(Name = "প্রকল্প পরিচালক")]
 
         public string ProjectDirectorName { get; set; }
+        [Display(Name = "পরিচালক")]
 
         public int? DirectorId { get; set; }
+        [Display(Name = "পরিচালক")]
 
         public string DirectorName { get; set; }
 

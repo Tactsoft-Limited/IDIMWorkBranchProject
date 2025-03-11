@@ -104,7 +104,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
 
         public async Task<string> GetProjectWorkTitle(int? ProjectWorkId)
         {
-            return await _context.ProjectWorks.Where(x => x.ProjectWorkId == ProjectWorkId).Select(x => x.ProjectWorkTitle).FirstOrDefaultAsync();
+            return await _context.ProjectWorks.Where(x => x.ProjectWorkId == ProjectWorkId).Select(x => x.ProjectWorkTitleB).FirstOrDefaultAsync();
         }
     }
 }

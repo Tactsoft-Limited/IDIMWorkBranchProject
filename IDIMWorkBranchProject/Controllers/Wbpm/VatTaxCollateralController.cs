@@ -95,7 +95,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 if (model.VatTaxCollateralId > 0)
                 {
                     await _vatTaxCollateralService.UpdateAsync(_mapper.Map<VatTaxCollateral>(model));
-                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());
                 }
                 else
                 {
