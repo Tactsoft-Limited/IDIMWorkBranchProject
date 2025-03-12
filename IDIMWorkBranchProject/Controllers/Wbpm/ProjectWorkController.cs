@@ -79,7 +79,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             // Building the model
             var model = new ProjectWorkDetailsVm
             {
-                ProjectWorkId=projectWorks.ProjectWorkId,
+                ProjectWorkId = projectWorks.ProjectWorkId,
                 ProjectTitle = projectWorks.ADPProject.ProjectTitle,
                 ProjectWorkTitle = projectWorks.ProjectWorkTitle,
                 ProjectWorkTitleB = projectWorks.ProjectWorkTitleB,
