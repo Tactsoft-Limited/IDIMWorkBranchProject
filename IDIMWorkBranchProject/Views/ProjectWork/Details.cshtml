@@ -100,9 +100,10 @@
                 @Html.DisplayFor(m => m.ExpiryDate)
             </div>
         </fieldset>
+
         <div style="margin-bottom:10px;">
-            <a href="@Url.Action("Create", "ContractAgreement", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.IsNoahCompleted ? "" : "disabled")"
-               @(Model.IsNoahCompleted ? "" : "onclick='return false;'")>
+            <a href="@Url.Action("Create", "ContractAgreement", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.IsPerformanceSecuritySubmited ? "" : "disabled")"
+               @(Model.IsPerformanceSecuritySubmited ? "" : "onclick='return false;'")>
                 <i class="fa fa-print"></i>  চুক্তিপত্র সংযুক্ত করুণ
             </a>
         </div>
@@ -121,8 +122,8 @@
 
         </fieldset>
         <div style="margin-bottom:10px;">
-            <a href="@Url.Action("Create", "WorkOrder", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.IsNoahCompleted ? "" : "disabled")"
-               @(Model.IsNoahCompleted ? "" : "onclick='return false;'")>
+            <a href="@Url.Action("Create", "WorkOrder", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.IsAgreementCompleted ? "" : "disabled")"
+               @(Model.IsAgreementCompleted ? "" : "onclick='return false;'")>
                 <i class="fa fa-print"></i>  কার্যাদেশ সংযুক্ত করুণ
             </a>
         </div>
