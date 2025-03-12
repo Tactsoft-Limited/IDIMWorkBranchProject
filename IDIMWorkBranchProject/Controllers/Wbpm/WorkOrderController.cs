@@ -58,6 +58,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(WorkOrderVm model)
         {
+            var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
             string fileName = null;
             try
             {
@@ -97,6 +98,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                             return View(model);
                         }
                         await _workOrderService.CreateAsync(_mapper.Map<WorkOrder>(model));
+                        projectWork.IsWorkOrderCompleted = true;
+                        await _projectWorkService.UpdateAsync(projectWork);
                         TempData["Message"] = Messages.Success(MessageType.Create.ToString());
                     }
                 }

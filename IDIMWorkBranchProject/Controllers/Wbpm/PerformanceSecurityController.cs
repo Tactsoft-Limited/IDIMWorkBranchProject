@@ -54,7 +54,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(PerformanceSecurityVm model)
-        {
+        { var projectWork=await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
             string fileName = null;
             try
             {
@@ -94,6 +94,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                             return View(model);
                         }
                         await _performanceSecurityService.CreateAsync(_mapper.Map<PerformanceSecurity>(model));
+                        projectWork.IsPerformanceSecuritySubmited = true;
+                        await _projectWorkService.UpdateAsync(projectWork);
                         TempData["Message"] = Messages.Success(MessageType.Create.ToString());
                     }
                 }

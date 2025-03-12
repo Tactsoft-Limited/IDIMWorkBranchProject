@@ -61,6 +61,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ContractAgreementVm model)
         {
+            var projectWork= await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
             string fileName = null;
             try
             {
@@ -108,6 +109,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                         }
                     }
                     await _contractAgreementService.CreateAsync(_mapper.Map<ContractAgreement>(model));
+                    projectWork.IsAgreementCompleted = true;
+                    await _projectWorkService.UpdateAsync(projectWork);
                     TempData["Message"] = Messages.Success(MessageType.Create.ToString());
                 }             
                 

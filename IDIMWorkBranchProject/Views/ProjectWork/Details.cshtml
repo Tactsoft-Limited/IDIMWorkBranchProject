@@ -82,11 +82,13 @@
             </div>
         </fieldset>
         <div style="margin-bottom:10px;">
-            <a href="@Url.Action("Create", "PerformanceSecurity", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2" @(Model.IsNoahCompleted ? "" : "disabled")>
-                <i class="fa fa-add"></i>  ব্যাংক গ্যারান্টি/পারফরমেন্স সিকিউরিটি সংযুক্ত করুণ
+            <a href="@Url.Action("Create", "PerformanceSecurity", new { id = Model.ProjectWorkId })"
+               class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.IsNoahCompleted ? "" : "disabled")"
+               @(Model.IsNoahCompleted ? "" : "onclick='return false;'")>
+                <i class="fa fa-add"></i> ব্যাংক গ্যারান্টি/পারফরমেন্স সিকিউরিটি সংযুক্ত করুণ
             </a>
         </div>
-       
+
         <fieldset>
             <legend>ব্যাংক গ্যারান্টি/পারফরমেন্স সিকিউরিটি</legend>
             <div class="form-display col-md-6">
@@ -99,7 +101,8 @@
             </div>
         </fieldset>
         <div style="margin-bottom:10px;">
-            <a href="@Url.Action("Create", "ContractAgreement", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2" @(Model.IsPerformanceSecuritySubmited ? "" : "disabled")>
+            <a href="@Url.Action("Create", "ContractAgreement", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.IsNoahCompleted ? "" : "disabled")"
+               @(Model.IsNoahCompleted ? "" : "onclick='return false;'")>
                 <i class="fa fa-print"></i>  চুক্তিপত্র সংযুক্ত করুণ
             </a>
         </div>
@@ -118,7 +121,8 @@
 
         </fieldset>
         <div style="margin-bottom:10px;">
-            <a href="@Url.Action("Create", "WorkOrder", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2" @(Model.IsAgreementCompleted ? "" : "disabled")>
+            <a href="@Url.Action("Create", "WorkOrder", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.IsNoahCompleted ? "" : "disabled")"
+               @(Model.IsNoahCompleted ? "" : "onclick='return false;'")>
                 <i class="fa fa-print"></i>  কার্যাদেশ সংযুক্ত করুণ
             </a>
         </div>
@@ -156,7 +160,7 @@
                         <th>পেমেন্ট সেকটর</th>
                         <th>বিল পরিশোধিত পরিমান</th>
                         @*<th>কর্তন (ট্যাক্স, ভ্যাট ও জামানত)</th>
-                        <th>বিবিধ জমা পরিমান</th>*@
+                            <th>বিবিধ জমা পরিমান</th>*@
                         <th style="width:120px;">সংশোধন</th>
                         <th style="width:120px;">প্রিন্ট করুন</th>
                     </tr>
@@ -171,7 +175,7 @@
                             <td>@item.BillPaymentSector</td>
                             <td>@item.BillPaidAmount</td>
                             @*<td>@item.TotalDeductionAmount</td>
-                            <td>@item.DepositInBGBFund</td>*@
+                                <td>@item.DepositInBGBFund</td>*@
 
                             <td>
                                 <a href="@Url.Action("Create", "VatTaxCollateral", new { id = item.ADPReceivePaymentId })" class="btn btn-primary btn-xs">
@@ -184,8 +188,8 @@
                                     <i class="fa fa-pencil-square-o"></i> সংশোধন
                                 </a>
                                 @*<a href="@Url.Action("Delete", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-danger btn-xs">
-                                    <i class="fa fa-trash-o"></i> অপসারণ
-                                </a>*@
+                                        <i class="fa fa-trash-o"></i> অপসারণ
+                                    </a>*@
                             </td>
                             <td>
                                 <a href="@Url.Action("PrintADPReceivePayment", "ADPReceivePayment", new { id = item.ADPReceivePaymentId, type="pdf" })" class="btn btn-info btn-xs">

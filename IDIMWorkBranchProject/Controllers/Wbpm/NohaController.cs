@@ -54,6 +54,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(NohaVm model)
         {
+            var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
             string fileName = null;
             try
             {
@@ -93,6 +94,9 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                             return View(model);
                         }
                         await _nohaService.CreateAsync(_mapper.Map<Noha>(model));
+                        projectWork.IsNoahCompleted = true;
+                        await _projectWorkService.UpdateAsync(projectWork);
+
                         TempData["Message"] = Messages.Success(MessageType.Create.ToString());
                     }
                 }
