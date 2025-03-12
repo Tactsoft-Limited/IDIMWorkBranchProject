@@ -26,6 +26,31 @@ namespace IDIMWorkBranchProject.Data.Database
                 .HasForeignKey(a => a.ProjectWorkId)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<ADPReceivePayment>()
+                .HasRequired(a => a.BranchClerk)
+                .WithMany(x => x.BranchClerks)
+                .HasForeignKey(a => a.BranchClerkId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ADPReceivePayment>()
+                .HasRequired(a => a.ConcernedEngineer)
+                .WithMany(x => x.ConcernedEngineers)
+                .HasForeignKey(a => a.ConcernedEngineerId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ADPReceivePayment>()
+                .HasRequired(a => a.SectionIC)
+                .WithMany(x => x.SectionICs)
+                .HasForeignKey(a => a.SectionICId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ADPReceivePayment>()
+                .HasRequired(a => a.HeadAssistant)
+                .WithMany(x => x.HeadAssistants)
+                .HasForeignKey(a => a.HeadAssistantId)
+                .WillCascadeOnDelete(false);
+
+
 
             modelBuilder.Entity<BGBMiscellaneousFund>()
                 .HasRequired(b => b.ProjectWork)

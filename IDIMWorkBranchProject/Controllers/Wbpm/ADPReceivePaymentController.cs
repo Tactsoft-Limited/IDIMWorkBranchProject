@@ -22,14 +22,20 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IADPReceivePaymentService _aDPReceivePaymentService;
         private readonly IProjectWorkService _projectWorkService;
         private readonly IReportService _reportService;
+        private readonly ISignatoryAuthorityService _signatoryAuthorityService;
+        private readonly IContractAgreementService _contractAgreementService;
         private readonly IMapper _mapper;
-        public ADPReceivePaymentController(IActivityLogService activityLogService, IADPReceivePaymentService aDPReceivePaymentService, IMapper mapper, IProjectWorkService projectWorkService, IReportService reportService) : base(activityLogService)
+
+        public ADPReceivePaymentController(IActivityLogService activityLogService, IADPReceivePaymentService aDPReceivePaymentService, IProjectWorkService projectWorkService, IReportService reportService, ISignatoryAuthorityService signatoryAuthorityService, IContractAgreementService contractAgreementService, IMapper mapper) : base(activityLogService)
         {
             _aDPReceivePaymentService = aDPReceivePaymentService;
-            _mapper = mapper;
             _projectWorkService = projectWorkService;
             _reportService = reportService;
+            _signatoryAuthorityService = signatoryAuthorityService;
+            _contractAgreementService = contractAgreementService;
+            _mapper = mapper;
         }
+
 
         // GET: ADPReceivePayment
         public ActionResult Index()
@@ -41,6 +47,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         {
             var projectWork = await _projectWorkService.GetByIdAsync(id);
             var receivePayments = await _aDPReceivePaymentService.GetByProjectWorkIdAsync(id);
+            var contractAgreement =await _contractAgreementService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
 
             if (receivePayments.Sum(x => x.BillPaidPer) == 100 || receivePayments.Sum(x => x.BillPaidAmount) == projectWork.EstimatedCost)
                 throw new Exception("Full Payment already received");
@@ -50,12 +57,17 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 ProjectWorkId = projectWork.ProjectWorkId,
                 EstimatedCost = projectWork.EstimatedCost,
                 ProjectWorkTitle = projectWork.ProjectWorkTitle,
-                //ConstructionFirm = projectWork.FirmNameB,
+                ConstructionFirm = contractAgreement.ConstructionCompany.FirmNameB,
                 BillNumber = receivePayments.Count() + 1,
                 FinancialProgressPer = receivePayments.Sum(x => x.BillPaidPer),
                 BillPaidPerTillDate = receivePayments.Sum(x => x.BillPaidPer),
                 BillPaidAmountTillDate = receivePayments.Sum(x => x.BillPaidAmount),
+                HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
+                ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
+                SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
+                BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync()
             };
+           
             return View(model);
         }
 
@@ -68,6 +80,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 if (!ModelState.IsValid)
                 {
                     TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                    model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+                    model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+                    model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+                    model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
                     return View(model);
                 }
 
@@ -79,6 +95,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             catch (Exception exception)
             {
                 TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
                 return View(model);
             }
         }
@@ -88,6 +108,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             var model = _mapper.Map<ADPReceivePaymentVm>(await _aDPReceivePaymentService.GetByIdAsync(id));
             var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
             model.ProjectWorkTitle = projectWork.ProjectWorkTitle;
+            model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+            model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+            model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+            model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
             //model.ConstructionFirm = projectWork.ConstructionCompany.FirmName;
             model.EstimatedCost = projectWork.EstimatedCost;
 
@@ -103,6 +127,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 if (!ModelState.IsValid)
                 {
                     TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                    model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+                    model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+                    model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+                    model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
                     return View(model);
                 }
 
@@ -114,6 +142,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             catch (Exception exception)
             {
                 TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
                 return View(model);
             }
         }
@@ -186,6 +218,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 throw new InvalidOperationException("An error occurred while generating the report.", exception);
             }
         }
+
 
 
 
