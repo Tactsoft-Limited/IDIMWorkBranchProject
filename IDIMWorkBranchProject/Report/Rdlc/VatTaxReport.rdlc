@@ -1733,6 +1733,7 @@
           </Textbox>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
+        <Left>0.00276in</Left>
         <Height>5.52109in</Height>
         <Width>7.1897in</Width>
         <Style>
@@ -1955,8 +1956,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
-            <Top>0.96379in</Top>
-            <Height>0.92419in</Height>
+            <Top>0.73879in</Top>
+            <Height>0.72975in</Height>
             <Width>7.18969in</Width>
             <ZIndex>1</ZIndex>
             <Style>
@@ -2036,7 +2037,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
-            <Top>2.30165in</Top>
+            <Top>1.82665in</Top>
             <Height>0.24157in</Height>
             <Width>7.18969in</Width>
             <ZIndex>2</ZIndex>
@@ -2071,7 +2072,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox90</rd:DefaultName>
-            <Top>2.90739in</Top>
+            <Top>2.51989in</Top>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>3</ZIndex>
@@ -2181,7 +2182,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
-            <Top>2.00453in</Top>
+            <Top>1.52953in</Top>
             <Height>0.26935in</Height>
             <Width>7.18969in</Width>
             <ZIndex>6</ZIndex>
@@ -2231,8 +2232,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
-            <Top>3.33973in</Top>
-            <Height>0.47857in</Height>
+            <Top>2.82167in</Top>
+            <Height>0.40913in</Height>
             <Width>7.18969in</Width>
             <ZIndex>7</ZIndex>
             <Style>
@@ -2269,7 +2270,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
-            <Top>3.87098in</Top>
+            <Top>3.25848in</Top>
             <Height>0.48139in</Height>
             <Width>7.18969in</Width>
             <ZIndex>8</ZIndex>
@@ -2303,7 +2304,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>5.30872in</Top>
+            <Top>4.54622in</Top>
             <Height>0.25in</Height>
             <Width>0.94048in</Width>
             <ZIndex>9</ZIndex>
@@ -2342,7 +2343,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>5.30872in</Top>
+            <Top>4.54622in</Top>
             <Left>2.66291in</Left>
             <Height>0.25in</Height>
             <Width>0.94048in</Width>
@@ -2382,7 +2383,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>5.30872in</Top>
+            <Top>4.54622in</Top>
             <Left>5.09017in</Left>
             <Height>0.25in</Height>
             <Width>2.09952in</Width>
@@ -2404,8 +2405,9 @@
           </Textbox>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>14.05686in</Top>
-        <Height>5.69041in</Height>
+        <Top>14.204in</Top>
+        <Left>0.00276in</Left>
+        <Height>4.86402in</Height>
         <Width>7.18969in</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -3054,7 +3056,8 @@
           </Textbox>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>20.12931in</Top>
+        <Top>19.30431in</Top>
+        <Left>0.00276in</Left>
         <Height>5.13979in</Height>
         <Width>7.18969in</Width>
         <ZIndex>2</ZIndex>
@@ -3121,45 +3124,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
-            <Top>0.25063in</Top>
-            <Height>0.24157in</Height>
+            <Top>0.2422in</Top>
+            <Height>0.22223in</Height>
             <Width>7.18969in</Width>
             <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox113">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>দপ্তর- সদর দপ্তর বিজিবি (পূর্ত শাখা),ঢাকা</Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                      <TextDecoration>None</TextDecoration>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox53</rd:DefaultName>
-            <Top>0.77544in</Top>
-            <Height>0.24157in</Height>
-            <Width>7.18969in</Width>
-            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3189,12 +3157,27 @@
                   <TextAlign>Center</TextAlign>
                 </Style>
               </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>দপ্তর- সদর দপ্তর বিজিবি (পূর্ত শাখা),ঢাকা</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
-            <Top>0.53387in</Top>
+            <Top>0.44637in</Top>
             <Height>0.24157in</Height>
             <Width>7.18969in</Width>
-            <ZIndex>3</ZIndex>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3209,7 +3192,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.67112in</Width>
+                  <Width>1.26376in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.31003in</Width>
@@ -3256,6 +3239,9 @@
                 <TablixColumn>
                   <Width>0.28417in</Width>
                 </TablixColumn>
+                <TablixColumn>
+                  <Width>0.40736in</Width>
+                </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
@@ -3286,9 +3272,29 @@
                           <rd:DefaultName>Textbox158</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3306,58 +3312,868 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value xml:space="preserve">         </Value>
-                                  <Style>
-                                    <FontFamily>SolaimanLipi</FontFamily>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>=Code.ConvertToBangla(Fields!CodeNo.Value)</Value>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 1, 1))</Value>
                                   <Style>
                                     <FontFamily>SolaimanLipi</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>CodeNo</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>15</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CodeNo2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 2, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CodeNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CodeNo3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 3, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CodeNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CodeNo4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 4, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CodeNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CodeNo5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 5, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CodeNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CodeNo6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 6, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CodeNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CodeNo7">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 7, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CodeNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CodeNo8">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 7, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CodeNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CodeNo9">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 8, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CodeNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CodeNo10">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 9, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CodeNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CodeNo11">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 10, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CodeNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CodeNo12">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 11, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CodeNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CodeNo13">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 12, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CodeNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CodeNo14">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 13, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CodeNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CodeNo15">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 14, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CodeNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox117">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Mid(Fields!CodeNo.Value, 15, 1))</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox117</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -3382,10 +4198,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DsVatTaxReport</DataSetName>
-            <Top>1.22948in</Top>
+            <Top>0.84198in</Top>
             <Height>0.25in</Height>
             <Width>7.18973in</Width>
-            <ZIndex>4</ZIndex>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3411,10 +4227,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
-            <Top>1.67348in</Top>
+            <Top>1.37348in</Top>
             <Height>0.24157in</Height>
             <Width>7.15029in</Width>
-            <ZIndex>5</ZIndex>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3429,16 +4245,16 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.23385in</Width>
+                  <Width>0.88847in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.49374in</Width>
+                  <Width>3.45601in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.70447in</Width>
+                  <Width>2.20977in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.75762in</Width>
+                  <Width>0.62992in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -3470,27 +4286,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -3525,27 +4341,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -3580,27 +4396,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -3656,27 +4472,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -3711,27 +4527,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -3766,27 +4582,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -3821,27 +4637,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -3894,8 +4710,29 @@
                           <rd:DefaultName>Textbox248</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3910,12 +4747,12 @@
                           <TablixBody>
                             <TablixColumns>
                               <TablixColumn>
-                                <Width>3.49374in</Width>
+                                <Width>3.45601in</Width>
                               </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
                               <TablixRow>
-                                <Height>0.35208in</Height>
+                                <Height>0.67291in</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
@@ -4012,7 +4849,7 @@
                                 </TablixCells>
                               </TablixRow>
                               <TablixRow>
-                                <Height>1.36249in</Height>
+                                <Height>1.04166in</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
@@ -4141,7 +4978,7 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox27</rd:DefaultName>
-                                            <Top>0.76389in</Top>
+                                            <Top>0.79166in</Top>
                                             <Left>0.16582in</Left>
                                             <Height>0.25in</Height>
                                             <Width>0.69814in</Width>
@@ -4587,6 +5424,206 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
+                          </Style>
+                        </Tablix>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Tablix Name="Tablix3">
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>2.20977in</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>0.67599in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox129">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Code.ConvertToBangla(Fields!BillPaidAmount.Value)</Value>
+                                                <Style>
+                                                  <FontFamily>SolaimanLipi</FontFamily>
+                                                  <FontSize>12pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Right</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value> (-) </Value>
+                                                <Style>
+                                                  <FontSize>12pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                              <TextRun>
+                                                <Value>=Code.ConvertToBangla(Fields!TotalDeductionAmount.Value)</Value>
+                                                <Style>
+                                                  <FontFamily>SolaimanLipi</FontFamily>
+                                                  <FontSize>12pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Right</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value />
+                                                <Style>
+                                                  <FontFamily>SolaimanLipi</FontFamily>
+                                                  <FontSize>12pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox122</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                              <TablixRow>
+                                <Height>1.03859in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Rectangle Name="Rectangle3">
+                                        <ReportItems>
+                                          <Textbox Name="Textbox64">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>নীট-</Value>
+                                                    <Style>
+                                                      <FontFamily>SolaimanLipi</FontFamily>
+                                                      <FontSize>12pt</FontSize>
+                                                    </Style>
+                                                  </TextRun>
+                                                  <TextRun>
+                                                    <Value xml:space="preserve">  </Value>
+                                                    <Style>
+                                                      <FontSize>12pt</FontSize>
+                                                    </Style>
+                                                  </TextRun>
+                                                  <TextRun>
+                                                    <Value>=Code.ConvertToBangla(Fields!NeetAmount.Value)</Value>
+                                                    <Style>
+                                                      <FontFamily>SolaimanLipi</FontFamily>
+                                                      <FontSize>12pt</FontSize>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox26</rd:DefaultName>
+                                            <Top>0.01389in</Top>
+                                            <Left>0.18865in</Left>
+                                            <Height>0.25in</Height>
+                                            <Width>2.02112in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>0.5pt</Width>
+                                              </TopBorder>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </ReportItems>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                        </Style>
+                                      </Rectangle>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember>
+                                <KeepWithGroup>After</KeepWithGroup>
+                              </TablixMember>
+                              <TablixMember>
+                                <Group Name="Details3" />
+                              </TablixMember>
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
                               <Width>0.5pt</Width>
                             </Border>
                             <TopBorder>
@@ -4615,110 +5652,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox130">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Code.ConvertToBangla(Fields!BillPaidAmount.Value)</Value>
-                                  <Style>
-                                    <FontFamily>SolaimanLipi</FontFamily>
-                                    <FontSize>11pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>             (-)</Value>
-                                  <Style>
-                                    <FontSize>11pt</FontSize>
-                                    <TextDecoration>Underline</TextDecoration>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>=Code.ConvertToBangla(Fields!TotalDeductionAmount.Value)</Value>
-                                  <Style>
-                                    <FontFamily>SolaimanLipi</FontFamily>
-                                    <FontSize>11pt</FontSize>
-                                    <TextDecoration>Underline</TextDecoration>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>নীট-</Value>
-                                  <Style>
-                                    <FontFamily>SolaimanLipi</FontFamily>
-                                    <FontSize>11pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value xml:space="preserve">      </Value>
-                                  <Style>
-                                    <FontSize>11pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>=Code.ConvertToBangla(Fields!BillPaidAmount.Value - Fields!VatAmount.Value)</Value>
-                                  <Style>
-                                    <FontFamily>SolaimanLipi</FontFamily>
-                                    <FontSize>11pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox26</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </RightBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="Textbox251">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -4742,27 +5675,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -4801,8 +5734,29 @@
                           <rd:DefaultName>Textbox288</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.25pt</Width>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4840,27 +5794,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -4895,27 +5849,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -4950,27 +5904,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -5010,27 +5964,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -5113,27 +6067,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -5170,27 +6124,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>0.25pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -5200,6 +6154,181 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>3.06944in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>১।     প্রত্যায়ন করা যাইতেছে যে, জনস্বার্থে এই ব্যয় অপরিহার্য ছিল। আমি আরও প্রত্যায়ন করিতেছি যে, আমার জ্ঞান বিশ্বাস মতে,এই বিলে উল্লিখিত প্রদত্ত অর্থ নিম্নেবর্ণিত ক্ষেত্র ব্যতীত প্রকৃত প্রাপককে প্রদান করা হইয়াছে, তবে স্থায়ী অগ্রিমের টাকা অপেক্ষা দায় বেশী হওয়ায়, অবশিষ্ট পাওনা এই বিলে দাবিকৃত টাকা প্রাপ্তির পর প্রদান করা হইবে।  আমি যথাসম্ভব সকল ভাউচার গ্রহণ করিয়াছি এবং সেগুলি এমনভাবে বাতিল করা হইয়াছে যেন পুনরায় ব্যবহার করা না যায়।  ২০২ টাকার উর্দ্ধের সকল ভাউচারসমুহ এমনভাবে সংরক্ষণ করা হইয়াছে, যেন, প্রয়োজনমত ৩ বৎসরের মধ্যে এইগুলি পেশ করা যায়। সকল পূর্তকর্মের বিল সংগে সংযুক্ত করা হইল। </Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>২।     প্রত্যায়ন করা যাইতেছে যে, যে সকল দ্রব্যের জন্য ষ্টোর একাউন্টস সংরক্ষণ করা হয় যে, দ্রব্যাদি ষ্টক রেজিষ্টারে অন্তর্ভুক্ত করা হইয়াছে।</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>৩।     প্রত্যায়ন করা যাইতেছে যে, যে সক দ্রব্যাদি ক্রয়ের বিল পেশ করা হইয়াছে, সে সব দ্রব্যের পরিমাণ সঠিক, গুনগতমান ভাল, যে দরে ক্রয় করা  হইয়াছে, তাহা বাজার দরের অধিক নহে এবং কার্যাদেশ বা চালান (ইনভয়েস) এর যথাস্থানে লিপিবদ্ধ করা হইয়াছে।  যাহাতে একই দ্রব্যের জন্য </Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>দ্বিতীয়বার</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value> (ডুপ্লিকেট) অর্থ প্রদান এড়ান যায়।</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>৪।      প্রত্যায়ন করা যাইতেছে যে,
+
+	       ক।	    এই বিলে দাবিকৃত পরিবহন ভাড়া প্রকৃতপক্ষে দেওয়া হইয়াছে এবং ইহা অপরিহার্য ছিল এবং ভাড়া হার প্রচলিত 	যানবাহন ভাড়ার হারের মধ্যেই          এবং
+
+	       খ।	    সংশ্লিষ্ট সরকারী কর্মচারী সাধারন বিধিবলে এই ভ্রমনের জন্য ভ্রমন ব্যয় প্রাপ্য হন না এবং অতিরিক্ত কোন বিশেষ 	পারিশ্রমিক, এই দায়িত্ব               পালনের জন্য পাপ্য হইবেন না।</Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>4</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell />
+                    <TablixCell />
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
@@ -5229,373 +6358,48 @@
                 <TablixMember>
                   <Group Name="Details4" />
                 </TablixMember>
+                <TablixMember>
+                  <KeepWithGroup>Before</KeepWithGroup>
+                </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DsVatTaxReport</DataSetName>
-            <Top>2.25097in</Top>
-            <Height>2.93958in</Height>
-            <Width>7.18968in</Width>
-            <ZIndex>6</ZIndex>
+            <Top>1.88847in</Top>
+            <Height>6.00902in</Height>
+            <Width>7.18417in</Width>
+            <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
-                <Width>0.5pt</Width>
+                <Width>0.25pt</Width>
               </Border>
               <TopBorder>
                 <Color>Black</Color>
                 <Style>Solid</Style>
-                <Width>0.5pt</Width>
+                <Width>0.25pt</Width>
               </TopBorder>
               <BottomBorder>
                 <Color>Black</Color>
                 <Style>Solid</Style>
-                <Width>0.5pt</Width>
+                <Width>0.25pt</Width>
               </BottomBorder>
               <LeftBorder>
                 <Color>Black</Color>
                 <Style>Solid</Style>
-                <Width>0.5pt</Width>
+                <Width>0.25pt</Width>
               </LeftBorder>
               <RightBorder>
                 <Color>Black</Color>
                 <Style>Solid</Style>
-                <Width>0.5pt</Width>
+                <Width>0.25pt</Width>
               </RightBorder>
             </Style>
           </Tablix>
-          <Textbox Name="Textbox294">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>১।        প্রত্যায়ন করা যাইতেছে যে, জনস্বার্থে এই ব্যয় অপরিহার্য ছিল। আমি আরও প্রত্যায়ন করিতেছি যে, আমার জ্ঞান বিশ্বাস মতে,এই বিলে উল্লিখিত প্রদত্ত অর্থ নিম্নেবর্ণিত ক্ষেত্র ব্যতীত প্রকৃত প্রাপককে প্রদান করা হইয়াছে, তবে স্থায়ী অগ্রিমের টাকা অপেক্ষা দায় বেশী হওয়ায়, অবশিষ্ট পাওনা এই বিলে দাবিকৃত টাকা প্রাপ্তির পর প্রদান করা হইবে। আমি যথাসম্ভব সকল ভাউচার গ্রহণ করিয়াছি এবং সেগুলি এমনভাবে বাতিল করা হইয়াছে যেন পুনরায় ব্যবহার করা না যায়। ২০২ টাকার উর্দ্ধের সকল ভাউচারসমুহ এমনভাবে সংরক্ষণ করা হইয়াছে, যেন, প্রয়োজনমত ৩ বৎসরের মধ্যে এইগুলি পেশ করা যায়। সকল পূর্তকর্মের বিল সংগে সংযুক্ত করা হইল। </Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>২।         প্রত্যায়ন করা যাইতেছে যে, যে সকল দ্রব্যের জন্য ষ্টোর একাউন্টস সংরক্ষণ করা হয় যে, দ্রব্যাদি ষ্টক রেজিষ্টারে অন্তর্ভুক্ত করা হইয়াছে।</Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>৩।          প্রত্যায়ন করা যাইতেছে যে, যে সক দ্রব্যাদি ক্রয়ের বিল পেশ করা হইয়াছে, সে সব দ্রব্যের পরিমাণ সঠিক, গুনগতমান ভাল, যে দরে ক্রয় করা  হইয়াছে, তাহা বাজার দরের অধিক নহে এবং কার্যাদেশ বা চালান (ইনভয়েস) এর যথাস্থানে লিপিবদ্ধ করা হইয়াছে। যাহাতে একই দ্রব্যের জন্য </Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>দ্বিতীয়বার</Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Nirmala UI</FontFamily>
-                      <FontSize>11pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#000000</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value> (ডুপ্লিকেট) অর্থ প্রদান এড়ান যায়।</Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>৪।          প্রত্যায়ন করা যাইতেছে যে,
-
-	        ক।	এই বিলে দাবিকৃত পরিবহন ভাড়া প্রকৃতপক্ষে দেওয়া হইয়াছে এবং ইহা অপরিহার্য ছিল এবং ভাড়া হার প্রচলিত 	যানবাহন ভাড়ার হারের মধ্যেই এবং
-
-	        খ।	সংশ্লিষ্ট সরকারী কর্মচারী সাধারন বিধিবলে এই ভ্রমনের জন্য ভ্রমন ব্যয় প্রাপ্য হন না এবং অতিরিক্ত কোন বিশেষ 	পারিশ্রমিক, এই দায়িত্ব পালনের জন্য পাপ্য হইবেন না।</Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value />
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>বিল নং কন্ট/</Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Code.ConvertToBangla(Fields!BillSubmissionNo.Value)</Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value xml:space="preserve"> </Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Fields!ProjectTitle.Value</Value>
-                    <Style>
-                      <FontFamily>solaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value> প্রকল্প </Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>="("&amp;Code.ConvertToBangla(Month(Fields!BillSubmissionDate.Value)) &amp; ") "&amp; Code.ConvertToBangla(Year(Fields!BillSubmissionDate.Value))</Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>  তারিখ- </Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Code.ConvertToBanglaDate(Fields!BillSubmissionDate.Value)</Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value />
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>৫।          প্রত্যায়ন করা যাইতেছে যে, যে সকল অধঃস্তন কর্মচারীর বেতন এই বিলে দাবী করা হইয়াছে তাহার ঐ সময়ে প্রকৃতই সরকারী কাজে নিয়োজিত ছিলেন (এস, আর, ১৭১)।</Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>৬।          প্রত্যায়ন করা যাইতেছে যে.................</Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>
-                	ক।	মনোহারী দ্রব্য বা ষ্ট্যাম্প বাবদ ২০ টাকার অধিক কোন ক্রয় স্থানীয়ভাবে করা হয় নাই।
-	                খ।	ব্যক্তিগত কাজে ব্যবহৃত তাঁবু বহনের কোন খরচ এই বিলে অন্তর্ভুক্ত করা হয় নাই।
-	                গ।	আবাসিক ভবনে ব্যবহৃত কোন বিদ্যুৎ বাবদ খরচ এই বিলে অন্তভুক্ত করা হয় নাই।
-                	ঘ।	এই বৎসর প্রসেস সার্ভারদের প্রদত্ত পারিতোষিক টাকা...................... (যা গত ৩ বৎসরের জরিমানা বাবদ প্রাপ্তির 	গড় টাকার সামান্য অধিক হইবে না)। </Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>৭।          </Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>যাহার নামে চেক ইস্যু হইবে (প্রযোজ্য ক্ষেত্রে) </Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#000000</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Fields!FirmNameB.Value</Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#000000</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value />
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#000000</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>টাকা- </Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Code.ConvertToBangla(Fields!TotalDeductionAmount.Value)</Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>/- (</Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Fields!TotalDeductionAmountInWord.Value</Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>) মাত্র।</Value>
-                    <Style>
-                      <FontFamily>SolaimanLipi</FontFamily>
-                      <FontSize>11pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox294</rd:DefaultName>
-            <Top>5.47597in</Top>
-            <Height>6.99195in</Height>
-            <Width>7.18969in</Width>
-            <ZIndex>7</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>25.63825in</Top>
-        <Height>12.46792in</Height>
+        <Top>28.92575in</Top>
+        <Left>0.00276in</Left>
+        <Height>14.09155in</Height>
         <Width>7.18973in</Width>
         <ZIndex>3</ZIndex>
         <Style>
@@ -5624,7 +6428,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>0.99004in</Top>
+            <Top>3.49004in</Top>
+            <Left>0.00276in</Left>
             <Height>0.25in</Height>
             <Width>2.72609in</Width>
             <Style>
@@ -5655,7 +6460,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>1.24004in</Top>
+            <Top>3.74004in</Top>
+            <Left>0.00276in</Left>
             <Height>0.25in</Height>
             <Width>2.72609in</Width>
             <ZIndex>1</ZIndex>
@@ -5688,7 +6494,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
-            <Top>0.443in</Top>
+            <Top>2.943in</Top>
+            <Left>0.00276in</Left>
             <Height>0.28228in</Height>
             <Width>2.72609in</Width>
             <ZIndex>2</ZIndex>
@@ -5720,7 +6527,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>0.72528in</Top>
+            <Top>3.22528in</Top>
+            <Left>0.00276in</Left>
             <Height>0.2499in</Height>
             <Width>2.72609in</Width>
             <ZIndex>3</ZIndex>
@@ -5764,7 +6572,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>1.84004in</Top>
+            <Top>4.34004in</Top>
+            <Left>0.00276in</Left>
             <Height>0.55508in</Height>
             <Width>2.72609in</Width>
             <ZIndex>4</ZIndex>
@@ -5796,7 +6605,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>2.39511in</Top>
+            <Top>4.89511in</Top>
+            <Left>0.00276in</Left>
             <Height>0.25in</Height>
             <Width>2.72609in</Width>
             <ZIndex>5</ZIndex>
@@ -5828,7 +6638,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>2.67289in</Top>
+            <Top>5.17289in</Top>
+            <Left>0.00276in</Left>
             <Height>0.25in</Height>
             <Width>2.72609in</Width>
             <ZIndex>6</ZIndex>
@@ -5860,8 +6671,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>0.443in</Top>
-            <Left>4.65088in</Left>
+            <Top>2.943in</Top>
+            <Left>4.65364in</Left>
             <Height>0.25in</Height>
             <Width>2.42154in</Width>
             <ZIndex>7</ZIndex>
@@ -5893,8 +6704,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>0.693in</Top>
-            <Left>4.65088in</Left>
+            <Top>3.193in</Top>
+            <Left>4.65364in</Left>
             <Height>0.25in</Height>
             <Width>2.42154in</Width>
             <ZIndex>8</ZIndex>
@@ -5938,8 +6749,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>1.84004in</Top>
-            <Left>4.66745in</Left>
+            <Top>4.34004in</Top>
+            <Left>4.67021in</Left>
             <Height>0.55508in</Height>
             <Width>2.42154in</Width>
             <ZIndex>9</ZIndex>
@@ -5971,8 +6782,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>2.39511in</Top>
-            <Left>4.66745in</Left>
+            <Top>4.89511in</Top>
+            <Left>4.67021in</Left>
             <Height>0.25in</Height>
             <Width>2.42154in</Width>
             <ZIndex>10</ZIndex>
@@ -6004,8 +6815,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>2.67289in</Top>
-            <Left>4.66745in</Left>
+            <Top>5.17289in</Top>
+            <Left>4.67021in</Left>
             <Height>0.25in</Height>
             <Width>2.42154in</Width>
             <ZIndex>11</ZIndex>
@@ -6037,8 +6848,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>0.99004in</Top>
-            <Left>4.65088in</Left>
+            <Top>3.49004in</Top>
+            <Left>4.65364in</Left>
             <Height>0.25in</Height>
             <Width>2.42154in</Width>
             <ZIndex>12</ZIndex>
@@ -6070,8 +6881,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>1.24004in</Top>
-            <Left>4.65088in</Left>
+            <Top>3.74004in</Top>
+            <Left>4.65364in</Left>
             <Height>0.25in</Height>
             <Width>2.42154in</Width>
             <ZIndex>13</ZIndex>
@@ -6100,7 +6911,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.25in</Height>
+                  <Height>0.27333in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -6282,7 +7093,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.25in</Height>
+                  <Height>0.27333in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -6460,7 +7271,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.49905in</Height>
+                  <Height>0.52238in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -6678,7 +7489,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.74981in</Height>
+                  <Height>0.77314in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -6894,7 +7705,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.25in</Height>
+                  <Height>0.27333in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -7090,8 +7901,9 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DsVatTaxReport</DataSetName>
-            <Top>3.19233in</Top>
-            <Height>1.99886in</Height>
+            <Top>5.69233in</Top>
+            <Left>0.00276in</Left>
+            <Height>2.11551in</Height>
             <Width>3.66037in</Width>
             <ZIndex>14</ZIndex>
             <Style>
@@ -8029,8 +8841,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DsVatTaxReport</DataSetName>
-            <Top>3.19233in</Top>
-            <Left>3.8059in</Left>
+            <Top>5.69233in</Top>
+            <Left>3.80866in</Left>
             <Height>2.11551in</Height>
             <Width>3.37827in</Width>
             <ZIndex>15</ZIndex>
@@ -8040,11 +8852,271 @@
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="Textbox294">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>বিল নং কন্ট/</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!BillSubmissionNo.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!ProjectTitle.Value</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> প্রকল্প </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>="("&amp;Code.ConvertToBangla(Month(Fields!BillSubmissionDate.Value)) &amp; ") "&amp; Code.ConvertToBangla(Year(Fields!BillSubmissionDate.Value))</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>  তারিখ- </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBanglaDate(Fields!BillSubmissionDate.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>৫।          প্রত্যায়ন করা যাইতেছে যে, যে সকল অধঃস্তন কর্মচারীর বেতন এই বিলে দাবী করা হইয়াছে তাহার ঐ সময়ে প্রকৃতই সরকারী কাজে নিয়োজিত ছিলেন (এস, আর, ১৭১)।</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>৬।          প্রত্যায়ন করা যাইতেছে যে.................</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>
+                	ক।	মনোহারী দ্রব্য বা ষ্ট্যাম্প বাবদ ২০ টাকার অধিক কোন ক্রয় স্থানীয়ভাবে করা হয় নাই।
+	                খ।	ব্যক্তিগত কাজে ব্যবহৃত তাঁবু বহনের কোন খরচ এই বিলে অন্তর্ভুক্ত করা হয় নাই।
+	                গ।	আবাসিক ভবনে ব্যবহৃত কোন বিদ্যুৎ বাবদ খরচ এই বিলে অন্তভুক্ত করা হয় নাই।
+                	ঘ।	এই বৎসর প্রসেস সার্ভারদের প্রদত্ত পারিতোষিক টাকা...................... (যা গত ৩ বৎসরের জরিমানা বাবদ প্রাপ্তির 	গড় টাকার সামান্য অধিক হইবে না)। </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>৭।          </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>যাহার নামে চেক ইস্যু হইবে (প্রযোজ্য ক্ষেত্রে) </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!FirmNameB.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>টাকা- </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!TotalDeductionAmount.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>/- (</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!TotalDeductionAmountInWord.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>) মাত্র।</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox294</rd:DefaultName>
+            <Top>0.02404in</Top>
+            <Left>0.0028in</Left>
+            <Height>2.85306in</Height>
+            <Width>7.18969in</Width>
+            <ZIndex>16</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>38.35136in</Top>
-        <Height>5.39837in</Height>
-        <Width>7.18417in</Width>
+        <Top>36.85136in</Top>
+        <Height>7.92615in</Height>
+        <Width>7.19249in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -8610,6 +9682,7 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>5.59053in</Top>
+        <Left>0.00276in</Left>
         <Height>3.47218in</Height>
         <Width>7.18969in</Width>
         <ZIndex>5</ZIndex>
@@ -9223,6 +10296,7 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>9.25353in</Top>
+        <Left>0.00276in</Left>
         <Height>4.4977in</Height>
         <Width>7.18969in</Width>
         <ZIndex>6</ZIndex>
@@ -9233,10 +10307,10 @@
         </Style>
       </Rectangle>
     </ReportItems>
-    <Height>44.45806in</Height>
+    <Height>44.78445in</Height>
     <Style />
   </Body>
-  <Width>7.18973in</Width>
+  <Width>7.19774in</Width>
   <Page>
     <PageHeader>
       <Height>0.38333in</Height>
@@ -9290,26 +10364,6 @@
           <DataField>ADPReceivePaymentId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="ProjectTitle">
-          <DataField>ProjectTitle</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ProjectWorkTitleB">
-          <DataField>ProjectWorkTitleB</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="FirmNameB">
-          <DataField>FirmNameB</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="BillPaidAmount">
-          <DataField>BillPaidAmount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="BillNumber">
-          <DataField>BillNumber</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="TaxPer">
           <DataField>TaxPer</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
@@ -9346,17 +10400,9 @@
           <DataField>NeetAmountInWord</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="CodeNo">
-          <DataField>CodeNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="EconomicCode">
-          <DataField>EconomicCode</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="VoucherNo">
-          <DataField>VoucherNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="DepositInBGBFund">
+          <DataField>DepositInBGBFund</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="BillSubmissionNo">
           <DataField>BillSubmissionNo</DataField>
@@ -9406,8 +10452,40 @@
           <DataField>TotalAmount</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="CodeNo">
+          <DataField>CodeNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EconomicCode">
+          <DataField>EconomicCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VoucherNo">
+          <DataField>VoucherNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProjectTitle">
+          <DataField>ProjectTitle</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProjectWorkTitleB">
+          <DataField>ProjectWorkTitleB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BillNumber">
+          <DataField>BillNumber</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="BillPaidAmount">
+          <DataField>BillPaidAmount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="TotalDeductionAmountInWord">
           <DataField>TotalDeductionAmountInWord</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FirmNameB">
+          <DataField>FirmNameB</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

@@ -83,7 +83,7 @@
                             Draw: d.draw,
                             PageIndex: d.start / d.length,  // Pagination: starting index
                             PageSize: d.length,  // Pagination: number of records per page
-                            SortColumn: d.order[0] ? d.columns[d.order[0].column].data : 'FiscalYearId',
+                            SortColumn: d.order[0] ? d.columns[d.order[0].column].data : 'ProjectWorkId',
                             SortDirection: d.order[0] ? d.order[0].dir : 'asc'
                         });
                     },
@@ -93,33 +93,63 @@
                     }
                 },
                 "columns": [
-                    { "data": "FiscalYearId", "title": "আইডি", "visible": false },
+                    { "data": "ProjectWorkId", "title": "আইডি", "visible": false },
                     {
-                        "data": "TotalAllocation",
-                        "title": "মোট বরাদ্দ",
-                        "render": function (data, type, row) {
-                            // Assuming 'id' is the unique identifier for the project
-                            return `<a href="${baseUrl}/ADPProject/Details/${row.ADPProjectId}">${data}</a>`;
+                        "data": "ProjectWorkTitleB",
+                        "title": "নির্মাণ কাজের নাম",
+                    },
+                    {
+                        "data": "EstimatedCost",
+                        "title": "প্রাক্কলিত ব্যয়",
+                    },
+                    {
+                        "data": "AgreementDate",
+                        "title": "চুক্তির তারিখ",
+                        "render": function (data) {
+                            if (data && data.startsWith("/Date(")) {
+                                var timestamp = parseInt(data.replace("/Date(", "").replace(")/", ""));
+                                return new Date(timestamp).toLocaleDateString('en-GB');
+                            }
+                            return '';
+                        }                        
+                    },
+                    {
+                        "data": "WorkStartDate",
+                        "title": "কাজ শুরুর তারিখ",
+                        "render": function (data) {
+                            if (data && data.startsWith("/Date(")) {
+                                var timestamp = parseInt(data.replace("/Date(", "").replace(")/", ""));
+                                return new Date(timestamp).toLocaleDateString('en-GB');
+                            }
+                            return '';
                         }
                     },
                     {
-                        "data": "ProjectTitle",
-                        "title": "প্রকল্পের নাম",
+                        "data": "BankGuaranteeEndDate",
+                        "title": "ব্যাংক গ্যারান্টির মেয়াদ",
+                        "render": function (data) {
+                            if (data && data.startsWith("/Date(")) {
+                                var timestamp = parseInt(data.replace("/Date(", "").replace(")/", ""));
+                                return new Date(timestamp).toLocaleDateString('en-GB');
+                            }
+                            return '';
+                        }
                     },
                     {
-                        "data": "FiscalYearDescription",
-                        "title": "অর্থ বছর",
+                        "data": "HandOverDate",
+                        "title": "হস্তান্তর তারিখ",
+                        "render": function (data) {
+                            if (data && data.startsWith("/Date(")) {
+                                var timestamp = parseInt(data.replace("/Date(", "").replace(")/", ""));
+                                return new Date(timestamp).toLocaleDateString('en-GB');
+                            }
+                            return '';
+                        }
                     },
-                    {
-                        "data": "ADPAllocation",
-                        "title": "এ ডি পি বরাদ্দ",
-                    },
-                    {
-                        "data": "RADPAllocation",
-                        "title": "আর ডি পি বরাদ্দ",
-                    },
-
-
+                    //{
+                    //    "data": "WorkStatus",
+                    //    "title": "কাজের অবস্থা",
+                    //}
                 ]
             });
 

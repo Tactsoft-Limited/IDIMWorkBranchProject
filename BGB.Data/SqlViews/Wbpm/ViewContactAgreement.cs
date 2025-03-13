@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BGB.Data.SqlViews.Wbpm
 {
@@ -14,6 +10,7 @@ namespace BGB.Data.SqlViews.Wbpm
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ContractAgreementId { get; set; }
         public int ProjectWorkId { get; set; }
         public string DayOfWeek { get; set; } // Assuming this maps to an enum or integer value
         public DateTime? AgreementDate { get; set; }

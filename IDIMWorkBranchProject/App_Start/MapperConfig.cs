@@ -3,7 +3,6 @@ using BGB.Data.Entities.Admin;
 using BGB.Data.Entities.Budget;
 using BGB.Data.Entities.Irms;
 using BGB.Data.Entities.Wbpm;
-using BGB.Data.SqlViews.Wbpm;
 using IDIMWorkBranchProject.Models.Setup;
 using IDIMWorkBranchProject.Models.User;
 using IDIMWorkBranchProject.Models.Wbpm;
@@ -25,10 +24,22 @@ namespace IDIMWorkBranchProject
             CreateMap<RecruitmentCommitteeVm, RecruitmentCommittee>();
             CreateMap<RecruitmentCommittee, RecruitmentCommitteeVm>();
 
+            CreateMap<NohaVm, Noha>();
+            CreateMap<Noha, NohaVm>();
+
+            CreateMap<PerformanceSecurityVm, PerformanceSecurity>();
+            CreateMap<PerformanceSecurity, PerformanceSecurityVm>();
+
+            CreateMap<WorkOrderVm, WorkOrder>();
+            CreateMap<WorkOrder, WorkOrderVm>();
+
+            CreateMap<ProjectWorkStatusVm, ProjectWorkStatus>();
+            CreateMap<ProjectWorkStatus, ProjectWorkStatusVm>();
+
             CreateMap<ContractAgreementVm, ContractAgreement>();
             CreateMap<ContractAgreement, ContractAgreementVm>()
                 .ForMember(d => d.ProjectWorkTitle, opt => opt.MapFrom(x => x.ProjectWork.ProjectWorkTitle))
-                .ForMember(d => d.ConstructionFirm, opt => opt.MapFrom(x => x.ProjectWork.ConstructionCompany.FirmNameB));
+                .ForMember(d => d.ConstructionFirm, opt => opt.MapFrom(x => x.ConstructionCompany.FirmNameB));
 
             CreateMap<ProjectDirectorVm, ProjectDirector>();
             CreateMap<ProjectDirector, ProjectDirectorVm>()
@@ -56,8 +67,7 @@ namespace IDIMWorkBranchProject
 
             CreateMap<ProjectWorkVm, ProjectWork>();
             CreateMap<ProjectWork, ProjectWorkVm>()
-                .ForMember(x => x.ProjectTitle, opt => opt.MapFrom(x => x.ADPProject.ProjectTitle))
-                .ForMember(x => x.FirmName, opt => opt.MapFrom(x => x.ConstructionCompany.FirmNameB));
+                .ForMember(x => x.ProjectTitle, opt => opt.MapFrom(x => x.ADPProject.ProjectTitle));
 
             CreateMap<ADPReceivePaymentVm, ADPReceivePayment>();
             CreateMap<ADPReceivePayment, ADPReceivePaymentVm>();
@@ -67,9 +77,6 @@ namespace IDIMWorkBranchProject
 
             CreateMap<ContractorCompanyPaymentVm, ContractorCompanyPayment>();
             CreateMap<ContractorCompanyPayment, ContractorCompanyPaymentVm>();
-
-            CreateMap<ProjectSignatoryAuthorityVm, ProjectSignatoryAuthority>();
-            CreateMap<ProjectSignatoryAuthority, ProjectSignatoryAuthorityVm>();
 
             #endregion
 

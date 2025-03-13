@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BGB.Data.SqlViews.Wbpm
 {
@@ -48,15 +44,14 @@ namespace BGB.Data.SqlViews.Wbpm
         public string FinalPaymentAmountInWord { get; set; }
         public decimal TotalDepositsInFund { get; set; }
         public decimal WillBeDepositedInFund { get; set; }
-        public string Remarks { get; set; }
         public string ProjectWorkTitleB { get; set; }
-        public DateTime WorkStartDate { get; set; }
-        public DateTime WorkEndDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public string FirmNameB { get; set; }
 
         public string HeadAssistant { get; set; }
         public string ConcernedEngineer { get; set; }
-        public string SectionICT { get; set; }
+        public string SectionIC { get; set; }
         public string BranchClerk { get; set; }
     }
 }

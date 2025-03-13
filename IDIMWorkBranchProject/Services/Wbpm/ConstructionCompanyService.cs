@@ -26,7 +26,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         {
             return await _context.ConstructionCompanies.Select(s => new SelectListItem
             {
-                Text = s.FirmName,
+                Text = s.FirmNameB,
                 Value = s.ConstructionCompanyId.ToString(),
                 Selected = s.ConstructionCompanyId == selected
             }).ToListAsync();

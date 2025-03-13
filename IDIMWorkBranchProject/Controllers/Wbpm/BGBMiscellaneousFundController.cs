@@ -52,13 +52,18 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         public async Task<ActionResult> CreateOrEdit(int id)
         {
             var model = new BGBMiscellaneousFundVm();
-
-            // Retrieve the required data in parallel for efficiency
-            var bgbFund = await _bGBMiscellaneousFundService.GetByADPPaymentReceiveIdAsync(id);
             var adpPayment = await _aDPReceivePaymentService.GetByIdAsync(id);
-            var vatTax = await _vatTaxCollateralService.GetByADPPaymentReceiveIdAsync(id);
+            // Retrieve the required data in parallel for efficiency
+            var bgbFund = await _bGBMiscellaneousFundService.GetByADPPaymentReceiveIdAsync(adpPayment.ADPReceivePaymentId);
+            var vatTax = await _vatTaxCollateralService.GetByADPPaymentReceiveIdAsync(adpPayment.ADPReceivePaymentId);
             var projectWork = await _projectWorkService.GetByIdAsync(adpPayment.ProjectWorkId);
             var data = await _bGBMiscellaneousFundService.GetByADPPaymentReceiveIdAsync(adpPayment.ADPReceivePaymentId);
+
+            // Throw exception if vatTax is null
+            if (vatTax == null)
+            {
+                throw new InvalidOperationException("VAT tax information is required before proceeding. Please create it first.");
+            }
 
             // If the bgbFund is found, map values to the model
             if (bgbFund != null)

@@ -211,8 +211,8 @@
       <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.8.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.Linq.Dynamic.Core, Version=1.4.9.0, Culture=neutral, PublicKeyToken=0f07ec44de6ac832, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Linq.Dynamic.Core.1.4.9\lib\net46\System.Linq.Dynamic.Core.dll</HintPath>
+    <Reference Include="System.Linq.Dynamic.Core, Version=1.6.0.0, Culture=neutral, PublicKeyToken=0f07ec44de6ac832, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.Core.1.6.0\lib\net46\System.Linq.Dynamic.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -385,14 +385,16 @@
     <Compile Include="Controllers\Wbpm\FinancialYearAllocationController.cs" />
     <Compile Include="Controllers\Wbpm\FiscalYearExpenseController.cs" />
     <Compile Include="Controllers\Wbpm\FormalMeetingController.cs" />
+    <Compile Include="Controllers\Wbpm\NohaController.cs" />
+    <Compile Include="Controllers\Wbpm\PerformanceSecurityController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectDirectorController.cs" />
-    <Compile Include="Controllers\Wbpm\ProjectSignatoryAuthorityController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectWorkController.cs" />
+    <Compile Include="Controllers\Wbpm\ProjectWorkStatusController.cs" />
     <Compile Include="Controllers\Wbpm\RecruitmentCommitteeController.cs" />
     <Compile Include="Controllers\Wbpm\BGBMiscellaneousFundController.cs" />
     <Compile Include="Controllers\Wbpm\SignatoryAuthorityController.cs" />
-    <Compile Include="Controllers\Wbpm\TenderEvaluationCommitteeController.cs" />
     <Compile Include="Controllers\Wbpm\VatTaxCollateralController.cs" />
+    <Compile Include="Controllers\Wbpm\WorkOrderController.cs" />
     <Compile Include="Database\IDIMDBContext.Functions.cs" />
     <Compile Include="Database\IDIMDBContextProcedures.cs" />
     <Compile Include="Database\IDIMDBEntities.cs" />
@@ -502,15 +504,20 @@
     <Compile Include="Models\Wbpm\ADPProjectVm.cs" />
     <Compile Include="Models\Wbpm\ADPReceivePaymentVm.cs" />
     <Compile Include="Models\Wbpm\BGBMiscellaneousFundVm.cs" />
+    <Compile Include="Models\Wbpm\NohaSearchVm.cs" />
+    <Compile Include="Models\Wbpm\PerformanceSecuritySearchVm.cs" />
+    <Compile Include="Models\Wbpm\PerformanceSecurityVm.cs" />
+    <Compile Include="Models\Wbpm\ProjectWorkStatusVm.cs" />
+    <Compile Include="Models\Wbpm\WorkOrderSearchVm.cs" />
+    <Compile Include="Models\Wbpm\WorkOrderVm.cs" />
     <Compile Include="Models\Wbpm\ConstructionCompanySearchVm.cs" />
     <Compile Include="Models\Wbpm\ContractAgreementVm.cs" />
     <Compile Include="Models\Wbpm\ContractorCompanyPaymentVm.cs" />
     <Compile Include="Models\Wbpm\FinancialYearAllocationSearchVm.cs" />
     <Compile Include="Models\Wbpm\FiscalYearExpenseSearchVm.cs" />
+    <Compile Include="Models\Wbpm\NohaVm.cs" />
     <Compile Include="Models\Wbpm\PrintADPReceivePaymentVm.cs" />
     <Compile Include="Models\Wbpm\ProjectDirectorSearchVm.cs" />
-    <Compile Include="Models\Wbpm\ProjectSignatoryAuthoritySearchVm.cs" />
-    <Compile Include="Models\Wbpm\ProjectSignatoryAuthorityVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkDetailsVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkSearchVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkVm.cs" />
@@ -524,8 +531,6 @@
     <Compile Include="Models\Wbpm\RecruitmentCommitteeVm.cs" />
     <Compile Include="Models\Wbpm\SignatoryAuthoritySearchVm.cs" />
     <Compile Include="Models\Wbpm\SignatoryAuthorityVm.cs" />
-    <Compile Include="Models\Wbpm\TenderEvaluationCommitteeSearchVm.cs" />
-    <Compile Include="Models\Wbpm\TenderEvaluationCommitteeVm.cs" />
     <Compile Include="Models\Wbpm\VatTaxCollateralVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report\Data\WPDataSet.Designer.cs">
@@ -580,21 +585,25 @@
     <Compile Include="Services\Wbpm\IFiscalYearExpenseService.cs" />
     <Compile Include="Services\Wbpm\IFormalMeetingService.cs" />
     <Compile Include="Services\Wbpm\IMasterplanService.cs" />
+    <Compile Include="Services\Wbpm\INohaService.cs" />
+    <Compile Include="Services\Wbpm\IPerformanceSecurityService.cs" />
     <Compile Include="Services\Wbpm\IProjectDirectorService.cs" />
-    <Compile Include="Services\Wbpm\IProjectSignatoryAuthorityService.cs" />
     <Compile Include="Services\Wbpm\IProjectWorkService.cs" />
+    <Compile Include="Services\Wbpm\IProjectWorkStatusService.cs" />
     <Compile Include="Services\Wbpm\IRecruitmentCommitteeService.cs" />
-    <Compile Include="Services\Wbpm\ITenderEvaluationCommitteeService.cs" />
     <Compile Include="Services\Wbpm\IVatTaxCollateralService.cs" />
+    <Compile Include="Services\Wbpm\IWorkOrderService.cs" />
     <Compile Include="Services\Wbpm\MasterplanService.cs" />
+    <Compile Include="Services\Wbpm\NohaService.cs" />
+    <Compile Include="Services\Wbpm\PerformanceSecurityService.cs" />
     <Compile Include="Services\Wbpm\ProjectDirectorService.cs" />
-    <Compile Include="Services\Wbpm\ProjectSignatoryAuthorityService.cs" />
     <Compile Include="Services\Wbpm\ProjectWorkService.cs" />
+    <Compile Include="Services\Wbpm\ProjectWorkStatusService.cs" />
     <Compile Include="Services\Wbpm\RecruitmentCommitteeService.cs" />
     <Compile Include="Services\Wbpm\ISignatoryAuthorityService.cs" />
     <Compile Include="Services\Wbpm\SignatoryAuthorityService.cs" />
-    <Compile Include="Services\Wbpm\TenderEvaluationCommitteeService.cs" />
     <Compile Include="Services\Wbpm\VatTaxCollateralService.cs" />
+    <Compile Include="Services\Wbpm\WorkOrderService.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -2859,19 +2868,25 @@
     <Content Include="Views\RecruitmentCommittee\List.cshtml" />
     <Content Include="Views\RecruitmentCommittee\Edit.cshtml" />
     <Content Include="Views\RecruitmentCommittee\Delete.cshtml" />
-    <Content Include="Views\TenderEvaluationCommittee\Create.cshtml" />
-    <Content Include="Views\TenderEvaluationCommittee\List.cshtml" />
-    <Content Include="Views\TenderEvaluationCommittee\Edit.cshtml" />
     <Content Include="Views\SignatoryAuthority\Edit.cshtml" />
     <Content Include="Views\VatTaxCollateral\Create.cshtml" />
-    <Content Include="Views\ProjectSignatoryAuthority\List.cshtml" />
-    <Content Include="Views\ProjectSignatoryAuthority\Create.cshtml" />
     <Content Include="Views\ContractorCompanyPayment\Create.cshtml" />
     <Content Include="Views\BGBMiscellaneousFund\CreateOrEdit.cshtml" />
     <Content Include="Views\ProjectWork\Delete.cshtml" />
     <Content Include="Views\ADPReceivePayment\Delete.cshtml" />
     <Content Include="Views\ContractorCompanyPayment\Edit.cshtml" />
     <Content Include="Views\ConstructionCompany\Delete.cshtml" />
+    <Content Include="Views\ContractAgreement\Delete.cshtml" />
+    <Content Include="Views\Noha\Create.cshtml" />
+    <Content Include="Views\Noha\Delete.cshtml" />
+    <Content Include="Views\PerformanceSecurity\Create.cshtml" />
+    <Content Include="Views\PerformanceSecurity\Delete.cshtml" />
+    <Content Include="Views\WorkOrder\Create.cshtml" />
+    <Content Include="Views\WorkOrder\Delete.cshtml" />
+    <Content Include="Views\ProjectWorkStatus\Create.cshtml" />
+    <Content Include="Views\Noha\List.cshtml" />
+    <Content Include="Views\PerformanceSecurity\List.cshtml" />
+    <Content Include="Views\WorkOrder\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

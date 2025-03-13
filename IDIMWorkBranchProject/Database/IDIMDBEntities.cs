@@ -20,19 +20,91 @@ namespace IDIMWorkBranchProject.Data.Database
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             #region Wbpm
-            modelBuilder.Entity<ProjectDirector>()
-               .HasRequired(p => p.ADPProjects)
-               .WithMany(x => x.ProjectDirectors)
-               .HasForeignKey(p => p.ADPProjectId)
-               .WillCascadeOnDelete(false);
-
-
-            modelBuilder.Entity<Masterplan>()
-                .HasRequired(m => m.ADPProject)
-                .WithMany(x => x.Masterplans)
-                .HasForeignKey(m => m.ADPProjectId)
+            modelBuilder.Entity<ADPReceivePayment>()
+                .HasRequired(a => a.ProjectWork)
+                .WithMany(x => x.ADPReceivePayments)
+                .HasForeignKey(a => a.ProjectWorkId)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<ADPReceivePayment>()
+                .HasRequired(a => a.BranchClerk)
+                .WithMany(x => x.BranchClerks)
+                .HasForeignKey(a => a.BranchClerkId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ADPReceivePayment>()
+                .HasRequired(a => a.ConcernedEngineer)
+                .WithMany(x => x.ConcernedEngineers)
+                .HasForeignKey(a => a.ConcernedEngineerId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ADPReceivePayment>()
+                .HasRequired(a => a.SectionIC)
+                .WithMany(x => x.SectionICs)
+                .HasForeignKey(a => a.SectionICId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ADPReceivePayment>()
+                .HasRequired(a => a.HeadAssistant)
+                .WithMany(x => x.HeadAssistants)
+                .HasForeignKey(a => a.HeadAssistantId)
+                .WillCascadeOnDelete(false);
+
+
+
+            modelBuilder.Entity<BGBMiscellaneousFund>()
+                .HasRequired(b => b.ProjectWork)
+                .WithMany(x => x.BGBMiscellaneousFunds)
+                .HasForeignKey(b => b.ProjectWorkId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<BGBMiscellaneousFund>()
+                .HasRequired(b => b.ADPReceivePayment)
+                .WithMany(x => x.BGBMiscellaneousFunds)
+                .HasForeignKey(b => b.ADPReceivePaymentId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ContractAgreement>()
+                .HasRequired(b => b.ProjectWork)
+                .WithMany(x => x.ContractAgreements)
+                .HasForeignKey(b => b.ProjectWorkId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ContractAgreement>()
+                .HasRequired(b => b.ConstructionCompany)
+                .WithMany(x => x.ContractAgreements)
+                .HasForeignKey(b => b.ConstructionCompanyId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ContractAgreement>()
+                .HasRequired(b => b.AddDG)
+                .WithMany(x => x.AddDGs)
+                .HasForeignKey(b => b.AddDGId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ContractAgreement>()
+                .HasRequired(b => b.DDG)
+                .WithMany(x => x.DDGs)
+                .HasForeignKey(b => b.DDGId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ContractAgreement>()
+                .HasRequired(b => b.ProjectDirector)
+                .WithMany(x => x.ProjectDirectors)
+                .HasForeignKey(b => b.ProjectDirectorId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ContractAgreement>()
+                .HasRequired(b => b.Director)
+                .WithMany(x => x.Directors)
+                .HasForeignKey(b => b.DirectorId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ContractorCompanyPayment>()
+                .HasRequired(c => c.ProjectWork)
+                .WithMany(x => x.ContractorCompanyPayments)
+                .HasForeignKey(c => c.ProjectWorkId)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<FinancialYearAllocation>()
                 .HasRequired(f => f.ADPProject)
@@ -65,41 +137,54 @@ namespace IDIMWorkBranchProject.Data.Database
                 .HasForeignKey(f => f.ADPProjectId)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Masterplan>()
+                .HasRequired(m => m.ADPProject)
+                .WithMany(x => x.Masterplans)
+                .HasForeignKey(m => m.ADPProjectId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Noha>()
+                .HasRequired(m => m.ProjectWork)
+                .WithMany(x => x.Nohas)
+                .HasForeignKey(m => m.ProjectWorkId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PerformanceSecurity>()
+                .HasRequired(m => m.ProjectWork)
+                .WithMany(x => x.PerformanceSecurities)
+                .HasForeignKey(m => m.ProjectWorkId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ProjectDirector>()
+               .HasRequired(p => p.ADPProjects)
+               .WithMany(x => x.ProjectDirectors)
+               .HasForeignKey(p => p.ADPProjectId)
+               .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<ProjectWork>()
                 .HasRequired(p => p.ADPProject)
                 .WithMany(x => x.ProjectWorks)
                 .HasForeignKey(p => p.ADPProjectId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<ProjectWork>()
-                .HasRequired(p => p.ConstructionCompany)
-                .WithMany(x => x.ProjectWorks)
-                .HasForeignKey(p => p.ConstructionCompanyId)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<ProjectWorkStatus>()
+               .HasRequired(p => p.ProjectWork)
+               .WithMany(x => x.ProjectWorkStatuses)
+               .HasForeignKey(p => p.ProjectWorkId)
+               .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<ADPReceivePayment>()
-                .HasRequired(a => a.ProjectWork)
-                .WithMany(x => x.ADPReceivePayments)
-                .HasForeignKey(a => a.ProjectWorkId)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<VatTaxCollateral>()
+              .HasRequired(p => p.ADPReceivePayment)
+              .WithMany(x => x.VatTaxCollaterals)
+              .HasForeignKey(p => p.ADPReceivePaymentId)
+              .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<BGBMiscellaneousFund>()
-                .HasRequired(b => b.ProjectWork)
-                .WithMany(x => x.BGBMiscellaneousFunds)
-                .HasForeignKey(b => b.ProjectWorkId)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<WorkOrder>()
+              .HasRequired(p => p.ProjectWork)
+              .WithMany(x => x.WorkOrders)
+              .HasForeignKey(p => p.ProjectWorkId)
+              .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<BGBMiscellaneousFund>()
-                .HasOptional(b => b.ADPReceivePayment)
-                .WithMany(x => x.BGBMiscellaneousFunds)
-                .HasForeignKey(b => b.ADPReceivePaymentId)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<ContractorCompanyPayment>()
-                .HasRequired(c => c.ProjectWork)
-                .WithMany(x => x.ContractorCompanyPayments)
-                .HasForeignKey(c => c.ProjectWorkId)
-                .WillCascadeOnDelete(false);
             #endregion
 
             #region Old Entity
@@ -157,9 +242,12 @@ namespace IDIMWorkBranchProject.Data.Database
         public DbSet<ContractorCompanyPayment> ContractorCompanyPayments { get; set; }
         public DbSet<ContractAgreement> ContractAgreements { get; set; }
         public virtual DbSet<SignatoryAuthority> SignatoryAuthorities { get; set; }
-        public virtual DbSet<TenderEvaluationCommittee> TenderEvaluationCommittees { get; set; }
         public virtual DbSet<VatTaxCollateral> VatTaxCollaterals { get; set; }
-        public virtual DbSet<ProjectSignatoryAuthority> ProjectSignatoryAuthorities { get; set; }
+        public virtual DbSet<RecruitmentCommittee> RecruitmentCommittees { get; set; }
+        public virtual DbSet<Noha> Nohas { get; set; }
+        public virtual DbSet<WorkOrder> WorkOrders { get; set; }
+        public virtual DbSet<PerformanceSecurity> PerformanceSecurities { get; set; }
+        public virtual DbSet<ProjectWorkStatus> ProjectWorkStatuses { get; set; }
         #endregion
 
         public virtual DbSet<IrmsSetupLocation> SetupLocations { get; set; }
@@ -180,7 +268,7 @@ namespace IDIMWorkBranchProject.Data.Database
         public virtual DbSet<ViewVatTaxReport> ViewVatTaxReports { get; set; }
         public virtual DbSet<ViewContractorCompanyPayment> ViewContractorCompanyPayments { get; set; }
         public virtual DbSet<ViewBGBMiscellaneousFund> ViewBGBMiscellaneousFunds { get; set; }
-        public virtual DbSet<RecruitmentCommittee> RecruitmentCommittees { get; set; }
+
     }
 }
 

@@ -47,10 +47,26 @@ namespace BGB.Data.Entities.Wbpm
         public decimal WillBeDepositedInFund { get; set; }
         public string Remarks { get; set; }
 
+        public int? HeadAssistantId { get; set; }
+        public int? ConcernedEngineerId { get; set; }
+        public int? SectionICId { get; set; }
+        public int? BranchClerkId { get; set; }
+
 
         #region Navigation Property
         [ForeignKey(nameof(ProjectWorkId))]
         public virtual ProjectWork ProjectWork { get; set; }
+        [ForeignKey(nameof(BranchClerkId))]
+        public virtual SignatoryAuthority BranchClerk { get; set; }
+
+        [ForeignKey(nameof(ConcernedEngineerId))]
+        public virtual SignatoryAuthority ConcernedEngineer { get; set; }
+
+        [ForeignKey(nameof(HeadAssistantId))]
+        public virtual SignatoryAuthority HeadAssistant { get; set; }
+
+        [ForeignKey(nameof(SectionICId))]
+        public virtual SignatoryAuthority SectionIC { get; set; }
         #endregion
     }
 }

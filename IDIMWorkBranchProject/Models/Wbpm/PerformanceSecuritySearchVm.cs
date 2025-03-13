@@ -5,7 +5,7 @@ using System.Web;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
-    public class TenderEvaluationCommitteeSearchVm : DataTablaVm
+    public class PerformanceSecuritySearchVm : DataTablaVm
     {
     }
 }

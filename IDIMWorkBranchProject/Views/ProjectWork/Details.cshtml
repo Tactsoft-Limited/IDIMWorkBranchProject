@@ -5,6 +5,7 @@
 @{
     ViewBag.Title = "Details";
 }
+
 <div class="page-title">
     <div class="pull-left">
         <h3 class="title">নির্মাণ কাজের বিস্তারিত</h3>
@@ -25,10 +26,10 @@
     <header class="panel_header">
         <h2 class="title pull-left">নির্মান কাজের বিস্তারিত</h2>
         <div class="actions panel_actions pull-right">
-            <a href="@Url.Action("PrintContactAgreement", "Report", new { id = Model.ProjectWorks.ProjectWorkId })" class="btn btn-primary">
+            <a href="@Url.Action("PrintContactAgreement", "Report", new { id = Model.ProjectWorkId })" class="btn btn-primary">
                 <i class="fa fa-print"></i> নির্মান চুক্তি প্রিন্ট করুণ
             </a>
-            <a href="@Url.Action("Edit", "ProjectWork", new { id = Model.ProjectWorks.ProjectWorkId })" class="btn btn-primary">
+            <a href="@Url.Action("Edit", "ProjectWork", new { id = Model.ProjectWorkId })" class="btn btn-primary">
                 <i class="fa fa-pencil-square-o"></i> নির্মাণ কাজ সংশোধন
             </a>
             @*<a href="@Url.Action("Create", "ProjectDirector", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
@@ -44,7 +45,7 @@
                     <i class="fa fa-pencil-square-o"></i> প্রকপ্লের সভা সংযুক্ত করুন
                 </a>
                 <a href="@Url.Action("Create", "ProjectWork", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
-                    @(Model.ADPProjectDetail.NoOfWork==Model.ProjectWorks.Count()?"disabled":"")
+                    @(Model.ADPProjectDetail.NoOfWork==Model.Count()?"disabled":"")
                     <i class="fa fa-pencil-square-o"></i> নির্মাণ কাজ সংযুক্ত করুন
                 </a>*@
         </div>
@@ -52,56 +53,100 @@
     <div class="content-body">
         <div class="row">
             <div class="form-display col-md-12">
-                @Html.LabelFor(m => m.ProjectWorks.ProjectTitle, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.ProjectTitle)
+                @Html.LabelFor(m => m.ProjectTitle, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.ProjectTitle)
             </div>
             <div class="form-display col-md-12">
-                @Html.LabelFor(m => m.ProjectWorks.ProjectWorkTitleB, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.ProjectWorkTitleB)
+                @Html.LabelFor(m => m.ProjectWorkTitleB, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.ProjectWorkTitleB)
             </div>
             <div class="form-display col-md-12">
-                @Html.LabelFor(m => m.ProjectWorks.FirmName, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.FirmName)
+                @Html.LabelFor(m => m.EstimatedCost, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.EstimatedCost) (@Html.DisplayFor(m => m.EstimatedCostInWord))
             </div>
+        </div>
+        <div style="margin-bottom:10px;">
+            <a href="@Url.Action("Create", "Noha", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2">
+                <i class="fa fa-print"></i>  এনওএইচএ সংযুক্ত করুণ
+            </a>
+        </div>
+        <fieldset>
+            <legend>এনওএইচএ</legend>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.NohaDate, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.NohaDate)
+            </div>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.NohaDate, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.NohaDate)
+            </div>
+        </fieldset>
+        <div style="margin-bottom:10px;">
+            <a href="@Url.Action("Create", "PerformanceSecurity", new { id = Model.ProjectWorkId })"
+               class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.IsNoahCompleted ? "" : "disabled")"
+               @(Model.IsNoahCompleted ? "" : "onclick='return false;'")>
+                <i class="fa fa-add"></i> ব্যাংক গ্যারান্টি/পারফরমেন্স সিকিউরিটি সংযুক্ত করুণ
+            </a>
+        </div>
+
+        <fieldset>
+            <legend>ব্যাংক গ্যারান্টি/পারফরমেন্স সিকিউরিটি</legend>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.ExpiryDate, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.ExpiryDate)
+            </div>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.ExpiryDate, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.ExpiryDate)
+            </div>
+        </fieldset>
+
+        <div style="margin-bottom:10px;">
+            <a href="@Url.Action("Create", "ContractAgreement", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.IsPerformanceSecuritySubmited ? "" : "disabled")"
+               @(Model.IsPerformanceSecuritySubmited ? "" : "onclick='return false;'")>
+                <i class="fa fa-print"></i>  চুক্তিপত্র সংযুক্ত করুণ
+            </a>
+        </div>
+
+        <fieldset>
+
+            <legend>চুক্তিপত্র</legend>
             <div class="form-display col-md-12">
-                @Html.LabelFor(m => m.ProjectWorks.EstimatedCost, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.EstimatedCost)
-            </div>
-            <div class="form-group col-md-12">
-                @Html.LabelFor(m => m.ProjectWorks.EstimatedCostInWord, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.EstimatedCostInWord)
+                @Html.LabelFor(m => m.FirmNameB, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.FirmNameB)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.NOADate, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.NOADate)
+                @Html.LabelFor(m => m.AgreementDate, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.AgreementDate)
+            </div>
+
+        </fieldset>
+        <div style="margin-bottom:10px;">
+            <a href="@Url.Action("Create", "WorkOrder", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.IsAgreementCompleted ? "" : "disabled")"
+               @(Model.IsAgreementCompleted ? "" : "onclick='return false;'")>
+                <i class="fa fa-print"></i>  কার্যাদেশ সংযুক্ত করুণ
+            </a>
+        </div>
+        <fieldset>
+            <legend>কার্যাদেশ</legend>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.WorkOrderDate, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.WorkOrderDate)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.AgreementDate, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.AgreementDate)
+                @Html.LabelFor(m => m.StartDate, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.StartDate)
             </div>
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.WorkOrderDate, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.WorkOrderDate)
+                @Html.LabelFor(m => m.EndDate, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.EndDate)
             </div>
+        </fieldset>
+
+        <div class="row">
             <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.WorkStartDate, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.WorkStartDate)
-            </div>
-            <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.WorkEndDate, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.WorkEndDate)
-            </div>
-            <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.HandOverDate, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.HandOverDate)
-            </div>
-            <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.BankGuaranteeEndDate, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.BankGuaranteeEndDate)
-            </div>
-            <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.ProjectWorks.Remarks, new { @class = "form-label" })
-                @Html.DisplayFor(m => m.ProjectWorks.Remarks)
+                @Html.LabelFor(m => m.Remarks, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.Remarks)
             </div>
         </div>
 
@@ -144,8 +189,8 @@
                                     <i class="fa fa-pencil-square-o"></i> সংশোধন
                                 </a>
                                 @*<a href="@Url.Action("Delete", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-danger btn-xs">
-                                    <i class="fa fa-trash-o"></i> অপসারণ
-                                </a>*@
+                                        <i class="fa fa-trash-o"></i> অপসারণ
+                                    </a>*@
                             </td>
                             <td>
                                 <a href="@Url.Action("PrintADPReceivePayment", "ADPReceivePayment", new { id = item.ADPReceivePaymentId, type="pdf" })" class="btn btn-info btn-xs">

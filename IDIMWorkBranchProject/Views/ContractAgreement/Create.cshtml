@@ -7,7 +7,7 @@
 }
 <div class="page-title">
     <div class="pull-left">
-        <h3 class="title">Contract Agreement</h3>
+        <h3 class="title"</h3>
     </div>
     <div class="pull-right hidden-xs">
         <ol class="breadcrumb">
@@ -29,7 +29,7 @@
 
 <section class="box">
     <header class="panel_header">
-        <h2 class="title pull-left">Create</h2>
+        <h2 class="title pull-left">চুক্তিপত্র সংযুক্ত করুন</h2>
         <div class="actions panel_actions pull-right">
             <a href="@Url.Action("List","ContractAgreement")" class="btn">
                 <i class="fa fa-list" aria-hidden="true"></i>
@@ -44,7 +44,9 @@
                 @using (Html.BeginForm("Create", "ContractAgreement", FormMethod.Post, new { enctype = "multipart/form-data", id = "ContractAgreement-create-form", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.ContractAgreementId)
                     @Html.HiddenFor(x => x.ProjectWorkId)
+
 
                     <div class="row">
                         <div class="form-display col-md-12">
@@ -53,52 +55,54 @@
                                 @Html.TextBoxFor(m => m.ProjectWorkTitle, new { @class = "form-control", @readonly = "readonly" })
                             </div>
                         </div>
-                        <div class="form-display col-md-12">
-                            @Html.LabelFor(m => m.ConstructionFirm, new { @class = "form-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(m => m.ConstructionFirm, new { @class = "form-control", @readonly = "readonly" })
-                            </div>
-                        </div>
-
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.ContractDay, new { @class = "col-md-4 form-label" })
+                            @Html.LabelFor(m => m.ConstructionCompanyId, new { @class = "col-md-4 form-label" })
                             <div class="col-md-8">
-                                @Html.DropDownListFor(m => m.ContractDay,
-                                    new List<SelectListItem>
-                                    {
-                                        new SelectListItem { Value = "Monday", Text = "Monday" },
-                                        new SelectListItem { Value = "Tuesday", Text = "Tuesday" },
-                                        new SelectListItem { Value = "Wednesday", Text = "Wednesday" },
-                                        new SelectListItem { Value = "Thursday", Text = "Thursday" },
-                                        new SelectListItem { Value = "Friday", Text = "Friday" },
-                                        new SelectListItem { Value = "Saturday", Text = "Saturday" },
-                                        new SelectListItem { Value = "Sunday", Text = "Sunday" }
-                                    },
-                                    "Select a Day",
-                                    new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ContractDay)
-                            </div>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.ContractDate, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.ContractDate, DateTime.Now.ToString("dd-MMM-yyyy"), new { @class = "form-control datepicker" })
-                                @Html.ValidationMessageFor(model => model.ContractDate)
+                                @Html.DropDownListFor(m => m.ConstructionCompanyId, Model.ConstructionFirmDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.ConstructionCompanyId)
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.AgreementCost, new { @class = "col-md-4 form-label" })
+                            @Html.LabelFor(m => m.AgreementDate, new { @class = "col-md-4 form-label" })
                             <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.AgreementCost, new { @class = "form-control", type = "number" })
-                                @Html.ValidationMessageFor(model => model.AgreementCost)
+                                @Html.TextBoxFor(m => m.AgreementDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.AgreementDate)
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.AgreementCostInWord, new { @class = "col-md-4 form-label" })
+                            @Html.LabelFor(m => m.AddDGId, new { @class = "col-md-4 form-label" })
                             <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.AgreementCostInWord, new { @class = "form-control", })
-                                @Html.ValidationMessageFor(model => model.AgreementCostInWord)
+                                @Html.DropDownListFor(m => m.AddDGId, Model.AddDGDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.AddDGId)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.DDGId, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.DDGId, Model.DDGDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.DDGId)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ProjectDirectorId, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.ProjectDirectorId, Model.ProjectdirectorDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.ProjectDirectorId)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.DirectorId, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.DirectorId, Model.DirectorDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.DirectorId)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.DocumentFile, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                <!-- Add id="pdfInput" to the file input element -->
+                                @Html.TextBoxFor(m => m.DocumentFile, new { @class = "form-control", type = "file", accept = ".pdf", id = "pdfInput" })
+                                @Html.ValidationMessageFor(model => model.DocumentFile)
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,35 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model PerformanceSecurityVm
+
+@{
+    ViewData["Title"] = "Delete Performance Security";
+}
+
+<h2 class="mb-0">Delete Performance Security</h2>
+
+<p>Are you sure you want to delete this record?</p>
+
+<div class="card shadow-lg border-0 rounded">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0 text-light">ব্যাংক গ্যারান্টি/পারফরমেন্স সিকিউরিটি বিবরণ</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>নির্মান কাজের শিরোনাম:</strong> @Model.ProjectWorkTitleB</li>
+            <li class="list-group-item"><strong>জমার তারিখ:</strong> @Model.SubmissionDate</li>
+            <li class="list-group-item"><strong>ব্যাংক গ্যারান্টির শেষ তারিখ:</strong> @Model.ExpiryDate</li>            
+        </ul>
+    </div>
+    @using (Html.BeginForm("DeleteConfirmed", "PerformanceSecurity", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x => x.PerformanceSecurityId)
+
+        <div class="card-footer text-end">
+            <a href="@Url.Action("details/"+Model.ProjectWorkId, "ProjectWork") class="btn btn-secondary">Cancel</a>
+            <input type="submit" class="btn btn-danger" value="Delete" />
+        </div>
+    }
+
+</div>

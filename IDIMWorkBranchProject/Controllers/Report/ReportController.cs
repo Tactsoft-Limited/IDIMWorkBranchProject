@@ -9,7 +9,6 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
 using System.IO;
 using System.Web.Mvc;
 using System.Threading.Tasks;

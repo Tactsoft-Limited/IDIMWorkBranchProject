@@ -57,6 +57,12 @@
                             </div>
                         </div>
                         <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ConstructionCompany, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ConstructionCompany, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-12">
                             @Html.LabelFor(m => m.EstimatedCost, new { @class = "label-display col-md-2" })
                             <div class="col-md-10">
                                 @Html.TextBoxFor(m => m.EstimatedCost, new { @class = "form-control", @readonly = "readonly" })
@@ -328,8 +334,37 @@
                                     @Html.ValidationMessageFor(model => model.Remarks)
                                 </div>
                             </div>
-
                         </fieldset>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.HeadAssistantId, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(m => m.HeadAssistantId, Model.HeadAssistantDropdown, "Select One", new { @class = "select2" })
+                                    @Html.ValidationMessageFor(model => model.HeadAssistantId)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ConcernedEngineerId, new { @class = "col-md-3 form-label" })
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(m => m.ConcernedEngineerId, Model.ConcernedEngineerDropdown, "Select One", new { @class = "select2" })
+                                    @Html.ValidationMessageFor(model => model.ConcernedEngineerId)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.SectionICId, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(m => m.SectionICId, Model.SectionICTDropdown, "Select One", new { @class = "select2" })
+                                    @Html.ValidationMessageFor(model => model.SectionICId)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.BranchClerkId, new { @class = "col-md-3 form-label" })
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(m => m.BranchClerkId, Model.BranchClerkDropdown, "Select One", new { @class = "select2" })
+                                    @Html.ValidationMessageFor(model => model.BranchClerkId)
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="pull-right">
                         <input type="submit" class="btn btn-success" value="Save" />
@@ -399,7 +434,7 @@
                 const performancesecurityper = parseFloat($('#PerformanceSecurityPer').val()) || 0;
                 const ContactorProgressPer = parseFloat($('#ContactorProgressPer').val()) || 0;
                 const previouslyPaidAmount = parseFloat($('#PreviouslyPaidAmount').val()) || 0;
-                
+
 
                 // //calculate
                 const PerformanceSecurityamount = Math.round(estimatedCost * (performancesecurityper / 100)).toFixed(2);

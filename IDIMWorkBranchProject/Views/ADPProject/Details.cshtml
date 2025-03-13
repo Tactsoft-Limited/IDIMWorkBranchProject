@@ -28,12 +28,6 @@
     <header class="panel_header">
         <h2 class="title pull-left">প্রকল্পের বিস্তারিত তালিকা</h2>
         <div class="actions panel_actions pull-right">
-            <a href="@Url.Action("Create", "ProjectSignatoryAuthority", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
-                <i class="fa fa-pencil-square-o"></i> প্রকল্প স্বাক্ষরকারী সংযুক্ত করুন
-            </a>
-            <a href="@Url.Action("Create", "TenderEvaluationCommittee", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
-                <i class="fa fa-pencil-square-o"></i> টেন্ডার মুল্যায়ন কমিটি সংযুক্ত করুন
-            </a>
             <a href="@Url.Action("Edit", "ADPProject", new { id = Model.ADPProjectDetail.ADPProjectId })" class="btn btn-primary">
                 <i class="fa fa-pencil-square-o"></i> সংশোধন
             </a>
@@ -205,9 +199,10 @@
                         <th rowspan="2" style="text-align: center; vertical-align: middle;">নির্মাণ কাজের নাম</th>
                         <th rowspan="2" style="text-align: center; vertical-align: middle;">ঠিকাদারি প্রতিষ্ঠান</th>
                         <th rowspan="2" style="text-align: center; vertical-align: middle;">প্রাক্কলিত ব্যয়</th>
+                        <th rowspan="2" style="text-align: center; vertical-align: middle;">কার্যাদেশের তারিখ</th>
                         <th colspan="2" style="text-align: center; vertical-align: middle;">কার্যাদেশের মেয়াদ</th>
                         <th rowspan="2" style="text-align: center; vertical-align: middle;">ব্যাংক গ্যারান্টি/পারফর্মেন্স সিকিউরিটির মেয়াদ</th>
-                        <th rowspan="2" style="text-align: center; vertical-align: middle;">নির্মাণ কাজের অগ্রগতি</th>
+                        @*<th rowspan="2" style="text-align: center; vertical-align: middle;">নির্মাণ কাজের অগ্রগতি</th>*@
                         <th colspan="2" style="text-align: center; vertical-align: middle;">বিল প্রদান</th>
                     </tr>
                     <tr>
@@ -227,12 +222,13 @@
                                     @item.ProjectWorkTitleB
                                 </a>
                             </td>
-                            <td>@item.FirmName</td>
+                            <td>@item.FirmNameB</td>
                             <td>@item.EstimatedCost</td>
-                            <td>@item.WorkStartDate.ToShortDateString()</td>
-                            <td>@item.WorkEndDate.ToShortDateString()</td>
-                            <td>@item.BankGuaranteeEndDate.ToShortDateString()</td>
-                            <td>@item.ConstructionProgress</td>
+                            <td>@item.WorkOrderDate.ToNullableShortDateString()</td>
+                            <td>@item.StartDate.ToNullableShortDateString()</td>
+                            <td>@item.EndDate.ToNullableShortDateString()</td>
+                            <td>@item.ExpiryDate.ToNullableShortDateString()</td>
+
                             <td>
                                 <a href="@Url.Action("Create", "ADPReceivePayment", new { id = item.ProjectWorkId })" class="btn btn-primary btn-xs">
                                     <i class="fa fa-money"></i> পেমেন্ট গ্রহণ
