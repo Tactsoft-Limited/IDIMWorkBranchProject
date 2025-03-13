@@ -30,7 +30,25 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         // GET: PerformanceSecurity
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("List");
+        }
+        public ActionResult List()
+        {
+            var model = new PerformanceSecuritySearchVm();
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<ActionResult> LoadData(PerformanceSecuritySearchVm model)
+        {
+            try
+            {
+                var data = await _performanceSecurityService.GetPagedAsync(model);
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
         }
         public async Task<ActionResult> Create(int id)
         {

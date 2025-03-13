@@ -22,7 +22,6 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Left>0in</Left>
         <Height>0.23333in</Height>
         <Width>7.1389in</Width>
         <Style>
@@ -63,7 +62,6 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.21388in</Top>
-        <Left>0in</Left>
         <Height>0.23333in</Height>
         <Width>7.1389in</Width>
         <ZIndex>1</ZIndex>
@@ -98,7 +96,6 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.44721in</Top>
-        <Left>0in</Left>
         <Height>0.23333in</Height>
         <Width>7.1389in</Width>
         <ZIndex>2</ZIndex>
@@ -652,7 +649,7 @@
         <Top>0.69443in</Top>
         <Left>0.58833in</Left>
         <Height>1in</Height>
-        <Width>6.55057in</Width>
+        <Width>6.55056in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -695,7 +692,6 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>1.72221in</Top>
-        <Left>0in</Left>
         <Height>0.58055in</Height>
         <Width>7.1389in</Width>
         <ZIndex>4</ZIndex>
@@ -967,7 +963,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Code.ConvertToBanglaDate(Fields!WorkStartDate.Value)</Value>
+                              <Value>=Code.ConvertToBanglaDate(Fields!StartDate.Value)</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <TextDecoration>None</TextDecoration>
@@ -981,7 +977,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Code.ConvertToBanglaDate(Fields!WorkEndDate.Value)</Value>
+                              <Value>=Code.ConvertToBanglaDate(Fields!EndDate.Value)</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <TextDecoration>None</TextDecoration>
@@ -3650,7 +3646,7 @@
         <DataSetName>DsContractorCompanyPaymentReport</DataSetName>
         <Top>2.33054in</Top>
         <Left>0.58833in</Left>
-        <Height>3.63056in</Height>
+        <Height>3.63055in</Height>
         <Width>6.55057in</Width>
         <ZIndex>5</ZIndex>
         <Style>
@@ -3863,7 +3859,6 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>7.93425in</Top>
-        <Left>0in</Left>
         <Height>0.21944in</Height>
         <Width>0.94835in</Width>
         <ZIndex>10</ZIndex>
@@ -3898,7 +3893,6 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>8.43101in</Top>
-        <Left>0in</Left>
         <Height>0.21944in</Height>
         <Width>0.83943in</Width>
         <ZIndex>11</ZIndex>
@@ -3999,7 +3993,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Fields!SectionICT.Value</Value>
+                <Value>=Fields!SectionIC.Value</Value>
                 <Style>
                   <FontFamily>SolaimanLipi</FontFamily>
                   <TextDecoration>None</TextDecoration>
@@ -4174,7 +4168,7 @@
     <Height>10.74998in</Height>
     <Style />
   </Body>
-  <Width>7.1389in</Width>
+  <Width>7.13891in</Width>
   <Page>
     <PageHeader>
       <Height>0.60486in</Height>
@@ -4307,6 +4301,10 @@
           <DataField>EstimatedCost</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="EstimatedCostTaxPer">
+          <DataField>EstimatedCostTaxPer</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
         <Field Name="EstimatedCostTaxAmount">
           <DataField>EstimatedCostTaxAmount</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
@@ -4363,12 +4361,12 @@
           <DataField>ProgressCollateralPer</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="ProgressDeductionAmount">
-          <DataField>ProgressDeductionAmount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
         <Field Name="ProgressCollateralAmount">
           <DataField>ProgressCollateralAmount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ProgressDeductionAmount">
+          <DataField>ProgressDeductionAmount</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="NetProgressAmount">
@@ -4415,24 +4413,24 @@
           <DataField>FinalPaymentAmountInWord</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="TotalDepositsInFund">
+          <DataField>TotalDepositsInFund</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="WillBeDepositedInFund">
           <DataField>WillBeDepositedInFund</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Remarks">
-          <DataField>Remarks</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ProjectWorkTitleB">
           <DataField>ProjectWorkTitleB</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="WorkStartDate">
-          <DataField>WorkStartDate</DataField>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="WorkEndDate">
-          <DataField>WorkEndDate</DataField>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="FirmNameB">
@@ -4447,21 +4445,13 @@
           <DataField>ConcernedEngineer</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="SectionICT">
-          <DataField>SectionICT</DataField>
+        <Field Name="SectionIC">
+          <DataField>SectionIC</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="BranchClerk">
           <DataField>BranchClerk</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="EstimatedCostTaxPer">
-          <DataField>EstimatedCostTaxPer</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="TotalDepositsInFund">
-          <DataField>TotalDepositsInFund</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

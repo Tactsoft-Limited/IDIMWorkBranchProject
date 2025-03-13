@@ -45,8 +45,8 @@ namespace BGB.Data.SqlViews.Wbpm
         public decimal TotalDepositsInFund { get; set; }
         public decimal WillBeDepositedInFund { get; set; }
         public string ProjectWorkTitleB { get; set; }
-        public DateTime WorkStartDate { get; set; }
-        public DateTime WorkEndDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public string FirmNameB { get; set; }
 
         public string HeadAssistant { get; set; }
