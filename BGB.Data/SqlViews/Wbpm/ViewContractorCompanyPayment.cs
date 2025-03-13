@@ -44,7 +44,6 @@ namespace BGB.Data.SqlViews.Wbpm
         public string FinalPaymentAmountInWord { get; set; }
         public decimal TotalDepositsInFund { get; set; }
         public decimal WillBeDepositedInFund { get; set; }
-        public string Remarks { get; set; }
         public string ProjectWorkTitleB { get; set; }
         public DateTime WorkStartDate { get; set; }
         public DateTime WorkEndDate { get; set; }
@@ -52,7 +51,7 @@ namespace BGB.Data.SqlViews.Wbpm
 
         public string HeadAssistant { get; set; }
         public string ConcernedEngineer { get; set; }
-        public string SectionICT { get; set; }
+        public string SectionIC { get; set; }
         public string BranchClerk { get; set; }
     }
 }
