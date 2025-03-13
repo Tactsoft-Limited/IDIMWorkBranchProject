@@ -10,6 +10,7 @@ namespace BGB.Data.SqlViews.Wbpm
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ContractAgreementId { get; set; }
         public int ProjectWorkId { get; set; }
         public string DayOfWeek { get; set; } // Assuming this maps to an enum or integer value
         public DateTime? AgreementDate { get; set; }
