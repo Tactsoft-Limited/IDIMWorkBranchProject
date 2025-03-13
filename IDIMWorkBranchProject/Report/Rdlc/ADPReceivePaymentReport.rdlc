@@ -929,27 +929,6 @@
                                 <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
-                            <TextRun>
-                              <Value> (</Value>
-                              <Style>
-                                <FontFamily>SolaimanLipi</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
-                            </TextRun>
-                            <TextRun>
-                              <Value>=Code.ConvertToBanglaWords(Fields!EstimatedCost.Value)</Value>
-                              <Style>
-                                <FontFamily>SolaimanLipi</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
-                            </TextRun>
-                            <TextRun>
-                              <Value>)</Value>
-                              <Style>
-                                <FontFamily>SolaimanLipi</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
-                            </TextRun>
                           </TextRuns>
                           <Style>
                             <TextAlign>Left</TextAlign>
@@ -1788,7 +1767,13 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>সংশ্লিষ্ট ইঞ্জিনিয়ারঃ</Value>
+                              <Value>সংশ্লিষ্ট ইঞ্জিনিয়ারঃ </Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>=Fields!HeadAssistant.Value</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -1810,7 +1795,13 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>সেকশন আইসিঃ</Value>
+                              <Value>সেকশন আইসিঃ </Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>=Fields!SectionIC.Value</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -1837,6 +1828,12 @@
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
                             </TextRun>
+                            <TextRun>
+                              <Value>=Fields!BranchClerk.Value</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -1856,7 +1853,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox9">
+                    <Textbox Name="BranchClerk">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -1876,22 +1873,13 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>SolaimanLipi</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
                               <Value>পরিচালক (পূর্ত)</Value>
                               <Style>
+                                <FontStyle>Normal</FontStyle>
                                 <FontFamily>SolaimanLipi</FontFamily>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1902,9 +1890,13 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>পূর্ত শাখা     </Value>
+                              <Value>পূর্ত শাখা</Value>
                               <Style>
+                                <FontStyle>Normal</FontStyle>
                                 <FontFamily>SolaimanLipi</FontFamily>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1913,7 +1905,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox9</rd:DefaultName>
+                      <rd:DefaultName>BranchClerk</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -2141,6 +2133,7 @@
             <TablixMember />
           </TablixMembers>
         </TablixRowHierarchy>
+        <DataSetName>DsADPReceivePayment</DataSetName>
         <Top>4.71889in</Top>
         <Height>5.86804in</Height>
         <Width>7.17362in</Width>
