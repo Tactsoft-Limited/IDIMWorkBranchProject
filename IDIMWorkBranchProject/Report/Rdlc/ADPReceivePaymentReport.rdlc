@@ -379,7 +379,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Code.ConvertToBanglaDate(Fields!WorkStartDate.Value)</Value>
+                              <Value>=Code.ConvertToBanglaDate(Fields!StartDate.Value)</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -515,7 +515,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Code.ConvertToBanglaDate(Fields!WorkEndDate.Value)</Value>
+                              <Value>=Code.ConvertToBanglaDate(Fields!EndDate.Value)</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -2310,6 +2310,30 @@
           <DataField>ADPReceivePaymentId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="ProjectWorkId">
+          <DataField>ProjectWorkId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ProjectWorkTitleB">
+          <DataField>ProjectWorkTitleB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EstimatedCost">
+          <DataField>EstimatedCost</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="FirmNameB">
+          <DataField>FirmNameB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
         <Field Name="LetterNo">
           <DataField>LetterNo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -2338,13 +2362,13 @@
           <DataField>FinancialProgressPer</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="BillPaidAmountTillDate">
-          <DataField>BillPaidAmountTillDate</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
         <Field Name="BillPaidPerTillDate">
           <DataField>BillPaidPerTillDate</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="BillPaidAmountTillDate">
+          <DataField>BillPaidAmountTillDate</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="BillPaidPer">
           <DataField>BillPaidPer</DataField>
@@ -2370,42 +2394,26 @@
           <DataField>TotalReceiveAmountInWord</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TotalDeductionAmount">
-          <DataField>TotalDeductionAmount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="DepositInBGBFund">
-          <DataField>DepositInBGBFund</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="FirmNameB">
-          <DataField>FirmNameB</DataField>
+        <Field Name="HeadAssistant">
+          <DataField>HeadAssistant</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="FirmName">
-          <DataField>FirmName</DataField>
+        <Field Name="ConcernedEngineer">
+          <DataField>ConcernedEngineer</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ProjectWorkTitleB">
-          <DataField>ProjectWorkTitleB</DataField>
+        <Field Name="SectionIC">
+          <DataField>SectionIC</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="EstimatedCost">
-          <DataField>EstimatedCost</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="WorkStartDate">
-          <DataField>WorkStartDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="WorkEndDate">
-          <DataField>WorkEndDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+        <Field Name="BranchClerk">
+          <DataField>BranchClerk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>WPDataSet</rd:DataSetName>
-        <rd:SchemaPath>E:\Tactsoft Projects\BGB Project Mvc\Git Project\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>F:\Software Work\TactSoft\IDIMWorkBranch\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
         <rd:TableName>ViewADPReceivePayments</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

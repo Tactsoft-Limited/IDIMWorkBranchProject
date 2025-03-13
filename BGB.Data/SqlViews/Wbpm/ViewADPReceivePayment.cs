@@ -26,11 +26,10 @@ namespace BGB.Data.SqlViews.Wbpm
         public double? TotalReceivePer { get; set; }
         public decimal? TotalReceiveAmount { get; set; }
         public string TotalReceiveAmountInWord { get; set; }
-        public string FirmNameB { get; set; }
-        public string FirmName { get; set; }
+        public string FirmNameB { get; set; }      
         public string ProjectWorkTitleB { get; set; }
         public decimal EstimatedCost { get; set; }
-        public DateTime WorkStartDate { get; set; }
-        public DateTime WorkEndDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }

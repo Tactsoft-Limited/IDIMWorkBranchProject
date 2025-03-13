@@ -4245,16 +4245,16 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.23385in</Width>
+                  <Width>0.88847in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.49374in</Width>
+                  <Width>3.45601in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.20977in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.75762in</Width>
+                  <Width>0.62992in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -4747,12 +4747,12 @@
                           <TablixBody>
                             <TablixColumns>
                               <TablixColumn>
-                                <Width>3.49374in</Width>
+                                <Width>3.45601in</Width>
                               </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
                               <TablixRow>
-                                <Height>0.35208in</Height>
+                                <Height>0.67291in</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
@@ -4849,7 +4849,7 @@
                                 </TablixCells>
                               </TablixRow>
                               <TablixRow>
-                                <Height>1.36249in</Height>
+                                <Height>1.04166in</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
@@ -4978,7 +4978,7 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox27</rd:DefaultName>
-                                            <Top>0.76389in</Top>
+                                            <Top>0.79166in</Top>
                                             <Left>0.16582in</Left>
                                             <Height>0.25in</Height>
                                             <Width>0.69814in</Width>
@@ -5472,7 +5472,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Code.ConvertToBangla</Value>
+                                                <Value>=Code.ConvertToBangla(Fields!BillPaidAmount.Value)</Value>
                                                 <Style>
                                                   <FontFamily>SolaimanLipi</FontFamily>
                                                   <FontSize>12pt</FontSize>
@@ -5492,7 +5492,7 @@
                                                 </Style>
                                               </TextRun>
                                               <TextRun>
-                                                <Value>=Code.ConvertToBangla</Value>
+                                                <Value>=Code.ConvertToBangla(Fields!TotalDeductionAmount.Value)</Value>
                                                 <Style>
                                                   <FontFamily>SolaimanLipi</FontFamily>
                                                   <FontSize>12pt</FontSize>
@@ -5560,7 +5560,7 @@
                                                     </Style>
                                                   </TextRun>
                                                   <TextRun>
-                                                    <Value>=Code.ConvertToBangla</Value>
+                                                    <Value>=Code.ConvertToBangla(Fields!NeetAmount.Value)</Value>
                                                     <Style>
                                                       <FontFamily>SolaimanLipi</FontFamily>
                                                       <FontSize>12pt</FontSize>
@@ -6366,7 +6366,7 @@
             <DataSetName>DsVatTaxReport</DataSetName>
             <Top>1.88847in</Top>
             <Height>6.00902in</Height>
-            <Width>7.69498in</Width>
+            <Width>7.18417in</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -6400,7 +6400,7 @@
         <Top>28.92575in</Top>
         <Left>0.00276in</Left>
         <Height>14.09155in</Height>
-        <Width>7.69498in</Width>
+        <Width>7.18973in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -10310,7 +10310,7 @@
     <Height>44.78445in</Height>
     <Style />
   </Body>
-  <Width>7.69774in</Width>
+  <Width>7.19774in</Width>
   <Page>
     <PageHeader>
       <Height>0.38333in</Height>
@@ -10364,26 +10364,6 @@
           <DataField>ADPReceivePaymentId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="ProjectTitle">
-          <DataField>ProjectTitle</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ProjectWorkTitleB">
-          <DataField>ProjectWorkTitleB</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="FirmNameB">
-          <DataField>FirmNameB</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="BillPaidAmount">
-          <DataField>BillPaidAmount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="BillNumber">
-          <DataField>BillNumber</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="TaxPer">
           <DataField>TaxPer</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
@@ -10420,17 +10400,9 @@
           <DataField>NeetAmountInWord</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="CodeNo">
-          <DataField>CodeNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="EconomicCode">
-          <DataField>EconomicCode</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="VoucherNo">
-          <DataField>VoucherNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="DepositInBGBFund">
+          <DataField>DepositInBGBFund</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="BillSubmissionNo">
           <DataField>BillSubmissionNo</DataField>
@@ -10480,8 +10452,40 @@
           <DataField>TotalAmount</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="CodeNo">
+          <DataField>CodeNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EconomicCode">
+          <DataField>EconomicCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VoucherNo">
+          <DataField>VoucherNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProjectTitle">
+          <DataField>ProjectTitle</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProjectWorkTitleB">
+          <DataField>ProjectWorkTitleB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BillNumber">
+          <DataField>BillNumber</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="BillPaidAmount">
+          <DataField>BillPaidAmount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="TotalDeductionAmountInWord">
           <DataField>TotalDeductionAmountInWord</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FirmNameB">
+          <DataField>FirmNameB</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
