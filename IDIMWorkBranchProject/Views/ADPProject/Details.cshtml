@@ -230,12 +230,12 @@
                             <td>@item.ExpiryDate.ToNullableShortDateString()</td>
 
                             <td>
-                                <a href="@Url.Action("Create", "ADPReceivePayment", new { id = item.ProjectWorkId })" class="btn btn-primary btn-xs">
+                                <a href="@Url.Action("Create", "ADPReceivePayment", new { id = item.ProjectWorkId })" class="btn btn-primary btn-xs  @(item.IsNoahCompleted && item.IsPerformanceSecuritySubmited && item.IsAgreementCompleted&& item.IsWorkOrderCompleted ? "" : "disabled")">
                                     <i class="fa fa-money"></i> পেমেন্ট গ্রহণ
                                 </a>
                             </td>
                             <td>
-                                <a href="@Url.Action("Create", "ContractorCompanyPayment", new { id = item.ProjectWorkId })" class="btn btn-success btn-xs">
+                                <a href="@Url.Action("Create", "ContractorCompanyPayment", new { id = item.ProjectWorkId })" class="btn btn-success btn-xs @(item.IsNoahCompleted && item.IsPerformanceSecuritySubmited && item.IsAgreementCompleted&& item.IsWorkOrderCompleted ? "" : "disabled")">
                                     <i class="fa fa-money"></i> পেমেন্ট প্রদান
                                 </a>
                             </td>
