@@ -38,8 +38,20 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 			var model = new FiscalYearExpenseSearchVm();
 			return View(model);
 		}
+        public async Task<ActionResult> LoadData(FiscalYearExpenseSearchVm model)
+        {
+            try
+            {
+                var data = await _fiscalYearExpenseService.GetPagedAsync(model);
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
+        }
 
-		public async Task<ActionResult> Create(int id)
+        public async Task<ActionResult> Create(int id)
 		{
 			var data = await _aDPProjectService.GetByIdAsync(id);
 			var model = new FiscalYearExpenseVm
