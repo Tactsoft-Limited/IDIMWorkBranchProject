@@ -242,9 +242,7 @@ namespace IDIMWorkBranchProject.Data.Database
         public DbSet<ContractorCompanyPayment> ContractorCompanyPayments { get; set; }
         public DbSet<ContractAgreement> ContractAgreements { get; set; }
         public virtual DbSet<SignatoryAuthority> SignatoryAuthorities { get; set; }
-        public virtual DbSet<TenderEvaluationCommittee> TenderEvaluationCommittees { get; set; }
         public virtual DbSet<VatTaxCollateral> VatTaxCollaterals { get; set; }
-        public virtual DbSet<ProjectSignatoryAuthority> ProjectSignatoryAuthorities { get; set; }
         public virtual DbSet<RecruitmentCommittee> RecruitmentCommittees { get; set; }
         public virtual DbSet<Noha> Nohas { get; set; }
         public virtual DbSet<WorkOrder> WorkOrders { get; set; }
