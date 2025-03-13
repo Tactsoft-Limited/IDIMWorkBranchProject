@@ -30,7 +30,25 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         // GET: WorkOrder
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("List");
+        }
+        public ActionResult List()
+        {
+            var model = new WorkOrderSearchVm();
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<ActionResult> LoadData(WorkOrderSearchVm model)
+        {
+            try
+            {
+                var data = await _workOrderService.GetPagedAsync(model);
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
         }
         public async Task<ActionResult> Create(int id)
         {

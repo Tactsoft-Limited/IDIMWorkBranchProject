@@ -506,8 +506,11 @@
     <Compile Include="Models\Wbpm\ADPProjectVm.cs" />
     <Compile Include="Models\Wbpm\ADPReceivePaymentVm.cs" />
     <Compile Include="Models\Wbpm\BGBMiscellaneousFundVm.cs" />
+    <Compile Include="Models\Wbpm\NohaSearchVm.cs" />
+    <Compile Include="Models\Wbpm\PerformanceSecuritySearchVm.cs" />
     <Compile Include="Models\Wbpm\PerformanceSecurityVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkStatusVm.cs" />
+    <Compile Include="Models\Wbpm\WorkOrderSearchVm.cs" />
     <Compile Include="Models\Wbpm\WorkOrderVm.cs" />
     <Compile Include="Models\Wbpm\ConstructionCompanySearchVm.cs" />
     <Compile Include="Models\Wbpm\ContractAgreementVm.cs" />
@@ -2896,6 +2899,9 @@
     <Content Include="Views\WorkOrder\Create.cshtml" />
     <Content Include="Views\WorkOrder\Delete.cshtml" />
     <Content Include="Views\ProjectWorkStatus\Create.cshtml" />
+    <Content Include="Views\Noha\List.cshtml" />
+    <Content Include="Views\PerformanceSecurity\List.cshtml" />
+    <Content Include="Views\WorkOrder\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
