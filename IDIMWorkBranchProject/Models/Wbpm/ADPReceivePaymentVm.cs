@@ -92,13 +92,13 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public int? SectionICId { get; set; }
 
         [DisplayName("সেকশন আইসি")]
-        public string SectionICTNameId { get; set; }
+        public string SectionICTName { get; set; }
 
         [DisplayName("শাখা করনিক")]
         public int? BranchClerkId { get; set; }
 
         [DisplayName("শাখা করনিক")]
-        public string BranchClerkNameId { get; set; }
+        public string BranchClerkName { get; set; }
 
 
         public IEnumerable<SelectListItem> HeadAssistantDropdown { get; set; }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Web.Mvc;
 using FluentValidation.Attributes;
 using IDIMWorkBranchProject.Models.Validation.Wbpm;
 
@@ -124,5 +126,36 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public DateTime WorkEnded { get; set; }
 
         public string ConstructionCompany { get; set; }
+
+        [DisplayName("প্রধান সহকারী")]
+
+        public int? HeadAssistantId { get; set; }
+
+        [DisplayName("প্রধান সহকারী")]
+        public string HeadAssistantName { get; set; }
+
+        [DisplayName("ইঞ্জিনিয়ার আইসি")]
+        public int? ConcernedEngineerId { get; set; }
+
+        [DisplayName("ইঞ্জিনিয়ার আইসি")]
+        public string ConcernedEngineerName { get; set; }
+
+        [DisplayName("সেকশন আইসি")]
+        public int? SectionICId { get; set; }
+
+        [DisplayName("সেকশন আইসি")]
+        public string SectionICTName { get; set; }
+
+        [DisplayName("শাখা করনিক")]
+        public int? BranchClerkId { get; set; }
+
+        [DisplayName("শাখা করনিক")]
+        public string BranchClerkName { get; set; }
+
+
+        public IEnumerable<SelectListItem> HeadAssistantDropdown { get; set; }
+        public IEnumerable<SelectListItem> ConcernedEngineerDropdown { get; set; }
+        public IEnumerable<SelectListItem> SectionICTDropdown { get; set; }
+        public IEnumerable<SelectListItem> BranchClerkDropdown { get; set; }
     }
 }
