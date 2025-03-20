@@ -4,7 +4,7 @@ using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services.Base;
-
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -51,13 +51,18 @@ namespace IDIMWorkBranchProject.Services.Wbpm
                             IsAgreementCompleted = projectWork.IsAgreementCompleted,
                             IsWorkOrderCompleted = projectWork.IsWorkOrderCompleted,
                             FirmNameB = constructionCompany.FirmNameB,
+                            NohaDate = noha.NohaDate,
+                            NohaDocument = noha.ScanDocument,
+                            SubmissionDate = performanceSecurity.SubmissionDate,
+                            ExpiryDate = performanceSecurity.ExpiryDate,
+                            PerformanceSecurityDocument = performanceSecurity.ScanDocument,
                             AgreementDate = contractAgreement.AgreementDate,
+                            AgreementDocument = contractAgreement.ScanDocument,
                             WorkOrderDate = workOrder.WorkOrderDate,
                             StartDate = workOrder.StartDate,
                             EndDate = workOrder.EndDate,
-                            StatusTypeId = projectWorkStatus.StatusTypeId,
-                            NohaDate = noha.NohaDate,
-                            ExpiryDate = performanceSecurity.ExpiryDate
+                            WorkOrderDocument = workOrder.ScanDocument,
+                            ProjectWorkStatus = projectWorkStatus.StatusTypeId,
                         };
 
             return await query.ToListAsync();
@@ -90,11 +95,11 @@ namespace IDIMWorkBranchProject.Services.Wbpm
                     ProjectWorkTitleB = x.ProjectWorkTitleB,
                     ProjectWorkTitle = x.ProjectWorkTitle,
                     EstimatedCost = x.EstimatedCost,
-                    //AgreementDate = x.AgreementDate,
-                    //WorkStartDate = x.WorkEndDate,
-                    //BankGuaranteeEndDate = x.BankGuaranteeEndDate,
-                    //HandOverDate = x.HandOverDate,
-                    //WorkStatus = x.WorkStatus,
+                    AgreementDate = x.ContractAgreements.FirstOrDefault(ca => ca.ProjectWorkId == x.ProjectWorkId)?.AgreementDate,
+                    WorkStartDate = x.WorkOrders.FirstOrDefault(ca => ca.ProjectWorkId == x.ProjectWorkId)?.StartDate,
+                    WorkEndDate = x.WorkOrders.FirstOrDefault(ca => ca.ProjectWorkId == x.ProjectWorkId)?.EndDate,
+                    BankGuaranteeEndDate = x.PerformanceSecurities.FirstOrDefault(ca => ca.ProjectWorkId == x.ProjectWorkId)?.ExpiryDate,
+                    WorkStatus = ((StatusType?)x.ProjectWorkStatuses.FirstOrDefault(pw => pw.ProjectWorkId == x.ProjectWorkId)?.StatusTypeId)?.ToString(),
                     Remarks = x.Remarks,
                 })
             };
