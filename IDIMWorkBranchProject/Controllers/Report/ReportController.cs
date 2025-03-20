@@ -19,7 +19,7 @@ namespace IDIMWorkBranchProject.Controllers.Report
     {
         protected IFiscalYearService FiscalYearService { get; set; }
         protected IGeneralInformationService GeneralInformationService { get; set; }
-        protected IReportService _reportService {  get; set; }
+        protected IReportService _reportService { get; set; }
         protected IUnitService UnitService { get; set; }
         private readonly IDIMDBEntities _dbContext;
 
@@ -32,7 +32,7 @@ namespace IDIMWorkBranchProject.Controllers.Report
             FiscalYearService = fiscalYearService;
             GeneralInformationService = generalInformationService;
             UnitService = unitService;
-            _reportService= reportService;
+            _reportService = reportService;
             _dbContext = dbContext;
         }
         // GET: Report
@@ -97,10 +97,10 @@ namespace IDIMWorkBranchProject.Controllers.Report
 
         public async Task<ActionResult> PrintContactAgreement(int id)
         {
-           
+
             try
             {
-                 var data = await _reportService.GetContractAgreementAsync(id);
+                var data = await _reportService.GetContractAgreementAsync(id);
 
                 var reportDataSource = new List<ReportDataSource>
                 {
@@ -110,6 +110,35 @@ namespace IDIMWorkBranchProject.Controllers.Report
                 var config = new ReportConfig
                 {
                     ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "ContractAgreementReport.rdlc")
+                };
+
+                return new ReportResult(config, reportDataSource);
+            }
+            catch (Exception exception)
+            {
+                // Log the exception if necessary
+                // You can also throw a custom exception if you want
+                throw new InvalidOperationException("An error occurred while generating the report.", exception);
+            }
+
+        }
+
+
+        public async Task<ActionResult> PrintWorkOrder(int id)
+        {
+
+            try
+            {
+                var data = await _reportService.GetWorkOrderAsync(id);
+
+                var reportDataSource = new List<ReportDataSource>
+                {
+                    new ReportDataSource("DsWorkOrder", data)
+                };
+
+                var config = new ReportConfig
+                {
+                    ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "ViewWorkOrderReport.rdlc"),
                 };
 
                 return new ReportResult(config, reportDataSource);
