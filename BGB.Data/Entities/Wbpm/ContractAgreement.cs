@@ -24,7 +24,7 @@ namespace BGB.Data.Entities.Wbpm
 
         // Navigation Properties (Foreign Key Relationships)
         [ForeignKey(nameof(ProjectWorkId))]
-        public ProjectWork ProjectWork { get; set; }
+        public virtual ProjectWork ProjectWork { get; set; }
 
         [ForeignKey(nameof(ConstructionCompanyId))]
         public virtual ConstructionCompany ConstructionCompany { get; set; }
