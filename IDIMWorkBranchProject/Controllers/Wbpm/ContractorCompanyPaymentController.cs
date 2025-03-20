@@ -43,7 +43,27 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         // GET: ContractorCompanyPayment
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("List");
+        }
+
+        public ActionResult List()
+        {
+            var model = new ContractorCompanyPaymentSearchVm();
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> LoadData(ContractorCompanyPaymentSearchVm model)
+        {
+            try
+            {
+                var data = await _contractorCompanyPaymentService.GetPagedAsync(model);
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
         }
 
 
