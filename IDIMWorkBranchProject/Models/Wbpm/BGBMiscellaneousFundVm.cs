@@ -17,6 +17,9 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("নির্মাণ কাজের নাম")]
         public string ProjectWorkTitle { get; set; }
 
+        [DisplayName("নির্মাণ কাজের নাম")]
+        public string ProjectWorkTitleB { get; set; }
+
         [DisplayName("এডিপি পেমেন্ট আইডি")]
         public int? ADPReceivePaymentId { get; set; }
 
