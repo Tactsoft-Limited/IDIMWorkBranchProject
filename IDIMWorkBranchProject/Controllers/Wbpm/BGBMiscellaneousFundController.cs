@@ -47,8 +47,30 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         // GET: BGBFund
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("List");
         }
+
+        public ActionResult List()
+        {
+            var model = new BGBMiscellaneousFundSearchVm();
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> LoadData(BGBMiscellaneousFundSearchVm model)
+        {
+            try
+            {
+                var data = await _bGBMiscellaneousFundService.GetPagedAsync(model);
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
+        }
+
+
         public async Task<ActionResult> CreateOrEdit(int id)
         {
             var model = new BGBMiscellaneousFundVm();
