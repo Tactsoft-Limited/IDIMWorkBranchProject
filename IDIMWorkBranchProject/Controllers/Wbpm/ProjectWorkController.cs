@@ -6,6 +6,7 @@ using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -85,18 +86,24 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 ProjectWorkTitleB = projectWorks.ProjectWorkTitleB,
                 EstimatedCost = projectWorks.EstimatedCost,
                 EstimatedCostInWord = projectWorks.EstimatedCostInWord,
+                EstimatedCostInWordBangla = projectWorks.EstimatedCostInWordBangla,
                 Remarks = projectWorks.Remarks,
-                FirmNameB = contractAgreement?.ConstructionFirm, // Null-safe access
                 IsNoahCompleted = projectWorks.IsNoahCompleted,
                 NohaDate = noha?.NohaDate, // Null-safe access
+                NohaDocument = noha?.ScanDocument,
                 IsPerformanceSecuritySubmited = projectWorks.IsPerformanceSecuritySubmited,
+                SubmissionDate = performanceSecurity.SubmissionDate,
                 ExpiryDate = performanceSecurity?.ExpiryDate, // Null-safe access
+                PerformanceSecurityDocument = performanceSecurity.ScanDocument,
                 IsAgreementCompleted = projectWorks.IsAgreementCompleted,
+                FirmNameB = contractAgreement?.ConstructionFirm, // Null-safe access
                 AgreementDate = contractAgreement?.AgreementDate, // Null-safe access
+                AgreementDocument = contractAgreement.ScanDocument,
                 IsWorkOrderCompleted = projectWorks.IsWorkOrderCompleted,
                 WorkOrderDate = workOrder?.WorkOrderDate, // Null-safe access
                 StartDate = workOrder?.StartDate, // Null-safe access
                 EndDate = workOrder?.EndDate, // Null-safe access
+                WorkOrderDocument = workOrder?.ScanDocument,
                 ProjectWorkStatus = projectWorkStatus?.ProjectWorkStatusId, // Null-safe access
 
                 ADPReceivePayments = _mapper.Map<List<ADPReceivePaymentVm>>(await _ADPReceivePaymentService.GetByProjectWorkIdAsync(id)),
@@ -119,37 +126,51 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             };
             return View(model);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ProjectWorkVm model)
         {
+            if (!ModelState.IsValid)
+            {
+                TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                return View(model);
+            }
+
             try
             {
-                if (ModelState.IsValid)
+                // Map and save ProjectWork entity
+                var entity = _mapper.Map<ProjectWork>(model);
+                var result = await _projectWorkService.CreateAsync(entity);
+
+                // Create and save ProjectWorkStatus
+                var workStatus = new ProjectWorkStatusVm
                 {
-                    // Step 2: Map the model to the entity
-                    var entity = _mapper.Map<ProjectWork>(model);
+                    ProjectWorkId = result.ProjectWorkId,
+                    StatusTypeId = StatusType.InProcess
+                };
+                await _projectWorkStatusService.CreateAsync(_mapper.Map<ProjectWorkStatus>(workStatus));
 
-                    // Step 3: Attempt to save the entity to the database
-                    await _projectWorkService.CreateAsync(entity);
-
-                    // Show success message and reset the form
-                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                    return RedirectToAction("details/" + model.ADPProjectId, "ADPProject");  // Reset model after success
-                }
-
-                // If the model state is not valid
-                TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                // Success message and redirect
+                TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                return RedirectToAction(nameof(ADPProjectController.Details), nameof(ADPProject), new { id = model.ADPProjectId });
             }
-            catch (Exception exception)
+            catch (DbUpdateException dbEx)
             {
-
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), "Database error: " + dbEx.Message);
+            }
+            catch (InvalidOperationException ioEx)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), "Invalid operation: " + ioEx.Message);
+            }
+            catch (Exception ex)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), ex.Message);
             }
 
-            // Return the model to the view
             return View(model);
         }
+
 
         public async Task<ActionResult> Edit(int id)
         {
@@ -221,5 +242,6 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 return RedirectToAction("Details/" + entity.ADPProjectId, "ADPProject"); // Avoids null reference
             }
         }
+
     }
 }
