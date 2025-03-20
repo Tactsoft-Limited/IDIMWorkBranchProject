@@ -40,14 +40,34 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         // GET: ADPReceivePayment
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("List");
+        }
+
+        public ActionResult List()
+        {
+            var model = new ADPReceivePaymentSearchVm();
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> LoadData(ADPReceivePaymentSearchVm model)
+        {
+            try
+            {
+                var data = await _aDPReceivePaymentService.GetPagedAsync(model);
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
         }
 
         public async Task<ActionResult> Create(int id)
         {
             var projectWork = await _projectWorkService.GetByIdAsync(id);
             var receivePayments = await _aDPReceivePaymentService.GetByProjectWorkIdAsync(id);
-            var contractAgreement =await _contractAgreementService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
+            var contractAgreement = await _contractAgreementService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
 
             if (receivePayments.Sum(x => x.BillPaidPer) == 100 || receivePayments.Sum(x => x.BillPaidAmount) == projectWork.EstimatedCost)
                 throw new Exception("Full Payment already received");
@@ -67,7 +87,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
                 BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync()
             };
-           
+
             return View(model);
         }
 
