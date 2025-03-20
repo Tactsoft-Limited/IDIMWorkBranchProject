@@ -90,6 +90,7 @@
     <Compile Include="SqlViews\Pm\ViewProjectProblemRpt.cs" />
     <Compile Include="SqlViews\Pm\ViewProjectSubProjectDetailsRpt.cs" />
     <Compile Include="SqlViews\Pm\ViewProjectWiseSubProjectRpt.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewWorkOrder.cs" />
     <Compile Include="SqlViews\Wbpm\ViewADPReceivePayment.cs" />
     <Compile Include="SqlViews\Wbpm\ViewBGBMiscellaneousFund.cs" />
     <Compile Include="SqlViews\Wbpm\ViewContactAgreement.cs" />
