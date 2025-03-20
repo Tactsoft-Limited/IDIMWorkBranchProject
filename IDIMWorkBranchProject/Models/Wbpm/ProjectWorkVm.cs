@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using FluentValidation.Attributes;
 using IDIMWorkBranchProject.Models.Validation.Wbpm;
@@ -33,9 +34,18 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("প্রাক্কলিত ব্যয় কথায়")]
         public string EstimatedCostInWord { get; set; }
 
+        [DisplayName("প্রাক্কলিত ব্যয় কথায়")]
+        public string EstimatedCostInWordBangla { get; set; }
+
         [DisplayName("মন্তব্য")]
         public string Remarks { get; set; }
 
+        public DateTime? AgreementDate { get; set; }
+        public DateTime? WorkStartDate { get; set; }
+        public DateTime? WorkEndDate { get; set; }
+        public DateTime? BankGuaranteeEndDate { get; set; }
+        public DateTime? HandOverDate { get; set; }
+        public string WorkStatus { get; set; }
 
     }
 }
