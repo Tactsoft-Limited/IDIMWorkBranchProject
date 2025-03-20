@@ -29,8 +29,29 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         // GET: ProjectWorkStatus
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("List");
         }
+
+        public ActionResult List()
+        {
+            var model = new ProjectWorkStatusSearchVm();
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> LoadData(ProjectWorkStatusSearchVm model)
+        {
+            try
+            {
+                var data = await _projectWorkStatusService.GetPagedAsync(model);
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
+        }
+
         public async Task<ActionResult> Create(int id)
         {
             var projectWork = await _projectWorkService.GetByIdAsync(id);
@@ -44,29 +65,29 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             if (projectWorkStatus != null)
             {
                 model.ProjectWorkStatusId = projectWorkStatus.ProjectWorkStatusId;
-                model.StatusTypeId = (StatusType?)projectWorkStatus.StatusTypeId;                
-            }   
+                model.StatusTypeId = (StatusType?)projectWorkStatus.StatusTypeId;
+            }
             return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ProjectWorkStatusVm model)
-        {            
+        {
             try
             {
                 if (model.ProjectWorkStatusId > 0)
-                {                    
+                {
                     await _projectWorkStatusService.UpdateAsync(_mapper.Map<ProjectWorkStatus>(model));
                     TempData["Message"] = Messages.Success(MessageType.Update.ToString());
                 }
                 else
                 {
-                    
-                        await _projectWorkStatusService.CreateAsync(_mapper.Map<ProjectWorkStatus>(model));
-                        TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                    
+
+                    await _projectWorkStatusService.CreateAsync(_mapper.Map<ProjectWorkStatus>(model));
+                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+
                 }
-                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+                return RedirectToAction(nameof(ProjectWorkController.Details), nameof(ProjectWork), new { id = model.ProjectWorkId });
             }
             catch (Exception exception)
             {
