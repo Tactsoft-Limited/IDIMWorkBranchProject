@@ -229,6 +229,7 @@ namespace IDIMWorkBranchProject.Data.Database
         #endregion
 
         #region Wbpm
+        public DbSet<ViewWorkOrder> ViewWorkOrders { get; set; }
         public DbSet<ProjectDirector> ProjectDirectors { get; set; }
         public DbSet<ConstructionCompany> ConstructionCompanies { get; set; }
         public DbSet<ADPProject> ADPProjects { get; set; }
