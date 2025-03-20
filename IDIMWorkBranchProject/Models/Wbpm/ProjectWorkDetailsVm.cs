@@ -24,6 +24,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("প্রাক্কলিত ব্যয়")]
         public decimal? EstimatedCost { get; set; }
         public string EstimatedCostInWord { get; set; }
+        public string EstimatedCostInWordBangla { get; set; }
         public bool IsNoahCompleted { get; set; }
         public bool IsPerformanceSecuritySubmited { get; set; }
         public bool IsAgreementCompleted { get; set; }
@@ -33,6 +34,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? NohaDate { get; set; }
 
+        [DisplayName("এনওএইচ ডকুমেন্ট")]
         public string NohaDocument { get; set; }
 
 
@@ -55,6 +57,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? AgreementDate { get; set; }
 
+        [DisplayName("চুক্তি ডকুমেন্ট")]
         public string AgreementDocument { get; set; }
 
 
@@ -70,13 +73,8 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? EndDate { get; set; }
 
+        [DisplayName("কার্যাদেশ ডকুমেন্ট")]
         public string WorkOrderDocument { get; set; }
-
-
-        public int? StatusTypeId { get; set; }
-
-
-
 
         [DisplayName("নির্মাণ কাজের অবস্থা")]
         public int? ProjectWorkStatus { get; set; }
