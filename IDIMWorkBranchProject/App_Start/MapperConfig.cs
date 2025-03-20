@@ -39,6 +39,7 @@ namespace IDIMWorkBranchProject
             CreateMap<ContractAgreementVm, ContractAgreement>();
             CreateMap<ContractAgreement, ContractAgreementVm>()
                 .ForMember(d => d.ProjectWorkTitle, opt => opt.MapFrom(x => x.ProjectWork.ProjectWorkTitle))
+                .ForMember(d => d.ProjectWorkTitleB, opt => opt.MapFrom(x => x.ProjectWork.ProjectWorkTitleB))
                 .ForMember(d => d.ConstructionFirm, opt => opt.MapFrom(x => x.ConstructionCompany.FirmNameB));
 
             CreateMap<ProjectDirectorVm, ProjectDirector>();
