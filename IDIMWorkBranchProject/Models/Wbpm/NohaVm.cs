@@ -1,10 +1,13 @@
-﻿using System;
+﻿using FluentValidation.Attributes;
+using IDIMWorkBranchProject.Models.Validation.Wbpm;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
+    [Validator(typeof(NohaVmValidator))]
     public class NohaVm
     {
         public int NohaId { get; set; }
@@ -19,6 +22,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public string LetterNo { get; set; }
 
         [DisplayName("এনওএইচ তারিখ")]
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? NohaDate { get; set; }
 
