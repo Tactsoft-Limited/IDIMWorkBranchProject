@@ -489,6 +489,7 @@
     <Compile Include="Models\Validation\Wbpm\ADPProjectVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\ADPReceivePaymentVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\BGBMiscellaneousFundVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\NohaVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\ProjectWorkVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\MasterplanVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\FormalMeetingVmValidator.cs" />
@@ -502,11 +503,16 @@
     <Compile Include="Models\Wbpm\ADPProjectDetailVm.cs" />
     <Compile Include="Models\Wbpm\ADPProjectSearchVm.cs" />
     <Compile Include="Models\Wbpm\ADPProjectVm.cs" />
+    <Compile Include="Models\Wbpm\ADPReceivePaymentSearchVm.cs" />
     <Compile Include="Models\Wbpm\ADPReceivePaymentVm.cs" />
+    <Compile Include="Models\Wbpm\BGBMiscellaneousFundSearchVm.cs" />
     <Compile Include="Models\Wbpm\BGBMiscellaneousFundVm.cs" />
+    <Compile Include="Models\Wbpm\ContractAgreementSearchVm.cs" />
+    <Compile Include="Models\Wbpm\ContractorCompanyPaymentSearchVm.cs" />
     <Compile Include="Models\Wbpm\NohaSearchVm.cs" />
     <Compile Include="Models\Wbpm\PerformanceSecuritySearchVm.cs" />
     <Compile Include="Models\Wbpm\PerformanceSecurityVm.cs" />
+    <Compile Include="Models\Wbpm\ProjectWorkStatusSearchVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkStatusVm.cs" />
     <Compile Include="Models\Wbpm\WorkOrderSearchVm.cs" />
     <Compile Include="Models\Wbpm\WorkOrderVm.cs" />
@@ -763,13 +769,7 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Documents\ProjectDirectorFiles\Kamrul Hasan_20250111_121350.pdf" />
     <Content Include="Documents\ProjectDirectorFiles\Print PC - PC Builder - Star Tech_20250111_123411.pdf" />
-    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20241001_20250208_133543.pdf" />
-    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20241117 %281%29_20250208_134805.pdf" />
-    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20250202 %281%29_20250208_133536.pdf" />
-    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20250202 %281%29_20250208_134805.pdf" />
-    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-FlowCV-Resume-20250202_20250208_133539.pdf" />
-    <Content Include="Documents\ProjectWorkFile\Hemayet-Mondol-Q_20250208_133545.pdf" />
-    <Content Include="Documents\ProjectWorkFile\OID1025778134_20250208_134805.pdf" />
+    <Content Include="Documents\NohaFiles\result_20250317_111200.pdf" />
     <None Include="Properties\PublishProfiles\project.pubxml" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
@@ -2887,9 +2887,15 @@
     <Content Include="Views\Noha\List.cshtml" />
     <Content Include="Views\PerformanceSecurity\List.cshtml" />
     <Content Include="Views\WorkOrder\List.cshtml" />
+    <Content Include="Views\ADPReceivePayment\List.cshtml" />
+    <Content Include="Views\BGBMiscellaneousFund\List.cshtml" />
+    <Content Include="Views\ContractorCompanyPayment\List.cshtml" />
+    <Content Include="Views\ContractAgreement\List.cshtml" />
+    <Content Include="Views\ProjectWorkStatus\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Documents\ProjectWorkFile\" />
     <Folder Include="Scripts\Plugins\datatables\extensions\FixedColumns\examples\integration\" />
     <Folder Include="Scripts\Plugins\jquery-tabledit\" />
     <Folder Include="Views\Shared\EditorElements\" />
@@ -3014,27 +3020,10 @@
   <ItemGroup>
     <EmbeddedResource Include="Report\Rdlc\ADPReceivePaymentReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\ContractAgreementReport.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RDLCBill.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RDLCProblem.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\BGBMiscellaneousFundReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\ContractorCompanyPaymentReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\VatTaxReport.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RptConstructionCheckList.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RptConstructionDetails.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RptConsultantFeeAmount.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RptPartialPaymentByProjectDetails.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RptFullPaymentByProjectDetails.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RptPermanentDeposit.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\rptProjectBillPayment.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RptProjectExtend.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\rptProjectInformation.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\rptProjectList.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RptProjectPaymentDeposit.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RptProjectProblem.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RptProjectStatus.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RptProjectWiseReceiptPayment.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RptProjectWiseSubProject.rdlc" />
-    <EmbeddedResource Include="Report\Rdlc\RptYearlyConstructionDetails.rdlc" />
+    <EmbeddedResource Include="Report\Rdlc\ViewWorkOrderReport.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BGB.Data\BGB.Data.csproj">
