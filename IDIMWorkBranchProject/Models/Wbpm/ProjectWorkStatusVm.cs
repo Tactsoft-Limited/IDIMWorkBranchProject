@@ -16,13 +16,16 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [DisplayName("প্রকল্পের অবস্থা")]
         public StatusType? StatusTypeId { get; set; }
+
+        public string WorkStatus { get; set; }
     }
 
     public enum StatusType
     {
-        Ongoing = 1,
-        Completed = 2,
-        Suspended = 3
+        InProcess = 1,
+        Ongoing = 2,
+        Completed = 3,
+        Suspended = 4
     }
 }
 
