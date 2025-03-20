@@ -20,6 +20,9 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("নির্মাণ কাজের নাম")]
         public string ProjectWorkTitle { get; set; }
 
+        [DisplayName("নির্মাণ কাজের নাম")]
+        public string ProjectWorkTitleB { get; set; }
+
         [Display(Name = "ফার্মের নাম")]
         public string ConstructionFirm { get; set; }
 
