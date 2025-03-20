@@ -46,5 +46,9 @@ namespace IDIMWorkBranchProject.Services.Report
 
         }
 
+        public async Task<List<ViewWorkOrder>> GetWorkOrderAsync(int id)
+        {
+            return await _context.ViewWorkOrders.Where(x => x.ProjectWorkId == id).ToListAsync();
+        }
     }
 }
