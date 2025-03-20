@@ -6,6 +6,8 @@ using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Metadata;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -121,7 +123,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                         TempData["Message"] = Messages.Success(MessageType.Create.ToString());
                     }
                 }
-                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+                return RedirectToAction(nameof(ProjectWorkController.Details), nameof(ProjectWork), new { id = model.ProjectWorkId });
             }
             catch (Exception exception)
             {
@@ -137,14 +139,15 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
             if (entity == null)
             {
-                TempData["Message"] = "The requested record was not found.";
-                return RedirectToAction("details/" + entity.ProjectWorkId, "ProjectWork");
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), "The requested record was not found.");
+                return RedirectToAction(nameof(ProjectWorkController.Details), nameof(ProjectWork), new { id = entity.ProjectWorkId });
             }
 
             var model = _mapper.Map<WorkOrderVm>(entity);
             model.ProjectWorkTitleB = await _projectWorkService.GetProjectWorkTitle(entity.ProjectWorkId);
             return View(model); // Load the delete confirmation view
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(WorkOrder model)
@@ -155,19 +158,36 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
                 if (entity == null)
                 {
-                    TempData["Message"] = "Record Not Found";
-                    return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjetWork");
+                    TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), "Record Not Found");
+                    return RedirectToAction(nameof(ProjectWorkController.Details), nameof(ProjectWork), new { id = model.ProjectWorkId });
                 }
 
                 await _workOrderService.DeleteAsync(entity);
 
                 TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
-                return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork");
+                return RedirectToAction(nameof(ProjectWorkController.Details), nameof(ProjectWork), new { id = model.ProjectWorkId });
             }
             catch (Exception exception)
             {
                 TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
-                return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork"); // Avoids null reference
+                return RedirectToAction(nameof(ProjectWorkController.Details), nameof(ProjectWork), new { id = model.ProjectWorkId });
+            }
+        }
+
+        public ActionResult PreviewDocument(string fileName)
+        {
+            // Build the full path to the file
+            var filePath = Path.Combine(Server.MapPath($"~/{fileStorePath}"), fileName);
+
+            // Check if the file exists
+            if (System.IO.File.Exists(filePath))
+            {
+                // Return the file as a FileResult with the correct content type
+                return File(filePath, "application/pdf");
+            }
+            else
+            {
+                return HttpNotFound(); // Return 404 if the file doesn't exist
             }
         }
     }
