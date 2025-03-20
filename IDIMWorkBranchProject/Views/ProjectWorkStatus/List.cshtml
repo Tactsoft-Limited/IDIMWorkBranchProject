@@ -1,0 +1,99 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model ProjectWorkStatusSearchVm
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="page-title">
+    <div class="pull-left">
+        <h3 class="title">নির্মান কাজের অবস্থা</h3>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li class="active">
+                <strong>নির্মান কাজের অবস্থা</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">নির্মান কাজের অবস্থা</h2>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <table id="ProjectWorkStatus" class="table table-striped table-bordered" width="100%" cellspacing="0">
+                </table>
+            </div>
+        </div>
+
+        <partial name="_ModalPartial" />
+    </div>
+</section>
+
+
+@section scripts {
+
+    <script>
+        $(document).ready(function () {
+            var table = $('#ProjectWorkStatus').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": baseUrl + "/ProjectWorkStatus/LoadData",  // Make sure this is correct
+                    "type": "POST",
+                    "contentType": "application/json",  // Sending JSON data
+                    "data": function (d) {
+                        // Manually create a JSON object for the POST request
+                        return JSON.stringify({
+                            SearchValue: d.search.value,  // Global search term
+                            //StartingDate: $('#StartingDate').val() ? $('#StartingDate').val() : null,
+                            //EndingDate: $('#EndingDate').val() ? $('#EndingDate').val() : null,
+                            Draw: d.draw,
+                            PageIndex: d.start / d.length,  // Pagination: starting index
+                            PageSize: d.length,  // Pagination: number of records per page
+                            SortColumn: d.order[0] ? d.columns[d.order[0].column].data : 'ProjectWorkStatusId',
+                            SortDirection: d.order[0] ? d.order[0].dir : 'asc'
+                        });
+                    },
+                    "dataSrc": function (json) {
+                        console.log(json.data)
+                        return json.data;
+                    }
+                },
+                "columns": [
+                    { "data": "ProjectWorkStatusId", "title": "আইডি", "visible": false },
+                    { "data": "ProjectWorkId", "title": "আইডি", "visible": false },
+                    { "data": "ProjectWorkTitleB", "title": "নির্মাণ কাজের নাম" },
+                    { "data": "WorkStatus", "title": "কাজের অবস্থা" },
+                    {
+                        "data": null,
+                        "title": "অ্যাকশন",
+                        "orderable": false,
+                        "render": function (data, type, row) {
+                            return `<a href="${baseUrl}/ProjectWorkStatus/Create/${row.ProjectWorkId}" class="btn btn-primary btn-xs">
+                        <i class="fa fa-pencil-square-o"></i> সংশোধন
+                    </a>`;
+                        }
+                    }
+                ]
+            });
+
+            // Apply filters automatically when the user changes any of the filter fields
+            $('#StartingDate, #EndingDate').on('change input keyup', function () {
+                table.ajax.reload();
+            });
+        });
+
+    </script>
+
+}
