@@ -6,6 +6,7 @@ using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -64,7 +65,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 model.PerformanceSecurityId = performanceSecurity.PerformanceSecurityId;
                 model.SubmissionDate = performanceSecurity.SubmissionDate;
-                model.ExpiryDate = performanceSecurity.ExpiryDate;                
+                model.ExpiryDate = performanceSecurity.ExpiryDate;
                 model.ScanDocument = performanceSecurity.ScanDocument;
             }
             return View(model);
@@ -72,7 +73,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(PerformanceSecurityVm model)
-        { var projectWork=await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
+        {
+            var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
             string fileName = null;
             try
             {
@@ -164,6 +166,23 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
                 return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork"); // Avoids null reference
+            }
+        }
+
+        public ActionResult PreviewDocument(string fileName)
+        {
+            // Build the full path to the file
+            var filePath = Path.Combine(Server.MapPath($"~/{fileStorePath}"), fileName);
+
+            // Check if the file exists
+            if (System.IO.File.Exists(filePath))
+            {
+                // Return the file as a FileResult with the correct content type
+                return File(filePath, "application/pdf");
+            }
+            else
+            {
+                return HttpNotFound(); // Return 404 if the file doesn't exist
             }
         }
     }
