@@ -227,7 +227,13 @@
                             <td>@item.WorkOrderDate.ToNullableShortDateString()</td>
                             <td>@item.StartDate.ToNullableShortDateString()</td>
                             <td>@item.EndDate.ToNullableShortDateString()</td>
-                            <td>@item.ExpiryDate.ToNullableShortDateString()</td>
+                            <td>
+                                @item.ExpiryDate.ToNullableShortDateString()
+                                @if (item.ProjectWorkStatus == 1 && item.ExpiryDate.HasValue && item.ExpiryDate.Value < DateTime.Now)
+                                {
+                                    <span class="badge badge-danger">Expired</span>
+                                }
+                            </td>
 
                             <td>
                                 <a href="@Url.Action("Create", "ADPReceivePayment", new { id = item.ProjectWorkId })" class="btn btn-primary btn-xs  @(item.IsNoahCompleted && item.IsPerformanceSecuritySubmited && item.IsAgreementCompleted&& item.IsWorkOrderCompleted ? "" : "disabled")">
