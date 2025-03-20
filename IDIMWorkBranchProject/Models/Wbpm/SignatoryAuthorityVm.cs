@@ -1,7 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FluentValidation.Attributes;
+using IDIMWorkBranchProject.Models.Validation.Wbpm;
+using System.ComponentModel.DataAnnotations;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
+    [Validator(typeof(SignatoryAuthorityVmValidator))]
     public class SignatoryAuthorityVm
     {
         public int SignatoryAuthorityId { get; set; }

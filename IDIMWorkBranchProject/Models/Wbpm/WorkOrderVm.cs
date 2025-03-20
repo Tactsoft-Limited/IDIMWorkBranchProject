@@ -2,9 +2,12 @@
 using System;
 using System.ComponentModel;
 using System.Web;
+using FluentValidation.Attributes;
+using IDIMWorkBranchProject.Models.Validation.Wbpm;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
+    [Validator(typeof(WorkOrderVmValidator))]
     public class WorkOrderVm
     {
         public int WorkOrderId { get; set; }

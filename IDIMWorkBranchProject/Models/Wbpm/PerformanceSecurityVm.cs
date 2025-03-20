@@ -1,10 +1,13 @@
-﻿using System;
+﻿using FluentValidation.Attributes;
+using IDIMWorkBranchProject.Models.Validation.Wbpm;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
+    [Validator(typeof(PerformanceSecurityVmValidator))]
     public class PerformanceSecurityVm
     {
         public int PerformanceSecurityId { get; set; }

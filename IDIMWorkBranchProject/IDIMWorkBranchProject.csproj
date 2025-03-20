@@ -489,7 +489,10 @@
     <Compile Include="Models\Validation\Wbpm\ADPProjectVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\ADPReceivePaymentVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\BGBMiscellaneousFundVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\ContractAgreementVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\NohaVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\PerformanceSecurityVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\ProjectWorkStatusVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\ProjectWorkVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\MasterplanVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\FormalMeetingVmValidator.cs" />
@@ -499,7 +502,10 @@
     <Compile Include="Models\Validation\Wbpm\ConstructionCompanyVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\ProjectDirectorVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\RecruitmentCommitteeVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\RecruitmentCommitteVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\SignatoryAuthorityVmValidator.cs" />
     <Compile Include="Models\Validation\Wbpm\VatTaxCollateralVmValidator.cs" />
+    <Compile Include="Models\Validation\Wbpm\WorkOrderVmValidator.cs" />
     <Compile Include="Models\Wbpm\ADPProjectDetailVm.cs" />
     <Compile Include="Models\Wbpm\ADPProjectSearchVm.cs" />
     <Compile Include="Models\Wbpm\ADPProjectVm.cs" />

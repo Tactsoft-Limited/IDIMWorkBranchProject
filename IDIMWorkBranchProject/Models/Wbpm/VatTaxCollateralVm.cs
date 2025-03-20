@@ -1,9 +1,12 @@
-﻿using System;
+﻿using FluentValidation.Attributes;
+using IDIMWorkBranchProject.Models.Validation.Wbpm;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
+    [Validator(typeof(VatTaxCollateralVmValidator))]
     public class VatTaxCollateralVm
     {
         public int VatTaxCollateralId { get; set; }
