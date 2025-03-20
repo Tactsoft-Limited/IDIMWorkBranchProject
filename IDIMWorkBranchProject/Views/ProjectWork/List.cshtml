@@ -125,6 +125,17 @@
                         }
                     },
                     {
+                        "data": "WorkEndDate",
+                        "title": "কাজ শেষের তারিখ",
+                        "render": function (data) {
+                            if (data && data.startsWith("/Date(")) {
+                                var timestamp = parseInt(data.replace("/Date(", "").replace(")/", ""));
+                                return new Date(timestamp).toLocaleDateString('en-GB');
+                            }
+                            return '';
+                        }
+                    },
+                    {
                         "data": "BankGuaranteeEndDate",
                         "title": "ব্যাংক গ্যারান্টির মেয়াদ",
                         "render": function (data) {
@@ -136,20 +147,9 @@
                         }
                     },
                     {
-                        "data": "HandOverDate",
-                        "title": "হস্তান্তর তারিখ",
-                        "render": function (data) {
-                            if (data && data.startsWith("/Date(")) {
-                                var timestamp = parseInt(data.replace("/Date(", "").replace(")/", ""));
-                                return new Date(timestamp).toLocaleDateString('en-GB');
-                            }
-                            return '';
-                        }
-                    },
-                    //{
-                    //    "data": "WorkStatus",
-                    //    "title": "কাজের অবস্থা",
-                    //}
+                        "data": "WorkStatus",
+                        "title": "কাজের অবস্থা",
+                    }
                 ]
             });
 
