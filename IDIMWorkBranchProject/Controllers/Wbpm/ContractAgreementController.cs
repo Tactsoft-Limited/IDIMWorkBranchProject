@@ -5,6 +5,7 @@ using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -31,7 +32,27 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         // GET: ContractAgreement
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("List");
+        }
+
+        public ActionResult List()
+        {
+            var model = new ContractAgreementSearchVm();
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> LoadData(ContractAgreementSearchVm model)
+        {
+            try
+            {
+                var data = await _contractAgreementService.GetPagedAsync(model);
+                return Json(data);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
         }
 
         public async Task<ActionResult> Create(int id)
@@ -46,7 +67,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 ProjectWorkTitle = projectWork.ProjectWorkTitle,
                 ConstructionCompanyId = contractAgreemen?.ConstructionCompanyId ?? 0,
             };
-            if (contractAgreemen != null) 
+            if (contractAgreemen != null)
             {
                 model.ContractAgreementId = contractAgreemen.ContractAgreementId;
                 model.AgreementDate = contractAgreemen.AgreementDate;
@@ -61,7 +82,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ContractAgreementVm model)
         {
-            var projectWork= await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
+            var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
             string fileName = null;
             try
             {
@@ -112,8 +133,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     projectWork.IsAgreementCompleted = true;
                     await _projectWorkService.UpdateAsync(projectWork);
                     TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                }             
-                
+                }
+
                 return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
             }
             catch (Exception exception)
@@ -134,7 +155,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 model.DDGDropdown = await _recruitmentCommitteeService.GetDropdownAsync(contractAgreement.DDGId);
                 model.ProjectdirectorDropdown = await _recruitmentCommitteeService.GetDropdownAsync(contractAgreement.ProjectDirectorId);
                 model.DirectorDropdown = await _recruitmentCommitteeService.GetDropdownAsync(contractAgreement.DirectorId);
-                model.ConstructionFirmDropdown=await _constructionCompanyService.GetDropdownAsync(contractAgreement.ConstructionCompanyId);
+                model.ConstructionFirmDropdown = await _constructionCompanyService.GetDropdownAsync(contractAgreement.ConstructionCompanyId);
             }
             else
             {
@@ -183,6 +204,23 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
                 return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork"); // Avoids null reference
+            }
+        }
+
+        public ActionResult PreviewDocument(string fileName)
+        {
+            // Build the full path to the file
+            var filePath = Path.Combine(Server.MapPath($"~/{fileStorePath}"), fileName);
+
+            // Check if the file exists
+            if (System.IO.File.Exists(filePath))
+            {
+                // Return the file as a FileResult with the correct content type
+                return File(filePath, "application/pdf");
+            }
+            else
+            {
+                return HttpNotFound(); // Return 404 if the file doesn't exist
             }
         }
     }
