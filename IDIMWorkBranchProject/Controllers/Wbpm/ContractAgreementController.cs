@@ -88,6 +88,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 if (model.ContractAgreementId > 0)
                 {
+
                     if (model.DocumentFile != null && model.DocumentFile.ContentLength > 0)
                     {
                         //Delete Old File

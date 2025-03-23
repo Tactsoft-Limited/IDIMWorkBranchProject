@@ -18,10 +18,7 @@ namespace IDIMWorkBranchProject.Models.Validation.Wbpm
             RuleFor(x => x.ExpiryDate)
                 .NotEmpty()
                 .WithMessage("ব্যাংক গ্যারান্টির শেষ তারিখ আবশ্যক।");
-
-            RuleFor(x => x.DocumentFile)
-                .NotEmpty()
-                .WithMessage("ব্যাংক গ্যারান্টি ডকুমেন্ট আবশ্যক।");
+            
         }
     }
 }
