@@ -9,11 +9,11 @@ namespace IDIMWorkBranchProject.Models.Validation.Wbpm
         {
             // ProjectWorkId: Required and should be greater than 0
             RuleFor(x => x.ProjectWorkId)
-                .GreaterThan(0).WithMessage("নির্মাণ কাজ আবশ্যক।");
+                .GreaterThan(0).WithMessage("নির্মাণ কাজ অবশ্যই পূরণ করতে হবে।");
 
             // LetterNo: Required and should not be empty
             RuleFor(x => x.LetterNo)
-                .NotEmpty().WithMessage("লেটার নম্বর আবশ্যক।");
+                .NotEmpty().WithMessage("লেটার নম্বর অবশ্যই পূরণ করতে হবে।");
 
             // BillNumber: Required and should be greater than 0
             RuleFor(x => x.BillNumber)
@@ -41,6 +41,7 @@ namespace IDIMWorkBranchProject.Models.Validation.Wbpm
 
             // BillPaidPer: Required and should be between 0 and 100
             RuleFor(x => x.BillPaidPer)
+                .NotEmpty().WithMessage("বিল পরিশোধ (%) অবশ্যই পূরণ করতে হবে।")
                 .InclusiveBetween(0, 100).WithMessage("বিল পরিশোধ (%) 0 থেকে 100 এর মধ্যে হতে হবে।");
 
             // BillPaidAmount: Required and should be greater than or equal to 0
