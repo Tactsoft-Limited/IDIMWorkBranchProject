@@ -790,6 +790,10 @@
     <Content Include="Documents\PerformanceSecurityFiles\Hemayet-Mondol-FlowCV-Resume-20250202_20250313_121335.pdf" />
     <Content Include="Documents\ContractAggrementFiles\3_20250323_124756.pdf" />
     <Content Include="Documents\ContractAggrementFiles\Hemayet-Mondol-FlowCV-Resume-20250202 %281%29_20250323_125232.pdf" />
+    <Content Include="Documents\WorkOrderFiles\2_20250324_131900.pdf" />
+    <Content Include="Documents\WorkOrderFiles\3_20250323_131639.pdf" />
+    <Content Include="Documents\WorkOrderFiles\AdminLTE 3  Dashboard_20250323_134859.pdf" />
+    <Content Include="Documents\WorkOrderFiles\Hemayet-Mondol-FlowCV-Resume-20250202 %281%29_20250323_134408.pdf" />
     <None Include="Properties\PublishProfiles\project.pubxml" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
@@ -2911,6 +2915,7 @@
     <Content Include="Views\ContractorCompanyPayment\List.cshtml" />
     <Content Include="Views\ContractAgreement\List.cshtml" />
     <Content Include="Views\ProjectWorkStatus\List.cshtml" />
+    <Content Include="Views\WorkOrder\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

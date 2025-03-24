@@ -58,6 +58,10 @@
                 @Html.DisplayFor(m => m.NohaDate)
             </div>
             <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.NohaLetterNo, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.NohaLetterNo)
+            </div>
+            <div class="form-display col-md-6">
                 @Html.LabelFor(m => m.NohaDocument, new { @class = "display-label" })
                 @if (!string.IsNullOrEmpty(Model.NohaDocument))
                 {
@@ -106,18 +110,19 @@
             </div>
         </fieldset>
 
-        <div style="margin-bottom:10px;">
-            <a href="@Url.Action("Create", "ContractAgreement", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.IsPerformanceSecuritySubmited ? "" : "disabled")"
-               @(Model.IsPerformanceSecuritySubmited ? "" : "onclick='return false;'")>
-                <i class="fa fa-pencil-square"></i>  চুক্তিপত্র সংযুক্ত করুণ
-            </a>
-            <a href="@Url.Action("PrintContactAgreement", "Report", new { id = Model.ProjectWorkId })" class="btn btn-success btn-xs pull-right mt-2 mb-2 @(Model.IsAgreementCompleted ? "" : "disabled")"
-               @(Model.IsAgreementCompleted ? "" : "onclick='return false;'")>
-                <i class="fa fa-print"></i>  চুক্তিপত্র প্রিন্ট করুণ
-            </a>
-        </div>
+        
 
         <fieldset>
+            <div style="margin-bottom:10px;">
+                <a href="@Url.Action("Create", "ContractAgreement", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.IsPerformanceSecuritySubmited ? "" : "disabled")"
+                   @(Model.IsPerformanceSecuritySubmited ? "" : "onclick='return false;'")>
+                    <i class="fa fa-pencil-square"></i>  চুক্তিপত্র সংযুক্ত করুণ
+                </a>
+                <a href="@Url.Action("PrintContactAgreement", "Report", new { id = Model.ProjectWorkId })" class="btn btn-success btn-xs pull-right mt-2 mb-2 @(Model.IsAgreementCompleted ? "" : "disabled")"
+                   @(Model.IsAgreementCompleted ? "" : "onclick='return false;'")>
+                    <i class="fa fa-print"></i>  চুক্তিপত্র প্রিন্ট করুণ
+                </a>
+            </div>
             <legend>চুক্তিপত্র</legend>
             <div class="form-display col-md-12">
                 @Html.LabelFor(m => m.FirmNameB, new { @class = "display-label" })
@@ -143,45 +148,55 @@
             </div>
         </fieldset>
 
-        <div style="margin-bottom:10px;">
-            <a href="@Url.Action("Create", "WorkOrder", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.IsAgreementCompleted ? "" : "disabled")"
-               @(Model.IsAgreementCompleted ? "" : "onclick='return false;'")>
-                <i class="fa fa-print"></i>  কার্যাদেশ সংযুক্ত করুণ
-            </a>
-            <a href="@Url.Action("PrintWorkOrder", "Report", new { id = Model.ProjectWorkId })" class="btn btn-success btn-xs pull-right mt-2 mb-2 @(Model.IsWorkOrderCompleted ? "" : "disabled")"
-               @(Model.IsWorkOrderCompleted ? "" : "onclick='return false;'")>
-                <i class="fa fa-print"></i> কার্যাদেশ  প্রিন্ট করুণ
-            </a>
-        </div>
+        
 
         <fieldset>
-            <legend>কার্যাদেশ</legend>
-            <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.WorkOrderDate, new { @class = "display-label" })
-                @Html.DisplayFor(m => m.WorkOrderDate)
-            </div>
-            <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.StartDate, new { @class = "display-label" })
-                @Html.DisplayFor(m => m.StartDate)
-            </div>
-            <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.EndDate, new { @class = "display-label" })
-                @Html.DisplayFor(m => m.EndDate)
-            </div>
-            <div class="form-display col-md-6">
-                @Html.LabelFor(m => m.WorkOrderDocument, new { @class = "display-label" })
-                @if (!string.IsNullOrEmpty(Model.WorkOrderDocument))
-                {
-                    <a href="@Url.Action("PreviewDocument", "WorkOrder", new { fileName = Model.WorkOrderDocument })" target="_blank">
-                        Preview Document
-                    </a>
-                }
-                else
-                {
-                    <span>No file uploaded</span>
-                }
+            <div style="margin-bottom:10px;">
+                <a href="@Url.Action("Create", "WorkOrder", new { id = Model.ProjectWorkId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.IsAgreementCompleted ? "" : "disabled")"
+                   @(Model.IsAgreementCompleted ? "" : "onclick='return false;'")>
+                    <i class="fa fa-print"></i>  কার্যাদেশ সংযুক্ত করুণ
+                </a>
 
             </div>
+            <legend>কার্যাদেশ</legend>
+            <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>লেটার নং</th>
+                        <th>কার্যাদেশের তারিখ</th>
+                        <th>শুরুর তারিখ</th>
+                        <th>শেষের তারিখ</th>
+                        <th>কার্যাদেশ ডকুমেন্ট</th>
+                        <th style="width:120px;">প্রিন্ট করুন</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.WorkOrderList)
+                    {
+                        <tr>
+                            <td>@item.LetterNo</td>
+                            <td>@item.WorkOrderDate</td>
+                            <td>@item.StartDate</td>
+                            <td>@item.EndDate</td>
+                            <td>@item.ScanDocument</td>
+                            <td>
+                                <a href="@Url.Action("PrintWorkOrder", "Report", new { id = Model.ProjectWorkId })" class="btn btn-success btn-xs pull-right mt-2 mb-2 @(Model.IsWorkOrderCompleted ? "" : "disabled")"
+                                   @(Model.IsWorkOrderCompleted ? "" : "onclick='return false;'")>
+                                    <i class="fa fa-print"></i> কার্যাদেশ  প্রিন্ট করুণ
+                                </a>
+                                <a href="@Url.Action("Edit", "WorkOrder", new { id = item.WorkOrderId })" class="btn btn-primary btn-xs">
+                                    <i class="fa fa-pencil-square-o"></i> সংশোধন
+                                </a>
+                                <a href="@Url.Action("Delete", "WorkOrder", new { id = item.WorkOrderId })" class="btn btn-danger btn-xs">
+                                    <i class="fa fa-trash-o"></i> অপসারণ
+                                </a>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
         </fieldset>
 
         <div class="row">

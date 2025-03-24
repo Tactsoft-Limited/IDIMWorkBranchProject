@@ -3,7 +3,7 @@
 @model WorkOrderVm
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 <div class="page-title">
     <div class="pull-left">
@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li class="active">
-                <strong>Create</strong>
+                <strong>Edit</strong>
             </li>
         </ol>
     </div>
@@ -29,7 +29,7 @@
 
 <section class="box">
     <header class="panel_header">
-        <h2 class="title pull-left">কার্যাদেশ সংযুক্ত করুন</h2>
+        <h2 class="title pull-left">কার্যাদেশ সংশোধন করুন</h2>
         <div class="actions panel_actions pull-right">
             <a href="@Url.Action("List","WorkOrder")" class="btn">
                 <i class="fa fa-list" aria-hidden="true"></i>
@@ -41,10 +41,14 @@
     <div class="content-body">
         <div class="row">
             <div class="col-md-12">
-                @using (Html.BeginForm("Create", "WorkOrder", FormMethod.Post, new { enctype = "multipart/form-data", id = "WorkOrder-create-form", role = "form" }))
+                @using (Html.BeginForm("Edit", "WorkOrder", FormMethod.Post, new { enctype = "multipart/form-data", id = "WorkOrder-create-form", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(x => x.ProjectWorkId)
+                    @Html.HiddenFor(x => x.WorkOrderId)
+                    @Html.HiddenFor(x => x.ScanDocument)
+
+
                     <div class="row">
                         <div class="form-display col-md-12">
                             @Html.LabelFor(m => m.ProjectWorkTitleB, new { @class = "form-label col-md-2" })
@@ -82,17 +86,17 @@
                         </div>
                         <div class="form-group col-md-6">
                             @Html.LabelFor(m => m.DocumentFile, new { @class = "col-md-3 form-label" })
-                            <div class="col-md-9">                               
-                                    <!-- PDF Preview Section -->
-                                    <embed id="pdfPreview"
-                                           src="@(!string.IsNullOrEmpty(Model.ScanDocument) ? Url.Content("~/Documents/WorkOrderFiles/" + Model.ScanDocument) : "")"
-                                           type="application/pdf"
-                                           width="100" height="100" />
-                                    <p>
-                                        <a id="pdfLink" href="@Url.Content("~/Documents/WorkOrderFiles/" + Model.ScanDocument)" target="_blank">
-                                            View Full PDF
-                                        </a>
-                                    </p>                               
+                            <div class="col-md-9">
+                                <!-- PDF Preview Section -->
+                                <embed id="pdfPreview"
+                                       src="@(!string.IsNullOrEmpty(Model.ScanDocument) ? Url.Content("~/Documents/WorkOrderFiles/" + Model.ScanDocument) : "")"
+                                       type="application/pdf"
+                                       width="100" height="100" />
+                                <p>
+                                    <a id="pdfLink" href="@Url.Content("~/Documents/WorkOrderFiles/" + Model.ScanDocument)" target="_blank">
+                                        View Full PDF
+                                    </a>
+                                </p>
                                 @Html.TextBoxFor(m => m.DocumentFile, new { @class = "form-control", type = "file", accept = ".pdf", id = "pdfInput", onchange = "previewPDF(event)" })
                             </div>
                         </div>
