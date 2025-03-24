@@ -89,23 +89,22 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 EstimatedCostInWordBangla = projectWorks.EstimatedCostInWordBangla,
                 Remarks = projectWorks.Remarks,
                 IsNoahCompleted = projectWorks.IsNoahCompleted,
+                NohaLetterNo = noha?.LetterNo,
                 NohaDate = noha?.NohaDate, // Null-safe access
                 NohaDocument = noha?.ScanDocument,
                 IsPerformanceSecuritySubmited = projectWorks.IsPerformanceSecuritySubmited,
-                SubmissionDate = performanceSecurity.SubmissionDate,
+                SubmissionDate = performanceSecurity?.SubmissionDate,
                 ExpiryDate = performanceSecurity?.ExpiryDate, // Null-safe access
-                PerformanceSecurityDocument = performanceSecurity.ScanDocument,
+                PerformanceSecurityDocument = performanceSecurity?.ScanDocument,
                 IsAgreementCompleted = projectWorks.IsAgreementCompleted,
                 FirmNameB = contractAgreement?.ConstructionFirm, // Null-safe access
                 AgreementDate = contractAgreement?.AgreementDate, // Null-safe access
-                AgreementDocument = contractAgreement.ScanDocument,
+                AgreementDocument = contractAgreement?.ScanDocument,
                 IsWorkOrderCompleted = projectWorks.IsWorkOrderCompleted,
-                WorkOrderDate = workOrder?.WorkOrderDate, // Null-safe access
-                StartDate = workOrder?.StartDate, // Null-safe access
-                EndDate = workOrder?.EndDate, // Null-safe access
-                WorkOrderDocument = workOrder?.ScanDocument,
                 ProjectWorkStatus = projectWorkStatus?.ProjectWorkStatusId, // Null-safe access
 
+
+                WorkOrderList = _mapper.Map<List<WorkOrderVm>>(await _workOrderService.GetAllByProjectWorkIdAsync(id)),
                 ADPReceivePayments = _mapper.Map<List<ADPReceivePaymentVm>>(await _ADPReceivePaymentService.GetByProjectWorkIdAsync(id)),
                 ContractorCompanyPayments = _mapper.Map<List<ContractorCompanyPaymentVm>>(await _contractorCompanyPaymentService.GetByProjectWorkIdAsync(id))
 

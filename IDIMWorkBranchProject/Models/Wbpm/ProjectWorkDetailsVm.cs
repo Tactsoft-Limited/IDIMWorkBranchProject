@@ -30,6 +30,9 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public bool IsAgreementCompleted { get; set; }
         public bool IsWorkOrderCompleted { get; set; }
 
+        [DisplayName("লেটার নং")]
+        public string NohaLetterNo { get; set; }
+
         [DisplayName("এনওএইচ তারিখ")]
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? NohaDate { get; set; }
@@ -51,7 +54,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
 
         [DisplayName("ঠিকাদারি প্রতিষ্ঠান")]
-        public string FirmNameB { get; set; }
+        public string FirmNameB { get; set; }       
 
         [DisplayName("চুক্তির তারিখ")]
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
@@ -60,6 +63,8 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("চুক্তি ডকুমেন্ট")]
         public string AgreementDocument { get; set; }
 
+        [DisplayName("লেটার নং")]
+        public string WorkOrderLetterNo { get; set; }
 
         [DisplayName("কার্যাদেশের তারিখ")]
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
@@ -83,6 +88,8 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public string Remarks { get; set; }
 
 
+
+        public List<WorkOrderVm> WorkOrderList { get; set; }
         public List<ADPReceivePaymentVm> ADPReceivePayments { get; set; }
         public List<ContractorCompanyPaymentVm> ContractorCompanyPayments { get; set; }
 
