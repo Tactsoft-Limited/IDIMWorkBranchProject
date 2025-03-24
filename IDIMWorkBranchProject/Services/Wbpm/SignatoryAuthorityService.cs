@@ -70,7 +70,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         {
             return await _context.SignatoryAuthorities.Select(e => new SelectListItem
             {
-                Text = e.AuthorityName,
+                Text = e.DesignationB + " " + e.AuthorityNameB,
                 Value = e.SignatoryAuthorityId.ToString(),
                 Selected = e.SignatoryAuthorityId == selected
             }).ToListAsync();
