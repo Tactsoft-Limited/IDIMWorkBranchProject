@@ -29,6 +29,7 @@ namespace BGB.Data.Entities.Wbpm
         public decimal? EstimatedCost { get; set; }
         public string EstimatedCostInWord { get; set; }
         public string EstimatedCostInWordBangla { get; set; }
+        public bool IsFurnitureIncluded { get; set; }
         public bool IsNoahCompleted { get; set; }
         public bool IsPerformanceSecuritySubmited { get; set; }
         public bool IsAgreementCompleted { get; set; }

@@ -46,6 +46,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
                             ProjectWorkTitleB = projectWork.ProjectWorkTitleB,
                             ProjectWorkTitle = projectWork.ProjectWorkTitle,
                             EstimatedCost = projectWork.EstimatedCost,
+                            IsFurnitureIncluded = projectWork.IsFurnitureIncluded,
                             IsNoahCompleted = projectWork.IsNoahCompleted,
                             IsPerformanceSecuritySubmited = projectWork.IsPerformanceSecuritySubmited,
                             IsAgreementCompleted = projectWork.IsAgreementCompleted,

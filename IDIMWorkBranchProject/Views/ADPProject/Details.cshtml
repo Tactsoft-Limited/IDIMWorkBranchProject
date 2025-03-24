@@ -242,7 +242,17 @@
                             </td>
                             <td>
                                 <a href="@Url.Action("Create", "ContractorCompanyPayment", new { id = item.ProjectWorkId })" class="btn btn-success btn-xs @(item.IsNoahCompleted && item.IsPerformanceSecuritySubmited && item.IsAgreementCompleted&& item.IsWorkOrderCompleted ? "" : "disabled")">
-                                    <i class="fa fa-money"></i> পেমেন্ট প্রদান
+                                    <i class="fa fa-money"></i> চলতি বিল প্রদান
+                                </a>
+                                @if (item.IsFurnitureIncluded)
+                                {
+                                    <a href="@Url.Action("Create", "ContractorCompanyPayment", new { id = item.ProjectWorkId })"
+                                       class="btn btn-success btn-xs @(item.IsNoahCompleted && item.IsPerformanceSecuritySubmited && item.IsAgreementCompleted && item.IsWorkOrderCompleted ? "" : "disabled")">
+                                        <i class="fa fa-money"></i> আসবাবপত্র বিল প্রদান
+                                    </a>
+                                }
+                                <a href="@Url.Action("Create", "ContractorCompanyPayment", new { id = item.ProjectWorkId })" class="btn btn-success btn-xs @(item.IsNoahCompleted && item.IsPerformanceSecuritySubmited && item.IsAgreementCompleted&& item.IsWorkOrderCompleted ? "" : "disabled")">
+                                    <i class="fa fa-money"></i> চুড়ান্ত বিল প্রদান
                                 </a>
                             </td>
                         </tr>
