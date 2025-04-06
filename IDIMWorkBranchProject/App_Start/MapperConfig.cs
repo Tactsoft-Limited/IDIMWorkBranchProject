@@ -15,6 +15,12 @@ namespace IDIMWorkBranchProject
         {
             #region Wbpm
 
+            CreateMap<FinalBillPaymentVm, FinalBillPayment>();
+            CreateMap<FinalBillPayment, FinalBillPaymentVm>();
+
+            CreateMap<BGBFundVm, BGBFund>();
+            CreateMap<BGBFund, BGBFundVm>();
+
             CreateMap<VatTaxCollateralVm, VatTaxCollateral>();
             CreateMap<VatTaxCollateral, VatTaxCollateralVm>();
 

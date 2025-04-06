@@ -50,6 +50,8 @@ namespace IDIMWorkBranchProject.Services.Wbpm
                             IsPerformanceSecuritySubmited = projectWork.IsPerformanceSecuritySubmited,
                             IsAgreementCompleted = projectWork.IsAgreementCompleted,
                             IsWorkOrderCompleted = projectWork.IsWorkOrderCompleted,
+                            IsFinalBillSubmitted = projectWork.IsFinalBillSubmitted,
+                            IsFurnitureIncluded = projectWork.IsFurnitureIncluded,
                             FirmNameB = constructionCompany.FirmNameB,
                             NohaDate = noha.NohaDate,
                             NohaDocument = noha.ScanDocument,

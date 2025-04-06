@@ -102,7 +102,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 AgreementDocument = contractAgreement?.ScanDocument,
                 IsWorkOrderCompleted = projectWorks.IsWorkOrderCompleted,
                 ProjectWorkStatus = projectWorkStatus?.ProjectWorkStatusId, // Null-safe access
-
+                IsFinalBillSubmitted = projectWorks.IsFinalBillSubmitted,
+                IsFurnitureIncluded = projectWorks.IsFurnitureIncluded,
 
                 WorkOrderList = _mapper.Map<List<WorkOrderVm>>(await _workOrderService.GetAllByProjectWorkIdAsync(id)),
                 ADPReceivePayments = _mapper.Map<List<ADPReceivePaymentVm>>(await _ADPReceivePaymentService.GetByProjectWorkIdAsync(id)),

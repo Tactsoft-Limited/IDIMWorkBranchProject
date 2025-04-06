@@ -382,6 +382,7 @@
     <Compile Include="Controllers\Wbpm\ConstructionCompanyController.cs" />
     <Compile Include="Controllers\Wbpm\ContractAgreementController.cs" />
     <Compile Include="Controllers\Wbpm\ContractorCompanyPaymentController.cs" />
+    <Compile Include="Controllers\Wbpm\FinalBillPaymentController.cs" />
     <Compile Include="Controllers\Wbpm\FinancialYearAllocationController.cs" />
     <Compile Include="Controllers\Wbpm\FiscalYearExpenseController.cs" />
     <Compile Include="Controllers\Wbpm\FormalMeetingController.cs" />
@@ -511,10 +512,12 @@
     <Compile Include="Models\Wbpm\ADPProjectVm.cs" />
     <Compile Include="Models\Wbpm\ADPReceivePaymentSearchVm.cs" />
     <Compile Include="Models\Wbpm\ADPReceivePaymentVm.cs" />
+    <Compile Include="Models\Wbpm\BGBFundVm.cs" />
     <Compile Include="Models\Wbpm\BGBMiscellaneousFundSearchVm.cs" />
     <Compile Include="Models\Wbpm\BGBMiscellaneousFundVm.cs" />
     <Compile Include="Models\Wbpm\ContractAgreementSearchVm.cs" />
     <Compile Include="Models\Wbpm\ContractorCompanyPaymentSearchVm.cs" />
+    <Compile Include="Models\Wbpm\FinalBillPaymentVm.cs" />
     <Compile Include="Models\Wbpm\NohaSearchVm.cs" />
     <Compile Include="Models\Wbpm\PerformanceSecuritySearchVm.cs" />
     <Compile Include="Models\Wbpm\PerformanceSecurityVm.cs" />
@@ -580,9 +583,12 @@
     <Compile Include="Services\User\UserService.cs" />
     <Compile Include="Services\Wbpm\ADPProjectService.cs" />
     <Compile Include="Services\Wbpm\ADPReceivePaymentService.cs" />
+    <Compile Include="Services\Wbpm\BGBFundService.cs" />
     <Compile Include="Services\Wbpm\BGBMiscellaneousFundService.cs" />
     <Compile Include="Services\Wbpm\ConstructionCompanyService.cs" />
     <Compile Include="Services\Wbpm\ContractAgreementService.cs" />
+    <Compile Include="Services\Wbpm\FinalBillPaymentService.cs" />
+    <Compile Include="Services\Wbpm\IBGBFundService.cs" />
     <Compile Include="Services\Wbpm\IContractAgreementService.cs" />
     <Compile Include="Services\Wbpm\ContractorCompanyPaymentService.cs" />
     <Compile Include="Services\Wbpm\FinancialYearAllocationService.cs" />
@@ -593,6 +599,7 @@
     <Compile Include="Services\Wbpm\IBGBMiscellaneousFundService.cs" />
     <Compile Include="Services\Wbpm\IConstructionCompanyService.cs" />
     <Compile Include="Services\Wbpm\IContractorCompanyPaymentService.cs" />
+    <Compile Include="Services\Wbpm\IFinalBillPaymentService.cs" />
     <Compile Include="Services\Wbpm\IFinancialYearAllocationService.cs" />
     <Compile Include="Services\Wbpm\IFiscalYearExpenseService.cs" />
     <Compile Include="Services\Wbpm\IFormalMeetingService.cs" />
@@ -2916,6 +2923,7 @@
     <Content Include="Views\ContractAgreement\List.cshtml" />
     <Content Include="Views\ProjectWorkStatus\List.cshtml" />
     <Content Include="Views\WorkOrder\Edit.cshtml" />
+    <Content Include="Views\FinalBillPayment\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

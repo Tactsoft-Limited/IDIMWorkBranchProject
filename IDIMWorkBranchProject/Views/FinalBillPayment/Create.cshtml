@@ -1,0 +1,183 @@
+﻿@model IDIMWorkBranchProject.Models.Wbpm.FinalBillPaymentVm
+@{
+    ViewBag.Title = "Create";
+}
+
+<div id="message"></div>
+
+<div class="page-title">
+    <div class="pull-left">
+        <h1 class="title">Final Bill Payment </h1>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","FinalBillPayment")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Final Bill Payment
+                </a>
+            </li>
+            <li class="active">
+                <strong>Create</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">Create</h2>
+        @*<div class="actions panel_actions pull-right">
+                <a href="@Url.Action("List","ADPReceivePayment")" class="btn">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    List
+                </a>
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>*@
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+
+                @using (Html.BeginForm("Create", "FinalBillPayment", FormMethod.Post, new { @class = "form-horizontal", id = "FinalBillPayment-create-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ProjectWorkName, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ProjectWorkName, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.NetAmountAsPerFinalMeasurement, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.NetAmountAsPerFinalMeasurement, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.VatTaxPer, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.VatTaxPer, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.VatTaxAmount, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.VatTaxAmount, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.ContractorDueAfterVatTaxDeduction, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.ContractorDueAfterVatTaxDeduction, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.PreviouslyPaidBillNo, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.PreviouslyPaidBillNo, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.PreviouslyPaidAmount, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.PreviouslyPaidAmount, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.PayableFinalBill, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.PayableFinalBill, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.NetFinalBill, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.NetFinalBill, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.DepositBGBFund, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.DepositBGBFund, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.RemainingDepositsInBgbFund, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.RemainingDepositsInBgbFund, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.DuePaidAmount, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.DuePaidAmount, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.BGBFundId, new { @class = "label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.BGBFundId, Model.BGBFundDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.BGBFundId)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script src="~/Scripts/banglaNumberConverter.js"></script>
+    <script>
+
+            $(document).ready(function () {
+                function calculateFinalBillAmount() {
+                    //Estimated Cost Vat Tax Calculation
+                    const netAmountAsPerFinalMeasurement = parseFloat($('#NetAmountAsPerFinalMeasurement').val()) || 0;
+                    const vatTaxPer = parseFloat($('#VatTaxPer').val()) || 0; // Get Tax percentage
+                    const PreviouslyPaidAmount = parseFloat($('#PreviouslyPaidAmount').val()) || 0; // Get Tax percentage
+                    const netFinalBill = parseFloat($('#NetFinalBill').val()) || 0;
+                    const DepositBGBFund = parseFloat($('#DepositBGBFund').val()) || 0;
+                    const RemainingDepositsInBgbFund = parseFloat($('#RemainingDepositsInBgbFund').val()) || 0;
+
+
+                    // Calculate amounts based on the input
+                    const vatTaxAmount = Math.round(netAmountAsPerFinalMeasurement * (vatTaxPer / 100)).toFixed(2); // Calculate Tax amount
+                    const ContractorDueAfterVatTaxDeductionAmount = Math.round(netAmountAsPerFinalMeasurement - vatTaxAmount).toFixed(2); // Calculate Contractor Due After Vat Tax Deduction Amount
+                    const payableFinalBillAmount = Math.round(ContractorDueAfterVatTaxDeductionAmount - PreviouslyPaidAmount).toFixed(2);
+                    const RemainingDepositsInBgbFundAmount = Math.round(netFinalBill - DepositBGBFund).toFixed(2);
+
+
+                    $('#VatTaxAmount').val(vatTaxAmount);
+                    $('#ContractorDueAfterVatTaxDeduction').val(ContractorDueAfterVatTaxDeductionAmount);
+                    $('#PayableFinalBill').val(payableFinalBillAmount);
+                    $('#NetFinalBill').val(payableFinalBillAmount);
+
+                    var calculatedRemainingDepositsInBgbFundAmount = RemainingDepositsInBgbFundAmount < 0 ? 0 : RemainingDepositsInBgbFundAmount;
+
+                    $('#RemainingDepositsInBgbFund').val(calculatedRemainingDepositsInBgbFundAmount);
+                }
+                // Trigger calculation on input change
+                $('#PreviouslyPaidAmount,#NetFinalBill,#DepositBGBFund, #NetAmountAsPerFinalMeasurement, #VatTaxPer,#RemainingDepositsInBgbFund').on('input', calculateFinalBillAmount);
+
+            });
+        </script>
+
+
+
+}

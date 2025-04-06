@@ -63,7 +63,9 @@
     <Compile Include="Entities\Irms\IrmsSetupUnit.cs" />
     <Compile Include="Entities\Wbpm\ADPProject.cs" />
     <Compile Include="Entities\Wbpm\ADPReceivePayment.cs" />
+    <Compile Include="Entities\Wbpm\BGBFund.cs" />
     <Compile Include="Entities\Wbpm\BGBMiscellaneousFund.cs" />
+    <Compile Include="Entities\Wbpm\FinalBillPayment.cs" />
     <Compile Include="Entities\Wbpm\ProjectWorkStatus.cs" />
     <Compile Include="Entities\Wbpm\PerformanceSecurity.cs" />
     <Compile Include="Entities\Wbpm\WorkOrder.cs" />

@@ -33,6 +33,8 @@ namespace BGB.Data.Entities.Wbpm
         public bool IsPerformanceSecuritySubmited { get; set; }
         public bool IsAgreementCompleted { get; set; }
         public bool IsWorkOrderCompleted { get; set; }
+        public bool IsFurnitureIncluded { get; set; }
+        public bool IsFinalBillSubmitted { get; set; }
         public string Remarks { get; set; }
 
 

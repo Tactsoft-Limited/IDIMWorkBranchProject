@@ -249,6 +249,8 @@ namespace IDIMWorkBranchProject.Data.Database
         public virtual DbSet<WorkOrder> WorkOrders { get; set; }
         public virtual DbSet<PerformanceSecurity> PerformanceSecurities { get; set; }
         public virtual DbSet<ProjectWorkStatus> ProjectWorkStatuses { get; set; }
+        public virtual DbSet<BGBFund> BGBFunds { get; set; }
+        public virtual DbSet<FinalBillPayment> FinalBillPayments { get; set; }
         #endregion
 
         public virtual DbSet<IrmsSetupLocation> SetupLocations { get; set; }
