@@ -10,5 +10,6 @@ namespace IDIMWorkBranchProject.Services.Wbpm
 {
     public interface IFinalBillPaymentService:IBaseService<FinalBillPayment>
     {
+        Task<FinalBillPayment> GetByProjectWorkIdAsync(int id);
     }
 }

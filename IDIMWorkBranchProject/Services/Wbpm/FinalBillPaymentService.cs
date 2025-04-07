@@ -16,6 +16,10 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         public FinalBillPaymentService(IDIMDBEntities context) : base(context)
         {
         }
-        
+        public async Task<FinalBillPayment> GetByProjectWorkIdAsync(int id)
+        {
+            return await _context.FinalBillPayments.Where(x => x.ProjectWorkId == id).FirstOrDefaultAsync();
+        }
+
     }
 }

@@ -47,6 +47,8 @@
                 @using (Html.BeginForm("Create", "FinalBillPayment", FormMethod.Post, new { @class = "form-horizontal", id = "FinalBillPayment-create-form", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.ProjectWorkId)                    
+                    @Html.HiddenFor(x => x.FinalBillPaymentId)                    
 
                     <div class="row">
                         <div class="form-display col-md-12">
@@ -123,10 +125,10 @@
                         </div>
 
                         <div class="form-display col-md-6">
-                            @Html.LabelFor(m => m.BGBFundId, new { @class = "label-display col-md-4 " })
+                            @Html.LabelFor(m => m.PaidFromBGBFundId, new { @class = "label-display col-md-4 " })
                             <div class="col-md-8">
-                                @Html.DropDownListFor(m => m.BGBFundId, Model.BGBFundDropdown, "Select One", new { @class = "select2" })
-                                @Html.ValidationMessageFor(model => model.BGBFundId)
+                                @Html.DropDownListFor(m => m.PaidFromBGBFundId, Model.BGBFundDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.PaidFromBGBFundId)
                             </div>
                         </div>
                     </div>

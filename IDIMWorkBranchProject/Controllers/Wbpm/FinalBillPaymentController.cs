@@ -21,13 +21,14 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IContractorCompanyPaymentService _contractorCompanyPaymentService;
         private readonly IBGBMiscellaneousFundService _bgbMiscellaneousFundService;
         private readonly IMapper _mapper;
-        public FinalBillPaymentController(IActivityLogService activityLogService, IFinalBillPaymentService finalBillPaymentService, IProjectWorkService projectWorkService, IBGBFundService bgbFundService, IContractorCompanyPaymentService contractorCompanyPaymentService, IBGBMiscellaneousFundService bgbMiscellaneousFundService) : base(activityLogService)
+        public FinalBillPaymentController(IActivityLogService activityLogService, IFinalBillPaymentService finalBillPaymentService, IProjectWorkService projectWorkService, IBGBFundService bgbFundService, IContractorCompanyPaymentService contractorCompanyPaymentService, IBGBMiscellaneousFundService bgbMiscellaneousFundService, IMapper mapper) : base(activityLogService)
         {
             _finalBillPaymentService = finalBillPaymentService;
             _projectWorkService = projectWorkService;
             _bgbFundService = bgbFundService;
             _contractorCompanyPaymentService = contractorCompanyPaymentService;
             _bgbMiscellaneousFundService = bgbMiscellaneousFundService;
+            _mapper = mapper;
         }
 
         // GET: FinalBillPayment
@@ -40,15 +41,30 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
              var projectWork=await _projectWorkService.GetByIdAsync(id);
             var contractionCompanyPayment=await _contractorCompanyPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
             var bgbMiscellaneousFund = await _bgbMiscellaneousFundService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
+            var finalBillPayment= await _finalBillPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
             var model = new FinalBillPaymentVm
             {
                 ProjectWorkId = projectWork.ProjectWorkId,
                 ProjectWorkName = projectWork.ProjectWorkTitleB,
                 PreviouslyPaidBillNo = contractionCompanyPayment.Count(),
                 PreviouslyPaidAmount = contractionCompanyPayment.Sum(e => e.FinalPaymentAmount),
-                DepositBGBFund = (bgbMiscellaneousFund.Sum(a => a.Amount) - contractionCompanyPayment.Sum(e => e.FinalPaymentAmount)),               
+                DepositBGBFund = (bgbMiscellaneousFund.Sum(a => a.Amount) - contractionCompanyPayment.Sum(e => e.FinalPaymentAmount)),                
                 BGBFundDropdown = await _bgbFundService.GetDropdownAsync(),
             };
+            if(finalBillPayment != null)
+            {
+                model.FinalBillPaymentId = finalBillPayment.FinalBillPaymentId;
+                model.NetAmountAsPerFinalMeasurement = finalBillPayment.NetAmountAsPerFinalMeasurement;
+                model.VatTaxPer = finalBillPayment.VatTaxPer;
+                model.VatTaxAmount = finalBillPayment.VatTaxAmount;
+                model.ContractorDueAfterVatTaxDeduction = finalBillPayment.ContractorDueAfterVatTaxDeduction;
+                model.PayableFinalBill = finalBillPayment.PayableFinalBill;
+                model.NetFinalBill = finalBillPayment.NetFinalBill;
+                model.PaidFromBGBFundId = finalBillPayment.PaidFromBGBFundId;
+                model.RemainingDepositsInBgbFund = finalBillPayment.RemainingDepositsInBgbFund;
+                model.DuePaidAmount = finalBillPayment.DuePaidAmount;
+                model.BGBFundDropdown = await _bgbFundService.GetDropdownAsync(finalBillPayment.PaidFromBGBFundId);
+            }
             return View(model);
         }
 
@@ -64,20 +80,41 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     model.BGBFundDropdown = await _bgbFundService.GetDropdownAsync(model.ProjectWorkId);
                     return View(model);
                 }
+                if (model.FinalBillPaymentId > 0)
+                {
+                    var updatedFinalPayment= await _finalBillPaymentService.UpdateAsync(_mapper.Map<FinalBillPayment>(model));
 
-                var entity = _mapper.Map<FinalBillPayment>(model);
-                var final= await _finalBillPaymentService.CreateAsync(entity);
-                TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());
 
-                var bGBFund = new BGBFund();
-                bGBFund.ProjectWorkId = final.ProjectWorkId;
-                bGBFund.AmountDeposited = final.RemainingDepositsInBgbFund;
-                bGBFund.PaidFromProjectId = final.BGBFundId;
-                bGBFund.PaidAmount = final.DuePaidAmount;
+                    var bgbFund = await _bgbFundService.GetByFinalBillPaymentIdAsync(model.ProjectWorkId);
 
-                await _bgbFundService.CreateAsync(bGBFund);
-                TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                    if (bgbFund != null)
+                    {                        
+                        bgbFund.ProjectWorkId = updatedFinalPayment.ProjectWorkId;
+                        bgbFund.AmountDeposited = updatedFinalPayment.RemainingDepositsInBgbFund;
+                        bgbFund.PaidFromBGBFundId = updatedFinalPayment.PaidFromBGBFundId;
+                        bgbFund.PaidAmount = updatedFinalPayment.DuePaidAmount;
 
+                        await _bgbFundService.UpdateAsync(bgbFund);
+                    }
+                }
+                else 
+                {
+                    var entity = _mapper.Map<FinalBillPayment>(model);
+                    var final= await _finalBillPaymentService.CreateAsync(entity);
+                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+
+                    // Ensure that you don't set BGBFundId explicitly
+                    var bGBFund = new BGBFund
+                    {                    
+                        ProjectWorkId = final.ProjectWorkId,
+                        AmountDeposited = final.RemainingDepositsInBgbFund,
+                        PaidFromBGBFundId = final.PaidFromBGBFundId,
+                        PaidAmount = final.DuePaidAmount
+                    };
+                    await _bgbFundService.CreateAsync(bGBFund);
+                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                }
                 return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
             }
 

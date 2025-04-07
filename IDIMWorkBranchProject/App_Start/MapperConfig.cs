@@ -18,7 +18,7 @@ namespace IDIMWorkBranchProject
             CreateMap<FinalBillPaymentVm, FinalBillPayment>();
             CreateMap<FinalBillPayment, FinalBillPaymentVm>();
 
-            CreateMap<BGBFundVm, BGBFund>();
+            CreateMap<BGBFundVm, BGBFund>();                
             CreateMap<BGBFund, BGBFundVm>();
 
             CreateMap<VatTaxCollateralVm, VatTaxCollateral>();

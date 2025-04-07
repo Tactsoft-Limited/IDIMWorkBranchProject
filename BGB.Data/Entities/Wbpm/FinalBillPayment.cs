@@ -25,8 +25,11 @@ namespace BGB.Data.Entities.Wbpm
         public decimal DepositBGBFund { get; set; }
         public decimal NetFinalBill { get; set; }
         public decimal FinalBill { get; set; }
-        public int? BGBFundId { get; set; }
+        public int? PaidFromBGBFundId { get; set; }
         public decimal? RemainingDepositsInBgbFund { get; set; }
         public decimal? DuePaidAmount { get; set; }
+
+        [ForeignKey(nameof(PaidFromBGBFundId))]
+        public virtual ICollection<BGBFund> BGBFunds { get; set; }
     }
 }

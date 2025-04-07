@@ -9,7 +9,11 @@ using System.Web.Mvc;
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
     public class FinalBillPaymentVm 
-    {  
+    { 
+        public FinalBillPaymentVm()
+        {
+            BGBFundDropdown = new List<SelectListItem>();
+        }
         public int FinalBillPaymentId { get; set; }
 
         [DisplayName("নির্মাণ কাজের নাম ")]
@@ -38,15 +42,11 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public decimal NetFinalBill { get; set; }
         public decimal FinalBill { get; set; }
         [Display(Name = "বিজিবি ফান্ড")]
-        public int? BGBFundId { get; set; }
+        public int? PaidFromBGBFundId { get; set; }
         [Display(Name = "চূড়ান্ত বিলে ঠিকাদারের বকেয়া প্রাপ্য")]
         public decimal? DuePaidAmount { get; set; }
         [Display(Name = "বিজিবি বিবিধ ফান্ডে অবশিষ্ঠ জমা থাকবে ")]
         public decimal? RemainingDepositsInBgbFund { get; set; }
-
-
-
-
 
         #region navigation property
         public IEnumerable<SelectListItem> BGBFundDropdown { get; set; }        
