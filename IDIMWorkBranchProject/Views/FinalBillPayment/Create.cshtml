@@ -162,7 +162,7 @@
                     const vatTaxAmount = Math.round(netAmountAsPerFinalMeasurement * (vatTaxPer / 100)).toFixed(2); // Calculate Tax amount
                     const ContractorDueAfterVatTaxDeductionAmount = Math.round(netAmountAsPerFinalMeasurement - vatTaxAmount).toFixed(2); // Calculate Contractor Due After Vat Tax Deduction Amount
                     const payableFinalBillAmount = Math.round(ContractorDueAfterVatTaxDeductionAmount - PreviouslyPaidAmount).toFixed(2);
-                    const RemainingDepositsInBgbFundAmount = Math.round(netFinalBill - DepositBGBFund).toFixed(2);
+                    const RemainingDepositsInBgbFundAmount = Math.round(DepositBGBFund - netFinalBill).toFixed(2);
 
 
                     $('#VatTaxAmount').val(vatTaxAmount);

@@ -386,6 +386,7 @@
     <Compile Include="Controllers\Wbpm\FinancialYearAllocationController.cs" />
     <Compile Include="Controllers\Wbpm\FiscalYearExpenseController.cs" />
     <Compile Include="Controllers\Wbpm\FormalMeetingController.cs" />
+    <Compile Include="Controllers\Wbpm\FurnitureBillPaymentController.cs" />
     <Compile Include="Controllers\Wbpm\NohaController.cs" />
     <Compile Include="Controllers\Wbpm\PerformanceSecurityController.cs" />
     <Compile Include="Controllers\Wbpm\ProjectDirectorController.cs" />
@@ -518,6 +519,7 @@
     <Compile Include="Models\Wbpm\ContractAgreementSearchVm.cs" />
     <Compile Include="Models\Wbpm\ContractorCompanyPaymentSearchVm.cs" />
     <Compile Include="Models\Wbpm\FinalBillPaymentVm.cs" />
+    <Compile Include="Models\Wbpm\FurnitureBillPaymentVm.cs" />
     <Compile Include="Models\Wbpm\NohaSearchVm.cs" />
     <Compile Include="Models\Wbpm\PerformanceSecuritySearchVm.cs" />
     <Compile Include="Models\Wbpm\PerformanceSecurityVm.cs" />
@@ -588,6 +590,7 @@
     <Compile Include="Services\Wbpm\ConstructionCompanyService.cs" />
     <Compile Include="Services\Wbpm\ContractAgreementService.cs" />
     <Compile Include="Services\Wbpm\FinalBillPaymentService.cs" />
+    <Compile Include="Services\Wbpm\FurnitureBillPaymentService.cs" />
     <Compile Include="Services\Wbpm\IBGBFundService.cs" />
     <Compile Include="Services\Wbpm\IContractAgreementService.cs" />
     <Compile Include="Services\Wbpm\ContractorCompanyPaymentService.cs" />
@@ -603,6 +606,7 @@
     <Compile Include="Services\Wbpm\IFinancialYearAllocationService.cs" />
     <Compile Include="Services\Wbpm\IFiscalYearExpenseService.cs" />
     <Compile Include="Services\Wbpm\IFormalMeetingService.cs" />
+    <Compile Include="Services\Wbpm\IFurnitureBillPaymentService.cs" />
     <Compile Include="Services\Wbpm\IMasterplanService.cs" />
     <Compile Include="Services\Wbpm\INohaService.cs" />
     <Compile Include="Services\Wbpm\IPerformanceSecurityService.cs" />
@@ -2924,6 +2928,7 @@
     <Content Include="Views\ProjectWorkStatus\List.cshtml" />
     <Content Include="Views\WorkOrder\Edit.cshtml" />
     <Content Include="Views\FinalBillPayment\Create.cshtml" />
+    <Content Include="Views\FurnitureBillPayment\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

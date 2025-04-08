@@ -15,6 +15,9 @@ namespace IDIMWorkBranchProject
         {
             #region Wbpm
 
+            CreateMap<FurnitureBillPaymentVm, FurnitureBillPayment>();
+            CreateMap<FurnitureBillPayment, FurnitureBillPaymentVm>();
+
             CreateMap<FinalBillPaymentVm, FinalBillPayment>();
             CreateMap<FinalBillPayment, FinalBillPaymentVm>();
 

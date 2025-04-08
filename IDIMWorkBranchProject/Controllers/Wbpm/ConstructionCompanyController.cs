@@ -55,6 +55,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ConstructionCompanyVm model)
         {
             try

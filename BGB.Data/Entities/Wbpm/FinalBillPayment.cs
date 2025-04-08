@@ -21,6 +21,9 @@ namespace BGB.Data.Entities.Wbpm
         public decimal ContractorDueAfterVatTaxDeduction { get; set; }
         public int PreviouslyPaidBillNo { get; set; }
         public decimal PreviouslyPaidAmount { get; set; }
+        public decimal FurnitureBillPaymentAmount { get; set; } 
+        public decimal CollateralPaidAmound { get; set; } 
+        public decimal AdvancePaymentAmount { get; set; } 
         public decimal PayableFinalBill { get; set; }      
         public decimal DepositBGBFund { get; set; }
         public decimal NetFinalBill { get; set; }
@@ -29,7 +32,5 @@ namespace BGB.Data.Entities.Wbpm
         public decimal? RemainingDepositsInBgbFund { get; set; }
         public decimal? DuePaidAmount { get; set; }
 
-        [ForeignKey(nameof(PaidFromBGBFundId))]
-        public virtual ICollection<BGBFund> BGBFunds { get; set; }
     }
 }

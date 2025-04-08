@@ -30,10 +30,16 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public decimal VatTaxAmount { get; set; }
         [Display(Name = "আয়কর ও ভ্যাট কর্তনের পর ঠিকাদারের প্রাপ্য ")]
         public decimal ContractorDueAfterVatTaxDeduction { get; set; }
-        [Display(Name = "পূর্বে পরিশোধিত বিল সংখ্যা")]
+        [Display(Name = "পূর্বে পরিশোধিত চলতি বিলের সংখ্যা")]
         public int PreviouslyPaidBillNo { get; set; }
-        [Display(Name = "পূর্বে পরিশোধিত পরিমাণ")]
+        [Display(Name = "পূর্বে পরিশোধিত চলতি বিলের পরিমাণ")]
         public decimal PreviouslyPaidAmount { get; set; }
+        [Display(Name = "আসবাবপত্র বিল পরিশোধের পরিমান")]
+        public decimal FurnitureBillPaymentAmount { get; set; }
+        [Display(Name = "১০% জামানতে পরিশোধের পরিমান")]
+        public decimal CollateralPaidAmound { get; set; }
+        [Display(Name = "ইতি পূর্বে মোট পরিশোধ")]
+        public decimal AdvancePaymentAmount { get; set; }
         [Display(Name = "চুড়ান্ত বিলে পরিশোধযোগ্য অর্থ")]
         public decimal PayableFinalBill { get; set; }
         [Display(Name = "বিজিবি ফান্ডে নীট জমা")]

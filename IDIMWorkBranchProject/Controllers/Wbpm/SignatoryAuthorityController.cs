@@ -80,10 +80,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             catch (Exception exception)
             {
                 message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
-            }
-
-            //model.ProjectDropdown = await _projectService.GetDropdownAsync(model.ProjectId);
-            //model.ReceivePaymentDropdown = await _receivePaymentService.GetDropdownAsync(model.ReceivePaymentId);
+            }            
 
             TempData["Message"] = message;
 

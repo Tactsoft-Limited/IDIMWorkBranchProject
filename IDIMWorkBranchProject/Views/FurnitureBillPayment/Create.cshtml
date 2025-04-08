@@ -1,0 +1,197 @@
+﻿@model IDIMWorkBranchProject.Models.Wbpm.FurnitureBillPaymentVm
+@{
+    ViewBag.Title = "Create";
+}
+
+<div id="message"></div>
+
+<div class="page-title">
+    <div class="pull-left">
+        <h1 class="title">Furniture Bill Payment </h1>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","FinalBillPayment")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Furniture Bill Payment
+                </a>
+            </li>
+            <li class="active">
+                <strong>Create</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">Create</h2>
+        @*<div class="actions panel_actions pull-right">
+                <a href="@Url.Action("List","ADPReceivePayment")" class="btn">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    List
+                </a>
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>*@
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+
+                @using (Html.BeginForm("Create", "FurnitureBillPayment", FormMethod.Post, new { @class = "form-horizontal", id = "FurnitureBillPayment-create-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.ProjectWorkId)
+                    @Html.HiddenFor(x => x.FurnitureBillPaymentId)
+                    @Html.HiddenFor(x => x.ConstractorCompanyId)
+
+                    <div class="row">
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ProjectWorkTitleB, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ProjectWorkTitleB, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ConstractorCompanyName, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ConstractorCompanyName, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ChangedConstractorCompanyId, new { @class = "label-display col-md-2 " })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m => m.ChangedConstractorCompanyId, Model.ConstructionCompanyDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.ChangedConstractorCompanyId)
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.LetterNo, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.LetterNo, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.QuoteOne, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.QuoteOne, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.QuoteTwo, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.QuoteTwo, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.QuoteThree, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.QuoteThree, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.QuoteFour, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.QuoteFour, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.AllocationToFurniture, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.AllocationToFurniture, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.AllocationToFurnitureInWordB, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.AllocationToFurnitureInWordB, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.DepositsInFund, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.DepositsInFund, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.PaymentAmount, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.PaymentAmount, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.PaymentAmountInWordB, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.PaymentAmountInWordB, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.DepositedInFund, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.DepositedInFund, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.DepositedInFundInWordB, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.DepositedInFundInWordB, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script src="~/Scripts/banglaNumberConverter.js"></script>
+    <script>
+        $(document).ready(function () {
+            function furnitureBillPayementConversion() {
+                // Parse numeric inputs
+                const allocationToFurniture = parseFloat($('#AllocationToFurniture').val()) || 0;
+                const depositedInFund = parseFloat($('#DepositedInFund').val()) || 0;
+                const paymentAmount = parseFloat($('#PaymentAmount').val()) || 0;
+                const depositsInFund = parseFloat($('#DepositsInFund').val()) || 0;
+
+                // Calculate remaining deposit
+                const willDepositInFund = depositsInFund - paymentAmount;
+
+                // Convert to Bangla words (make sure getBanglaWord is defined)
+                const allocationToFurnitureInWord = getBanglaWord(allocationToFurniture);
+                const depositedInFundInWord = getBanglaWord(depositedInFund);
+                const paymentAmountInWord = getBanglaWord(paymentAmount);
+
+                // Update word conversion fields
+                $('#AllocationToFurnitureInWordB').val(allocationToFurnitureInWord);
+                $('#DepositedInFundInWordB').val(depositedInFundInWord);
+                $('#PaymentAmountInWordB').val(paymentAmountInWord);
+
+                // Optional: update this field if you have a separate field for it
+                $('#DepositedInFund').val(willDepositInFund);
+            }
+
+            // Trigger on input change
+            $('#AllocationToFurniture, #PaymentAmount, #DepositedInFund, #DepositsInFund').on('input', furnitureBillPayementConversion);
+        });
+    </script>
+
+
+
+
+}
