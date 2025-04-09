@@ -16,6 +16,7 @@ namespace BGB.Data.Entities.Wbpm
         public int FinalBillPaymentId { get; set; }
         public int ProjectWorkId { get; set; }
         public decimal NetAmountAsPerFinalMeasurement { get; set; }
+        public string LetterNo { get; set; }
         public double VatTaxPer { get; set; }
         public decimal VatTaxAmount { get; set; }      
         public decimal ContractorDueAfterVatTaxDeduction { get; set; }
@@ -27,9 +28,11 @@ namespace BGB.Data.Entities.Wbpm
         public decimal PayableFinalBill { get; set; }      
         public decimal DepositBGBFund { get; set; }
         public decimal NetFinalBill { get; set; }
+        public string NetFinalBillWordB { get; set; }
         public decimal FinalBill { get; set; }
         public int? PaidFromBGBFundId { get; set; }
         public decimal? RemainingDepositsInBgbFund { get; set; }
+        public string RemainingDepositsInBgbFundWordB { get; set; }
         public decimal? DuePaidAmount { get; set; }
 
     }

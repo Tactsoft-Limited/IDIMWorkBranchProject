@@ -50,7 +50,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             var model = new FinalBillPaymentVm
             {
                 ProjectWorkId = projectWork.ProjectWorkId,
-                ProjectWorkName = projectWork.ProjectWorkTitleB,
+                ProjectWorkName = projectWork.ProjectWorkTitleB,                
                 PreviouslyPaidBillNo = contractionCompanyPayment.Count(),
                 PreviouslyPaidAmount = contractionCompanyPayment.Sum(e => e.FinalPaymentAmount),
                 CollateralPaidAmound = projectWork.EstimatedCost * 10/100,
@@ -67,8 +67,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 model.ContractorDueAfterVatTaxDeduction = finalBillPayment.ContractorDueAfterVatTaxDeduction;
                 model.PayableFinalBill = finalBillPayment.PayableFinalBill;
                 model.NetFinalBill = finalBillPayment.NetFinalBill;
+                model.NetFinalBillWordB = finalBillPayment.NetFinalBillWordB;
                 model.PaidFromBGBFundId = finalBillPayment.PaidFromBGBFundId;
                 model.RemainingDepositsInBgbFund = finalBillPayment.RemainingDepositsInBgbFund;
+                model.RemainingDepositsInBgbFundWordB = finalBillPayment.RemainingDepositsInBgbFundWordB;
                 model.DuePaidAmount = finalBillPayment.DuePaidAmount;
                 model.BGBFundDropdown = await _bgbFundService.GetDropdownAsync(finalBillPayment.PaidFromBGBFundId);
             }

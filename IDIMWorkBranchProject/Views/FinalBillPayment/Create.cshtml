@@ -64,6 +64,12 @@
                             </div>
                         </div>
                         <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.LetterNo, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.LetterNo, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
                             @Html.LabelFor(m => m.VatTaxPer, new { @class = "label-display col-md-4" })
                             <div class="col-md-8">
                                 @Html.TextBoxFor(m => m.VatTaxPer, new { @class = "form-control" })
@@ -124,6 +130,12 @@
                             </div>
                         </div>
                         <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.NetFinalBillWordB, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.NetFinalBillWordB, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
                             @Html.LabelFor(m => m.DepositBGBFund, new { @class = "label-display col-md-4" })
                             <div class="col-md-8">
                                 @Html.TextBoxFor(m => m.DepositBGBFund, new { @class = "form-control" })
@@ -133,6 +145,12 @@
                             @Html.LabelFor(m => m.RemainingDepositsInBgbFund, new { @class = "label-display col-md-4" })
                             <div class="col-md-8">
                                 @Html.TextBoxFor(m => m.RemainingDepositsInBgbFund, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.RemainingDepositsInBgbFundWordB, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.RemainingDepositsInBgbFundWordB, new { @class = "form-control" })
                             </div>
                         </div>
                         <div class="form-display col-md-6">
@@ -163,51 +181,6 @@
 
 @section scripts{
     <script src="~/Scripts/banglaNumberConverter.js"></script>
-    @*<script>
-
-        $(document).ready(function () {
-            function calculateFinalBillAmount() {
-                //Estimated Cost Vat Tax Calculation
-                const netAmountAsPerFinalMeasurement = parseFloat($('#NetAmountAsPerFinalMeasurement').val()) || 0;
-                const vatTaxPer = parseFloat($('#VatTaxPer').val()) || 0; // Get Tax percentage
-                const previouslyPaidAmount = parseFloat($('#PreviouslyPaidAmount').val()) || 0; // Get Tax percentage
-                const netFinalBill = parseFloat($('#NetFinalBill').val()) || 0;
-                const depositBGBFund = parseFloat($('#DepositBGBFund').val()) || 0;
-                const remainingDepositsInBgbFund = parseFloat($('#RemainingDepositsInBgbFund').val()) || 0;
-                const furnitureBillPaymentAmount = parseFloat($('#FurnitureBillPaymentAmount').val()) || 0;
-                const collateralPaidAmound = parseFloat($('#CollateralPaidAmound').val()) || 0;
-
-
-                // Calculate amounts based on the input
-                const vatTaxAmount = Math.round(netAmountAsPerFinalMeasurement * (vatTaxPer / 100)).toFixed(2); // Calculate Tax amount
-                const ContractorDueAfterVatTaxDeductionAmount = Math.round(netAmountAsPerFinalMeasurement - vatTaxAmount).toFixed(2); // Calculate Contractor Due After Vat Tax Deduction Amount
-                const payableFinalBillAmount = Math.round(ContractorDueAfterVatTaxDeductionAmount - PreviouslyPaidAmount).toFixed(2);
-                const RemainingDepositsInBgbFundAmount = Math.round(DepositBGBFund - netFinalBill).toFixed(2);
-
-                const totalAdvancePaymentAmount = Math.round(previouslyPaidAmount + furnitureBillPaymentAmount + collateralPaidAmound);
-
-
-
-                $('#VatTaxAmount').val(vatTaxAmount);
-                $('#ContractorDueAfterVatTaxDeduction').val(ContractorDueAfterVatTaxDeductionAmount);
-                $('#PayableFinalBill').val(payableFinalBillAmount);
-                $('#NetFinalBill').val(payableFinalBillAmount);
-                $('#AdvancePaymentAmount').val(totalAdvancePaymentAmount);
-
-
-
-                var calculatedRemainingDepositsInBgbFundAmount = RemainingDepositsInBgbFundAmount < 0 ? 0 : RemainingDepositsInBgbFundAmount;
-
-                $('#RemainingDepositsInBgbFund').val(calculatedRemainingDepositsInBgbFundAmount);
-            }
-            // Trigger calculation on input change
-            $('#PreviouslyPaidAmount,#NetFinalBill,#DepositBGBFund, #NetAmountAsPerFinalMeasurement, #VatTaxPer,#RemainingDepositsInBgbFund,#AdvancePaymentAmount').on('input', calculateFinalBillAmount);
-
-
-        });
-    </script>*@
-
-
     <script>
         $(document).ready(function () {
 
@@ -216,20 +189,35 @@
                 const vatTaxPer = parseFloat($('#VatTaxPer').val()) || 0;
                 const previouslyPaidAmount = parseFloat($('#PreviouslyPaidAmount').val()) || 0;
                 const netFinalBill = parseFloat($('#NetFinalBill').val()) || 0;
-                const depositBGBFund = parseFloat($('#DepositBGBFund').val()) || 0;               
+                const depositBGBFund = parseFloat($('#DepositBGBFund').val()) || 0;
+                const remainingDepositsInBgbFund = parseFloat($('#RemainingDepositsInBgbFund').val()) || 0;
 
                 const vatTaxAmount = Math.round(netAmountAsPerFinalMeasurement * (vatTaxPer / 100));
                 const contractorDueAfterVatTaxDeduction = Math.round(netAmountAsPerFinalMeasurement - vatTaxAmount);
                 const payableFinalBillAmount = Math.round(contractorDueAfterVatTaxDeduction - previouslyPaidAmount);
-                const remainingDepositsInBgbFundAmount = Math.round(depositBGBFund - netFinalBill);            
+                const remainingDepositsInBgbFundAmount = Math.round(depositBGBFund - netFinalBill);
+
+                // Convert to Bangla words (make sure getBanglaWord is defined)
+
 
                 $('#VatTaxAmount').val(vatTaxAmount.toFixed(2));
                 $('#ContractorDueAfterVatTaxDeduction').val(contractorDueAfterVatTaxDeduction.toFixed(2));
                 $('#PayableFinalBill').val(payableFinalBillAmount.toFixed(2));
-                $('#NetFinalBill').val(payableFinalBillAmount.toFixed(2));               
+                $('#NetFinalBill').val(payableFinalBillAmount.toFixed(2));
+
+
 
                 const calculatedRemaining = remainingDepositsInBgbFundAmount < 0 ? 0 : remainingDepositsInBgbFundAmount;
+
                 $('#RemainingDepositsInBgbFund').val(calculatedRemaining.toFixed(2));
+
+
+                const netFinalBillInWord = getBanglaWord(payableFinalBillAmount);
+                const remainingDepositsInBgbFundAmountInWord = getBanglaWord(remainingDepositsInBgbFundAmount);
+
+                $('#NetFinalBillWordB').val(netFinalBillInWord);
+                
+                $('#RemainingDepositsInBgbFundWordB').val(remainingDepositsInBgbFundAmountInWord);
             }
 
             const previouslyPaidAmount = parseFloat($('#PreviouslyPaidAmount').val()) || 0;
@@ -238,10 +226,14 @@
 
             console.log(previouslyPaidAmount, furnitureBillPaymentAmount, collateralPaidAmount);
 
+
+
             const totalAdvancePaymentAmount = Math.round(previouslyPaidAmount + furnitureBillPaymentAmount + collateralPaidAmount);
             $('#AdvancePaymentAmount').val(totalAdvancePaymentAmount);
 
-            $('#PreviouslyPaidAmount, #NetFinalBill, #DepositBGBFund, #NetAmountAsPerFinalMeasurement, #VatTaxPer, #RemainingDepositsInBgbFund, #AdvancePaymentAmount, #FurnitureBillPaymentAmount, #CollateralPaidAmount')
+         
+
+            $('#PreviouslyPaidAmount, #NetFinalBill, #DepositBGBFund, #NetAmountAsPerFinalMeasurement, #VatTaxPer, #RemainingDepositsInBgbFund, #AdvancePaymentAmount,#NetFinalBillWordB,#RemainingDepositsInBgbFundWordB, #FurnitureBillPaymentAmount, #CollateralPaidAmount')
                 .on('input', calculateFinalBillAmount);
         });
     </script>

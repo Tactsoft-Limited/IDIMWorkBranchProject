@@ -24,6 +24,8 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [Display(Name = "চূড়ান্ত পরিমাপ অনুযায়ী মোট পরিমাণ")]
         public decimal NetAmountAsPerFinalMeasurement { get; set; }
+        [Display(Name = "লেটার নং")]
+        public string LetterNo { get; set; }
         [Display(Name = "ভ্যাট ও আয়কর (%)")]
         public double VatTaxPer { get; set; }
         [Display(Name = " ভ্যাট ট্যাক্স পরিমান ")]
@@ -46,6 +48,9 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public decimal DepositBGBFund { get; set; }
         [Display(Name = "চূড়ান্ত বিলে ঠিকাদারকে নীট পরিশোধ করা যেতে পারে")]
         public decimal NetFinalBill { get; set; }
+
+        [Display(Name = "চূড়ান্ত বিলে ঠিকাদারকে নীট পরিশোধ করা যেতে পারে কথায় (বাংলা) ")]
+        public string NetFinalBillWordB { get; set; }
         public decimal FinalBill { get; set; }
         [Display(Name = "বিজিবি ফান্ড")]
         public int? PaidFromBGBFundId { get; set; }
@@ -53,6 +58,9 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public decimal? DuePaidAmount { get; set; }
         [Display(Name = "বিজিবি বিবিধ ফান্ডে অবশিষ্ঠ জমা থাকবে ")]
         public decimal? RemainingDepositsInBgbFund { get; set; }
+
+        [Display(Name = "বিজিবি বিবিধ ফান্ডে অবশিষ্ঠ জমা থাকবে কথায় (বাংলা) ")]
+        public string RemainingDepositsInBgbFundWordB { get; set; }
 
         #region navigation property
         public IEnumerable<SelectListItem> BGBFundDropdown { get; set; }        
