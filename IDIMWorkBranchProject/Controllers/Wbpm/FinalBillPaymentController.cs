@@ -79,6 +79,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(FinalBillPaymentVm model)
         {
+            var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
             try
             {
                 if (!ModelState.IsValid)
@@ -109,6 +110,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 {
                     var entity = _mapper.Map<FinalBillPayment>(model);
                     var final= await _finalBillPaymentService.CreateAsync(entity);
+                    projectWork.IsFinalBillSubmitted = true;
+                    await _projectWorkService.UpdateAsync(projectWork);
                     TempData["Message"] = Messages.Success(MessageType.Create.ToString());
 
                     // Ensure that you don't set BGBFundId explicitly
