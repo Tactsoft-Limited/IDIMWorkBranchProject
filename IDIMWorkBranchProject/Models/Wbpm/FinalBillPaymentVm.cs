@@ -37,7 +37,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [Display(Name = "আসবাবপত্র বিল পরিশোধের পরিমান")]
         public decimal FurnitureBillPaymentAmount { get; set; }
         [Display(Name = "১০% জামানতে পরিশোধের পরিমান")]
-        public decimal CollateralPaidAmound { get; set; }
+        public decimal? CollateralPaidAmound { get; set; }
         [Display(Name = "ইতি পূর্বে মোট পরিশোধ")]
         public decimal AdvancePaymentAmount { get; set; }
         [Display(Name = "চুড়ান্ত বিলে পরিশোধযোগ্য অর্থ")]

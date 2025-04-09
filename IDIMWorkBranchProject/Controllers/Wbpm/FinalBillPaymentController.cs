@@ -20,8 +20,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IBGBFundService _bgbFundService;
         private readonly IContractorCompanyPaymentService _contractorCompanyPaymentService;
         private readonly IBGBMiscellaneousFundService _bgbMiscellaneousFundService;
+        private readonly IFurnitureBillPaymentService _furnitureBillPaymentService;
+        private readonly IADPProjectService _aDPProjectService;
         private readonly IMapper _mapper;
-        public FinalBillPaymentController(IActivityLogService activityLogService, IFinalBillPaymentService finalBillPaymentService, IProjectWorkService projectWorkService, IBGBFundService bgbFundService, IContractorCompanyPaymentService contractorCompanyPaymentService, IBGBMiscellaneousFundService bgbMiscellaneousFundService, IMapper mapper) : base(activityLogService)
+        public FinalBillPaymentController(IActivityLogService activityLogService, IFinalBillPaymentService finalBillPaymentService, IProjectWorkService projectWorkService, IBGBFundService bgbFundService, IContractorCompanyPaymentService contractorCompanyPaymentService, IBGBMiscellaneousFundService bgbMiscellaneousFundService, IMapper mapper, IFurnitureBillPaymentService furnitureBillPaymentService, IADPProjectService aDPProjectService) : base(activityLogService)
         {
             _finalBillPaymentService = finalBillPaymentService;
             _projectWorkService = projectWorkService;
@@ -29,6 +31,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             _contractorCompanyPaymentService = contractorCompanyPaymentService;
             _bgbMiscellaneousFundService = bgbMiscellaneousFundService;
             _mapper = mapper;
+            _furnitureBillPaymentService = furnitureBillPaymentService;            
+            _aDPProjectService = aDPProjectService;
         }
 
         // GET: FinalBillPayment
@@ -42,12 +46,15 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             var contractionCompanyPayment=await _contractorCompanyPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
             var bgbMiscellaneousFund = await _bgbMiscellaneousFundService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
             var finalBillPayment= await _finalBillPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
+            var furnitureBillPayment = await _furnitureBillPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);            
             var model = new FinalBillPaymentVm
             {
                 ProjectWorkId = projectWork.ProjectWorkId,
                 ProjectWorkName = projectWork.ProjectWorkTitleB,
                 PreviouslyPaidBillNo = contractionCompanyPayment.Count(),
                 PreviouslyPaidAmount = contractionCompanyPayment.Sum(e => e.FinalPaymentAmount),
+                CollateralPaidAmound = projectWork.EstimatedCost * 10/100,
+                FurnitureBillPaymentAmount = furnitureBillPayment.PaymentAmount,
                 DepositBGBFund = (bgbMiscellaneousFund.Sum(a => a.Amount) - contractionCompanyPayment.Sum(e => e.FinalPaymentAmount)),                
                 BGBFundDropdown = await _bgbFundService.GetDropdownAsync(),
             };

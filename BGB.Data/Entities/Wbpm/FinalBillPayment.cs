@@ -22,7 +22,7 @@ namespace BGB.Data.Entities.Wbpm
         public int PreviouslyPaidBillNo { get; set; }
         public decimal PreviouslyPaidAmount { get; set; }
         public decimal FurnitureBillPaymentAmount { get; set; } 
-        public decimal CollateralPaidAmound { get; set; } 
+        public decimal? CollateralPaidAmound { get; set; } 
         public decimal AdvancePaymentAmount { get; set; } 
         public decimal PayableFinalBill { get; set; }      
         public decimal DepositBGBFund { get; set; }
