@@ -167,6 +167,34 @@
                                 @Html.ValidationMessageFor(model => model.PaidFromBGBFundId)
                             </div>
                         </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.HeadAssistantId, new { @class = " label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.HeadAssistantId, Model.HeadAssistantDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.HeadAssistantId)
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.ConcernedEngineerId, new { @class = "label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.ConcernedEngineerId, Model.ConcernedEngineerDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.ConcernedEngineerId)
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.SectionICId, new { @class = "label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.SectionICId, Model.SectionICTDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.SectionICId)
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.BranchClerkId, new { @class = "label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.BranchClerkId, Model.BranchClerkDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.BranchClerkId)
+                            </div>
+                        </div>
                     </div>
                     <div class="pull-right">
                         <input type="submit" class="btn btn-success" value="Save" />
@@ -216,7 +244,7 @@
                 const remainingDepositsInBgbFundAmountInWord = getBanglaWord(remainingDepositsInBgbFundAmount);
 
                 $('#NetFinalBillWordB').val(netFinalBillInWord);
-                
+
                 $('#RemainingDepositsInBgbFundWordB').val(remainingDepositsInBgbFundAmountInWord);
             }
 
@@ -231,7 +259,7 @@
             const totalAdvancePaymentAmount = Math.round(previouslyPaidAmount + furnitureBillPaymentAmount + collateralPaidAmount);
             $('#AdvancePaymentAmount').val(totalAdvancePaymentAmount);
 
-         
+
 
             $('#PreviouslyPaidAmount, #NetFinalBill, #DepositBGBFund, #NetAmountAsPerFinalMeasurement, #VatTaxPer, #RemainingDepositsInBgbFund, #AdvancePaymentAmount,#NetFinalBillWordB,#RemainingDepositsInBgbFundWordB, #FurnitureBillPaymentAmount, #CollateralPaidAmount')
                 .on('input', calculateFinalBillAmount);

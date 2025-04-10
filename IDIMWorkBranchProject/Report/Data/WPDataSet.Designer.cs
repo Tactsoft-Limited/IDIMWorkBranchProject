@@ -36,6 +36,8 @@ namespace IDIMWorkBranchProject.Report.Data {
         
         private ViewWorkOrderDataTable tableViewWorkOrder;
         
+        private ViewFinalBillPaymentDataTable tableViewFinalBillPayment;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -81,6 +83,9 @@ namespace IDIMWorkBranchProject.Report.Data {
                 }
                 if ((ds.Tables["ViewWorkOrder"] != null)) {
                     base.Tables.Add(new ViewWorkOrderDataTable(ds.Tables["ViewWorkOrder"]));
+                }
+                if ((ds.Tables["ViewFinalBillPayment"] != null)) {
+                    base.Tables.Add(new ViewFinalBillPaymentDataTable(ds.Tables["ViewFinalBillPayment"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -157,6 +162,16 @@ namespace IDIMWorkBranchProject.Report.Data {
         public ViewWorkOrderDataTable ViewWorkOrder {
             get {
                 return this.tableViewWorkOrder;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ViewFinalBillPaymentDataTable ViewFinalBillPayment {
+            get {
+                return this.tableViewFinalBillPayment;
             }
         }
         
@@ -245,6 +260,9 @@ namespace IDIMWorkBranchProject.Report.Data {
                 if ((ds.Tables["ViewWorkOrder"] != null)) {
                     base.Tables.Add(new ViewWorkOrderDataTable(ds.Tables["ViewWorkOrder"]));
                 }
+                if ((ds.Tables["ViewFinalBillPayment"] != null)) {
+                    base.Tables.Add(new ViewFinalBillPaymentDataTable(ds.Tables["ViewFinalBillPayment"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -314,6 +332,12 @@ namespace IDIMWorkBranchProject.Report.Data {
                     this.tableViewWorkOrder.InitVars();
                 }
             }
+            this.tableViewFinalBillPayment = ((ViewFinalBillPaymentDataTable)(base.Tables["ViewFinalBillPayment"]));
+            if ((initTable == true)) {
+                if ((this.tableViewFinalBillPayment != null)) {
+                    this.tableViewFinalBillPayment.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -336,6 +360,8 @@ namespace IDIMWorkBranchProject.Report.Data {
             base.Tables.Add(this.tableViewVatTaxReport);
             this.tableViewWorkOrder = new ViewWorkOrderDataTable();
             base.Tables.Add(this.tableViewWorkOrder);
+            this.tableViewFinalBillPayment = new ViewFinalBillPaymentDataTable();
+            base.Tables.Add(this.tableViewFinalBillPayment);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -371,6 +397,12 @@ namespace IDIMWorkBranchProject.Report.Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeViewWorkOrder() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeViewFinalBillPayment() {
             return false;
         }
         
@@ -446,6 +478,9 @@ namespace IDIMWorkBranchProject.Report.Data {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void ViewWorkOrderRowChangeEventHandler(object sender, ViewWorkOrderRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void ViewFinalBillPaymentRowChangeEventHandler(object sender, ViewFinalBillPaymentRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4313,6 +4348,729 @@ namespace IDIMWorkBranchProject.Report.Data {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ViewFinalBillPaymentDataTable : global::System.Data.TypedTableBase<ViewFinalBillPaymentRow> {
+            
+            private global::System.Data.DataColumn columnFinalBillPaymentId;
+            
+            private global::System.Data.DataColumn columnProjectWorkId;
+            
+            private global::System.Data.DataColumn columnNetAmountAsPerFinalMeasurement;
+            
+            private global::System.Data.DataColumn columnLetterNo;
+            
+            private global::System.Data.DataColumn columnVatTaxPer;
+            
+            private global::System.Data.DataColumn columnContractorDueAfterVatTaxDeduction;
+            
+            private global::System.Data.DataColumn columnPreviouslyPaidBillNo;
+            
+            private global::System.Data.DataColumn columnVatTaxAmount;
+            
+            private global::System.Data.DataColumn columnPreviouslyPaidAmount;
+            
+            private global::System.Data.DataColumn columnFurnitureBillPaymentAmount;
+            
+            private global::System.Data.DataColumn columnCollateralPaidAmound;
+            
+            private global::System.Data.DataColumn columnAdvancePaymentAmount;
+            
+            private global::System.Data.DataColumn columnPayableFinalBill;
+            
+            private global::System.Data.DataColumn columnDepositBGBFund;
+            
+            private global::System.Data.DataColumn columnNetFinalBill;
+            
+            private global::System.Data.DataColumn columnNetFinalBillWordB;
+            
+            private global::System.Data.DataColumn columnFinalBill;
+            
+            private global::System.Data.DataColumn columnPaidFromBGBFundId;
+            
+            private global::System.Data.DataColumn columnRemainingDepositsInBgbFund;
+            
+            private global::System.Data.DataColumn columnRemainingDepositsInBgbFundWordB;
+            
+            private global::System.Data.DataColumn columnDuePaidAmount;
+            
+            private global::System.Data.DataColumn columnProjectWorkTitleB;
+            
+            private global::System.Data.DataColumn columnEstimatedCost;
+            
+            private global::System.Data.DataColumn columnStartDate;
+            
+            private global::System.Data.DataColumn columnEndDate;
+            
+            private global::System.Data.DataColumn columnFirmNameB;
+            
+            private global::System.Data.DataColumn columnHeadAssistant;
+            
+            private global::System.Data.DataColumn columnConcernedEngineer;
+            
+            private global::System.Data.DataColumn columnSectionIC;
+            
+            private global::System.Data.DataColumn columnBranchClerk;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewFinalBillPaymentDataTable() {
+                this.TableName = "ViewFinalBillPayment";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal ViewFinalBillPaymentDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected ViewFinalBillPaymentDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn FinalBillPaymentIdColumn {
+                get {
+                    return this.columnFinalBillPaymentId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ProjectWorkIdColumn {
+                get {
+                    return this.columnProjectWorkId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NetAmountAsPerFinalMeasurementColumn {
+                get {
+                    return this.columnNetAmountAsPerFinalMeasurement;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LetterNoColumn {
+                get {
+                    return this.columnLetterNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn VatTaxPerColumn {
+                get {
+                    return this.columnVatTaxPer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ContractorDueAfterVatTaxDeductionColumn {
+                get {
+                    return this.columnContractorDueAfterVatTaxDeduction;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PreviouslyPaidBillNoColumn {
+                get {
+                    return this.columnPreviouslyPaidBillNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn VatTaxAmountColumn {
+                get {
+                    return this.columnVatTaxAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PreviouslyPaidAmountColumn {
+                get {
+                    return this.columnPreviouslyPaidAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn FurnitureBillPaymentAmountColumn {
+                get {
+                    return this.columnFurnitureBillPaymentAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CollateralPaidAmoundColumn {
+                get {
+                    return this.columnCollateralPaidAmound;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AdvancePaymentAmountColumn {
+                get {
+                    return this.columnAdvancePaymentAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PayableFinalBillColumn {
+                get {
+                    return this.columnPayableFinalBill;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DepositBGBFundColumn {
+                get {
+                    return this.columnDepositBGBFund;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NetFinalBillColumn {
+                get {
+                    return this.columnNetFinalBill;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NetFinalBillWordBColumn {
+                get {
+                    return this.columnNetFinalBillWordB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn FinalBillColumn {
+                get {
+                    return this.columnFinalBill;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PaidFromBGBFundIdColumn {
+                get {
+                    return this.columnPaidFromBGBFundId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RemainingDepositsInBgbFundColumn {
+                get {
+                    return this.columnRemainingDepositsInBgbFund;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RemainingDepositsInBgbFundWordBColumn {
+                get {
+                    return this.columnRemainingDepositsInBgbFundWordB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DuePaidAmountColumn {
+                get {
+                    return this.columnDuePaidAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ProjectWorkTitleBColumn {
+                get {
+                    return this.columnProjectWorkTitleB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn EstimatedCostColumn {
+                get {
+                    return this.columnEstimatedCost;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn StartDateColumn {
+                get {
+                    return this.columnStartDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn EndDateColumn {
+                get {
+                    return this.columnEndDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn FirmNameBColumn {
+                get {
+                    return this.columnFirmNameB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn HeadAssistantColumn {
+                get {
+                    return this.columnHeadAssistant;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ConcernedEngineerColumn {
+                get {
+                    return this.columnConcernedEngineer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SectionICColumn {
+                get {
+                    return this.columnSectionIC;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BranchClerkColumn {
+                get {
+                    return this.columnBranchClerk;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewFinalBillPaymentRow this[int index] {
+                get {
+                    return ((ViewFinalBillPaymentRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ViewFinalBillPaymentRowChangeEventHandler ViewFinalBillPaymentRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ViewFinalBillPaymentRowChangeEventHandler ViewFinalBillPaymentRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ViewFinalBillPaymentRowChangeEventHandler ViewFinalBillPaymentRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ViewFinalBillPaymentRowChangeEventHandler ViewFinalBillPaymentRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddViewFinalBillPaymentRow(ViewFinalBillPaymentRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewFinalBillPaymentRow AddViewFinalBillPaymentRow(
+                        int FinalBillPaymentId, 
+                        int ProjectWorkId, 
+                        decimal NetAmountAsPerFinalMeasurement, 
+                        string LetterNo, 
+                        double VatTaxPer, 
+                        decimal ContractorDueAfterVatTaxDeduction, 
+                        int PreviouslyPaidBillNo, 
+                        decimal VatTaxAmount, 
+                        decimal PreviouslyPaidAmount, 
+                        decimal FurnitureBillPaymentAmount, 
+                        decimal CollateralPaidAmound, 
+                        decimal AdvancePaymentAmount, 
+                        decimal PayableFinalBill, 
+                        decimal DepositBGBFund, 
+                        decimal NetFinalBill, 
+                        string NetFinalBillWordB, 
+                        decimal FinalBill, 
+                        int PaidFromBGBFundId, 
+                        decimal RemainingDepositsInBgbFund, 
+                        string RemainingDepositsInBgbFundWordB, 
+                        decimal DuePaidAmount, 
+                        string ProjectWorkTitleB, 
+                        decimal EstimatedCost, 
+                        System.DateTime StartDate, 
+                        System.DateTime EndDate, 
+                        string FirmNameB, 
+                        string HeadAssistant, 
+                        string ConcernedEngineer, 
+                        string SectionIC, 
+                        string BranchClerk) {
+                ViewFinalBillPaymentRow rowViewFinalBillPaymentRow = ((ViewFinalBillPaymentRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        FinalBillPaymentId,
+                        ProjectWorkId,
+                        NetAmountAsPerFinalMeasurement,
+                        LetterNo,
+                        VatTaxPer,
+                        ContractorDueAfterVatTaxDeduction,
+                        PreviouslyPaidBillNo,
+                        VatTaxAmount,
+                        PreviouslyPaidAmount,
+                        FurnitureBillPaymentAmount,
+                        CollateralPaidAmound,
+                        AdvancePaymentAmount,
+                        PayableFinalBill,
+                        DepositBGBFund,
+                        NetFinalBill,
+                        NetFinalBillWordB,
+                        FinalBill,
+                        PaidFromBGBFundId,
+                        RemainingDepositsInBgbFund,
+                        RemainingDepositsInBgbFundWordB,
+                        DuePaidAmount,
+                        ProjectWorkTitleB,
+                        EstimatedCost,
+                        StartDate,
+                        EndDate,
+                        FirmNameB,
+                        HeadAssistant,
+                        ConcernedEngineer,
+                        SectionIC,
+                        BranchClerk};
+                rowViewFinalBillPaymentRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowViewFinalBillPaymentRow);
+                return rowViewFinalBillPaymentRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewFinalBillPaymentRow FindByFinalBillPaymentId(int FinalBillPaymentId) {
+                return ((ViewFinalBillPaymentRow)(this.Rows.Find(new object[] {
+                            FinalBillPaymentId})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ViewFinalBillPaymentDataTable cln = ((ViewFinalBillPaymentDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ViewFinalBillPaymentDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnFinalBillPaymentId = base.Columns["FinalBillPaymentId"];
+                this.columnProjectWorkId = base.Columns["ProjectWorkId"];
+                this.columnNetAmountAsPerFinalMeasurement = base.Columns["NetAmountAsPerFinalMeasurement"];
+                this.columnLetterNo = base.Columns["LetterNo"];
+                this.columnVatTaxPer = base.Columns["VatTaxPer"];
+                this.columnContractorDueAfterVatTaxDeduction = base.Columns["ContractorDueAfterVatTaxDeduction"];
+                this.columnPreviouslyPaidBillNo = base.Columns["PreviouslyPaidBillNo"];
+                this.columnVatTaxAmount = base.Columns["VatTaxAmount"];
+                this.columnPreviouslyPaidAmount = base.Columns["PreviouslyPaidAmount"];
+                this.columnFurnitureBillPaymentAmount = base.Columns["FurnitureBillPaymentAmount"];
+                this.columnCollateralPaidAmound = base.Columns["CollateralPaidAmound"];
+                this.columnAdvancePaymentAmount = base.Columns["AdvancePaymentAmount"];
+                this.columnPayableFinalBill = base.Columns["PayableFinalBill"];
+                this.columnDepositBGBFund = base.Columns["DepositBGBFund"];
+                this.columnNetFinalBill = base.Columns["NetFinalBill"];
+                this.columnNetFinalBillWordB = base.Columns["NetFinalBillWordB"];
+                this.columnFinalBill = base.Columns["FinalBill"];
+                this.columnPaidFromBGBFundId = base.Columns["PaidFromBGBFundId"];
+                this.columnRemainingDepositsInBgbFund = base.Columns["RemainingDepositsInBgbFund"];
+                this.columnRemainingDepositsInBgbFundWordB = base.Columns["RemainingDepositsInBgbFundWordB"];
+                this.columnDuePaidAmount = base.Columns["DuePaidAmount"];
+                this.columnProjectWorkTitleB = base.Columns["ProjectWorkTitleB"];
+                this.columnEstimatedCost = base.Columns["EstimatedCost"];
+                this.columnStartDate = base.Columns["StartDate"];
+                this.columnEndDate = base.Columns["EndDate"];
+                this.columnFirmNameB = base.Columns["FirmNameB"];
+                this.columnHeadAssistant = base.Columns["HeadAssistant"];
+                this.columnConcernedEngineer = base.Columns["ConcernedEngineer"];
+                this.columnSectionIC = base.Columns["SectionIC"];
+                this.columnBranchClerk = base.Columns["BranchClerk"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnFinalBillPaymentId = new global::System.Data.DataColumn("FinalBillPaymentId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFinalBillPaymentId);
+                this.columnProjectWorkId = new global::System.Data.DataColumn("ProjectWorkId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProjectWorkId);
+                this.columnNetAmountAsPerFinalMeasurement = new global::System.Data.DataColumn("NetAmountAsPerFinalMeasurement", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNetAmountAsPerFinalMeasurement);
+                this.columnLetterNo = new global::System.Data.DataColumn("LetterNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLetterNo);
+                this.columnVatTaxPer = new global::System.Data.DataColumn("VatTaxPer", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVatTaxPer);
+                this.columnContractorDueAfterVatTaxDeduction = new global::System.Data.DataColumn("ContractorDueAfterVatTaxDeduction", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContractorDueAfterVatTaxDeduction);
+                this.columnPreviouslyPaidBillNo = new global::System.Data.DataColumn("PreviouslyPaidBillNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPreviouslyPaidBillNo);
+                this.columnVatTaxAmount = new global::System.Data.DataColumn("VatTaxAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVatTaxAmount);
+                this.columnPreviouslyPaidAmount = new global::System.Data.DataColumn("PreviouslyPaidAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPreviouslyPaidAmount);
+                this.columnFurnitureBillPaymentAmount = new global::System.Data.DataColumn("FurnitureBillPaymentAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFurnitureBillPaymentAmount);
+                this.columnCollateralPaidAmound = new global::System.Data.DataColumn("CollateralPaidAmound", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCollateralPaidAmound);
+                this.columnAdvancePaymentAmount = new global::System.Data.DataColumn("AdvancePaymentAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAdvancePaymentAmount);
+                this.columnPayableFinalBill = new global::System.Data.DataColumn("PayableFinalBill", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayableFinalBill);
+                this.columnDepositBGBFund = new global::System.Data.DataColumn("DepositBGBFund", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDepositBGBFund);
+                this.columnNetFinalBill = new global::System.Data.DataColumn("NetFinalBill", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNetFinalBill);
+                this.columnNetFinalBillWordB = new global::System.Data.DataColumn("NetFinalBillWordB", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNetFinalBillWordB);
+                this.columnFinalBill = new global::System.Data.DataColumn("FinalBill", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFinalBill);
+                this.columnPaidFromBGBFundId = new global::System.Data.DataColumn("PaidFromBGBFundId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaidFromBGBFundId);
+                this.columnRemainingDepositsInBgbFund = new global::System.Data.DataColumn("RemainingDepositsInBgbFund", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRemainingDepositsInBgbFund);
+                this.columnRemainingDepositsInBgbFundWordB = new global::System.Data.DataColumn("RemainingDepositsInBgbFundWordB", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRemainingDepositsInBgbFundWordB);
+                this.columnDuePaidAmount = new global::System.Data.DataColumn("DuePaidAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDuePaidAmount);
+                this.columnProjectWorkTitleB = new global::System.Data.DataColumn("ProjectWorkTitleB", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProjectWorkTitleB);
+                this.columnEstimatedCost = new global::System.Data.DataColumn("EstimatedCost", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstimatedCost);
+                this.columnStartDate = new global::System.Data.DataColumn("StartDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStartDate);
+                this.columnEndDate = new global::System.Data.DataColumn("EndDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEndDate);
+                this.columnFirmNameB = new global::System.Data.DataColumn("FirmNameB", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFirmNameB);
+                this.columnHeadAssistant = new global::System.Data.DataColumn("HeadAssistant", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHeadAssistant);
+                this.columnConcernedEngineer = new global::System.Data.DataColumn("ConcernedEngineer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConcernedEngineer);
+                this.columnSectionIC = new global::System.Data.DataColumn("SectionIC", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSectionIC);
+                this.columnBranchClerk = new global::System.Data.DataColumn("BranchClerk", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranchClerk);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnFinalBillPaymentId}, true));
+                this.columnFinalBillPaymentId.AllowDBNull = false;
+                this.columnFinalBillPaymentId.Unique = true;
+                this.columnProjectWorkId.AllowDBNull = false;
+                this.columnNetAmountAsPerFinalMeasurement.AllowDBNull = false;
+                this.columnLetterNo.AllowDBNull = false;
+                this.columnLetterNo.MaxLength = 2147483647;
+                this.columnVatTaxPer.AllowDBNull = false;
+                this.columnContractorDueAfterVatTaxDeduction.AllowDBNull = false;
+                this.columnPreviouslyPaidBillNo.AllowDBNull = false;
+                this.columnVatTaxAmount.AllowDBNull = false;
+                this.columnPreviouslyPaidAmount.AllowDBNull = false;
+                this.columnFurnitureBillPaymentAmount.AllowDBNull = false;
+                this.columnAdvancePaymentAmount.AllowDBNull = false;
+                this.columnPayableFinalBill.AllowDBNull = false;
+                this.columnDepositBGBFund.AllowDBNull = false;
+                this.columnNetFinalBill.AllowDBNull = false;
+                this.columnNetFinalBillWordB.AllowDBNull = false;
+                this.columnNetFinalBillWordB.MaxLength = 2147483647;
+                this.columnFinalBill.AllowDBNull = false;
+                this.columnRemainingDepositsInBgbFundWordB.MaxLength = 2147483647;
+                this.columnProjectWorkTitleB.MaxLength = 500;
+                this.columnFirmNameB.AllowDBNull = false;
+                this.columnFirmNameB.MaxLength = 200;
+                this.columnHeadAssistant.ReadOnly = true;
+                this.columnHeadAssistant.MaxLength = 301;
+                this.columnConcernedEngineer.ReadOnly = true;
+                this.columnConcernedEngineer.MaxLength = 301;
+                this.columnSectionIC.ReadOnly = true;
+                this.columnSectionIC.MaxLength = 301;
+                this.columnBranchClerk.ReadOnly = true;
+                this.columnBranchClerk.MaxLength = 301;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewFinalBillPaymentRow NewViewFinalBillPaymentRow() {
+                return ((ViewFinalBillPaymentRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ViewFinalBillPaymentRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ViewFinalBillPaymentRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ViewFinalBillPaymentRowChanged != null)) {
+                    this.ViewFinalBillPaymentRowChanged(this, new ViewFinalBillPaymentRowChangeEvent(((ViewFinalBillPaymentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ViewFinalBillPaymentRowChanging != null)) {
+                    this.ViewFinalBillPaymentRowChanging(this, new ViewFinalBillPaymentRowChangeEvent(((ViewFinalBillPaymentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ViewFinalBillPaymentRowDeleted != null)) {
+                    this.ViewFinalBillPaymentRowDeleted(this, new ViewFinalBillPaymentRowChangeEvent(((ViewFinalBillPaymentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ViewFinalBillPaymentRowDeleting != null)) {
+                    this.ViewFinalBillPaymentRowDeleting(this, new ViewFinalBillPaymentRowChangeEvent(((ViewFinalBillPaymentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveViewFinalBillPaymentRow(ViewFinalBillPaymentRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                WPDataSet ds = new WPDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ViewFinalBillPaymentDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class ViewContactAgreementRow : global::System.Data.DataRow {
@@ -7724,6 +8482,578 @@ namespace IDIMWorkBranchProject.Report.Data {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ViewFinalBillPaymentRow : global::System.Data.DataRow {
+            
+            private ViewFinalBillPaymentDataTable tableViewFinalBillPayment;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal ViewFinalBillPaymentRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableViewFinalBillPayment = ((ViewFinalBillPaymentDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int FinalBillPaymentId {
+                get {
+                    return ((int)(this[this.tableViewFinalBillPayment.FinalBillPaymentIdColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.FinalBillPaymentIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ProjectWorkId {
+                get {
+                    return ((int)(this[this.tableViewFinalBillPayment.ProjectWorkIdColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.ProjectWorkIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NetAmountAsPerFinalMeasurement {
+                get {
+                    return ((decimal)(this[this.tableViewFinalBillPayment.NetAmountAsPerFinalMeasurementColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.NetAmountAsPerFinalMeasurementColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string LetterNo {
+                get {
+                    return ((string)(this[this.tableViewFinalBillPayment.LetterNoColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.LetterNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double VatTaxPer {
+                get {
+                    return ((double)(this[this.tableViewFinalBillPayment.VatTaxPerColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.VatTaxPerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal ContractorDueAfterVatTaxDeduction {
+                get {
+                    return ((decimal)(this[this.tableViewFinalBillPayment.ContractorDueAfterVatTaxDeductionColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.ContractorDueAfterVatTaxDeductionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int PreviouslyPaidBillNo {
+                get {
+                    return ((int)(this[this.tableViewFinalBillPayment.PreviouslyPaidBillNoColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.PreviouslyPaidBillNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal VatTaxAmount {
+                get {
+                    return ((decimal)(this[this.tableViewFinalBillPayment.VatTaxAmountColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.VatTaxAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal PreviouslyPaidAmount {
+                get {
+                    return ((decimal)(this[this.tableViewFinalBillPayment.PreviouslyPaidAmountColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.PreviouslyPaidAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal FurnitureBillPaymentAmount {
+                get {
+                    return ((decimal)(this[this.tableViewFinalBillPayment.FurnitureBillPaymentAmountColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.FurnitureBillPaymentAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal CollateralPaidAmound {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewFinalBillPayment.CollateralPaidAmoundColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CollateralPaidAmound\' in table \'ViewFinalBillPayment\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.CollateralPaidAmoundColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal AdvancePaymentAmount {
+                get {
+                    return ((decimal)(this[this.tableViewFinalBillPayment.AdvancePaymentAmountColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.AdvancePaymentAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal PayableFinalBill {
+                get {
+                    return ((decimal)(this[this.tableViewFinalBillPayment.PayableFinalBillColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.PayableFinalBillColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal DepositBGBFund {
+                get {
+                    return ((decimal)(this[this.tableViewFinalBillPayment.DepositBGBFundColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.DepositBGBFundColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NetFinalBill {
+                get {
+                    return ((decimal)(this[this.tableViewFinalBillPayment.NetFinalBillColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.NetFinalBillColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string NetFinalBillWordB {
+                get {
+                    return ((string)(this[this.tableViewFinalBillPayment.NetFinalBillWordBColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.NetFinalBillWordBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal FinalBill {
+                get {
+                    return ((decimal)(this[this.tableViewFinalBillPayment.FinalBillColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.FinalBillColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int PaidFromBGBFundId {
+                get {
+                    try {
+                        return ((int)(this[this.tableViewFinalBillPayment.PaidFromBGBFundIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaidFromBGBFundId\' in table \'ViewFinalBillPayment\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.PaidFromBGBFundIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal RemainingDepositsInBgbFund {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewFinalBillPayment.RemainingDepositsInBgbFundColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RemainingDepositsInBgbFund\' in table \'ViewFinalBillPayment\'" +
+                                " is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.RemainingDepositsInBgbFundColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string RemainingDepositsInBgbFundWordB {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewFinalBillPayment.RemainingDepositsInBgbFundWordBColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RemainingDepositsInBgbFundWordB\' in table \'ViewFinalBillPay" +
+                                "ment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.RemainingDepositsInBgbFundWordBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal DuePaidAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewFinalBillPayment.DuePaidAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DuePaidAmount\' in table \'ViewFinalBillPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.DuePaidAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ProjectWorkTitleB {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewFinalBillPayment.ProjectWorkTitleBColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProjectWorkTitleB\' in table \'ViewFinalBillPayment\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.ProjectWorkTitleBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal EstimatedCost {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewFinalBillPayment.EstimatedCostColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EstimatedCost\' in table \'ViewFinalBillPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.EstimatedCostColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime StartDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableViewFinalBillPayment.StartDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StartDate\' in table \'ViewFinalBillPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.StartDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime EndDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableViewFinalBillPayment.EndDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EndDate\' in table \'ViewFinalBillPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.EndDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string FirmNameB {
+                get {
+                    return ((string)(this[this.tableViewFinalBillPayment.FirmNameBColumn]));
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.FirmNameBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string HeadAssistant {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewFinalBillPayment.HeadAssistantColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HeadAssistant\' in table \'ViewFinalBillPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.HeadAssistantColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ConcernedEngineer {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewFinalBillPayment.ConcernedEngineerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ConcernedEngineer\' in table \'ViewFinalBillPayment\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.ConcernedEngineerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string SectionIC {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewFinalBillPayment.SectionICColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SectionIC\' in table \'ViewFinalBillPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.SectionICColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BranchClerk {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewFinalBillPayment.BranchClerkColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BranchClerk\' in table \'ViewFinalBillPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.BranchClerkColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCollateralPaidAmoundNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.CollateralPaidAmoundColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCollateralPaidAmoundNull() {
+                this[this.tableViewFinalBillPayment.CollateralPaidAmoundColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPaidFromBGBFundIdNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.PaidFromBGBFundIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPaidFromBGBFundIdNull() {
+                this[this.tableViewFinalBillPayment.PaidFromBGBFundIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRemainingDepositsInBgbFundNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.RemainingDepositsInBgbFundColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRemainingDepositsInBgbFundNull() {
+                this[this.tableViewFinalBillPayment.RemainingDepositsInBgbFundColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRemainingDepositsInBgbFundWordBNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.RemainingDepositsInBgbFundWordBColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRemainingDepositsInBgbFundWordBNull() {
+                this[this.tableViewFinalBillPayment.RemainingDepositsInBgbFundWordBColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDuePaidAmountNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.DuePaidAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDuePaidAmountNull() {
+                this[this.tableViewFinalBillPayment.DuePaidAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsProjectWorkTitleBNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.ProjectWorkTitleBColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetProjectWorkTitleBNull() {
+                this[this.tableViewFinalBillPayment.ProjectWorkTitleBColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEstimatedCostNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.EstimatedCostColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEstimatedCostNull() {
+                this[this.tableViewFinalBillPayment.EstimatedCostColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsStartDateNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.StartDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetStartDateNull() {
+                this[this.tableViewFinalBillPayment.StartDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEndDateNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.EndDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEndDateNull() {
+                this[this.tableViewFinalBillPayment.EndDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsHeadAssistantNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.HeadAssistantColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetHeadAssistantNull() {
+                this[this.tableViewFinalBillPayment.HeadAssistantColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsConcernedEngineerNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.ConcernedEngineerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetConcernedEngineerNull() {
+                this[this.tableViewFinalBillPayment.ConcernedEngineerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSectionICNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.SectionICColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSectionICNull() {
+                this[this.tableViewFinalBillPayment.SectionICColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBranchClerkNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.BranchClerkColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBranchClerkNull() {
+                this[this.tableViewFinalBillPayment.BranchClerkColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -7913,6 +9243,40 @@ namespace IDIMWorkBranchProject.Report.Data {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ViewWorkOrderRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class ViewFinalBillPaymentRowChangeEvent : global::System.EventArgs {
+            
+            private ViewFinalBillPaymentRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewFinalBillPaymentRowChangeEvent(ViewFinalBillPaymentRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewFinalBillPaymentRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -9077,6 +10441,202 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
         public virtual WPDataSet.ViewWorkOrderDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             WPDataSet.ViewWorkOrderDataTable dataTable = new WPDataSet.ViewWorkOrderDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ViewFinalBillPaymentTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::Microsoft.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::Microsoft.Data.SqlClient.SqlConnection _connection;
+        
+        private global::Microsoft.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::Microsoft.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public ViewFinalBillPaymentTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::Microsoft.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::Microsoft.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::Microsoft.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::Microsoft.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::Microsoft.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::Microsoft.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ViewFinalBillPayment";
+            tableMapping.ColumnMappings.Add("FinalBillPaymentId", "FinalBillPaymentId");
+            tableMapping.ColumnMappings.Add("ProjectWorkId", "ProjectWorkId");
+            tableMapping.ColumnMappings.Add("NetAmountAsPerFinalMeasurement", "NetAmountAsPerFinalMeasurement");
+            tableMapping.ColumnMappings.Add("LetterNo", "LetterNo");
+            tableMapping.ColumnMappings.Add("VatTaxPer", "VatTaxPer");
+            tableMapping.ColumnMappings.Add("ContractorDueAfterVatTaxDeduction", "ContractorDueAfterVatTaxDeduction");
+            tableMapping.ColumnMappings.Add("PreviouslyPaidBillNo", "PreviouslyPaidBillNo");
+            tableMapping.ColumnMappings.Add("VatTaxAmount", "VatTaxAmount");
+            tableMapping.ColumnMappings.Add("PreviouslyPaidAmount", "PreviouslyPaidAmount");
+            tableMapping.ColumnMappings.Add("FurnitureBillPaymentAmount", "FurnitureBillPaymentAmount");
+            tableMapping.ColumnMappings.Add("CollateralPaidAmound", "CollateralPaidAmound");
+            tableMapping.ColumnMappings.Add("AdvancePaymentAmount", "AdvancePaymentAmount");
+            tableMapping.ColumnMappings.Add("PayableFinalBill", "PayableFinalBill");
+            tableMapping.ColumnMappings.Add("DepositBGBFund", "DepositBGBFund");
+            tableMapping.ColumnMappings.Add("NetFinalBill", "NetFinalBill");
+            tableMapping.ColumnMappings.Add("NetFinalBillWordB", "NetFinalBillWordB");
+            tableMapping.ColumnMappings.Add("FinalBill", "FinalBill");
+            tableMapping.ColumnMappings.Add("PaidFromBGBFundId", "PaidFromBGBFundId");
+            tableMapping.ColumnMappings.Add("RemainingDepositsInBgbFund", "RemainingDepositsInBgbFund");
+            tableMapping.ColumnMappings.Add("RemainingDepositsInBgbFundWordB", "RemainingDepositsInBgbFundWordB");
+            tableMapping.ColumnMappings.Add("DuePaidAmount", "DuePaidAmount");
+            tableMapping.ColumnMappings.Add("ProjectWorkTitleB", "ProjectWorkTitleB");
+            tableMapping.ColumnMappings.Add("EstimatedCost", "EstimatedCost");
+            tableMapping.ColumnMappings.Add("StartDate", "StartDate");
+            tableMapping.ColumnMappings.Add("EndDate", "EndDate");
+            tableMapping.ColumnMappings.Add("FirmNameB", "FirmNameB");
+            tableMapping.ColumnMappings.Add("HeadAssistant", "HeadAssistant");
+            tableMapping.ColumnMappings.Add("ConcernedEngineer", "ConcernedEngineer");
+            tableMapping.ColumnMappings.Add("SectionIC", "SectionIC");
+            tableMapping.ColumnMappings.Add("BranchClerk", "BranchClerk");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::Microsoft.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["IDIMDBEntities"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::Microsoft.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT wbpm.ViewFinalBillPayment.*\r\nFROM     wbpm.ViewFinalBillPayment";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(WPDataSet.ViewFinalBillPaymentDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual WPDataSet.ViewFinalBillPaymentDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            WPDataSet.ViewFinalBillPaymentDataTable dataTable = new WPDataSet.ViewFinalBillPaymentDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

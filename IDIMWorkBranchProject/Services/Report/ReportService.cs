@@ -50,5 +50,9 @@ namespace IDIMWorkBranchProject.Services.Report
         {
             return await _context.ViewWorkOrders.Where(x => x.ProjectWorkId == id).ToListAsync();
         }
+        public async Task<List<ViewFinalBillPayment>> GetFinalBillPaymentAsync(int id)
+        {
+            return await _context.ViewFinalBillPayments.Where(x => x.ProjectWorkId == id).ToListAsync();
+        }
     }
 }

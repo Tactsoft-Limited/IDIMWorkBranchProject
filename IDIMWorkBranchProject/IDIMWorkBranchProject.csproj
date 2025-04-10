@@ -518,6 +518,7 @@
     <Compile Include="Models\Wbpm\BGBMiscellaneousFundVm.cs" />
     <Compile Include="Models\Wbpm\ContractAgreementSearchVm.cs" />
     <Compile Include="Models\Wbpm\ContractorCompanyPaymentSearchVm.cs" />
+    <Compile Include="Models\Wbpm\FinalBillPaymentSearchVm.cs" />
     <Compile Include="Models\Wbpm\FinalBillPaymentVm.cs" />
     <Compile Include="Models\Wbpm\FurnitureBillPaymentVm.cs" />
     <Compile Include="Models\Wbpm\NohaSearchVm.cs" />
@@ -3059,6 +3060,7 @@
     <EmbeddedResource Include="Report\Rdlc\ContractAgreementReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\BGBMiscellaneousFundReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\ContractorCompanyPaymentReport.rdlc" />
+    <EmbeddedResource Include="Report\Rdlc\FinalBillPaymentReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\VatTaxReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\ViewWorkOrderReport.rdlc" />
   </ItemGroup>

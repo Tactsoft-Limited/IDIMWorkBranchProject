@@ -89,11 +89,29 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("মন্তব্য")]
         public string Remarks { get; set; }
 
+        //Final Bill Payment Property
+        [DisplayName("লেটার নং")]
+        public string FinalBillLetterNo { get; set; }
+
+        [Display(Name = "চূড়ান্ত পরিমাপ অনুযায়ী মোট পরিমাণ")]
+        public decimal NetAmountAsPerFinalMeasurement { get; set; }
+
+        [Display(Name = "পূর্বে পরিশোধিত চলতি বিলের পরিমাণ")]
+        public decimal PreviouslyPaidAmount { get; set; }
+
+        [Display(Name = "ইতি পূর্বে মোট পরিশোধ")]
+        public decimal AdvancePaymentAmount { get; set; }
+
+        [Display(Name = "চুড়ান্ত বিলে পরিশোধযোগ্য অর্থ")]
+        public decimal PayableFinalBill { get; set; }
+
+
 
 
         public List<WorkOrderVm> WorkOrderList { get; set; }
         public List<ADPReceivePaymentVm> ADPReceivePayments { get; set; }
         public List<ContractorCompanyPaymentVm> ContractorCompanyPayments { get; set; }
+        public List<FinalBillPaymentVm> FinalBillPayments { get; set; }
 
     }
 }

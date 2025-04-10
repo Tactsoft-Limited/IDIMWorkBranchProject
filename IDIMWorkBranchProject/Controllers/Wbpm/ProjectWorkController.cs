@@ -23,13 +23,14 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         protected readonly IContractAgreementService _contractAgreementService;
         protected readonly IWorkOrderService _workOrderService;
         protected readonly IProjectWorkStatusService _projectWorkStatusService;
+        protected readonly IFinalBillPaymentService _finalBillPaymentService;
         private readonly IMapper _mapper;
 
         public ProjectWorkController(IActivityLogService activityLogService, IProjectWorkService projectWorkService,
             IMapper mapper, IADPProjectService aDPProjectService, IADPReceivePaymentService aDPReceivePaymentService,
             IContractorCompanyPaymentService contractorCompanyPaymentService, INohaService nohaService,
             IPerformanceSecurityService performanceSecurityService, IContractAgreementService contractAgreementService,
-            IWorkOrderService workOrderService, IProjectWorkStatusService projectWorkStatusService) : base(activityLogService)
+            IWorkOrderService workOrderService, IProjectWorkStatusService projectWorkStatusService, IFinalBillPaymentService finalBillPaymentService) : base(activityLogService)
         {
             _projectWorkService = projectWorkService;
             _mapper = mapper;
@@ -41,6 +42,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             _contractAgreementService = contractAgreementService;
             _workOrderService = workOrderService;
             _projectWorkStatusService = projectWorkStatusService;
+            _finalBillPaymentService = finalBillPaymentService;
         }
         public ActionResult Index()
         {
@@ -76,7 +78,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             var contractAgreement = _mapper.Map<ContractAgreementVm>(await _contractAgreementService.GetByProjectWorkIdAsync(id));
             var workOrder = _mapper.Map<WorkOrderVm>(await _workOrderService.GetByProjectWorkIdAsync(id));
             var projectWorkStatus = _mapper.Map<ProjectWorkStatusVm>(await _projectWorkStatusService.GetByProjectWorkIdAsync(id));
-
+            
             // Building the model
             var model = new ProjectWorkDetailsVm
             {
@@ -107,7 +109,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
                 WorkOrderList = _mapper.Map<List<WorkOrderVm>>(await _workOrderService.GetAllByProjectWorkIdAsync(id)),
                 ADPReceivePayments = _mapper.Map<List<ADPReceivePaymentVm>>(await _ADPReceivePaymentService.GetByProjectWorkIdAsync(id)),
-                ContractorCompanyPayments = _mapper.Map<List<ContractorCompanyPaymentVm>>(await _contractorCompanyPaymentService.GetByProjectWorkIdAsync(id))
+                ContractorCompanyPayments = _mapper.Map<List<ContractorCompanyPaymentVm>>(await _contractorCompanyPaymentService.GetByProjectWorkIdAsync(id)),
+                FinalBillPayments = _mapper.Map<List<FinalBillPaymentVm>>(await _finalBillPaymentService.GetAllByProjectWorkIdAsync(id))
 
             };
 

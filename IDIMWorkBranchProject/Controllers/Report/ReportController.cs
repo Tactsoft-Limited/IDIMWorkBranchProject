@@ -151,5 +151,33 @@ namespace IDIMWorkBranchProject.Controllers.Report
             }
 
         }
+
+        public async Task<ActionResult> PrintFinalBillPayment(int id)
+        {
+
+            try
+            {
+                var data = await _reportService.GetFinalBillPaymentAsync(id);
+
+                var reportDataSource = new List<ReportDataSource>
+                {
+                    new ReportDataSource("DsFinalBillPayment", data)
+                };
+
+                var config = new ReportConfig
+                {
+                    ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "FinalBillPaymentReport.rdlc"),
+                };
+
+                return new ReportResult(config, reportDataSource);
+            }
+            catch (Exception exception)
+            {
+                // Log the exception if necessary
+                // You can also throw a custom exception if you want
+                throw new InvalidOperationException("An error occurred while generating the report.", exception);
+            }
+
+        }
     }
 }

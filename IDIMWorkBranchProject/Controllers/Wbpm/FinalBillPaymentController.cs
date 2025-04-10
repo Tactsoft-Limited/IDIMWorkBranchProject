@@ -21,9 +21,9 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IContractorCompanyPaymentService _contractorCompanyPaymentService;
         private readonly IBGBMiscellaneousFundService _bgbMiscellaneousFundService;
         private readonly IFurnitureBillPaymentService _furnitureBillPaymentService;
-        private readonly IADPProjectService _aDPProjectService;
+        private readonly ISignatoryAuthorityService _signatoryAuthorityService;
         private readonly IMapper _mapper;
-        public FinalBillPaymentController(IActivityLogService activityLogService, IFinalBillPaymentService finalBillPaymentService, IProjectWorkService projectWorkService, IBGBFundService bgbFundService, IContractorCompanyPaymentService contractorCompanyPaymentService, IBGBMiscellaneousFundService bgbMiscellaneousFundService, IMapper mapper, IFurnitureBillPaymentService furnitureBillPaymentService, IADPProjectService aDPProjectService) : base(activityLogService)
+        public FinalBillPaymentController(IActivityLogService activityLogService, IFinalBillPaymentService finalBillPaymentService, IProjectWorkService projectWorkService, IBGBFundService bgbFundService, IContractorCompanyPaymentService contractorCompanyPaymentService, IBGBMiscellaneousFundService bgbMiscellaneousFundService, IMapper mapper, IFurnitureBillPaymentService furnitureBillPaymentService, ISignatoryAuthorityService signatoryAuthorityService) : base(activityLogService)
         {
             _finalBillPaymentService = finalBillPaymentService;
             _projectWorkService = projectWorkService;
@@ -31,15 +31,15 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             _contractorCompanyPaymentService = contractorCompanyPaymentService;
             _bgbMiscellaneousFundService = bgbMiscellaneousFundService;
             _mapper = mapper;
-            _furnitureBillPaymentService = furnitureBillPaymentService;            
-            _aDPProjectService = aDPProjectService;
+            _furnitureBillPaymentService = furnitureBillPaymentService;
+            _signatoryAuthorityService = signatoryAuthorityService;
         }
 
         // GET: FinalBillPayment
         public ActionResult Index()
         {
             return View();
-        }
+        }       
         public async Task<ActionResult> Create(int id)
         {
              var projectWork=await _projectWorkService.GetByIdAsync(id);
@@ -57,11 +57,17 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 FurnitureBillPaymentAmount = furnitureBillPayment.PaymentAmount,
                 DepositBGBFund = (bgbMiscellaneousFund.Sum(a => a.Amount) - contractionCompanyPayment.Sum(e => e.FinalPaymentAmount)),                
                 BGBFundDropdown = await _bgbFundService.GetDropdownAsync(),
+                HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
+                ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
+                SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
+                BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync()
+
             };
             if(finalBillPayment != null)
             {
                 model.FinalBillPaymentId = finalBillPayment.FinalBillPaymentId;
                 model.NetAmountAsPerFinalMeasurement = finalBillPayment.NetAmountAsPerFinalMeasurement;
+                model.LetterNo = finalBillPayment.LetterNo;
                 model.VatTaxPer = finalBillPayment.VatTaxPer;
                 model.VatTaxAmount = finalBillPayment.VatTaxAmount;
                 model.ContractorDueAfterVatTaxDeduction = finalBillPayment.ContractorDueAfterVatTaxDeduction;
@@ -73,6 +79,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 model.RemainingDepositsInBgbFundWordB = finalBillPayment.RemainingDepositsInBgbFundWordB;
                 model.DuePaidAmount = finalBillPayment.DuePaidAmount;
                 model.BGBFundDropdown = await _bgbFundService.GetDropdownAsync(finalBillPayment.PaidFromBGBFundId);
+                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(finalBillPayment.HeadAssistantId);
+                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(finalBillPayment.BranchClerkId);
+                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(finalBillPayment.ConcernedEngineerId);
+                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(finalBillPayment.SectionICId);
             }
             return View(model);
         }
@@ -88,6 +98,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 {
                     TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
                     model.BGBFundDropdown = await _bgbFundService.GetDropdownAsync(model.ProjectWorkId);
+                    model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+                    model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+                    model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+                    model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
                     return View(model);
                 }
                 if (model.FinalBillPaymentId > 0)
@@ -135,6 +149,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
                 model.BGBFundDropdown = await _bgbFundService.GetDropdownAsync(model.ProjectWorkId);
+                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
                 return View(model);
             }
         }

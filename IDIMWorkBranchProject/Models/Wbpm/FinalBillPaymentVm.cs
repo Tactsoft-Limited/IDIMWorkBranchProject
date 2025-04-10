@@ -62,8 +62,25 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [Display(Name = "বিজিবি বিবিধ ফান্ডে অবশিষ্ঠ জমা থাকবে কথায় (বাংলা) ")]
         public string RemainingDepositsInBgbFundWordB { get; set; }
 
+        [DisplayName("প্রধান সহকারী")]
+        public int? HeadAssistantId { get; set; }     
+
+
+        [DisplayName("ইঞ্জিনিয়ার আইসি")]
+        public int? ConcernedEngineerId { get; set; }
+
+        [DisplayName("সেকশন আইসি")]
+        public int? SectionICId { get; set; }
+
+        [DisplayName("শাখা করনিক")]
+        public int? BranchClerkId { get; set; }       
+
         #region navigation property
-        public IEnumerable<SelectListItem> BGBFundDropdown { get; set; }        
+        public IEnumerable<SelectListItem> BGBFundDropdown { get; set; }
+        public IEnumerable<SelectListItem> HeadAssistantDropdown { get; set; }
+        public IEnumerable<SelectListItem> ConcernedEngineerDropdown { get; set; }
+        public IEnumerable<SelectListItem> SectionICTDropdown { get; set; }
+        public IEnumerable<SelectListItem> BranchClerkDropdown { get; set; }
         #endregion
     }
 }

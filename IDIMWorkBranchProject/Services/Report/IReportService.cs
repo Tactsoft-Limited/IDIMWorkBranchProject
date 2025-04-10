@@ -12,6 +12,7 @@ namespace IDIMWorkBranchProject.Services.Report
         Task<List<ViewBGBMiscellaneousFund>> GetBGBMiscellaneousFundAsync(int id);
         Task<List<ViewContractorCompanyPayment>> GetContractorCompanyPaymentAsync(int id);
         Task<List<ViewWorkOrder>> GetWorkOrderAsync(int id);
+        Task<List<ViewFinalBillPayment>> GetFinalBillPaymentAsync(int id);
     }
 }
 
