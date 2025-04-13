@@ -17,6 +17,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         {
             return await _context.VatTaxCollaterals.Where(x=>x.ADPReceivePaymentId == id).FirstOrDefaultAsync();
         }
-        
+       
+
     }
 }

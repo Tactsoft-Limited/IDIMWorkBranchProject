@@ -22,10 +22,35 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("নির্মাণ কাজের নাম ")]
         public string ProjectWorkName { get; set; }
 
+        [DisplayName("প্রাক্কলিত/অনুমদিত অর্থ ")]
+        public decimal? EstimatedCost { get; set; }
+
         [Display(Name = "চূড়ান্ত পরিমাপ অনুযায়ী মোট পরিমাণ")]
         public decimal NetAmountAsPerFinalMeasurement { get; set; }
         [Display(Name = "লেটার নং")]
         public string LetterNo { get; set; }
+
+        [Display(Name = "ভ্যাট (%)")]
+        public double? VatPer { get; set; }
+
+        [Display(Name = " ভ্যাট পরিমান ")]
+        public decimal? VatAmount { get; set; }
+
+        [Display(Name = "ট্যাক্স (%)")]
+        public double? TaxPer { get; set; }
+
+        [Display(Name = "ট্যাক্স পরিমান")]
+        public decimal? TaxAmount { get; set; }
+
+        [Display(Name = "জামানত (%)")]
+        public double? CollateralPer { get; set; }
+
+        [Display(Name = "জামানত পরিমান")]
+        public decimal? CollateralAmount { get; set; }
+
+        [Display(Name = "আয়কর,ভ্যাট ও জামানত কর্তনের পর নীট টাকার পরিমান")]
+        public decimal? NetBillAfterVatTAxCollateralDeduction { get; set; }
+
         [Display(Name = "ভ্যাট ও আয়কর (%)")]
         public double VatTaxPer { get; set; }
         [Display(Name = " ভ্যাট ট্যাক্স পরিমান ")]

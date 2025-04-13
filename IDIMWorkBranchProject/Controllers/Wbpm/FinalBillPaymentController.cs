@@ -22,8 +22,9 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IBGBMiscellaneousFundService _bgbMiscellaneousFundService;
         private readonly IFurnitureBillPaymentService _furnitureBillPaymentService;
         private readonly ISignatoryAuthorityService _signatoryAuthorityService;
+        private readonly IADPReceivePaymentService _aDPReceivePaymentService;
         private readonly IMapper _mapper;
-        public FinalBillPaymentController(IActivityLogService activityLogService, IFinalBillPaymentService finalBillPaymentService, IProjectWorkService projectWorkService, IBGBFundService bgbFundService, IContractorCompanyPaymentService contractorCompanyPaymentService, IBGBMiscellaneousFundService bgbMiscellaneousFundService, IMapper mapper, IFurnitureBillPaymentService furnitureBillPaymentService, ISignatoryAuthorityService signatoryAuthorityService) : base(activityLogService)
+        public FinalBillPaymentController(IActivityLogService activityLogService, IFinalBillPaymentService finalBillPaymentService, IProjectWorkService projectWorkService, IBGBFundService bgbFundService, IContractorCompanyPaymentService contractorCompanyPaymentService, IBGBMiscellaneousFundService bgbMiscellaneousFundService, IMapper mapper, IFurnitureBillPaymentService furnitureBillPaymentService, ISignatoryAuthorityService signatoryAuthorityService, IADPReceivePaymentService aDPReceivePaymentService) : base(activityLogService)
         {
             _finalBillPaymentService = finalBillPaymentService;
             _projectWorkService = projectWorkService;
@@ -33,6 +34,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             _mapper = mapper;
             _furnitureBillPaymentService = furnitureBillPaymentService;
             _signatoryAuthorityService = signatoryAuthorityService;
+            _aDPReceivePaymentService = aDPReceivePaymentService;
         }
 
         // GET: FinalBillPayment
@@ -43,14 +45,16 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         public async Task<ActionResult> Create(int id)
         {
              var projectWork=await _projectWorkService.GetByIdAsync(id);
-            var contractionCompanyPayment=await _contractorCompanyPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
+            var contractionCompanyPayment=await _contractorCompanyPaymentService.GetByAllProjectWorkAsync(projectWork.ProjectWorkId);
             var bgbMiscellaneousFund = await _bgbMiscellaneousFundService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
             var finalBillPayment= await _finalBillPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
-            var furnitureBillPayment = await _furnitureBillPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);            
+            var furnitureBillPayment = await _furnitureBillPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
+       
             var model = new FinalBillPaymentVm
             {
                 ProjectWorkId = projectWork.ProjectWorkId,
-                ProjectWorkName = projectWork.ProjectWorkTitleB,                
+                ProjectWorkName = projectWork.ProjectWorkTitleB,
+                EstimatedCost = projectWork.EstimatedCost,
                 PreviouslyPaidBillNo = contractionCompanyPayment.Count(),
                 PreviouslyPaidAmount = contractionCompanyPayment.Sum(e => e.FinalPaymentAmount),
                 CollateralPaidAmound = projectWork.EstimatedCost * 10/100,
@@ -65,7 +69,13 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             };
             if(finalBillPayment != null)
             {
-                model.FinalBillPaymentId = finalBillPayment.FinalBillPaymentId;
+                model.FinalBillPaymentId = finalBillPayment.FinalBillPaymentId;                
+                model.VatPer = finalBillPayment.VatPer;
+                model.VatAmount = finalBillPayment.VatAmount;
+                model.TaxPer = finalBillPayment.TaxPer;
+                model.TaxAmount = finalBillPayment.TaxAmount;
+                model.CollateralPer = finalBillPayment.CollateralPer;
+                model.CollateralAmount = finalBillPayment.CollateralAmount;
                 model.NetAmountAsPerFinalMeasurement = finalBillPayment.NetAmountAsPerFinalMeasurement;
                 model.LetterNo = finalBillPayment.LetterNo;
                 model.VatTaxPer = finalBillPayment.VatTaxPer;

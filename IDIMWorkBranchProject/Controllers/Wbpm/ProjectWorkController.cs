@@ -109,7 +109,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
                 WorkOrderList = _mapper.Map<List<WorkOrderVm>>(await _workOrderService.GetAllByProjectWorkIdAsync(id)),
                 ADPReceivePayments = _mapper.Map<List<ADPReceivePaymentVm>>(await _ADPReceivePaymentService.GetByProjectWorkIdAsync(id)),
-                ContractorCompanyPayments = _mapper.Map<List<ContractorCompanyPaymentVm>>(await _contractorCompanyPaymentService.GetByProjectWorkIdAsync(id)),
+                ContractorCompanyPayments = _mapper.Map<List<ContractorCompanyPaymentVm>>(await _contractorCompanyPaymentService.GetByAllProjectWorkAsync(id)),
                 FinalBillPayments = _mapper.Map<List<FinalBillPaymentVm>>(await _finalBillPaymentService.GetAllByProjectWorkIdAsync(id))
 
             };

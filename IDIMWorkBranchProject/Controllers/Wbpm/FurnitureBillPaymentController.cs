@@ -43,7 +43,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             var projectWorks=await _projectWorkService.GetByIdAsync(id);
             var contactAgreements = await _contractAgreementService.GetByProjectWorkIdAsync(projectWorks.ProjectWorkId);
             var bgbMiscellaneousFund = await _bGBMiscellaneousFundService.GetByProjectWorkIdAsync(projectWorks.ProjectWorkId);
-            var contractionCompanyPayment = await _contractorCompanyPaymentService.GetByProjectWorkIdAsync(projectWorks.ProjectWorkId);
+            var contractionCompanyPayment = await _contractorCompanyPaymentService.GetByAllProjectWorkAsync(projectWorks.ProjectWorkId);
             var furnitureBillPayment = await _furnitureBillPaymentService.GetByProjectWorkIdAsync(projectWorks.ProjectWorkId);
 
 

@@ -71,7 +71,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         {
             var projectWork = await _projectWorkService.GetByIdAsync(id);
             var contractAgreement = await _contractAgreementService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
-            var companyPayment = await _contractorCompanyPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
+            var companyPayment = await _contractorCompanyPaymentService.GetByAllProjectWorkAsync(projectWork.ProjectWorkId);
             var adprecievePayment = await _AdpReceivePaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
             var miscellaneousFund = await _bgbMiscellaneousFundService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
 
@@ -137,7 +137,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         public async Task<ActionResult> Edit(int id)
         {
             var model = _mapper.Map<ContractorCompanyPaymentVm>(await _contractorCompanyPaymentService.GetByIdAsync(id));
-            var companyPayment = await _contractorCompanyPaymentService.GetByProjectWorkIdAsync(model.ProjectWorkId);
+            var companyPayment = await _contractorCompanyPaymentService.GetByAllProjectWorkAsync(model.ProjectWorkId);
             var adprecievePayment = await _AdpReceivePaymentService.GetByProjectWorkIdAsync(model.ProjectWorkId);
             var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
             model.ProjectWorkTitle = projectWork.ProjectWorkTitleB;

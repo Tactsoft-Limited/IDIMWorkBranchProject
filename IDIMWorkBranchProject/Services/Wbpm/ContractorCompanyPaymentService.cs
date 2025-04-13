@@ -16,9 +16,13 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         {
         }
 
-        public async Task<List<ContractorCompanyPayment>> GetByProjectWorkIdAsync(int id)
+        public async Task<List<ContractorCompanyPayment>> GetByAllProjectWorkAsync(int id)
         {
             return await _context.ContractorCompanyPayments.Where(x => x.ProjectWorkId == id).ToListAsync();
+        }
+        public ContractorCompanyPayment GetByProjectWorkIdAsync(int id)
+        {
+            return  _context.ContractorCompanyPayments.Where(x => x.ProjectWorkId == id).FirstOrDefault();
         }
 
         public async Task<object> GetPagedAsync(ContractorCompanyPaymentSearchVm model)

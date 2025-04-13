@@ -8,7 +8,8 @@ namespace IDIMWorkBranchProject.Services.Wbpm
 {
     public interface IContractorCompanyPaymentService : IBaseService<ContractorCompanyPayment>
     {
-        Task<List<ContractorCompanyPayment>> GetByProjectWorkIdAsync(int id);
+        Task<List<ContractorCompanyPayment>> GetByAllProjectWorkAsync(int id);
+        ContractorCompanyPayment GetByProjectWorkIdAsync(int id);
         Task<object> GetPagedAsync(ContractorCompanyPaymentSearchVm model);
     }
 }
