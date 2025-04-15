@@ -52,7 +52,9 @@ namespace IDIMWorkBranchProject.Services.Report
         }
         public async Task<List<ViewFinalBillPayment>> GetFinalBillPaymentAsync(int id)
         {
-            return await _context.ViewFinalBillPayments.Where(x => x.ProjectWorkId == id).ToListAsync();
+            return await _context.ViewFinalBillPayments
+                .Where(x => x.FinalBillPaymentId == id)
+                .ToListAsync();
         }
     }
 }

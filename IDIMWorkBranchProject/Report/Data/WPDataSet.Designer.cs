@@ -4362,6 +4362,24 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             private global::System.Data.DataColumn columnLetterNo;
             
+            private global::System.Data.DataColumn columnVatPer;
+            
+            private global::System.Data.DataColumn columnVatAmount;
+            
+            private global::System.Data.DataColumn columnTaxPer;
+            
+            private global::System.Data.DataColumn columnTaxAmount;
+            
+            private global::System.Data.DataColumn columnCollateralPer;
+            
+            private global::System.Data.DataColumn columnCollateralAmount;
+            
+            private global::System.Data.DataColumn columnTotalAmountOfVatTaxCollateral;
+            
+            private global::System.Data.DataColumn columnTotalAmountOfVatTaxCollateralB;
+            
+            private global::System.Data.DataColumn columnNetBillAfterVatTAxCollateralDeduction;
+            
             private global::System.Data.DataColumn columnVatTaxPer;
             
             private global::System.Data.DataColumn columnContractorDueAfterVatTaxDeduction;
@@ -4476,6 +4494,78 @@ namespace IDIMWorkBranchProject.Report.Data {
             public global::System.Data.DataColumn LetterNoColumn {
                 get {
                     return this.columnLetterNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn VatPerColumn {
+                get {
+                    return this.columnVatPer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn VatAmountColumn {
+                get {
+                    return this.columnVatAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TaxPerColumn {
+                get {
+                    return this.columnTaxPer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TaxAmountColumn {
+                get {
+                    return this.columnTaxAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CollateralPerColumn {
+                get {
+                    return this.columnCollateralPer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CollateralAmountColumn {
+                get {
+                    return this.columnCollateralAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TotalAmountOfVatTaxCollateralColumn {
+                get {
+                    return this.columnTotalAmountOfVatTaxCollateral;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TotalAmountOfVatTaxCollateralBColumn {
+                get {
+                    return this.columnTotalAmountOfVatTaxCollateralB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NetBillAfterVatTAxCollateralDeductionColumn {
+                get {
+                    return this.columnNetBillAfterVatTAxCollateralDeduction;
                 }
             }
             
@@ -4729,6 +4819,15 @@ namespace IDIMWorkBranchProject.Report.Data {
                         int ProjectWorkId, 
                         decimal NetAmountAsPerFinalMeasurement, 
                         string LetterNo, 
+                        double VatPer, 
+                        decimal VatAmount, 
+                        double TaxPer, 
+                        decimal TaxAmount, 
+                        double CollateralPer, 
+                        decimal CollateralAmount, 
+                        decimal TotalAmountOfVatTaxCollateral, 
+                        string TotalAmountOfVatTaxCollateralB, 
+                        decimal NetBillAfterVatTAxCollateralDeduction, 
                         double VatTaxPer, 
                         decimal ContractorDueAfterVatTaxDeduction, 
                         int PreviouslyPaidBillNo, 
@@ -4761,6 +4860,15 @@ namespace IDIMWorkBranchProject.Report.Data {
                         ProjectWorkId,
                         NetAmountAsPerFinalMeasurement,
                         LetterNo,
+                        VatPer,
+                        VatAmount,
+                        TaxPer,
+                        TaxAmount,
+                        CollateralPer,
+                        CollateralAmount,
+                        TotalAmountOfVatTaxCollateral,
+                        TotalAmountOfVatTaxCollateralB,
+                        NetBillAfterVatTAxCollateralDeduction,
                         VatTaxPer,
                         ContractorDueAfterVatTaxDeduction,
                         PreviouslyPaidBillNo,
@@ -4820,6 +4928,15 @@ namespace IDIMWorkBranchProject.Report.Data {
                 this.columnProjectWorkId = base.Columns["ProjectWorkId"];
                 this.columnNetAmountAsPerFinalMeasurement = base.Columns["NetAmountAsPerFinalMeasurement"];
                 this.columnLetterNo = base.Columns["LetterNo"];
+                this.columnVatPer = base.Columns["VatPer"];
+                this.columnVatAmount = base.Columns["VatAmount"];
+                this.columnTaxPer = base.Columns["TaxPer"];
+                this.columnTaxAmount = base.Columns["TaxAmount"];
+                this.columnCollateralPer = base.Columns["CollateralPer"];
+                this.columnCollateralAmount = base.Columns["CollateralAmount"];
+                this.columnTotalAmountOfVatTaxCollateral = base.Columns["TotalAmountOfVatTaxCollateral"];
+                this.columnTotalAmountOfVatTaxCollateralB = base.Columns["TotalAmountOfVatTaxCollateralB"];
+                this.columnNetBillAfterVatTAxCollateralDeduction = base.Columns["NetBillAfterVatTAxCollateralDeduction"];
                 this.columnVatTaxPer = base.Columns["VatTaxPer"];
                 this.columnContractorDueAfterVatTaxDeduction = base.Columns["ContractorDueAfterVatTaxDeduction"];
                 this.columnPreviouslyPaidBillNo = base.Columns["PreviouslyPaidBillNo"];
@@ -4859,6 +4976,24 @@ namespace IDIMWorkBranchProject.Report.Data {
                 base.Columns.Add(this.columnNetAmountAsPerFinalMeasurement);
                 this.columnLetterNo = new global::System.Data.DataColumn("LetterNo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLetterNo);
+                this.columnVatPer = new global::System.Data.DataColumn("VatPer", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVatPer);
+                this.columnVatAmount = new global::System.Data.DataColumn("VatAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVatAmount);
+                this.columnTaxPer = new global::System.Data.DataColumn("TaxPer", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTaxPer);
+                this.columnTaxAmount = new global::System.Data.DataColumn("TaxAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTaxAmount);
+                this.columnCollateralPer = new global::System.Data.DataColumn("CollateralPer", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCollateralPer);
+                this.columnCollateralAmount = new global::System.Data.DataColumn("CollateralAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCollateralAmount);
+                this.columnTotalAmountOfVatTaxCollateral = new global::System.Data.DataColumn("TotalAmountOfVatTaxCollateral", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalAmountOfVatTaxCollateral);
+                this.columnTotalAmountOfVatTaxCollateralB = new global::System.Data.DataColumn("TotalAmountOfVatTaxCollateralB", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalAmountOfVatTaxCollateralB);
+                this.columnNetBillAfterVatTAxCollateralDeduction = new global::System.Data.DataColumn("NetBillAfterVatTAxCollateralDeduction", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNetBillAfterVatTAxCollateralDeduction);
                 this.columnVatTaxPer = new global::System.Data.DataColumn("VatTaxPer", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVatTaxPer);
                 this.columnContractorDueAfterVatTaxDeduction = new global::System.Data.DataColumn("ContractorDueAfterVatTaxDeduction", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -4918,21 +5053,21 @@ namespace IDIMWorkBranchProject.Report.Data {
                 this.columnProjectWorkId.AllowDBNull = false;
                 this.columnNetAmountAsPerFinalMeasurement.AllowDBNull = false;
                 this.columnLetterNo.AllowDBNull = false;
-                this.columnLetterNo.MaxLength = 2147483647;
+                this.columnLetterNo.MaxLength = 500;
+                this.columnTotalAmountOfVatTaxCollateralB.MaxLength = 2147483647;
                 this.columnVatTaxPer.AllowDBNull = false;
                 this.columnContractorDueAfterVatTaxDeduction.AllowDBNull = false;
                 this.columnPreviouslyPaidBillNo.AllowDBNull = false;
                 this.columnVatTaxAmount.AllowDBNull = false;
                 this.columnPreviouslyPaidAmount.AllowDBNull = false;
-                this.columnFurnitureBillPaymentAmount.AllowDBNull = false;
-                this.columnAdvancePaymentAmount.AllowDBNull = false;
                 this.columnPayableFinalBill.AllowDBNull = false;
                 this.columnDepositBGBFund.AllowDBNull = false;
                 this.columnNetFinalBill.AllowDBNull = false;
                 this.columnNetFinalBillWordB.AllowDBNull = false;
-                this.columnNetFinalBillWordB.MaxLength = 2147483647;
+                this.columnNetFinalBillWordB.MaxLength = 500;
                 this.columnFinalBill.AllowDBNull = false;
-                this.columnRemainingDepositsInBgbFundWordB.MaxLength = 2147483647;
+                this.columnRemainingDepositsInBgbFundWordB.AllowDBNull = false;
+                this.columnRemainingDepositsInBgbFundWordB.MaxLength = 500;
                 this.columnProjectWorkTitleB.MaxLength = 500;
                 this.columnFirmNameB.AllowDBNull = false;
                 this.columnFirmNameB.MaxLength = 200;
@@ -8541,6 +8676,154 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double VatPer {
+                get {
+                    try {
+                        return ((double)(this[this.tableViewFinalBillPayment.VatPerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VatPer\' in table \'ViewFinalBillPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.VatPerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal VatAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewFinalBillPayment.VatAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VatAmount\' in table \'ViewFinalBillPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.VatAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double TaxPer {
+                get {
+                    try {
+                        return ((double)(this[this.tableViewFinalBillPayment.TaxPerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TaxPer\' in table \'ViewFinalBillPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.TaxPerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal TaxAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewFinalBillPayment.TaxAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TaxAmount\' in table \'ViewFinalBillPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.TaxAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double CollateralPer {
+                get {
+                    try {
+                        return ((double)(this[this.tableViewFinalBillPayment.CollateralPerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CollateralPer\' in table \'ViewFinalBillPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.CollateralPerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal CollateralAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewFinalBillPayment.CollateralAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CollateralAmount\' in table \'ViewFinalBillPayment\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.CollateralAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal TotalAmountOfVatTaxCollateral {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewFinalBillPayment.TotalAmountOfVatTaxCollateralColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAmountOfVatTaxCollateral\' in table \'ViewFinalBillPayme" +
+                                "nt\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.TotalAmountOfVatTaxCollateralColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string TotalAmountOfVatTaxCollateralB {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewFinalBillPayment.TotalAmountOfVatTaxCollateralBColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAmountOfVatTaxCollateralB\' in table \'ViewFinalBillPaym" +
+                                "ent\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.TotalAmountOfVatTaxCollateralBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal NetBillAfterVatTAxCollateralDeduction {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewFinalBillPayment.NetBillAfterVatTAxCollateralDeductionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NetBillAfterVatTAxCollateralDeduction\' in table \'ViewFinalB" +
+                                "illPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewFinalBillPayment.NetBillAfterVatTAxCollateralDeductionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public double VatTaxPer {
                 get {
                     return ((double)(this[this.tableViewFinalBillPayment.VatTaxPerColumn]));
@@ -8598,7 +8881,13 @@ namespace IDIMWorkBranchProject.Report.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal FurnitureBillPaymentAmount {
                 get {
-                    return ((decimal)(this[this.tableViewFinalBillPayment.FurnitureBillPaymentAmountColumn]));
+                    try {
+                        return ((decimal)(this[this.tableViewFinalBillPayment.FurnitureBillPaymentAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FurnitureBillPaymentAmount\' in table \'ViewFinalBillPayment\'" +
+                                " is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableViewFinalBillPayment.FurnitureBillPaymentAmountColumn] = value;
@@ -8626,7 +8915,13 @@ namespace IDIMWorkBranchProject.Report.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal AdvancePaymentAmount {
                 get {
-                    return ((decimal)(this[this.tableViewFinalBillPayment.AdvancePaymentAmountColumn]));
+                    try {
+                        return ((decimal)(this[this.tableViewFinalBillPayment.AdvancePaymentAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AdvancePaymentAmount\' in table \'ViewFinalBillPayment\' is DB" +
+                                "Null.", e);
+                    }
                 }
                 set {
                     this[this.tableViewFinalBillPayment.AdvancePaymentAmountColumn] = value;
@@ -8726,13 +9021,7 @@ namespace IDIMWorkBranchProject.Report.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string RemainingDepositsInBgbFundWordB {
                 get {
-                    try {
-                        return ((string)(this[this.tableViewFinalBillPayment.RemainingDepositsInBgbFundWordBColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RemainingDepositsInBgbFundWordB\' in table \'ViewFinalBillPay" +
-                                "ment\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableViewFinalBillPayment.RemainingDepositsInBgbFundWordBColumn]));
                 }
                 set {
                     this[this.tableViewFinalBillPayment.RemainingDepositsInBgbFundWordBColumn] = value;
@@ -8898,6 +9187,126 @@ namespace IDIMWorkBranchProject.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsVatPerNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.VatPerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetVatPerNull() {
+                this[this.tableViewFinalBillPayment.VatPerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsVatAmountNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.VatAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetVatAmountNull() {
+                this[this.tableViewFinalBillPayment.VatAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTaxPerNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.TaxPerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTaxPerNull() {
+                this[this.tableViewFinalBillPayment.TaxPerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTaxAmountNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.TaxAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTaxAmountNull() {
+                this[this.tableViewFinalBillPayment.TaxAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCollateralPerNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.CollateralPerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCollateralPerNull() {
+                this[this.tableViewFinalBillPayment.CollateralPerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCollateralAmountNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.CollateralAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCollateralAmountNull() {
+                this[this.tableViewFinalBillPayment.CollateralAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTotalAmountOfVatTaxCollateralNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.TotalAmountOfVatTaxCollateralColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTotalAmountOfVatTaxCollateralNull() {
+                this[this.tableViewFinalBillPayment.TotalAmountOfVatTaxCollateralColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTotalAmountOfVatTaxCollateralBNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.TotalAmountOfVatTaxCollateralBColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTotalAmountOfVatTaxCollateralBNull() {
+                this[this.tableViewFinalBillPayment.TotalAmountOfVatTaxCollateralBColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNetBillAfterVatTAxCollateralDeductionNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.NetBillAfterVatTAxCollateralDeductionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNetBillAfterVatTAxCollateralDeductionNull() {
+                this[this.tableViewFinalBillPayment.NetBillAfterVatTAxCollateralDeductionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsFurnitureBillPaymentAmountNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.FurnitureBillPaymentAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetFurnitureBillPaymentAmountNull() {
+                this[this.tableViewFinalBillPayment.FurnitureBillPaymentAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsCollateralPaidAmoundNull() {
                 return this.IsNull(this.tableViewFinalBillPayment.CollateralPaidAmoundColumn);
             }
@@ -8906,6 +9315,18 @@ namespace IDIMWorkBranchProject.Report.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCollateralPaidAmoundNull() {
                 this[this.tableViewFinalBillPayment.CollateralPaidAmoundColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAdvancePaymentAmountNull() {
+                return this.IsNull(this.tableViewFinalBillPayment.AdvancePaymentAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAdvancePaymentAmountNull() {
+                this[this.tableViewFinalBillPayment.AdvancePaymentAmountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8930,18 +9351,6 @@ namespace IDIMWorkBranchProject.Report.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetRemainingDepositsInBgbFundNull() {
                 this[this.tableViewFinalBillPayment.RemainingDepositsInBgbFundColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsRemainingDepositsInBgbFundWordBNull() {
-                return this.IsNull(this.tableViewFinalBillPayment.RemainingDepositsInBgbFundWordBColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetRemainingDepositsInBgbFundWordBNull() {
-                this[this.tableViewFinalBillPayment.RemainingDepositsInBgbFundWordBColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10571,6 +10980,15 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("ProjectWorkId", "ProjectWorkId");
             tableMapping.ColumnMappings.Add("NetAmountAsPerFinalMeasurement", "NetAmountAsPerFinalMeasurement");
             tableMapping.ColumnMappings.Add("LetterNo", "LetterNo");
+            tableMapping.ColumnMappings.Add("VatPer", "VatPer");
+            tableMapping.ColumnMappings.Add("VatAmount", "VatAmount");
+            tableMapping.ColumnMappings.Add("TaxPer", "TaxPer");
+            tableMapping.ColumnMappings.Add("TaxAmount", "TaxAmount");
+            tableMapping.ColumnMappings.Add("CollateralPer", "CollateralPer");
+            tableMapping.ColumnMappings.Add("CollateralAmount", "CollateralAmount");
+            tableMapping.ColumnMappings.Add("TotalAmountOfVatTaxCollateral", "TotalAmountOfVatTaxCollateral");
+            tableMapping.ColumnMappings.Add("TotalAmountOfVatTaxCollateralB", "TotalAmountOfVatTaxCollateralB");
+            tableMapping.ColumnMappings.Add("NetBillAfterVatTAxCollateralDeduction", "NetBillAfterVatTAxCollateralDeduction");
             tableMapping.ColumnMappings.Add("VatTaxPer", "VatTaxPer");
             tableMapping.ColumnMappings.Add("ContractorDueAfterVatTaxDeduction", "ContractorDueAfterVatTaxDeduction");
             tableMapping.ColumnMappings.Add("PreviouslyPaidBillNo", "PreviouslyPaidBillNo");

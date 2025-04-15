@@ -16,6 +16,15 @@ namespace BGB.Data.SqlViews.Wbpm
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int FinalBillPaymentId { get; set; }
         public int ProjectWorkId { get; set; }
+        public double? VatPer { get; set; }
+        public decimal? VatAmount { get; set; }
+        public double? TaxPer { get; set; }
+        public decimal? TaxAmount { get; set; }
+        public double? CollateralPer { get; set; }
+        public decimal? CollateralAmount { get; set; }
+        public decimal? TotalAmountOfVatTaxCollateral { get; set; }
+        public string TotalAmountOfVatTaxCollateralB { get; set; }
+        public decimal? NetBillAfterVatTAxCollateralDeduction { get; set; }
         public decimal NetAmountAsPerFinalMeasurement { get; set; }
         public string LetterNo { get; set; }
         public double VatTaxPer { get; set; }

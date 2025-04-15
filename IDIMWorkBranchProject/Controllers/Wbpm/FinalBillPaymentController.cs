@@ -45,9 +45,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         public async Task<ActionResult> Create(int id)
         {
              var projectWork=await _projectWorkService.GetByIdAsync(id);
+            var finalBillPayment = await _finalBillPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
             var contractionCompanyPayment=await _contractorCompanyPaymentService.GetByAllProjectWorkAsync(projectWork.ProjectWorkId);
             var bgbMiscellaneousFund = await _bgbMiscellaneousFundService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
-            var finalBillPayment= await _finalBillPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
+            
             var furnitureBillPayment = await _furnitureBillPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
        
             var model = new FinalBillPaymentVm
@@ -76,6 +77,9 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 model.TaxAmount = finalBillPayment.TaxAmount;
                 model.CollateralPer = finalBillPayment.CollateralPer;
                 model.CollateralAmount = finalBillPayment.CollateralAmount;
+                model.TotalAmountOfVatTaxCollateral = finalBillPayment.TotalAmountOfVatTaxCollateral;
+                model.TotalAmountOfVatTaxCollateralB = finalBillPayment.TotalAmountOfVatTaxCollateralB;
+                model.NetBillAfterVatTAxCollateralDeduction = finalBillPayment.NetBillAfterVatTAxCollateralDeduction;
                 model.NetAmountAsPerFinalMeasurement = finalBillPayment.NetAmountAsPerFinalMeasurement;
                 model.LetterNo = finalBillPayment.LetterNo;
                 model.VatTaxPer = finalBillPayment.VatTaxPer;

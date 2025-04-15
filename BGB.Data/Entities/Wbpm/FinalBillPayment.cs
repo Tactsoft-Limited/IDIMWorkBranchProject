@@ -24,6 +24,8 @@ namespace BGB.Data.Entities.Wbpm
         public decimal? TaxAmount { get; set; }
         public double? CollateralPer { get; set; }
         public decimal? CollateralAmount { get; set; }
+        public decimal? TotalAmountOfVatTaxCollateral { get; set; }
+        public string TotalAmountOfVatTaxCollateralB { get; set; }
         public decimal? NetBillAfterVatTAxCollateralDeduction { get; set; }
         public double VatTaxPer { get; set; }
         public decimal VatTaxAmount { get; set; }      

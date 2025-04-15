@@ -15,6 +15,9 @@ namespace IDIMWorkBranchProject
         {
             #region Wbpm
 
+            CreateMap<CollateralReturnVm, CollateralReturn>();
+            CreateMap<CollateralReturn, CollateralReturnVm>();
+
             CreateMap<FurnitureBillPaymentVm, FurnitureBillPayment>();
             CreateMap<FurnitureBillPayment, FurnitureBillPaymentVm>();
 

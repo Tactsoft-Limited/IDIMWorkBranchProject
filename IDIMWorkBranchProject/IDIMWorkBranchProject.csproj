@@ -379,6 +379,7 @@
     <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="Controllers\Wbpm\ADPProjectController.cs" />
     <Compile Include="Controllers\Wbpm\ADPReceivePaymentController.cs" />
+    <Compile Include="Controllers\Wbpm\CollateralReturnController.cs" />
     <Compile Include="Controllers\Wbpm\ConstructionCompanyController.cs" />
     <Compile Include="Controllers\Wbpm\ContractAgreementController.cs" />
     <Compile Include="Controllers\Wbpm\ContractorCompanyPaymentController.cs" />
@@ -516,6 +517,7 @@
     <Compile Include="Models\Wbpm\BGBFundVm.cs" />
     <Compile Include="Models\Wbpm\BGBMiscellaneousFundSearchVm.cs" />
     <Compile Include="Models\Wbpm\BGBMiscellaneousFundVm.cs" />
+    <Compile Include="Models\Wbpm\CollateralReturnVm.cs" />
     <Compile Include="Models\Wbpm\ContractAgreementSearchVm.cs" />
     <Compile Include="Models\Wbpm\ContractorCompanyPaymentSearchVm.cs" />
     <Compile Include="Models\Wbpm\FinalBillPaymentSearchVm.cs" />
@@ -588,11 +590,13 @@
     <Compile Include="Services\Wbpm\ADPReceivePaymentService.cs" />
     <Compile Include="Services\Wbpm\BGBFundService.cs" />
     <Compile Include="Services\Wbpm\BGBMiscellaneousFundService.cs" />
+    <Compile Include="Services\Wbpm\CollateralReturnService.cs" />
     <Compile Include="Services\Wbpm\ConstructionCompanyService.cs" />
     <Compile Include="Services\Wbpm\ContractAgreementService.cs" />
     <Compile Include="Services\Wbpm\FinalBillPaymentService.cs" />
     <Compile Include="Services\Wbpm\FurnitureBillPaymentService.cs" />
     <Compile Include="Services\Wbpm\IBGBFundService.cs" />
+    <Compile Include="Services\Wbpm\ICollateralReturnService.cs" />
     <Compile Include="Services\Wbpm\IContractAgreementService.cs" />
     <Compile Include="Services\Wbpm\ContractorCompanyPaymentService.cs" />
     <Compile Include="Services\Wbpm\FinancialYearAllocationService.cs" />
@@ -2930,6 +2934,7 @@
     <Content Include="Views\WorkOrder\Edit.cshtml" />
     <Content Include="Views\FinalBillPayment\Create.cshtml" />
     <Content Include="Views\FurnitureBillPayment\Create.cshtml" />
+    <Content Include="Views\CollateralReturn\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

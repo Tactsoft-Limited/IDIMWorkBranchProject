@@ -63,12 +63,6 @@
                             @Html.TextBoxFor(m => m.EstimatedCost, new { @class = "form-control" })
                         </div>
                     </div>
-                    <div class="form-display col-md-12">
-                        @Html.LabelFor(m => m.NetAmountAsPerFinalMeasurement, new { @class = "label-display col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.NetAmountAsPerFinalMeasurement, new { @class = "form-control" })
-                        </div>
-                    </div>
                     <div class="form-display col-md-6">
                         @Html.LabelFor(m => m.VatPer, new { @class = "label-display col-md-4" })
                         <div class="col-md-8">
@@ -103,6 +97,30 @@
                         @Html.LabelFor(m => m.CollateralAmount, new { @class = "label-display col-md-4" })
                         <div class="col-md-8">
                             @Html.TextBoxFor(m => m.CollateralAmount, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.TotalAmountOfVatTaxCollateral, new { @class = "label-display col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.TotalAmountOfVatTaxCollateral, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.TotalAmountOfVatTaxCollateralB, new { @class = "label-display col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.TotalAmountOfVatTaxCollateralB, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.NetBillAfterVatTAxCollateralDeduction, new { @class = "label-display col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.NetBillAfterVatTAxCollateralDeduction, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-12">
+                        @Html.LabelFor(m => m.NetAmountAsPerFinalMeasurement, new { @class = "label-display col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.NetAmountAsPerFinalMeasurement, new { @class = "form-control" })
                         </div>
                     </div>
                     <div class="form-display col-md-6">
@@ -271,6 +289,8 @@
                 const vatAmount = Math.round(estimatedCost * (vatPer / 100));
                 const taxAmount = Math.round(estimatedCost * (taxPer / 100));
                 const collateralAmount = Math.round(estimatedCost * (collateralPer / 100));
+                const totalAmountOfVatTaxCollateral = Math.round(vatAmount + taxAmount + collateralAmount);
+                const netBillAfterVatTAxCollateralDeduction = Math.round(estimatedCost - totalAmountOfVatTaxCollateral);
 
                 // Set values in fields
                 $('#VatTaxAmount').val(vatTaxAmount.toFixed(2));
@@ -280,6 +300,8 @@
                 $('#VatAmount').val(vatAmount.toFixed(2));
                 $('#TaxAmount').val(taxAmount.toFixed(2));
                 $('#CollateralAmount').val(collateralAmount.toFixed(2));
+                $('#TotalAmountOfVatTaxCollateral').val(totalAmountOfVatTaxCollateral.toFixed(2));
+                $('#NetBillAfterVatTAxCollateralDeduction').val(netBillAfterVatTAxCollateralDeduction.toFixed(2));
 
                 const calculatedRemaining = remainingDepositsInBgbFundAmount < 0 ? 0 : remainingDepositsInBgbFundAmount;
                 $('#RemainingDepositsInBgbFund').val(calculatedRemaining.toFixed(2));
@@ -287,6 +309,7 @@
                 // Convert numbers to Bangla words (assumes getBanglaWord is defined elsewhere)
                 const netFinalBillInWord = getBanglaWord(payableFinalBillAmount);
                 const remainingDepositsInBgbFundAmountInWord = getBanglaWord(calculatedRemaining);
+                const totalAmountOfVatTaxCollateralInWord = getBanglaWord(totalAmountOfVatTaxCollateral);
 
                 $('#NetFinalBillWordB').val(netFinalBillInWord);
                 $('#RemainingDepositsInBgbFundWordB').val(remainingDepositsInBgbFundAmountInWord);
@@ -297,10 +320,11 @@
 
                 const totalAdvancePaymentAmount = Math.round(previouslyPaidAmount + furnitureBillPaymentAmount + collateralPaidAmount);
                 $('#AdvancePaymentAmount').val(totalAdvancePaymentAmount.toFixed(2));
+                $('#TotalAmountOfVatTaxCollateralB').val(totalAmountOfVatTaxCollateralInWord);
             }
 
             // Bind to input changes
-            $('#PreviouslyPaidAmount, #NetFinalBill, #DepositBGBFund, #NetAmountAsPerFinalMeasurement, #VatTaxPer, #RemainingDepositsInBgbFund, #AdvancePaymentAmount, #NetFinalBillWordB, #RemainingDepositsInBgbFundWordB, #FurnitureBillPaymentAmount, #CollateralPaidAmount, #VatAmount, #TaxAmount, #CollateralAmount, #EstimatedCost, #VatPer, #TaxPer, #CollateralPer')
+            $('#PreviouslyPaidAmount, #NetFinalBill, #DepositBGBFund, #NetAmountAsPerFinalMeasurement, #VatTaxPer, #RemainingDepositsInBgbFund, #AdvancePaymentAmount, #NetFinalBillWordB, #RemainingDepositsInBgbFundWordB, #FurnitureBillPaymentAmount, #CollateralPaidAmount, #VatAmount, #TaxAmount, #CollateralAmount, #EstimatedCost, #VatPer, #TaxPer, #CollateralPer,#TotalAmountOfVatTaxCollateralB')
                 .on('input', calculateFinalBillAmount);
             
         });
