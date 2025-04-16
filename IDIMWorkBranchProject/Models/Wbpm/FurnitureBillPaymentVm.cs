@@ -31,15 +31,26 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [DisplayName("বরাত ক")]
         public string QuoteOne { get; set; }
+        [DisplayName("বরাত ক এর তারিখ")]
+        public DateTime? QuoteOneDate { get; set; }
 
         [DisplayName("বরাত খ")]
         public string QuoteTwo { get; set; }
+        [DisplayName("বরাত খ এর তারিখ")]        
+        public DateTime? QuoteTwoDate { get; set; }
 
         [DisplayName("বরাত গ")]
         public string QuoteThree { get; set; }
 
+
+        [DisplayName("বরাত গ এর তারিখ")]
+        public DateTime? QuoteThreeDate { get; set; }
+
         [DisplayName("বরাত ঘ")]
         public string QuoteFour { get; set; }
+
+        [DisplayName("বরাত ঘ এর তারিখ")]
+        public DateTime? QuoteFourDate { get; set; }
 
         [DisplayName("আসবাব পত্রে বরাদ্দ")]
         public decimal AllocationToFurniture { get; set; }
@@ -62,8 +73,28 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("বিল পরিশোধের পরিমাণ কথায় (বাংলা) ")]
         public string PaymentAmountInWordB { get; set; }
 
+        [DisplayName("প্রধান সহকারী")]
+        public int? HeadAssistantId { get; set; }
+
+
+        [DisplayName("ইঞ্জিনিয়ার আইসি")]
+        public int? ConcernedEngineerId { get; set; }
+
+        [DisplayName("সেকশন আইসি")]
+        public int? SectionICId { get; set; }
+
+        [DisplayName("শাখা করনিক")]
+        public int? BranchClerkId { get; set; }
+
         #region navigation property
+
         public IEnumerable<SelectListItem> ConstructionCompanyDropdown { get; set; }
+        public IEnumerable<SelectListItem> BGBFundDropdown { get; set; }
+        public IEnumerable<SelectListItem> HeadAssistantDropdown { get; set; }
+        public IEnumerable<SelectListItem> ConcernedEngineerDropdown { get; set; }
+        public IEnumerable<SelectListItem> SectionICTDropdown { get; set; }
+        public IEnumerable<SelectListItem> BranchClerkDropdown { get; set; }
         #endregion
+       
     }
 }

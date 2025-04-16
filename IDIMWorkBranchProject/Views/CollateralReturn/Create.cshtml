@@ -50,9 +50,9 @@
                             @Html.TextBoxFor(m => m.ProjectWorkName, new { @class = "form-control", @readonly = "readonly" })
                         </div>
                     </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.LetterNo, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
+                    <div class="form-display col-md-12">
+                        @Html.LabelFor(m => m.LetterNo, new { @class = "label-display col-md-2" })
+                        <div class="col-md-10">
                             @Html.TextBoxFor(m => m.LetterNo, new { @class = "form-control" })
                         </div>
                     </div>
@@ -63,15 +63,33 @@
                         </div>
                     </div>
                     <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.QuoteOneDate, "{0:dd-MMM-yyyy}", new { @class = "label-display col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.QuoteOneDate, new { @class = "form-control datepicker" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
                         @Html.LabelFor(m => m.QuoteTwo, new { @class = "label-display col-md-4" })
                         <div class="col-md-8">
                             @Html.TextBoxFor(m => m.QuoteTwo, new { @class = "form-control" })
                         </div>
                     </div>
                     <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.QuoteTwoDate, "{0:dd-MMM-yyyy}", new { @class = "label-display col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.QuoteTwoDate, new { @class = "form-control datepicker" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
                         @Html.LabelFor(m => m.QuoteThree, new { @class = "label-display col-md-4" })
                         <div class="col-md-8">
                             @Html.TextBoxFor(m => m.QuoteThree, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.QuoteThreeDate, "{0:dd-MMM-yyyy}", new { @class = "label-display col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.QuoteThreeDate, new { @class = "form-control datepicker" })
                         </div>
                     </div>
                     <div class="form-display col-md-6">

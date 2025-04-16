@@ -112,6 +112,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public List<ADPReceivePaymentVm> ADPReceivePayments { get; set; }
         public List<ContractorCompanyPaymentVm> ContractorCompanyPayments { get; set; }
         public List<FinalBillPaymentVm> FinalBillPayments { get; set; }
+        public List<FurnitureBillPaymentVm> FurnnitureBillPayments { get; set; }
 
     }
 }

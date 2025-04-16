@@ -274,6 +274,8 @@ namespace IDIMWorkBranchProject.Data.Database
         public virtual DbSet<ViewContractorCompanyPayment> ViewContractorCompanyPayments { get; set; }
         public virtual DbSet<ViewBGBMiscellaneousFund> ViewBGBMiscellaneousFunds { get; set; }
         public virtual DbSet<ViewFinalBillPayment> ViewFinalBillPayments { get; set; }
+        public virtual DbSet<ViewFurnitureBillPayment> ViewFurnitureBillPayments { get; set; }
+        public virtual DbSet<ViewCollateralReturn> ViewCollateralReturns { get; set; }
 
     }
 }

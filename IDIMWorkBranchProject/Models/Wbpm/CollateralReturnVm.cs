@@ -29,6 +29,15 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("বরাত গ")]
         public string QuoteThree { get; set; }
 
+        [DisplayName("বরাত ক এর তারিখ")]
+        public DateTime? QuoteOneDate { get; set; }
+
+        [DisplayName("বরাত খ এর তারিখ")]
+        public DateTime? QuoteTwoDate { get; set; }
+
+        [DisplayName("বরাত গ এর তারিখ")]
+        public DateTime? QuoteThreeDate { get; set; }
+
         [DisplayName("প্রধান সহকারী")]
         public int? HeadAssistantId { get; set; }
 

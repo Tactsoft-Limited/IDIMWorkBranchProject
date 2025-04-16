@@ -56,9 +56,13 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 model.QuoteOne = collateralReturns.QuoteOne;
                 model.QuoteTwo = collateralReturns.QuoteTwo;
                 model.QuoteThree = collateralReturns.QuoteThree;
+                model.QuoteOneDate = collateralReturns.QuoteOneDate;
+                model.QuoteTwoDate = collateralReturns.QuoteTwoDate;
+                model.QuoteThreeDate = collateralReturns.QuoteThreeDate;
+                
                 model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(collateralReturns.HeadAssistantId);
                 model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(collateralReturns.ConcernedEngineerId);
-                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(collateralReturns.SectionICId);
+                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(collateralReturns.BranchClerkId);
                 model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(collateralReturns.SectionICId);
 
             }

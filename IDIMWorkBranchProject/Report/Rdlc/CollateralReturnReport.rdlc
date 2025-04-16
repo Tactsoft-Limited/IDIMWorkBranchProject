@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Rectangle Name="Rectangle5">
+        <ReportItems>
+          <Textbox Name="Textbox9">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!LetterNo.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>0in</Top>
+            <Height>0.25in</Height>
+            <Width>6.5in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox10">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!ProjectWorkTitleB.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> ১০% নিরাপত্তা জামানতের টাকা ফেরত প্রসংগে</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>0.26389in</Top>
+            <Height>0.25in</Height>
+            <Width>6.5in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Rectangle Name="Rectangle6">
+            <ReportItems>
+              <Textbox Name="Textbox11">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Code.ConvertToBangla(Fields!LetterNo.Value)</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox9</rd:DefaultName>
+                <Height>0.25in</Height>
+                <Width>6.5in</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox12">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>বরাতঃ
+ক।          </Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Code.ConvertToBangla(Fields!QuoteOne.Value)</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>  তারিখ </Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Code.ConvertToBanglaDate(Fields!QuoteOneDate.Value)</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>
+খ।          </Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Code.ConvertToBangla(Fields!QuoteTwo.Value)</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>  তারিখ </Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!QuoteTwoDate.Value</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>
+গ।          </Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Code.ConvertToBangla(Fields!QuoteThree.Value)</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value> তারিখ </Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!QuoteThreeDate.Value</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox9</rd:DefaultName>
+                <Top>0.55556in</Top>
+                <Height>0.25in</Height>
+                <Width>6.5in</Width>
+                <ZIndex>1</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Height>2.4467in</Height>
+            <Width>6.5in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>0.04166in</Top>
+        <Height>2.4467in</Height>
+        <Width>6.5in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+    </ReportItems>
+    <Height>6.94324in</Height>
+    <Style />
+  </Body>
+  <Width>6.5in</Width>
+  <Page>
+    <PageHeader>
+      <Height>0.9024in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>টোকপত্র</Value>
+                  <Style>
+                    <FontFamily>SolaimanLipi</FontFamily>
+                    <FontWeight>Bold</FontWeight>
+                    <TextDecoration>Underline</TextDecoration>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.31344in</Top>
+          <Height>0.25in</Height>
+          <Width>6.5in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>পূর্ত শাখা (নির্মান পরিদপ্তর)</Value>
+                  <Style>
+                    <FontFamily>SolaimanLipi</FontFamily>
+                    <FontWeight>Bold</FontWeight>
+                    <TextDecoration>Underline</TextDecoration>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.56344in</Top>
+          <Height>0.25in</Height>
+          <Width>6.5in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>1in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="WPDataSet">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>96b28322-7b71-4297-bddf-d978696a647e</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DsCollateralReturn">
+      <Query>
+        <DataSourceName>WPDataSet</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="CollateralReturnId">
+          <DataField>CollateralReturnId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ProjectWorkId">
+          <DataField>ProjectWorkId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="LetterNo">
+          <DataField>LetterNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QuoteOne">
+          <DataField>QuoteOne</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QuoteTwo">
+          <DataField>QuoteTwo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QuoteThree">
+          <DataField>QuoteThree</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QuoteOneDate">
+          <DataField>QuoteOneDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="QuoteTwoDate">
+          <DataField>QuoteTwoDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="QuoteThreeDate">
+          <DataField>QuoteThreeDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ProjectWorkTitleB">
+          <DataField>ProjectWorkTitleB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EstimatedCost">
+          <DataField>EstimatedCost</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="EstimatedCostInWordBangla">
+          <DataField>EstimatedCostInWordBangla</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ConstructionCompanyName">
+          <DataField>ConstructionCompanyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="HeadAssistant">
+          <DataField>HeadAssistant</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ConcernedEngineer">
+          <DataField>ConcernedEngineer</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SectionIC">
+          <DataField>SectionIC</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BranchClerk">
+          <DataField>BranchClerk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>WPDataSet</rd:DataSetName>
+        <rd:SchemaPath>F:\Software Work\TactSoft\IDIMWorkBranch\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>ViewCollateralReturn</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>ViewCollateralReturnTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <Code>Public Function ConvertToBangla(ByVal input As String) As String  
+    Dim banglaDigits As String() = {"০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"}
+    Dim output As String = ""
+    
+    For i As Integer = 1 To Len(input)
+        Dim ch As String = Mid(input, i, 1)
+        
+        If IsNumeric(ch) Then
+            output &amp;= banglaDigits(CInt(ch))
+        Else
+            output &amp;= ch
+        End If
+    Next
+    
+    Return output
+End Function
+
+
+Public Function ConvertToBanglaDate(ByVal inputDate As Date) As String  
+    ' Convert English digits to Bangla digits
+    Dim banglaDigits As String() = {"০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"}
+    Dim banglaMonths As String() = {"জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর"}
+    
+    ' Extract day, month, and year from the date
+    Dim dayPart As String = CStr(Day(inputDate))
+    Dim monthPart As String = banglaMonths(Month(inputDate) - 1)
+    Dim yearPart As String = CStr(Year(inputDate))
+
+    ' Convert day and year numbers to Bangla digits
+    Dim banglaDay As String = ""
+    Dim banglaYear As String = ""
+
+    ' Convert Day to Bangla
+    For i As Integer = 1 To Len(dayPart)
+        banglaDay &amp;= banglaDigits(CInt(Mid(dayPart, i, 1)))
+    Next
+
+    ' Convert Year to Bangla
+    For i As Integer = 1 To Len(yearPart)
+        banglaYear &amp;= banglaDigits(CInt(Mid(yearPart, i, 1)))
+    Next
+
+    ' Return formatted Bangla date
+    Return banglaDay &amp; " " &amp; monthPart &amp; " " &amp; banglaYear
+End Function
+
+
+Public Function ConvertToBanglaWords(ByVal amount As Double) As String
+    Dim banglaOnkha As String() = {"", "এক", "দুই", "তিন", "চার", "পাঁচ", "ছয়", "সাত", "আট", "নয়"}
+    Dim banglaScales As String() = {"", "হাজার", "লক্ষ", "কোটি"}
+
+    If amount = 0 Then Return "শূন্য"
+
+    Dim words As String = ""
+    Dim crore As Integer = Int(amount / 10000000)
+    Dim lakh As Integer = Int((amount Mod 10000000) / 100000)
+    Dim thousand As Integer = Int((amount Mod 100000) / 1000)
+    Dim hundred As Integer = Int((amount Mod 1000) / 100)
+    Dim tens As Integer = Int((amount Mod 100) / 10)
+    Dim units As Integer = Int(amount Mod 10)
+
+    ' Handle Crore
+    If crore &gt; 0 Then words &amp;= ConvertBelowThousand(crore) &amp; " কোটি "
+    ' Handle Lakh
+    If lakh &gt; 0 Then words &amp;= ConvertBelowThousand(lakh) &amp; " লাখ "
+    ' Handle Thousand
+    If thousand &gt; 0 Then words &amp;= ConvertBelowThousand(thousand) &amp; " হাজার "
+    ' Handle Hundred
+    If hundred &gt; 0 Then words &amp;= banglaOnkha(hundred) &amp; " শো "
+    ' Handle Tens and Units
+    If tens &gt;= 1 Then
+        If tens = 1 And units &gt; 0 Then
+            words &amp;= "ঊন" &amp; banglaOnkha(units) ' Handles numbers like 19, 29, etc.
+        Else
+            words &amp;= banglaOnkha(tens) &amp; " শো " &amp; banglaOnkha(units)
+        End If
+    Else
+        words &amp;= banglaOnkha(units)
+    End If
+
+    Return Trim(words)
+End Function
+
+' Helper function to handle numbers below 1000
+Private Function ConvertBelowThousand(ByVal num As Integer) As String
+    Dim banglaOnkha As String() = {"", "এক", "দুই", "তিন", "চার", "পাঁচ", "ছয়", "সাত", "আট", "নয়"}
+    Dim banglaTens As String() = {"", "দশ", "কুড়ি", "ত্রিশ", "চল্লিশ", "পঞ্চাশ", "ষাট", "সত্তর", "আশি", "নব্বই"}
+
+    Dim words As String = ""
+
+    Dim hundred As Integer = Int(num / 100)
+    Dim tens As Integer = Int((num Mod 100) / 10)
+    Dim units As Integer = num Mod 10
+
+    If hundred &gt; 0 Then words &amp;= banglaOnkha(hundred) &amp; " শো "
+    If tens &gt;= 1 Then
+        If tens = 1 And units &gt; 0 Then
+            words &amp;= "ঊন" &amp; banglaOnkha(units) ' Handles 11, 12, etc.
+        Else
+            words &amp;= banglaTens(tens) &amp; " " &amp; banglaOnkha(units)
+        End If
+    Else
+        words &amp;= banglaOnkha(units)
+    End If
+
+    Return Trim(words)
+End Function
+
+
+</Code>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>2a19f36f-0106-4057-986c-b892ac7cb70d</rd:ReportID>
+</Report>

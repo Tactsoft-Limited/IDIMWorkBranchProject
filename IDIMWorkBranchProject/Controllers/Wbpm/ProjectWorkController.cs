@@ -24,13 +24,14 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         protected readonly IWorkOrderService _workOrderService;
         protected readonly IProjectWorkStatusService _projectWorkStatusService;
         protected readonly IFinalBillPaymentService _finalBillPaymentService;
+        private readonly IFurnitureBillPaymentService _furnitureBillPaymentService;
         private readonly IMapper _mapper;
 
         public ProjectWorkController(IActivityLogService activityLogService, IProjectWorkService projectWorkService,
             IMapper mapper, IADPProjectService aDPProjectService, IADPReceivePaymentService aDPReceivePaymentService,
             IContractorCompanyPaymentService contractorCompanyPaymentService, INohaService nohaService,
             IPerformanceSecurityService performanceSecurityService, IContractAgreementService contractAgreementService,
-            IWorkOrderService workOrderService, IProjectWorkStatusService projectWorkStatusService, IFinalBillPaymentService finalBillPaymentService) : base(activityLogService)
+            IWorkOrderService workOrderService, IProjectWorkStatusService projectWorkStatusService, IFinalBillPaymentService finalBillPaymentService, IFurnitureBillPaymentService furnitureBillPaymentService) : base(activityLogService)
         {
             _projectWorkService = projectWorkService;
             _mapper = mapper;
@@ -43,6 +44,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             _workOrderService = workOrderService;
             _projectWorkStatusService = projectWorkStatusService;
             _finalBillPaymentService = finalBillPaymentService;
+            _furnitureBillPaymentService = furnitureBillPaymentService;
         }
         public ActionResult Index()
         {
@@ -110,7 +112,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 WorkOrderList = _mapper.Map<List<WorkOrderVm>>(await _workOrderService.GetAllByProjectWorkIdAsync(id)),
                 ADPReceivePayments = _mapper.Map<List<ADPReceivePaymentVm>>(await _ADPReceivePaymentService.GetByProjectWorkIdAsync(id)),
                 ContractorCompanyPayments = _mapper.Map<List<ContractorCompanyPaymentVm>>(await _contractorCompanyPaymentService.GetByAllProjectWorkAsync(id)),
-                FinalBillPayments = _mapper.Map<List<FinalBillPaymentVm>>(await _finalBillPaymentService.GetAllByProjectWorkIdAsync(id))
+                FinalBillPayments = _mapper.Map<List<FinalBillPaymentVm>>(await _finalBillPaymentService.GetAllByProjectWorkIdAsync(id)),
+                FurnnitureBillPayments = _mapper.Map<List<FurnitureBillPaymentVm>>(await _furnitureBillPaymentService.GetAllByProjectWorkIdAsync(id)),
 
             };
 

@@ -11,5 +11,6 @@ namespace IDIMWorkBranchProject.Services.Wbpm
     public interface IFurnitureBillPaymentService : IBaseService<FurnitureBillPayment>
     {
         Task<FurnitureBillPayment> GetByProjectWorkIdAsync(int id);
+        Task<List<FurnitureBillPayment>> GetAllByProjectWorkIdAsync(int id);
     }
 }

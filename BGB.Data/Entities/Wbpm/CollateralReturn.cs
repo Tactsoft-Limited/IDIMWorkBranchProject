@@ -17,7 +17,9 @@ namespace BGB.Data.Entities.Wbpm
         public string QuoteOne { get; set; }
         public string QuoteTwo { get; set; }
         public string QuoteThree { get; set; }
-
+        public DateTime? QuoteOneDate { get; set; }
+        public DateTime? QuoteTwoDate { get; set; }
+        public DateTime? QuoteThreeDate { get; set; }
         public int? HeadAssistantId { get; set; }
         public int? ConcernedEngineerId { get; set; }
         public int? SectionICId { get; set; }

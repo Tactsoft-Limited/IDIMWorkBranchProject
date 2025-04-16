@@ -3062,10 +3062,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Report\Rdlc\ADPReceivePaymentReport.rdlc" />
+    <EmbeddedResource Include="Report\Rdlc\CollateralReturnReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\ContractAgreementReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\BGBMiscellaneousFundReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\ContractorCompanyPaymentReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\FinalBillPaymentReport.rdlc" />
+    <EmbeddedResource Include="Report\Rdlc\FurnitureBillPaymentReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\VatTaxReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\ViewWorkOrderReport.rdlc" />
   </ItemGroup>

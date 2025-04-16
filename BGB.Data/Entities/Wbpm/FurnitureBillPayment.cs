@@ -19,9 +19,13 @@ namespace BGB.Data.Entities.Wbpm
         public int ChangedConstractorCompanyId { get; set; }
         public string LetterNo { get; set; }
         public string QuoteOne { get; set; }
+        public DateTime? QuoteOneDate { get; set; }
         public string QuoteTwo { get; set; }
+        public DateTime? QuoteTwoDate { get; set; }
         public string QuoteThree { get; set; }
+        public DateTime? QuoteThreeDate { get; set; }
         public string QuoteFour { get; set; }
+        public DateTime? QuoteFourDate { get; set; }
         public decimal AllocationToFurniture { get; set; }
         public string AllocationToFurnitureInWordB { get; set; }
         public decimal DepositsInFund { get; set; }
@@ -30,6 +34,11 @@ namespace BGB.Data.Entities.Wbpm
         public decimal PaymentAmount { get; set; }
         public string PaymentAmountInWordB { get; set; }
 
-        
+        public int? HeadAssistantId { get; set; }
+        public int? ConcernedEngineerId { get; set; }
+        public int? SectionICId { get; set; }
+        public int? BranchClerkId { get; set; }
+
+
     }
 }

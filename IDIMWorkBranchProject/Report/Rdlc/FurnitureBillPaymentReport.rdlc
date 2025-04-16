@@ -1,0 +1,1436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Rectangle Name="Rectangle1">
+        <ReportItems>
+          <Textbox Name="Textbox3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!LetterNo.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Height>0.25in</Height>
+            <Width>6.5in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox4">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!ProjectWorkTitleB.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>-এ ০৪-তলা বিশীষ্ট জেসিও'স মেস নির্মান কাজের নিয়োগকৃত ঠিকাদারের পরিবর্তে নাদিয়া ফার্নিচার লিমিটেড এর মাধ্যমে আসবাবপত্র সরবরাহের বিল পরিশোধ প্রসংগে </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>0.25in</Top>
+            <Height>0.25in</Height>
+            <Width>6.5in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox5">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>বরাতঃ </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>ক। </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!QuoteOne.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>  তারিখ </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBanglaDate(Fields!QuoteOneDate.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> ।</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>খ। </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!QuoteTwo.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> তারিখ </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBanglaDate(Fields!QuoteTwoDate.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> ।
+গ। </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!QuoteThree.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>  তারিখ </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBanglaDate(Fields!QuoteThreeDate.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>।
+ঘ। </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!QuoteFour.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> তারিখ </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBanglaDate(Fields!QuoteFourDate.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> ।</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>0.57194in</Top>
+            <Height>0.95in</Height>
+            <Width>6.5in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox6">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>১।          বরাত 'ক' মোতাবেক বিষয়োক্ত নির্মান কাজের আসবাবপত্র সরবরাহের নিমিত্তে </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!ConstractorCompanyName.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>'কে</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> কার্জাদেশ প্রদান করা হয়। অত্র শাখা হতে সরবরাহকৃত ডিজাইন ও ড্রইং অনুযায়ী  কর্তৃক আসবাবপত্র সরবরাহ করতে না পারার প্রেক্ষিতে উক্ত ফার্মের পরিবর্তে বরাত পত্র 'খ' এর প্রস্তাবনা অনুযায়ী  </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!ChangedConstractorCompanyName.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>'কে</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> বিষয়োক্ত নির্মান কাজে </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!AllocationToFurniture.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>/- (</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!AllocationToFurnitureInWordB.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>) টাকা ব্যয়ে আসবাবপত্র সরবরাহ করার নিমিত্তে বরাত পত্র 'গ' মোতাবেক কার্যাদেশ প্রদান করা হয়। বরাত পত্র 'ঘ' মোতাবেক </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!ChangedConstractorCompanyName.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> কর্তৃক আসবাবপত্র সরবরাহ করায় বর্ণিত কাজের অনুকূলে </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!ConstractorCompanyName.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> এর নামে </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>'বিজিবি বিবিধ ফান্ডে'</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>  জমাকৃত </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!DepositsInFund.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>/- টাকা হতে </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!AllocationToFurniture.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>/-(</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!AllocationToFurnitureInWordB.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>)  টাকা সংকুলান পূর্বক  </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!ChangedConstractorCompanyName.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>'কে</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>  আসবাবপত্র সরবরাহের বিল পরিশোধ করা যেতে পারে । আসবাবপত্রের বিল পরিশোধের পর বর্ণিত কাজের অনুকূলে বিজিবিবিবিধ ফান্ডে জম থাকবে (</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!DepositsInFund.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>-</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!AllocationToFurniture.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>) =</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!DepositedInFund.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>/- (</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!DepositedInFundInWordB.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>)  টাকা</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>1.69445in</Top>
+            <Height>1.26667in</Height>
+            <Width>6.5in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox7">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>২।          উপরোক্ত বর্ননার আলোকে বিষয়োক্ত নির্মান কাজের আসবাবপত্র সরবরাহের কাজ সম্পন্ন হওয়ার বর্ণিত কাজের অনুকুলে বিজিবি বিবিধ ফান্ডে জমাকৃত টাকা হতে </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!AllocationToFurniture.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>/- (</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!AllocationToFurnitureInWordB.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>) টাকা </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>'</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!ChangedConstractorCompanyName.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>'</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> এর অনুকূলে পরিশোধ করা যেতে পারে।</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>
+৩।          সদয় অবগতি ও পরবর্তী নির্দেশনারজন্য উপস্থাপন করা হলো।        </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>2.98889in</Top>
+            <Height>2.59167in</Height>
+            <Width>6.5in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Rectangle Name="Rectangle2">
+            <ReportItems>
+              <Textbox Name="Textbox112">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>প্রধান সহকারীঃ</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox112</rd:DefaultName>
+                <Left>0.02111in</Left>
+                <Height>0.20014in</Height>
+                <Width>1in</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox113">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>সংশ্লিশষ্টঃ</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox112</rd:DefaultName>
+                <Top>0.40245in</Top>
+                <Left>0.02778in</Left>
+                <Height>0.20726in</Height>
+                <Width>1in</Width>
+                <ZIndex>1</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox114">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>সেকশন আইসিঃ</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox112</rd:DefaultName>
+                <Top>0.80837in</Top>
+                <Height>0.1859in</Height>
+                <Width>1in</Width>
+                <ZIndex>2</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox115">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>শাখা করনিকঃ</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox112</rd:DefaultName>
+                <Top>1.30652in</Top>
+                <Left>0.02056in</Left>
+                <Height>0.19302in</Height>
+                <Width>1in</Width>
+                <ZIndex>3</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox117">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Fields!ConcernedEngineer.Value</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox112</rd:DefaultName>
+                <Top>0.51697in</Top>
+                <Left>1.09722in</Left>
+                <Height>0.21382in</Height>
+                <Width>2.12296in</Width>
+                <ZIndex>4</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <TopBorder>
+                    <Color>Black</Color>
+                    <Style>Dotted</Style>
+                    <Width>1pt</Width>
+                  </TopBorder>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox118">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Fields!SectionIC.Value</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox112</rd:DefaultName>
+                <Top>0.9667in</Top>
+                <Left>1.09722in</Left>
+                <Height>0.20727in</Height>
+                <Width>2.12963in</Width>
+                <ZIndex>5</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <TopBorder>
+                    <Color>Black</Color>
+                    <Style>Dotted</Style>
+                    <Width>1pt</Width>
+                  </TopBorder>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox120">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Fields!HeadAssistant.Value</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox112</rd:DefaultName>
+                <Top>0.17222in</Top>
+                <Left>1.11111in</Left>
+                <Height>0.15848in</Height>
+                <Width>2.12963in</Width>
+                <ZIndex>6</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <TopBorder>
+                    <Color>Black</Color>
+                    <Style>Dotted</Style>
+                    <Width>1pt</Width>
+                  </TopBorder>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox119">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Fields!BranchClerk.Value</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox112</rd:DefaultName>
+                <Top>1.42228in</Top>
+                <Left>1.09in</Left>
+                <Height>0.17878in</Height>
+                <Width>2.15074in</Width>
+                <ZIndex>7</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <TopBorder>
+                    <Color>Black</Color>
+                    <Style>Dotted</Style>
+                    <Width>1pt</Width>
+                  </TopBorder>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox116">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>মোহাম্মদ আরিফুজ্জামান</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>পরিচালক (পুর্ত)</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>পুর্ত শাখা</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>জুলাই ২০২৪</Value>
+                        <Style>
+                          <FontFamily>SolaimanLipi</FontFamily>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox112</rd:DefaultName>
+                <Top>0.17222in</Top>
+                <Left>4.71278in</Left>
+                <Height>0.66538in</Height>
+                <Width>1.57018in</Width>
+                <ZIndex>8</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>4.5795in</Top>
+            <Height>1.671in</Height>
+            <Width>6.34165in</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>0.06944in</Top>
+        <Height>6.85278in</Height>
+        <Width>6.5in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+    </ReportItems>
+    <Height>7.27828in</Height>
+    <Style />
+  </Body>
+  <Width>6.5in</Width>
+  <Page>
+    <PageHeader>
+      <Height>1.06667in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>টোকপত্র</Value>
+                  <Style>
+                    <FontFamily>SolaimanLipi</FontFamily>
+                    <FontWeight>Bold</FontWeight>
+                    <TextDecoration>Underline</TextDecoration>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.36333in</Top>
+          <Height>0.25in</Height>
+          <Width>6.5in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>পূর্ত শাখা (নির্মান পরিদপ্তর)</Value>
+                  <Style>
+                    <FontFamily>SolaimanLipi</FontFamily>
+                    <FontWeight>Bold</FontWeight>
+                    <TextDecoration>Underline</TextDecoration>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.625in</Top>
+          <Height>0.25in</Height>
+          <Width>6.5in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>1in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="WPDataSet">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>b8d2a372-8860-4d68-9b9c-0f94ad77cea4</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DsFurnitureBillPayment">
+      <Query>
+        <DataSourceName>WPDataSet</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="FurnitureBillPaymentId">
+          <DataField>FurnitureBillPaymentId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ProjectWorkId">
+          <DataField>ProjectWorkId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ProjectWorkTitleB">
+          <DataField>ProjectWorkTitleB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ConstractorCompanyId">
+          <DataField>ConstractorCompanyId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ConstractorCompanyName">
+          <DataField>ConstractorCompanyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ChangedConstractorCompanyId">
+          <DataField>ChangedConstractorCompanyId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ChangedConstractorCompanyName">
+          <DataField>ChangedConstractorCompanyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LetterNo">
+          <DataField>LetterNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QuoteOne">
+          <DataField>QuoteOne</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QuoteOneDate">
+          <DataField>QuoteOneDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="QuoteTwo">
+          <DataField>QuoteTwo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QuoteTwoDate">
+          <DataField>QuoteTwoDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="QuoteThree">
+          <DataField>QuoteThree</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QuoteThreeDate">
+          <DataField>QuoteThreeDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="QuoteFour">
+          <DataField>QuoteFour</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QuoteFourDate">
+          <DataField>QuoteFourDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="AllocationToFurniture">
+          <DataField>AllocationToFurniture</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="AllocationToFurnitureInWordB">
+          <DataField>AllocationToFurnitureInWordB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DepositsInFund">
+          <DataField>DepositsInFund</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DepositedInFund">
+          <DataField>DepositedInFund</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DepositedInFundInWordB">
+          <DataField>DepositedInFundInWordB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PaymentAmount">
+          <DataField>PaymentAmount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PaymentAmountInWordB">
+          <DataField>PaymentAmountInWordB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="HeadAssistant">
+          <DataField>HeadAssistant</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ConcernedEngineer">
+          <DataField>ConcernedEngineer</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SectionIC">
+          <DataField>SectionIC</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BranchClerk">
+          <DataField>BranchClerk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>WPDataSet</rd:DataSetName>
+        <rd:SchemaPath>F:\Software Work\TactSoft\IDIMWorkBranch\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>ViewFurnitureBillPayment</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>ViewFurnitureBillPaymentTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <Code>Public Function ConvertToBangla(ByVal input As String) As String  
+    Dim banglaDigits As String() = {"০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"}
+    Dim output As String = ""
+    
+    For i As Integer = 1 To Len(input)
+        Dim ch As String = Mid(input, i, 1)
+        
+        If IsNumeric(ch) Then
+            output &amp;= banglaDigits(CInt(ch))
+        Else
+            output &amp;= ch
+        End If
+    Next
+    
+    Return output
+End Function
+
+
+Public Function ConvertToBanglaDate(ByVal inputDate As Date) As String  
+    ' Convert English digits to Bangla digits
+    Dim banglaDigits As String() = {"০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"}
+    Dim banglaMonths As String() = {"জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর"}
+    
+    ' Extract day, month, and year from the date
+    Dim dayPart As String = CStr(Day(inputDate))
+    Dim monthPart As String = banglaMonths(Month(inputDate) - 1)
+    Dim yearPart As String = CStr(Year(inputDate))
+
+    ' Convert day and year numbers to Bangla digits
+    Dim banglaDay As String = ""
+    Dim banglaYear As String = ""
+
+    ' Convert Day to Bangla
+    For i As Integer = 1 To Len(dayPart)
+        banglaDay &amp;= banglaDigits(CInt(Mid(dayPart, i, 1)))
+    Next
+
+    ' Convert Year to Bangla
+    For i As Integer = 1 To Len(yearPart)
+        banglaYear &amp;= banglaDigits(CInt(Mid(yearPart, i, 1)))
+    Next
+
+    ' Return formatted Bangla date
+    Return banglaDay &amp; " " &amp; monthPart &amp; " " &amp; banglaYear
+End Function
+
+
+Public Function ConvertToBanglaWords(ByVal amount As Double) As String
+    Dim banglaOnkha As String() = {"", "এক", "দুই", "তিন", "চার", "পাঁচ", "ছয়", "সাত", "আট", "নয়"}
+    Dim banglaScales As String() = {"", "হাজার", "লক্ষ", "কোটি"}
+
+    If amount = 0 Then Return "শূন্য"
+
+    Dim words As String = ""
+    Dim crore As Integer = Int(amount / 10000000)
+    Dim lakh As Integer = Int((amount Mod 10000000) / 100000)
+    Dim thousand As Integer = Int((amount Mod 100000) / 1000)
+    Dim hundred As Integer = Int((amount Mod 1000) / 100)
+    Dim tens As Integer = Int((amount Mod 100) / 10)
+    Dim units As Integer = Int(amount Mod 10)
+
+    ' Handle Crore
+    If crore &gt; 0 Then words &amp;= ConvertBelowThousand(crore) &amp; " কোটি "
+    ' Handle Lakh
+    If lakh &gt; 0 Then words &amp;= ConvertBelowThousand(lakh) &amp; " লাখ "
+    ' Handle Thousand
+    If thousand &gt; 0 Then words &amp;= ConvertBelowThousand(thousand) &amp; " হাজার "
+    ' Handle Hundred
+    If hundred &gt; 0 Then words &amp;= banglaOnkha(hundred) &amp; " শো "
+    ' Handle Tens and Units
+    If tens &gt;= 1 Then
+        If tens = 1 And units &gt; 0 Then
+            words &amp;= "ঊন" &amp; banglaOnkha(units) ' Handles numbers like 19, 29, etc.
+        Else
+            words &amp;= banglaOnkha(tens) &amp; " শো " &amp; banglaOnkha(units)
+        End If
+    Else
+        words &amp;= banglaOnkha(units)
+    End If
+
+    Return Trim(words)
+End Function
+
+' Helper function to handle numbers below 1000
+Private Function ConvertBelowThousand(ByVal num As Integer) As String
+    Dim banglaOnkha As String() = {"", "এক", "দুই", "তিন", "চার", "পাঁচ", "ছয়", "সাত", "আট", "নয়"}
+    Dim banglaTens As String() = {"", "দশ", "কুড়ি", "ত্রিশ", "চল্লিশ", "পঞ্চাশ", "ষাট", "সত্তর", "আশি", "নব্বই"}
+
+    Dim words As String = ""
+
+    Dim hundred As Integer = Int(num / 100)
+    Dim tens As Integer = Int((num Mod 100) / 10)
+    Dim units As Integer = num Mod 10
+
+    If hundred &gt; 0 Then words &amp;= banglaOnkha(hundred) &amp; " শো "
+    If tens &gt;= 1 Then
+        If tens = 1 And units &gt; 0 Then
+            words &amp;= "ঊন" &amp; banglaOnkha(units) ' Handles 11, 12, etc.
+        Else
+            words &amp;= banglaTens(tens) &amp; " " &amp; banglaOnkha(units)
+        End If
+    Else
+        words &amp;= banglaOnkha(units)
+    End If
+
+    Return Trim(words)
+End Function
+
+
+</Code>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>8a83fd94-e849-4ccb-9bde-46af8820d5c1</rd:ReportID>
+</Report>

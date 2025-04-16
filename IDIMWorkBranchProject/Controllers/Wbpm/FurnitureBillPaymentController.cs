@@ -21,8 +21,9 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IConstructionCompanyService _constructionCompanyService;
         private readonly IBGBMiscellaneousFundService _bGBMiscellaneousFundService;
         private readonly IContractorCompanyPaymentService _contractorCompanyPaymentService;
+        private readonly ISignatoryAuthorityService _signatoryAuthorityService;
         private readonly IMapper _mapper;
-        public FurnitureBillPaymentController(IActivityLogService activityLogService, IFurnitureBillPaymentService furnitureBillPaymentService, IMapper mapper, IProjectWorkService projectWorkService, IContractAgreementService contractAgreementService, IConstructionCompanyService constructionCompanyService, IBGBMiscellaneousFundService bGBMiscellaneousFundService, IContractorCompanyPaymentService contractorCompanyPaymentService) : base(activityLogService)
+        public FurnitureBillPaymentController(IActivityLogService activityLogService, IFurnitureBillPaymentService furnitureBillPaymentService, IMapper mapper, IProjectWorkService projectWorkService, IContractAgreementService contractAgreementService, IConstructionCompanyService constructionCompanyService, IBGBMiscellaneousFundService bGBMiscellaneousFundService, IContractorCompanyPaymentService contractorCompanyPaymentService, ISignatoryAuthorityService signatoryAuthorityService) : base(activityLogService)
         {
             _furnitureBillPaymentService = furnitureBillPaymentService;
             _mapper = mapper;
@@ -31,6 +32,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             _constructionCompanyService = constructionCompanyService;
             _bGBMiscellaneousFundService = bGBMiscellaneousFundService;
             _contractorCompanyPaymentService = contractorCompanyPaymentService;
+            _signatoryAuthorityService = signatoryAuthorityService;
         }
 
         // GET: FurnitureBillPayment
@@ -54,7 +56,11 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 ConstractorCompanyId =contactAgreements.ConstructionCompanyId,
                 ConstractorCompanyName = contactAgreements.ConstructionCompany.FirmNameB,
                 DepositsInFund= (bgbMiscellaneousFund.Sum(a => a.Amount) - contractionCompanyPayment.Sum(e => e.FinalPaymentAmount)),
-                ConstructionCompanyDropdown = await _constructionCompanyService.GetDropdownAsync(),               
+                ConstructionCompanyDropdown = await _constructionCompanyService.GetDropdownAsync(),
+                HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
+                ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
+                SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
+                BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync()
             };
             if (furnitureBillPayment != null)
             {
@@ -66,12 +72,20 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 model.PaymentAmount = furnitureBillPayment.PaymentAmount;
                 model.PaymentAmountInWordB = furnitureBillPayment.PaymentAmountInWordB;
                 model.LetterNo = furnitureBillPayment.LetterNo;
-                model.QuoteOne = furnitureBillPayment.QuoteOne;
+                model.QuoteOne = furnitureBillPayment.QuoteOne;                
                 model.QuoteTwo = furnitureBillPayment.QuoteTwo;
                 model.QuoteThree = furnitureBillPayment.QuoteThree;
                 model.QuoteFour = furnitureBillPayment.QuoteFour;
+                model.QuoteOneDate = furnitureBillPayment.QuoteOneDate;
+                model.QuoteTwoDate = furnitureBillPayment.QuoteTwoDate;
+                model.QuoteThreeDate = furnitureBillPayment.QuoteThreeDate;
+                model.QuoteFourDate = furnitureBillPayment.QuoteFourDate;
                 model.ChangedConstractorCompanyId = furnitureBillPayment.ChangedConstractorCompanyId;
                 model.ConstructionCompanyDropdown = await _constructionCompanyService.GetDropdownAsync(furnitureBillPayment.ChangedConstractorCompanyId);
+                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(furnitureBillPayment.ChangedConstractorCompanyId);
+                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(furnitureBillPayment.ChangedConstractorCompanyId);
+                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(furnitureBillPayment.ChangedConstractorCompanyId);
+                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(furnitureBillPayment.ChangedConstractorCompanyId);
             }
             return View(model);
         }

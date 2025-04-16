@@ -56,5 +56,17 @@ namespace IDIMWorkBranchProject.Services.Report
                 .Where(x => x.FinalBillPaymentId == id)
                 .ToListAsync();
         }
+        public async Task<List<ViewFurnitureBillPayment>> GetFurnitureBillPaymentAsync(int id)
+        {
+            return await _context.ViewFurnitureBillPayments
+                .Where(x => x.FurnitureBillPaymentId == id)
+                .ToListAsync();
+        }
+        public async Task<List<ViewCollateralReturn>> GetCollateralReturnAsync(int id)
+        {
+            return await _context.ViewCollateralReturns
+                .Where(x => x.CollateralReturnId == id)
+                .ToListAsync();
+        }
     }
 }
