@@ -20,8 +20,17 @@ namespace BGB.Data.SqlViews.Wbpm
         public string QuoteOne { get; set; }
         public string QuoteTwo { get; set; }
         public string QuoteThree { get; set; }
+        public DateTime? QuoteOneDate { get; set; }
+        public DateTime? QuoteTwoDate { get; set; }
+        public DateTime? QuoteThreeDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public DateTime? HandOverDate { get; set; }
         public string ProjectWorkTitleB { get; set; }
+        public string CollateralAmountB { get; set; }
         public decimal EstimatedCost { get; set; }
+        public double CollateralPer { get; set; }
+        public decimal CollateralAmount { get; set; }
         public string EstimatedCostInWordBangla { get; set; }
         public string ConstructionCompanyName { get; set; }
         public string HeadAssistant { get; set; }

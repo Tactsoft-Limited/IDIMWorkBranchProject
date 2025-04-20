@@ -214,10 +214,12 @@ namespace IDIMWorkBranchProject.Controllers.Report
             try
             {
                 var data = await _reportService.GetCollateralReturnAsync(id);
+                var vatTax = await _reportService.GetVatTaxByProjectIdAsync(id);
 
                 var reportDataSource = new List<ReportDataSource>
                 {
-                    new ReportDataSource("DsCollateralReturn", data)
+                    new ReportDataSource("DsCollateralReturn", data),
+                    new ReportDataSource("DsVatTaxReturn", vatTax)
                 };
 
                 var config = new ReportConfig

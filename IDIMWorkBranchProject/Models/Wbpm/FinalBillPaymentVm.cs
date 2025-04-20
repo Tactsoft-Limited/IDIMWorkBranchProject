@@ -47,6 +47,10 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [Display(Name = "জামানত পরিমান")]
         public decimal? CollateralAmount { get; set; }
+
+        [Display(Name = "জামানত পরিমান কথায়")]
+        public string CollateralAmountB { get; set; }
+
         [Display(Name = "মোট ভ্যাট,আয়কর ও জামানতের পরিমান ")]
         public decimal? TotalAmountOfVatTaxCollateral { get; set; }
         [Display(Name = "মোট ভ্যাট,আয়কর ও জামানতের পরিমান কথায় (বাংলায়)")]

@@ -15,6 +15,7 @@ namespace BGB.Data.Entities.Wbpm
         public DateTime? WorkOrderDate { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
+        public DateTime? HandOverDate { get; set; }
         public string ScanDocument { get; set; }
 
 

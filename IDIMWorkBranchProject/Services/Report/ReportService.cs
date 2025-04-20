@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BGB.Data.Entities.Wbpm;
 using BGB.Data.SqlViews.Wbpm;
 
 using IDIMWorkBranchProject.Data.Database;
@@ -65,7 +66,14 @@ namespace IDIMWorkBranchProject.Services.Report
         public async Task<List<ViewCollateralReturn>> GetCollateralReturnAsync(int id)
         {
             return await _context.ViewCollateralReturns
-                .Where(x => x.CollateralReturnId == id)
+                .Where(x => x.ProjectWorkId == id)
+                .ToListAsync();
+        }
+
+        public async Task<List<VatTaxCollateral>> GetVatTaxByProjectIdAsync(int id)
+        {
+            return await _context.VatTaxCollaterals
+                .Where(x => x.ADPReceivePayment.ProjectWorkId == id)
                 .ToListAsync();
         }
     }

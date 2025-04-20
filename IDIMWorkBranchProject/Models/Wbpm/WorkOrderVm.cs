@@ -33,6 +33,10 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? EndDate { get; set; }
 
+        [DisplayName("কাজ হস্তান্তরের তারিখ")]
+        [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime? HandOverDate { get; set; }
+
         [DisplayName("কার্যাদেশ ডকুমেন্ট")]
         public string ScanDocument { get; set; }
 

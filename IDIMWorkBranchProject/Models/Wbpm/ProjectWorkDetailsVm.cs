@@ -93,6 +93,9 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("লেটার নং")]
         public string FinalBillLetterNo { get; set; }
 
+        [DisplayName("লেটার নং")]
+        public string CollateralLetterNo { get; set; }
+
         [Display(Name = "চূড়ান্ত পরিমাপ অনুযায়ী মোট পরিমাণ")]
         public decimal NetAmountAsPerFinalMeasurement { get; set; }
 

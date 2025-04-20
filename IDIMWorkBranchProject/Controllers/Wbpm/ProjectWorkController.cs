@@ -25,13 +25,14 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         protected readonly IProjectWorkStatusService _projectWorkStatusService;
         protected readonly IFinalBillPaymentService _finalBillPaymentService;
         private readonly IFurnitureBillPaymentService _furnitureBillPaymentService;
+        private readonly ICollateralReturnService _collateralReturnService;
         private readonly IMapper _mapper;
 
         public ProjectWorkController(IActivityLogService activityLogService, IProjectWorkService projectWorkService,
             IMapper mapper, IADPProjectService aDPProjectService, IADPReceivePaymentService aDPReceivePaymentService,
             IContractorCompanyPaymentService contractorCompanyPaymentService, INohaService nohaService,
             IPerformanceSecurityService performanceSecurityService, IContractAgreementService contractAgreementService,
-            IWorkOrderService workOrderService, IProjectWorkStatusService projectWorkStatusService, IFinalBillPaymentService finalBillPaymentService, IFurnitureBillPaymentService furnitureBillPaymentService) : base(activityLogService)
+            IWorkOrderService workOrderService, IProjectWorkStatusService projectWorkStatusService, IFinalBillPaymentService finalBillPaymentService, IFurnitureBillPaymentService furnitureBillPaymentService, ICollateralReturnService collateralReturnService) : base(activityLogService)
         {
             _projectWorkService = projectWorkService;
             _mapper = mapper;
@@ -45,6 +46,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             _projectWorkStatusService = projectWorkStatusService;
             _finalBillPaymentService = finalBillPaymentService;
             _furnitureBillPaymentService = furnitureBillPaymentService;
+            _collateralReturnService = collateralReturnService;
         }
         public ActionResult Index()
         {
@@ -80,7 +82,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             var contractAgreement = _mapper.Map<ContractAgreementVm>(await _contractAgreementService.GetByProjectWorkIdAsync(id));
             var workOrder = _mapper.Map<WorkOrderVm>(await _workOrderService.GetByProjectWorkIdAsync(id));
             var projectWorkStatus = _mapper.Map<ProjectWorkStatusVm>(await _projectWorkStatusService.GetByProjectWorkIdAsync(id));
-            
+            var collateralReturn = _mapper.Map<CollateralReturnVm>(await _collateralReturnService.GetByProjectWorkIdAsync(id));
+
             // Building the model
             var model = new ProjectWorkDetailsVm
             {
@@ -108,6 +111,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 ProjectWorkStatus = projectWorkStatus?.ProjectWorkStatusId, // Null-safe access
                 IsFinalBillSubmitted = projectWorks.IsFinalBillSubmitted,
                 IsFurnitureIncluded = projectWorks.IsFurnitureIncluded,
+                CollateralLetterNo = collateralReturn?.LetterNo,
+
 
                 WorkOrderList = _mapper.Map<List<WorkOrderVm>>(await _workOrderService.GetAllByProjectWorkIdAsync(id)),
                 ADPReceivePayments = _mapper.Map<List<ADPReceivePaymentVm>>(await _ADPReceivePaymentService.GetByProjectWorkIdAsync(id)),

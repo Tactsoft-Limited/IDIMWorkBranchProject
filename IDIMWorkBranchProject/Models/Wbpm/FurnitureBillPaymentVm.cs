@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -32,11 +33,13 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("বরাত ক")]
         public string QuoteOne { get; set; }
         [DisplayName("বরাত ক এর তারিখ")]
+        [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? QuoteOneDate { get; set; }
 
         [DisplayName("বরাত খ")]
         public string QuoteTwo { get; set; }
-        [DisplayName("বরাত খ এর তারিখ")]        
+        [DisplayName("বরাত খ এর তারিখ")]
+        [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? QuoteTwoDate { get; set; }
 
         [DisplayName("বরাত গ")]
@@ -44,12 +47,14 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
 
         [DisplayName("বরাত গ এর তারিখ")]
+        [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? QuoteThreeDate { get; set; }
 
         [DisplayName("বরাত ঘ")]
         public string QuoteFour { get; set; }
 
         [DisplayName("বরাত ঘ এর তারিখ")]
+        [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? QuoteFourDate { get; set; }
 
         [DisplayName("আসবাব পত্রে বরাদ্দ")]

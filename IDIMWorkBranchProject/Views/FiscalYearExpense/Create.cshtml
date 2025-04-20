@@ -61,7 +61,7 @@
                         <div class="form-group col-md-6">
                             @Html.LabelFor(m => m.FiscalYearId, new { @class = "col-md-4 form-label" })
                             <div class="col-md-8">
-                                @Html.DropDownListFor(m => m.FiscalYearId, Model.FiscalYearDropdown, "Select Fiscal Year", new { @class = "select2" })
+                                @Html.DropDownListFor(m => m.FiscalYearId, Model.FiscalYearDropdown, "আর্থিক বছর নির্বাচন করুন", new { @class = "select2" })
                                 @Html.ValidationMessageFor(model => model.FiscalYearId)
                             </div>
                         </div>

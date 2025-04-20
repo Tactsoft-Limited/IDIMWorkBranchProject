@@ -50,212 +50,218 @@
                     @Html.HiddenFor(x => x.ProjectWorkId)
                     @Html.HiddenFor(x => x.FinalBillPaymentId)
 
-                <div class="row">
-                    <div class="form-display col-md-12">
-                        @Html.LabelFor(m => m.ProjectWorkName, new { @class = "label-display col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.ProjectWorkName, new { @class = "form-control", @readonly = "readonly" })
+                    <div class="row">
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ProjectWorkName, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ProjectWorkName, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-12">
-                        @Html.LabelFor(m => m.EstimatedCost, new { @class = "label-display col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.EstimatedCost, new { @class = "form-control" })
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.EstimatedCost, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.EstimatedCost, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.VatPer, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.VatPer, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.VatPer, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.VatPer, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.VatAmount, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.VatAmount, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.VatAmount, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.VatAmount, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.TaxPer, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.TaxPer, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.TaxPer, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.TaxPer, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.TaxAmount, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.TaxAmount, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.TaxAmount, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.TaxAmount, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.CollateralPer, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.CollateralPer, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.CollateralPer, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.CollateralPer, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.CollateralAmount, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.CollateralAmount, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.CollateralAmount, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.CollateralAmount, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.TotalAmountOfVatTaxCollateral, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.TotalAmountOfVatTaxCollateral, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.CollateralAmountB, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.CollateralAmountB, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.TotalAmountOfVatTaxCollateralB, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.TotalAmountOfVatTaxCollateralB, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.TotalAmountOfVatTaxCollateral, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.TotalAmountOfVatTaxCollateral, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.NetBillAfterVatTAxCollateralDeduction, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.NetBillAfterVatTAxCollateralDeduction, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.TotalAmountOfVatTaxCollateralB, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.TotalAmountOfVatTaxCollateralB, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-12">
-                        @Html.LabelFor(m => m.NetAmountAsPerFinalMeasurement, new { @class = "label-display col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.NetAmountAsPerFinalMeasurement, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.NetBillAfterVatTAxCollateralDeduction, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.NetBillAfterVatTAxCollateralDeduction, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.LetterNo, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.LetterNo, new { @class = "form-control" })
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.NetAmountAsPerFinalMeasurement, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.NetAmountAsPerFinalMeasurement, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.VatTaxPer, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.VatTaxPer, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.LetterNo, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.LetterNo, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.VatTaxAmount, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.VatTaxAmount, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.VatTaxPer, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.VatTaxPer, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.ContractorDueAfterVatTaxDeduction, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.ContractorDueAfterVatTaxDeduction, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.VatTaxAmount, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.VatTaxAmount, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.PreviouslyPaidBillNo, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.PreviouslyPaidBillNo, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.ContractorDueAfterVatTaxDeduction, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.ContractorDueAfterVatTaxDeduction, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.PreviouslyPaidAmount, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.PreviouslyPaidAmount, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.PreviouslyPaidBillNo, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.PreviouslyPaidBillNo, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.FurnitureBillPaymentAmount, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.FurnitureBillPaymentAmount, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.PreviouslyPaidAmount, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.PreviouslyPaidAmount, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.CollateralPaidAmound, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.CollateralPaidAmound, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.FurnitureBillPaymentAmount, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.FurnitureBillPaymentAmount, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.AdvancePaymentAmount, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.AdvancePaymentAmount, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.CollateralPaidAmound, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.CollateralPaidAmound, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.PayableFinalBill, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.PayableFinalBill, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.AdvancePaymentAmount, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.AdvancePaymentAmount, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.NetFinalBill, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.NetFinalBill, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.PayableFinalBill, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.PayableFinalBill, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.NetFinalBillWordB, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.NetFinalBillWordB, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.NetFinalBill, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.NetFinalBill, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.DepositBGBFund, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.DepositBGBFund, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.NetFinalBillWordB, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.NetFinalBillWordB, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.RemainingDepositsInBgbFund, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.RemainingDepositsInBgbFund, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.DepositBGBFund, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.DepositBGBFund, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.RemainingDepositsInBgbFundWordB, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.RemainingDepositsInBgbFundWordB, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.RemainingDepositsInBgbFund, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.RemainingDepositsInBgbFund, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.DuePaidAmount, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.DuePaidAmount, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.RemainingDepositsInBgbFundWordB, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.RemainingDepositsInBgbFundWordB, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.DuePaidAmount, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.DuePaidAmount, new { @class = "form-control" })
+                            </div>
+                        </div>
 
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.PaidFromBGBFundId, new { @class = "label-display col-md-4 " })
-                        <div class="col-md-8">
-                            @Html.DropDownListFor(m => m.PaidFromBGBFundId, Model.BGBFundDropdown, "Select One", new { @class = "select2" })
-                            @Html.ValidationMessageFor(model => model.PaidFromBGBFundId)
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.PaidFromBGBFundId, new { @class = "label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.PaidFromBGBFundId, Model.BGBFundDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.PaidFromBGBFundId)
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.HeadAssistantId, new { @class = " label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.HeadAssistantId, Model.HeadAssistantDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.HeadAssistantId)
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.ConcernedEngineerId, new { @class = "label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.ConcernedEngineerId, Model.ConcernedEngineerDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.ConcernedEngineerId)
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.SectionICId, new { @class = "label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.SectionICId, Model.SectionICTDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.SectionICId)
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.BranchClerkId, new { @class = "label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.BranchClerkId, Model.BranchClerkDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.BranchClerkId)
+                            </div>
                         </div>
                     </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.HeadAssistantId, new { @class = " label-display col-md-4 " })
-                        <div class="col-md-8">
-                            @Html.DropDownListFor(m => m.HeadAssistantId, Model.HeadAssistantDropdown, "Select One", new { @class = "select2" })
-                            @Html.ValidationMessageFor(model => model.HeadAssistantId)
-                        </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.ConcernedEngineerId, new { @class = "label-display col-md-4 " })
-                        <div class="col-md-8">
-                            @Html.DropDownListFor(m => m.ConcernedEngineerId, Model.ConcernedEngineerDropdown, "Select One", new { @class = "select2" })
-                            @Html.ValidationMessageFor(model => model.ConcernedEngineerId)
-                        </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.SectionICId, new { @class = "label-display col-md-4 " })
-                        <div class="col-md-8">
-                            @Html.DropDownListFor(m => m.SectionICId, Model.SectionICTDropdown, "Select One", new { @class = "select2" })
-                            @Html.ValidationMessageFor(model => model.SectionICId)
-                        </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.BranchClerkId, new { @class = "label-display col-md-4 " })
-                        <div class="col-md-8">
-                            @Html.DropDownListFor(m => m.BranchClerkId, Model.BranchClerkDropdown, "Select One", new { @class = "select2" })
-                            @Html.ValidationMessageFor(model => model.BranchClerkId)
-                        </div>
-                    </div>
-                </div>
                     <div class="pull-right">
                         <input type="submit" class="btn btn-success" value="Save" />
                         <input type="reset" class="btn" value="Clear" />
@@ -280,7 +286,7 @@
                 const estimatedCost = parseFloat($('#EstimatedCost').val()) || 0;
                 const vatPer = parseFloat($('#VatPer').val()) || 0;
                 const taxPer = parseFloat($('#TaxPer').val()) || 0;
-                const collateralPer = parseFloat($('#CollateralPer').val()) || 0;
+                const collateralPer = parseFloat($('#CollateralPer').val()) || 0;                
 
                 const vatTaxAmount = Math.round(netAmountAsPerFinalMeasurement * (vatTaxPer / 100));
                 const contractorDueAfterVatTaxDeduction = Math.round(netAmountAsPerFinalMeasurement - vatTaxAmount);
@@ -288,9 +294,17 @@
                 const remainingDepositsInBgbFundAmount = Math.round(depositBGBFund - netFinalBill);
                 const vatAmount = Math.round(estimatedCost * (vatPer / 100));
                 const taxAmount = Math.round(estimatedCost * (taxPer / 100));
-                const collateralAmount = Math.round(estimatedCost * (collateralPer / 100));
-                const totalAmountOfVatTaxCollateral = Math.round(vatAmount + taxAmount + collateralAmount);
+                const calculatedCollateralAmount = Math.round(estimatedCost * (collateralPer / 100));
+                const totalAmountOfVatTaxCollateral = Math.round(vatAmount + taxAmount + calculatedCollateralAmount);
                 const netBillAfterVatTAxCollateralDeduction = Math.round(estimatedCost - totalAmountOfVatTaxCollateral);
+
+                const calculatedRemaining = remainingDepositsInBgbFundAmount < 0 ? 0 : remainingDepositsInBgbFundAmount;
+
+                // Convert numbers to Bangla words (assumes getBanglaWord is defined elsewhere)
+                const netFinalBillInWord = getBanglaWord(payableFinalBillAmount);
+                const remainingDepositsInBgbFundAmountInWord = getBanglaWord(calculatedRemaining);
+                const totalAmountOfVatTaxCollateralInWord = getBanglaWord(totalAmountOfVatTaxCollateral);
+                
 
                 // Set values in fields
                 $('#VatTaxAmount').val(vatTaxAmount.toFixed(2));
@@ -299,36 +313,29 @@
                 $('#NetFinalBill').val(payableFinalBillAmount.toFixed(2));
                 $('#VatAmount').val(vatAmount.toFixed(2));
                 $('#TaxAmount').val(taxAmount.toFixed(2));
-                $('#CollateralAmount').val(collateralAmount.toFixed(2));
+                $('#CollateralAmount').val(calculatedCollateralAmount.toFixed(2));                
                 $('#TotalAmountOfVatTaxCollateral').val(totalAmountOfVatTaxCollateral.toFixed(2));
                 $('#NetBillAfterVatTAxCollateralDeduction').val(netBillAfterVatTAxCollateralDeduction.toFixed(2));
-
-                const calculatedRemaining = remainingDepositsInBgbFundAmount < 0 ? 0 : remainingDepositsInBgbFundAmount;
                 $('#RemainingDepositsInBgbFund').val(calculatedRemaining.toFixed(2));
-
-                // Convert numbers to Bangla words (assumes getBanglaWord is defined elsewhere)
-                const netFinalBillInWord = getBanglaWord(payableFinalBillAmount);
-                const remainingDepositsInBgbFundAmountInWord = getBanglaWord(calculatedRemaining);
-                const totalAmountOfVatTaxCollateralInWord = getBanglaWord(totalAmountOfVatTaxCollateral);
-
                 $('#NetFinalBillWordB').val(netFinalBillInWord);
-                $('#RemainingDepositsInBgbFundWordB').val(remainingDepositsInBgbFundAmountInWord);
+                $('#TotalAmountOfVatTaxCollateralB').val(totalAmountOfVatTaxCollateralInWord);
 
                 // Advance Payment Calculation
                 const furnitureBillPaymentAmount = parseFloat($('#FurnitureBillPaymentAmount').val()) || 0;
                 const collateralPaidAmount = parseFloat($('#CollateralPaidAmount').val()) || 0;
-
                 const totalAdvancePaymentAmount = Math.round(previouslyPaidAmount + furnitureBillPaymentAmount + collateralPaidAmount);
                 $('#AdvancePaymentAmount').val(totalAdvancePaymentAmount.toFixed(2));
-                $('#TotalAmountOfVatTaxCollateralB').val(totalAmountOfVatTaxCollateralInWord);
             }
+            const collateralAmount = parseFloat($('#CollateralAmount').val()) || 0;
+            const collateralAmountInWordB = getBanglaWord(collateralAmount);
+            $('#CollateralAmountB').val(collateralAmountInWordB);
 
             // Bind to input changes
-            $('#PreviouslyPaidAmount, #NetFinalBill, #DepositBGBFund, #NetAmountAsPerFinalMeasurement, #VatTaxPer, #RemainingDepositsInBgbFund, #AdvancePaymentAmount, #NetFinalBillWordB, #RemainingDepositsInBgbFundWordB, #FurnitureBillPaymentAmount, #CollateralPaidAmount, #VatAmount, #TaxAmount, #CollateralAmount, #EstimatedCost, #VatPer, #TaxPer, #CollateralPer,#TotalAmountOfVatTaxCollateralB')
+            $('#PreviouslyPaidAmount, #NetFinalBill, #DepositBGBFund, #NetAmountAsPerFinalMeasurement, #VatTaxPer, #RemainingDepositsInBgbFund, #AdvancePaymentAmount, #NetFinalBillWordB, #RemainingDepositsInBgbFundWordB, #FurnitureBillPaymentAmount, #CollateralPaidAmount, #CollateralAmountB, #VatAmount, #TaxAmount, #CollateralAmount, #EstimatedCost, #VatPer, #TaxPer, #CollateralPer, #TotalAmountOfVatTaxCollateralB')
                 .on('input', calculateFinalBillAmount);
-            
         });
     </script>
+
 
 
 

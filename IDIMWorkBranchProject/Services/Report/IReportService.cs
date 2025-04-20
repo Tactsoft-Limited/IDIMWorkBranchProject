@@ -1,4 +1,5 @@
-﻿using BGB.Data.SqlViews.Wbpm;
+﻿using BGB.Data.Entities.Wbpm;
+using BGB.Data.SqlViews.Wbpm;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -15,6 +16,7 @@ namespace IDIMWorkBranchProject.Services.Report
         Task<List<ViewFinalBillPayment>> GetFinalBillPaymentAsync(int id);
         Task<List<ViewFurnitureBillPayment>> GetFurnitureBillPaymentAsync(int id);
         Task<List<ViewCollateralReturn>> GetCollateralReturnAsync(int id);
+        Task<List<VatTaxCollateral>> GetVatTaxByProjectIdAsync(int id);
     }
 }
 

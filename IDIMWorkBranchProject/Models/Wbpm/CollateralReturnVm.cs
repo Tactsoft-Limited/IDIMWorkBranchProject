@@ -30,12 +30,15 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public string QuoteThree { get; set; }
 
         [DisplayName("বরাত ক এর তারিখ")]
+        [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? QuoteOneDate { get; set; }
 
         [DisplayName("বরাত খ এর তারিখ")]
+        [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? QuoteTwoDate { get; set; }
 
         [DisplayName("বরাত গ এর তারিখ")]
+        [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? QuoteThreeDate { get; set; }
 
         [DisplayName("প্রধান সহকারী")]

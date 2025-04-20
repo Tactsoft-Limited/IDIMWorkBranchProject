@@ -77,6 +77,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 model.TaxAmount = finalBillPayment.TaxAmount;
                 model.CollateralPer = finalBillPayment.CollateralPer;
                 model.CollateralAmount = finalBillPayment.CollateralAmount;
+                model.CollateralAmountB = finalBillPayment.CollateralAmountB;
                 model.TotalAmountOfVatTaxCollateral = finalBillPayment.TotalAmountOfVatTaxCollateral;
                 model.TotalAmountOfVatTaxCollateralB = finalBillPayment.TotalAmountOfVatTaxCollateralB;
                 model.NetBillAfterVatTAxCollateralDeduction = finalBillPayment.NetBillAfterVatTAxCollateralDeduction;

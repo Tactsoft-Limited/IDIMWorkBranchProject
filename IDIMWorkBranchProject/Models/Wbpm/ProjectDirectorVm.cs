@@ -43,6 +43,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("ডকুমেন্ট")]
         public string PDDocument { get; set; }
 
+        [DisplayName("সক্রিয় কিনা?")]
         public bool IsActive { get; set; }
 
         [NotMapped]
