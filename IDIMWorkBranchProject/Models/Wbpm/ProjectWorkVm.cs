@@ -37,11 +37,11 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("প্রাক্কলিত ব্যয় কথায়")]
         public string EstimatedCostInWordBangla { get; set; }
 
-        [DisplayName("মন্তব্য")]
-        public string Remarks { get; set; }
-
-        [DisplayName("আসবাবপত্র সংযুক্ত কিনা?")]
+        [DisplayName("আসবাবপত্র কি অন্তর্ভুক্ত?")]
         public bool IsFurnitureIncluded { get; set; }
+
+        [DisplayName("মন্তব্য")]
+        public string Remarks { get; set; }        
 
         public DateTime? AgreementDate { get; set; }
         public DateTime? WorkStartDate { get; set; }

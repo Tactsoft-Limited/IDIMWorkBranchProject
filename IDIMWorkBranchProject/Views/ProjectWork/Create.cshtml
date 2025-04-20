@@ -52,7 +52,7 @@
                         <div class="form-display col-md-12">
                             @Html.LabelFor(m => m.ProjectTitle, new { @class = "form-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.TextBoxFor(m => m.ProjectTitle, new { @class = "form-control", @readonly = "readonly" })
+                                @Html.TextAreaFor(m => m.ProjectTitle, new { @class = "form-control", @readonly = "readonly" })
                             </div>
                         </div>
 
@@ -83,14 +83,14 @@
                         <div class="form-group col-md-12">
                             @Html.LabelFor(m => m.EstimatedCostInWord, new { @class = "col-md-2 form-label" })
                             <div class="col-md-10">
-                                @Html.TextBoxFor(m => m.EstimatedCostInWord, new { @class = "form-control" })
+                                @Html.TextAreaFor(m => m.EstimatedCostInWord, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.EstimatedCostInWord)
                             </div>
                         </div>
                         <div class="form-group col-md-12">
                             @Html.LabelFor(m => m.EstimatedCostInWordBangla, new { @class = "col-md-2 form-label" })
                             <div class="col-md-10">
-                                @Html.TextBoxFor(m => m.EstimatedCostInWordBangla, new { @class = "form-control" })
+                                @Html.TextAreaFor(m => m.EstimatedCostInWordBangla, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.EstimatedCostInWordBangla)
                             </div>
                         </div>

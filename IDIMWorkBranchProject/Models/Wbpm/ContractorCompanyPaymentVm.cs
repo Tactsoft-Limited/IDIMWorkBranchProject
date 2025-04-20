@@ -128,6 +128,8 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         public DateTime WorkEnded { get; set; }
 
+
+        [DisplayName("ঠিকাদারি প্রতিষ্ঠান")]
         public string ConstructionCompany { get; set; }
 
         [DisplayName("প্রধান সহকারী")]
