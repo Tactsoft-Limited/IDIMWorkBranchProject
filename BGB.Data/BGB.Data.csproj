@@ -68,6 +68,7 @@
     <Compile Include="Entities\Wbpm\CollateralReturn.cs" />
     <Compile Include="Entities\Wbpm\FinalBillPayment.cs" />
     <Compile Include="Entities\Wbpm\FurnitureBillPayment.cs" />
+    <Compile Include="Entities\Wbpm\HandoverApproved.cs" />
     <Compile Include="Entities\Wbpm\ProjectWorkStatus.cs" />
     <Compile Include="Entities\Wbpm\PerformanceSecurity.cs" />
     <Compile Include="Entities\Wbpm\WorkOrder.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="SqlViews\Wbpm\ViewCollateralReturn.cs" />
     <Compile Include="SqlViews\Wbpm\ViewFinalBillPayment.cs" />
     <Compile Include="SqlViews\Wbpm\ViewFurnitureBillPayment.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewHandoverApproved.cs" />
     <Compile Include="SqlViews\Wbpm\ViewWorkOrder.cs" />
     <Compile Include="SqlViews\Wbpm\ViewADPReceivePayment.cs" />
     <Compile Include="SqlViews\Wbpm\ViewBGBMiscellaneousFund.cs" />
