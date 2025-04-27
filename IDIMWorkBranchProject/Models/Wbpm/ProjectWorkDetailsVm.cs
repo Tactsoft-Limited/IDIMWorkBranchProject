@@ -108,6 +108,10 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [Display(Name = "চুড়ান্ত বিলে পরিশোধযোগ্য অর্থ")]
         public decimal PayableFinalBill { get; set; }
 
+        //Handover Approved Property
+        [DisplayName("লেটার নং")]
+        public string HandoverApprovedLetterNo { get; set; }
+
 
 
 

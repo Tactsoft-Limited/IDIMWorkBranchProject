@@ -253,6 +253,7 @@ namespace IDIMWorkBranchProject.Data.Database
         public virtual DbSet<FinalBillPayment> FinalBillPayments { get; set; }
         public virtual DbSet<FurnitureBillPayment> FurnitureBillPayments { get; set; }
         public virtual DbSet<CollateralReturn> CollateralReturns { get; set; }
+        public virtual DbSet<HandoverApproved> HandoverApproveds { get; set; }
         #endregion
 
         public virtual DbSet<IrmsSetupLocation> SetupLocations { get; set; }
@@ -276,6 +277,7 @@ namespace IDIMWorkBranchProject.Data.Database
         public virtual DbSet<ViewFinalBillPayment> ViewFinalBillPayments { get; set; }
         public virtual DbSet<ViewFurnitureBillPayment> ViewFurnitureBillPayments { get; set; }
         public virtual DbSet<ViewCollateralReturn> ViewCollateralReturns { get; set; }
+        public virtual DbSet<ViewHandoverApproved> ViewHandoverApproveds { get; set; }
 
     }
 }
