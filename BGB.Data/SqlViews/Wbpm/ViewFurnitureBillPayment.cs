@@ -30,10 +30,10 @@ namespace BGB.Data.SqlViews.Wbpm
         public string QuoteTwo { get; set; }
         public string QuoteThree { get; set; }
         public string QuoteFour { get; set; }
-        public DateTime QuoteOneDate { get; set; }
-        public DateTime QuoteTwoDate { get; set; }
-        public DateTime QuoteThreeDate { get; set; }
-        public DateTime QuoteFourDate { get; set; }
+        public DateTime? QuoteOneDate { get; set; }
+        public DateTime? QuoteTwoDate { get; set; }
+        public DateTime? QuoteThreeDate { get; set; }
+        public DateTime? QuoteFourDate { get; set; }
 
 
         public decimal? AllocationToFurniture { get; set; }
