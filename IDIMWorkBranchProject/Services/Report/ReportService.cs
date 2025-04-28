@@ -66,7 +66,7 @@ namespace IDIMWorkBranchProject.Services.Report
         public async Task<List<ViewCollateralReturn>> GetCollateralReturnAsync(int id)
         {
             return await _context.ViewCollateralReturns
-                .Where(x => x.CollateralReturnId == id)
+                .Where(x => x.ProjectWorkId == id)
                 .ToListAsync();
         }
         public async Task<List<ViewHandoverApproved>> GetHandoverApprovedAsync(int id)
