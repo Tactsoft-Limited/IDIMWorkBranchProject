@@ -396,6 +396,8 @@
     <Compile Include="Controllers\Wbpm\ProjectWorkStatusController.cs" />
     <Compile Include="Controllers\Wbpm\RecruitmentCommitteeController.cs" />
     <Compile Include="Controllers\Wbpm\BGBMiscellaneousFundController.cs" />
+    <Compile Include="Controllers\Wbpm\RevenueNohaController.cs" />
+    <Compile Include="Controllers\Wbpm\RevenuePerformanceSecurityController.cs" />
     <Compile Include="Controllers\Wbpm\SignatoryAuthorityController.cs" />
     <Compile Include="Controllers\Wbpm\VatTaxCollateralController.cs" />
     <Compile Include="Controllers\Wbpm\WorkOrderController.cs" />
@@ -530,6 +532,8 @@
     <Compile Include="Models\Wbpm\PerformanceSecurityVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkStatusSearchVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkStatusVm.cs" />
+    <Compile Include="Models\Wbpm\RevenueNohaVm.cs" />
+    <Compile Include="Models\Wbpm\RevenuePerformanceSecurityVm.cs" />
     <Compile Include="Models\Wbpm\WorkOrderSearchVm.cs" />
     <Compile Include="Models\Wbpm\WorkOrderVm.cs" />
     <Compile Include="Models\Wbpm\ConstructionCompanySearchVm.cs" />
@@ -623,6 +627,8 @@
     <Compile Include="Services\Wbpm\IProjectWorkService.cs" />
     <Compile Include="Services\Wbpm\IProjectWorkStatusService.cs" />
     <Compile Include="Services\Wbpm\IRecruitmentCommitteeService.cs" />
+    <Compile Include="Services\Wbpm\IRevenueNohaService.cs" />
+    <Compile Include="Services\Wbpm\IRevenuePerformanceSecurityService.cs" />
     <Compile Include="Services\Wbpm\IVatTaxCollateralService.cs" />
     <Compile Include="Services\Wbpm\IWorkOrderService.cs" />
     <Compile Include="Services\Wbpm\MasterplanService.cs" />
@@ -633,6 +639,8 @@
     <Compile Include="Services\Wbpm\ProjectWorkStatusService.cs" />
     <Compile Include="Services\Wbpm\RecruitmentCommitteeService.cs" />
     <Compile Include="Services\Wbpm\ISignatoryAuthorityService.cs" />
+    <Compile Include="Services\Wbpm\RevenueNohaService.cs" />
+    <Compile Include="Services\Wbpm\RevenuePerformanceSecurityService.cs" />
     <Compile Include="Services\Wbpm\SignatoryAuthorityService.cs" />
     <Compile Include="Services\Wbpm\VatTaxCollateralService.cs" />
     <Compile Include="Services\Wbpm\WorkOrderService.cs" />
@@ -2940,6 +2948,8 @@
     <Content Include="Views\FurnitureBillPayment\Create.cshtml" />
     <Content Include="Views\CollateralReturn\Create.cshtml" />
     <Content Include="Views\HandoverApproved\Create.cshtml" />
+    <Content Include="Views\RevenueNoha\Create.cshtml" />
+    <Content Include="Views\RevenuePerformanceSecurity\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
