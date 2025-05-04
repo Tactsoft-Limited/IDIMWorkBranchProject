@@ -71,6 +71,8 @@
     <Compile Include="Entities\Wbpm\HandoverApproved.cs" />
     <Compile Include="Entities\Wbpm\ProjectWorkStatus.cs" />
     <Compile Include="Entities\Wbpm\PerformanceSecurity.cs" />
+    <Compile Include="Entities\Wbpm\RevenueNoha.cs" />
+    <Compile Include="Entities\Wbpm\RevenuePerformanceSecurity.cs" />
     <Compile Include="Entities\Wbpm\WorkOrder.cs" />
     <Compile Include="Entities\Wbpm\Noha.cs" />
     <Compile Include="Entities\Wbpm\ConstructionCompany.cs" />

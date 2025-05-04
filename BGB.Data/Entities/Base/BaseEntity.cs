@@ -24,6 +24,7 @@ namespace BGB.Data.Entities.Base
         /// </summary>
         public DateTime? UpdatedDateTime { get; set; }
 
+
         /// <summary>
         /// Number of times the record has been updated
         /// </summary>
