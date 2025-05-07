@@ -14,13 +14,13 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
     {
         private readonly IRevenuePerformanceSecurityService _revenuePerformanceSecurityService;
         private readonly IMapper _mapper;
-        private readonly IProjectWorkService _projectWorkService;
+        private readonly IRevenueService _revenueService;
         private readonly string fileStorePath = "Documents/RevenuePerformanceSecurityFiles";
-        public RevenuePerformanceSecurityController(IActivityLogService activityLogService, IRevenuePerformanceSecurityService revenuePerformanceSecurityService, IMapper mapper, IProjectWorkService projectWorkService) : base(activityLogService)
+        public RevenuePerformanceSecurityController(IActivityLogService activityLogService, IRevenuePerformanceSecurityService revenuePerformanceSecurityService, IMapper mapper, IRevenueService revenueService) : base(activityLogService)
         {
             _revenuePerformanceSecurityService = revenuePerformanceSecurityService;
             _mapper = mapper;
-            _projectWorkService = projectWorkService;
+            _revenueService = revenueService;
         }
 
         // GET: RevenuePerformanceSecurity
@@ -30,13 +30,13 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         }
         public async Task<ActionResult> Create(int id)
         {
-            var projectWork = await _projectWorkService.GetByIdAsync(id);
-            var revenuePerformanceSecurity = await _revenuePerformanceSecurityService.GetByProjectWorkIdAsync(id);
+            var revenue = await _revenueService.GetByIdAsync(id);
+            var revenuePerformanceSecurity = await _revenuePerformanceSecurityService.GetByRevenueIdAsync(id);
 
             var model = new RevenuePerformanceSecurityVm
             {
-                ProjectWorkId = projectWork.ProjectWorkId,
-                ProjectWorkTitleB = projectWork.ProjectWorkTitleB,
+                RevenueId = revenue.RevenueId,
+                RevenueWorkTitleB = revenue.WorkTitleB,
             };
             if (revenuePerformanceSecurity != null)
             {
@@ -51,7 +51,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(RevenuePerformanceSecurityVm model)
         {
-            var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
+            var revenue = await _revenueService.GetByIdAsync(model.RevenueId);
             string fileName = null;
             try
             {
@@ -91,12 +91,12 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                             return View(model);
                         }
                         await _revenuePerformanceSecurityService.CreateAsync(_mapper.Map<RevenuePerformanceSecurity>(model));
-                        //projectWork.IsPerformanceSecuritySubmited = true;
-                        //await _projectWorkService.UpdateAsync(projectWork);
+                        revenue.IsPerformanceSecuritySubmited = true;
+                        await _revenueService.UpdateAsync(revenue);
                         TempData["Message"] = Messages.Success(MessageType.Create.ToString());
                     }
                 }
-                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+                return View(model);
             }
             catch (Exception exception)
             {
