@@ -8,7 +8,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
 {
     public interface IRevenueNohaService:IBaseService<RevenueNoha>
     {
-        Task<RevenueNoha> GetByProjectWorkIdAsync(int id);
+        Task<RevenueNoha> GetByRevenueIdAsync(int id);
 
 
     }
