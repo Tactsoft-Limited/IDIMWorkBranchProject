@@ -15,9 +15,9 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         public RevenueNohaService(IDIMDBEntities context) : base(context)
         {
         }
-        public async Task<RevenueNoha> GetByProjectWorkIdAsync(int id)
+        public async Task<RevenueNoha> GetByRevenueIdAsync(int id)
         {
-            return await _context.RevenueNohas.Where(x => x.ProjectWorkId == id).FirstOrDefaultAsync();
+            return await _context.RevenueNohas.Where(x => x.RevenueId == id).FirstOrDefaultAsync();
         }
     }
 }
