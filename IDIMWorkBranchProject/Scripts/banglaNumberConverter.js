@@ -38,8 +38,12 @@ function getBanglaDigits(number) {
 }
 
 function toWord(num) {
+    if (num === 0) return 'শূন্য';
+
     let text = '';
     let num2 = Math.floor(num / 10000000);
+    
+
     if (num2 !== 0) {
         text += (num2 <= 99) ? words[num2] + " ক\u09cbট\u09bf " : toWord(num2) + " ক\u09cbট\u09bf ";
     }
