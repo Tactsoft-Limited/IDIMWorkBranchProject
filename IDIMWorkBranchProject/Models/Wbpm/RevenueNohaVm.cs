@@ -11,11 +11,11 @@ namespace IDIMWorkBranchProject.Models.Wbpm
     {
         public int RevenueNohaId { get; set; }
 
-        [DisplayName("নির্মাণ কাজ")]
-        public int ProjectWorkId { get; set; }
+        [DisplayName("রাজস্ব কার্যবিবরনী")]
+        public int RevenueId { get; set; }
 
-        [DisplayName("নির্মাণ কাজের নাম (বাংলা)")]
-        public string ProjectWorkTitleB { get; set; }
+        [DisplayName("রাজস্ব কার্যবিবরনী (বাংলা)")]
+        public string RevenueWorkTitleB { get; set; }
 
         [DisplayName("লেটার নং")]
         public string LetterNo { get; set; }
@@ -26,7 +26,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public DateTime? RevenueNohaDate { get; set; }
 
         [DisplayName("রাজস্ব এনওএইচএ ডকুমেন্ট")]
-        public string ScanDocument { get; set; }
+        public string RevenueNohaScanDocument { get; set; }
 
         [DisplayName("রাজস্ব এনওএইচএ ডকুমেন্ট")]
         public HttpPostedFileBase DocumentFile { get; set; }
