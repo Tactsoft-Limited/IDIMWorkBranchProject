@@ -6,6 +6,6 @@ namespace IDIMWorkBranchProject.Services.Wbpm
 {
     public interface IRevenuePerformanceSecurityService:IBaseService<RevenuePerformanceSecurity>
     {
-        Task<RevenuePerformanceSecurity> GetByProjectWorkIdAsync(int id);
+        Task<RevenuePerformanceSecurity> GetByRevenueIdAsync(int id);
     }
 }

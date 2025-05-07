@@ -15,9 +15,9 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         public RevenuePerformanceSecurityService(IDIMDBEntities context) : base(context)
         {
         }
-        public async Task<RevenuePerformanceSecurity> GetByProjectWorkIdAsync(int id)
+        public async Task<RevenuePerformanceSecurity> GetByRevenueIdAsync(int id)
         {
-            return await _context.RevenuePerformanceSecurities.Where(x => x.ProjectWorkId == id).FirstOrDefaultAsync();
+            return await _context.RevenuePerformanceSecurities.Where(x => x.RevenueId == id).FirstOrDefaultAsync();
         }
     }
 }
