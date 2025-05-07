@@ -15,6 +15,12 @@ namespace IDIMWorkBranchProject
         {
             #region Wbpm
 
+            CreateMap<RevenueVm, Revenue>();
+            CreateMap<Revenue, RevenueVm>();
+
+            CreateMap<RevenueWorkOrderVm, RevenueWorkOrder>();
+            CreateMap<RevenueWorkOrder, RevenueWorkOrderVm>();
+
             CreateMap<RevenuePerformanceSecurityVm, RevenuePerformanceSecurity>();
             CreateMap<RevenuePerformanceSecurity, RevenuePerformanceSecurityVm>();
 
