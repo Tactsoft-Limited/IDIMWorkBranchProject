@@ -396,8 +396,10 @@
     <Compile Include="Controllers\Wbpm\ProjectWorkStatusController.cs" />
     <Compile Include="Controllers\Wbpm\RecruitmentCommitteeController.cs" />
     <Compile Include="Controllers\Wbpm\BGBMiscellaneousFundController.cs" />
+    <Compile Include="Controllers\Wbpm\RevenueController.cs" />
     <Compile Include="Controllers\Wbpm\RevenueNohaController.cs" />
     <Compile Include="Controllers\Wbpm\RevenuePerformanceSecurityController.cs" />
+    <Compile Include="Controllers\Wbpm\RevenueWorkOrderController.cs" />
     <Compile Include="Controllers\Wbpm\SignatoryAuthorityController.cs" />
     <Compile Include="Controllers\Wbpm\VatTaxCollateralController.cs" />
     <Compile Include="Controllers\Wbpm\WorkOrderController.cs" />
@@ -534,6 +536,8 @@
     <Compile Include="Models\Wbpm\ProjectWorkStatusVm.cs" />
     <Compile Include="Models\Wbpm\RevenueNohaVm.cs" />
     <Compile Include="Models\Wbpm\RevenuePerformanceSecurityVm.cs" />
+    <Compile Include="Models\Wbpm\RevenueVm.cs" />
+    <Compile Include="Models\Wbpm\RevenueWorkOrderVm.cs" />
     <Compile Include="Models\Wbpm\WorkOrderSearchVm.cs" />
     <Compile Include="Models\Wbpm\WorkOrderVm.cs" />
     <Compile Include="Models\Wbpm\ConstructionCompanySearchVm.cs" />
@@ -629,6 +633,8 @@
     <Compile Include="Services\Wbpm\IRecruitmentCommitteeService.cs" />
     <Compile Include="Services\Wbpm\IRevenueNohaService.cs" />
     <Compile Include="Services\Wbpm\IRevenuePerformanceSecurityService.cs" />
+    <Compile Include="Services\Wbpm\IRevenueService.cs" />
+    <Compile Include="Services\Wbpm\IRevenueWorkOrderService.cs" />
     <Compile Include="Services\Wbpm\IVatTaxCollateralService.cs" />
     <Compile Include="Services\Wbpm\IWorkOrderService.cs" />
     <Compile Include="Services\Wbpm\MasterplanService.cs" />
@@ -641,6 +647,8 @@
     <Compile Include="Services\Wbpm\ISignatoryAuthorityService.cs" />
     <Compile Include="Services\Wbpm\RevenueNohaService.cs" />
     <Compile Include="Services\Wbpm\RevenuePerformanceSecurityService.cs" />
+    <Compile Include="Services\Wbpm\RevenueService.cs" />
+    <Compile Include="Services\Wbpm\RevenueWorkOrderService.cs" />
     <Compile Include="Services\Wbpm\SignatoryAuthorityService.cs" />
     <Compile Include="Services\Wbpm\VatTaxCollateralService.cs" />
     <Compile Include="Services\Wbpm\WorkOrderService.cs" />
@@ -822,6 +830,12 @@
     <Content Include="Documents\WorkOrderFiles\3_20250323_131639.pdf" />
     <Content Include="Documents\WorkOrderFiles\AdminLTE 3  Dashboard_20250323_134859.pdf" />
     <Content Include="Documents\WorkOrderFiles\Hemayet-Mondol-FlowCV-Resume-20250202 %281%29_20250323_134408.pdf" />
+    <Content Include="Documents\RevenuePerformanceSecurityFiles\basic-text_20250504_120821.pdf" />
+    <Content Include="Documents\RevenuePerformanceSecurityFiles\basic-text_20250505_142728.pdf" />
+    <Content Include="Documents\RevenueWorkOrderFiles\basic-text_20250504_133529.pdf" />
+    <Content Include="Documents\RevenueWorkOrderFiles\basic-text_20250505_142828.pdf" />
+    <Content Include="Documents\RevenuneNohaFiles\basic-text_20250504_111211.pdf" />
+    <Content Include="Documents\RevenuneNohaFiles\basic-text_20250505_142531.pdf" />
     <None Include="Properties\PublishProfiles\project.pubxml" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
@@ -2950,6 +2964,9 @@
     <Content Include="Views\HandoverApproved\Create.cshtml" />
     <Content Include="Views\RevenueNoha\Create.cshtml" />
     <Content Include="Views\RevenuePerformanceSecurity\Create.cshtml" />
+    <Content Include="Views\RevenueWorkOrder\Create.cshtml" />
+    <Content Include="Views\RevenueWorkOrder\Edit.cshtml" />
+    <Content Include="Views\Revenue\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
