@@ -256,6 +256,8 @@ namespace IDIMWorkBranchProject.Data.Database
         public virtual DbSet<HandoverApproved> HandoverApproveds { get; set; }
         public virtual DbSet<RevenueNoha> RevenueNohas { get; set; }
         public virtual DbSet<RevenuePerformanceSecurity> RevenuePerformanceSecurities { get; set; }
+        public virtual DbSet<RevenueWorkOrder> RevenueWorkOrders { get; set; }
+        public virtual DbSet<Revenue> Revenues { get; set; }
         #endregion
 
         public virtual DbSet<IrmsSetupLocation> SetupLocations { get; set; }
