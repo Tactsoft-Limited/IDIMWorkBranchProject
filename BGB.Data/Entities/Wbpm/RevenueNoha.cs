@@ -14,16 +14,10 @@ namespace BGB.Data.Entities.Wbpm
     {
         [Key]
         public int RevenueNohaId { get; set; }
-        public int ProjectWorkId { get; set; }
+        public int RevenueId { get; set; }
         public string LetterNo { get; set; }
         public DateTime? RevenueNohaDate { get; set; }
-        public string ScanDocument { get; set; }
-
-        // Navigation Property (Foreign Key Relationships)
-        [ForeignKey(nameof(ProjectWorkId))]
-        public virtual ProjectWork ProjectWork { get; set; }
-
-
+        public string RevenueNohaScanDocument { get; set; }
 
     }
 }

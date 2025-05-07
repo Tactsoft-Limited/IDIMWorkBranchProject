@@ -14,13 +14,9 @@ namespace BGB.Data.Entities.Wbpm
     {
         [Key]
         public int RevenuePerformanceSecurityId { get; set; }
-        public int ProjectWorkId { get; set; }
+        public int RevenueId { get; set; }
         public DateTime RevenuePerformanceSecuritySubmissionDate { get; set; }
         public DateTime RevenuePerformanceSecurityExpiryDate { get; set; }
         public string RevenuePerformanceSecurityScanDocument { get; set; }
-
-
-        [ForeignKey(nameof(ProjectWorkId))]
-        public virtual ProjectWork ProjectWork { get; set; }
     }
 }
