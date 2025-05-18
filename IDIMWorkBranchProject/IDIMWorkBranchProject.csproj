@@ -534,6 +534,7 @@
     <Compile Include="Models\Wbpm\PerformanceSecurityVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkStatusSearchVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkStatusVm.cs" />
+    <Compile Include="Models\Wbpm\RevenueContractAgreementVm.cs" />
     <Compile Include="Models\Wbpm\RevenueDetailsVm.cs" />
     <Compile Include="Models\Wbpm\RevenueNohaVm.cs" />
     <Compile Include="Models\Wbpm\RevenuePerformanceSecurityVm.cs" />
