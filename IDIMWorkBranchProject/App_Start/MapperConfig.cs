@@ -15,6 +15,9 @@ namespace IDIMWorkBranchProject
         {
             #region Wbpm
 
+            CreateMap<RevenueContractAgreementVm, RevenueContractAgreement>();
+            CreateMap<RevenueContractAgreement, RevenueContractAgreementVm>();
+
             CreateMap<RevenueVm, Revenue>();
             CreateMap<Revenue, RevenueVm>();
 
