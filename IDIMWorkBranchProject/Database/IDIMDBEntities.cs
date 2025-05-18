@@ -258,6 +258,7 @@ namespace IDIMWorkBranchProject.Data.Database
         public virtual DbSet<RevenuePerformanceSecurity> RevenuePerformanceSecurities { get; set; }
         public virtual DbSet<RevenueWorkOrder> RevenueWorkOrders { get; set; }
         public virtual DbSet<Revenue> Revenues { get; set; }
+        public virtual DbSet<RevenueContractAgreement> RevenueContractAgreements { get; set; }
         #endregion
 
         public virtual DbSet<IrmsSetupLocation> SetupLocations { get; set; }
