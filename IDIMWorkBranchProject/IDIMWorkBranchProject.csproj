@@ -534,8 +534,10 @@
     <Compile Include="Models\Wbpm\PerformanceSecurityVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkStatusSearchVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkStatusVm.cs" />
+    <Compile Include="Models\Wbpm\RevenueDetailsVm.cs" />
     <Compile Include="Models\Wbpm\RevenueNohaVm.cs" />
     <Compile Include="Models\Wbpm\RevenuePerformanceSecurityVm.cs" />
+    <Compile Include="Models\Wbpm\RevenueSearchVm.cs" />
     <Compile Include="Models\Wbpm\RevenueVm.cs" />
     <Compile Include="Models\Wbpm\RevenueWorkOrderVm.cs" />
     <Compile Include="Models\Wbpm\WorkOrderSearchVm.cs" />
@@ -2967,6 +2969,11 @@
     <Content Include="Views\RevenueWorkOrder\Create.cshtml" />
     <Content Include="Views\RevenueWorkOrder\Edit.cshtml" />
     <Content Include="Views\Revenue\Create.cshtml" />
+    <Content Include="Views\Revenue\List.cshtml" />
+    <Content Include="Views\Revenue\Details.cshtml" />
+    <Content Include="Views\Revenue\Delete.cshtml" />
+    <Content Include="Views\RevenueNoha\Delete.cshtml" />
+    <Content Include="Views\RevenueWorkOrder\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
