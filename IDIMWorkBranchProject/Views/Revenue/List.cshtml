@@ -1,0 +1,93 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model RevenueSearchVm
+
+@{
+    ViewBag.Title = "List";
+}
+
+
+<div class="page-title">
+    <div class="pull-left">
+        <h3 class="title">রাজস্ব</h3>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i>ড্যাশবোর্ড</a>
+            </li>
+            <li class="active">
+                <strong>রাজস্ব</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">রাজস্ব তালিকা</h2>
+        <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("Create","Revenue")" class="btn btn-success">নতুন রাজস্ব সংযুক্ত করুন</a>
+        </div>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <table id="revenueTable" class="table table-striped table-bordered" width="100%" cellspacing="0">
+                </table>
+            </div>
+        </div>
+
+        <partial name="_ModalPartial" />
+    </div>
+</section>
+
+
+@section scripts {
+
+    <script>
+        $(document).ready(function () {
+            var table = $('#revenueTable').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": baseUrl + "/Revenue/LoadData",  // Make sure this is correct
+                    "type": "POST",
+                    "contentType": "application/json",  // Sending JSON data
+                    "data": function (d) {
+                        // Manually create a JSON object for the POST request
+                        return JSON.stringify({
+                            SearchValue: d.search.value,// Global search term                           
+                            Draw: d.draw,
+                            PageIndex: d.start / d.length,  // Pagination: starting index
+                            PageSize: d.length,  // Pagination: number of records per page
+                            SortColumn: d.order[0] ? d.columns[d.order[0].column].data : 'RevenueId',
+                            SortDirection: d.order[0] ? d.order[0].dir : 'asc'
+                        });
+                    },
+                    "dataSrc": function (json) {
+                        console.log(json.data)
+                        return json.data;
+                    }
+                },
+                "columns": [
+                    { "data": "RevenueId", "title": "আইডি", "visible": false },
+                    {
+                        "data": "WorkTitleB",
+                        "title": "প্রকল্পের নাম",
+                        "render": function (data, type, row) {
+                            // Assuming 'id' is the unique identifier for the project
+                            return `<a href="${baseUrl}/Revenue/Details/${row.RevenueId}">${data}</a>`;
+                        }
+                    },                    
+                    { "data": "EstimateCost", "title": "প্রাক্কলিত ব্যয়" },
+                    { "data": "Remarks", "title": "মন্তব্য" },
+                ]
+            });
+
+
+        });
+
+    </script>
+
+}
