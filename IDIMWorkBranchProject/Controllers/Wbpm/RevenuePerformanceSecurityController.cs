@@ -7,6 +7,7 @@ using IDIMWorkBranchProject.Services.Wbpm;
 using System.Threading.Tasks;
 using System;
 using System.Web.Mvc;
+using System.IO;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
 {
@@ -26,7 +27,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         // GET: RevenuePerformanceSecurity
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("List", "Revenue");
         }
         public async Task<ActionResult> Create(int id)
         {
@@ -96,7 +97,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                         TempData["Message"] = Messages.Success(MessageType.Create.ToString());
                     }
                 }
-                return View(model);
+                return RedirectToAction("List", "Revenue");
             }
             catch (Exception exception)
             {
@@ -104,6 +105,22 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 return View(model);
             }
 
+        }
+        public ActionResult PreviewDocument(string fileName)
+        {
+            // Build the full path to the file
+            var filePath = Path.Combine(Server.MapPath($"~/{fileStorePath}"), fileName);
+
+            // Check if the file exists
+            if (System.IO.File.Exists(filePath))
+            {
+                // Return the file as a FileResult with the correct content type
+                return File(filePath, "application/pdf");
+            }
+            else
+            {
+                return HttpNotFound(); // Return 404 if the file doesn't exist
+            }
         }
     }
 }

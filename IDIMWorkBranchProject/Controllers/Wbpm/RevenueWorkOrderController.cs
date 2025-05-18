@@ -26,7 +26,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         // GET: RevenueWorkOrder
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("List", "Revenue");
         }
 
         public async Task<ActionResult> Create(int id)
@@ -67,7 +67,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     TempData["Message"] = Messages.Success(MessageType.Create.ToString());
                 }
 
-                return View(model);
+                return RedirectToAction("List", "Revenue");
             }
             catch (Exception exception)
             {
@@ -116,12 +116,52 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 await _revenueWorkOrderService.UpdateAsync(_mapper.Map<RevenueWorkOrder>(model));
                 TempData["Message"] = Messages.Success(MessageType.Update.ToString());
 
-                return View(model); // Redirect to list after success
+                return RedirectToAction("List", "Revenue"); // Redirect to list after success
             }
             catch (Exception exception)
             {
                 TempData["Message"] = Messages.Failed(MessageType.Update.ToString(), exception.Message);
                 return View(model);
+            }
+        }
+
+        public async Task<ActionResult> Delete(int id)
+        {
+            var entity = await _revenueWorkOrderService.GetByIdAsync(id);
+
+            if (entity == null)
+            {
+                TempData["Message"] = "The requested record was not found.";
+                return RedirectToAction("List", "RevenueWorkOrder");
+            }
+
+            var model = _mapper.Map<RevenueWorkOrderVm>(entity);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(RevenueWorkOrderVm model)
+        {
+            var entity = await _revenueWorkOrderService.GetByIdAsync(model.RevenueWorkOrderId);
+            try
+            {
+
+                if (entity == null)
+                {
+                    TempData["Message"] = "Record Not Found";
+                    return RedirectToAction("List", "RevenueWorkOrder");
+                }
+
+                await _revenueService.DeleteAsync(entity);
+
+                TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
+                return RedirectToAction("List", "RevenueWorkOrder");
+            }
+            catch (Exception exception)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
+                return RedirectToAction("List", "RevenueWorkOrder"); // Avoids null reference
             }
         }
     }

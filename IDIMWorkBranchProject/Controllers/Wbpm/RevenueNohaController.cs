@@ -6,6 +6,7 @@ using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -29,7 +30,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         // GET: RevenueNoha
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("List","Revenue");
         }
 
         public async Task<ActionResult> Create(int id)
@@ -78,6 +79,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                             return View(model);
                         }
                     }
+                    await _revenueNohaService.UpdateAsync(_mapper.Map<RevenueNoha>(model));
                     TempData["Message"] = Messages.Success(MessageType.Update.ToString());
                 }
 
@@ -102,7 +104,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                         TempData["Message"] = Messages.Success(MessageType.Create.ToString());
                     }
                 }
-                return View(model);
+                return RedirectToAction("List","Revenue");
             }
             catch (Exception exception)
             {
@@ -111,6 +113,65 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             }
 
         }
+
+        public ActionResult PreviewDocument(string fileName)
+        {
+            // Build the full path to the file
+            var filePath = Path.Combine(Server.MapPath($"~/{fileStorePath}"), fileName);
+
+            // Check if the file exists
+            if (System.IO.File.Exists(filePath))
+            {
+                // Return the file as a FileResult with the correct content type
+                return File(filePath, "application/pdf");
+            }
+            else
+            {
+                return HttpNotFound(); // Return 404 if the file doesn't exist
+            }
+        }
+
+        public async Task<ActionResult> Delete(int id)
+        {
+            var entity = await _revenueNohaService.GetByIdAsync(id);
+
+            if (entity == null)
+            {
+                TempData["Message"] = "The requested record was not found.";
+                return RedirectToAction("List", "Revenue");
+            }
+
+            var model = _mapper.Map<RevenueNohaVm>(entity);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(RevenueNohaVm model)
+        {
+            var entity = await _revenueNohaService.GetByIdAsync(model.RevenueNohaId);
+
+            if (entity == null)
+            {
+                TempData["Message"] = "Record Not Found";
+                // Use model.RevenueId (assuming your ViewModel has it) instead of entity.RevenueId because entity is null
+                return RedirectToAction("List", "Revenue");
+            }
+
+            try
+            {
+                await _revenueNohaService.DeleteAsync(entity);
+
+                TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
+                return RedirectToAction("List", "Revenue");
+            }
+            catch (Exception exception)
+            {
+                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message ?? exception.Message);
+                return RedirectToAction("List", "Revenue");
+            }
+        }
+
 
     }
 }
