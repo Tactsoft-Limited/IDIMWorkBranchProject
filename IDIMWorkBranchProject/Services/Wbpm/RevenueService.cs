@@ -51,5 +51,10 @@ namespace IDIMWorkBranchProject.Services.Wbpm
 
             return result;
         }
+
+        public async Task<string> GetWorkTitle(int? revenueId)
+        {
+            return await _context.Revenues.Where(x => x.RevenueId == revenueId).Select(x => x.WorkTitleB).FirstOrDefaultAsync();
+        }
     }
 }
