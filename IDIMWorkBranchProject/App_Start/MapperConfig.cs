@@ -14,7 +14,19 @@ namespace IDIMWorkBranchProject
         public MapperConfig()
         {
             #region Wbpm
-            
+
+            CreateMap<RevenueVm, Revenue>();
+            CreateMap<Revenue, RevenueVm>();
+
+            CreateMap<RevenueWorkOrderVm, RevenueWorkOrder>();
+            CreateMap<RevenueWorkOrder, RevenueWorkOrderVm>();
+
+            CreateMap<RevenuePerformanceSecurityVm, RevenuePerformanceSecurity>();
+            CreateMap<RevenuePerformanceSecurity, RevenuePerformanceSecurityVm>();
+
+            CreateMap<RevenueNohaVm, RevenueNoha>();
+            CreateMap<RevenueNoha, RevenueNohaVm>();
+
             CreateMap<HandoverApprovedVm, HandoverApproved>();
             CreateMap<HandoverApproved, HandoverApprovedVm>();
                 
