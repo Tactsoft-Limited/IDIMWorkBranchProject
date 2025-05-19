@@ -8,5 +8,6 @@ namespace IDIMWorkBranchProject.Services.Wbpm
     public interface IRevenueService:IBaseService<Revenue>
     {
         Task<object> GetPagedAsync(RevenueSearchVm model);
+        Task<string> GetWorkTitle(int? revenueId);
     }
 }

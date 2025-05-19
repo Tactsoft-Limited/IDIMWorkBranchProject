@@ -396,6 +396,7 @@
     <Compile Include="Controllers\Wbpm\ProjectWorkStatusController.cs" />
     <Compile Include="Controllers\Wbpm\RecruitmentCommitteeController.cs" />
     <Compile Include="Controllers\Wbpm\BGBMiscellaneousFundController.cs" />
+    <Compile Include="Controllers\Wbpm\RevenueContractAgreementController.cs" />
     <Compile Include="Controllers\Wbpm\RevenueController.cs" />
     <Compile Include="Controllers\Wbpm\RevenueNohaController.cs" />
     <Compile Include="Controllers\Wbpm\RevenuePerformanceSecurityController.cs" />
@@ -534,6 +535,7 @@
     <Compile Include="Models\Wbpm\PerformanceSecurityVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkStatusSearchVm.cs" />
     <Compile Include="Models\Wbpm\ProjectWorkStatusVm.cs" />
+    <Compile Include="Models\Wbpm\RevenueContractAgreementVm.cs" />
     <Compile Include="Models\Wbpm\RevenueDetailsVm.cs" />
     <Compile Include="Models\Wbpm\RevenueNohaVm.cs" />
     <Compile Include="Models\Wbpm\RevenuePerformanceSecurityVm.cs" />
@@ -633,6 +635,7 @@
     <Compile Include="Services\Wbpm\IProjectWorkService.cs" />
     <Compile Include="Services\Wbpm\IProjectWorkStatusService.cs" />
     <Compile Include="Services\Wbpm\IRecruitmentCommitteeService.cs" />
+    <Compile Include="Services\Wbpm\IRevenueContractAgreementService.cs" />
     <Compile Include="Services\Wbpm\IRevenueNohaService.cs" />
     <Compile Include="Services\Wbpm\IRevenuePerformanceSecurityService.cs" />
     <Compile Include="Services\Wbpm\IRevenueService.cs" />
@@ -647,6 +650,7 @@
     <Compile Include="Services\Wbpm\ProjectWorkStatusService.cs" />
     <Compile Include="Services\Wbpm\RecruitmentCommitteeService.cs" />
     <Compile Include="Services\Wbpm\ISignatoryAuthorityService.cs" />
+    <Compile Include="Services\Wbpm\RevenueContractAgreementService.cs" />
     <Compile Include="Services\Wbpm\RevenueNohaService.cs" />
     <Compile Include="Services\Wbpm\RevenuePerformanceSecurityService.cs" />
     <Compile Include="Services\Wbpm\RevenueService.cs" />
@@ -2974,6 +2978,8 @@
     <Content Include="Views\Revenue\Delete.cshtml" />
     <Content Include="Views\RevenueNoha\Delete.cshtml" />
     <Content Include="Views\RevenueWorkOrder\Delete.cshtml" />
+    <Content Include="Views\RevenueContractAgreement\Create.cshtml" />
+    <Content Include="Views\RevenueContractAgreement\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

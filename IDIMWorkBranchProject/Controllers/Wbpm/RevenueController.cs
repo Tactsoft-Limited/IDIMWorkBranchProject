@@ -20,15 +20,18 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IRevenueNohaService _revenueNohaService;
         private readonly IRevenuePerformanceSecurityService _revenuePerformanceSecurityService;
         private readonly IRevenueWorkOrderService _revenueWorkOrderService;
+        private readonly IRevenueContractAgreementService _revenueContractAgreementService;
+        private readonly IConstructionCompanyService _constructionCompanyService;
         private readonly IMapper _mapper;
-        public RevenueController(IActivityLogService activityLogService, IRevenueService revenueService, IMapper mapper, IFiscalYearService fiscalYearService, IRevenueNohaService revenueNohaService, IRevenuePerformanceSecurityService revenuePerformanceSecurityService, IRevenueWorkOrderService revenueWorkOrderService) : base(activityLogService)
+        public RevenueController(IActivityLogService activityLogService, IRevenueService revenueService, IMapper mapper, IFiscalYearService fiscalYearService, IRevenueNohaService revenueNohaService, IRevenuePerformanceSecurityService revenuePerformanceSecurityService, IRevenueWorkOrderService revenueWorkOrderService, IRevenueContractAgreementService revenueContractAgreementService) : base(activityLogService)
         {
             _revenueService = revenueService;
             _mapper = mapper;
             _fiscalYearService = fiscalYearService;
-           _revenueNohaService = revenueNohaService;
+            _revenueNohaService = revenueNohaService;
             _revenuePerformanceSecurityService = revenuePerformanceSecurityService;
             _revenueWorkOrderService = revenueWorkOrderService;
+            _revenueContractAgreementService = revenueContractAgreementService;
         }
 
         // GET: Revenue
@@ -68,6 +71,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 var perfSec = await _revenuePerformanceSecurityService.GetByRevenueIdAsync(id);
                 var workOrder = await _revenueWorkOrderService.GetByRevenueIdAsync(id);
                 var workOrderList = await _revenueWorkOrderService.GetAllByRevenueId(id);
+                var revenueContractAgreement = await _revenueContractAgreementService.GetByRevenueIdAsync(id);                
 
                 var model = new RevenueDetailsVm
                 {
@@ -75,6 +79,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     NohaDetail = noha != null ? _mapper.Map<RevenueNohaVm>(noha) : null,
                     PerformanceSecurityDetail = perfSec != null ? _mapper.Map<RevenuePerformanceSecurityVm>(perfSec) : null,
                     WorkOrderDetail = workOrder != null ? _mapper.Map<RevenueWorkOrderVm>(workOrder) : null,
+                    RevenueContractAgreementDetail = revenueContractAgreement != null ? _mapper.Map<RevenueContractAgreementVm>(revenueContractAgreement) : null,                   
                     WorkOrderList = workOrderList != null ? _mapper.Map<List<RevenueWorkOrderVm>>(workOrderList) : new List<RevenueWorkOrderVm>()
                 };
 
