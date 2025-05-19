@@ -44,5 +44,7 @@ namespace IDIMWorkBranchProject.Models.User
         public IList<DeviceVm> Devices { get; set; }
 
         public IList<ApplicationVm> Applications { get; set; }
+
+        public bool IsAuthenticated { get; set; }
     }
 }

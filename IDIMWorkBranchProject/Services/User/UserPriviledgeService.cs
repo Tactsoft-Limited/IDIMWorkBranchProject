@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BGB.Data.Database;
+using IDIMWorkBranchProject.Data.Database;
 
 namespace IDIMWorkBranchProject.Services.User
 {

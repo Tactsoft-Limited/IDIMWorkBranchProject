@@ -30,7 +30,6 @@ namespace IDIMWorkBranchProject.Models.User
         public IEnumerable<SelectListItem> ApplicationDropdown { get; set; }
         public IList<UserVm> Users { get; set; }
     }
-
     public enum Active
     {
         All,

@@ -1,0 +1,63 @@
+﻿using BGB.Data.Entities.Wbpm;
+using IDIMWorkBranchProject.Data.Database;
+using IDIMWorkBranchProject.Models.Wbpm;
+using IDIMWorkBranchProject.Services.Base;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Linq.Dynamic.Core;
+using System.Threading.Tasks;
+
+namespace IDIMWorkBranchProject.Services.Wbpm
+{
+    public class ContractorCompanyPaymentService : BaseService<ContractorCompanyPayment>, IContractorCompanyPaymentService
+    {
+        public ContractorCompanyPaymentService(IDIMDBEntities context) : base(context)
+        {
+        }
+
+        public async Task<List<ContractorCompanyPayment>> GetByAllProjectWorkAsync(int id)
+        {
+            return await _context.ContractorCompanyPayments.Where(x => x.ProjectWorkId == id).ToListAsync();
+        }
+        public ContractorCompanyPayment GetByProjectWorkIdAsync(int id)
+        {
+            return  _context.ContractorCompanyPayments.Where(x => x.ProjectWorkId == id).FirstOrDefault();
+        }
+
+        public async Task<object> GetPagedAsync(ContractorCompanyPaymentSearchVm model)
+        {
+            var query = _context.ContractorCompanyPayments.Where(x =>
+            (string.IsNullOrEmpty(model.SearchValue) ||
+            x.ProjectWork.ProjectWorkTitle.Contains(model.SearchValue)));
+
+            query = !string.IsNullOrEmpty(model.SortColumn) && !string.IsNullOrEmpty(model.SortDirection)
+            ? query.OrderBy($"{model.SortColumn} {model.SortDirection}")
+                : query.OrderBy(x => x.ContractorCompanyPaymentId);  // Default ordering by SubProjectId
+
+            var totalRecords = await query.CountAsync();
+            var filteredRecords = await query.CountAsync();
+            var pagedData = await query.Skip(model.PageIndex * model.PageSize).Take(model.PageSize).ToListAsync();
+
+            // Return the response in DataTables format
+            var result = new
+            {
+                draw = model.Draw,
+                recordsTotal = totalRecords,
+                recordsFiltered = filteredRecords,
+                data = pagedData.Select(x => new ContractorCompanyPaymentVm
+                {
+                    ContractorCompanyPaymentId = x.ContractorCompanyPaymentId,
+                    ProjectWorkId = x.ProjectWorkId,
+                    ProjectWorkTitle = x.ProjectWork.ProjectWorkTitle,
+                    ProjectWorkTitleB = x.ProjectWork.ProjectWorkTitleB,
+                    LetterNo = x.LetterNo,
+                    BillPaymentNumber = x.BillPaymentNumber,
+                    FinalPaymentAmount = x.FinalPaymentAmount,
+                })
+            };
+
+            return result;
+        }
+    }
+}

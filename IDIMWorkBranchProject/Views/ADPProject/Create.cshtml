@@ -1,0 +1,133 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model ADPProjectVm
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div class="page-title">
+    <div class="pull-left">
+        <h3 class="title">প্রকল্প</h3>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>ড্যাশবোর্ড</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","ADPProject")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Project
+                </a>
+            </li>
+            <li class="active">
+                <strong>প্রকল্প তৈরি করুন</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">প্রকল্প তৈরি করুন</h2>
+        <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("List","ADPProject")" class="btn">
+                <i class="fa fa-list" aria-hidden="true"></i>
+                List
+            </a>
+            <a class="box_toggle fa fa-chevron-down"></a>
+        </div>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("Create", "ADPProject", FormMethod.Post, new { enctype = "multipart/form-data", id = "ProjectDirector-create-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ProjectTitle, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.ProjectTitle, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ProjectTitle)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.MinistryDepartment, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.MinistryDepartment, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MinistryDepartment)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.EstimatedExpenses, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.EstimatedExpenses, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.EstimatedExpenses)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.NoOfWork, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.NoOfWork, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.NoOfWork)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.StartingDate, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.StartingDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.StartingDate)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.EndingDate, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.EndingDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.EndingDate)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.FinancialProgress, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.FinancialProgress, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.FinancialProgress)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.PhysicalProgress, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.PhysicalProgress, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PhysicalProgress)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.Remarks, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextAreaFor(m => m.Remarks, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Remarks)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

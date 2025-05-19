@@ -1,0 +1,37 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model ConstructionCompanyVm
+
+@{
+    ViewData["Title"] = "Delete Contruction Company";
+}
+
+<h2 class="mb-0">Delete Contruction Company</h2>
+
+<p>Are you sure you want to delete this record?</p>
+
+<div class="card shadow-lg border-0 rounded">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0 text-light">Contruction Company Details</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>ফার্মের নামঃ </strong> @Model.FirmNameB</li>
+            <li class="list-group-item"><strong>যোগাযোগের ব্যক্তিঃ </strong> @Model.ContactPersonB</li>
+            <li class="list-group-item"><strong>ফোন নাম্বারঃ </strong> @Model.ContactPhone</li>
+            <li class="list-group-item"><strong>ইমেইল </strong> @Model.Email</li>
+            <li class="list-group-item"><strong>ফার্মের ঠিকানা </strong> @Model.FirmAddressB</li>
+        </ul>
+    </div>
+    @using (Html.BeginForm("DeleteConfirmed", "ConstructionCompany", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x => x.ConstructionCompanyId)
+
+        <div class="card-footer text-end">
+            <a href="@Url.Action("List","ConstructionCompany") class="btn btn-secondary">Cancel</a>
+            <input type="submit" class="btn btn-danger" value="Delete" />
+        </div>
+    }
+
+</div>

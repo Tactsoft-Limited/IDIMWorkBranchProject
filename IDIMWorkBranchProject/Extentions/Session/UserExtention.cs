@@ -45,17 +45,22 @@ namespace IDIMWorkBranchProject.Extentions.Session
 
         public static int GetUserId()
         {
-            return 1;//Get<UserInformation>(nameof(UserInformation)).UserId;
+            return Get<UserInformation>(nameof(UserInformation)).UserId;
         }
 
         public static int? GetApplicationId()
         {
-            return 5;//Get<UserInformation>(nameof(UserInformation)).ApplicationId;
+            return Get<UserInformation>(nameof(UserInformation)).ApplicationId;
         }
 
         public static int? GetDeviceId()
         {
             return Get<UserInformation>(nameof(UserInformation)).DeviceId;
+        }
+        public static bool IsAuthenticated()
+        {
+            var userInformation = Get<UserInformation>(nameof(UserInformation));
+            return userInformation != null && userInformation.UserId > 0;
         }
 
     }

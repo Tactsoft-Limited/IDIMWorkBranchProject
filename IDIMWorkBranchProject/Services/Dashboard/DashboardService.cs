@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using BGB.Data.Database;
+using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Models.Dashboard;
-using IDIMWorkBranchProject.Models.WBP;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,42 +21,40 @@ namespace IDIMWorkBranchProject.Services.Dashboard
         {
             var model = new DashboardVm
             {
+                OngoingProjects = await Context.ADPProjects.CountAsync(),
+                TotalConstructionWork = await Context.ADPProjects.SumAsync(x => x.NoOfWork),
+                ConstructionWorkInProgress = await Context.ProjectWorkStatuses.Where(x => x.StatusTypeId == 1).CountAsync(),
+                CompletedConstructionWork = await Context.ProjectWorkStatuses.Where(x => x.StatusTypeId == 2).CountAsync(),
 
-                Project = await Context.Projects.CountAsync(),
-                Subproject = await Context.SubProjects.CountAsync(),
-                TotalBillPayment = await Context.BillPayments.SumAsync(x => (double?)x.PaymentAmount) ?? 0,
-                TotalBillReceived = await Context.ReceivePayments.SumAsync(x => (double?)x.BillAmount) ?? 0,
+                //Project = await Context.Projects.CountAsync(),
+                //Subproject = await Context.SubProjects.CountAsync(),
+                //TotalBillPayment = await Context.BillPayments.SumAsync(x => (double?)x.PaymentAmount) ?? 0,
+                ////TotalBillReceived = await Context.ReceivePayments.SumAsync(x => (double?)x.BillAmount) ?? 0,
 
-                ProjectExtended = await Context.ProjectExtends.CountAsync(),
-                ProjectProblem = await Context.ProjectProblems.CountAsync()
+                //ProjectExtended = await Context.ProjectExtends.CountAsync(),
+                //ProjectProblem = await Context.ProjectProblems.CountAsync()
+
+
 
             };
-
-            return model;
+            return await Task.Run(() => model);
         }
 
 
-        public async Task<List<ProjectVm>> ProjectList()
-        {
-            var query = Context.Projects.AsQueryable();
+        //public async Task<List<ProjectVm>> ProjectList()
+        //{
+        //    var query = Context.Projects.AsQueryable();
 
-            var projectDis = await query.ToListAsync();
+        //    var projectDis = await query.ToListAsync();
 
-            var model = projectDis.Select(e => new ProjectVm()
-            {
-                ProjectName = e.ProjectName,
-                StartingDate = e.StartingDate,
-            }).ToList();
+        //    var model = projectDis.Select(e => new ProjectVm()
+        //    {
+        //        ProjectName = e.ProjectName,
+        //        StartingDate = e.StartingDate,
+        //    }).ToList();
 
-            return model;
-        }
-
-
-
-
-
-
-
+        //    return model;
+        //}
 
     }
 }

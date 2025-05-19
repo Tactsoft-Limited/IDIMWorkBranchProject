@@ -1,0 +1,140 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model BGBMiscellaneousFundVm
+
+@{
+    ViewBag.Title = "CreateOrEdit";
+}
+<div class="page-title">
+    <div class="pull-left">
+        <h3 class="title">বিজিবি বিবিধ ফান্ড</h3>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","BGBMiscellaneousFund")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    BGBMiscellaneousFund
+                </a>
+            </li>
+            <li class="active">
+                <strong>Create Or Edit</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">বিজিবি বিবিধ ফান্ড সংযুক্ত অথবা সংশোধন করুন</h2>
+        <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("List","BGBMiscellaneousFund")" class="btn">
+                <i class="fa fa-list" aria-hidden="true"></i>
+                List
+            </a>
+            <a class="box_toggle fa fa-chevron-down"></a>
+        </div>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("CreateOrEdit", "BGBMiscellaneousFund", FormMethod.Post, new { enctype = "multipart/form-data", id = "BGBMiscellaneousFund-create-Or-Edit-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.FundId)
+                    @Html.HiddenFor(x => x.ProjectWorkId)
+                    @Html.HiddenFor(x => x.ADPReceivePaymentId)
+
+                    <div class="row">
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ProjectWorkTitle, new { @class = "form-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ProjectWorkTitle, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.LetterNo, new { @class = "form-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.LetterNo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.LetterNo)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.DepositeDate, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.DepositeDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.DepositeDate)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.PayOrderNo, new { @class = "form-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.PayOrderNo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PayOrderNo)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.PayOrderDate, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.PayOrderDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.DepositeDate)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.BankName, new { @class = "form-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.BankName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BankName)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.BrunchName, new { @class = "form-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.BrunchName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BrunchName)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.AccountName, new { @class = "form-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.AccountName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.AccountName)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.AccountNumber, new { @class = "form-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.AccountNumber, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.AccountNumber)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.Amount, new { @class = "form-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.Amount, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Amount)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.Remarks, new { @class = "form-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.Remarks, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script src="~/Scripts/banglaNumberConverter.js"></script>
+}

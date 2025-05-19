@@ -1,0 +1,160 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model ContractAgreementVm
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="page-title">
+    <div class="pull-left">
+        <h3 class="title"></h3>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","ContractAgreement")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Contract Agreement
+                </a>
+            </li>
+            <li class="active">
+                <strong>Create</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">চুক্তিপত্র সংযুক্ত করুন</h2>
+        <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("List","ContractAgreement")" class="btn">
+                <i class="fa fa-list" aria-hidden="true"></i>
+                List
+            </a>
+            <a class="box_toggle fa fa-chevron-down"></a>
+        </div>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("Create", "ContractAgreement", FormMethod.Post, new { enctype = "multipart/form-data", id = "ContractAgreement-create-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.ContractAgreementId)
+                    @Html.HiddenFor(x => x.ProjectWorkId)
+                    @Html.HiddenFor(x => x.ScanDocument)
+
+
+                <div class="row">
+                    <div class="form-display col-md-12">
+                        @Html.LabelFor(m => m.ProjectWorkTitle, new { @class = "form-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.ProjectWorkTitle, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(m => m.ConstructionCompanyId, new { @class = "col-md-4 form-label" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(m => m.ConstructionCompanyId, Model.ConstructionFirmDropdown, "Select One", new { @class = "select2" })
+                            @Html.ValidationMessageFor(model => model.ConstructionCompanyId)
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(m => m.AgreementDate, new { @class = "col-md-4 form-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.AgreementDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                            @Html.ValidationMessageFor(model => model.AgreementDate)
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(m => m.AddDGId, new { @class = "col-md-4 form-label" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(m => m.AddDGId, Model.AddDGDropdown, "Select One", new { @class = "select2" })
+                            @Html.ValidationMessageFor(model => model.AddDGId)
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(m => m.DDGId, new { @class = "col-md-4 form-label" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(m => m.DDGId, Model.DDGDropdown, "Select One", new { @class = "select2" })
+                            @Html.ValidationMessageFor(model => model.DDGId)
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(m => m.ProjectDirectorId, new { @class = "col-md-4 form-label" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(m => m.ProjectDirectorId, Model.ProjectdirectorDropdown, "Select One", new { @class = "select2" })
+                            @Html.ValidationMessageFor(model => model.ProjectDirectorId)
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(m => m.DirectorId, new { @class = "col-md-4 form-label" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(m => m.DirectorId, Model.DirectorDropdown, "Select One", new { @class = "select2" })
+                            @Html.ValidationMessageFor(model => model.DirectorId)
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(m => m.DocumentFile, new { @class = "col-md-3 form-label" })
+                        <div class="col-md-9">
+                            <!-- PDF Preview Section -->
+                            <embed id="pdfPreview"
+                                   src="@(!string.IsNullOrEmpty(Model.ScanDocument) ? Url.Content("~/Documents/ContractAggrementFiles/" + Model.ScanDocument) : "")"
+                                   type="application/pdf"
+                                   width="100" height="100" />
+                            <p>
+                                <a id="pdfLink" href="@Url.Content("~/Documents/ContractAggrementFiles/" + Model.ScanDocument)" target="_blank">
+                                    View Full PDF
+                                </a>
+                            </p>
+                            @Html.TextBoxFor(m => m.DocumentFile, new { @class = "form-control", type = "file", accept = ".pdf", id = "pdfInput", onchange = "previewPDF(event)" })
+                        </div>
+                    </div>
+
+                </div>
+
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts{
+    <script src="~/Scripts/banglaNumberConverter.js"></script>
+    <script>
+        function convertTobanglaWord() {
+            const agreementCost = parseFloat($('#AgreementCost').val()) || 0;
+            const agreementCostInWord = getBanglaWord(parseFloat(agreementCost));
+            // Update the input fields with the calculated values
+            $('#AgreementCostInWord').val(agreementCostInWord);
+
+        }
+        $(document).ready(function () {
+            // Call the function on page load
+            convertTobanglaWord();
+            //// Call the function when the input changes
+            $('#AgreementCost').on('input', convertTobanglaWord);
+        })
+
+        // Trigger calculation on input change
+        /*$('#AgreementCost').on('input', convertTobanglaWord);*/
+
+        function previewPDF(event) {
+            var file = event.target.files[0];
+            if (file) {
+                var fileURL = URL.createObjectURL(file);
+                document.getElementById('pdfPreview').src = fileURL;
+                document.getElementById('pdfLink').href = fileURL;
+            }
+        }
+    </script>
+
+}
+

@@ -48,10 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\IDIMDBContext.Functions.cs" />
-    <Compile Include="Database\IDIMDBContextProcedures.cs" />
-    <Compile Include="Database\IDIMDBEntities.cs" />
-    <Compile Include="Database\IIDIMDBContextProcedures.cs" />
     <Compile Include="Entities\Admin\ActivityLog.cs" />
     <Compile Include="Entities\Admin\Application.cs" />
     <Compile Include="Entities\Admin\Menu.cs" />
@@ -60,35 +56,35 @@
     <Compile Include="Entities\Admin\SlideImage.cs" />
     <Compile Include="Entities\Admin\User.cs" />
     <Compile Include="Entities\Admin\UserPrivilege.cs" />
+    <Compile Include="Entities\Base\BaseEntity.cs" />
     <Compile Include="Entities\Budget\FiscalYear.cs" />
-    <Compile Include="Entities\Inv\Supplier.cs" />
     <Compile Include="Entities\Irms\GeneralInformation.cs" />
     <Compile Include="Entities\Irms\IrmsSetupLocation.cs" />
     <Compile Include="Entities\Irms\IrmsSetupUnit.cs" />
-    <Compile Include="Entities\Pm\BillPayment.cs" />
-    <Compile Include="Entities\Pm\BillType.cs" />
-    <Compile Include="Entities\Pm\BGBFund.cs" />
-    <Compile Include="Entities\Pm\ContractorBillPayment.cs" />
-    <Compile Include="Entities\Pm\ProjectType.cs" />
-    <Compile Include="Entities\Pm\VatTax.cs" />
-    <Compile Include="Entities\Pm\SignatoryAuthority.cs" />
-    <Compile Include="Entities\Pm\ContractorPayment.cs" />
-    <Compile Include="Entities\Pm\ConstructionFirm.cs" />
-    <Compile Include="Entities\Pm\ConsultancyActivity.cs" />
-    <Compile Include="Entities\Pm\ConsultancyFee.cs" />
-    <Compile Include="Entities\Pm\Consultant.cs" />
-    <Compile Include="Entities\Pm\FundRelease.cs" />
-    <Compile Include="Entities\Pm\PicMeeting.cs" />
-    <Compile Include="Entities\Pm\Attachment.cs" />
-    <Compile Include="Entities\Pm\Quarter.cs" />
-    <Compile Include="Entities\Pm\SecurityDeposit.cs" />
-    <Compile Include="Entities\Pm\Project.cs" />
-    <Compile Include="Entities\Pm\ProjectExtend.cs" />
-    <Compile Include="Entities\Pm\ProjectProblem.cs" />
-    <Compile Include="Entities\Pm\ProjectStatus.cs" />
-    <Compile Include="Entities\Pm\ReceivePayment.cs" />
-    <Compile Include="Entities\Pm\SubProject.cs" />
-    <Compile Include="Entities\Pm\SubProjectDetail.cs" />
+    <Compile Include="Entities\Wbpm\ADPProject.cs" />
+    <Compile Include="Entities\Wbpm\ADPReceivePayment.cs" />
+    <Compile Include="Entities\Wbpm\BGBFund.cs" />
+    <Compile Include="Entities\Wbpm\BGBMiscellaneousFund.cs" />
+    <Compile Include="Entities\Wbpm\CollateralReturn.cs" />
+    <Compile Include="Entities\Wbpm\FinalBillPayment.cs" />
+    <Compile Include="Entities\Wbpm\FurnitureBillPayment.cs" />
+    <Compile Include="Entities\Wbpm\HandoverApproved.cs" />
+    <Compile Include="Entities\Wbpm\ProjectWorkStatus.cs" />
+    <Compile Include="Entities\Wbpm\PerformanceSecurity.cs" />
+    <Compile Include="Entities\Wbpm\WorkOrder.cs" />
+    <Compile Include="Entities\Wbpm\Noha.cs" />
+    <Compile Include="Entities\Wbpm\ConstructionCompany.cs" />
+    <Compile Include="Entities\Wbpm\ContractAgreement.cs" />
+    <Compile Include="Entities\Wbpm\ContractorCompanyPayment.cs" />
+    <Compile Include="Entities\Wbpm\FinancialYearAllocation.cs" />
+    <Compile Include="Entities\Wbpm\FiscalYearExpense.cs" />
+    <Compile Include="Entities\Wbpm\FormalMeeting.cs" />
+    <Compile Include="Entities\Wbpm\Masterplan.cs" />
+    <Compile Include="Entities\Wbpm\ProjectDirector.cs" />
+    <Compile Include="Entities\Wbpm\ProjectWork.cs" />
+    <Compile Include="Entities\Wbpm\SignatoryAuthority.cs" />
+    <Compile Include="Entities\Wbpm\RecruitmentCommittee.cs" />
+    <Compile Include="Entities\Wbpm\VatTaxCollateral.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlViews\Pm\ViewExtended.cs" />
     <Compile Include="SqlViews\Pm\ViewProjectBillPayment.cs" />
@@ -99,6 +95,16 @@
     <Compile Include="SqlViews\Pm\ViewProjectProblemRpt.cs" />
     <Compile Include="SqlViews\Pm\ViewProjectSubProjectDetailsRpt.cs" />
     <Compile Include="SqlViews\Pm\ViewProjectWiseSubProjectRpt.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewCollateralReturn.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewFinalBillPayment.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewFurnitureBillPayment.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewHandoverApproved.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewWorkOrder.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewADPReceivePayment.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewBGBMiscellaneousFund.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewContactAgreement.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewContractorCompanyPayment.cs" />
+    <Compile Include="SqlViews\Wbpm\ViewVatTaxReport.cs" />
     <Compile Include="StoreProcedure\dbo\Deposit_GetSingleDetailsResult.cs" />
     <Compile Include="StoreProcedure\dbo\DirectReceived_GetDetailsWithItemsDboResult.cs" />
     <Compile Include="StoreProcedure\dbo\DirectReceived_GetSingleDetailsDboResult.cs" />
@@ -150,5 +156,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

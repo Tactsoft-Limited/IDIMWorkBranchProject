@@ -2,12 +2,10 @@
 using BGB.Data.Entities.Admin;
 using BGB.Data.Entities.Budget;
 using BGB.Data.Entities.Irms;
-using BGB.Data.Entities.Pm;
-using IDIMWorkBranchProject.Extentions;
+using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Models.Setup;
 using IDIMWorkBranchProject.Models.User;
-using IDIMWorkBranchProject.Models.WBP;
-using System.Web.Mvc.Html;
+using IDIMWorkBranchProject.Models.Wbpm;
 
 namespace IDIMWorkBranchProject
 {
@@ -15,94 +13,86 @@ namespace IDIMWorkBranchProject
     {
         public MapperConfig()
         {
-            #region wbp 
-            CreateMap<ProjectVm, Project>();
-            CreateMap<Project, ProjectVm>()
-                .ForMember(d => d.FiscalYearDropdown, opts => opts.Ignore())
-                .ForMember(d => d.FiscalYearDescription, opt => opt.MapFrom(x => x.FiscalYear.FiscalYearDescription))
-                .ForMember(d => d.ProjectTypeName, opt => opt.MapFrom(x => x.ProjectType.ProjectTypeName));
+            #region Wbpm
+            
+            CreateMap<HandoverApprovedVm, HandoverApproved>();
+            CreateMap<HandoverApproved, HandoverApprovedVm>();
+                
+            CreateMap<CollateralReturnVm, CollateralReturn>();
+            CreateMap<CollateralReturn, CollateralReturnVm>();
 
+            CreateMap<FurnitureBillPaymentVm, FurnitureBillPayment>();
+            CreateMap<FurnitureBillPayment, FurnitureBillPaymentVm>();
 
-            CreateMap<SubProjectVm, SubProject>();
-            CreateMap<SubProject, SubProjectVm>()
-                .ForMember(d => d.ConstructionFirmDropdown, opts => opts.Ignore())
-                .ForMember(d => d.ProjectName, opts => opts.MapFrom(src => src.Project.ProjectName))
-                .ForMember(d => d.ConstructionFirmName, opts => opts.MapFrom(src => src.ConstructionFirm.ConstructionFirmName));
+            CreateMap<FinalBillPaymentVm, FinalBillPayment>();
+            CreateMap<FinalBillPayment, FinalBillPaymentVm>();
 
-            CreateMap<SignatoryAuthorityVm, SignatoryAuthority>();
-            CreateMap<SignatoryAuthority, SignatoryAuthorityVm>()
-                .ForMember(d => d.ProjectName, opt => opt.MapFrom(src => src.Project.ProjectName))
-                .ForMember(d => d.LetterNumber, opt => opt.MapFrom(src => src.ReceivePayment.LetterNo));
-
-            CreateMap<VatTaxVm, VatTax>();
-            CreateMap<VatTax, VatTaxVm>()
-                .ForMember(d => d.ProjectName, opt => opt.MapFrom(src => src.Project.ProjectName))
-                .ForMember(d => d.LetterNumber, opt => opt.MapFrom(src => src.ReceivePayment.LetterNo))
-                .ForMember(d => d.ReceiveAmount, opt => opt.MapFrom(src => src.ReceivePayment.BillAmount));
-
-            CreateMap<BGBFundVm, BGBFund>();
+            CreateMap<BGBFundVm, BGBFund>();                
             CreateMap<BGBFund, BGBFundVm>();
 
-            CreateMap<ContractorPaymentVm, ContractorPayment>();
-            CreateMap<ContractorPayment, ContractorPaymentVm>()
-                .ForMember(d => d.ConstructionFirmName, opts => opts.MapFrom(src => src.ConstructionFirm.ConstructionFirmName))
-                .ForMember(d => d.SubProjectTitle, opt => opt.MapFrom(d => d.SubProject.SubProjectTitle));
+            CreateMap<VatTaxCollateralVm, VatTaxCollateral>();
+            CreateMap<VatTaxCollateral, VatTaxCollateralVm>();
 
-            CreateMap<ContractorBillPaymentVm, ContractorBillPayment>();
-            CreateMap<ContractorBillPayment, ContractorBillPaymentVm>();
+            CreateMap<SignatoryAuthorityVm, SignatoryAuthority>();
+            CreateMap<SignatoryAuthority, SignatoryAuthorityVm>();
 
-            CreateMap<BillPaymentVm, BillPayment>()
-                .ForMember(d => d.SubProject, opts => opts.Ignore());
-            CreateMap<BillPayment, BillPaymentVm>()
-                .ForMember(d => d.BillTypeDropdown, opts => opts.Ignore())
-                .ForMember(d => d.FiscalYearDropdown, opts => opts.Ignore())
-                .ForMember(d => d.SubProjectTitle, opts => opts.MapFrom(src => src.SubProject.SubProjectTitle));
+            CreateMap<RecruitmentCommitteeVm, RecruitmentCommittee>();
+            CreateMap<RecruitmentCommittee, RecruitmentCommitteeVm>();
 
-            CreateMap<ProjectExtendVm, ProjectExtend>()
-                .ForMember(d => d.SubProject, opts => opts.Ignore());
+            CreateMap<NohaVm, Noha>();
+            CreateMap<Noha, NohaVm>();
 
-            CreateMap<ProjectExtend, ProjectExtendVm>()
-                .ForMember(d => d.SubProjectTitle, opts => opts.MapFrom(src => src.SubProject.SubProjectTitle));
+            CreateMap<PerformanceSecurityVm, PerformanceSecurity>();
+            CreateMap<PerformanceSecurity, PerformanceSecurityVm>();
 
-            CreateMap<ProjectProblemVm, ProjectProblem>();
-            CreateMap<ProjectProblem, ProjectProblemVm>()
-                .ForMember(d => d.SubProjectTitle, opts => opts.MapFrom(src => src.SubProject.SubProjectTitle));
+            CreateMap<WorkOrderVm, WorkOrder>();
+            CreateMap<WorkOrder, WorkOrderVm>();
 
-            CreateMap<ProjectStatusVm, ProjectStatus>();
-            CreateMap<ProjectStatus, ProjectStatusVm>()
-                .ForMember(d => d.SubProjectTitle, opts => opts.MapFrom(src => src.SubProject.SubProjectTitle));
+            CreateMap<ProjectWorkStatusVm, ProjectWorkStatus>();
+            CreateMap<ProjectWorkStatus, ProjectWorkStatusVm>();
 
-            CreateMap<ReceivePaymentVm, ReceivePayment>();
-            CreateMap<ReceivePayment, ReceivePaymentVm>()
-                .ForMember(d => d.ProjectName, opts => opts.MapFrom(src => src.Project.ProjectName))
-                .ForMember(d => d.ConstructionFirmName, opts => opts.MapFrom(src => src.ConstructionFirm.ConstructionFirmName));
+            CreateMap<ContractAgreementVm, ContractAgreement>();
+            CreateMap<ContractAgreement, ContractAgreementVm>()
+                .ForMember(d => d.ProjectWorkTitle, opt => opt.MapFrom(x => x.ProjectWork.ProjectWorkTitle))
+                .ForMember(d => d.ProjectWorkTitleB, opt => opt.MapFrom(x => x.ProjectWork.ProjectWorkTitleB))
+                .ForMember(d => d.ConstructionFirm, opt => opt.MapFrom(x => x.ConstructionCompany.FirmNameB));
 
-            CreateMap<ConsultantVm, Consultant>();
+            CreateMap<ProjectDirectorVm, ProjectDirector>();
+            CreateMap<ProjectDirector, ProjectDirectorVm>()
+                .ForMember(x => x.ProjectTitle, opt => opt.MapFrom(x => x.ADPProjects.ProjectTitle));
 
-            CreateMap<SubProjectDetailsVm, SubProjectDetail>();
-            CreateMap<SubProjectDetail, SubProjectDetailsVm>()
-                .ForMember(d => d.SubProjectDropdown, opts => opts.Ignore())
-                .ForMember(d => d.SubProjectTitle, opts => opts.MapFrom(src => src.SubProject.SubProjectTitle));
+            CreateMap<ConstructionCompany, ConstructionCompanyVm>();
+            CreateMap<ConstructionCompanyVm, ConstructionCompany>();
 
-            CreateMap<ConsultancyFeesVm, ConsultancyFee>();
-            CreateMap<ConsultancyFee, ConsultancyFeesVm>()
-                .ForMember(d => d.SubProjectDropdown, opts => opts.Ignore())
-                .ForMember(d => d.ConsultantDropdown, opts => opts.Ignore())
-                .ForMember(d => d.SubProjectTitle, opts => opts.MapFrom(src => src.SubProject.SubProjectTitle))
-                .ForMember(d => d.ConsultantName, opts => opts.MapFrom(src => src.Consultant.Name))
-                .ForMember(d => d.ConsultancyFee, opts => opts.MapFrom(src => src.ConsultancyFee1));
+            CreateMap<ADPProjectVm, ADPProject>();
+            CreateMap<ADPProject, ADPProjectVm>();
 
-            CreateMap<ConsultancyActivitiesVm, ConsultancyActivity>();
-            CreateMap<ConsultancyActivity, ConsultancyActivitiesVm>()
-                .ForMember(d => d.SubProjectDropdown, opts => opts.Ignore())
-                .ForMember(d => d.ConsultantDropdown, opts => opts.Ignore())
-                .ForMember(d => d.SubProjectTitle, opts => opts.MapFrom(src => src.SubProject.SubProjectTitle))
-                .ForMember(d => d.ConsultantName, opts => opts.MapFrom(src => src.Consultant.Name));
+            CreateMap<MasterplanVm, Masterplan>();
+            CreateMap<Masterplan, MasterplanVm>();
 
-            CreateMap<SecurityDepositVm, SecurityDeposit>();
-            CreateMap<SecurityDeposit, SecurityDepositVm>()
-                .ForMember(d => d.SubProjectDropdown, opts => opts.Ignore())
-                .ForMember(d => d.SubProjectTitle, opts => opts.MapFrom(src => src.SubProject.SubProjectTitle));
+            CreateMap<FinancialYearAllocationVm, FinancialYearAllocation>();
+            CreateMap<FinancialYearAllocation, FinancialYearAllocationVm>()
+                .ForMember(x => x.FiscalYearDescription, opt => opt.MapFrom(x => x.FiscalYear.FiscalYearDescription));
+
+            CreateMap<FiscalYearExpenseVm, FiscalYearExpense>();
+            CreateMap<FiscalYearExpense, FiscalYearExpenseVm>()
+                .ForMember(x => x.FiscalYearDescription, opt => opt.MapFrom(x => x.FiscalYear.FiscalYearDescription));
+
+            CreateMap<FormalMeetingVm, FormalMeeting>();
+            CreateMap<FormalMeeting, FormalMeetingVm>();
+
+            CreateMap<ProjectWorkVm, ProjectWork>();
+            CreateMap<ProjectWork, ProjectWorkVm>()
+                .ForMember(x => x.ProjectTitle, opt => opt.MapFrom(x => x.ADPProject.ProjectTitle));
+
+            CreateMap<ADPReceivePaymentVm, ADPReceivePayment>();
+            CreateMap<ADPReceivePayment, ADPReceivePaymentVm>();
+
+            CreateMap<BGBMiscellaneousFundVm, BGBMiscellaneousFund>();
+            CreateMap<BGBMiscellaneousFund, BGBMiscellaneousFundVm>();
+
+            CreateMap<ContractorCompanyPaymentVm, ContractorCompanyPayment>();
+            CreateMap<ContractorCompanyPayment, ContractorCompanyPaymentVm>();
 
             #endregion
 
@@ -110,17 +100,9 @@ namespace IDIMWorkBranchProject
             CreateMap<FiscalYearVm, FiscalYear>();
             CreateMap<FiscalYear, FiscalYearVm>();
 
-            CreateMap<BillTypeVm, BillType>();
-            CreateMap<BillType, BillTypeVm>();
-
-            CreateMap<QuarterVm, Quarter>();
-            CreateMap<Quarter, QuarterVm>();
-
             CreateMap<UnitVm, IrmsSetupUnit>();
             CreateMap<IrmsSetupUnit, UnitVm>();
 
-            CreateMap<ConstructionFirmVm, ConstructionFirm>();
-            CreateMap<ConstructionFirm, ConstructionFirmVm>();
             #endregion
 
             #region security
@@ -141,20 +123,6 @@ namespace IDIMWorkBranchProject
             CreateMap<ActivityLogVm, ActivityLog>();
             CreateMap<ActivityLog, ActivityLogVm>();
 
-            //CreateMap<Device, DeviceVm>();
-            //CreateMap<DeviceVm, Device>();
-
-            //CreateMap<UserApplication, UserApplicationVm>();
-            //CreateMap<UserApplicationVm, UserApplication>();
-
-            //CreateMap<UserDevice, UserDeviceVm>();
-            //CreateMap<UserDeviceVm, UserDevice>();
-
-            //CreateMap<UserLoginDevice, UserLoginDeviceVm>();
-            //CreateMap<UserLoginDeviceVm, UserLoginDevice>();
-
-            //CreateMap<UserPriviledge, UserPriviledgeVm>();
-            //CreateMap<UserPriviledgeVm, UserPriviledge>();
             #endregion
         }
     }

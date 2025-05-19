@@ -1,0 +1,140 @@
+﻿@model IDIMWorkBranchProject.Models.Wbpm.CollateralReturnVm
+@{
+    ViewBag.Title = "Create";
+}
+
+<div id="message"></div>
+
+<div class="page-title">
+    <div class="pull-left">
+        <h1 class="title">Collateral Return </h1>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","CollateralReturn")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Collateral Return
+                </a>
+            </li>
+            <li class="active">
+                <strong>Create</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">Create</h2>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+
+                @using (Html.BeginForm("Create", "CollateralReturn", FormMethod.Post, new { @class = "form-horizontal", id = "CollateralReturn-create-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.ProjectWorkId)
+                    @Html.HiddenFor(x => x.CollateralReturnId)
+
+                <div class="row">
+                    <div class="form-display col-md-12">
+                        @Html.LabelFor(m => m.ProjectWorkName, new { @class = "label-display col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.ProjectWorkName, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-12">
+                        @Html.LabelFor(m => m.LetterNo, new { @class = "label-display col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.LetterNo, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.QuoteOne, new { @class = "label-display col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.QuoteOne, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.QuoteOneDate,  new { @class = "label-display col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.QuoteOneDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.QuoteTwo, new { @class = "label-display col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.QuoteTwo, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.QuoteTwoDate,  new { @class = "label-display col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.QuoteTwoDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.QuoteThree, new { @class = "label-display col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.QuoteThree, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.QuoteThreeDate,  new { @class = "label-display col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.QuoteThreeDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.HeadAssistantId, new { @class = " label-display col-md-4 " })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(m => m.HeadAssistantId, Model.HeadAssistantDropdown, "Select One", new { @class = "select2" })
+                            @Html.ValidationMessageFor(model => model.HeadAssistantId)
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.ConcernedEngineerId, new { @class = "label-display col-md-4 " })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(m => m.ConcernedEngineerId, Model.ConcernedEngineerDropdown, "Select One", new { @class = "select2" })
+                            @Html.ValidationMessageFor(model => model.ConcernedEngineerId)
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.SectionICId, new { @class = "label-display col-md-4 " })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(m => m.SectionICId, Model.SectionICTDropdown, "Select One", new { @class = "select2" })
+                            @Html.ValidationMessageFor(model => model.SectionICId)
+                        </div>
+                    </div>
+                    <div class="form-display col-md-6">
+                        @Html.LabelFor(m => m.BranchClerkId, new { @class = "label-display col-md-4 " })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(m => m.BranchClerkId, Model.BranchClerkDropdown, "Select One", new { @class = "select2" })
+                            @Html.ValidationMessageFor(model => model.BranchClerkId)
+                        </div>
+                    </div>
+                </div>
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+}

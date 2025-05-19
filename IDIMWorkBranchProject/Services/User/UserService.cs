@@ -1,15 +1,18 @@
 ﻿using AutoMapper;
-using BGB.Data.Database;
+
+using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.Ad;
-using IDIMWorkBranchProject.Extentions.File;
 using IDIMWorkBranchProject.Extentions.Session;
 using IDIMWorkBranchProject.Extentions.Url;
 using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.User;
+
 using MailKit.Net.Smtp;
+
 using MimeKit;
 using MimeKit.Text;
+
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -18,7 +21,7 @@ using System.Threading.Tasks;
 
 namespace IDIMWorkBranchProject.Services.User
 {
-    public class UserService : IUserService
+	public class UserService : IUserService
     {
         protected IMapper Mapper { get; set; }
         protected IDIMDBEntities Context { get; set; }
