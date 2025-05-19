@@ -1,0 +1,183 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model RevenueDetailsVm
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="page-title">
+    <div class="pull-left">
+        <h3 class="title">রাজস্ব বিস্তারিত</h3>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index", "Dashboard")"><i class="fa fa-home"></i> ড্যাশবোর্ড</a>
+            </li>
+            <li class="active">
+                <strong>রাজস্বের বিস্তারিত</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">রাজস্বের বিস্তারিত তালিকা</h2>
+        <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("Create", "Revenue", new { id = Model.RevenueDetail.RevenueId })" class="btn btn-primary">
+                <i class="fa fa-pencil-square-o"></i> সংশোধন
+            </a>
+            <a class="box_toggle fa fa-chevron-down"></a>
+        </div>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="form-display col-md-12">
+                @Html.LabelFor(m => m.RevenueDetail.WorkTitleB, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.RevenueDetail.WorkTitleB)
+            </div>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.RevenueDetail.EstimateCost, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.RevenueDetail.EstimateCost)
+            </div>
+            <div class="form-display col-md-6">
+                @Html.LabelFor(m => m.RevenueDetail.Remarks, new { @class = "display-label" })
+                @Html.DisplayFor(m => m.RevenueDetail.Remarks)
+            </div>
+        </div>
+
+        <div style="margin-bottom:10px;">
+            <a href="@Url.Action("Create", "RevenueNoha", new { id = Model.RevenueDetail.RevenueId })" class="btn btn-primary btn-xs pull-right mt-2 mb-2">
+                <i class="fa fa-pencil-square"></i> এনওএইচএ সংযুক্ত করুণ
+            </a>
+        </div>
+
+        @if (Model.NohaDetail != null)
+        {
+            <fieldset>
+                <legend>এনওএইচএ</legend>
+                <div class="form-display col-md-6">
+                    @Html.LabelFor(m => m.NohaDetail.RevenueNohaDate, new { @class = "display-label" })
+                    @Html.DisplayFor(m => m.NohaDetail.RevenueNohaDate)
+                </div>
+                <div class="form-display col-md-6">
+                    @Html.LabelFor(m => m.NohaDetail.LetterNo, new { @class = "display-label" })
+                    @Html.DisplayFor(m => m.NohaDetail.LetterNo)
+                </div>
+                <div class="form-display col-md-6">
+                    @Html.LabelFor(m => m.NohaDetail.RevenueNohaScanDocument, new { @class = "display-label" })
+                    @if (!string.IsNullOrEmpty(Model.NohaDetail.RevenueNohaScanDocument))
+                    {
+                        <a href="@Url.Action("PreviewDocument", "RevenueNoha", new { fileName = Model.NohaDetail.RevenueNohaScanDocument })" target="_blank">
+                            Preview Document
+                        </a>
+                    }
+                    else
+                    {
+                        <span>No file uploaded</span>
+                    }
+                </div>
+            </fieldset>
+        }
+        else
+        {
+            <div style="margin-bottom: 10px;padding: 10px;background-color: #f9f9f9;border: 1px solid #ddd;border-radius: 6px;margin-top: 30px;"><strong>এনওএইচএ তথ্য পাওয়া যায়নি।</strong></div>
+        }
+
+        <div style="margin-bottom:10px;">
+            <a href="@Url.Action("Create", "RevenuePerformanceSecurity", new { id = Model.PerformanceSecurityDetail.RevenueId })"
+               class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.RevenueDetail.IsNoahCompleted ? "" : "disabled")"
+               @(Model.RevenueDetail.IsNoahCompleted ? "" : "onclick='return false;'")>
+                <i class="fa fa-pencil-square"></i> ব্যাংক গ্যারান্টি সংযুক্ত করুণ
+            </a>
+        </div>
+
+        @if (Model.PerformanceSecurityDetail != null)
+        {
+            <fieldset>
+                <legend>ব্যাংক গ্যারান্টি/পারফরমেন্স সিকিউরিটি</legend>
+                <div class="form-display col-md-6">
+                    @Html.LabelFor(m => m.PerformanceSecurityDetail.RevenuePerformanceSecuritySubmissionDate, new { @class = "display-label" })
+                    @Html.DisplayFor(m => m.PerformanceSecurityDetail.RevenuePerformanceSecuritySubmissionDate)
+                </div>
+                <div class="form-display col-md-6">
+                    @Html.LabelFor(m => m.PerformanceSecurityDetail.RevenuePerformanceSecurityExpiryDate, new { @class = "display-label" })
+                    @Html.DisplayFor(m => m.PerformanceSecurityDetail.RevenuePerformanceSecurityExpiryDate)
+                </div>
+                <div class="form-display col-md-6">
+                    @Html.LabelFor(m => m.PerformanceSecurityDetail.RevenuePerformanceSecurityScanDocument, new { @class = "display-label" })
+                    @if (!string.IsNullOrEmpty(Model.PerformanceSecurityDetail.RevenuePerformanceSecurityScanDocument))
+                    {
+                        <a href="@Url.Action("PreviewDocument", "RevenuePerformanceSecurity", new { fileName = Model.PerformanceSecurityDetail.RevenuePerformanceSecurityScanDocument })" target="_blank">
+                            Preview Document
+                        </a>
+                    }
+                    else
+                    {
+                        <span>No file uploaded</span>
+                    }
+                </div>
+            </fieldset>
+        }
+        else
+        {
+            <div style="margin-bottom: 10px;padding: 10px;background-color: #f9f9f9;border: 1px solid #ddd;border-radius: 6px;margin-top: 40px;"><strong>পারফরমেন্স সিকিউরিটির তথ্য পাওয়া যায়নি।</strong></div>
+        }
+
+        <div style="margin-bottom:10px;">
+            <a href="@Url.Action("Create", "RevenueWorkOrder", new { id = Model.WorkOrderDetail.RevenueId })"
+               class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.RevenueDetail.IsAgreementCompleted ? "" : "disabled")"
+               @(Model.RevenueDetail.IsAgreementCompleted ? "" : "onclick='return false;'")>
+                <i class="fa fa-print"></i> কার্যাদেশ সংযুক্ত করুণ
+            </a>
+        </div>
+
+        @if (Model.WorkOrderList != null && Model.WorkOrderList.Any())
+        {
+            <fieldset>
+                <legend>কার্যাদেশ</legend>
+                <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>লেটার নং</th>
+                            <th>কার্যাদেশের তারিখ</th>
+                            <th>শুরুর তারিখ</th>
+                            <th>শেষের তারিখ</th>
+                            <th>কার্যাদেশ ডকুমেন্ট</th>
+                            <th style="width:120px;">প্রিন্ট করুন</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.WorkOrderList)
+                        {
+                            <tr>
+                                <td>@item.RevenueWorkOrderLetterNo</td>
+                                <td>@item.RevenueWorkOrderDate</td>
+                                <td>@item.RevenueWorkOrderStartDate</td>
+                                <td>@item.RevenueWorkOrderEndDate</td>
+                                <td>@item.RevenueWorkOrderScanDocument</td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "RevenueWorkOrder", new { id = item.RevenueWorkOrderId })" class="btn btn-primary btn-xs">
+                                        <i class="fa fa-pencil-square-o"></i> সংশোধন
+                                    </a>
+                                    <a href="@Url.Action("Delete", "RevenueWorkOrder", new { id = item.RevenueWorkOrderId })" class="btn btn-danger btn-xs">
+                                        <i class="fa fa-trash-o"></i> অপসারণ
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </fieldset>
+        }
+        else
+        {
+            <div style="margin-bottom: 10px;padding: 10px;background-color: #f9f9f9;border: 1px solid #ddd;border-radius: 6px;margin-top: 40px;"><strong>কার্যাদেশের কোনো তথ্য পাওয়া যায়নি।</strong></div>
+        }
+
+    </div>
+
+    <partial name="_ModalPartial" />
+</section>

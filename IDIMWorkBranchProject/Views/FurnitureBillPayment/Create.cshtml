@@ -51,154 +51,154 @@
                     @Html.HiddenFor(x => x.FurnitureBillPaymentId)
                     @Html.HiddenFor(x => x.ConstractorCompanyId)
 
-                <div class="row">
-                    <div class="form-display col-md-12">
-                        @Html.LabelFor(m => m.ProjectWorkTitleB, new { @class = "label-display col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.ProjectWorkTitleB, new { @class = "form-control", @readonly = "readonly" })
+                    <div class="row">
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ProjectWorkTitleB, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ProjectWorkTitleB, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-12">
-                        @Html.LabelFor(m => m.ConstractorCompanyName, new { @class = "label-display col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.ConstractorCompanyName, new { @class = "form-control", @readonly = "readonly" })
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ConstractorCompanyName, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ConstractorCompanyName, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-12">
-                        @Html.LabelFor(m => m.ChangedConstractorCompanyId, new { @class = "label-display col-md-2 " })
-                        <div class="col-md-10">
-                            @Html.DropDownListFor(m => m.ChangedConstractorCompanyId, Model.ConstructionCompanyDropdown, "Select One", new { @class = "select2" })
-                            @Html.ValidationMessageFor(model => model.ChangedConstractorCompanyId)
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ChangedConstractorCompanyId, new { @class = "label-display col-md-2 " })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m => m.ChangedConstractorCompanyId, Model.ConstructionCompanyDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.ChangedConstractorCompanyId)
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.LetterNo, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.LetterNo, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.LetterNo, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.LetterNo, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.QuoteOne, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.QuoteOne, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.QuoteOne, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.QuoteOne, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.QuoteOneDate, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.QuoteOneDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.QuoteOneDate, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.QuoteOneDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.QuoteTwo, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.QuoteTwo, new { @class = "form-control " })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.QuoteTwo, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.QuoteTwo, new { @class = "form-control " })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.QuoteTwoDate,  new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.QuoteTwoDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.QuoteTwoDate, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.QuoteTwoDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.QuoteThree, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.QuoteThree, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.QuoteThree, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.QuoteThree, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.QuoteThreeDate,  new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.QuoteThreeDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.QuoteThreeDate, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.QuoteThreeDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.QuoteFour, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.QuoteFour, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.QuoteFour, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.QuoteFour, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.QuoteFourDate,  new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.QuoteFourDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.QuoteFourDate, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.QuoteFourDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.AllocationToFurniture, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.AllocationToFurniture, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.AllocationToFurniture, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.AllocationToFurniture, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.AllocationToFurnitureInWordB, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.AllocationToFurnitureInWordB, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.AllocationToFurnitureInWordB, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.AllocationToFurnitureInWordB, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.DepositsInFund, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.DepositsInFund, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.DepositsInFund, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.DepositsInFund, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.PaymentAmount, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.PaymentAmount, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.PaymentAmount, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.PaymentAmount, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.PaymentAmountInWordB, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.PaymentAmountInWordB, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.PaymentAmountInWordB, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.PaymentAmountInWordB, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.DepositedInFund, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.DepositedInFund, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.DepositedInFund, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.DepositedInFund, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.DepositedInFundInWordB, new { @class = "label-display col-md-4" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.DepositedInFundInWordB, new { @class = "form-control" })
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.DepositedInFundInWordB, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.DepositedInFundInWordB, new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.HeadAssistantId, new { @class = " label-display col-md-4 " })
-                        <div class="col-md-8">
-                            @Html.DropDownListFor(m => m.HeadAssistantId, Model.HeadAssistantDropdown, "Select One", new { @class = "select2" })
-                            @Html.ValidationMessageFor(model => model.HeadAssistantId)
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.HeadAssistantId, new { @class = " label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.HeadAssistantId, Model.HeadAssistantDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.HeadAssistantId)
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.ConcernedEngineerId, new { @class = "label-display col-md-4 " })
-                        <div class="col-md-8">
-                            @Html.DropDownListFor(m => m.ConcernedEngineerId, Model.ConcernedEngineerDropdown, "Select One", new { @class = "select2" })
-                            @Html.ValidationMessageFor(model => model.ConcernedEngineerId)
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.ConcernedEngineerId, new { @class = "label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.ConcernedEngineerId, Model.ConcernedEngineerDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.ConcernedEngineerId)
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.SectionICId, new { @class = "label-display col-md-4 " })
-                        <div class="col-md-8">
-                            @Html.DropDownListFor(m => m.SectionICId, Model.SectionICTDropdown, "Select One", new { @class = "select2" })
-                            @Html.ValidationMessageFor(model => model.SectionICId)
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.SectionICId, new { @class = "label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.SectionICId, Model.SectionICTDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.SectionICId)
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-display col-md-6">
-                        @Html.LabelFor(m => m.BranchClerkId, new { @class = "label-display col-md-4 " })
-                        <div class="col-md-8">
-                            @Html.DropDownListFor(m => m.BranchClerkId, Model.BranchClerkDropdown, "Select One", new { @class = "select2" })
-                            @Html.ValidationMessageFor(model => model.BranchClerkId)
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.BranchClerkId, new { @class = "label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.BranchClerkId, Model.BranchClerkDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.BranchClerkId)
+                            </div>
                         </div>
-                    </div>
 
 
-                </div>
+                    </div>
                     <div class="pull-right">
                         <input type="submit" class="btn btn-success" value="Save" />
                         <input type="reset" class="btn" value="Clear" />

@@ -1,0 +1,34 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model RevenueNohaVm
+
+@{
+    ViewData["Title"] = "Delete RevenueNoha";
+}
+
+<h2 class="mb-0">Delete Revenue Noha</h2>
+
+<p>Are you sure you want to delete this record?</p>
+
+<div class="card shadow-lg border-0 rounded">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0 text-light">Revenue Noha Details</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">            
+            <li class="list-group-item"><strong>লেটার নংঃ </strong> @Model.LetterNo</li>
+            <li class="list-group-item"><strong>রাজস্ব এনওএইচএ তারিখঃ </strong> @Model.RevenueNohaDate</li>
+        </ul>
+    </div>
+    @using (Html.BeginForm("DeleteConfirmed", "RevenueNoha", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x => x.RevenueNohaId)
+
+        <div class="card-footer text-end">
+            <a href="@Url.Action("List","RevenueNoha") class="btn btn-secondary">Cancel</a>
+            <input type="submit" class="btn btn-danger" value="Delete" />
+        </div>
+    }
+
+</div>

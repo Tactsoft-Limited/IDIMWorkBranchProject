@@ -1,0 +1,151 @@
+﻿@model IDIMWorkBranchProject.Models.Wbpm.RevenueVm
+@{
+    ViewBag.Title = "Create";
+}
+
+<div id="message"></div>
+
+<div class="page-title">
+    <div class="pull-left">
+        <h1 class="title">রাজস্ব </h1>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","Revenue")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Revenue
+                </a>
+            </li>
+            <li class="active">
+                <strong>Create</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">রাজস্ব সংযুক্ত</h2>
+        @*<div class="actions panel_actions pull-right">
+                <a href="@Url.Action("List","ADPReceivePayment")" class="btn">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    List
+                </a>
+                <a class="box_toggle fa fa-chevron-down"></a>
+            </div>*@
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+
+                @using (Html.BeginForm("Create", "Revenue", FormMethod.Post, new { @class = "form-horizontal", id = "Revenue-create-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.RevenueId)                    
+                    <div class="row">
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.WorkTitle, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.WorkTitle, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.WorkTitleB, new { @class = "label-display col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.WorkTitleB, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.EstimateCost, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.EstimateCost, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.EstimateCostInWord, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.EstimateCostInWord, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.EstimateCostInWordB, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.EstimateCostInWordB, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.FisCalYearId, new { @class = "label-display col-md-4 " })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.FisCalYearId, Model.FiscalYearDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.FisCalYearId)
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.Remarks, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.Remarks, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.IsFurnitureIncluded, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.CheckBoxFor(m => m.IsFurnitureIncluded, new { @class = "form-check-input" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.IsAgreementCompleted, new { @class = "label-display col-md-4" })
+                            <div class="col-md-8">
+                                @Html.CheckBoxFor(m => m.IsAgreementCompleted, new { @class = "form-check-input" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script src="~/Scripts/banglaNumberConverter.js"></script>
+    <script src="~/Scripts/numberToWordsConverter.js"></script>
+    <script>
+        $(document).ready(function () {
+            function converterBangla() {
+                const estimateCost = parseFloat($('#EstimateCost').val()) || 0;
+
+                // Convert numbers to Bangla and English words
+                const estimateCostInWord = toWords(estimateCost); // English words
+                const estimateCostInWordB = getBanglaWord(estimateCost); // Bangla words
+
+                // Only assign if value is valid
+                if (typeof estimateCostInWordB === 'string') {
+                    $('#EstimateCostInWordB').val(estimateCostInWordB);
+                } else {
+                    $('#EstimateCostInWordB').val('');
+                }
+
+                $('#EstimateCostInWord').val(estimateCostInWord);
+            }
+
+            // Bind only to EstimateCost input to avoid feedback loop
+            $('#EstimateCost').on('input', converterBangla);
+        });
+    </script>
+
+
+
+
+
+
+}

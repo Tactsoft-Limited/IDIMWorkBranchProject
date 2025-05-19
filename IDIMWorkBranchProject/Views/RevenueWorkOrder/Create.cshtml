@@ -1,0 +1,130 @@
+﻿@using IDIMWorkBranchProject.Extentions
+@using IDIMWorkBranchProject.Models.Wbpm
+@model RevenueWorkOrderVm
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="page-title">
+    <div class="pull-left">
+        <h3 class="title"></h3>
+    </div>
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#"><i class="fa fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+                <a href="@Url.Action("List","RevenueWorkOrder")">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    RevenueWorkOrder
+                </a>
+            </li>
+            <li class="active">
+                <strong>Create</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<section class="box">
+    <header class="panel_header">
+        <h2 class="title pull-left">রাজস্ব কার্যাদেশ সংযুক্ত করুন</h2>
+        <div class="actions panel_actions pull-right">
+            <a href="@Url.Action("List","WorkOrder")" class="btn">
+                <i class="fa fa-list" aria-hidden="true"></i>
+                List
+            </a>
+            <a class="box_toggle fa fa-chevron-down"></a>
+        </div>
+    </header>
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("Create", "RevenueWorkOrder", FormMethod.Post, new { enctype = "multipart/form-data", id = "RevenueWorkOrder-create-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.RevenueId)
+                    <div class="row">
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.RevenueWorkTitleB, new { @class = "form-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.RevenueWorkTitleB, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-display col-md-6">
+                            @Html.LabelFor(m => m.RevenueWorkOrderLetterNo, new { @class = "form-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.RevenueWorkOrderLetterNo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.RevenueWorkOrderLetterNo)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.RevenueWorkOrderDate, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.RevenueWorkOrderDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.RevenueWorkOrderDate)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.RevenueWorkOrderStartDate, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.RevenueWorkOrderStartDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.RevenueWorkOrderStartDate)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.RevenueWorkOrderEndDate, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.RevenueWorkOrderEndDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.RevenueWorkOrderEndDate)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.RevenueWorkOrderHandOverDate, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.RevenueWorkOrderHandOverDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.RevenueWorkOrderHandOverDate)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.RevenueWorkOrderDocumentFile, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                <!-- PDF Preview Section -->
+                                <embed id="pdfPreview"
+                                       src="@(!string.IsNullOrEmpty(Model.RevenueWorkOrderScanDocument) ? Url.Content("~/Documents/RevenueWorkOrderFiles/" + Model.RevenueWorkOrderScanDocument) : "")"
+                                       type="application/pdf"
+                                       width="100" height="100" />
+                                <p>
+                                    <a id="pdfLink" href="@Url.Content("~/Documents/RevenueWorkOrderFiles/" + Model.RevenueWorkOrderScanDocument)" target="_blank">
+                                        View Full PDF
+                                    </a>
+                                </p>
+                                @Html.TextBoxFor(m => m.RevenueWorkOrderDocumentFile, new { @class = "form-control", type = "file", accept = ".pdf", id = "pdfInput", onchange = "previewPDF(event)" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-success" value="Save" />
+                        <input type="reset" class="btn" value="Clear" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts{
+    <script>
+            function previewPDF(event) {
+                var file = event.target.files[0];
+                if (file)
+                {
+                    var fileURL = URL.createObjectURL(file);
+                    document.getElementById('pdfPreview').src = fileURL;
+                    document.getElementById('pdfLink').href = fileURL;
+                }
+            }
+    </script>
+}
+
