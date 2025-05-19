@@ -17,6 +17,7 @@ namespace IDIMWorkBranchProject.Services.Report
         Task<List<ViewFurnitureBillPayment>> GetFurnitureBillPaymentAsync(int id);
         Task<List<ViewCollateralReturn>> GetCollateralReturnAsync(int id);
         Task<List<VatTaxCollateral>> GetVatTaxByProjectIdAsync(int id);
+        Task<List<ViewHandoverApproved>> GetHandoverApprovedAsync(int id);
     }
 }
 

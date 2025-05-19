@@ -1192,7 +1192,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>b8d2a372-8860-4d68-9b9c-0f94ad77cea4</rd:DataSourceID>
+      <rd:DataSourceID>1d2b53e3-5556-4474-8baf-de9aa754a496</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -1238,29 +1238,29 @@
           <DataField>QuoteOne</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="QuoteOneDate">
-          <DataField>QuoteOneDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
         <Field Name="QuoteTwo">
           <DataField>QuoteTwo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="QuoteTwoDate">
-          <DataField>QuoteTwoDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="QuoteThree">
           <DataField>QuoteThree</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="QuoteThreeDate">
-          <DataField>QuoteThreeDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
         <Field Name="QuoteFour">
           <DataField>QuoteFour</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QuoteOneDate">
+          <DataField>QuoteOneDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="QuoteTwoDate">
+          <DataField>QuoteTwoDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="QuoteThreeDate">
+          <DataField>QuoteThreeDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="QuoteFourDate">
           <DataField>QuoteFourDate</DataField>

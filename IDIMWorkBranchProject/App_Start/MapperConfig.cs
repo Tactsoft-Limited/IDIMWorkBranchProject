@@ -14,7 +14,10 @@ namespace IDIMWorkBranchProject
         public MapperConfig()
         {
             #region Wbpm
-
+            
+            CreateMap<HandoverApprovedVm, HandoverApproved>();
+            CreateMap<HandoverApproved, HandoverApprovedVm>();
+                
             CreateMap<CollateralReturnVm, CollateralReturn>();
             CreateMap<CollateralReturn, CollateralReturnVm>();
 
