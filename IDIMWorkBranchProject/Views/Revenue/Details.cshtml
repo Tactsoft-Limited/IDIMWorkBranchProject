@@ -87,7 +87,7 @@
         }
 
         <div style="margin-bottom:10px;">
-            <a href="@Url.Action("Create", "RevenuePerformanceSecurity", new { id = Model.PerformanceSecurityDetail.RevenueId })"
+            <a href="@Url.Action("Create", "RevenuePerformanceSecurity", new { id = Model.RevenueDetail.RevenueId })"
                class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.RevenueDetail.IsNoahCompleted ? "" : "disabled")"
                @(Model.RevenueDetail.IsNoahCompleted ? "" : "onclick='return false;'")>
                 <i class="fa fa-pencil-square"></i> ব্যাংক গ্যারান্টি সংযুক্ত করুণ
@@ -127,7 +127,43 @@
         }
 
         <div style="margin-bottom:10px;">
-            <a href="@Url.Action("Create", "RevenueWorkOrder", new { id = Model.WorkOrderDetail.RevenueId })"
+            <a href="@Url.Action("Create", "RevenueContractAgreement", new { id = Model.RevenueDetail.RevenueId })"
+               class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.RevenueDetail.IsPerformanceSecuritySubmited ? "" : "disabled")"
+               @(Model.RevenueDetail.IsPerformanceSecuritySubmited ? "" : "onclick='return false;'")>
+                <i class="fa fa-pencil-square"></i> রাজস্ব চুক্তি সংযুক্ত করুণ
+            </a>
+        </div>
+
+        @if (Model.RevenueContractAgreementDetail != null)
+        {
+            <fieldset>
+                <legend>রাজস্ব চুক্তি</legend>                
+                <div class="form-display col-md-6">
+                    @Html.LabelFor(m => m.RevenueContractAgreementDetail.AgreementDate, new { @class = "display-label" })
+                    @Html.DisplayFor(m => m.RevenueContractAgreementDetail.AgreementDate)
+                </div>
+                <div class="form-display col-md-6">
+                    @Html.LabelFor(m => m.RevenueContractAgreementDetail.ScanDocument, new { @class = "display-label" })
+                    @if (!string.IsNullOrEmpty(Model.RevenueContractAgreementDetail.ScanDocument))
+                    {
+                        <a href="@Url.Action("PreviewDocument", "RevenueContractAgreement", new { fileName = Model.RevenueContractAgreementDetail.ScanDocument })" target="_blank">
+                            Preview Document
+                        </a>
+                    }
+                    else
+                    {
+                        <span>No file uploaded</span>
+                    }
+                </div>
+            </fieldset>
+        }
+        else
+        {
+            <div style="margin-bottom: 10px;padding: 10px;background-color: #f9f9f9;border: 1px solid #ddd;border-radius: 6px;margin-top: 40px;"><strong>রাজস্ব চুক্তির তথ্য পাওয়া যায়নি।</strong></div>
+        }
+
+        <div style="margin-bottom:10px;">
+            <a href="@Url.Action("Create", "RevenueWorkOrder", new { id = Model.RevenueDetail.RevenueId })"
                class="btn btn-primary btn-xs pull-right mt-2 mb-2 @(Model.RevenueDetail.IsAgreementCompleted ? "" : "disabled")"
                @(Model.RevenueDetail.IsAgreementCompleted ? "" : "onclick='return false;'")>
                 <i class="fa fa-print"></i> কার্যাদেশ সংযুক্ত করুণ
