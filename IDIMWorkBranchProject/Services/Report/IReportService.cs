@@ -1,5 +1,6 @@
 ﻿using BGB.Data.Entities.Wbpm;
 using BGB.Data.SqlViews.Wbpm;
+using BGB.Data.SqlViews.Wbpm.Revenue;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -18,6 +19,7 @@ namespace IDIMWorkBranchProject.Services.Report
         Task<List<ViewCollateralReturn>> GetCollateralReturnAsync(int id);
         Task<List<VatTaxCollateral>> GetVatTaxByProjectIdAsync(int id);
         Task<List<ViewHandoverApproved>> GetHandoverApprovedAsync(int id);
+        Task<List<ViewRevenueContractAgreement>> GetRevenueReportAsync(int id);
     }
 }
 

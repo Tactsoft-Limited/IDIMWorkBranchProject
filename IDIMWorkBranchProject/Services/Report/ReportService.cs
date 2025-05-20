@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
 using BGB.Data.SqlViews.Wbpm;
-
+using BGB.Data.SqlViews.Wbpm.Revenue;
 using IDIMWorkBranchProject.Data.Database;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -82,5 +82,14 @@ namespace IDIMWorkBranchProject.Services.Report
                 .Where(x => x.ADPReceivePayment.ProjectWorkId == id)
                 .ToListAsync();
         }
+
+        #region Revenue report
+        public async Task<List<ViewRevenueContractAgreement>> GetRevenueReportAsync(int id)
+        {
+            return await _context.ViewRevenueContractAgreements
+                .Where(x => x.RevenueId == id)
+                .ToListAsync();
+        }
+        #endregion
     }
 }
