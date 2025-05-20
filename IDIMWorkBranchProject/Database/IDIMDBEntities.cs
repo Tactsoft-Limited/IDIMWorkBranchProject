@@ -4,7 +4,7 @@ using BGB.Data.Entities.Irms;
 using BGB.Data.Entities.Wbpm;
 using BGB.Data.SqlViews.Pm;
 using BGB.Data.SqlViews.Wbpm;
-
+using BGB.Data.SqlViews.Wbpm.Revenue;
 using System.Data.Entity;
 
 namespace IDIMWorkBranchProject.Data.Database
@@ -265,6 +265,8 @@ namespace IDIMWorkBranchProject.Data.Database
         public virtual DbSet<FiscalYear> FiscalYears { get; set; }
         public virtual DbSet<IrmsSetupUnit> SetupUnits { get; set; }
         public virtual DbSet<GeneralInformation> GeneralInformations { get; set; }
+
+        #region Wbpm Sql Views
         public virtual DbSet<ViewProjectInformationRpt> ViewProjectInformationRpts { get; set; }
         public virtual DbSet<ViewProjectPaymentReceiptRpt> ViewProjectPaymentReceiptRpts { get; set; }
         public virtual DbSet<ViewProjectProblemRpt> ViewProjectProblemRpts { get; set; }
@@ -283,6 +285,12 @@ namespace IDIMWorkBranchProject.Data.Database
         public virtual DbSet<ViewFurnitureBillPayment> ViewFurnitureBillPayments { get; set; }
         public virtual DbSet<ViewCollateralReturn> ViewCollateralReturns { get; set; }
         public virtual DbSet<ViewHandoverApproved> ViewHandoverApproveds { get; set; }
+        #endregion
+
+        #region revenue sql views
+        public virtual DbSet<ViewRevenueContractAgreement> ViewRevenueContractAgreements { get; set; }
+
+        #endregion
 
     }
 }
