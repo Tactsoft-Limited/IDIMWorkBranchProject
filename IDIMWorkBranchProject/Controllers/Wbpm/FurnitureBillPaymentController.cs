@@ -1,14 +1,13 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
@@ -23,7 +22,18 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IContractorCompanyPaymentService _contractorCompanyPaymentService;
         private readonly ISignatoryAuthorityService _signatoryAuthorityService;
         private readonly IMapper _mapper;
-        public FurnitureBillPaymentController(IActivityLogService activityLogService, IFurnitureBillPaymentService furnitureBillPaymentService, IMapper mapper, IProjectWorkService projectWorkService, IContractAgreementService contractAgreementService, IConstructionCompanyService constructionCompanyService, IBGBMiscellaneousFundService bGBMiscellaneousFundService, IContractorCompanyPaymentService contractorCompanyPaymentService, ISignatoryAuthorityService signatoryAuthorityService) : base(activityLogService)
+
+        public FurnitureBillPaymentController(
+            IActivityLogService activityLogService,
+            IFurnitureBillPaymentService furnitureBillPaymentService,
+            IMapper mapper,
+            IProjectWorkService projectWorkService,
+            IContractAgreementService contractAgreementService,
+            IConstructionCompanyService constructionCompanyService,
+            IBGBMiscellaneousFundService bGBMiscellaneousFundService,
+            IContractorCompanyPaymentService contractorCompanyPaymentService,
+            ISignatoryAuthorityService signatoryAuthorityService
+        ) : base(activityLogService)
         {
             _furnitureBillPaymentService = furnitureBillPaymentService;
             _mapper = mapper;
@@ -35,58 +45,37 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             _signatoryAuthorityService = signatoryAuthorityService;
         }
 
-        // GET: FurnitureBillPayment
-        public ActionResult Index()
-        {
-            return View();
-        }
+        public ActionResult Index() => View();
+
         public async Task<ActionResult> Create(int id)
         {
-            var projectWorks=await _projectWorkService.GetByIdAsync(id);
-            var contactAgreements = await _contractAgreementService.GetByProjectWorkIdAsync(projectWorks.ProjectWorkId);
-            var bgbMiscellaneousFund = await _bGBMiscellaneousFundService.GetByProjectWorkIdAsync(projectWorks.ProjectWorkId);
-            var contractionCompanyPayment = await _contractorCompanyPaymentService.GetByAllProjectWorkAsync(projectWorks.ProjectWorkId);
-            var furnitureBillPayment = await _furnitureBillPaymentService.GetByProjectWorkIdAsync(projectWorks.ProjectWorkId);
-
+            var project = await _projectWorkService.GetByIdAsync(id);
+            var agreement = await _contractAgreementService.GetByProjectWorkIdAsync(project.ProjectWorkId);
+            var funds = await _bGBMiscellaneousFundService.GetByProjectWorkIdAsync(project.ProjectWorkId);
+            var contractorPayments = await _contractorCompanyPaymentService.GetByAllProjectWorkAsync(project.ProjectWorkId);
+            var existingPayment = await _furnitureBillPaymentService.GetByProjectWorkIdAsync(project.ProjectWorkId);
 
             var model = new FurnitureBillPaymentVm
             {
-                ProjectWorkId = projectWorks.ProjectWorkId,
-                ProjectWorkTitleB=projectWorks.ProjectWorkTitleB,
-                ConstractorCompanyId =contactAgreements.ConstructionCompanyId,
-                ConstractorCompanyName = contactAgreements.ConstructionCompany.FirmNameB,
-                DepositsInFund= (bgbMiscellaneousFund.Sum(a => a.Amount) - contractionCompanyPayment.Sum(e => e.FinalPaymentAmount)),
-                ConstructionCompanyDropdown = await _constructionCompanyService.GetDropdownAsync(),
-                HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
-                ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
-                SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
-                BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync()
+                ProjectWorkId = project.ProjectWorkId,
+                ProjectWorkTitleB = project.ProjectWorkTitleB,
+                ConstractorCompanyId = agreement.ConstructionCompanyId,
+                ConstractorCompanyName = agreement.ConstructionCompany.FirmNameB,
+                DepositsInFund = funds.Sum(f => f.Amount) - contractorPayments.Sum(p => p.FinalPaymentAmount)
             };
-            if (furnitureBillPayment != null)
+
+            if (existingPayment != null)
             {
-                model.FurnitureBillPaymentId = furnitureBillPayment.FurnitureBillPaymentId;
-                model.AllocationToFurniture = furnitureBillPayment.AllocationToFurniture;
-                model.AllocationToFurnitureInWordB = furnitureBillPayment.AllocationToFurnitureInWordB;
-                model.DepositedInFund = furnitureBillPayment.DepositedInFund;
-                model.DepositedInFundInWordB = furnitureBillPayment.DepositedInFundInWordB;
-                model.PaymentAmount = furnitureBillPayment.PaymentAmount;
-                model.PaymentAmountInWordB = furnitureBillPayment.PaymentAmountInWordB;
-                model.LetterNo = furnitureBillPayment.LetterNo;
-                model.QuoteOne = furnitureBillPayment.QuoteOne;                
-                model.QuoteTwo = furnitureBillPayment.QuoteTwo;
-                model.QuoteThree = furnitureBillPayment.QuoteThree;
-                model.QuoteFour = furnitureBillPayment.QuoteFour;
-                model.QuoteOneDate = furnitureBillPayment.QuoteOneDate;
-                model.QuoteTwoDate = furnitureBillPayment.QuoteTwoDate;
-                model.QuoteThreeDate = furnitureBillPayment.QuoteThreeDate;
-                model.QuoteFourDate = furnitureBillPayment.QuoteFourDate;
-                model.ChangedConstractorCompanyId = furnitureBillPayment.ChangedConstractorCompanyId;
-                model.ConstructionCompanyDropdown = await _constructionCompanyService.GetDropdownAsync(furnitureBillPayment.ChangedConstractorCompanyId);
-                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(furnitureBillPayment.ChangedConstractorCompanyId);
-                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(furnitureBillPayment.ChangedConstractorCompanyId);
-                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(furnitureBillPayment.ChangedConstractorCompanyId);
-                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(furnitureBillPayment.ChangedConstractorCompanyId);
+                _mapper.Map(existingPayment, model);
+                model.ConstructionCompanyDropdown = await _constructionCompanyService.GetDropdownAsync(existingPayment.ChangedConstractorCompanyId);
+                await PopulateSignatoryDropdowns(model, existingPayment.ChangedConstractorCompanyId);
             }
+            else
+            {
+                model.ConstructionCompanyDropdown = await _constructionCompanyService.GetDropdownAsync();
+                await PopulateSignatoryDropdowns(model);
+            }
+
             return View(model);
         }
 
@@ -94,35 +83,64 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(FurnitureBillPaymentVm model)
         {
+            if (!ModelState.IsValid)
+            {
+                SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                model.ConstructionCompanyDropdown = await _constructionCompanyService.GetDropdownAsync(model.ConstractorCompanyId);
+                await PopulateSignatoryDropdowns(model, model.ChangedConstractorCompanyId);
+                return View(model);
+            }
+
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
-                    model.ConstructionCompanyDropdown = await _constructionCompanyService.GetDropdownAsync(model.ConstractorCompanyId);
-                    return View(model);
-                }
+                var entity = _mapper.Map<FurnitureBillPayment>(model);
+
                 if (model.FurnitureBillPaymentId > 0)
                 {
-                    await _furnitureBillPaymentService.UpdateAsync(_mapper.Map<FurnitureBillPayment>(model));
-                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());                   
+                    await _furnitureBillPaymentService.UpdateAsync(entity);
+                    SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, "Furniture Bill Payment"), ResponseType.Success);
                 }
                 else
                 {
-                    var entity = _mapper.Map<FurnitureBillPayment>(model);
                     await _furnitureBillPaymentService.CreateAsync(entity);
-                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                    SetResponseMessage(string.Format(DefaultMsg.SaveSuccess, "Furniture Bill Payment"), ResponseType.Success);
                 }
-                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+
+                return RedirectToAction("Details", "ProjectWork", new { id = model.ProjectWorkId });
             }
-
-
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Furniture Bill Payment", ex.Message), ResponseType.Error);
                 model.ConstructionCompanyDropdown = await _constructionCompanyService.GetDropdownAsync(model.ConstractorCompanyId);
+                await PopulateSignatoryDropdowns(model, model.ChangedConstractorCompanyId);
                 return View(model);
             }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                await _furnitureBillPaymentService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Furniture Bill Payment"), ResponseType.Success);
+            }
+            catch (Exception ex)
+            {
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Furniture Bill Payment", ex.Message), ResponseType.Error);
+            }
+
+            return RedirectToAction("List");
+        }
+
+
+        private async Task PopulateSignatoryDropdowns(FurnitureBillPaymentVm model, int? selectedId = null)
+        {
+            model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(selectedId);
+            model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(selectedId);
+            model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(selectedId);
+            model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(selectedId);
         }
     }
 }

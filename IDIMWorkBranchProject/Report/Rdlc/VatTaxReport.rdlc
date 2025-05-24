@@ -1153,7 +1153,7 @@
                             </TablixColumns>
                             <TablixRows>
                               <TablixRow>
-                                <Height>0.44996in</Height>
+                                <Height>0.41518in</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
@@ -1226,7 +1226,7 @@
                                 </TablixCells>
                               </TablixRow>
                               <TablixRow>
-                                <Height>0.81256in</Height>
+                                <Height>0.84734in</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
@@ -1801,7 +1801,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value> এর নিকট হইতে "বর্ডার গার্ড বাংলাদেশ, এর নবসৃজিত </Value>
+                    <Value> এর নিকট হইতে "</Value>
                     <Style>
                       <FontFamily>SolaimanLipi</FontFamily>
                       <FontSize>11pt</FontSize>
@@ -1818,7 +1818,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>" শীর্ষক প্রকল্পের আওতায় বর্ডার গার্ড বাংলাদেশ ব্যাটালিয়ন, </Value>
+                    <Value>" শীর্ষক প্রকল্পের আওতায় </Value>
                     <Style>
                       <FontFamily>SolaimanLipi</FontFamily>
                       <FontSize>11pt</FontSize>
@@ -1993,7 +1993,23 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value> নারায়নহঞ্জ ব্যাটালিয়ন (৬২ বিজিবি) প্রকল্প</Value>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!ProjectTitle.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> প্রকল্প</Value>
                     <Style>
                       <FontFamily>SolaimanLipi</FontFamily>
                       <FontSize>11pt</FontSize>
@@ -9402,7 +9418,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value> এর নিকট হইতে "বর্ডার গার্ড বাংলাদেশ, এর নবসৃজিত </Value>
+                    <Value> এর নিকট হইতে "</Value>
                     <Style>
                       <FontFamily>SolaimanLipi</FontFamily>
                       <FontSize>11pt</FontSize>
@@ -10005,7 +10021,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value> এর নিকট হইতে "বর্ডার গার্ড বাংলাদেশ, এর নবসৃজিত </Value>
+                    <Value> এর নিকট হইতে "</Value>
                     <Style>
                       <FontFamily>SolaimanLipi</FontFamily>
                       <FontSize>11pt</FontSize>
@@ -10022,7 +10038,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>" শীর্ষক প্রকল্পের আওতায় বর্ডার গার্ড বাংলাদেশ ব্যাটালিয়ন, </Value>
+                    <Value>" শীর্ষক প্রকল্পের আওতায় </Value>
                     <Style>
                       <FontFamily>SolaimanLipi</FontFamily>
                       <FontSize>11pt</FontSize>

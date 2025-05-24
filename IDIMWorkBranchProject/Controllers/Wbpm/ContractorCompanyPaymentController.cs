@@ -3,6 +3,7 @@ using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.ReportHealper;
 using IDIMWorkBranchProject.Extentions.ReportHelper;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Report;
@@ -93,10 +94,6 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
                 SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
                 BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync()
-
-
-
-
             };
             return View(model);
         }
@@ -110,7 +107,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 if (!ModelState.IsValid)
                 {
-                    TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                    SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
                     model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
                     model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
                     model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
@@ -120,12 +117,12 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
                 var entity = _mapper.Map<ContractorCompanyPayment>(model);
                 await _contractorCompanyPaymentService.CreateAsync(entity);
-                TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+                SetResponseMessage(string.Format(DefaultMsg.SaveSuccess, "Contractor Company Payment"), ResponseType.Success);
+                return RedirectToAction("Details", "ProjectWork", new { id = model.ProjectWorkId });
             }
             catch (Exception exception)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Contractor Company Payment", exception.Message), ResponseType.Error);
                 model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
                 model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
                 model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
@@ -159,7 +156,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 if (!ModelState.IsValid)
                 {
-                    TempData["Message"] = Messages.InvalidInput(MessageType.Update.ToString());
+                    SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
                     model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
                     model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
                     model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
@@ -169,12 +166,12 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
                 var entity = _mapper.Map<ContractorCompanyPayment>(model);
                 await _contractorCompanyPaymentService.UpdateAsync(entity);
-                TempData["Message"] = Messages.Success(MessageType.Update.ToString());
-                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+                SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, "Contractor Company Payment"), ResponseType.Success);
+                return RedirectToAction("Details", "ProjectWork", new { id = model.ProjectWorkId });
             }
             catch (Exception exception)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Update.ToString(), exception.Message);
+                SetResponseMessage(string.Format(DefaultMsg.UpdateFailed, "Contractor Company Payment", exception.Message), ResponseType.Error);
                 model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
                 model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
                 model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
@@ -183,6 +180,22 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                await _contractorCompanyPaymentService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Contractor Company Payment"), ResponseType.Success);
+            }
+            catch (Exception ex)
+            {
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Contractor Company Payment", ex.Message), ResponseType.Error);
+            }
+
+            return RedirectToAction("List");
+        }
 
         public async Task<ActionResult> PrintContractorCompanyPaymentReport(int id, string type)
         {

@@ -410,6 +410,7 @@
     <Compile Include="Database\IIDIMDBContextProcedures.cs" />
     <Compile Include="Extentions\Ad\LdapExtention.cs" />
     <Compile Include="Extentions\BoolExtention.cs" />
+    <Compile Include="Extentions\DefaultMsg.cs" />
     <Compile Include="Extentions\ClassExtentions.cs" />
     <Compile Include="Extentions\Collections\Select2\Select2PagedResult.cs" />
     <Compile Include="Extentions\Collections\Select2\Select2Param.cs" />
@@ -418,25 +419,28 @@
     <Compile Include="Extentions\DateExtention.cs" />
     <Compile Include="Extentions\DefaultData.cs" />
     <Compile Include="Extentions\EnumExtensions.cs" />
+    <Compile Include="Extentions\Exceptions\DuplicateNameException.cs" />
     <Compile Include="Extentions\Exceptions\CustomExceptionAttribute.cs" />
     <Compile Include="Extentions\FileExtention.cs" />
-    <Compile Include="Extentions\ReportHealper\IReportResult.cs" />
-    <Compile Include="Extentions\ReportHealper\ReportResult.cs" />
-    <Compile Include="Extentions\ReportHealper\DeviceInfoModel.cs" />
-    <Compile Include="Extentions\ReportHealper\DeviceInfo.cs" />
-    <Compile Include="Extentions\ReportHealper\IDeviceInfo.cs" />
-    <Compile Include="Extentions\ReportHealper\ReportConfig.cs" />
     <Compile Include="Extentions\Message.cs" />
     <Compile Include="Extentions\Messages.cs" />
     <Compile Include="Extentions\MessageType.cs" />
     <Compile Include="Extentions\MimeType.cs" />
+    <Compile Include="Extentions\ReportHelper\DeviceInfo.cs" />
+    <Compile Include="Extentions\ReportHelper\DeviceInfoModel.cs" />
+    <Compile Include="Extentions\ReportHelper\IDeviceInfo.cs" />
+    <Compile Include="Extentions\ReportHelper\IReportResult.cs" />
+    <Compile Include="Extentions\ReportHelper\ReportConfig.cs" />
+    <Compile Include="Extentions\ReportHelper\ReportResult.cs" />
     <Compile Include="Extentions\Session\UserExtention.cs" />
     <Compile Include="Extentions\Url\UrlExtention.cs" />
+    <Compile Include="Extentions\Utilities\TempDataExtension.cs" />
     <Compile Include="Extentions\WebGridExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Response.cs" />
     <Compile Include="Models\DataTablaVm.cs" />
     <Compile Include="Models\Dashboard\DashboardVm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -842,6 +846,8 @@
     <Content Include="Documents\RevenueWorkOrderFiles\basic-text_20250505_142828.pdf" />
     <Content Include="Documents\RevenuneNohaFiles\basic-text_20250504_111211.pdf" />
     <Content Include="Documents\RevenuneNohaFiles\basic-text_20250505_142531.pdf" />
+    <Content Include="libman.json" />
+    <Content Include="Documents\ProjectDirectorFiles\dummy_20250524_120234.pdf" />
     <None Include="Properties\PublishProfiles\project.pubxml" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
@@ -2481,6 +2487,9 @@
     <Content Include="Scripts\Plugins\timepicker\css\bootstrap-timepicker.min.css" />
     <Content Include="Scripts\Plugins\timepicker\js\bootstrap-timepicker.js" />
     <Content Include="Scripts\Plugins\timepicker\js\bootstrap-timepicker.min.js" />
+    <Content Include="Scripts\Plugins\toastr.js\toastr.css" />
+    <Content Include="Scripts\Plugins\toastr.js\toastr.min.css" />
+    <Content Include="Scripts\Plugins\toastr.js\toastr.min.js" />
     <Content Include="Scripts\Plugins\tocify\css\jquery.tocify.css" />
     <Content Include="Scripts\Plugins\tocify\js\jquery.tocify.js" />
     <Content Include="Scripts\Plugins\tocify\js\jquery.tocify.min.js" />
@@ -2910,7 +2919,7 @@
     <Content Include="Views\ProjectDirector\List.cshtml" />
     <Content Include="Views\ProjectDirector\Create.cshtml" />
     <Content Include="Views\ProjectDirector\Edit.cshtml" />
-    <Content Include="Views\Shared\_ModalPartial.cshtml" />
+    <Content Include="Views\Shared\_ModalRemove.cshtml" />
     <Content Include="Views\ConstructionCompany\List.cshtml" />
     <Content Include="Views\ConstructionCompany\Create.cshtml" />
     <Content Include="Views\ConstructionCompany\Edit.cshtml" />
@@ -2980,14 +2989,14 @@
     <Content Include="Views\RevenueWorkOrder\Delete.cshtml" />
     <Content Include="Views\RevenueContractAgreement\Create.cshtml" />
     <Content Include="Views\RevenueContractAgreement\Delete.cshtml" />
+    <Content Include="Views\Shared\_ModalResponse.cshtml" />
+    <Content Include="Scripts\Plugins\toastr.js\toastr.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Documents\ProjectWorkFile\" />
     <Folder Include="Scripts\Plugins\datatables\extensions\FixedColumns\examples\integration\" />
     <Folder Include="Scripts\Plugins\jquery-tabledit\" />
-    <Folder Include="Views\Shared\EditorElements\" />
-    <Folder Include="Views\Shared\Others\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

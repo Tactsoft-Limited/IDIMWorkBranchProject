@@ -20,23 +20,23 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("প্রকল্পের শিরোনাম")]
         public string ProjectTitle { get; set; }
 
-        [DisplayName("প্রকল্প পরিচালক")]
+        [DisplayName("Project Director")]
         public string ProjectDirectorName { get; set; }
 
         [DisplayName("প্রকল্প পরিচালক")]
         public string ProjectDirectorNameB { get; set; }
 
-        [DisplayName("পদবী")]
+        [DisplayName("Rank")]
         public string Designation { get; set; }
 
         [DisplayName("পদবী")]
         public string DesignationB { get; set; }
 
-        [DisplayName("যোগদান তারিখ")]
+        [DisplayName("Joining Date")]
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? JoiningDate { get; set; }
 
-        [DisplayName("বদলীর তারিখ")]
+        [DisplayName("Transfer Date")]
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? TransferDate { get; set; }
 

@@ -1,37 +1,36 @@
-﻿using System.Threading.Tasks;
-using System;
-using System.Web.Mvc;
+﻿using AutoMapper;
+using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
-using System.Data.SqlClient;
-using IDIMWorkBranchProject.Services.Wbpm;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
-using AutoMapper;
-using BGB.Data.Entities.Wbpm;
+using IDIMWorkBranchProject.Services.Wbpm;
+using System;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
 {
     public class SignatoryAuthorityController : BaseController
     {
-        protected readonly ISignatoryAuthorityService _signatoryAuthorityService;
-        protected readonly IMapper _mapper;
-        public SignatoryAuthorityController(IActivityLogService activityLogService, ISignatoryAuthorityService signatoryAuthorityService, IMapper mapper) : base(activityLogService)
+        private readonly ISignatoryAuthorityService _signatoryAuthorityService;
+        private readonly IMapper _mapper;
+
+        public SignatoryAuthorityController(
+            IActivityLogService activityLogService,
+            ISignatoryAuthorityService signatoryAuthorityService,
+            IMapper mapper
+        ) : base(activityLogService)
         {
             _signatoryAuthorityService = signatoryAuthorityService;
             _mapper = mapper;
         }
 
+        public ActionResult Index() => RedirectToAction(nameof(List));
 
-
-        // GET: SignatoryAuthority
-        public ActionResult Index()
-        {
-            return RedirectToAction("List");
-        }
         public ActionResult List()
         {
             var model = new SignatoryAuthorityVm();
-
             return View(model);
         }
 
@@ -59,103 +58,80 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(SignatoryAuthorityVm model)
         {
-            Message message;
+            if (!ModelState.IsValid)
+            {
+                SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                return View(model);
+            }
 
             try
             {
-                if (ModelState.IsValid)
-                {
-                    var entity = _mapper.Map<SignatoryAuthority>(model);
-                    await _signatoryAuthorityService.CreateAsync(entity);
+                var entity = _mapper.Map<SignatoryAuthority>(model);
+                await _signatoryAuthorityService.CreateAsync(entity);
 
-                    ModelState.Clear();
-
-                    message = Messages.Success(MessageType.Create.ToString());
-                }
-                else
-                {
-                    message = Messages.InvalidInput(MessageType.Create.ToString());
-                }
+                SetResponseMessage(DefaultMsg.SaveSuccess, ResponseType.Success);
+                return RedirectToAction(nameof(List));
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                message = Messages.Failed(MessageType.Create.ToString(), exception.Message);
-            }            
-
-            TempData["Message"] = message;
-
-            return View(model);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Signatory Authority", ex.Message), ResponseType.Error);
+                return View(model);
+            }
         }
 
         public async Task<ActionResult> Edit(int id)
         {
+            var entity = await _signatoryAuthorityService.GetByIdAsync(id);
+            if (entity == null)
+            {
+                SetResponseMessage("The requested record was not found.", ResponseType.Error);
+                return RedirectToAction(nameof(List));
+            }
 
-            SignatoryAuthority signatoryAuthority = await _signatoryAuthorityService.GetByIdAsync(id);
-
-            var model = _mapper.Map<SignatoryAuthorityVm>(signatoryAuthority);
-
+            var model = _mapper.Map<SignatoryAuthorityVm>(entity);
             return View(model);
-           
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(SignatoryAuthorityVm model)
         {
-            Message message;
+            if (!ModelState.IsValid)
+            {
+                SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                return View(model);
+            }
 
             try
             {
-                if (ModelState.IsValid)
-                {
-                    var entity = _mapper.Map<SignatoryAuthority>(model);
-                    await _signatoryAuthorityService.UpdateAsync(entity);
+                var entity = _mapper.Map<SignatoryAuthority>(model);
+                await _signatoryAuthorityService.UpdateAsync(entity);
 
-                    message = Messages.Success(MessageType.Update.ToString());
-                }
-                else
-                {
-                    message = Messages.InvalidInput(MessageType.Update.ToString());
-                }
+                SetResponseMessage(DefaultMsg.UpdateSuccess, ResponseType.Success);
+                return RedirectToAction(nameof(List));
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                message = Messages.Failed(MessageType.Update.ToString(), exception.Message);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Signatory Authority", ex.Message), ResponseType.Error);
+                return View(model);
             }
-
-
-
-            TempData["Message"] = message;
-
-            return View(model);
         }
 
-
-
-        [HttpGet]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Delete(int id)
         {
             try
             {
                 await _signatoryAuthorityService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Signatory Authority"), ResponseType.Success);
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                var message = exception.Message;
-                var sqlException = exception.GetBaseException() as SqlException;
-                if (sqlException?.Number == 547)
-                {
-                    message = "Can not delete due to reference table.";
-                }
-
-                var model = await _signatoryAuthorityService.GetByIdAsync(id);
-
-
-                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), message);
-
-                return View(model);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Signatory Authority", ex.Message), ResponseType.Error);
             }
 
-            return RedirectToAction("List");
+            return RedirectToAction(nameof(List));
         }
     }
 }

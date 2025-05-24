@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
@@ -99,18 +100,18 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 if (!ModelState.IsValid)
                 {
-                    TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                    SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
                     return View(model);
                 }
 
                 var entity = _mapper.Map<ADPProject>(model);
-                await _aDPProjectService.CreateAsync(entity);
-                TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                var result = await _aDPProjectService.CreateAsync(entity);
+                SetResponseMessage(string.Format(DefaultMsg.SaveSuccess, result.ProjectTitle), ResponseType.Success);
                 return RedirectToAction("Index");
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "ADP Project", ex.Message), ResponseType.Error);
                 return View(model);
             }
         }
@@ -128,20 +129,36 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 if (!ModelState.IsValid)
                 {
-                    TempData["Message"] = Messages.InvalidInput(MessageType.Update.ToString());
+                    SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
                     return View(model);
                 }
 
                 var entity = _mapper.Map<ADPProject>(model);
-                await _aDPProjectService.UpdateAsync(entity);
-                TempData["Message"] = Messages.Success(MessageType.Update.ToString());
+                var result = await _aDPProjectService.UpdateAsync(entity);
+                SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, result.ProjectTitle), ResponseType.Success);
                 return RedirectToAction("Index");  // Redirect to list after success
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Update.ToString(), exception.Message);
+                SetResponseMessage(string.Format(DefaultMsg.UpdateFailed, "ADP Project", ex.Message), ResponseType.Error);
                 return View(model);
             }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                await _aDPProjectService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "ADP Project"), ResponseType.Success);
+            }
+            catch (Exception ex)
+            {
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "ADP Project", ex.Message), ResponseType.Error);
+            }
+            return RedirectToAction("Index");
         }
 
     }

@@ -74,6 +74,7 @@
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
@@ -81,6 +82,7 @@
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
@@ -88,6 +90,7 @@
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
@@ -95,6 +98,7 @@
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
@@ -102,10 +106,19 @@
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>) টাকার ১ম চলতি বিল পরিশোধ করা হচ্ছে।  কাজের বিস্তারিত বিবরণ নিম্নে প্রদত্ত হলো  ঃ</Value>
+                              <Value>)</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value> টাকার ১ম চলতি বিল পরিশোধ করা হচ্ছে।  কাজের বিস্তারিত বিবরণ নিম্নে প্রদত্ত হলো  ঃ</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -212,7 +225,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ঃ </Value>
+                              <Value>:</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -348,7 +361,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ঃ</Value>
+                              <Value>:</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -484,7 +497,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ঃ</Value>
+                              <Value>:</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -620,7 +633,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ঃ</Value>
+                              <Value>:</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -756,7 +769,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ঃ</Value>
+                              <Value>:</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -885,14 +898,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox36">
+                    <Textbox Name="LetterNo">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ঃ</Value>
+                              <Value>:</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -901,7 +914,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox36</rd:DefaultName>
+                      <rd:DefaultName>LetterNo</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -1028,7 +1041,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ঃ</Value>
+                              <Value>:</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -1171,14 +1184,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox40">
+                    <Textbox Name="Textbox7">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ঃ</Value>
+                              <Value>:</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -1187,7 +1200,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox40</rd:DefaultName>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -1344,14 +1357,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox20">
+                    <Textbox Name="Textbox9">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ঃ</Value>
+                              <Value>:</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -1360,7 +1373,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox20</rd:DefaultName>
+                      <rd:DefaultName>Textbox9</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -1391,6 +1404,7 @@
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
@@ -1398,6 +1412,7 @@
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
@@ -1405,6 +1420,7 @@
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
@@ -1412,6 +1428,7 @@
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1525,14 +1542,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox24">
+                    <Textbox Name="Textbox11">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ঃ</Value>
+                              <Value>:</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -1541,7 +1558,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox24</rd:DefaultName>
+                      <rd:DefaultName>Textbox11</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -1654,7 +1671,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>২।  সদয় অবগতি ও পরবর্তী নির্দেশের জন্য উপস্থাপন করা হলো।</Value>
+                <Value>২।  সদয় অবগতি ও পরবর্তী নির্দেশনার জন্য উপস্থাপন করা হলো।</Value>
                 <Style>
                   <FontFamily>SolaimanLipi</FontFamily>
                   <FontSize>12pt</FontSize>
@@ -1690,12 +1707,16 @@
                 <Style>
                   <FontFamily>SolaimanLipi</FontFamily>
                   <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
                 </Style>
               </TextRun>
               <TextRun>
                 <Value xml:space="preserve"> </Value>
                 <Style>
                   <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
                 </Style>
               </TextRun>
               <TextRun>
@@ -1703,6 +1724,8 @@
                 <Style>
                   <FontFamily>SolaimanLipi</FontFamily>
                   <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
                 </Style>
               </TextRun>
               <TextRun>
@@ -1716,6 +1739,8 @@
                 <Style>
                   <FontFamily>SolaimanLipi</FontFamily>
                   <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
                 </Style>
               </TextRun>
               <TextRun>
@@ -1723,6 +1748,8 @@
                 <Style>
                   <FontFamily>SolaimanLipi</FontFamily>
                   <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1756,7 +1783,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1.30556in</Height>
+              <Height>1.73612in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1767,7 +1794,18 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>সংশ্লিষ্ট ইঞ্জিনিয়ারঃ </Value>
+                              <Value>সংশ্লিষ্ট ইঞ্জিনিয়ারঃ     ............................................</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value xml:space="preserve">                           </Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -1795,7 +1833,29 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>সেকশন আইসিঃ </Value>
+                              <Value />
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>সেকশন আইসিঃ       ..........................................</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value xml:space="preserve">                          </Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -1823,7 +1883,29 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>সংশ্লিষ্ট করণিকঃ </Value>
+                              <Value />
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>সংশ্লিষ্ট করণিকঃ       ........................................... </Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value xml:space="preserve">                          </Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -1929,6 +2011,18 @@
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <TextDecoration>Underline</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
@@ -2135,7 +2229,7 @@
         </TablixRowHierarchy>
         <DataSetName>DsADPReceivePayment</DataSetName>
         <Top>4.71889in</Top>
-        <Height>5.86804in</Height>
+        <Height>6.2986in</Height>
         <Width>7.17362in</Width>
         <ZIndex>4</ZIndex>
         <Style>
@@ -2145,13 +2239,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>10.58693in</Height>
+    <Height>11.02443in</Height>
     <Style />
   </Body>
   <Width>7.17362in</Width>
   <Page>
     <PageHeader>
-      <Height>0.65278in</Height>
+      <Height>0.43194in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -2165,6 +2259,8 @@
                   <Value>টোকপত্র</Value>
                   <Style>
                     <FontFamily>SolaimanLipi</FontFamily>
+                    <FontWeight>Bold</FontWeight>
+                    <TextDecoration>Underline</TextDecoration>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -2193,11 +2289,20 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value> পূর্ত শাখা (নির্মাণ পরিদপ্তর)</Value>
+                  <Value xml:space="preserve"> </Value>
                   <Style>
                     <FontFamily>SolaimanLipi</FontFamily>
                     <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>পূর্ত শাখা (নির্মাণ পরিদপ্তর)</Value>
+                  <Style>
+                    <FontFamily>SolaimanLipi</FontFamily>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <TextDecoration>Underline</TextDecoration>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -2229,7 +2334,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.47779in</Height>
+      <Height>0.25in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -2241,11 +2346,15 @@
               <TextRuns>
                 <TextRun>
                   <Value>="Page " &amp; Globals!PageNumber &amp; " of " &amp; Globals!TotalPages</Value>
-                  <Style />
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
                 </TextRun>
                 <TextRun>
                   <Value xml:space="preserve"> </Value>
-                  <Style />
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -2254,7 +2363,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>TotalPages</rd:DefaultName>
-          <Top>0.20001in</Top>
           <Left>5.03694in</Left>
           <Height>0.25in</Height>
           <Width>2.13667in</Width>

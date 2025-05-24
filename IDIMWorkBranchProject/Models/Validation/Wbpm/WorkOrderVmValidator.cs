@@ -18,8 +18,7 @@ namespace IDIMWorkBranchProject.Models.Validation.Wbpm
             RuleFor(x => x.StartDate).NotEmpty().WithMessage("কাজ শুরুর তারিখ আবশ্যক");
 
             RuleFor(x => x.EndDate).NotEmpty().WithMessage("কাজ শেষের তারিখ আবশ্যক");
-            
-            
+
         }
     }
 }

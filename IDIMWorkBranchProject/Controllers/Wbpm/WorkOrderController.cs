@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
@@ -55,13 +56,13 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         }
         public async Task<ActionResult> Create(int id)
         {
-            var projectWork = await _projectWorkService.GetByIdAsync(id);          
+            var projectWork = await _projectWorkService.GetByIdAsync(id);
 
             var model = new WorkOrderVm
             {
                 ProjectWorkId = projectWork.ProjectWorkId,
                 ProjectWorkTitleB = projectWork.ProjectWorkTitleB,
-            };            
+            };
             return View(model);
         }
 
@@ -69,33 +70,37 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(WorkOrderVm model)
         {
-            var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
-            string fileName = null;
+            if (!ModelState.IsValid)
+            {
+                SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                return View(model);
+            }
             try
-            { 
-                    if (model.DocumentFile != null && model.DocumentFile.ContentLength > 0)
+            {
+                var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
+                string fileName = null;
+                if (model.DocumentFile != null && model.DocumentFile.ContentLength > 0)
+                {
+                    fileName = HandleFileUpload(model.DocumentFile, model.ScanDocument);
+                    if (string.IsNullOrEmpty(fileName))
                     {
-                        fileName = FileExtention.UploadFile(model.DocumentFile, fileStorePath);
-                        if (fileName != null)
-                        {
-                            model.ScanDocument = fileName;
-                        }
-                        else
-                        {
-                            TempData["Message"] = Messages.FileUploadFailed(MessageType.Create.ToString());
-                            return View(model);
-                        }
-                        await _workOrderService.CreateAsync(_mapper.Map<WorkOrder>(model));
-                        projectWork.IsWorkOrderCompleted = true;
-                        await _projectWorkService.UpdateAsync(projectWork);
-                        TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                        SetResponseMessage("File upload failed", ResponseType.Error);
+                        return View(model);
                     }
-                
-                return RedirectToAction(nameof(ProjectWorkController.Details), nameof(ProjectWork), new { id = model.ProjectWorkId });
+                    model.ScanDocument = fileName;
+                }
+
+                await _workOrderService.CreateAsync(_mapper.Map<WorkOrder>(model));
+                projectWork.IsWorkOrderCompleted = true;
+                await _projectWorkService.UpdateAsync(projectWork);
+
+                SetResponseMessage(string.Format(DefaultMsg.SaveSuccess, "Work Order"), ResponseType.Success);
+
+                return RedirectToAction("Details", "ProjectWork", new { id = model.ProjectWorkId });
             }
             catch (Exception exception)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), $"An error occurred while processing your request.{exception.InnerException.Message}");
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Work Order", exception.Message), ResponseType.Error);
                 return View(model);
             }
         }
@@ -104,88 +109,72 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             var workOrder = await _workOrderService.GetByIdAsync(id);
             var projectWork = await _projectWorkService.GetByIdAsync(workOrder.ProjectWorkId);
             var model = _mapper.Map<WorkOrderVm>(await _workOrderService.GetByIdAsync(id));
-            model.ProjectWorkId=projectWork.ProjectWorkId;
-            model.ProjectWorkTitleB=projectWork.ProjectWorkTitleB;
+            model.ProjectWorkId = projectWork.ProjectWorkId;
+            model.ProjectWorkTitleB = projectWork.ProjectWorkTitleB;
             return View(model);
         }
         [HttpPost]
         public async Task<ActionResult> Edit(WorkOrderVm model)
         {
+            if (!ModelState.IsValid)
+            {
+                TempData["Message"] = Messages.InvalidInput(MessageType.Update.ToString());
+                return View(model);
+            }
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    TempData["Message"] = Messages.InvalidInput(MessageType.Update.ToString());
-                    return View(model);
-                }
                 string fileName = null;
                 if (model.DocumentFile != null && model.DocumentFile.ContentLength > 0)
                 {
-                    //delete existing file
-                    FileExtention.DeleteFile(model.ScanDocument, fileStorePath);
-
-                    fileName = FileExtention.UploadFile(model.DocumentFile, fileStorePath);
-                    if (fileName != null)
+                    fileName = HandleFileUpload(model.DocumentFile, model.ScanDocument);
+                    if (string.IsNullOrEmpty(fileName))
                     {
-                        model.ScanDocument = fileName;
-                    }
-                    else
-                    {
-                        TempData["Message"] = Messages.FileUploadFailed(MessageType.Create.ToString());
+                        SetResponseMessage("File upload failed", ResponseType.Error);
                         return View(model);
                     }
+                    model.ScanDocument = fileName;
                 }
                 await _workOrderService.UpdateAsync(_mapper.Map<WorkOrder>(model));
-                TempData["Message"] = Messages.Success(MessageType.Update.ToString());
+                SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, "Work Order"), ResponseType.Success);
 
-                return RedirectToAction(nameof(ProjectWorkController.Details), nameof(ProjectWork), new { id = model.ProjectWorkId }); // Redirect to list after success
+                return RedirectToAction("Details", "ProjectWork", new { id = model.ProjectWorkId });
             }
             catch (Exception exception)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Update.ToString(), exception.Message);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Work Order", exception.Message), ResponseType.Error);
                 return View(model);
             }
         }
 
-        public async Task<ActionResult> Delete(int id)
-        {
-            var entity = await _workOrderService.GetByIdAsync(id);
-
-            if (entity == null)
-            {
-                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), "The requested record was not found.");
-                return RedirectToAction(nameof(ProjectWorkController.Details), nameof(ProjectWork), new { id = entity.ProjectWorkId });
-            }
-
-            var model = _mapper.Map<WorkOrderVm>(entity);
-            model.ProjectWorkTitleB = await _projectWorkService.GetProjectWorkTitle(entity.ProjectWorkId);
-            return View(model); // Load the delete confirmation view
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(WorkOrderVm model)
+        public async Task<ActionResult> Delete(int id)
         {
-            var entity = await _workOrderService.GetByIdAsync(model.WorkOrderId);
             try
             {
-
-                if (entity == null)
-                {
-                    TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), "Record Not Found");
-                    return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork");
-                }
-
-                await _workOrderService.DeleteAsync(entity);
-
-                TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
-                return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork");
+                await _workOrderService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Work Order"), ResponseType.Success);
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
-                return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork");
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Work Order", ex.Message), ResponseType.Error);
             }
+
+            return RedirectToAction("List");
+        }
+
+
+        private string HandleFileUpload(HttpPostedFileBase file, string existingFileName)
+        {
+            if (file == null || file.ContentLength <= 0)
+                return null;
+
+            // Delete the existing file if it exists
+            if (!string.IsNullOrWhiteSpace(existingFileName))
+                FileExtention.DeleteFile(existingFileName, fileStorePath);
+
+            // Upload and return the new file name
+            return FileExtention.UploadFile(file, fileStorePath);
         }
 
         public ActionResult PreviewDocument(string fileName)

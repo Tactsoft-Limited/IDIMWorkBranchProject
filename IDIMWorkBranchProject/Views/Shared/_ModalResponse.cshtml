@@ -1,0 +1,30 @@
+﻿@using IDIMWorkBranchProject.Extentions.Utilities
+@using IDIMWorkBranchProject.Models
+@using System.Web
+
+@{
+    // Peek to check existence and Get to consume the message
+    var response = TempData.Peek<Response>("ResponseMsg");
+    var getResponse = TempData.Get<Response>("ResponseMsg");
+}
+
+@if (response != null && getResponse != null)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var toastrType = '@getResponse.Type.ToString().ToLower()'; // e.g. "success", "error", etc.
+
+            var toastrOptions = {
+                positionClass: 'toast-bottom-right',
+                timeOut: 5000,
+                closeButton: true,
+                progressBar: true
+            };
+
+            toastr.options = toastrOptions;
+
+            // Encode message safely for JavaScript
+            toastr[toastrType]('@Html.Raw(HttpUtility.JavaScriptStringEncode(getResponse.Message))');
+        });
+    </script>
+}

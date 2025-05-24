@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
+using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
-using System.Threading.Tasks;
 using System;
+using System.Threading.Tasks;
 using System.Web.Mvc;
-using BGB.Data.Entities.Wbpm;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
 {
@@ -60,22 +61,22 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         {
             try
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
-                    var entity = _mapper.Map<ConstructionCompany>(model);
-                    await _constructionCompanyService.CreateAsync(entity);
-                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                    return View(new ConstructionCompanyVm());  // Reset model after success
+                    SetResponseMessage(string.Format(DefaultMsg.InvalidInput), ResponseType.Error);
+                    return View(model);  // Reset model after success
                 }
 
-                TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                var entity = _mapper.Map<ConstructionCompany>(model);
+                var result = await _constructionCompanyService.CreateAsync(entity);
+                SetResponseMessage(string.Format(DefaultMsg.SaveSuccess, result.FirmName), ResponseType.Success);
+                return RedirectToAction("Index");
             }
             catch (Exception exception)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Construction Company", exception.Message), ResponseType.Error);
+                return View(model);
             }
-
-            return View(model);
         }
 
         public async Task<ActionResult> Edit(int id)
@@ -89,64 +90,38 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         {
             try
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
-                    var entity = _mapper.Map<ConstructionCompany>(model);
-                    await _constructionCompanyService.UpdateAsync(entity);
-                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());
-                    return RedirectToAction("Index");  // Reset model after success
+                    SetResponseMessage(string.Format(DefaultMsg.InvalidInput), ResponseType.Error);
+                    return View(model);  // Reset model after success
                 }
 
-                TempData["Message"] = Messages.InvalidInput(MessageType.Update.ToString());
+                var entity = _mapper.Map<ConstructionCompany>(model);
+                var result = await _constructionCompanyService.UpdateAsync(entity);
+                SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, result.FirmName), ResponseType.Success);
+                return RedirectToAction("Index");
             }
             catch (Exception exception)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Update.ToString(), exception.Message);
+                SetResponseMessage(string.Format(DefaultMsg.UpdateFailed, "Construction Company", exception.Message), ResponseType.Error);
+                return View(model);
             }
-
-            return View(model);
         }
 
-        public async Task<ActionResult> Delete(int id)
-        {
-            var entity = await _constructionCompanyService.GetByIdAsync(id);
-
-            if (entity == null)
-            {
-                TempData["Message"] = "The requested record was not found.";
-                return RedirectToAction("List", "ConstructionCompany");
-            }
-
-            var model = _mapper.Map<ConstructionCompanyVm>(entity);
-            return View(model); // Load the delete confirmation view
-        }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(ConstructionCompanyVm model)
+        public async Task<ActionResult> Delete(int id)
         {
-            var entity = await _constructionCompanyService.GetByIdAsync(model.ConstructionCompanyId);
             try
             {
-
-                if (entity == null)
-                {
-                    TempData["Message"] = "Record Not Found";
-                    return RedirectToAction("List", "ConstructionCompany");
-                }
-
-                await _constructionCompanyService.DeleteAsync(entity);
-
-                TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
-                return RedirectToAction("List", "ConstructionCompany");
+                await _constructionCompanyService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Construction Company"), ResponseType.Success);
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
-                return RedirectToAction("List", "ConstructionCompany"); // Avoids null reference
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Construction Company", ex.Message), ResponseType.Error);
             }
+            return RedirectToAction("Index");
         }
-
-
-
     }
 }

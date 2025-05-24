@@ -251,11 +251,12 @@
                                        class="btn btn-success btn-xs @(item.IsFurnitureIncluded ? (item.IsFinalBillSubmitted ? "disabled" : "") : "hidden")">
                                         <i class="fa fa-money"></i> আসবাবপত্র বিল
                                     </a>
-                                    <a href="@Url.Action("Create", "CollateralReturn", new { id = item.ProjectWorkId })" class="btn btn-success btn-xs">
-                                        <i class="fa fa-money"></i>১০% জামানত ফেরত
-                                    </a>
                                     <a href="@Url.Action("Create", "FinalBillPayment", new { id = item.ProjectWorkId })" class="btn btn-success btn-xs">
                                         <i class="fa fa-money"></i> চুড়ান্ত বিল
+                                    </a>
+                                    <a href="@Url.Action("Create", "CollateralReturn", new { id = item.ProjectWorkId })"
+                                       class="btn btn-success btn-xs @(item.IsFinalBillSubmitted ? "" : "hidden")">
+                                        <i class="fa fa-money"></i> ১০% জামানত ফেরত
                                     </a>
                                 }
 

@@ -22,7 +22,7 @@ namespace IDIMWorkBranchProject.Services.Dashboard
             var model = new DashboardVm
             {
                 OngoingProjects = await Context.ADPProjects.CountAsync(),
-                TotalConstructionWork = await Context.ADPProjects.SumAsync(x => x.NoOfWork),
+                TotalConstructionWork = await Context.ProjectWorks.CountAsync(),
                 ConstructionWorkInProgress = await Context.ProjectWorkStatuses.Where(x => x.StatusTypeId == 1).CountAsync(),
                 CompletedConstructionWork = await Context.ProjectWorkStatuses.Where(x => x.StatusTypeId == 2).CountAsync(),
 

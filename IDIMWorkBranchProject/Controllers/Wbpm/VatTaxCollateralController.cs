@@ -3,6 +3,7 @@ using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.ReportHealper;
 using IDIMWorkBranchProject.Extentions.ReportHelper;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Report;
@@ -58,7 +59,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
             if (data != null)
             {
-                model.VatTaxCollateralId = data.VatTaxCollateralId;  
+                model.VatTaxCollateralId = data.VatTaxCollateralId;
                 model.TaxPer = data.TaxPer;
                 model.TaxAmount = data.TaxAmount;
                 model.VatPer = data.VatPer;
@@ -67,21 +68,21 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 model.CollateralAmount = data.CollateralAmount;
                 model.NeetAmount = data.NeetAmount;
                 model.NeetAmountInWord = data.NeetAmountInWord;
-                model.TotalDeductionAmount= data.TotalDeductionAmount;
+                model.TotalDeductionAmount = data.TotalDeductionAmount;
                 model.AllocatedAmountLetterNo = data.AllocatedAmountLetterNo;
                 model.AllocatedAmountTillNow = data.AllocatedAmountTillNow;
                 model.VoucherNo = data.VoucherNo;
                 model.CodeNo = data.CodeNo;
                 model.BillSubmissionNo = data.BillSubmissionNo;
-                model.BillSubmissionDate = data.BillSubmissionDate;                
+                model.BillSubmissionDate = data.BillSubmissionDate;
                 model.LastBillAmount = data.LastBillAmount;
                 model.TotalAmount = data.TotalAmount;
                 model.LastBillTotalBalance = data.LastBillTotalBalance;
                 model.NetTotalAmount = data.NetTotalAmount;
-                model.ReducedAllocatedAmountLetterNo= data.ReducedAllocatedAmountLetterNo;
-                model.ReducedAllocatedAmountTillNow= data.ReducedAllocatedAmountTillNow;
+                model.ReducedAllocatedAmountLetterNo = data.ReducedAllocatedAmountLetterNo;
+                model.ReducedAllocatedAmountTillNow = data.ReducedAllocatedAmountTillNow;
                 model.RelatedWorkBillAmount = data.RelatedWorkBillAmount;
-                model.VoucherNo= data.VoucherNo;    
+                model.VoucherNo = data.VoucherNo;
             }
             return View(model);
         }
@@ -90,26 +91,50 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(VatTaxCollateralVm model)
         {
+            if (!ModelState.IsValid)
+            {
+                SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                return View(model);
+            }
             try
             {
                 if (model.VatTaxCollateralId > 0)
                 {
                     await _vatTaxCollateralService.UpdateAsync(_mapper.Map<VatTaxCollateral>(model));
-                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());
+                    SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, "Vat/Tax"), ResponseType.Success);
                 }
                 else
                 {
                     await _vatTaxCollateralService.CreateAsync(_mapper.Map<VatTaxCollateral>(model));
-                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                    SetResponseMessage(string.Format(DefaultMsg.SaveSuccess, "Vat/Tax"), ResponseType.Success);
                 }
-                
-                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+
+                return RedirectToAction("Details", "ProjectWork", new { id = model.ProjectWorkId });
             }
             catch (Exception ex)
             {
-                throw ex;
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "", ex.Message), ResponseType.Error);
+                return View(model);
             }
 
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                await _vatTaxCollateralService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Vat/Tax"), ResponseType.Success);
+            }
+            catch (Exception ex)
+            {
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Vat/Tax", ex.Message), ResponseType.Error);
+            }
+
+            return RedirectToAction(nameof(Index));
         }
 
 

@@ -1,14 +1,13 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
@@ -24,81 +23,75 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly ISignatoryAuthorityService _signatoryAuthorityService;
         private readonly IADPReceivePaymentService _aDPReceivePaymentService;
         private readonly IMapper _mapper;
-        public FinalBillPaymentController(IActivityLogService activityLogService, IFinalBillPaymentService finalBillPaymentService, IProjectWorkService projectWorkService, IBGBFundService bgbFundService, IContractorCompanyPaymentService contractorCompanyPaymentService, IBGBMiscellaneousFundService bgbMiscellaneousFundService, IMapper mapper, IFurnitureBillPaymentService furnitureBillPaymentService, ISignatoryAuthorityService signatoryAuthorityService, IADPReceivePaymentService aDPReceivePaymentService) : base(activityLogService)
+
+        public FinalBillPaymentController(
+            IActivityLogService activityLogService,
+            IFinalBillPaymentService finalBillPaymentService,
+            IProjectWorkService projectWorkService,
+            IBGBFundService bgbFundService,
+            IContractorCompanyPaymentService contractorCompanyPaymentService,
+            IBGBMiscellaneousFundService bgbMiscellaneousFundService,
+            IFurnitureBillPaymentService furnitureBillPaymentService,
+            ISignatoryAuthorityService signatoryAuthorityService,
+            IADPReceivePaymentService aDPReceivePaymentService,
+            IMapper mapper) : base(activityLogService)
         {
             _finalBillPaymentService = finalBillPaymentService;
             _projectWorkService = projectWorkService;
             _bgbFundService = bgbFundService;
             _contractorCompanyPaymentService = contractorCompanyPaymentService;
             _bgbMiscellaneousFundService = bgbMiscellaneousFundService;
-            _mapper = mapper;
             _furnitureBillPaymentService = furnitureBillPaymentService;
             _signatoryAuthorityService = signatoryAuthorityService;
             _aDPReceivePaymentService = aDPReceivePaymentService;
+            _mapper = mapper;
         }
 
-        // GET: FinalBillPayment
         public ActionResult Index()
         {
+            return RedirectToAction("List");
+        }
+
+        public ActionResult List()
+        {
             return View();
-        }       
+        }
+
         public async Task<ActionResult> Create(int id)
         {
-             var projectWork=await _projectWorkService.GetByIdAsync(id);
-            var finalBillPayment = await _finalBillPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
-            var contractionCompanyPayment=await _contractorCompanyPaymentService.GetByAllProjectWorkAsync(projectWork.ProjectWorkId);
-            var bgbMiscellaneousFund = await _bgbMiscellaneousFundService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
-            
-            var furnitureBillPayment = await _furnitureBillPaymentService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
-       
+            var projectWork = await _projectWorkService.GetByIdAsync(id);
+            var finalBillPayment = await _finalBillPaymentService.GetByProjectWorkIdAsync(id);
+            var companyPayments = await _contractorCompanyPaymentService.GetByAllProjectWorkAsync(id);
+            var miscFunds = await _bgbMiscellaneousFundService.GetByProjectWorkIdAsync(id);
+            var furnitureBill = await _furnitureBillPaymentService.GetByProjectWorkIdAsync(id);
+
             var model = new FinalBillPaymentVm
             {
-                ProjectWorkId = projectWork.ProjectWorkId,
+                ProjectWorkId = id,
                 ProjectWorkName = projectWork.ProjectWorkTitleB,
                 EstimatedCost = projectWork.EstimatedCost,
-                PreviouslyPaidBillNo = contractionCompanyPayment.Count(),
-                PreviouslyPaidAmount = contractionCompanyPayment.Sum(e => e.FinalPaymentAmount),
-                CollateralPaidAmound = projectWork.EstimatedCost * 10/100,
-                FurnitureBillPaymentAmount = furnitureBillPayment.PaymentAmount,
-                DepositBGBFund = (bgbMiscellaneousFund.Sum(a => a.Amount) - contractionCompanyPayment.Sum(e => e.FinalPaymentAmount)),                
+                PreviouslyPaidBillNo = companyPayments.Count(),
+                PreviouslyPaidAmount = companyPayments.Sum(x => x.FinalPaymentAmount),
+                CollateralPaidAmound = projectWork.EstimatedCost * 10 / 100,
+                FurnitureBillPaymentAmount = furnitureBill?.PaymentAmount ?? 0,
+                DepositBGBFund = miscFunds.Sum(x => x.Amount) - companyPayments.Sum(x => x.FinalPaymentAmount),
                 BGBFundDropdown = await _bgbFundService.GetDropdownAsync(),
                 HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
                 ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
                 SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
                 BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync()
-
             };
-            if(finalBillPayment != null)
+
+            if (finalBillPayment != null)
             {
-                model.FinalBillPaymentId = finalBillPayment.FinalBillPaymentId;                
-                model.VatPer = finalBillPayment.VatPer;
-                model.VatAmount = finalBillPayment.VatAmount;
-                model.TaxPer = finalBillPayment.TaxPer;
-                model.TaxAmount = finalBillPayment.TaxAmount;
-                model.CollateralPer = finalBillPayment.CollateralPer;
-                model.CollateralAmount = finalBillPayment.CollateralAmount;
-                model.CollateralAmountB = finalBillPayment.CollateralAmountB;
-                model.TotalAmountOfVatTaxCollateral = finalBillPayment.TotalAmountOfVatTaxCollateral;
-                model.TotalAmountOfVatTaxCollateralB = finalBillPayment.TotalAmountOfVatTaxCollateralB;
-                model.NetBillAfterVatTAxCollateralDeduction = finalBillPayment.NetBillAfterVatTAxCollateralDeduction;
-                model.NetAmountAsPerFinalMeasurement = finalBillPayment.NetAmountAsPerFinalMeasurement;
-                model.LetterNo = finalBillPayment.LetterNo;
-                model.VatTaxPer = finalBillPayment.VatTaxPer;
-                model.VatTaxAmount = finalBillPayment.VatTaxAmount;
-                model.ContractorDueAfterVatTaxDeduction = finalBillPayment.ContractorDueAfterVatTaxDeduction;
-                model.PayableFinalBill = finalBillPayment.PayableFinalBill;
-                model.NetFinalBill = finalBillPayment.NetFinalBill;
-                model.NetFinalBillWordB = finalBillPayment.NetFinalBillWordB;
-                model.PaidFromBGBFundId = finalBillPayment.PaidFromBGBFundId;
-                model.RemainingDepositsInBgbFund = finalBillPayment.RemainingDepositsInBgbFund;
-                model.RemainingDepositsInBgbFundWordB = finalBillPayment.RemainingDepositsInBgbFundWordB;
-                model.DuePaidAmount = finalBillPayment.DuePaidAmount;
+                _mapper.Map(finalBillPayment, model);
                 model.BGBFundDropdown = await _bgbFundService.GetDropdownAsync(finalBillPayment.PaidFromBGBFundId);
                 model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(finalBillPayment.HeadAssistantId);
                 model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(finalBillPayment.BranchClerkId);
                 model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(finalBillPayment.ConcernedEngineerId);
                 model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(finalBillPayment.SectionICId);
             }
+
             return View(model);
         }
 
@@ -111,65 +104,81 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 if (!ModelState.IsValid)
                 {
-                    TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
-                    model.BGBFundDropdown = await _bgbFundService.GetDropdownAsync(model.ProjectWorkId);
-                    model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
-                    model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
-                    model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
-                    model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                    SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                    await PopulateDropdownsAsync(model);
                     return View(model);
                 }
+
                 if (model.FinalBillPaymentId > 0)
                 {
-                    var updatedFinalPayment= await _finalBillPaymentService.UpdateAsync(_mapper.Map<FinalBillPayment>(model));
-
-                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());
+                    var updated = await _finalBillPaymentService.UpdateAsync(_mapper.Map<FinalBillPayment>(model));
+                    SetResponseMessage(DefaultMsg.UpdateSuccess, ResponseType.Success);
 
                     var bgbFund = await _bgbFundService.GetByFinalBillPaymentIdAsync(model.ProjectWorkId);
-
                     if (bgbFund != null)
-                    {                        
-                        bgbFund.ProjectWorkId = updatedFinalPayment.ProjectWorkId;
-                        bgbFund.AmountDeposited = updatedFinalPayment.RemainingDepositsInBgbFund;
-                        bgbFund.PaidFromBGBFundId = updatedFinalPayment.PaidFromBGBFundId;
-                        bgbFund.PaidAmount = updatedFinalPayment.DuePaidAmount;
+                    {
+                        bgbFund.ProjectWorkId = updated.ProjectWorkId;
+                        bgbFund.AmountDeposited = updated.RemainingDepositsInBgbFund;
+                        bgbFund.PaidFromBGBFundId = updated.PaidFromBGBFundId;
+                        bgbFund.PaidAmount = updated.DuePaidAmount;
 
                         await _bgbFundService.UpdateAsync(bgbFund);
                     }
                 }
-                else 
+                else
                 {
                     var entity = _mapper.Map<FinalBillPayment>(model);
-                    var final= await _finalBillPaymentService.CreateAsync(entity);
+                    var created = await _finalBillPaymentService.CreateAsync(entity);
+
                     projectWork.IsFinalBillSubmitted = true;
                     await _projectWorkService.UpdateAsync(projectWork);
-                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
 
-                    // Ensure that you don't set BGBFundId explicitly
-                    var bGBFund = new BGBFund
-                    {                    
-                        ProjectWorkId = final.ProjectWorkId,
-                        AmountDeposited = final.RemainingDepositsInBgbFund,
-                        PaidFromBGBFundId = final.PaidFromBGBFundId,
-                        PaidAmount = final.DuePaidAmount
+                    var bgbFund = new BGBFund
+                    {
+                        ProjectWorkId = created.ProjectWorkId,
+                        AmountDeposited = created.RemainingDepositsInBgbFund,
+                        PaidFromBGBFundId = created.PaidFromBGBFundId,
+                        PaidAmount = created.DuePaidAmount
                     };
-                    await _bgbFundService.CreateAsync(bGBFund);
-                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                    await _bgbFundService.CreateAsync(bgbFund);
+
+                    SetResponseMessage(DefaultMsg.SaveSuccess, ResponseType.Success);
                 }
-                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+
+                return RedirectToAction("Details", "ProjectWork", new { id = model.ProjectWorkId });
             }
-
-
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
-                model.BGBFundDropdown = await _bgbFundService.GetDropdownAsync(model.ProjectWorkId);
-                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
-                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
-                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
-                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Final Bill Payment", ex.Message), ResponseType.Error);
+                await PopulateDropdownsAsync(model);
                 return View(model);
             }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                await _finalBillPaymentService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Final Bill Payment"), ResponseType.Success);
+            }
+            catch (Exception ex)
+            {
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Final Bill Payment", ex.Message), ResponseType.Error);
+            }
+
+            return RedirectToAction("List");
+        }
+
+        private async Task PopulateDropdownsAsync(FinalBillPaymentVm model)
+        {
+            model.BGBFundDropdown = await _bgbFundService.GetDropdownAsync(model.ProjectWorkId);
+            model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+            model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+            model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+            model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
         }
     }
 }

@@ -27,15 +27,15 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("প্রাক্কলিত ব্যয়")]
         public decimal EstimatedExpenses { get; set; }
 
-        [DisplayName("শুরু করার তারিখ")]
+        [DisplayName("প্রকল্প শুরুর তারিখ")]
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime StartingDate { get; set; }
 
-        [DisplayName("শেষ করার তারিখ")]
+        [DisplayName("প্রকল্প সমাপ্তির তারিখ")]
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EndingDate { get; set; }
 
-        [DisplayName("কাজের সংখ্যা")]
+        [DisplayName("প্যাকেজ সংখ্যা")]
         public int NoOfWork { get; set; }
 
         [DisplayName("আর্থিক অগ্রগতি")]

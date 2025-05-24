@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
@@ -14,22 +15,25 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
     {
         private readonly IRecruitmentCommitteeService _recruitmentCommitteeService;
         private readonly IMapper _mapper;
-        public RecruitmentCommitteeController(IActivityLogService activityLogService, IRecruitmentCommitteeService recruitmentCommitteeService, IMapper mapper) : base(activityLogService)
+
+        public RecruitmentCommitteeController(
+            IActivityLogService activityLogService,
+            IRecruitmentCommitteeService recruitmentCommitteeService,
+            IMapper mapper
+        ) : base(activityLogService)
         {
             _recruitmentCommitteeService = recruitmentCommitteeService;
             _mapper = mapper;
         }
 
-        // GET: RecruitmentCommittee
-        public ActionResult Index()
-        {
-            return RedirectToAction("List");
-        }
+        public ActionResult Index() => RedirectToAction(nameof(List));
+
         public ActionResult List()
         {
             var model = new RecruitmentCommitteeVm();
             return View(model);
         }
+
         [HttpPost]
         public async Task<ActionResult> LoadData(RecruitmentCommitteeSearchVm model)
         {
@@ -43,10 +47,10 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 return Json(new { error = ex.Message });
             }
         }
+
         public ActionResult Create()
         {
             var model = new RecruitmentCommitteeVm();
-
             return View(model);
         }
 
@@ -54,93 +58,80 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(RecruitmentCommitteeVm model)
         {
+            if (!ModelState.IsValid)
+            {
+                SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                return View(model);
+            }
+
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
-                    return View(model);
-                }
-
                 var entity = _mapper.Map<RecruitmentCommittee>(model);
                 await _recruitmentCommitteeService.CreateAsync(entity);
-                TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                return RedirectToAction("List");
+
+                SetResponseMessage(string.Format(DefaultMsg.SaveSuccess, "Recruitment Committee"), ResponseType.Success);
+                return RedirectToAction(nameof(List));
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Recruitment Committee", ex.Message), ResponseType.Error);
                 return View(model);
             }
         }
 
         public async Task<ActionResult> Edit(int id)
         {
+            var entity = await _recruitmentCommitteeService.GetByIdAsync(id);
+            if (entity == null)
+            {
+                SetResponseMessage("The requested record was not found.", ResponseType.Error);
+                return RedirectToAction(nameof(List));
+            }
 
-            var model = _mapper.Map<RecruitmentCommitteeVm>(await _recruitmentCommitteeService.GetByIdAsync(id));
+            var model = _mapper.Map<RecruitmentCommitteeVm>(entity);
             return View(model);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(RecruitmentCommitteeVm model)
         {
+            if (!ModelState.IsValid)
+            {
+                SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                return View(model);
+            }
+
             try
             {
-                if (ModelState.IsValid)
-                {
-                    var entity = _mapper.Map<RecruitmentCommittee>(model);
-                    await _recruitmentCommitteeService.UpdateAsync(entity);
-                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());
-                    return RedirectToAction("List", "RecruitmentCommittee");  // Reset model after success
-                }
+                var entity = _mapper.Map<RecruitmentCommittee>(model);
+                await _recruitmentCommitteeService.UpdateAsync(entity);
 
-                TempData["Message"] = Messages.InvalidInput(MessageType.Update.ToString());
+                SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, "Recruitment Committee"), ResponseType.Success);
+                return RedirectToAction(nameof(List));
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Update.ToString(), exception.Message);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Recruitment Committee", ex.Message), ResponseType.Error);
+                return View(model);
             }
-
-            return View(model);
         }
 
-        [HttpGet]
-        public async Task<ActionResult> Delete(int id)
-        {
-            var entity = await _recruitmentCommitteeService.GetByIdAsync(id);
-
-            if (entity == null)
-            {
-                TempData["Message"] = "The requested record was not found.";
-                return RedirectToAction("List", "RecruitmentCommittee");
-            }
-            var model = _mapper.Map<RecruitmentCommitteeVm>(entity);
-            return View(model); // Load the delete confirmation view
-        }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(RecruitmentCommitteeVm model)
+        public async Task<ActionResult> Delete(int id)
         {
-            var entity = await _recruitmentCommitteeService.GetByIdAsync(model.RecruitmentCommitteeId);
             try
             {
-
-                if (entity == null)
-                {
-                    TempData["Message"] = "Record Not Found";
-                    return RedirectToAction("List", "RecruitmentCommittee");
-                }
-
-                await _recruitmentCommitteeService.DeleteAsync(entity);
-
-                TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
-                return RedirectToAction("List", "RecruitmentCommittee");
+                await _recruitmentCommitteeService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Recruitment Committee"), ResponseType.Success);
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
-                return RedirectToAction("List", "RecruitmentCommittee"); // Avoids null reference
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Recruitment Committee", ex.Message), ResponseType.Error);
             }
+
+            return RedirectToAction("List");
         }
     }
 }
