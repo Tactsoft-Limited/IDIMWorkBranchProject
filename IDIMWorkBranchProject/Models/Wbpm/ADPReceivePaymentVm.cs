@@ -17,19 +17,19 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("নির্মাণ কাজ")]
         public int ProjectWorkId { get; set; }
 
-        [DisplayName("নির্মাণ কাজের নাম")]
+        [DisplayName("নির্মাণ কাজের নাম (English)")]
         public string ProjectWorkTitle { get; set; }
 
         [DisplayName("নির্মাণ কাজের নাম")]
         public string ProjectWorkTitleB { get; set; }
 
-        [Display(Name = "ফার্মের নাম")]
+        [Display(Name = "ফার্মের নাম (English)")]
         public string ConstructionFirm { get; set; }
 
-        [DisplayName("লেটার নম্বর")]
+        [DisplayName("লেটার নম্বর (English)")]
         public string LetterNo { get; set; }
 
-        [DisplayName("বিল নম্বর")]
+        [DisplayName("বিল নম্বর (English)")]
         public int BillNumber { get; set; }
 
         [DisplayName("বিল তারিখ")]
@@ -41,33 +41,34 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("বিল পেমেন্ট সেক্টর")]
         public string BillPaymentSector { get; set; }
 
-        [DisplayName("প্রাক্কলিত ব্যয়")]
+        [DisplayName("প্রাক্কলিত ব্যয় (English)")]
         public decimal? EstimatedCost { get; set; }
 
-        [DisplayName("কাজের বাস্তব অগ্রগতি (ভৌত %)")]
+        [DisplayName("কাজের বাস্তব অগ্রগতি (ভৌত %) (English)")]
         public double ActualWorkProgressPer { get; set; }
 
-        [DisplayName("আর্থিক অগ্রগতি (%)")]
+        [DisplayName("আর্থিক অগ্রগতি (%) (English)")]
         public double? FinancialProgressPer { get; set; }
 
-        [DisplayName("এ পর্যন্ত বিল পরিশোধ (%)")]
+        [DisplayName("এ পর্যন্ত বিল পরিশোধ (%)(English)")]
         public double? BillPaidPerTillDate { get; set; }
-        [DisplayName("এ পর্যন্ত বিল পরিশোধ")]
+
+        [DisplayName("এ পর্যন্ত বিল পরিশোধ (English)")]
         public decimal? BillPaidAmountTillDate { get; set; }
 
-        [DisplayName("বিল পরিশোধ (%)")]
+        [DisplayName("বিল পরিশোধ (%) (English)")]
         public double BillPaidPer { get; set; }
 
-        [DisplayName("বিল পরিশোধের পরিমাণ")]
+        [DisplayName("বিল পরিশোধের পরিমাণ (English)")]
         public decimal BillPaidAmount { get; set; }
 
         [DisplayName("বিল পরিশোধের পরিমাণ (কথায়)")]
         public string BillPaidAmountInWord { get; set; }
 
-        [DisplayName("মোট পরিশোধ (%)")]
+        [DisplayName("মোট পরিশোধ (%) (English)")]
         public double? TotalReceivePer { get; set; }
 
-        [DisplayName("মোট পরিশোধ অর্থ")]
+        [DisplayName("মোট পরিশোধ অর্থ (English)")]
         public decimal? TotalReceiveAmount { get; set; }
 
         [DisplayName("মোট পরিশোধ অর্থ (কথায়)")]

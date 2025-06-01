@@ -44,7 +44,7 @@
 
 
 @section scripts {
-
+    <script src="~/Scripts/banglaNumberConverter.js"></script>
     <script>
         $(document).ready(function () {
             var table = $('#aDPProjectTable').DataTable({
@@ -83,30 +83,32 @@
                         }
                     },
                     { "data": "MinistryDepartment", "title": "মন্ত্রণালয়/বিভাগ" },
-                    { "data": "EstimatedExpenses", "title": "প্রাক্কলিত ব্যয়" },
+                    {
+                        "data": "EstimatedExpenses",
+                        "title": "প্রাক্কলিত ব্যয়",
+                        "render": function (data, type, row) {
+                            const number = Number(data);
+                            return isNaN(number) ? data : number.toLocaleString('bn-BD');
+                        }
+                    },
                     {
                         "data": "StartingDate",
                         "title": "শুরুর তারিখ",
-                        "render": function (data) {
-                            if (data && data.startsWith("/Date(")) {
-                                var timestamp = parseInt(data.replace("/Date(", "").replace(")/", ""));
-                                return new Date(timestamp).toLocaleDateString('en-GB');
-                            }
-                            return '';
-                        }
+                        "render": data => data ? new Date(Date.parse(data)).toLocaleDateString('bn-BD') : ''
                     },
                     {
                         "data": "EndingDate",
                         "title": "শেষের তারিখ",
-                        "render": function (data) {
-                            if (data && data.startsWith("/Date(")) {
-                                var timestamp = parseInt(data.replace("/Date(", "").replace(")/", ""));
-                                return new Date(timestamp).toLocaleDateString('en-GB');
-                            }
-                            return '';
-                        }
+                        "render": data => data ? new Date(Date.parse(data)).toLocaleDateString('bn-BD') : ''
                     },
-                    { "data": "NoOfWork", "title": "কাজের সংখ্যা" }
+                    {
+                        "data": "NoOfWork",
+                        "title": "প্যাকেজ সংখ্যা",
+                        "render": function (data) {
+                            const num = Number(data);
+                            return isNaN(num) ? data : num.toLocaleString('bn-BD');
+                        }
+                    }
                 ]
             });
 

@@ -55,11 +55,11 @@
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="Azure.Core, Version=1.6.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
-      <HintPath>..\packages\Azure.Core.1.6.0\lib\net461\Azure.Core.dll</HintPath>
+    <Reference Include="Azure.Core, Version=1.46.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Core.1.46.1\lib\netstandard2.0\Azure.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Azure.Identity, Version=1.3.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
-      <HintPath>..\packages\Azure.Identity.1.3.0\lib\netstandard2.0\Azure.Identity.dll</HintPath>
+    <Reference Include="Azure.Identity, Version=1.14.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Identity.1.14.0\lib\netstandard2.0\Azure.Identity.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
@@ -103,8 +103,8 @@
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.8\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -113,17 +113,26 @@
     <Reference Include="Microsoft.Data.SqlClient, Version=4.1.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Data.SqlClient.4.1.1\lib\net461\Microsoft.Data.SqlClient.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Identity.Client, Version=4.22.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Identity.Client.4.22.0\lib\net461\Microsoft.Identity.Client.dll</HintPath>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Identity.Client.Extensions.Msal, Version=2.16.5.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Identity.Client.Extensions.Msal.2.16.5\lib\net45\Microsoft.Identity.Client.Extensions.Msal.dll</HintPath>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.3\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.8.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    <Reference Include="Microsoft.Identity.Client, Version=4.71.1.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.4.71.1\lib\netstandard2.0\Microsoft.Identity.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.8.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    <Reference Include="Microsoft.Identity.Client.Extensions.Msal, Version=4.71.1.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.Extensions.Msal.4.71.1\lib\netstandard2.0\Microsoft.Identity.Client.Extensions.Msal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=7.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.7.7.1\lib\net461\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=7.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.7.7.1\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=7.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.7.7.1\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.IdentityModel.Protocols, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Protocols.6.8.0\lib\net461\Microsoft.IdentityModel.Protocols.dll</HintPath>
@@ -131,8 +140,8 @@
     <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.6.8.0\lib\net461\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.8.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=7.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.7.7.1\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
@@ -192,14 +201,17 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.ClientModel, Version=1.4.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ClientModel.1.4.1\lib\netstandard2.0\System.ClientModel.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Configuration.ConfigurationManager.5.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.OracleClient" />
-    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
@@ -207,16 +219,22 @@
       <HintPath>..\packages\System.Formats.Asn1.8.0.1\lib\netstandard2.0\System.Formats.Asn1.dll</HintPath>
     </Reference>
     <Reference Include="System.IdentityModel" />
-    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.8.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=7.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.7.7.1\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.FileSystem.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
+    </Reference>
     <Reference Include="System.Linq.Dynamic.Core, Version=1.6.0.0, Culture=neutral, PublicKeyToken=0f07ec44de6ac832, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Linq.Dynamic.Core.1.6.0\lib\net46\System.Linq.Dynamic.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory.Data, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.Data.6.0.1\lib\net461\System.Memory.Data.dll</HintPath>
     </Reference>
     <Reference Include="System.Net" />
     <Reference Include="System.Numerics" />
@@ -266,11 +284,11 @@
     <Reference Include="System.Text.Encoding.CodePages, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encoding.CodePages.8.0.0\lib\netstandard2.0\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
-    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encodings.Web.4.7.2\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
-    <Reference Include="System.Text.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Json.4.6.0\lib\net461\System.Text.Json.dll</HintPath>
+    <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.8.0.5\lib\netstandard2.0\System.Text.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
@@ -716,6 +734,7 @@
     <Content Include="Content\responsive.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Documents\ConstructionCompanyFiles\Screenshot_1734777357_20250528_113251.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -822,32 +841,14 @@
     <Content Include="Documents\ProjectDirectorFiles\Kamrul Hasan_20250111_121350.pdf" />
     <Content Include="Documents\ProjectDirectorFiles\Print PC - PC Builder - Star Tech_20250111_123411.pdf" />
     <Content Include="Documents\NohaFiles\result_20250317_111200.pdf" />
-    <Content Include="Documents\ContractAggrementFiles\Hemayet-Mondol-EEE_20250323_104218.pdf" />
-    <Content Include="Documents\ContractAggrementFiles\Hemayet-Mondol-FlowCV-Resume-20250202_20250310_153324.pdf" />
-    <Content Include="Documents\ContractAggrementFiles\Hemayet-Mondol-FlowCV-Resume-20250202_20250310_153429.pdf" />
-    <Content Include="Documents\ContractAggrementFiles\Hemayet-Mondol-FlowCV-Resume-20250202_20250310_153902.pdf" />
-    <Content Include="Documents\ContractAggrementFiles\Hemayet-Mondol-FlowCV-Resume-20250202_20250311_113630.pdf" />
-    <Content Include="Documents\ContractAggrementFiles\Hemayet-Mondol-FlowCV-Resume-20250202_20250311_114456.pdf" />
-    <Content Include="Documents\WorkOrderFiles\Hemayet-Mondol-FlowCV-Resume-20250202_20250311_135033.pdf" />
-    <Content Include="Documents\WorkOrderFiles\Hemayet-Mondol-FlowCV-Resume-20250202_20250311_140042.pdf" />
-    <Content Include="Documents\WorkOrderFiles\Hemayet-Mondol-FlowCV-Resume-20250202_20250313_123501.pdf" />
-    <Content Include="Documents\PerformanceSecurityFiles\Hemayet-Mondol-FlowCV-Resume-20250202_20250311_132112.pdf" />
-    <Content Include="Documents\PerformanceSecurityFiles\Hemayet-Mondol-FlowCV-Resume-20250202_20250311_133217.pdf" />
-    <Content Include="Documents\PerformanceSecurityFiles\Hemayet-Mondol-FlowCV-Resume-20250202_20250313_121335.pdf" />
-    <Content Include="Documents\ContractAggrementFiles\3_20250323_124756.pdf" />
-    <Content Include="Documents\ContractAggrementFiles\Hemayet-Mondol-FlowCV-Resume-20250202 %281%29_20250323_125232.pdf" />
-    <Content Include="Documents\WorkOrderFiles\2_20250324_131900.pdf" />
-    <Content Include="Documents\WorkOrderFiles\3_20250323_131639.pdf" />
-    <Content Include="Documents\WorkOrderFiles\AdminLTE 3  Dashboard_20250323_134859.pdf" />
-    <Content Include="Documents\WorkOrderFiles\Hemayet-Mondol-FlowCV-Resume-20250202 %281%29_20250323_134408.pdf" />
-    <Content Include="Documents\RevenuePerformanceSecurityFiles\basic-text_20250504_120821.pdf" />
-    <Content Include="Documents\RevenuePerformanceSecurityFiles\basic-text_20250505_142728.pdf" />
-    <Content Include="Documents\RevenueWorkOrderFiles\basic-text_20250504_133529.pdf" />
-    <Content Include="Documents\RevenueWorkOrderFiles\basic-text_20250505_142828.pdf" />
-    <Content Include="Documents\RevenuneNohaFiles\basic-text_20250504_111211.pdf" />
-    <Content Include="Documents\RevenuneNohaFiles\basic-text_20250505_142531.pdf" />
     <Content Include="libman.json" />
     <Content Include="Documents\ProjectDirectorFiles\dummy_20250524_120234.pdf" />
+    <Content Include="Documents\MeetingFile\Kamrul Hasan_20250525_131334.pdf" />
+    <Content Include="Documents\ConstructionCompanyFiles\56378_20250528_113251.pdf" />
+    <Content Include="Documents\ConstructionCompanyFiles\dummy_20250528_113251.pdf" />
+    <Content Include="Documents\NohaFiles\result_20250317_115220.pdf" />
+    <Content Include="Documents\NohaFiles\result_20250317_115654.pdf" />
+    <Content Include="Documents\MeetingFile\dummy_20250529_122641.pdf" />
     <None Include="Properties\PublishProfiles\project.pubxml" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
@@ -2803,10 +2804,6 @@
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\List.cshtml" />
     <Content Include="Views\User\Menu.cshtml" />
-    <Content Include="Views\BillPayment\Create.cshtml" />
-    <Content Include="Views\BillPayment\Delete.cshtml" />
-    <Content Include="Views\BillPayment\Edit.cshtml" />
-    <Content Include="Views\BillPayment\List.cshtml" />
     <Content Include="Views\BillType\Create.cshtml" />
     <Content Include="Views\BillType\Delete.cshtml" />
     <Content Include="Views\BillType\Edit.cshtml" />
@@ -2822,22 +2819,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\ProjectExtend\Create.cshtml" />
-    <Content Include="Views\ProjectExtend\Delete.cshtml" />
-    <Content Include="Views\ProjectExtend\Edit.cshtml" />
-    <Content Include="Views\ProjectExtend\List.cshtml" />
-    <Content Include="Views\ProjectProblem\Create.cshtml" />
-    <Content Include="Views\ProjectProblem\Delete.cshtml" />
-    <Content Include="Views\ProjectProblem\Edit.cshtml" />
-    <Content Include="Views\ProjectProblem\List.cshtml" />
-    <Content Include="Views\ProjectStatus\Create.cshtml" />
-    <Content Include="Views\ProjectStatus\Delete.cshtml" />
-    <Content Include="Views\ProjectStatus\Edit.cshtml" />
-    <Content Include="Views\ProjectStatus\List.cshtml" />
-    <Content Include="Views\Project\Create.cshtml" />
-    <Content Include="Views\Project\Delete.cshtml" />
-    <Content Include="Views\Project\Edit.cshtml" />
-    <Content Include="Views\Project\List.cshtml" />
     <Content Include="Views\Quarter\Create.cshtml" />
     <Content Include="Views\Quarter\Delete.cshtml" />
     <Content Include="Views\Quarter\Edit.cshtml" />
@@ -2857,22 +2838,10 @@
     <Content Include="Views\Report\ProjectProblem.cshtml" />
     <Content Include="Views\Report\SubProject.cshtml" />
     <Content Include="Views\Report\ProjectStatus.cshtml" />
-    <Content Include="Views\Consultant\List.cshtml" />
-    <Content Include="Views\Consultant\Edit.cshtml" />
-    <Content Include="Views\Consultant\Create.cshtml" />
-    <Content Include="Views\Consultant\Delete.cshtml" />
     <Content Include="Views\SubProjectDetails\List.cshtml" />
     <Content Include="Views\SubProjectDetails\Create.cshtml" />
     <Content Include="Views\SubProjectDetails\Edit.cshtml" />
     <Content Include="Views\SubProjectDetails\Delete.cshtml" />
-    <Content Include="Views\ConsultancyFees\List.cshtml" />
-    <Content Include="Views\ConsultancyFees\Create.cshtml" />
-    <Content Include="Views\ConsultancyFees\Edit.cshtml" />
-    <Content Include="Views\ConsultancyFees\Delete.cshtml" />
-    <Content Include="Views\ConsultancyActivities\List.cshtml" />
-    <Content Include="Views\ConsultancyActivities\Create.cshtml" />
-    <Content Include="Views\ConsultancyActivities\Edit.cshtml" />
-    <Content Include="Views\ConsultancyActivities\Delete.cshtml" />
     <Content Include="Views\ProjectReport\Index.cshtml" />
     <Content Include="Views\ReportBillPayment\Index.cshtml" />
     <Content Include="Views\SecurityDeposit\List.cshtml" />
@@ -2908,10 +2877,6 @@
     <Content Include="Views\VatTax\Create.cshtml" />
     <Content Include="Views\VatTax\Edit.cshtml" />
     <Content Include="Views\VatTax\List.cshtml" />
-    <Content Include="Views\ContractorPayment\List.cshtml" />
-    <Content Include="Views\ContractorPayment\Create.cshtml" />
-    <Content Include="Views\ContractorPayment\Edit.cshtml" />
-    <Content Include="Views\ContractorPayment\Delete.cshtml" />
     <Content Include="Content\Documents\20241208_133752_Agreement.pdf" />
     <Content Include="Content\Documents\20241208_133752_BankGuarantee.pdf" />
     <Content Include="Content\Documents\20241208_133752_NOA.pdf" />
@@ -2994,7 +2959,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Documents\ContractAggrementFiles\" />
+    <Folder Include="Documents\PerformanceSecurityFiles\" />
     <Folder Include="Documents\ProjectWorkFile\" />
+    <Folder Include="Documents\RevenuePerformanceSecurityFiles\" />
+    <Folder Include="Documents\RevenueWorkOrderFiles\" />
+    <Folder Include="Documents\RevenuneNohaFiles\" />
+    <Folder Include="Documents\WorkOrderFiles\" />
     <Folder Include="Scripts\Plugins\datatables\extensions\FixedColumns\examples\integration\" />
     <Folder Include="Scripts\Plugins\jquery-tabledit\" />
   </ItemGroup>

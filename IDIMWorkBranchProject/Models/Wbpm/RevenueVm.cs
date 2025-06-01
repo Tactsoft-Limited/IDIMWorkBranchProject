@@ -12,6 +12,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         }
 
         public int RevenueId { get; set; }
+
         [DisplayName("অর্থবছর")]
         public int FisCalYearId { get; set; }
 
@@ -50,7 +51,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         #region navigation property
         public IEnumerable<SelectListItem> FiscalYearDropdown { get; set; }
-        
+
         #endregion
     }
 }

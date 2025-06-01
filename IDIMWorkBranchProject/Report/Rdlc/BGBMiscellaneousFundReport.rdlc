@@ -20,7 +20,7 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Right</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
           <Paragraph>
@@ -28,13 +28,13 @@
               <TextRun>
                 <Value>www.bgb.gov.bd</Value>
                 <Style>
-                  <FontFamily>SolaimanLipi</FontFamily>
+                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Right</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
           <Paragraph>
@@ -48,13 +48,14 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Right</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Left>5.29167in</Left>
         <Height>1.23334in</Height>
-        <Width>6.5in</Width>
+        <Width>1.85418in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -87,7 +88,7 @@
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>1.24722in</Top>
         <Height>0.23333in</Height>
-        <Width>6.5in</Width>
+        <Width>7.14584in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -122,7 +123,7 @@
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>1.48055in</Top>
         <Height>0.24656in</Height>
-        <Width>6.5in</Width>
+        <Width>7.14584in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -141,7 +142,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>১।          অত্র শাখা কর্তৃক নিম্নেবরর্ণিত কাজের অনুকূলে গ্রহনকৃত পে-অর্ডার 'বিজিবি বিবিধ ফান্ড' এর অনুকূলে জমাকরনের নিমিত্তে এতদসংগে প্রেরণ করা হলো। উল্লেখ্য যে, কাজের অগ্রগতি সাপেক্ষে সংশ্লিষ্ট ঠিকাদারকে বর্ণিত অংকের টাকা পরিশোধ করা হবেঃ</Value>
+                <Value>১।       অত্র শাখা কর্তৃক নিম্নেবরর্ণিত কাজের অনুকূলে গ্রহনকৃত পে-অর্ডার 'বিজিবি বিবিধ ফান্ড' এর অনুকূলে জমাকরনের নিমিত্তে এতদসংগে প্রেরণ করা হলো। উল্লেখ্য যে, কাজের অগ্রগতি সাপেক্ষে সংশ্লিষ্ট ঠিকাদারকে বর্ণিত অংকের টাকা পরিশোধ করা হবেঃ</Value>
                 <Style>
                   <FontFamily>SolaimanLipi</FontFamily>
                   <FontSize>11pt</FontSize>
@@ -157,7 +158,7 @@
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>1.72711in</Top>
         <Height>0.61903in</Height>
-        <Width>6.5in</Width>
+        <Width>7.14583in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -173,25 +174,25 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.48106in</Width>
+              <Width>0.57332in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.92298in</Width>
+              <Width>2.01524in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.875in</Width>
+              <Width>0.96726in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.94646in</Width>
+              <Width>1.03872in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.83839in</Width>
+              <Width>0.93065in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.99015in</Width>
+              <Width>1.08241in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.44596in</Width>
+              <Width>0.53822in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -645,11 +646,11 @@
                             <TextRun>
                               <Value> A/C </Value>
                               <Style>
-                                <FontFamily>SolaimanLipi</FontFamily>
+                                <FontFamily>Calibri</FontFamily>
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!AccountNumber.Value</Value>
+                              <Value>=Code.ConvertToBangla(Fields!AccountNumber.Value)</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -779,7 +780,7 @@
         <DataSetName>DsBGBMiscellaneousFundReport</DataSetName>
         <Top>2.34615in</Top>
         <Height>1.35in</Height>
-        <Width>6.5in</Width>
+        <Width>7.14583in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -826,7 +827,7 @@
         <Top>3.70523in</Top>
         <Left>0.00001in</Left>
         <Height>0.21903in</Height>
-        <Width>6.5in</Width>
+        <Width>7.14583in</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -876,7 +877,7 @@
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>3.92426in</Top>
         <Height>0.21903in</Height>
-        <Width>6.5in</Width>
+        <Width>7.14583in</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -942,7 +943,7 @@
               <TextRun>
                 <Value>addldirmaint@bgb.gov.bd</Value>
                 <Style>
-                  <FontFamily>SolaimanLipi</FontFamily>
+                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <TextDecoration>None</TextDecoration>
                 </Style>
@@ -955,7 +956,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>4.85523in</Top>
-        <Left>4.4755in</Left>
+        <Left>5.1255in</Left>
         <Height>0.84403in</Height>
         <Width>2.02451in</Width>
         <ZIndex>7</ZIndex>
@@ -1068,7 +1069,7 @@
         <Top>5.74092in</Top>
         <Left>0.00001in</Left>
         <Height>1.01903in</Height>
-        <Width>6.5in</Width>
+        <Width>7.14582in</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -1121,7 +1122,7 @@
     <Height>7.22867in</Height>
     <Style />
   </Body>
-  <Width>6.50001in</Width>
+  <Width>7.15001in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>

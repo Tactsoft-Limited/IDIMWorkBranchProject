@@ -62,7 +62,6 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             var projectWork = await _projectWorkService.GetByIdAsync(id);
             var contractAgreemen = await _contractAgreementService.GetByProjectWorkIdAsync(id);
 
-
             var model = new ContractAgreementVm
             {
                 ProjectWorkId = projectWork.ProjectWorkId,

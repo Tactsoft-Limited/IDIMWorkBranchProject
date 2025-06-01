@@ -23,7 +23,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Height>0.25in</Height>
-        <Width>7.17361in</Width>
+        <Width>7.50001in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -38,21 +38,21 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.32465in</Width>
+              <Width>0.53472in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.03299in</Width>
+              <Width>2.03473in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.22049in</Width>
+              <Width>0.27257in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.49131in</Width>
+              <Width>4.65799in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.60417in</Height>
+              <Height>0.58586in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -148,7 +148,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.23169in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -284,7 +284,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.23169in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -420,7 +420,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.23169in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -556,7 +556,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.23169in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -692,7 +692,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.23169in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -828,7 +828,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.23169in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -964,7 +964,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.23169in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1100,7 +1100,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.23169in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1152,7 +1152,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=IIf(IsNothing(Fields!FinancialProgressPer.Value)=0, "", Code.ConvertToBangla(Fields!FinancialProgressPer.Value))</Value>
+                              <Value>=IIf(IsNothing(Fields!FinancialProgressPer.Value), "", Code.ConvertToBangla(Fields!FinancialProgressPer.Value))</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -1222,7 +1222,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(IsNothing(Fields!BillPaidAmountTillDate.Value)=0, "", Code.ConvertToBangla(Fields!BillPaidAmountTillDate.Value))</Value>
+                              <Value>=IIf(IsNothing(Fields!BillPaidAmountTillDate.Value), "", Code.ConvertToBangla(Fields!BillPaidAmountTillDate.Value))</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -1250,7 +1250,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.23169in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1458,7 +1458,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.23169in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1654,9 +1654,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsADPReceivePayment</DataSetName>
-        <Top>0.75in</Top>
-        <Height>3.10417in</Height>
-        <Width>7.06944in</Width>
+        <Top>0.84027in</Top>
+        <Height>2.90278in</Height>
+        <Width>7.50001in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -1759,7 +1759,7 @@
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>0.31944in</Top>
         <Height>0.38889in</Height>
-        <Width>7.17361in</Width>
+        <Width>7.50001in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -2240,9 +2240,13 @@
       </Tablix>
     </ReportItems>
     <Height>11.02443in</Height>
-    <Style />
+    <Style>
+      <Border>
+        <Style>Solid</Style>
+      </Border>
+    </Style>
   </Body>
-  <Width>7.17362in</Width>
+  <Width>7.50001in</Width>
   <Page>
     <PageHeader>
       <Height>0.43194in</Height>
@@ -2271,7 +2275,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Height>0.19444in</Height>
-          <Width>7.17361in</Width>
+          <Width>7.50001in</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2314,7 +2318,7 @@
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>0.18194in</Top>
           <Height>0.25in</Height>
-          <Width>7.17361in</Width>
+          <Width>7.50001in</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -2363,6 +2367,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>TotalPages</rd:DefaultName>
+          <Top>0in</Top>
           <Left>5.03694in</Left>
           <Height>0.25in</Height>
           <Width>2.13667in</Width>

@@ -83,10 +83,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             var noha = _mapper.Map<NohaVm>(await _nohaService.GetByProjectWorkIdAsync(id));
             var performanceSecurity = _mapper.Map<PerformanceSecurityVm>(await _performanceSecurityService.GetByProjectWorkIdAsync(id));
             var contractAgreement = _mapper.Map<ContractAgreementVm>(await _contractAgreementService.GetByProjectWorkIdAsync(id));
-            var workOrder = _mapper.Map<WorkOrderVm>(await _workOrderService.GetByProjectWorkIdAsync(id));
             var projectWorkStatus = _mapper.Map<ProjectWorkStatusVm>(await _projectWorkStatusService.GetByProjectWorkIdAsync(id));
-            var collateralReturn = _mapper.Map<CollateralReturnVm>(await _collateralReturnService.GetByProjectWorkIdAsync(id));
-            var handoverApproved = _mapper.Map<HandoverApprovedVm>(await _handoverApprovedService.GetByProjectWorkIdAsync(id));
 
             // Building the model
             var model = new ProjectWorkDetailsVm
@@ -115,16 +112,14 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 ProjectWorkStatus = projectWorkStatus?.ProjectWorkStatusId, // Null-safe access
                 IsFinalBillSubmitted = projectWorks.IsFinalBillSubmitted,
                 IsFurnitureIncluded = projectWorks.IsFurnitureIncluded,
-                CollateralLetterNo = collateralReturn?.LetterNo,
-                HandoverApprovedLetterNo = handoverApproved?.LetterNo,
-
 
                 WorkOrderList = _mapper.Map<List<WorkOrderVm>>(await _workOrderService.GetAllByProjectWorkIdAsync(id)),
                 ADPReceivePayments = _mapper.Map<List<ADPReceivePaymentVm>>(await _ADPReceivePaymentService.GetByProjectWorkIdAsync(id)),
                 ContractorCompanyPayments = _mapper.Map<List<ContractorCompanyPaymentVm>>(await _contractorCompanyPaymentService.GetByAllProjectWorkAsync(id)),
                 FinalBillPayments = _mapper.Map<List<FinalBillPaymentVm>>(await _finalBillPaymentService.GetAllByProjectWorkIdAsync(id)),
                 FurnnitureBillPayments = _mapper.Map<List<FurnitureBillPaymentVm>>(await _furnitureBillPaymentService.GetAllByProjectWorkIdAsync(id)),
-
+                CollateralReturns = _mapper.Map<List<CollateralReturnVm>>(await _collateralReturnService.GetAllByProjectWorkIdAsync(id)),
+                HandoverApproveds = _mapper.Map<List<HandoverApprovedVm>>(await _handoverApprovedService.GetAllByProjectWorkIdAsync(id)),
             };
 
             return View(model);

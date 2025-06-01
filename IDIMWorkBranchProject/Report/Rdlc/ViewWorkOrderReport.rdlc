@@ -656,14 +656,21 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>প্রোপ্রাইটর- </Value>
+                              <Value>=Fields!OwnerDesignationB.Value</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!ContactPersonB.Value</Value>
+                              <Value> - </Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <FontSize>11pt</FontSize>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>=Fields!OwnerNameB.Value</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -827,7 +834,7 @@
         </TablixRowHierarchy>
         <DataSetName>DsWorkOrder</DataSetName>
         <Top>0.02778in</Top>
-        <Height>7.99306in</Height>
+        <Height>7.99305in</Height>
         <Width>7.14583in</Width>
         <Style>
           <Border>
@@ -836,10 +843,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>8.02083in</Height>
+    <Height>8.02084in</Height>
     <Style />
   </Body>
-  <Width>7.14583in</Width>
+  <Width>7.14584in</Width>
   <Page>
     <PageHeader>
       <Height>1.32639in</Height>
@@ -1048,8 +1055,12 @@
           <DataField>FirmNameB</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ContactPersonB">
-          <DataField>ContactPersonB</DataField>
+        <Field Name="OwnerNameB">
+          <DataField>OwnerNameB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OwnerDesignationB">
+          <DataField>OwnerDesignationB</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="FirmAddressB">

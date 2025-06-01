@@ -21,7 +21,8 @@ namespace BGB.Data.SqlViews.Wbpm
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public string FirmNameB { get; set; }
-        public string ContactPersonB { get; set; }
+        public string OwnerNameB { get; set; }
+        public string OwnerDesignationB { get; set; }
         public string FirmAddressB { get; set; }
         public DateTime? AgreementDate { get; set; }
     }

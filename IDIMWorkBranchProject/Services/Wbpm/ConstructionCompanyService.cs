@@ -2,6 +2,7 @@
 using IDIMWorkBranchProject.Data.Database;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services.Base;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -22,25 +23,52 @@ namespace IDIMWorkBranchProject.Services.Wbpm
             return await _context.ConstructionCompanies.Where(x => x.ConstructionCompanyId == constructionCompanyId).Select(x => x.FirmNameB).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<SelectListItem>> GetDropdownAsync(int? selected=0)
+        public async Task<IEnumerable<SelectListItem>> GetDropdownAsync(int? selected = 0)
         {
-            return await _context.ConstructionCompanies.Select(s => new SelectListItem
+            var today = DateTime.Today;
+
+            var companies = await _context.ConstructionCompanies.ToListAsync();
+
+            return companies.Select(s =>
             {
-                Text = s.FirmNameB,
-                Value = s.ConstructionCompanyId.ToString(),
-                Selected = s.ConstructionCompanyId == selected
-            }).ToListAsync();
+                string label = s.FirmNameB;
+
+                if (s.ExpiryDate.HasValue)
+                {
+                    var daysToExpire = (s.ExpiryDate.Value - today).Days;
+
+                    if (daysToExpire < 0)
+                    {
+                        label = $"{label} (মেয়াদ শেষ)";
+                    }
+                    else if (daysToExpire <= 30)
+                    {
+                        label = $"{label} ({daysToExpire} দিনে মেয়াদ শেষ) ";
+                    }
+                }
+
+                return new SelectListItem
+                {
+                    Text = label,
+                    Value = s.ConstructionCompanyId.ToString(),
+                    Selected = s.ConstructionCompanyId == selected
+                };
+            });
         }
 
-        public async Task<object> GetPagedAsync(ConstructionCompanySearchVm model)
+
+        public async Task<(IList<ConstructionCompany> data, int total, int totalDisplay)> GetPagedAsync(ConstructionCompanySearchVm model)
         {
             if (model == null)
                 model = new ConstructionCompanySearchVm();
 
             var query = _context.Set<ConstructionCompany>().Where(x =>
             (string.IsNullOrEmpty(model.SearchValue) || x.FirmName.Contains(model.SearchValue) ||
-            x.ContactPerson.Contains(model.SearchValue) || x.ContactPhone.Contains(model.SearchValue) ||
-            x.Email.Contains(model.SearchValue)));
+            x.OwnerName.Contains(model.SearchValue) || x.OwnerPhone.Contains(model.SearchValue) ||
+            x.OwnerEmail.Contains(model.SearchValue) || x.AuthorizedPersonName.Contains(model.SearchValue) ||
+            x.AuthorizedPersonNamePhone.Contains(model.SearchValue) || x.AuthorizedPersonNameDesignation.Contains(model.SearchValue)
+
+            ));
 
             query = !string.IsNullOrEmpty(model.SortColumn) && !string.IsNullOrEmpty(model.SortDirection)
             ? query.OrderBy($"{model.SortColumn} {model.SortDirection}")
@@ -50,27 +78,12 @@ namespace IDIMWorkBranchProject.Services.Wbpm
             var filteredRecords = await query.CountAsync();
             var pagedData = await query.Skip(model.PageIndex * model.PageSize).Take(model.PageSize).ToListAsync();
 
-            // Return the response in DataTables format
-            var result = new
-            {
-                draw = model.Draw,
-                recordsTotal = totalRecords,
-                recordsFiltered = filteredRecords,
-                data = pagedData.Select(x => new ConstructionCompanyVm
-                {
-                    ConstructionCompanyId = x.ConstructionCompanyId,
-                    FirmName = x.FirmName,
-                    FirmNameB = x.FirmNameB,
-                    ContactPerson = x.ContactPerson,
-                    ContactPersonB = x.ContactPersonB,
-                    ContactPhone = x.ContactPhone,
-                    Email = x.Email,
-                    FirmAddress = x.FirmAddress,
-                    FirmAddressB = x.FirmAddressB
-                })
-            };
+            return (pagedData, totalRecords, filteredRecords);
+        }
 
-            return result;
-        }        
+        public bool IsDuplicateConstructionCompany(string name, int? id = null)
+        {
+            return GetCount(x => x.FirmName == name && (!id.HasValue || x.ConstructionCompanyId != id)) > 0;
+        }
     }
 }

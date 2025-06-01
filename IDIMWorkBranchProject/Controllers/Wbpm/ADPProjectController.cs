@@ -7,7 +7,9 @@ using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
@@ -53,8 +55,23 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         {
             try
             {
-                var data = await _aDPProjectService.GetPagedAsync(model);
-                return Json(data);
+                var (data, total, totalDisplay) = await _aDPProjectService.GetPagedAsync(model);
+                var jsonData = new
+                {
+                    recordsTotal = total,
+                    recordsFiltered = totalDisplay,
+                    data = data.Select(record => new
+                    {
+                        ADPProjectId = record.ADPProjectId,
+                        ProjectTitle = HttpUtility.HtmlEncode(record.ProjectTitle),
+                        MinistryDepartment = HttpUtility.HtmlEncode(record.MinistryDepartment),
+                        EstimatedExpenses = HttpUtility.HtmlEncode(record.EstimatedExpenses),
+                        StartingDate = HttpUtility.HtmlEncode(record.StartingDate.ToShortDateString()),
+                        EndingDate = HttpUtility.HtmlEncode(record.EndingDate.ToShortDateString()),
+                        NoOfWork = HttpUtility.HtmlEncode(record.NoOfWork)
+                    })
+                };
+                return Json(jsonData);
             }
             catch (Exception ex)
             {

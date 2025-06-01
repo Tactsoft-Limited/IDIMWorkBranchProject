@@ -12,11 +12,17 @@ namespace BGB.Data.SqlViews.Wbpm
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ContractAgreementId { get; set; }
         public int ProjectWorkId { get; set; }
+        public int ConstructionCompanyId { get; set; }
         public string DayOfWeek { get; set; } // Assuming this maps to an enum or integer value
         public DateTime? AgreementDate { get; set; }
         public string FirmName { get; set; }
-        public string ContactPerson { get; set; }
+        public string OwnerName { get; set; }
+        public string OwnerDesignation { get; set; }
         public string FirmAddress { get; set; }
+        public string FirstWitnessName { get; set; }
+        public string FirstWitnessDesignation { get; set; }
+        public string SecondWitnessName { get; set; }
+        public string SecondWitnessDesignation { get; set; }
         public string ProjectWorkTitle { get; set; }
         public decimal EstimatedCost { get; set; }
         public string EstimatedCostInWord { get; set; }

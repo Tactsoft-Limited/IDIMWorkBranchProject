@@ -45,19 +45,31 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value> Prorietor- </Value>
+                <Value xml:space="preserve"> </Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>=Fields!ContactPerson.Value</Value>
+                <Value>=Fields!OwnerDesignation.Value</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>, </Value>
+                <Value>-</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!OwnerName.Value</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value> , </Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -379,13 +391,25 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value> Prorietor- </Value>
+                <Value xml:space="preserve"> </Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>=Fields!ContactPerson.Value</Value>
+                <Value>=Fields!OwnerDesignation.Value</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>- </Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!OwnerName.Value</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -811,7 +835,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox67">
+                    <Textbox Name="OwnerDesignation">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -827,7 +851,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox67</rd:DefaultName>
+                      <rd:DefaultName>OwnerDesignation</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -860,7 +884,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Proprietor</Value>
+                              <Value>=Fields!OwnerDesignation.Value</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -871,7 +895,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!ContactPerson.Value</Value>
+                              <Value>=Fields!OwnerName.Value</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -990,15 +1014,6 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
                               <Value>=Fields!DDG_Address.Value</Value>
                               <Style />
                             </TextRun>
@@ -1071,7 +1086,18 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Manager</Value>
+                              <Value>=Fields!FirstWitnessDesignation.Value</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!FirstWitnessName.Value</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -1110,7 +1136,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>1.12259in</Height>
+              <Height>1.2337in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1173,10 +1199,11 @@
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
-                            <TextRun>
-                              <Value xml:space="preserve">                      </Value>
-                              <Style />
-                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
                             <TextRun>
                               <Value>=Fields!ProjectDirector_Designation.Value</Value>
                               <Style />
@@ -1250,7 +1277,18 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Engineer</Value>
+                              <Value>=Fields!SecondWitnessDesignation.Value</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!SecondWitnessName.Value</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -1471,9 +1509,10 @@
             <TablixMember />
           </TablixMembers>
         </TablixRowHierarchy>
+        <DataSetName>DsContractAgreement</DataSetName>
         <Top>12.21047in</Top>
-        <Height>5.17935in</Height>
-        <Width>7.18834in</Width>
+        <Height>5.29046in</Height>
+        <Width>7.18833in</Width>
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
@@ -1488,7 +1527,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Contract Agreement (Form W-5)</Value>
+                <Value>Contract Agreement</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1516,7 +1555,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>18.09815in</Height>
+    <Height>17.50093in</Height>
     <Style />
   </Body>
   <Width>7.18834in</Width>
@@ -1565,8 +1604,16 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="ContractAgreementId">
+          <DataField>ContractAgreementId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="ProjectWorkId">
           <DataField>ProjectWorkId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ConstructionCompanyId">
+          <DataField>ConstructionCompanyId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="DayOfWeek">
@@ -1581,12 +1628,32 @@
           <DataField>FirmName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ContactPerson">
-          <DataField>ContactPerson</DataField>
+        <Field Name="OwnerName">
+          <DataField>OwnerName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OwnerDesignation">
+          <DataField>OwnerDesignation</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="FirmAddress">
           <DataField>FirmAddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FirstWitnessName">
+          <DataField>FirstWitnessName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FirstWitnessDesignation">
+          <DataField>FirstWitnessDesignation</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SecondWitnessName">
+          <DataField>SecondWitnessName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SecondWitnessDesignation">
+          <DataField>SecondWitnessDesignation</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ProjectWorkTitle">
@@ -1668,7 +1735,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>WPDataSet</rd:DataSetName>
-        <rd:SchemaPath>F:\Software Work\TactSoft\IDIMWorkBranch\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\Tactsoft Projects\BGB Project Mvc\Git Project\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
         <rd:TableName>ViewContactAgreement</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

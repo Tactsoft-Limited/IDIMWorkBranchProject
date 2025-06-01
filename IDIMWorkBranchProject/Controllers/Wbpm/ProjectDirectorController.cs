@@ -2,7 +2,6 @@
 using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.Exceptions;
-using IDIMWorkBranchProject.Extentions.Utilities;
 using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
@@ -135,7 +134,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
             try
             {
-                if (_projectDirectorService.IsDuplicateProjectDirector(model.ProjectDirectorName, model.ADPProjectId))
+                if (_projectDirectorService.IsDuplicateProjectDirector(model.ProjectDirectorName, model.ProjectDirectorId))
                 {
                     throw new DuplicateNameException(model.ProjectDirectorName);
                 }

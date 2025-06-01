@@ -11,6 +11,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
     {
         Task<string> GetConstructionFirm(int constructionCompanyId);
         Task<IEnumerable<SelectListItem>> GetDropdownAsync(int? selected = 0);
-        Task<object> GetPagedAsync(ConstructionCompanySearchVm model);
+        Task<(IList<ConstructionCompany> data, int total, int totalDisplay)> GetPagedAsync(ConstructionCompanySearchVm model);
+        bool IsDuplicateConstructionCompany(string name, int? id = null);
     }
 }

@@ -78,6 +78,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
             var model = new ContractorCompanyPaymentVm
             {
+
                 ProjectWorkId = projectWork.ProjectWorkId,
                 ProjectWorkTitle = projectWork.ProjectWorkTitleB,
                 EstimatedCost = projectWork.EstimatedCost,

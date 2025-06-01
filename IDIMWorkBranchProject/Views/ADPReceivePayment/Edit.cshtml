@@ -195,6 +195,37 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.HeadAssistantId, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.HeadAssistantId, Model.HeadAssistantDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.HeadAssistantId)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.ConcernedEngineerId, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.DropDownListFor(m => m.ConcernedEngineerId, Model.ConcernedEngineerDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.ConcernedEngineerId)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.SectionICId, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(m => m.SectionICId, Model.SectionICTDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.SectionICId)
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.BranchClerkId, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.DropDownListFor(m => m.BranchClerkId, Model.BranchClerkDropdown, "Select One", new { @class = "select2" })
+                                @Html.ValidationMessageFor(model => model.BranchClerkId)
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="pull-right">
                         <input type="submit" class="btn btn-success" value="Save" />
                         <input type="reset" class="btn" value="Clear" />
@@ -216,46 +247,38 @@
                 const billPaidPerTillDate = getFloat('#BillPaidPerTillDate');
                 const billPaidAmountTillDate = getFloat('#BillPaidAmountTillDate');
                 const estimatedCost = getFloat('#EstimatedCost');
-                const billPaidPer = getFloat('#BillPaidPer');
-                const taxPer = getFloat('#TaxPer');
-                const vatPer = getFloat('#VatPer');
-                const collateralPer = getFloat('#CollateralPer');
+                let billPaidPer = getFloat('#BillPaidPer');
+                let billPaidAmount = getFloat('#BillPaidAmount');
 
-                // Calculate bill paid amount and deductions
-                const billPaidAmount = +(estimatedCost * (billPaidPer / 100)).toFixed(2);
-                const taxAmount = +(billPaidAmount * (taxPer / 100)).toFixed(2);
-                const vatAmount = +(billPaidAmount * (vatPer / 100)).toFixed(2);
-                const collateralAmount = +(billPaidAmount * (collateralPer / 100)).toFixed(2);
+                // Determine which field triggered the calculation
+                const activeElement = document.activeElement.id;
 
-                const totalPaidPer = (billPaidPerTillDate + billPaidPer).toFixed(2);
-                const totalPaidAmount = (billPaidAmountTillDate + billPaidAmount).toFixed(2);
+                if (activeElement === 'BillPaidPer') {
+                    // If percentage was changed, calculate amount
+                    billPaidAmount = +(estimatedCost * (billPaidPer / 100)).toFixed(2);
+                } else if (activeElement === 'BillPaidAmount') {
+                    // If amount was changed, calculate percentage
+                    billPaidPer = +((billPaidAmount / estimatedCost) * 100).toFixed(2);
+                }
 
-                // Calculate total deductions and remaining amount
-                const totalDeduction = +(taxAmount + vatAmount + collateralAmount).toFixed(2);
-                const depositInBGBFund = +(billPaidAmount - totalDeduction).toFixed(2);
+                const totalPaidPer = parseFloat(billPaidPerTillDate) + parseFloat(billPaidPer);
+                const totalPaidAmount = parseFloat(billPaidAmountTillDate) + parseFloat(billPaidAmount);
 
                 // Convert amounts to words (assuming `getBanglaWord` is defined)
                 const billPaidAmountInWord = getBanglaWord(billPaidAmount);
                 const totalPaidAmountInWord = getBanglaWord(parseFloat(totalPaidAmount));
 
                 // Update the input fields with the calculated values
+                $('#BillPaidPer').val(billPaidPer);
                 $('#BillPaidAmount').val(billPaidAmount);
                 $('#BillPaidAmountInWord').val(billPaidAmountInWord);
                 $('#TotalReceivePer').val(totalPaidPer);
                 $('#TotalReceiveAmount').val(totalPaidAmount);
                 $('#TotalReceiveAmountInWord').val(totalPaidAmountInWord);
-                $('#TaxAmount').val(taxAmount);
-                $('#VatAmount').val(vatAmount);
-                $('#CollateralAmount').val(collateralAmount);
-                $('#TotalDeductionAmount').val(totalDeduction);
-                $('#DepositInBGBFund').val(depositInBGBFund);
-
             }
 
             // Trigger calculation on input change
-            $('#EstimatedCost, #BillPaidPer, #TaxPer, #VatPer, #CollateralPer').on('input', calculateBillPaidAmount);
+            $('#EstimatedCost, #BillPaidPer, #BillPaidAmount').on('input', calculateBillPaidAmount);
         });
     </script>
-
-
 }

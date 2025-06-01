@@ -68,7 +68,25 @@
 
     @Html.Partial("_ModalResponse")
     <script>
-    $(document).ready(function () {
+        $(document).ready(function () {
+            // Function to open the modal and set the ID and entity type
+            $(document).on('click', '.removeModal', function (event) {
+                var entityId = $(this).data("id");
+                var entityName = $(this).data("entity"); // e.g., "Country", "User"
+                var modal = $("#modalRemove");
+
+                $('#deleteId').val(entityId);
+                $('#deleteForm').attr("action", baseUrl + "/"+ entityName + '/Delete');
+
+                modal.modal('show');
+            });
+
+            // Submit form on delete button click
+            $("#deleteButton").on('click', function () {
+                $("#deleteForm").trigger('submit');
+            });
+
+
         // ===== Highlight active menu item by controller name =====
         var items = $('#main-menu-wrapper li a');
         $.each(items, function (i) {
@@ -77,31 +95,6 @@
             if ('@currentControllerName'.toLowerCase() === controllerName.toLowerCase()) {
                 $(this).parent().addClass("open");
             }
-        });
-
-        // ===== Generic Delete Confirmation Modal =====
-        $(document).on('click', '#modal-remove', function () {
-            const entityId = $(this).data("id");
-            const entityName = $(this).data("entity");
-            const url = baseUrl+'/' + entityName + '/Delete';
-
-            console.log("entityId:", entityId);
-            console.log("entityName:", entityName);
-
-            $('#deleteId').val(entityId);
-            $('#entityType').val(entityName); // optional hidden field
-            $('#deleteForm').attr("action",url);
-
-            $('#modal-remove').modal('show');
-        });
-
-        $("#deleteButton").on('click', function () {
-            $("#deleteForm").submit();
-        });
-
-        // Cleanup modal backdrop just in case
-        $('#modal-remove').on('hidden.bs.modal', function () {
-            $('.modal-backdrop').remove();
         });
 
     });

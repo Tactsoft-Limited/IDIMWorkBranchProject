@@ -29,13 +29,10 @@ namespace IDIMWorkBranchProject.Services.Dashboard
                 //Project = await Context.Projects.CountAsync(),
                 //Subproject = await Context.SubProjects.CountAsync(),
                 //TotalBillPayment = await Context.BillPayments.SumAsync(x => (double?)x.PaymentAmount) ?? 0,
-                ////TotalBillReceived = await Context.ReceivePayments.SumAsync(x => (double?)x.BillAmount) ?? 0,
+                //TotalBillReceived = await Context.ReceivePayments.SumAsync(x => (double?)x.BillAmount) ?? 0,
 
                 //ProjectExtended = await Context.ProjectExtends.CountAsync(),
                 //ProjectProblem = await Context.ProjectProblems.CountAsync()
-
-
-
             };
             return await Task.Run(() => model);
         }

@@ -15,10 +15,14 @@
             var toastrType = '@getResponse.Type.ToString().ToLower()'; // e.g. "success", "error", etc.
 
             var toastrOptions = {
-                positionClass: 'toast-bottom-right',
+                positionClass: 'toast-top-right',
                 timeOut: 5000,
                 closeButton: true,
-                progressBar: true
+                progressBar: true,
+                onShown: function () {
+                    $('#toast-container > .toast').css('opacity', 1);
+                    $('#toast-container > .toast').css('box-shadow', 'none');
+                }
             };
 
             toastr.options = toastrOptions;

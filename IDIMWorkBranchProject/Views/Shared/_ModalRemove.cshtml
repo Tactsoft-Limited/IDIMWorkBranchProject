@@ -1,9 +1,9 @@
-﻿
-<div class="modal fade" id="modal-remove" tabindex="-1" role="dialog" aria-labelledby="modalRemoveLabel" aria-hidden="true">
+﻿<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="modalRemove" tabindex="-1" role="dialog" aria-labelledby="modalRemoveLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalRemoveLabel">Confirm Delete</h5>
+                <h5 class="modal-title" id="modalRemoveLabel" style="display: contents;">Confirm Delete</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -18,18 +18,15 @@
                         Warning: This action will permanently remove the record from the system. All associated data will be lost and cannot be recovered.
                     </p>
                 </div>
-                <form id="deleteForm" method="post">
+                <form id="deleteForm" action="" method="post">
                     @Html.AntiForgeryToken()
                     <input type="hidden" id="deleteId" name="id" />
-                    <input type="hidden" id="entityType" name="entity" />
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="submit" id="deleteButton" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" id="deleteButton" class="btn btn-danger">Delete</button>
             </div>
         </div>
-        
     </div>
 </div>
-

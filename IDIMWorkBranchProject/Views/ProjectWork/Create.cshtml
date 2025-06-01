@@ -125,8 +125,8 @@
     <script>
         function convertTobanglaWord() {
             const estimatedCost = parseFloat($('#EstimatedCost').val()) || 0;
-            const estimatedCostInWord = toWords(estimatedCost);
-            const estimatedCostInWordBangla = toWord(estimatedCost);
+            const estimatedCostInWord = getEnglishWord(estimatedCost);
+            const estimatedCostInWordBangla = getBanglaWord(estimatedCost);
             //const estimatedCostInWordBangla = getBanglaWord(estimatedCost);
             // Update the input fields with the calculated values
             $('#EstimatedCostInWord').val(estimatedCostInWord);

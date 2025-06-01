@@ -47,68 +47,276 @@
                 @using (Html.BeginForm("Edit", "ConstructionCompany", FormMethod.Post, new { enctype = "multipart/form-data", id = "ProjectDirector-create-form", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
-                    @Html.HiddenFor(x=>x.ConstructionCompanyId)
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.FirmName, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.FirmName, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.FirmName)
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.FirmNameB, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.FirmNameB, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.FirmNameB)
+                    @Html.HiddenFor(x => x.ConstructionCompanyId)
+                    @Html.HiddenFor(x => x.OwnerPicture)
+                    @Html.HiddenFor(x => x.AuthorizationLetter)
+                    @Html.HiddenFor(x => x.LicenceDocument)
+
+                    <div class="panel panel-info">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.FirmName, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.FirmName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FirmName)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.FirmNameB, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.FirmNameB, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FirmNameB)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.FirmContact, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.FirmContact, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FirmContact)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.FirmEmail, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.FirmEmail, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FirmEmail)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.FirmAddress, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextAreaFor(m => m.FirmAddress, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FirmAddress)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.FirmAddressB, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextAreaFor(m => m.FirmAddressB, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FirmAddressB)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.LicenceNumber, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.LicenceNumber, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.LicenceNumber)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.LicensingOrganization, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.LicensingOrganization, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.LicensingOrganization)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.LicenceCategory, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.LicenceCategory, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.LicenceCategory)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.IssueDate, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.IssueDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                                        @Html.ValidationMessageFor(model => model.IssueDate)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.ExpiryDate, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.ExpiryDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                                        @Html.ValidationMessageFor(model => model.ExpiryDate)
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.ContactPerson, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.ContactPerson, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ContactPerson)
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.ContactPersonB, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.ContactPersonB, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ContactPersonB)
+
+                    <div class="panel panel-info">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.OwnerName, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.OwnerName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.OwnerName)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.OwnerNameB, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.OwnerNameB, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.OwnerNameB)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.OwnerDesignation, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.OwnerDesignation, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.OwnerDesignation)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.OwnerDesignationB, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.OwnerDesignationB, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.OwnerDesignationB)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.OwnerPhone, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.OwnerPhone, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.OwnerPhone)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.OwnerEmail, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.OwnerEmail, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.OwnerEmail)
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.ContactPhone, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.ContactPhone, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ContactPhone)
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.Email, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Email)
+                    <div class="panel panel-info">
+                        <div class="panel-body">
+
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.FirstWitnessName, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.FirstWitnessName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FirstWitnessName)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.FirstWitnessNameB, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.FirstWitnessNameB, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FirstWitnessNameB)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.FirstWitnessDesignation, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.FirstWitnessDesignation, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FirstWitnessDesignation)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.FirstWitnessDesignationB, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.FirstWitnessDesignationB, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FirstWitnessDesignationB)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.SecondWitnessName, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.SecondWitnessName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.SecondWitnessName)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.SecondWitnessNameB, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.SecondWitnessNameB, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.SecondWitnessNameB)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.SecondWitnessDesignation, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.SecondWitnessDesignation, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.SecondWitnessDesignation)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.SecondWitnessDesignationB, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.SecondWitnessDesignationB, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.SecondWitnessDesignationB)
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.FirmAddress, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextAreaFor(m => m.FirmAddress, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.FirmAddress)
+
+                    <div class="panel panel-info">
+                        <div class="panel-body">
+
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.AuthorizedPersonName, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.AuthorizedPersonName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.AuthorizedPersonName)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.AuthorizedPersonNameDesignation, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.AuthorizedPersonNameDesignation, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.AuthorizedPersonNameDesignation)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.AuthorizedPersonNamePhone, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.AuthorizedPersonNamePhone, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.AuthorizedPersonNamePhone)
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.FirmAddressB, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextAreaFor(m => m.FirmAddressB, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.FirmAddressB)
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-body">
+                            <div class="row">
+                                <!-- File 1 -->
+                                <div class="col-md-4 col-sm-6 form-section">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.OwnerPictureFile, new { @class = "form-label" })
+                                        @Html.TextBoxFor(m => m.OwnerPictureFile, new { @class = "form-control", type = "file", accept = "image/jpeg, image/jpg, image/png", id = "imageFile" })
+                                        <small class="text-muted">Upload only JPG, JPEG, or PNG image files.</small>
+                                    </div>
+                                    <div class="preview-container" id="imagePreviewContainer">
+                                        <label>Preview:</label>
+                                        <img id="imagePreview" />
+                                    </div>
+                                </div>
+
+                                <!-- File 2 -->
+                                <div class="col-md-4 col-sm-6 form-section">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.LicenceDocumentFile, new { @class = "form-label" })
+                                        @Html.TextBoxFor(m => m.LicenceDocumentFile, new { @class = "form-control", type = "file", accept = "application/pdf", id = "pdfFileTwo" })
+                                        <small class="text-muted">Upload only PDF files.</small>
+                                    </div>
+                                    <div class="preview-container" id="previewContainerTwo">
+                                        <label>Preview:</label>
+                                        <iframe id="pdfPreviewTwo"></iframe>
+                                    </div>
+                                </div>
+
+                                <!-- File 3 -->
+                                <div class="col-md-4 col-sm-12 form-section">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.AuthorizationLetterFile, new { @class = "form-label" })
+                                        @Html.TextBoxFor(m => m.AuthorizationLetterFile, new { @class = "form-control", type = "file", accept = "application/pdf", id = "pdfFileThree" })
+                                        <small class="text-muted">Upload only PDF files.</small>
+                                    </div>
+                                    <div class="preview-container" id="previewContainerThree">
+                                        <label>Preview:</label>
+                                        <iframe id="pdfPreviewThree"></iframe>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -123,3 +331,65 @@
     </div>
 </section>
 
+
+@section styles {
+    <style>
+        .preview-container {
+            display: none;
+            margin-top: 10px;
+        }
+
+        iframe,
+        img {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #ccc;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+    </style>
+}
+
+@section scripts{
+
+    <script>
+        // Image Preview
+        document.getElementById('imageFile').addEventListener('change', function (event) {
+            var file = event.target.files[0];
+            if (file && file.type.match('image.*')) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    document.getElementById('imagePreview').src = reader.result;
+                    document.getElementById('imagePreviewContainer').style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                document.getElementById('imagePreviewContainer').style.display = 'none';
+            }
+        });
+
+        // PDF Previews
+        function handleFilePreview(inputId, previewId, containerId) {
+            var input = document.getElementById(inputId);
+            input.addEventListener('change', function (event) {
+                var file = event.target.files[0];
+                if (file && file.type === 'application/pdf') {
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        document.getElementById(previewId).src = reader.result;
+                        document.getElementById(containerId).style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    alert("Please select a valid PDF file.");
+                    document.getElementById(containerId).style.display = 'none';
+                }
+            });
+        }
+        handleFilePreview("pdfFileTwo", "pdfPreviewTwo", "previewContainerTwo");
+        handleFilePreview("pdfFileThree", "pdfPreviewThree", "previewContainerThree");
+
+    </script>
+}

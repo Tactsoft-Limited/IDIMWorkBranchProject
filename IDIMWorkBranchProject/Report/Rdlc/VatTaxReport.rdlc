@@ -4458,21 +4458,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>৪১১১১০১</Value>
-                                  <Style>
-                                    <FontFamily>SolaimanLipi</FontFamily>
-                                    <FontSize>11pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>(আবাসিক)</Value>
+                                  <Value>=Code.ConvertToBangla(Split(Fields!EconomicCode.Value, " ")(0)) &amp; vbCrLf &amp; Split(Fields!EconomicCode.Value, " ")(1)</Value>
                                   <Style>
                                     <FontFamily>SolaimanLipi</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -4697,7 +4683,14 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>ভাউচার নং-০১</Value>
+                                  <Value>ভাউচার নং- </Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Fields!VoucherNo.Value)</Value>
                                   <Style>
                                     <FontFamily>SolaimanLipi</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -4711,7 +4704,14 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>তারিখ ০৯-০১-২০২৪</Value>
+                                  <Value>তারিখ </Value>
+                                  <Style>
+                                    <FontFamily>SolaimanLipi</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>=Code.ConvertToBangla(Fields!BillSubmissionDate.Value)</Value>
                                   <Style>
                                     <FontFamily>SolaimanLipi</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -5477,7 +5477,7 @@
                             </TablixColumns>
                             <TablixRows>
                               <TablixRow>
-                                <Height>0.67599in</Height>
+                                <Height>0.43988in</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
@@ -5550,7 +5550,7 @@
                                 </TablixCells>
                               </TablixRow>
                               <TablixRow>
-                                <Height>1.03859in</Height>
+                                <Height>1.2747in</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>

@@ -7,6 +7,7 @@ using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
@@ -16,6 +17,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         protected readonly IFormalMeetingService _formalMeetingService;
         protected readonly IADPProjectService _aDPProjectService;
         protected readonly IMapper _mapper;
+        protected readonly string fileStorePath = "Documents/MeetingFile";
         public FormalMeetingController(IActivityLogService activityLogService, IFormalMeetingService formalMeetingService, IMapper mapper, IADPProjectService aDPProjectService) : base(activityLogService)
         {
             _formalMeetingService = formalMeetingService;
@@ -43,12 +45,25 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [HttpPost]
         public async Task<ActionResult> Create(FormalMeetingVm model)
         {
+            if (!ModelState.IsValid)
+            {
+                SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                return View(model);
+            }
             try
             {
-                if (!ModelState.IsValid)
+                string fileName = null;
+
+                // Upload new file if provided
+                if (model.MeetingDocumentFile != null && model.MeetingDocumentFile.ContentLength > 0)
                 {
-                    SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
-                    return View(model);
+                    fileName = HandleFileUpload(model.MeetingDocumentFile, model.MeetingDocument);
+                    if (string.IsNullOrEmpty(fileName))
+                    {
+                        SetResponseMessage("File upload failed", ResponseType.Error);
+                        return View(model);
+                    }
+                    model.MeetingDocument = fileName;
                 }
 
                 var entity = _mapper.Map<FormalMeeting>(model);
@@ -73,14 +88,28 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(FinancialYearAllocationVm model)
+        public async Task<ActionResult> Edit(FormalMeetingVm model)
         {
+            if (!ModelState.IsValid)
+            {
+                SetResponseMessage(DefaultMsg.InvalidValue, ResponseType.Error);
+                return View(model);
+            }
+
             try
             {
-                if (!ModelState.IsValid)
+                string fileName = null;
+
+                // Upload new file if provided
+                if (model.MeetingDocumentFile != null && model.MeetingDocumentFile.ContentLength > 0)
                 {
-                    SetResponseMessage(DefaultMsg.InvalidValue, ResponseType.Error);
-                    return View(model);
+                    fileName = HandleFileUpload(model.MeetingDocumentFile, model.MeetingDocument);
+                    if (string.IsNullOrEmpty(fileName))
+                    {
+                        SetResponseMessage("File upload failed", ResponseType.Error);
+                        return View(model);
+                    }
+                    model.MeetingDocument = fileName;
                 }
 
                 var entity = _mapper.Map<FormalMeeting>(model);
@@ -100,17 +129,32 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Delete(int id)
         {
+            var result = new FormalMeeting();
             try
             {
-                await _formalMeetingService.DeleteAsync(id);
+                result = await _formalMeetingService.DeleteAsync(id);
+                if (result != null)
+                {
+                    FileExtention.DeleteFile(result.MeetingDocument, fileStorePath);
+                }
                 SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Formal Meeting"), ResponseType.Success);
             }
             catch (Exception ex)
             {
                 SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Formal Meeting", ex.Message), ResponseType.Error);
             }
+            return RedirectToAction("Details", "ADPProject", new { id = result.ADPProjectId });
+        }
 
-            return RedirectToAction("List");
+        private string HandleFileUpload(HttpPostedFileBase file, string existingFileName)
+        {
+            if (file == null || file.ContentLength <= 0)
+                return null;
+
+            if (!string.IsNullOrWhiteSpace(existingFileName))
+                FileExtention.DeleteFile(existingFileName, fileStorePath);
+
+            return FileExtention.UploadFile(file, fileStorePath);
         }
     }
 }

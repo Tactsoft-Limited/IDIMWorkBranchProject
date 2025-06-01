@@ -1,6 +1,5 @@
 ﻿using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Data.Database;
-using IDIMWorkBranchProject.Extentions.Exceptions;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services.Base;
 using System.Collections.Generic;
@@ -78,7 +77,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
 
         public bool IsDuplicateProjectDirector(string name, int? id = null)
         {
-            return GetCount(x => x.ProjectDirectorName == name && (id.HasValue || x.ProjectDirectorId != id)) > 0;
+            return GetCount(x => x.ProjectDirectorName == name && (!id.HasValue || x.ProjectDirectorId != id)) > 0;
         }
     }
 }

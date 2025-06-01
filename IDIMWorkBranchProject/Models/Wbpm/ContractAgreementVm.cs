@@ -61,10 +61,10 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [Display(Name = "প্রকল্প পরিচালক")]
         public string ProjectDirectorName { get; set; }
 
-        [Display(Name = "পরিচালক")]
+        [Display(Name = "উপ-প্রকল্প পরিচালক")]
         public int? DirectorId { get; set; }
 
-        [Display(Name = "পরিচালক")]
+        [Display(Name = "উপ-প্রকল্প পরিচালক")]
         public string DirectorName { get; set; }
 
 

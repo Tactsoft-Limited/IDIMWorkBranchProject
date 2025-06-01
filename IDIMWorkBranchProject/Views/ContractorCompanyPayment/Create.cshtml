@@ -169,25 +169,22 @@
                         </fieldset>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.ProgressPer, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.ProgressPer, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ProgressPer)
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.ProgressAmount, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.ProgressAmount, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ProgressAmount)
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
                         <fieldset>
                             <legend>মন্ত্রণালয় হতে উত্তোলিত টাকার বিবরন :</legend>
-
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ProgressPer, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.ProgressPer, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProgressPer)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(m => m.ProgressAmount, new { @class = "col-md-4 form-label" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.ProgressAmount, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProgressAmount)
+                                </div>
+                            </div>
                             <div class="form-group col-md-6">
                                 @Html.LabelFor(m => m.ProgressTaxPer, new { @class = "col-md-4 form-label" })
                                 <div class="col-md-8">

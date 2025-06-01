@@ -29,7 +29,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public bool IsNoahCompleted { get; set; }
         public bool IsPerformanceSecuritySubmited { get; set; }
         public bool IsAgreementCompleted { get; set; }
-        public bool IsWorkOrderCompleted { get; set; }        
+        public bool IsWorkOrderCompleted { get; set; }
         public bool IsFinalBillSubmitted { get; set; }
 
         [DisplayName("লেটার নং")]
@@ -56,7 +56,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
 
         [DisplayName("ঠিকাদারি প্রতিষ্ঠান")]
-        public string FirmNameB { get; set; }       
+        public string FirmNameB { get; set; }
 
         [DisplayName("চুক্তির তারিখ")]
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
@@ -120,6 +120,8 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public List<ContractorCompanyPaymentVm> ContractorCompanyPayments { get; set; }
         public List<FinalBillPaymentVm> FinalBillPayments { get; set; }
         public List<FurnitureBillPaymentVm> FurnnitureBillPayments { get; set; }
+        public List<CollateralReturnVm> CollateralReturns { get; set; }
+        public List<HandoverApprovedVm> HandoverApproveds { get; set; }
 
     }
 }
