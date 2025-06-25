@@ -90,6 +90,13 @@ namespace IDIMWorkBranchProject.Services.Report
                 .Where(x => x.RevenueId == id)
                 .ToListAsync();
         }
+
+        public async Task<List<ViewRevenueWorkOrder>> GetRevenueWorkOrderAsync(int id)
+        {
+            return await _context.ViewRevenueWorkOrders
+                .Where(x => x.RevenueId == id)
+                .ToListAsync();
+        }
         #endregion
     }
 }

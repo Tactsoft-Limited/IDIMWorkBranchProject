@@ -20,6 +20,7 @@ namespace IDIMWorkBranchProject.Services.Report
         Task<List<VatTaxCollateral>> GetVatTaxByProjectIdAsync(int id);
         Task<List<ViewHandoverApproved>> GetHandoverApprovedAsync(int id);
         Task<List<ViewRevenueContractAgreement>> GetRevenueReportAsync(int id);
+        Task<List<ViewRevenueWorkOrder>> GetRevenueWorkOrderAsync(int id);
     }
 }
 
