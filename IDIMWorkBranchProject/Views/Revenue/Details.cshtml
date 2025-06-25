@@ -199,6 +199,10 @@
                                 <td>@item.RevenueWorkOrderEndDate</td>
                                 <td>@item.RevenueWorkOrderScanDocument</td>
                                 <td>
+                                    <a href="@Url.Action("PrintRevenueWorkOrder", "Report", new { id = Model.RevenueDetail.RevenueId })" class="btn btn-success btn-xs pull-right mt-2 mb-2 @(Model.RevenueDetail.IsAgreementCompleted ? "" : "disabled")"
+                                       @(Model.RevenueDetail.IsAgreementCompleted ? "" : "onclick='return false;'")>
+                                        <i class="fa fa-print"></i>রাজস্ব কার্যাদেশ  প্রিন্ট করুণ
+                                    </a>
                                     <a href="@Url.Action("Edit", "RevenueWorkOrder", new { id = item.RevenueWorkOrderId })" class="btn btn-primary btn-xs">
                                         <i class="fa fa-pencil-square-o"></i> সংশোধন
                                     </a>
