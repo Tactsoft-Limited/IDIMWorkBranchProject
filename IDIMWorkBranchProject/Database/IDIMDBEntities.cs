@@ -289,6 +289,7 @@ namespace IDIMWorkBranchProject.Data.Database
 
         #region revenue sql views
         public virtual DbSet<ViewRevenueContractAgreement> ViewRevenueContractAgreements { get; set; }
+        public virtual DbSet<ViewRevenueWorkOrder> ViewRevenueWorkOrders { get; set; }
 
         #endregion
 
