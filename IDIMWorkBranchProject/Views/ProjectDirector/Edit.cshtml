@@ -6,7 +6,6 @@
     ViewBag.Title = "Edit";
 }
 
-
 <div class="page-title">
     <div class="pull-left">
         <h3 class="title">প্রকল্প পরিচালক</h3>
@@ -48,56 +47,54 @@
                     @Html.AntiForgeryToken()
 
                     @Html.HiddenFor(x => x.ProjectDirectorId)
+                    @Html.HiddenFor(x => x.ADPProjectId)
                     @Html.HiddenFor(x => x.PDDocument)
-
 
                     <div class="row">
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.ProjectDirectorName, new { @class = "col-md-2 form-label" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(m => m.ProjectDirectorName, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
                                 @Html.TextBoxFor(m => m.ProjectDirectorName, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.ProjectDirectorName)
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.ProjectDirectorNameB, new { @class = "col-md-2 form-label" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(m => m.ProjectDirectorNameB, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
                                 @Html.TextBoxFor(m => m.ProjectDirectorNameB, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.ProjectDirectorNameB)
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.Designation, new { @class = "col-md-2 form-label" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(m => m.Designation, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
                                 @Html.TextBoxFor(m => m.Designation, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.Designation)
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.DesignationB, new { @class = "col-md-2 form-label" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(m => m.DesignationB, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
                                 @Html.TextBoxFor(m => m.DesignationB, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.DesignationB)
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.JoiningDate, new { @class = "col-md-2 form-label" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(m => m.JoiningDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                            @Html.LabelFor(m => m.JoiningDate, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.JoiningDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
                                 @Html.ValidationMessageFor(model => model.JoiningDate)
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.TransferDate, new { @class = "col-md-2 form-label" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(m => m.TransferDate, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                            @Html.LabelFor(m => m.TransferDate, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.TransferDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
                                 @Html.ValidationMessageFor(model => model.TransferDate)
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.IsActive, new { @class = "col-md-2 form-label" })
+                            @Html.LabelFor(m => m.IsActive, new { @class = "col-md-3 form-label" })
                             <div class="col-md-9">
                                 @Html.CheckBoxFor(m => m.IsActive, new { @class = "form-check-input" })
                                 @Html.ValidationMessageFor(model => model.IsActive)
@@ -107,14 +104,20 @@
 
                     <div class="row">
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.PDDocumentFile, new { @class = "col-md-2 form-label" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(m => m.PDDocumentFile, new { @class = "form-control", type = "file", accept = ".pdf" })
+                            @Html.LabelFor(m => m.PDDocumentFile, new { @class = "col-md-3 form-label" })
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(m => m.PDDocumentFile, new { @class = "form-control", type = "file", accept = ".pdf", id = "pdfInput" })
                                 @Html.ValidationMessageFor(model => model.PDDocumentFile)
+                                @if (!string.IsNullOrEmpty(Model.PDDocument))
+                                {
+                                    <div class="help-block">
+                                        Current file: @Model.PDDocument
+                                    </div>
+                                }
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <div id="pdfPreview" style="height: 500px; border: 1px solid #ccc; display: none;">
+                            <div id="pdfPreviewContainer" style="height: 500px; border: 1px solid #ccc;">
                                 <iframe id="pdfViewer" style="width: 100%; height: 100%;" frameborder="0"></iframe>
                             </div>
                         </div>
@@ -132,29 +135,58 @@
 
 @section scripts{
     <script>
-        // Listen for file selection
-        document.getElementById('pdfInput').addEventListener('change', function (event) {
-            var file = event.target.files[0];
-
-            // Only proceed if the selected file is a PDF
-            if (file && file.type === 'application/pdf') {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    // Display the preview by setting the iframe source
-                    var pdfViewer = document.getElementById('pdfViewer');
-                    pdfViewer.src = e.target.result;
-
-                    // Show the preview div
-                    document.getElementById('pdfPreview').style.display = 'block';
-                };
-
-                // Read the file as a data URL
-                reader.readAsDataURL(file);
-            } else {
-                // Hide the preview if the file is not a PDF
-                document.getElementById('pdfPreview').style.display = 'none';
+        $(document).ready(function() {
+            // Load existing PDF on page load if available
+            @if (!string.IsNullOrEmpty(Model.PDDocument))
+            {
+                <text>
+                var existingPdfUrl = '@Url.Content("~/Documents/ProjectDirectorFiles/" + Model.PDDocument)';
+                $('#pdfViewer').attr('src', existingPdfUrl);
+                </text>
             }
+            else
+            {
+                <text>
+                $('#pdfPreviewContainer').hide();
+                </text>
+            }
+
+            // Handle new file selection
+            $('#pdfInput').change(function(event) {
+                var file = event.target.files[0];
+                var pdfPreviewContainer = $('#pdfPreviewContainer');
+                var pdfViewer = $('#pdfViewer');
+
+                if (file && file.type === 'application/pdf') {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        pdfViewer.attr('src', e.target.result);
+                        pdfPreviewContainer.show();
+                    };
+
+                    reader.readAsDataURL(file);
+                } else if (file) {
+                    alert('Please select a PDF file.');
+                    $(this).val('');
+                    pdfPreviewContainer.hide();
+                } else {
+                    // No file selected - show existing PDF if available
+                    @if (!string.IsNullOrEmpty(Model.PDDocument))
+                    {
+                        <text>
+                        pdfViewer.attr('src', existingPdfUrl);
+                        pdfPreviewContainer.show();
+                        </text>
+                    }
+                    else
+                    {
+                        <text>
+                        pdfPreviewContainer.hide();
+                        </text>
+                    }
+                }
+            });
         });
     </script>
 }

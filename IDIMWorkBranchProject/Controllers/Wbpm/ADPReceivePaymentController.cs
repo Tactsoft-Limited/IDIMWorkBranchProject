@@ -3,6 +3,7 @@ using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.ReportHealper;
 using IDIMWorkBranchProject.Extentions.ReportHelper;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Report;
@@ -95,26 +96,27 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ADPReceivePaymentVm model)
         {
+            if (!ModelState.IsValid)
+            {
+                TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                return View(model);
+            }
+
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
-                    model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
-                    model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
-                    model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
-                    model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
-                    return View(model);
-                }
 
                 var entity = _mapper.Map<ADPReceivePayment>(model);
-                await _aDPReceivePaymentService.CreateAsync(entity);
-                TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+                var result = await _aDPReceivePaymentService.CreateAsync(entity);
+                SetResponseMessage(string.Format(DefaultMsg.SaveSuccess, "Receive Payment"), ResponseType.Success);
+                return RedirectToAction("Details", "ProjectWork", new { id = model.ProjectWorkId });
             }
             catch (Exception exception)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Receive Payment", exception.Message), ResponseType.Error);
                 model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
                 model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
                 model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
@@ -132,7 +134,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
             model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
             model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
-            //model.ConstructionFirm = projectWork.ConstructionCompany.FirmName;
+            model.ConstructionFirm = projectWork.ContractAgreements.Where(x => x.ProjectWorkId == projectWork.ProjectWorkId).Select(x => x.ConstructionCompany.FirmName).FirstOrDefault();
             model.EstimatedCost = projectWork.EstimatedCost;
 
             return View(model);
@@ -142,26 +144,26 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(ADPReceivePaymentVm model)
         {
+            if (!ModelState.IsValid)
+            {
+                SetResponseMessage(DefaultMsg.InvalidValue, ResponseType.Error);
+                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                return View(model);
+            }
+
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
-                    model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
-                    model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
-                    model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
-                    model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
-                    return View(model);
-                }
-
                 var entity = _mapper.Map<ADPReceivePayment>(model);
-                await _aDPReceivePaymentService.UpdateAsync(entity);
-                TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+                var result = await _aDPReceivePaymentService.UpdateAsync(entity);
+                SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, "Receive Payment"), ResponseType.Success);
+                return RedirectToAction("Details", "ProjectWork", new { id = model.ProjectWorkId });
             }
             catch (Exception exception)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                SetResponseMessage(string.Format(DefaultMsg.UpdateFailed, "Receive Payment", exception.Message), ResponseType.Error);
                 model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
                 model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
                 model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
@@ -171,45 +173,21 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         }
 
 
-        //public async Task<ActionResult> Delete(int id)
-        //{
-        //    var entity = await _aDPReceivePaymentService.GetByIdAsync(id);
-
-        //    if (entity == null)
-        //    {
-        //        TempData["Message"] = "The requested record was not found.";
-        //        return RedirectToAction("details/" + entity.ProjectWorkId, "ProjectWork");
-        //    }
-
-        //    var model = _mapper.Map<ADPReceivePaymentVm>(entity);
-        //    return View(model); // Load the delete confirmation view
-        //}
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> DeleteConfirmed(ADPReceivePaymentVm model)
-        //{
-        //    var entity = await _aDPReceivePaymentService.GetByIdAsync(model.ADPReceivePaymentId);
-        //    try
-        //    {
-
-        //        if (entity == null)
-        //        {
-        //            TempData["Message"] = "Record Not Found";
-        //            return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork");
-        //        }
-
-        //        await _aDPReceivePaymentService.DeleteAsync(entity);
-
-        //        TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
-        //        return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork");
-        //    }
-        //    catch (Exception exception)
-        //    {
-        //        TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
-        //        return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork"); // Avoids null reference
-        //    }
-        //}
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                await _aDPReceivePaymentService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Receive Payment"), ResponseType.Success);
+            }
+            catch (Exception ex)
+            {
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Receive Payment", ex.Message), ResponseType.Error);
+            }
+            return RedirectToAction("Index");
+        }
 
         public async Task<ActionResult> PrintADPReceivePayment(int id, string type)
         {
@@ -238,9 +216,6 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 throw new InvalidOperationException("An error occurred while generating the report.", exception);
             }
         }
-
-
-
 
     }
 }

@@ -1,8 +1,6 @@
 ﻿using FluentValidation.Attributes;
 using IDIMWorkBranchProject.Models.Validation.Wbpm;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {

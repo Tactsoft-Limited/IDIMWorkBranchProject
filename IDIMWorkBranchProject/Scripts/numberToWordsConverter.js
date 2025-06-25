@@ -4,7 +4,7 @@
  * @returns {string} - The word representation of the given number.
  */
 
-function toWords(number) {
+function getEnglishWord(number) {
     if (number < 0) return false;
 
     // Arrays to hold words for single-digit, double-digit, and below-hundred numbers

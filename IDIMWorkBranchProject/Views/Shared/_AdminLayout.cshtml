@@ -24,7 +24,9 @@
     @Styles.Render("~/Content/vectormap")
     @Styles.Render("~/Content/form")
     @Styles.Render("~/Content/datatable")
+
     @RenderSection("styles", required: false)
+
     @Styles.Render("~/Content/dashboard")
     @Styles.Render("~/Content/commstore")
     @Scripts.Render("~/bundles/modernizr")
@@ -60,23 +62,44 @@
     @Scripts.Render("~/bundles/datatable")
     @Scripts.Render("~/bundles/commstore")
     <script>var baseUrl = "/wbpm"</script>
-   
+
 
     @RenderSection("scripts", required: false)
 
+    @Html.Partial("_ModalResponse")
     <script>
         $(document).ready(function () {
-        var items = $('#main-menu-wrapper li a');
-        $.each(items,
-            function(i) {
-                var link = this.href;
-                var controllerName = link.split('/')[3];
-                if ('@currentControllerName'.toLowerCase() == controllerName.toLowerCase()) {
-                    $(this).parent().addClass("open");
-                }
+            // Function to open the modal and set the ID and entity type
+            $(document).on('click', '.removeModal', function (event) {
+                var entityId = $(this).data("id");
+                var entityName = $(this).data("entity"); // e.g., "Country", "User"
+                var modal = $("#modalRemove");
+
+                $('#deleteId').val(entityId);
+                $('#deleteForm').attr("action", baseUrl + "/"+ entityName + '/Delete');
+
+                modal.modal('show');
             });
+
+            // Submit form on delete button click
+            $("#deleteButton").on('click', function () {
+                $("#deleteForm").trigger('submit');
+            });
+
+
+        // ===== Highlight active menu item by controller name =====
+        var items = $('#main-menu-wrapper li a');
+        $.each(items, function (i) {
+            var link = this.href;
+            var controllerName = link.split('/')[3];
+            if ('@currentControllerName'.toLowerCase() === controllerName.toLowerCase()) {
+                $(this).parent().addClass("open");
+            }
+        });
+
     });
     </script>
+
 </body>
 </html>
 

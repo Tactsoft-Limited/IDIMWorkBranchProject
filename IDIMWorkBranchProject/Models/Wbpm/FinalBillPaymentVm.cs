@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
-    public class FinalBillPaymentVm 
-    { 
+    public class FinalBillPaymentVm
+    {
         public FinalBillPaymentVm()
         {
             BGBFundDropdown = new List<SelectListItem>();
@@ -27,6 +24,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [Display(Name = "চূড়ান্ত পরিমাপ অনুযায়ী মোট পরিমাণ")]
         public decimal NetAmountAsPerFinalMeasurement { get; set; }
+
         [Display(Name = "লেটার নং")]
         public string LetterNo { get; set; }
 
@@ -95,7 +93,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public string RemainingDepositsInBgbFundWordB { get; set; }
 
         [DisplayName("প্রধান সহকারী")]
-        public int? HeadAssistantId { get; set; }     
+        public int? HeadAssistantId { get; set; }
 
 
         [DisplayName("ইঞ্জিনিয়ার আইসি")]
@@ -105,7 +103,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public int? SectionICId { get; set; }
 
         [DisplayName("শাখা করনিক")]
-        public int? BranchClerkId { get; set; }       
+        public int? BranchClerkId { get; set; }
 
         #region navigation property
         public IEnumerable<SelectListItem> BGBFundDropdown { get; set; }

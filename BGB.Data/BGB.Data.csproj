@@ -69,6 +69,7 @@
     <Compile Include="Entities\Wbpm\FinalBillPayment.cs" />
     <Compile Include="Entities\Wbpm\FurnitureBillPayment.cs" />
     <Compile Include="Entities\Wbpm\HandoverApproved.cs" />
+    <Compile Include="Entities\Wbpm\Notification.cs" />
     <Compile Include="Entities\Wbpm\ProjectWorkStatus.cs" />
     <Compile Include="Entities\Wbpm\PerformanceSecurity.cs" />
     <Compile Include="Entities\Wbpm\Revenue\Revenue.cs" />

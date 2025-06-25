@@ -40,8 +40,14 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("আসবাবপত্র কি অন্তর্ভুক্ত?")]
         public bool IsFurnitureIncluded { get; set; }
 
+        public bool IsNoahCompleted { get; set; }
+        public bool IsPerformanceSecuritySubmited { get; set; }
+        public bool IsAgreementCompleted { get; set; }
+        public bool IsWorkOrderCompleted { get; set; }
+        public bool IsFinalBillSubmitted { get; set; }
+
         [DisplayName("মন্তব্য")]
-        public string Remarks { get; set; }        
+        public string Remarks { get; set; }
 
         public DateTime? AgreementDate { get; set; }
         public DateTime? WorkStartDate { get; set; }

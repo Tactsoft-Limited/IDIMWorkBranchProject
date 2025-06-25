@@ -13,16 +13,6 @@ namespace IDIMWorkBranchProject.Models.User
 
         public int ApplicationId { get; set; }
 
-        public int CreatedUser { get; set; }
-
-        public DateTime CreatedDateTime { get; set; }
-
-        public int? UpdatedUser { get; set; }
-
-        public DateTime? UpdatedDateTime { get; set; }
-
-        public int UpdateNo { get; set; }
-
         [Display(Name = "Type")]
         public MenuType MenuType { get; set; }
 

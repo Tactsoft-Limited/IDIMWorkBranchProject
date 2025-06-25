@@ -74,5 +74,10 @@ namespace IDIMWorkBranchProject.Services.Wbpm
 
             return result;
         }
+
+        public bool IsDuplicateProjectDirector(string name, int? id = null)
+        {
+            return GetCount(x => x.ProjectDirectorName == name && (!id.HasValue || x.ProjectDirectorId != id)) > 0;
+        }
     }
 }

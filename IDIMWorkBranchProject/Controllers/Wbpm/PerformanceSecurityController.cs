@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -70,103 +69,71 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             }
             return View(model);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(PerformanceSecurityVm model)
         {
-            var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
-            string fileName = null;
+            if (!ModelState.IsValid)
+            {
+                SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                return View(model);
+            }
+
             try
             {
+                var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
+                string fileName = null;
+
+                // Upload new file if provided
+                if (model.DocumentFile != null && model.DocumentFile.ContentLength > 0)
+                {
+                    fileName = HandleFileUpload(model.DocumentFile, model.ScanDocument);
+                    if (string.IsNullOrEmpty(fileName))
+                    {
+                        SetResponseMessage("File upload failed", ResponseType.Error);
+                        return View(model);
+                    }
+                    model.ScanDocument = fileName;
+                }
+
                 if (model.PerformanceSecurityId > 0)
                 {
-                    if (model.DocumentFile != null && model.DocumentFile.ContentLength > 0)
-                    {
-                        //delete existing file
-                        FileExtention.DeleteFile(model.ScanDocument, fileStorePath);
-
-                        fileName = FileExtention.UploadFile(model.DocumentFile, fileStorePath);
-                        if (fileName != null)
-                        {
-                            model.ScanDocument = fileName;
-                        }
-                        else
-                        {
-                            TempData["Message"] = Messages.FileUploadFailed(MessageType.Create.ToString());
-                            return View(model);
-                        }
-                    }
                     await _performanceSecurityService.UpdateAsync(_mapper.Map<PerformanceSecurity>(model));
-                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());
+                    SetResponseMessage(string.Format(DefaultMsg.SaveSuccess, "Performance Security"), ResponseType.Success);
                 }
                 else
                 {
-                    if (model.DocumentFile != null && model.DocumentFile.ContentLength > 0)
-                    {
-                        fileName = FileExtention.UploadFile(model.DocumentFile, fileStorePath);
-                        if (fileName != null)
-                        {
-                            model.ScanDocument = fileName;
-                        }
-                        else
-                        {
-                            TempData["Message"] = Messages.FileUploadFailed(MessageType.Create.ToString());
-                            return View(model);
-                        }
-                        await _performanceSecurityService.CreateAsync(_mapper.Map<PerformanceSecurity>(model));
-                        projectWork.IsPerformanceSecuritySubmited = true;
-                        await _projectWorkService.UpdateAsync(projectWork);
-                        TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                    }
+                    await _performanceSecurityService.CreateAsync(_mapper.Map<PerformanceSecurity>(model));
+                    projectWork.IsPerformanceSecuritySubmited = true;
+                    await _projectWorkService.UpdateAsync(projectWork);
+                    SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, "Performance Security"), ResponseType.Success);
                 }
-                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+                return RedirectToAction("Details", "ProjectWork", new { id = model.ProjectWorkId });
             }
             catch (Exception exception)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), $"An error occurred while processing your request.{exception.InnerException.Message}");
+                SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, "Performance Security", exception.Message), ResponseType.Error);
                 return View(model);
             }
 
         }
 
-        public async Task<ActionResult> Delete(int id)
-        {
-            var entity = await _performanceSecurityService.GetByIdAsync(id);
-
-            if (entity == null)
-            {
-                TempData["Message"] = "The requested record was not found.";
-                return RedirectToAction("details/" + entity.ProjectWorkId, "ProjectWork");
-            }
-
-            var model = _mapper.Map<PerformanceSecurityVm>(entity);
-            model.ProjectWorkTitleB = await _projectWorkService.GetProjectWorkTitle(entity.ProjectWorkId);
-            return View(model); // Load the delete confirmation view
-        }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(PerformanceSecurityVm model)
+        public async Task<ActionResult> Delete(int id)
         {
-            var entity = await _performanceSecurityService.GetByIdAsync(model.PerformanceSecurityId);
             try
             {
-
-                if (entity == null)
-                {
-                    TempData["Message"] = "Record Not Found";
-                    return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjetWork");
-                }
-
-                await _performanceSecurityService.DeleteAsync(entity);
-
-                TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
-                return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork");
+                await _performanceSecurityService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Performance Security"), ResponseType.Success);
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
-                return RedirectToAction("Details/" + entity.ProjectWorkId, "ProjectWork"); // Avoids null reference
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Performance Security", ex.Message), ResponseType.Error);
             }
+
+            return RedirectToAction("List");
         }
 
         public ActionResult PreviewDocument(string fileName)
@@ -184,6 +151,17 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 return HttpNotFound(); // Return 404 if the file doesn't exist
             }
+        }
+
+        private string HandleFileUpload(HttpPostedFileBase file, string existingFileName)
+        {
+            if (file == null || file.ContentLength <= 0)
+                return null;
+
+            if (!string.IsNullOrWhiteSpace(existingFileName))
+                FileExtention.DeleteFile(existingFileName, fileStorePath);
+
+            return FileExtention.UploadFile(file, fileStorePath);
         }
     }
 }

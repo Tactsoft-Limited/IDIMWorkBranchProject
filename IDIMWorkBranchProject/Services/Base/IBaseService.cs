@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace IDIMWorkBranchProject.Services.Base
@@ -13,5 +15,6 @@ namespace IDIMWorkBranchProject.Services.Base
         Task<TEntity> UpdateAsync(TEntity entity);
         Task<TEntity> DeleteAsync(object id);
         Task<TEntity> DeleteAsync(TEntity entity);
+        int GetCount(Expression<Func<TEntity, bool>> filter);
     }
 }

@@ -21,7 +21,6 @@ namespace IDIMWorkBranchProject.Models.Validation.Wbpm
             RuleFor(x => x.TransferDate)
                 .GreaterThan(x => x.JoiningDate).When(x => x.TransferDate.HasValue)
                 .WithMessage("বদলীর তারিখ যোগদান তারিখের পরে হতে হবে।");
-
         }
     }
 }

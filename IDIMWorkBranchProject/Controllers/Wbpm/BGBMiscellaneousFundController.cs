@@ -3,6 +3,7 @@ using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
 using IDIMWorkBranchProject.Extentions.ReportHealper;
 using IDIMWorkBranchProject.Extentions.ReportHelper;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Report;
@@ -120,7 +121,6 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
             return View(model);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateOrEdit(BGBMiscellaneousFundVm model)
@@ -130,21 +130,40 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 if (model.FundId > 0)
                 {
                     await _bGBMiscellaneousFundService.UpdateAsync(_mapper.Map<BGBMiscellaneousFund>(model));
-                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());
+                    SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, "Fund"), ResponseType.Success);
                 }
                 else
                 {
                     await _bGBMiscellaneousFundService.CreateAsync(_mapper.Map<BGBMiscellaneousFund>(model));
-                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                    SetResponseMessage(string.Format(DefaultMsg.SaveSuccess, "Fund"), ResponseType.Success);
                 }
 
-                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+                return RedirectToAction("Details", "ProjectWork", new { id = model.ProjectWorkId });
             }
             catch (Exception ex)
             {
-                throw ex;
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Receive Payment", ex.Message), ResponseType.Error);
+                return View(model);
             }
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                await _bGBMiscellaneousFundService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Fund"), ResponseType.Success);
+            }
+            catch (Exception ex)
+            {
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Fund", ex.Message), ResponseType.Error);
+            }
+            return RedirectToAction("Index");
+        }
+
         public async Task<ActionResult> PrintBGBMiscellaneousFundReport(int id, string type)
         {
             try

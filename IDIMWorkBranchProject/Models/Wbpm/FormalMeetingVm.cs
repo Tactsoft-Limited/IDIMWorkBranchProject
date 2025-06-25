@@ -21,7 +21,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("মিটিং শিরোনাম")]
         public string MeetingTitle { get; set; }
 
-        [DisplayName("মিটিং সংখ্যা")]
+        [DisplayName("মিটিং সংখ্যা (English)")]
         public int NumberOfMeeting { get; set; }
 
         [DisplayName("মিটিং তারিখ")]
@@ -30,7 +30,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("মিটিং ডকুমেন্ট")]
         public string MeetingDocument { get; set; }
 
-        [DisplayName("আপলোড মিটিং ডকুমেন্ট")]
+        [DisplayName("আপলোড ডকুমেন্ট")]
         public HttpPostedFileBase MeetingDocumentFile { get; set; }
     }
 }

@@ -7,7 +7,7 @@
 }
 <div class="page-title">
     <div class="pull-left">
-        <h3 class="title"</h3>
+        <h3 class="title"></h3>
     </div>
     <div class="pull-right hidden-xs">
         <ol class="breadcrumb">
@@ -49,58 +49,58 @@
                     @Html.HiddenFor(x => x.ScanDocument)
 
 
-                <div class="row">
-                    <div class="form-display col-md-12">
-                        @Html.LabelFor(m => m.ProjectWorkTitleB, new { @class = "form-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.ProjectWorkTitleB, new { @class = "form-control", @readonly = "readonly" })
+                    <div class="row">
+                        <div class="form-display col-md-12">
+                            @Html.LabelFor(m => m.ProjectWorkTitleB, new { @class = "form-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.ProjectWorkTitleB, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group col-md-6">
-                        @Html.LabelFor(m => m.LetterNo, new { @class = "col-md-4 form-label" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.LetterNo, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.LetterNo)
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.LetterNo, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.LetterNo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.LetterNo)
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group col-md-6">
-                        @Html.LabelFor(m => m.NohaDate, new { @class = "col-md-4 form-label" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.NohaDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
-                            @Html.ValidationMessageFor(model => model.NohaDate)
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.NohaDate, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.NohaDate, "{0:dd-MMM-yyyy}", new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(model => model.NohaDate)
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group col-md-6">
-                        @Html.LabelFor(m => m.DocumentFile, new { @class = "col-md-3 form-label" })
-                        <div class="col-md-9">
-                            @if (!string.IsNullOrEmpty(Model.ScanDocument))
-                            {
-                                <!-- PDF Preview Section -->
-                                <embed id="pdfPreview"
-                                       src="@Url.Content("~/Documents/NohaFiles/" + Model.ScanDocument)"
-                                       type="application/pdf"
-                                       width="100"
-                                       height="100" />
-                                <p>
-                                    <a id="pdfLink" href="@Url.Content("~/Documents/NohaFiles/" + Model.ScanDocument)" target="_blank">
-                                        View Full PDF
-                                    </a>
-                                </p>
-                            }
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.DocumentFile, new { @class = "col-md-4 form-label" })
+                            <div class="col-md-8">
+                                @if (!string.IsNullOrEmpty(Model.ScanDocument))
+                                {
+                                    <!-- PDF Preview Section -->
+                                    <embed id="pdfPreview"
+                                           src="@Url.Content("~/Documents/NohaFiles/" + Model.ScanDocument)"
+                                           type="application/pdf"
+                                           width="100"
+                                           height="100" />
+                                    <p>
+                                        <a id="pdfLink" href="@Url.Content("~/Documents/NohaFiles/" + Model.ScanDocument)" target="_blank">
+                                            View Full PDF
+                                        </a>
+                                    </p>
+                                }
 
-                            <!-- PDF Upload Input -->
-                            @Html.TextBoxFor(m => m.DocumentFile, new
-                            {
-                                @class = "form-control",
-                                type = "file",
-                                accept = ".pdf",
-                                id = "pdfInput",
-                                onchange = "previewPDF(event)"
-                            })
+                                <!-- PDF Upload Input -->
+                                @Html.TextBoxFor(m => m.DocumentFile, new
+                                {
+                                    @class = "form-control",
+                                    type = "file",
+                                    accept = ".pdf",
+                                    id = "pdfInput",
+                                    onchange = "previewPDF(event)"
+                                })
+                            </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
 
                     <div class="pull-right">
                         <input type="submit" class="btn btn-success" value="Save" />
@@ -121,8 +121,6 @@
                 document.getElementById('pdfLink').href = fileURL;
             }
         }
-        
-
     </script>
 }
 

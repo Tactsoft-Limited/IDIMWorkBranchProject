@@ -95,7 +95,7 @@ namespace IDIMWorkBranchProject.Controllers.Report
             return View();
         }
 
-        public async Task<ActionResult> PrintContactAgreement(int id)
+        public async Task<ActionResult> PrintContactAgreement(int id, string type)
         {
 
             try
@@ -109,7 +109,9 @@ namespace IDIMWorkBranchProject.Controllers.Report
 
                 var config = new ReportConfig
                 {
-                    ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "ContractAgreementReport.rdlc")
+                    ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "ContractAgreementReport.rdlc"),
+                    ReportType = type,
+                    DeviceInfo = new Extentions.ReportHelper.DeviceInfo(type).LegalPortrait(),
                 };
 
                 return new ReportResult(config, reportDataSource);
@@ -124,7 +126,7 @@ namespace IDIMWorkBranchProject.Controllers.Report
         }
 
 
-        public async Task<ActionResult> PrintWorkOrder(int id)
+        public async Task<ActionResult> PrintWorkOrder(int id, string type)
         {
 
             try
@@ -139,6 +141,8 @@ namespace IDIMWorkBranchProject.Controllers.Report
                 var config = new ReportConfig
                 {
                     ReportFilePath = Path.Combine(Server.MapPath("~/Report/rdlc"), "ViewWorkOrderReport.rdlc"),
+                    ReportType = type,
+                    DeviceInfo = new Extentions.ReportHelper.DeviceInfo(type).Portrait(),
                 };
 
                 return new ReportResult(config, reportDataSource);
@@ -243,12 +247,12 @@ namespace IDIMWorkBranchProject.Controllers.Report
 
             try
             {
-                var data = await _reportService.GetHandoverApprovedAsync(id);              
+                var data = await _reportService.GetHandoverApprovedAsync(id);
 
                 var reportDataSource = new List<ReportDataSource>
                 {
                     new ReportDataSource("DsHandoverApproved", data)
-                    
+
                 };
 
                 var config = new ReportConfig

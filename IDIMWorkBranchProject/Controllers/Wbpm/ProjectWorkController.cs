@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
@@ -82,10 +83,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             var noha = _mapper.Map<NohaVm>(await _nohaService.GetByProjectWorkIdAsync(id));
             var performanceSecurity = _mapper.Map<PerformanceSecurityVm>(await _performanceSecurityService.GetByProjectWorkIdAsync(id));
             var contractAgreement = _mapper.Map<ContractAgreementVm>(await _contractAgreementService.GetByProjectWorkIdAsync(id));
-            var workOrder = _mapper.Map<WorkOrderVm>(await _workOrderService.GetByProjectWorkIdAsync(id));
             var projectWorkStatus = _mapper.Map<ProjectWorkStatusVm>(await _projectWorkStatusService.GetByProjectWorkIdAsync(id));
-            var collateralReturn = _mapper.Map<CollateralReturnVm>(await _collateralReturnService.GetByProjectWorkIdAsync(id));
-            var handoverApproved = _mapper.Map<HandoverApprovedVm>(await _handoverApprovedService.GetByProjectWorkIdAsync(id));
 
             // Building the model
             var model = new ProjectWorkDetailsVm
@@ -114,16 +112,14 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 ProjectWorkStatus = projectWorkStatus?.ProjectWorkStatusId, // Null-safe access
                 IsFinalBillSubmitted = projectWorks.IsFinalBillSubmitted,
                 IsFurnitureIncluded = projectWorks.IsFurnitureIncluded,
-                CollateralLetterNo = collateralReturn?.LetterNo,
-                HandoverApprovedLetterNo = handoverApproved?.LetterNo,
-
 
                 WorkOrderList = _mapper.Map<List<WorkOrderVm>>(await _workOrderService.GetAllByProjectWorkIdAsync(id)),
                 ADPReceivePayments = _mapper.Map<List<ADPReceivePaymentVm>>(await _ADPReceivePaymentService.GetByProjectWorkIdAsync(id)),
                 ContractorCompanyPayments = _mapper.Map<List<ContractorCompanyPaymentVm>>(await _contractorCompanyPaymentService.GetByAllProjectWorkAsync(id)),
                 FinalBillPayments = _mapper.Map<List<FinalBillPaymentVm>>(await _finalBillPaymentService.GetAllByProjectWorkIdAsync(id)),
                 FurnnitureBillPayments = _mapper.Map<List<FurnitureBillPaymentVm>>(await _furnitureBillPaymentService.GetAllByProjectWorkIdAsync(id)),
-
+                CollateralReturns = _mapper.Map<List<CollateralReturnVm>>(await _collateralReturnService.GetAllByProjectWorkIdAsync(id)),
+                HandoverApproveds = _mapper.Map<List<HandoverApprovedVm>>(await _handoverApprovedService.GetAllByProjectWorkIdAsync(id)),
             };
 
             return View(model);
@@ -148,7 +144,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         {
             if (!ModelState.IsValid)
             {
-                TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
                 return View(model);
             }
 
@@ -164,23 +160,24 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     ProjectWorkId = result.ProjectWorkId,
                     StatusTypeId = StatusType.InProcess
                 };
+
                 await _projectWorkStatusService.CreateAsync(_mapper.Map<ProjectWorkStatus>(workStatus));
 
                 // Success message and redirect
-                TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                return RedirectToAction(nameof(ADPProjectController.Details), nameof(ADPProject), new { id = model.ADPProjectId });
+                SetResponseMessage(string.Format(DefaultMsg.SaveSuccess, "Project Work"), ResponseType.Success);
+                return RedirectToAction("Details", "ADPProject", new { id = result.ADPProjectId });
             }
             catch (DbUpdateException dbEx)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), "Database error: " + dbEx.Message);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Project Work", dbEx.Message), ResponseType.Error);
             }
             catch (InvalidOperationException ioEx)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), "Invalid operation: " + ioEx.Message);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Project Work", ioEx.Message), ResponseType.Error);
             }
             catch (Exception ex)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), ex.Message);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Project Work", ex.Message), ResponseType.Error);
             }
 
             return View(model);
@@ -194,6 +191,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             model.ProjectTitle = await _ADPProjectService.GetAdpProjectTitle(model.ADPProjectId);
             return View(model);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(ProjectWorkVm model)
@@ -203,9 +201,9 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 if (ModelState.IsValid)
                 {
                     var entity = _mapper.Map<ProjectWork>(model);
-                    await _projectWorkService.UpdateAsync(entity);
-                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());
-                    return RedirectToAction("details/" + model.ADPProjectId, "ADPProject");  // Reset model after success
+                    var result = await _projectWorkService.UpdateAsync(entity);
+                    SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, "Project Work"), ResponseType.Success);
+                    return RedirectToAction("Details", "ADPProject", new { id = result.ADPProjectId });  // Reset model after success
                 }
 
                 TempData["Message"] = Messages.InvalidInput(MessageType.Update.ToString());
@@ -217,45 +215,21 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             return View(model);
         }
 
-        [HttpGet]
-        public async Task<ActionResult> Delete(int id)
-        {
-            var entity = await _projectWorkService.GetByIdAsync(id);
-
-            if (entity == null)
-            {
-                TempData["Message"] = "The requested record was not found.";
-                return RedirectToAction("details/" + entity.ADPProjectId, "ADPProject");
-            }
-
-            var model = _mapper.Map<ProjectWorkVm>(entity);
-            model.ProjectTitle = await _ADPProjectService.GetAdpProjectTitle(entity.ADPProjectId);
-            return View(model); // Load the delete confirmation view
-        }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(ProjectWorkVm model)
+        public async Task<ActionResult> Delete(int id)
         {
-            var entity = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
             try
             {
-
-                if (entity == null)
-                {
-                    TempData["Message"] = "Record Not Found";
-                    return RedirectToAction("Details/" + entity.ADPProjectId, "ADPProject");
-                }
-
-                await _projectWorkService.DeleteAsync(entity);
-
-                TempData["Message"] = Messages.Success(MessageType.Delete.ToString());
-                return RedirectToAction("Details/" + entity.ADPProjectId, "ADPProject");
+                await _performanceSecurityService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Project Work"), ResponseType.Success);
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Delete.ToString(), exception.InnerException?.Message);
-                return RedirectToAction("Details/" + entity.ADPProjectId, "ADPProject"); // Avoids null reference
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Project Work", ex.Message), ResponseType.Error);
             }
+
+            return RedirectToAction("List");
         }
 
     }

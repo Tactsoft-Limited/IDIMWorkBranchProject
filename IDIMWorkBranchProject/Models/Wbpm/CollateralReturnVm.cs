@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
@@ -11,13 +9,14 @@ namespace IDIMWorkBranchProject.Models.Wbpm
     public class CollateralReturnVm
     {
         public int CollateralReturnId { get; set; }
+
         [DisplayName("নির্মাণ কাজের নাম ")]
         public int ProjectWorkId { get; set; }
 
         [DisplayName("নির্মাণ কাজের নাম ")]
         public string ProjectWorkName { get; set; }
 
-        [Display(Name = "লেটার নং")]
+        [Display(Name = "লেটার নং (English)")]
         public string LetterNo { get; set; }
 
         [DisplayName("বরাত ক")]

@@ -44,7 +44,7 @@
     <div class="content-body">
         <div class="row">
             <div class="col-md-12">
-                @using (Html.BeginForm("Create", "FormalMeeting", FormMethod.Post, new { enctype = "multipart/form-data", id = "ProjectDirector-create-form", role = "form" }))
+                @using (Html.BeginForm("Create", "FormalMeeting", FormMethod.Post, new { enctype = "multipart/form-data", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(x => x.FormalMeetingId)
@@ -57,36 +57,71 @@
                                 @Html.TextBoxFor(m => m.ProjectTitle, new { @class = "form-control", @readonly = "readonly" })
                             </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.MeetingTitle, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.MeetingTitle, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.MeetingTitle)
+                        <!-- Column 1 -->
+                        <div class="col-md-6">
+                            <!-- Meeting Title -->
+                            <div class="form-group" style="display:flex;">
+                                @Html.LabelFor(m => m.MeetingTitle, new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.MeetingTitle, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.MeetingTitle, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <!-- Meeting Date -->
+                            <div class="form-group" style="display:flex;">
+                                @Html.LabelFor(m => m.MeetingDate, new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.MeetingDate, DateTime.Now.ToString("dd-MMM-yyyy"), new { @class = "form-control datepicker" })
+                                    @Html.ValidationMessageFor(m => m.MeetingDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <!-- Number of Meeting -->
+                            <div class="form-group" style="display:flex;">
+                                @Html.LabelFor(m => m.NumberOfMeeting, new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.NumberOfMeeting, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.NumberOfMeeting, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <!-- Meeting Document Upload -->
+                            <div class="form-group" style="display:flex;">
+                                @Html.LabelFor(m => m.MeetingDocumentFile, new { @class = "control-label col-md-4" })
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.MeetingDocumentFile, new
+                                    {
+                                        @class = "form-control",
+                                        type = "file",
+                                        accept = ".pdf",
+                                        id = "pdfInput",
+                                        onchange = "previewPDF(event)"
+                                    })
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.NumberOfMeeting, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.NumberOfMeeting, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.NumberOfMeeting)
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.MeetingDate, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.MeetingDate, DateTime.Now.ToString("dd-MMM-yyyy"), new { @class = "form-control datepicker" })
-                                @Html.ValidationMessageFor(model => model.MeetingDate)
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            @Html.LabelFor(m => m.MeetingDocument, new { @class = "col-md-4 form-label" })
-                            <div class="col-md-8">
-                                @Html.TextBoxFor(m => m.MeetingDocument, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.MeetingDocument)
+
+                        <!-- Column 2 -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <embed id="pdfPreview"
+                                       src="@(!string.IsNullOrEmpty(Model.MeetingDocument) ? Url.Content("~/Documents/MeetingFile/" + Model.MeetingDocument) : "")"
+                                       type="application/pdf"
+                                       style="width: 95%; height: 200px; @(string.IsNullOrEmpty(Model.MeetingDocument) ? "display:none;" : "")" />
+
+
+                                <p id="pdfLinkContainer" style="@(string.IsNullOrEmpty(Model.MeetingDocument) ? "display:none;" : "")">
+                                    <a id="pdfLink"
+                                       href="@(!string.IsNullOrEmpty(Model.MeetingDocument) ? Url.Content("~/Documents/MeetingFile/" + Model.MeetingDocument) : "#")"
+                                       target="_blank">
+                                        View Full PDF
+                                    </a>
+                                </p>
                             </div>
                         </div>
 
                     </div>
+
 
                     <div class="pull-right">
                         <input type="submit" class="btn btn-success" value="Save" />
@@ -98,3 +133,24 @@
     </div>
 </section>
 
+@section scripts{
+    <script>
+        function previewPDF(event) {
+            var file = event.target.files[0];
+            if (file) {
+                var fileURL = URL.createObjectURL(file);
+                var preview = document.getElementById('pdfPreview');
+                var link = document.getElementById('pdfLink');
+                var linkContainer = document.getElementById('pdfLinkContainer');
+
+                if (preview && link) {
+                    preview.src = fileURL;
+                    preview.style.display = "block";
+
+                    link.href = fileURL;
+                    linkContainer.style.display = "block";
+                }
+            }
+        }
+    </script>
+}

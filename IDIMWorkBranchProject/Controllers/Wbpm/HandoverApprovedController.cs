@@ -1,14 +1,12 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
@@ -19,7 +17,14 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IProjectWorkService _projectWorkService;
         private readonly ISignatoryAuthorityService _signatoryAuthorityService;
         private readonly IMapper _mapper;
-        public HandoverApprovedController(IActivityLogService activityLogService, IHandoverApprovedService handoverApprovedService, IMapper mapper, IProjectWorkService projectWorkService, ISignatoryAuthorityService signatoryAuthorityService) : base(activityLogService)
+
+        public HandoverApprovedController(
+            IActivityLogService activityLogService,
+            IHandoverApprovedService handoverApprovedService,
+            IMapper mapper,
+            IProjectWorkService projectWorkService,
+            ISignatoryAuthorityService signatoryAuthorityService
+        ) : base(activityLogService)
         {
             _handoverApprovedService = handoverApprovedService;
             _mapper = mapper;
@@ -27,44 +32,29 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             _signatoryAuthorityService = signatoryAuthorityService;
         }
 
-        // GET: HandoverApproved
-        public ActionResult Index()
-        {
-            return View();
-        }
+        public ActionResult Index() => View();
 
         public async Task<ActionResult> Create(int id)
         {
-            var projectWork = await _projectWorkService.GetByIdAsync(id);
-            var handoverApproveds = await _handoverApprovedService.GetByProjectWorkIdAsync(projectWork.ProjectWorkId);
-
+            var project = await _projectWorkService.GetByIdAsync(id);
+            var existing = await _handoverApprovedService.GetByProjectWorkIdAsync(project.ProjectWorkId);
 
             var model = new HandoverApprovedVm
             {
-                ProjectWorkId = projectWork.ProjectWorkId,
-                ProjectWorkName = projectWork.ProjectWorkTitleB,
-                HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
-                ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
-                SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
-                BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync()
-
+                ProjectWorkId = project.ProjectWorkId,
+                ProjectWorkName = project.ProjectWorkTitleB
             };
-            if (handoverApproveds != null)
+
+            if (existing != null)
             {
-                model.HandoverApprovedId = handoverApproveds.HandoverApprovedId;
-                model.LetterNo = handoverApproveds.LetterNo;
-                model.QuoateOne = handoverApproveds.QuoateOne;
-                model.QuoateTwo = handoverApproveds.QuoateTwo;                
-                model.QuoateOneDate = handoverApproveds.QuoateOneDate;
-                model.QuoateTwoDate = handoverApproveds.QuoateTwoDate;
-                model.Description = handoverApproveds.Description;               
-
-                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(handoverApproveds.HeadAssistantId);
-                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(handoverApproveds.ConcernedEngineerId);
-                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(handoverApproveds.BranchClerkId);
-                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(handoverApproveds.SectionICId);
-
+                _mapper.Map(existing, model);
+                await PopulateSignatoryDropdowns(model, existing.HeadAssistantId, existing.ConcernedEngineerId, existing.BranchClerkId, existing.SectionICId);
             }
+            else
+            {
+                await PopulateSignatoryDropdowns(model);
+            }
+
             return View(model);
         }
 
@@ -72,42 +62,61 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(HandoverApprovedVm model)
         {
-            var projectWork = await _projectWorkService.GetByIdAsync(model.ProjectWorkId);
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
-                    model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
-                    model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
-                    model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
-                    model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                    SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                    await PopulateSignatoryDropdowns(model, model.HeadAssistantId, model.ConcernedEngineerId, model.BranchClerkId, model.SectionICId);
                     return View(model);
                 }
+
+                var entity = _mapper.Map<HandoverApproved>(model);
+
                 if (model.HandoverApprovedId > 0)
                 {
-                    await _handoverApprovedService.UpdateAsync(_mapper.Map<HandoverApproved>(model));
-                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());
-
+                    await _handoverApprovedService.UpdateAsync(entity);
+                    SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, "Handover Approval"), ResponseType.Success);
                 }
                 else
                 {
-                    var entity = _mapper.Map<HandoverApproved>(model);
                     await _handoverApprovedService.CreateAsync(entity);
-                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                                    }
-                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
-            }
+                    SetResponseMessage(string.Format(DefaultMsg.SaveSuccess, "Handover Approval"), ResponseType.Success);
+                }
 
-            catch (Exception exception)
+                return RedirectToAction("Details", "ProjectWork", new { id = model.ProjectWorkId });
+            }
+            catch (Exception ex)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
-                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
-                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
-                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
-                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Handover Approval", ex.Message), ResponseType.Error);
+                await PopulateSignatoryDropdowns(model, model.HeadAssistantId, model.ConcernedEngineerId, model.BranchClerkId, model.SectionICId);
                 return View(model);
             }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                await _handoverApprovedService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Handover Approval"), ResponseType.Success);
+            }
+            catch (Exception ex)
+            {
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Handover Approval", ex.Message), ResponseType.Error);
+            }
+
+            return RedirectToAction("List");
+        }
+
+        private async Task PopulateSignatoryDropdowns(HandoverApprovedVm model, int? headId = null, int? engineerId = null, int? clerkId = null, int? ictId = null)
+        {
+            model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(headId);
+            model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(engineerId);
+            model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(clerkId);
+            model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(ictId);
         }
     }
 }

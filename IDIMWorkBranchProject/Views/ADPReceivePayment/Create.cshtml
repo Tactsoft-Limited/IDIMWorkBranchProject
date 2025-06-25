@@ -244,10 +244,19 @@
                 const billPaidPerTillDate = getFloat('#BillPaidPerTillDate');
                 const billPaidAmountTillDate = getFloat('#BillPaidAmountTillDate');
                 const estimatedCost = getFloat('#EstimatedCost');
-                const billPaidPer = getFloat('#BillPaidPer');
+                let billPaidPer = getFloat('#BillPaidPer');
+                let billPaidAmount = getFloat('#BillPaidAmount');
 
-                // Calculate bill paid amount and deductions
-                const billPaidAmount = +(estimatedCost * (billPaidPer / 100)).toFixed(2);
+                // Determine which field triggered the calculation
+                const activeElement = document.activeElement.id;
+
+                if (activeElement === 'BillPaidPer') {
+                    // If percentage was changed, calculate amount
+                    billPaidAmount = +(estimatedCost * (billPaidPer / 100)).toFixed(2);
+                } else if (activeElement === 'BillPaidAmount') {
+                    // If amount was changed, calculate percentage
+                    billPaidPer = +((billPaidAmount / estimatedCost) * 100).toFixed(2);
+                }
 
                 const totalPaidPer = (billPaidPerTillDate + billPaidPer).toFixed(2);
                 const totalPaidAmount = (billPaidAmountTillDate + billPaidAmount).toFixed(2);
@@ -257,6 +266,7 @@
                 const totalPaidAmountInWord = getBanglaWord(parseFloat(totalPaidAmount));
 
                 // Update the input fields with the calculated values
+                $('#BillPaidPer').val(billPaidPer);
                 $('#BillPaidAmount').val(billPaidAmount);
                 $('#BillPaidAmountInWord').val(billPaidAmountInWord);
                 $('#TotalReceivePer').val(totalPaidPer);
@@ -265,7 +275,7 @@
             }
 
             // Trigger calculation on input change
-            $('#EstimatedCost, #BillPaidPer, #TaxPer, #VatPer, #CollateralPer').on('input', calculateBillPaidAmount);
+            $('#EstimatedCost, #BillPaidPer, #BillPaidAmount').on('input', calculateBillPaidAmount);
         });
     </script>
 }

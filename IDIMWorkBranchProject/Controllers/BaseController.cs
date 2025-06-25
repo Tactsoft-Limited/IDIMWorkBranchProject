@@ -1,24 +1,26 @@
-﻿using IDIMWorkBranchProject.Extentions.Session;
-using IDIMWorkBranchProject.Extentions;
+﻿using IDIMWorkBranchProject.Extentions;
+using IDIMWorkBranchProject.Extentions.Session;
+using IDIMWorkBranchProject.Extentions.Utilities;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.User;
 using IDIMWorkBranchProject.Services;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using System.Web.Routing;
-using System;
-using System.Linq;
 
 namespace IDIMWorkBranchProject.Controllers
 {
-	public class BaseController : Controller
+    public class BaseController : Controller
     {
         protected IActivityLogService ActivityLogService { get; set; }
 
         public BaseController(IActivityLogService activityLogService) { ActivityLogService = activityLogService; }
 
-       
+
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var controller = Request.RequestContext.RouteData.Values["controller"].ToString().ToLower();
@@ -125,5 +127,11 @@ namespace IDIMWorkBranchProject.Controllers
                 }
                 });
         }
+
+        public void SetResponseMessage(string message, ResponseType type)
+        {
+            TempData.Put("ResponseMsg", new Response { Message = message, Type = type });
+        }
+
     }
 }

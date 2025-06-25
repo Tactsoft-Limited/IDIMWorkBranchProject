@@ -18,30 +18,30 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         public int ADPProjectId { get; set; }
 
-        [DisplayName("প্রকল্পের শিরোনাম")]
+        [DisplayName("প্রকল্পের শিরোনাম (বাংলা)")]
         public string ProjectTitle { get; set; }
 
-        [DisplayName("মন্ত্রনালয়/বিভাগ")]
+        [DisplayName("মন্ত্রনালয়/বিভাগ (বাংলা)")]
         public string MinistryDepartment { get; set; }
 
-        [DisplayName("প্রাক্কলিত ব্যয়")]
+        [DisplayName("প্রাক্কলিত ব্যয় (ইংরেজি)")]
         public decimal EstimatedExpenses { get; set; }
 
-        [DisplayName("শুরু করার তারিখ")]
+        [DisplayName("প্রকল্প শুরুর তারিখ")]
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime StartingDate { get; set; }
 
-        [DisplayName("শেষ করার তারিখ")]
+        [DisplayName("প্রকল্প সমাপ্তির তারিখ")]
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EndingDate { get; set; }
 
-        [DisplayName("কাজের সংখ্যা")]
+        [DisplayName("প্যাকেজ সংখ্যা (ইংরেজি)")]
         public int NoOfWork { get; set; }
 
-        [DisplayName("আর্থিক অগ্রগতি")]
+        [DisplayName("আর্থিক অগ্রগতি (ইংরেজি)")]
         public double FinancialProgress { get; set; }
 
-        [DisplayName("ভৌত অগ্রগতি")]
+        [DisplayName("ভৌত অগ্রগতি (ইংরেজি)")]
         public double PhysicalProgress { get; set; }
 
         [DisplayName("মন্তব্য")]

@@ -48,6 +48,13 @@
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(x => x.ADPProjectId)
                     @Html.HiddenFor(x => x.ProjectWorkId)
+                    @Html.HiddenFor(x => x.IsFurnitureIncluded)
+                    @Html.HiddenFor(x => x.IsNoahCompleted)
+                    @Html.HiddenFor(x => x.IsPerformanceSecuritySubmited)
+                    @Html.HiddenFor(x => x.IsAgreementCompleted)
+                    @Html.HiddenFor(x => x.IsWorkOrderCompleted)
+                    @Html.HiddenFor(x => x.IsFinalBillSubmitted)
+
 
                     <div class="row">
                         <div class="form-display col-md-12">
@@ -93,7 +100,7 @@
                                 @Html.TextAreaFor(m => m.EstimatedCostInWordBangla, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.EstimatedCostInWordBangla)
                             </div>
-                        </div>                        
+                        </div>
                         <div class="form-group col-md-12">
                             @Html.LabelFor(m => m.Remarks, new { @class = "col-md-2 form-label" })
                             <div class="col-md-10">

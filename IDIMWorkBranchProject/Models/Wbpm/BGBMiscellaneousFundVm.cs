@@ -14,7 +14,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("প্রকল্প কাজ আইডি")]
         public int ProjectWorkId { get; set; }
 
-        [DisplayName("নির্মাণ কাজের নাম")]
+        [DisplayName("নির্মাণ কাজের নাম (English)")]
         public string ProjectWorkTitle { get; set; }
 
         [DisplayName("নির্মাণ কাজের নাম")]
@@ -23,11 +23,11 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("এডিপি পেমেন্ট আইডি")]
         public int? ADPReceivePaymentId { get; set; }
 
-        [DisplayName("লেটার নম্বর")]
+        [DisplayName("লেটার নম্বর (English)")]
         public string LetterNo { get; set; }
 
         [DisplayName("জমা তারিখ")]
-        public DateTime DepositeDate { get; set; }
+        public DateTime DepositeDate { get; set; } = DateTime.Now;
 
         [DisplayName("পে অর্ডার নম্বর")]
         public string PayOrderNo { get; set; }

@@ -1,16 +1,19 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
+using IDIMWorkBranchProject.Extentions.Exceptions;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
 {
-	public class ProjectDirectorController : BaseController
+    public class ProjectDirectorController : BaseController
     {
         private readonly IProjectDirectorService _projectDirectorService;
         private readonly IADPProjectService _aDPProjectService;
@@ -54,121 +57,142 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         public async Task<ActionResult> Create(int id)
         {
             var adpProject = await _aDPProjectService.GetByIdAsync(id);
-            var model = new ProjectDirectorVm
+            if (adpProject == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(new ProjectDirectorVm
             {
                 ADPProjectId = adpProject.ADPProjectId,
                 ProjectTitle = adpProject.ProjectTitle,
-            };
-            return View(model);
+            });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ProjectDirectorVm model)
         {
-            string fileName = null;
+            if (!ModelState.IsValid)
+            {
+                SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                return View(model);
+            }
 
             try
             {
-                if (ModelState.IsValid)
+                if (_projectDirectorService.IsDuplicateProjectDirector(model.ProjectDirectorName))
                 {
-                    // Step 1: Check if file is uploaded
-                    if (model.PDDocumentFile != null && model.PDDocumentFile.ContentLength > 0)
+                    throw new DuplicateNameException(model.ProjectDirectorName);
+                }
+
+                string fileName = null;
+                if (model.PDDocumentFile != null && model.PDDocumentFile.ContentLength > 0)
+                {
+                    fileName = HandleFileUpload(model.PDDocumentFile, model.PDDocument);
+                    if (string.IsNullOrEmpty(fileName))
                     {
-                        fileName = FileExtention.UploadFile(model.PDDocumentFile, fileStorePath);
-
-                        // If file is successfully uploaded, save the file name to the model
-                        if (fileName != null)
-                        {
-                            model.PDDocument = fileName;
-                        }
-                        else
-                        {
-                            TempData["Message"] = Messages.FileUploadFailed(MessageType.Create.ToString());
-                            return View(model);
-                        }
+                        SetResponseMessage("File upload failed", ResponseType.Error);
+                        return View(model);
                     }
-
-                    // Step 2: Map the model to the entity
-                    var entity = _mapper.Map<ProjectDirector>(model);
-
-                    // Step 3: Attempt to save the entity to the database
-                    await _projectDirectorService.CreateAsync(entity);
-
-                    // Show success message and reset the form
-                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-                    return View(new ProjectDirectorVm());  // Reset model after success
+                    model.PDDocument = fileName;
                 }
 
-                // If the model state is not valid
-                TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                var entity = _mapper.Map<ProjectDirector>(model);
+                var result = await _projectDirectorService.CreateAsync(entity);
+
+                SetResponseMessage(string.Format(DefaultMsg.SaveSuccess, result.ProjectDirectorName), ResponseType.Success);
+                return RedirectToAction("Details", "ADPProject", new { id = model.ADPProjectId });
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                if (fileName != null)
-                {
-                    FileExtention.DeleteFile(fileStorePath, fileName);
-                }
-
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                SetResponseMessage(ex.Message, ResponseType.Error);
+                return View(model);
             }
-
-            // Return the model to the view
-            return View(model);
         }
-
 
         public async Task<ActionResult> Edit(int id)
         {
-            var model = _mapper.Map<ProjectDirectorVm>(await _projectDirectorService.GetByIdAsync(id));
-            return View(model);
+            var entity = await _projectDirectorService.GetByIdAsync(id);
+            if (entity == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(_mapper.Map<ProjectDirectorVm>(entity));
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(ProjectDirectorVm model)
         {
-            string fileName = null;
+            if (!ModelState.IsValid)
+            {
+                SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                return View(model);
+            }
+
             try
             {
-                if (ModelState.IsValid)
+                if (_projectDirectorService.IsDuplicateProjectDirector(model.ProjectDirectorName, model.ProjectDirectorId))
                 {
-                    // Step 1: Check if file is uploaded
-                    if (model.PDDocumentFile != null && model.PDDocumentFile.ContentLength > 0)
-                    {
-                        //Delete Old File
-                        FileExtention.DeleteFile( model.PDDocument, fileStorePath);
-
-                        fileName = FileExtention.UploadFile(model.PDDocumentFile, fileStorePath);
-
-                        // If file is successfully uploaded, save the file name to the model
-                        if (fileName != null)
-                        {
-                            model.PDDocument = fileName;
-                        }
-                        else
-                        {
-                            TempData["Message"] = Messages.FileUploadFailed(MessageType.Create.ToString());
-                            return View(model);
-                        }
-                    }
-
-                    var entity = _mapper.Map<ProjectDirector>(model);
-                    await _projectDirectorService.UpdateAsync(entity);
-                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());
-                    return View(new ProjectDirectorVm());  // Reset model after success
+                    throw new DuplicateNameException(model.ProjectDirectorName);
                 }
 
-                TempData["Message"] = Messages.InvalidInput(MessageType.Update.ToString());
-            }
-            catch (Exception exception)
-            {
-                TempData["Message"] = Messages.Failed(MessageType.Update.ToString(), exception.Message);
-            }
+                string fileName = null;
+                if (model.PDDocumentFile != null && model.PDDocumentFile.ContentLength > 0)
+                {
+                    fileName = HandleFileUpload(model.PDDocumentFile, model.PDDocument);
+                    if (string.IsNullOrEmpty(fileName))
+                    {
+                        SetResponseMessage("File upload failed", ResponseType.Error);
+                        return View(model);
+                    }
+                    model.PDDocument = fileName;
+                }
 
-            return View(model);
+                var entity = _mapper.Map<ProjectDirector>(model);
+                var result = await _projectDirectorService.UpdateAsync(entity);
+
+                SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, result.ProjectDirectorName), ResponseType.Success);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                SetResponseMessage(ex.Message, ResponseType.Error);
+                return View(model);
+            }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                await _projectDirectorService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Project Director"), ResponseType.Success);
+            }
+            catch (Exception ex)
+            {
+                SetResponseMessage(ex.Message, ResponseType.Error);
+            }
 
+            return RedirectToAction("List");
+        }
+
+        private string HandleFileUpload(HttpPostedFileBase file, string existingFileName)
+        {
+            if (file == null || file.ContentLength <= 0)
+                return null;
+
+            // Delete the existing file if it exists
+            if (!string.IsNullOrWhiteSpace(existingFileName))
+                FileExtention.DeleteFile(existingFileName, fileStorePath);
+
+            // Upload and return the new file name
+            return FileExtention.UploadFile(file, fileStorePath);
+        }
 
     }
 }

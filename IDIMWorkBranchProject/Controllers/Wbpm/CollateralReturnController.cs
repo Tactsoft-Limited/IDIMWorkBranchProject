@@ -1,14 +1,12 @@
 ﻿using AutoMapper;
 using BGB.Data.Entities.Wbpm;
 using IDIMWorkBranchProject.Extentions;
+using IDIMWorkBranchProject.Models;
 using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
@@ -59,7 +57,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 model.QuoteOneDate = collateralReturns.QuoteOneDate;
                 model.QuoteTwoDate = collateralReturns.QuoteTwoDate;
                 model.QuoteThreeDate = collateralReturns.QuoteThreeDate;
-                
+
                 model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(collateralReturns.HeadAssistantId);
                 model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(collateralReturns.ConcernedEngineerId);
                 model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(collateralReturns.BranchClerkId);
@@ -68,6 +66,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             }
             return View(model);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(CollateralReturnVm model)
@@ -77,7 +76,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 if (!ModelState.IsValid)
                 {
-                    TempData["Message"] = Messages.InvalidInput(MessageType.Create.ToString());
+                    SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
                     model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
                     model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
                     model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
@@ -86,32 +85,43 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 }
                 if (model.CollateralReturnId > 0)
                 {
-                    var updatedFinalPayment = await _collateralReturnService.UpdateAsync(_mapper.Map<CollateralReturn>(model));
-
-                    TempData["Message"] = Messages.Success(MessageType.Update.ToString());
-
+                    await _collateralReturnService.UpdateAsync(_mapper.Map<CollateralReturn>(model));
+                    SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, "Collateral Return"), ResponseType.Success);
                 }
                 else
                 {
                     var entity = _mapper.Map<CollateralReturn>(model);
-                    var final = await _collateralReturnService.CreateAsync(entity);
-                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
-
-                    // Ensure that you don't set BGBFundId explicitly                    
-                    TempData["Message"] = Messages.Success(MessageType.Create.ToString());
+                    await _collateralReturnService.CreateAsync(entity);
+                    SetResponseMessage(string.Format(DefaultMsg.SaveSuccess, "Collateral Return"), ResponseType.Success);
                 }
-                return RedirectToAction("details/" + model.ProjectWorkId, "ProjectWork");
+                return RedirectToAction("Details", "ProjectWork", new { id = model.ProjectWorkId });
             }
 
             catch (Exception exception)
             {
-                TempData["Message"] = Messages.Failed(MessageType.Create.ToString(), exception.Message);
+                SetResponseMessage(exception.Message, ResponseType.Error);
                 model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
                 model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
                 model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
                 model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
                 return View(model);
             }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Delete(int id)
+        {
+            try
+            {
+                await _collateralReturnService.DeleteAsync(id);
+                SetResponseMessage(string.Format(DefaultMsg.DeleteSuccess, "Collateral Return"), ResponseType.Success);
+            }
+            catch (Exception ex)
+            {
+                SetResponseMessage(string.Format(DefaultMsg.DeleteFailed, "Collateral Return", ex.Message), ResponseType.Error);
+            }
+            return RedirectToAction("Index");
         }
     }
 }

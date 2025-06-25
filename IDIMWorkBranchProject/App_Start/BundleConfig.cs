@@ -30,7 +30,8 @@ namespace IDIMWorkBranchProject
                 "~/Scripts/Plugins/jquery-loading/src/loading.css",
                 "~/Content/font-awesome/css/font-awesome.min.css",
                 "~/Content/animate.min.css",
-                "~/Scripts/Plugins/perfect-scrollbar/perfect-scrollbar.css"
+                "~/Scripts/Plugins/perfect-scrollbar/perfect-scrollbar.css",
+                "~/Scripts/Plugins/toastr.js/toastr.min.css"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/theme").Include(
@@ -50,6 +51,7 @@ namespace IDIMWorkBranchProject
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/commstore").Include(
+                "~/Scripts/Plugins/toastr.js/toastr.min.js",
                 "~/Scripts/Theme/scripts.js",
                 "~/Scripts/default.js"
             ));

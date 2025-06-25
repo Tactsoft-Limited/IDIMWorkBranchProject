@@ -12,5 +12,6 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         Task<IEnumerable<SelectListItem>> DropdownAsync(int? selected = 0);
         Task<List<ProjectDirector>> GetAllByProjectId(int id);
         Task<object> GetPagedAsync(ProjectDirectorSearchVm model);
+        bool IsDuplicateProjectDirector(string name, int? id = null);
     }
 }

@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <partial name="_ModalPartial" />
+        @Html.Partial("_ModalRemove")
     </div>
 </section>
 
@@ -105,11 +105,10 @@
                         "orderable": false,
                         "render": function (data, type, row) {
                             return `
-                                        <a href="${baseUrl}/ProjectDirector/Edit?id=${row.ProjectDirectorId}" class="btn btn-xs btn-primary">
-                                            <i class="fa fa-edit"></i> Edit
-                                        </a>
-                                        <a class="btn btn-danger btn-xs show-bs-modal" data-id='${row.ProjectDirectorId}' data-entity='ProjectDirector' value='${row.ProjectDirectorId}'>
-                                            <i class="fa fa-trash"></i> Remove </a>`;
+                            <a href="${baseUrl}/ProjectDirector/Edit?id=${row.ProjectDirectorId}" class="btn btn-xs btn-primary"> <i class="fa fa-edit"></i> Edit </a>
+
+                            <a class="btn btn-danger btn-xs removeModal" data-id='${row.ProjectDirectorId}' data-entity='ProjectDirector' data-toggle="modal" data-target="#modalRemove" value='${row.ProjectDirectorId}'>
+                            <i class="fa fa-trash"></i> Remove </a>`;
                         }
                     }
                 ]
