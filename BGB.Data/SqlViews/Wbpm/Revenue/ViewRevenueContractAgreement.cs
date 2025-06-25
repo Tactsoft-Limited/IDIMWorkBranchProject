@@ -11,8 +11,7 @@ namespace BGB.Data.SqlViews.Wbpm.Revenue
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-
-        // Contract Agreement Info
+        // RevenueContractAgreement details
         public int ContractAgreementId { get; set; }
         public int RevenueId { get; set; }
         public int ConstructionCompanyId { get; set; }
@@ -22,12 +21,17 @@ namespace BGB.Data.SqlViews.Wbpm.Revenue
         public int? ProjectDirectorId { get; set; }
         public int? DirectorId { get; set; }
 
-        // Construction Company Info
+        // Construction Company details
+        public string OwnerName { get; set; }
+        public string OwnerDesignation { get; set; }
         public string FirmName { get; set; }
-        public string ContactPerson { get; set; }
+        public string FirstWitnessName { get; set; }
+        public string FirstWitnessDesignation { get; set; }
+        public string SecondWitnessName { get; set; }
+        public string SecondWitnessDesignation { get; set; }
         public string FirmAddress { get; set; }
 
-        // Revenue Info
+        // Revenue Work details
         public string WorkTitle { get; set; }
         public decimal EstimateCost { get; set; }
         public string EstimateCostInWord { get; set; }
