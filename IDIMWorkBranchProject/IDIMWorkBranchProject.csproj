@@ -3115,6 +3115,7 @@
     <EmbeddedResource Include="Report\Rdlc\FurnitureBillPaymentReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\HandoverApprovedReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\revenue\RevenueContractAgreementReport.rdlc" />
+    <EmbeddedResource Include="Report\Rdlc\revenue\RevenueWorkOrderReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\VatTaxReport.rdlc" />
     <EmbeddedResource Include="Report\Rdlc\ViewWorkOrderReport.rdlc" />
   </ItemGroup>
