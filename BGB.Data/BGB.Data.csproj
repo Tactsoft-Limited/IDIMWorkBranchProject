@@ -101,6 +101,7 @@
     <Compile Include="SqlViews\Pm\ViewProjectSubProjectDetailsRpt.cs" />
     <Compile Include="SqlViews\Pm\ViewProjectWiseSubProjectRpt.cs" />
     <Compile Include="SqlViews\Wbpm\Revenue\ViewRevenueContractAgreement.cs" />
+    <Compile Include="SqlViews\Wbpm\Revenue\ViewRevenueWorkOrder.cs" />
     <Compile Include="SqlViews\Wbpm\ViewCollateralReturn.cs" />
     <Compile Include="SqlViews\Wbpm\ViewFinalBillPayment.cs" />
     <Compile Include="SqlViews\Wbpm\ViewFurnitureBillPayment.cs" />
