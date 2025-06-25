@@ -22,7 +22,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Code.ConvertToBangla(Fields!WorkOrderLetterNo.Value)</Value>
+                              <Value>=Code.ConvertToBangla(Fields!RevenueWorkOrderLetterNo.Value)</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -59,14 +59,25 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!ProjectWorkTitleB.Value</Value>
+                              <Value>=Fields!WorkTitleB.Value</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>Underline</TextDecoration>
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value> এর কার্যাদেশ। </Value>
+                              <Value> এর কার্যাদেশ।</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>Underline</TextDecoration>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value xml:space="preserve"> </Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -147,7 +158,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Code.ConvertToBangla(Fields!NohaLetterNo.Value)</Value>
+                              <Value>=Code.ConvertToBangla(Fields!RevenueWorkOrderLetterNo.Value)</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -161,7 +172,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Code.ConvertToBanglaDate(Fields!NohaDate.Value)</Value>
+                              <Value>=Code.ConvertToBanglaDate(Fields!RevenueNohaDate.Value)</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -224,10 +235,11 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Code.ConvertToBangla(Fields!EstimatedCost.Value)</Value>
+                              <Value>=Code.ConvertToBangla(Fields!EstimateCost.Value)</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
@@ -235,17 +247,27 @@
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!EstimatedCostInWordBangla.Value</Value>
+                              <Value>=Fields!EstimateCostInWordB.Value</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>) টাকার চুক্তিপত্র </Value>
+                              <Value>)</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value> টাকার চুক্তিপত্র </Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -303,7 +325,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Code.ConvertToBanglaDate(Fields!StartDate.Value)</Value>
+                              <Value>=Code.ConvertToBanglaDate(Fields!RevenueWorkOrderStartDate.Value)</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -317,7 +339,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Code.ConvertToBanglaDate(Fields!EndDate.Value)</Value>
+                              <Value>=Code.ConvertToBanglaDate(Fields!RevenueWorkOrderEndDate.Value)</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -461,7 +483,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>1.02778in</Height>
+              <Height>0.61111in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -526,10 +548,18 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>বিতরণঃ</Value>
+                              <Value>বিতরণঃ                                                                  </Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>পরিচালক(পূর্ত)...........................</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -563,10 +593,18 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>বহির্গমনঃ</Value>
+                              <Value>বহির্গমনঃ                                                                 </Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>অতিরিক্ত পরিচালক(নির্মান)...............</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -656,7 +694,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ম্যানেজিং ডাইরেক্টর- </Value>
+                              <Value>প্রোপ্রাইটর- </Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -761,7 +799,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>সেক্টর সদর সপ্তর </Value>
+                              <Value>সেক্টর সদর সপ্তর                                            - বিজিবি মেইল/ফ্যাক্সযোগে   </Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -825,9 +863,9 @@
             <TablixMember />
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DsWorkOrder</DataSetName>
-        <Top>0.02778in</Top>
-        <Height>8.40972in</Height>
+        <DataSetName>DsRevenueWorkOrder</DataSetName>
+        <Left>0in</Left>
+        <Height>7.99305in</Height>
         <Width>7.14583in</Width>
         <Style>
           <Border>
@@ -836,13 +874,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>9.07916in</Height>
+    <Height>7.99305in</Height>
     <Style />
   </Body>
-  <Width>7.14584in</Width>
+  <Width>7.14583in</Width>
   <Page>
     <PageHeader>
-      <Height>1.32639in</Height>
+      <Height>1.47917in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -865,7 +903,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Height>0.20972in</Height>
+          <Height>0.25in</Height>
           <Width>7.14583in</Width>
           <Style>
             <Border>
@@ -928,18 +966,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
-                  <Style>
-                    <FontFamily>SolaimanLipi</FontFamily>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Code.ConvertToBanglaDate(Fields!WorkOrderDate.Value)</Value>
+                  <Value>=Code.ConvertToBanglaDate(Format(Fields!RevenueWorkOrderDate.Value, "MMMM yyyy"))</Value>
                   <Style>
                     <FontFamily>SolaimanLipi</FontFamily>
                   </Style>
@@ -949,9 +976,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.26528in</Top>
-          <Left>5.36806in</Left>
-          <Height>1.01944in</Height>
+          <Top>0.27431in</Top>
+          <Left>5.36805in</Left>
+          <Height>1.13819in</Height>
           <Width>1.77778in</Width>
           <ZIndex>1</ZIndex>
           <Style>
@@ -972,9 +999,44 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1in</Height>
+      <Height>0.625in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox3">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>সীমিত</Value>
+                  <Style>
+                    <FontFamily>SolaimanLipi</FontFamily>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.375in</Top>
+          <Left>0in</Left>
+          <Height>0.25in</Height>
+          <Width>7.14583in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>
@@ -994,54 +1056,54 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>5f163033-a75b-4142-9761-ecc1ae18b199</rd:DataSourceID>
+      <rd:DataSourceID>18b72235-c517-4480-909e-4215d495f73d</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DsWorkOrder">
+    <DataSet Name="DsRevenueWorkOrder">
       <Query>
         <DataSourceName>WPDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="ProjectWorkId">
-          <DataField>ProjectWorkId</DataField>
+        <Field Name="RevenueId">
+          <DataField>RevenueId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="ProjectWorkTitleB">
-          <DataField>ProjectWorkTitleB</DataField>
+        <Field Name="RevenueWorkOrderDate">
+          <DataField>RevenueWorkOrderDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="RevenueWorkOrderLetterNo">
+          <DataField>RevenueWorkOrderLetterNo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="EstimatedCost">
-          <DataField>EstimatedCost</DataField>
+        <Field Name="RevenueWorkOrderStartDate">
+          <DataField>RevenueWorkOrderStartDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="RevenueWorkOrderEndDate">
+          <DataField>RevenueWorkOrderEndDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="WorkTitleB">
+          <DataField>WorkTitleB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EstimateCost">
+          <DataField>EstimateCost</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="EstimatedCostInWordBangla">
-          <DataField>EstimatedCostInWordBangla</DataField>
+        <Field Name="EstimateCostInWordB">
+          <DataField>EstimateCostInWordB</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="NohaLetterNo">
-          <DataField>NohaLetterNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="NohaDate">
-          <DataField>NohaDate</DataField>
+        <Field Name="RevenueNohaDate">
+          <DataField>RevenueNohaDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="WorkOrderLetterNo">
-          <DataField>WorkOrderLetterNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="WorkOrderDate">
-          <DataField>WorkOrderDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="StartDate">
-          <DataField>StartDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="EndDate">
-          <DataField>EndDate</DataField>
+        <Field Name="AgreementDate">
+          <DataField>AgreementDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="FirmNameB">
@@ -1056,18 +1118,18 @@
           <DataField>FirmAddressB</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="AgreementDate">
-          <DataField>AgreementDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+        <Field Name="RevenueWorkOrderId">
+          <DataField>RevenueWorkOrderId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>WPDataSet</rd:DataSetName>
-        <rd:SchemaPath>E:\Tactsoft Projects\BGB Project Mvc\Git Project\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>ViewWorkOrder</rd:TableName>
+        <rd:SchemaPath>F:\Software Work\TactSoft\IDIMWorkBranch\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>ViewRevenueWorkOrder</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>ViewWorkOrderTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>ViewRevenueWorkOrderTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -1178,7 +1240,8 @@ Private Function ConvertBelowThousand(ByVal num As Integer) As String
 
     Return Trim(words)
 End Function
+
 </Code>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>7850ae94-42ef-4048-969b-2268b396e34c</rd:ReportID>
+  <rd:ReportID>b666b244-750e-4cc7-b43b-ebddb32656d5</rd:ReportID>
 </Report>

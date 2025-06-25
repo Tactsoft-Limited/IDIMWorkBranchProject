@@ -180,13 +180,23 @@
                 <Style />
               </TextRun>
               <TextRun>
+                <Value>In word Taka</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style />
+              </TextRun>
+              <TextRun>
                 <Value>=Fields!EstimateCostInWord.Value</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>) only (hereinafter called "the contractor price").</Value>
+                <Value>) (hereinafter called "the contractor price").</Value>
                 <Style />
               </TextRun>
             </TextRuns>

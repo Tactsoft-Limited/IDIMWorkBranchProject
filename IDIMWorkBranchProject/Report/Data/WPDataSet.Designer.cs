@@ -48,6 +48,8 @@ namespace IDIMWorkBranchProject.Report.Data {
         
         private ViewRevenueContractAgreementDataTable tableViewRevenueContractAgreement;
         
+        private ViewRevenueWorkOrderDataTable tableViewRevenueWorkOrder;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -111,6 +113,9 @@ namespace IDIMWorkBranchProject.Report.Data {
                 }
                 if ((ds.Tables["ViewRevenueContractAgreement"] != null)) {
                     base.Tables.Add(new ViewRevenueContractAgreementDataTable(ds.Tables["ViewRevenueContractAgreement"]));
+                }
+                if ((ds.Tables["ViewRevenueWorkOrder"] != null)) {
+                    base.Tables.Add(new ViewRevenueWorkOrderDataTable(ds.Tables["ViewRevenueWorkOrder"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -252,6 +257,16 @@ namespace IDIMWorkBranchProject.Report.Data {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ViewRevenueWorkOrderDataTable ViewRevenueWorkOrder {
+            get {
+                return this.tableViewRevenueWorkOrder;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -352,6 +367,9 @@ namespace IDIMWorkBranchProject.Report.Data {
                 }
                 if ((ds.Tables["ViewRevenueContractAgreement"] != null)) {
                     base.Tables.Add(new ViewRevenueContractAgreementDataTable(ds.Tables["ViewRevenueContractAgreement"]));
+                }
+                if ((ds.Tables["ViewRevenueWorkOrder"] != null)) {
+                    base.Tables.Add(new ViewRevenueWorkOrderDataTable(ds.Tables["ViewRevenueWorkOrder"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -458,6 +476,12 @@ namespace IDIMWorkBranchProject.Report.Data {
                     this.tableViewRevenueContractAgreement.InitVars();
                 }
             }
+            this.tableViewRevenueWorkOrder = ((ViewRevenueWorkOrderDataTable)(base.Tables["ViewRevenueWorkOrder"]));
+            if ((initTable == true)) {
+                if ((this.tableViewRevenueWorkOrder != null)) {
+                    this.tableViewRevenueWorkOrder.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -492,6 +516,8 @@ namespace IDIMWorkBranchProject.Report.Data {
             base.Tables.Add(this.tableViewHandoverApproved);
             this.tableViewRevenueContractAgreement = new ViewRevenueContractAgreementDataTable();
             base.Tables.Add(this.tableViewRevenueContractAgreement);
+            this.tableViewRevenueWorkOrder = new ViewRevenueWorkOrderDataTable();
+            base.Tables.Add(this.tableViewRevenueWorkOrder);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -563,6 +589,12 @@ namespace IDIMWorkBranchProject.Report.Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeViewRevenueContractAgreement() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeViewRevenueWorkOrder() {
             return false;
         }
         
@@ -656,6 +688,9 @@ namespace IDIMWorkBranchProject.Report.Data {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void ViewRevenueContractAgreementRowChangeEventHandler(object sender, ViewRevenueContractAgreementRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void ViewRevenueWorkOrderRowChangeEventHandler(object sender, ViewRevenueWorkOrderRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -8591,6 +8626,453 @@ namespace IDIMWorkBranchProject.Report.Data {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ViewRevenueWorkOrderDataTable : global::System.Data.TypedTableBase<ViewRevenueWorkOrderRow> {
+            
+            private global::System.Data.DataColumn columnRevenueId;
+            
+            private global::System.Data.DataColumn columnRevenueWorkOrderDate;
+            
+            private global::System.Data.DataColumn columnRevenueWorkOrderLetterNo;
+            
+            private global::System.Data.DataColumn columnRevenueWorkOrderStartDate;
+            
+            private global::System.Data.DataColumn columnRevenueWorkOrderEndDate;
+            
+            private global::System.Data.DataColumn columnWorkTitleB;
+            
+            private global::System.Data.DataColumn columnEstimateCost;
+            
+            private global::System.Data.DataColumn columnEstimateCostInWordB;
+            
+            private global::System.Data.DataColumn columnRevenueNohaDate;
+            
+            private global::System.Data.DataColumn columnAgreementDate;
+            
+            private global::System.Data.DataColumn columnFirmNameB;
+            
+            private global::System.Data.DataColumn columnContactPersonB;
+            
+            private global::System.Data.DataColumn columnFirmAddressB;
+            
+            private global::System.Data.DataColumn columnRevenueWorkOrderId;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewRevenueWorkOrderDataTable() {
+                this.TableName = "ViewRevenueWorkOrder";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal ViewRevenueWorkOrderDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected ViewRevenueWorkOrderDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RevenueIdColumn {
+                get {
+                    return this.columnRevenueId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RevenueWorkOrderDateColumn {
+                get {
+                    return this.columnRevenueWorkOrderDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RevenueWorkOrderLetterNoColumn {
+                get {
+                    return this.columnRevenueWorkOrderLetterNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RevenueWorkOrderStartDateColumn {
+                get {
+                    return this.columnRevenueWorkOrderStartDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RevenueWorkOrderEndDateColumn {
+                get {
+                    return this.columnRevenueWorkOrderEndDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn WorkTitleBColumn {
+                get {
+                    return this.columnWorkTitleB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn EstimateCostColumn {
+                get {
+                    return this.columnEstimateCost;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn EstimateCostInWordBColumn {
+                get {
+                    return this.columnEstimateCostInWordB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RevenueNohaDateColumn {
+                get {
+                    return this.columnRevenueNohaDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AgreementDateColumn {
+                get {
+                    return this.columnAgreementDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn FirmNameBColumn {
+                get {
+                    return this.columnFirmNameB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ContactPersonBColumn {
+                get {
+                    return this.columnContactPersonB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn FirmAddressBColumn {
+                get {
+                    return this.columnFirmAddressB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RevenueWorkOrderIdColumn {
+                get {
+                    return this.columnRevenueWorkOrderId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewRevenueWorkOrderRow this[int index] {
+                get {
+                    return ((ViewRevenueWorkOrderRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ViewRevenueWorkOrderRowChangeEventHandler ViewRevenueWorkOrderRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ViewRevenueWorkOrderRowChangeEventHandler ViewRevenueWorkOrderRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ViewRevenueWorkOrderRowChangeEventHandler ViewRevenueWorkOrderRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ViewRevenueWorkOrderRowChangeEventHandler ViewRevenueWorkOrderRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddViewRevenueWorkOrderRow(ViewRevenueWorkOrderRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewRevenueWorkOrderRow AddViewRevenueWorkOrderRow(int RevenueId, System.DateTime RevenueWorkOrderDate, string RevenueWorkOrderLetterNo, System.DateTime RevenueWorkOrderStartDate, System.DateTime RevenueWorkOrderEndDate, string WorkTitleB, decimal EstimateCost, string EstimateCostInWordB, System.DateTime RevenueNohaDate, System.DateTime AgreementDate, string FirmNameB, string ContactPersonB, string FirmAddressB, int RevenueWorkOrderId) {
+                ViewRevenueWorkOrderRow rowViewRevenueWorkOrderRow = ((ViewRevenueWorkOrderRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        RevenueId,
+                        RevenueWorkOrderDate,
+                        RevenueWorkOrderLetterNo,
+                        RevenueWorkOrderStartDate,
+                        RevenueWorkOrderEndDate,
+                        WorkTitleB,
+                        EstimateCost,
+                        EstimateCostInWordB,
+                        RevenueNohaDate,
+                        AgreementDate,
+                        FirmNameB,
+                        ContactPersonB,
+                        FirmAddressB,
+                        RevenueWorkOrderId};
+                rowViewRevenueWorkOrderRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowViewRevenueWorkOrderRow);
+                return rowViewRevenueWorkOrderRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewRevenueWorkOrderRow FindByRevenueWorkOrderId(int RevenueWorkOrderId) {
+                return ((ViewRevenueWorkOrderRow)(this.Rows.Find(new object[] {
+                            RevenueWorkOrderId})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ViewRevenueWorkOrderDataTable cln = ((ViewRevenueWorkOrderDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ViewRevenueWorkOrderDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnRevenueId = base.Columns["RevenueId"];
+                this.columnRevenueWorkOrderDate = base.Columns["RevenueWorkOrderDate"];
+                this.columnRevenueWorkOrderLetterNo = base.Columns["RevenueWorkOrderLetterNo"];
+                this.columnRevenueWorkOrderStartDate = base.Columns["RevenueWorkOrderStartDate"];
+                this.columnRevenueWorkOrderEndDate = base.Columns["RevenueWorkOrderEndDate"];
+                this.columnWorkTitleB = base.Columns["WorkTitleB"];
+                this.columnEstimateCost = base.Columns["EstimateCost"];
+                this.columnEstimateCostInWordB = base.Columns["EstimateCostInWordB"];
+                this.columnRevenueNohaDate = base.Columns["RevenueNohaDate"];
+                this.columnAgreementDate = base.Columns["AgreementDate"];
+                this.columnFirmNameB = base.Columns["FirmNameB"];
+                this.columnContactPersonB = base.Columns["ContactPersonB"];
+                this.columnFirmAddressB = base.Columns["FirmAddressB"];
+                this.columnRevenueWorkOrderId = base.Columns["RevenueWorkOrderId"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnRevenueId = new global::System.Data.DataColumn("RevenueId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRevenueId);
+                this.columnRevenueWorkOrderDate = new global::System.Data.DataColumn("RevenueWorkOrderDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRevenueWorkOrderDate);
+                this.columnRevenueWorkOrderLetterNo = new global::System.Data.DataColumn("RevenueWorkOrderLetterNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRevenueWorkOrderLetterNo);
+                this.columnRevenueWorkOrderStartDate = new global::System.Data.DataColumn("RevenueWorkOrderStartDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRevenueWorkOrderStartDate);
+                this.columnRevenueWorkOrderEndDate = new global::System.Data.DataColumn("RevenueWorkOrderEndDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRevenueWorkOrderEndDate);
+                this.columnWorkTitleB = new global::System.Data.DataColumn("WorkTitleB", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkTitleB);
+                this.columnEstimateCost = new global::System.Data.DataColumn("EstimateCost", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstimateCost);
+                this.columnEstimateCostInWordB = new global::System.Data.DataColumn("EstimateCostInWordB", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstimateCostInWordB);
+                this.columnRevenueNohaDate = new global::System.Data.DataColumn("RevenueNohaDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRevenueNohaDate);
+                this.columnAgreementDate = new global::System.Data.DataColumn("AgreementDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAgreementDate);
+                this.columnFirmNameB = new global::System.Data.DataColumn("FirmNameB", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFirmNameB);
+                this.columnContactPersonB = new global::System.Data.DataColumn("ContactPersonB", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContactPersonB);
+                this.columnFirmAddressB = new global::System.Data.DataColumn("FirmAddressB", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFirmAddressB);
+                this.columnRevenueWorkOrderId = new global::System.Data.DataColumn("RevenueWorkOrderId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRevenueWorkOrderId);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnRevenueWorkOrderId}, true));
+                this.columnRevenueId.AllowDBNull = false;
+                this.columnRevenueWorkOrderLetterNo.MaxLength = 255;
+                this.columnWorkTitleB.MaxLength = 255;
+                this.columnEstimateCostInWordB.MaxLength = 500;
+                this.columnFirmNameB.MaxLength = 200;
+                this.columnContactPersonB.MaxLength = 150;
+                this.columnFirmAddressB.MaxLength = 500;
+                this.columnRevenueWorkOrderId.AllowDBNull = false;
+                this.columnRevenueWorkOrderId.Unique = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewRevenueWorkOrderRow NewViewRevenueWorkOrderRow() {
+                return ((ViewRevenueWorkOrderRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ViewRevenueWorkOrderRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ViewRevenueWorkOrderRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ViewRevenueWorkOrderRowChanged != null)) {
+                    this.ViewRevenueWorkOrderRowChanged(this, new ViewRevenueWorkOrderRowChangeEvent(((ViewRevenueWorkOrderRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ViewRevenueWorkOrderRowChanging != null)) {
+                    this.ViewRevenueWorkOrderRowChanging(this, new ViewRevenueWorkOrderRowChangeEvent(((ViewRevenueWorkOrderRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ViewRevenueWorkOrderRowDeleted != null)) {
+                    this.ViewRevenueWorkOrderRowDeleted(this, new ViewRevenueWorkOrderRowChangeEvent(((ViewRevenueWorkOrderRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ViewRevenueWorkOrderRowDeleting != null)) {
+                    this.ViewRevenueWorkOrderRowDeleting(this, new ViewRevenueWorkOrderRowChangeEvent(((ViewRevenueWorkOrderRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveViewRevenueWorkOrderRow(ViewRevenueWorkOrderRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                WPDataSet ds = new WPDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ViewRevenueWorkOrderDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class ViewContactAgreementRow : global::System.Data.DataRow {
@@ -16108,6 +16590,385 @@ namespace IDIMWorkBranchProject.Report.Data {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ViewRevenueWorkOrderRow : global::System.Data.DataRow {
+            
+            private ViewRevenueWorkOrderDataTable tableViewRevenueWorkOrder;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal ViewRevenueWorkOrderRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableViewRevenueWorkOrder = ((ViewRevenueWorkOrderDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int RevenueId {
+                get {
+                    return ((int)(this[this.tableViewRevenueWorkOrder.RevenueIdColumn]));
+                }
+                set {
+                    this[this.tableViewRevenueWorkOrder.RevenueIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime RevenueWorkOrderDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableViewRevenueWorkOrder.RevenueWorkOrderDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RevenueWorkOrderDate\' in table \'ViewRevenueWorkOrder\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewRevenueWorkOrder.RevenueWorkOrderDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string RevenueWorkOrderLetterNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewRevenueWorkOrder.RevenueWorkOrderLetterNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RevenueWorkOrderLetterNo\' in table \'ViewRevenueWorkOrder\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewRevenueWorkOrder.RevenueWorkOrderLetterNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime RevenueWorkOrderStartDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableViewRevenueWorkOrder.RevenueWorkOrderStartDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RevenueWorkOrderStartDate\' in table \'ViewRevenueWorkOrder\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewRevenueWorkOrder.RevenueWorkOrderStartDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime RevenueWorkOrderEndDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableViewRevenueWorkOrder.RevenueWorkOrderEndDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RevenueWorkOrderEndDate\' in table \'ViewRevenueWorkOrder\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewRevenueWorkOrder.RevenueWorkOrderEndDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string WorkTitleB {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewRevenueWorkOrder.WorkTitleBColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WorkTitleB\' in table \'ViewRevenueWorkOrder\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewRevenueWorkOrder.WorkTitleBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal EstimateCost {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableViewRevenueWorkOrder.EstimateCostColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EstimateCost\' in table \'ViewRevenueWorkOrder\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewRevenueWorkOrder.EstimateCostColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string EstimateCostInWordB {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewRevenueWorkOrder.EstimateCostInWordBColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EstimateCostInWordB\' in table \'ViewRevenueWorkOrder\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewRevenueWorkOrder.EstimateCostInWordBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime RevenueNohaDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableViewRevenueWorkOrder.RevenueNohaDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RevenueNohaDate\' in table \'ViewRevenueWorkOrder\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableViewRevenueWorkOrder.RevenueNohaDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime AgreementDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableViewRevenueWorkOrder.AgreementDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AgreementDate\' in table \'ViewRevenueWorkOrder\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewRevenueWorkOrder.AgreementDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string FirmNameB {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewRevenueWorkOrder.FirmNameBColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FirmNameB\' in table \'ViewRevenueWorkOrder\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewRevenueWorkOrder.FirmNameBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ContactPersonB {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewRevenueWorkOrder.ContactPersonBColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ContactPersonB\' in table \'ViewRevenueWorkOrder\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewRevenueWorkOrder.ContactPersonBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string FirmAddressB {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewRevenueWorkOrder.FirmAddressBColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FirmAddressB\' in table \'ViewRevenueWorkOrder\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewRevenueWorkOrder.FirmAddressBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int RevenueWorkOrderId {
+                get {
+                    return ((int)(this[this.tableViewRevenueWorkOrder.RevenueWorkOrderIdColumn]));
+                }
+                set {
+                    this[this.tableViewRevenueWorkOrder.RevenueWorkOrderIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRevenueWorkOrderDateNull() {
+                return this.IsNull(this.tableViewRevenueWorkOrder.RevenueWorkOrderDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRevenueWorkOrderDateNull() {
+                this[this.tableViewRevenueWorkOrder.RevenueWorkOrderDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRevenueWorkOrderLetterNoNull() {
+                return this.IsNull(this.tableViewRevenueWorkOrder.RevenueWorkOrderLetterNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRevenueWorkOrderLetterNoNull() {
+                this[this.tableViewRevenueWorkOrder.RevenueWorkOrderLetterNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRevenueWorkOrderStartDateNull() {
+                return this.IsNull(this.tableViewRevenueWorkOrder.RevenueWorkOrderStartDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRevenueWorkOrderStartDateNull() {
+                this[this.tableViewRevenueWorkOrder.RevenueWorkOrderStartDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRevenueWorkOrderEndDateNull() {
+                return this.IsNull(this.tableViewRevenueWorkOrder.RevenueWorkOrderEndDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRevenueWorkOrderEndDateNull() {
+                this[this.tableViewRevenueWorkOrder.RevenueWorkOrderEndDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsWorkTitleBNull() {
+                return this.IsNull(this.tableViewRevenueWorkOrder.WorkTitleBColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetWorkTitleBNull() {
+                this[this.tableViewRevenueWorkOrder.WorkTitleBColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEstimateCostNull() {
+                return this.IsNull(this.tableViewRevenueWorkOrder.EstimateCostColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEstimateCostNull() {
+                this[this.tableViewRevenueWorkOrder.EstimateCostColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEstimateCostInWordBNull() {
+                return this.IsNull(this.tableViewRevenueWorkOrder.EstimateCostInWordBColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEstimateCostInWordBNull() {
+                this[this.tableViewRevenueWorkOrder.EstimateCostInWordBColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRevenueNohaDateNull() {
+                return this.IsNull(this.tableViewRevenueWorkOrder.RevenueNohaDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRevenueNohaDateNull() {
+                this[this.tableViewRevenueWorkOrder.RevenueNohaDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAgreementDateNull() {
+                return this.IsNull(this.tableViewRevenueWorkOrder.AgreementDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAgreementDateNull() {
+                this[this.tableViewRevenueWorkOrder.AgreementDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsFirmNameBNull() {
+                return this.IsNull(this.tableViewRevenueWorkOrder.FirmNameBColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetFirmNameBNull() {
+                this[this.tableViewRevenueWorkOrder.FirmNameBColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsContactPersonBNull() {
+                return this.IsNull(this.tableViewRevenueWorkOrder.ContactPersonBColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetContactPersonBNull() {
+                this[this.tableViewRevenueWorkOrder.ContactPersonBColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsFirmAddressBNull() {
+                return this.IsNull(this.tableViewRevenueWorkOrder.FirmAddressBColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetFirmAddressBNull() {
+                this[this.tableViewRevenueWorkOrder.FirmAddressBColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -16501,6 +17362,40 @@ namespace IDIMWorkBranchProject.Report.Data {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ViewRevenueContractAgreementRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class ViewRevenueWorkOrderRowChangeEvent : global::System.EventArgs {
+            
+            private ViewRevenueWorkOrderRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewRevenueWorkOrderRowChangeEvent(ViewRevenueWorkOrderRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ViewRevenueWorkOrderRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -19778,6 +20673,186 @@ namespace IDIMWorkBranchProject.Report.Data.WPDataSetTableAdapters {
         public virtual WPDataSet.ViewRevenueContractAgreementDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             WPDataSet.ViewRevenueContractAgreementDataTable dataTable = new WPDataSet.ViewRevenueContractAgreementDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ViewRevenueWorkOrderTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::Microsoft.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::Microsoft.Data.SqlClient.SqlConnection _connection;
+        
+        private global::Microsoft.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::Microsoft.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public ViewRevenueWorkOrderTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::Microsoft.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::Microsoft.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::Microsoft.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::Microsoft.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::Microsoft.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::Microsoft.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ViewRevenueWorkOrder";
+            tableMapping.ColumnMappings.Add("RevenueId", "RevenueId");
+            tableMapping.ColumnMappings.Add("RevenueWorkOrderDate", "RevenueWorkOrderDate");
+            tableMapping.ColumnMappings.Add("RevenueWorkOrderLetterNo", "RevenueWorkOrderLetterNo");
+            tableMapping.ColumnMappings.Add("RevenueWorkOrderStartDate", "RevenueWorkOrderStartDate");
+            tableMapping.ColumnMappings.Add("RevenueWorkOrderEndDate", "RevenueWorkOrderEndDate");
+            tableMapping.ColumnMappings.Add("WorkTitleB", "WorkTitleB");
+            tableMapping.ColumnMappings.Add("EstimateCost", "EstimateCost");
+            tableMapping.ColumnMappings.Add("EstimateCostInWordB", "EstimateCostInWordB");
+            tableMapping.ColumnMappings.Add("RevenueNohaDate", "RevenueNohaDate");
+            tableMapping.ColumnMappings.Add("AgreementDate", "AgreementDate");
+            tableMapping.ColumnMappings.Add("FirmNameB", "FirmNameB");
+            tableMapping.ColumnMappings.Add("ContactPersonB", "ContactPersonB");
+            tableMapping.ColumnMappings.Add("FirmAddressB", "FirmAddressB");
+            tableMapping.ColumnMappings.Add("RevenueWorkOrderId", "RevenueWorkOrderId");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::Microsoft.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["IDIMDBEntities"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::Microsoft.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT wbpm.ViewRevenueWorkOrder.*\r\nFROM     wbpm.ViewRevenueWorkOrder";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(WPDataSet.ViewRevenueWorkOrderDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual WPDataSet.ViewRevenueWorkOrderDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            WPDataSet.ViewRevenueWorkOrderDataTable dataTable = new WPDataSet.ViewRevenueWorkOrderDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
