@@ -254,11 +254,14 @@ namespace IDIMWorkBranchProject.Data.Database
         public virtual DbSet<FurnitureBillPayment> FurnitureBillPayments { get; set; }
         public virtual DbSet<CollateralReturn> CollateralReturns { get; set; }
         public virtual DbSet<HandoverApproved> HandoverApproveds { get; set; }
+
+        #endregion
+        #region Revenue
         public virtual DbSet<RevenueNoha> RevenueNohas { get; set; }
         public virtual DbSet<RevenuePerformanceSecurity> RevenuePerformanceSecurities { get; set; }
         public virtual DbSet<RevenueWorkOrder> RevenueWorkOrders { get; set; }
         public virtual DbSet<Revenue> Revenues { get; set; }
-        public virtual DbSet<RevenueContractAgreement> RevenueContractAgreements { get; set; }
+        public virtual DbSet<RevenueContractAgreement> RevenueContractAgreements { get; set; }        
         #endregion
 
         public virtual DbSet<IrmsSetupLocation> SetupLocations { get; set; }
