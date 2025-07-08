@@ -39,7 +39,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         public async Task<ActionResult> Create(int id)
         {
             var revenue = await _revenueService.GetByIdAsync(id);
-            var revenueContractAgreement = await _revenueContractAgreementService.GetByRevenueIdAsync(id);
+            var revenueContractAgreement = await _revenueContractAgreementService.GetByRevenueIdAsync(id );
 
 
             var model = new RevenueContractAgreementVm

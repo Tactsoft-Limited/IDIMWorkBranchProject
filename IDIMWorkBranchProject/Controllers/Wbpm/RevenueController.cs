@@ -20,8 +20,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IRevenueNohaService _revenueNohaService;
         private readonly IRevenuePerformanceSecurityService _revenuePerformanceSecurityService;
         private readonly IRevenueWorkOrderService _revenueWorkOrderService;
-        private readonly IRevenueContractAgreementService _revenueContractAgreementService;
-        private readonly IConstructionCompanyService _constructionCompanyService;
+        private readonly IRevenueContractAgreementService _revenueContractAgreementService;        
         private readonly IMapper _mapper;
         public RevenueController(IActivityLogService activityLogService, IRevenueService revenueService, IMapper mapper, IFiscalYearService fiscalYearService, IRevenueNohaService revenueNohaService, IRevenuePerformanceSecurityService revenuePerformanceSecurityService, IRevenueWorkOrderService revenueWorkOrderService, IRevenueContractAgreementService revenueContractAgreementService) : base(activityLogService)
         {
@@ -39,13 +38,11 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         {
             return RedirectToAction("List");
         }
-
         public ActionResult List()
         {
             var model = new RevenueSearchVm();
             return View(model);
         }
-
         [HttpPost]
         public async Task<ActionResult> LoadData(RevenueSearchVm model)
         {
