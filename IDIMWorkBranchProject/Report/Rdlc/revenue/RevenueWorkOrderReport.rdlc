@@ -383,7 +383,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>৩।       কার্যাদেশ প্রদানের ০৭ (সাত) দিনের মধ্যে কাজ শুরু করার জন্য নির্দেশনা প্রদান করা হলো। উক্ত তারিখের মধ্যে কাজটি সম্পন্ন করতে ব্যর্থ হলে অত্র কার্যাদেশ বাতিল করতঃ অন্য ঠিকাদার দ্বারা কাজটি সম্পন্ন করা হবে এবং পিপিআর ২০০৮ মোতাবেক আপনাদের ফার্মের বিরুদ্ধে প্রশাসনিক ব্যবস্থা গ্রহণ করা হবে। এছাড়াও নির্ধারিত সময়ের মধ্যে কাজ সম্পন্ন করতে ব্যর্থতার কারণে আপনাদের নিকট হতে চুক্তিপত্রের শর্তানুযায়ী জরিমানা আদায় করা হবে। উল্লেখ্য, পরিবেশের ভারসাম্য রক্ষার্থে নির্মাণ কাজ চলাকালীন কোন প্রকার পাহাড় ও গাছপালা কাটা যাবে না।</Value>
+                              <Value>৩।        উক্ত তারিখের মধ্যে কাজটি সম্পন্ন করতে ব্যর্থ হলে অত্র কার্যাদেশ বাতিল করতঃ অন্য ঠিকাদার দ্বারা কাজটি সম্পন্ন করা হবে এবং পিপিআর ২০০৮ মোতাবেক আপনাদের ফার্মের বিরুদ্ধে প্রশাসনিক ব্যবস্থা গ্রহণ করা হবে। এছাড়াও নির্ধারিত সময়ের মধ্যে কাজ সম্পন্ন করতে ব্যর্থতার কারণে আপনাদের নিকট হতে চুক্তিপত্রের শর্তানুযায়ী জরিমানা আদায় করা হবে। উল্লেখ্য, পরিবেশের ভারসাম্য রক্ষার্থে নির্মাণ কাজ চলাকালীন কোন প্রকার পাহাড় ও গাছপালা কাটা যাবে না।</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -404,6 +404,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -694,17 +695,21 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>প্রোপ্রাইটর- </Value>
+                              <Value>=Fields!OwnerDesignationB.Value</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!ContactPersonB.Value</Value>
+                              <Value> - </Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
-                                <FontSize>11pt</FontSize>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>=Fields!OwnerNameB.Value</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -864,7 +869,6 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsRevenueWorkOrder</DataSetName>
-        <Left>0in</Left>
         <Height>7.99305in</Height>
         <Width>7.14583in</Width>
         <Style>
@@ -971,6 +975,12 @@
                     <FontFamily>SolaimanLipi</FontFamily>
                   </Style>
                 </TextRun>
+                <TextRun>
+                  <Value xml:space="preserve"> </Value>
+                  <Style>
+                    <FontFamily>SolaimanLipi</FontFamily>
+                  </Style>
+                </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
@@ -1023,7 +1033,6 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.375in</Top>
-          <Left>0in</Left>
           <Height>0.25in</Height>
           <Width>7.14583in</Width>
           <Style>
@@ -1070,6 +1079,10 @@
           <DataField>RevenueId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="RevenueWorkOrderId">
+          <DataField>RevenueWorkOrderId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="RevenueWorkOrderDate">
           <DataField>RevenueWorkOrderDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
@@ -1110,17 +1123,17 @@
           <DataField>FirmNameB</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ContactPersonB">
-          <DataField>ContactPersonB</DataField>
+        <Field Name="OwnerNameB">
+          <DataField>OwnerNameB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OwnerDesignationB">
+          <DataField>OwnerDesignationB</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="FirmAddressB">
           <DataField>FirmAddressB</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="RevenueWorkOrderId">
-          <DataField>RevenueWorkOrderId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
