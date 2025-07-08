@@ -72,11 +72,11 @@
     <Compile Include="Entities\Wbpm\Notification.cs" />
     <Compile Include="Entities\Wbpm\ProjectWorkStatus.cs" />
     <Compile Include="Entities\Wbpm\PerformanceSecurity.cs" />
-    <Compile Include="Entities\Wbpm\Revenue\Revenue.cs" />
-    <Compile Include="Entities\Wbpm\Revenue\RevenueContractAgreement.cs" />
-    <Compile Include="Entities\Wbpm\Revenue\RevenueNoha.cs" />
-    <Compile Include="Entities\Wbpm\Revenue\RevenuePerformanceSecurity.cs" />
-    <Compile Include="Entities\Wbpm\Revenue\RevenueWorkOrder.cs" />
+    <Compile Include="Entities\Wbpm\Revenues\Revenue.cs" />
+    <Compile Include="Entities\Wbpm\Revenues\RevenueContractAgreement.cs" />
+    <Compile Include="Entities\Wbpm\Revenues\RevenueNoha.cs" />
+    <Compile Include="Entities\Wbpm\Revenues\RevenuePerformanceSecurity.cs" />
+    <Compile Include="Entities\Wbpm\Revenues\RevenueWorkOrder.cs" />
     <Compile Include="Entities\Wbpm\WorkOrder.cs" />
     <Compile Include="Entities\Wbpm\Noha.cs" />
     <Compile Include="Entities\Wbpm\ConstructionCompany.cs" />
