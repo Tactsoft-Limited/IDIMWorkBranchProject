@@ -157,6 +157,14 @@
                    @(Model.RevenueDetail.IsPerformanceSecuritySubmited ? "" : "onclick='return false;'")>
                     <i class="fa fa-pencil-square"></i> রাজস্ব চুক্তি সংযুক্ত করুণ
                 </a>
+                <a href="@Url.Action("PrintRevenueContractAgreement", "Report", new { id = Model.RevenueDetail.RevenueId, type="pdf"})" class="btn btn-success btn-xs pull-right mt-2 mb-2 @(Model.RevenueDetail.IsAgreementCompleted ? "" : "disabled")"
+                   @(Model.RevenueDetail.IsAgreementCompleted ? "" : "onclick='return false;'")>
+                    <i class="fa fa-file-pdf-o"></i> প্রিন্ট PDF
+                </a>
+                <a href="@Url.Action("PrintRevenueContractAgreement", "Report", new { id = Model.RevenueDetail.RevenueId, type="word" })" class="btn btn-success btn-xs pull-right mt-2 mb-2 @(Model.RevenueDetail.IsAgreementCompleted ? "" : "disabled")"
+                   @(Model.RevenueDetail.IsAgreementCompleted ? "" : "onclick='return false;'")>
+                    <i class="fa fa-file-word-o"></i> প্রিন্ট Word
+                </a>
             </div>
 
             <div class="panel-body" style="padding:0px !important">
@@ -199,6 +207,14 @@
                    class="btn btn-primary btn-xs pull-right @(Model.RevenueDetail.IsAgreementCompleted ? "" : "disabled")"
                    @(Model.RevenueDetail.IsAgreementCompleted ? "" : "onclick='return false;'")>
                     <i class="fa fa-print"></i> কার্যাদেশ সংযুক্ত করুণ
+                </a>
+                <a href="@Url.Action("PrintRevenueWorkOrder", "Report", new { id = Model.RevenueDetail.RevenueId, type="pdf"})" class="btn btn-success btn-xs pull-right mt-2 mb-2 @(Model.RevenueDetail.IsWorkOrderComplited ? "" : "disabled")"
+                   @(Model.RevenueDetail.IsWorkOrderComplited ? "" : "onclick='return false;'")>
+                    <i class="fa fa-file-pdf-o"></i> প্রিন্ট PDF
+                </a>
+                <a href="@Url.Action("PrintRevenueWorkOrder", "Report", new { id = Model.RevenueDetail.RevenueId, type="word" })" class="btn btn-success btn-xs pull-right mt-2 mb-2 @(Model.RevenueDetail.IsWorkOrderComplited ? "" : "disabled")"
+                   @(Model.RevenueDetail.IsWorkOrderComplited ? "" : "onclick='return false;'")>
+                    <i class="fa fa-file-word-o"></i> প্রিন্ট Word
                 </a>
             </div>
 
