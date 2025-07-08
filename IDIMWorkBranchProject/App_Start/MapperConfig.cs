@@ -3,6 +3,7 @@ using BGB.Data.Entities.Admin;
 using BGB.Data.Entities.Budget;
 using BGB.Data.Entities.Irms;
 using BGB.Data.Entities.Wbpm;
+
 using IDIMWorkBranchProject.Models.Setup;
 using IDIMWorkBranchProject.Models.User;
 using IDIMWorkBranchProject.Models.Wbpm;
@@ -14,6 +15,8 @@ namespace IDIMWorkBranchProject
         public MapperConfig()
         {
             #region Wbpm
+
+            #region Revenue
 
             CreateMap<RevenueContractAgreementVm, RevenueContractAgreement>();
             CreateMap<RevenueContractAgreement, RevenueContractAgreementVm>();
@@ -28,7 +31,9 @@ namespace IDIMWorkBranchProject
             CreateMap<RevenuePerformanceSecurity, RevenuePerformanceSecurityVm>();
 
             CreateMap<RevenueNohaVm, RevenueNoha>();
-            CreateMap<RevenueNoha, RevenueNohaVm>();
+            CreateMap<RevenueNoha, RevenueNohaVm>();           
+
+            #endregion
 
             CreateMap<HandoverApprovedVm, HandoverApproved>();
             CreateMap<HandoverApproved, HandoverApprovedVm>();
