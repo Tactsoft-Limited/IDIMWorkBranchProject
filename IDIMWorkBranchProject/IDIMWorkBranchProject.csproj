@@ -2968,6 +2968,7 @@
     <Folder Include="Documents\WorkOrderFiles\" />
     <Folder Include="Scripts\Plugins\datatables\extensions\FixedColumns\examples\integration\" />
     <Folder Include="Scripts\Plugins\jquery-tabledit\" />
+    <Folder Include="Views\RevenueHandoverApproved\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
