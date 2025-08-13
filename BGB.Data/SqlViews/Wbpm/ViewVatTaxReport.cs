@@ -16,6 +16,9 @@ namespace BGB.Data.SqlViews.Wbpm
         public string ProjectWorkTitleB { get; set; }
         public string FirmNameB { get; set; }
         public decimal BillPaidAmount { get; set; }
+        public string BillPaidAmountInWord { get; set; }
+        public string BillPaymentSector { get; set; }
+
         public int BillNumber { get; set; }
         public double TaxPer { get; set; }
         public decimal TaxAmount { get; set; }
@@ -42,5 +45,15 @@ namespace BGB.Data.SqlViews.Wbpm
         public decimal CurrentBillTotalBalance { get; set; }
         public decimal RelatedWorkBillAmount { get; set; }
         public decimal TotalAmount { get; set; }
+        public string FirmAddressB { get; set; }
+        public string OwnerNameB { get; set; }
+        public string AuthorityNameB { get; set; }
+        public string DesignationB { get; set; }
+        public string Recruitment { get; set; }
+        public string onThePartOf { get; set; }
+        public string LetterNo { get; set; }
+        public DateTime WorkOrderDate { get; set; }
+        public string WorkOrderDateB { get; set; }
+
     }
 }

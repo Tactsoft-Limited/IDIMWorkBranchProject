@@ -11,7 +11,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.38194in</Height>
+              <Height>0.25694in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -63,6 +63,7 @@
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
+                                <TextDecoration>Underline</TextDecoration>
                               </Style>
                             </TextRun>
                             <TextRun>
@@ -70,6 +71,7 @@
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <FontSize>11pt</FontSize>
+                                <TextDecoration>Underline</TextDecoration>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -472,10 +474,9 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=Fields!AuthorityNameB.Value</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
-                                <FontSize>11pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -486,11 +487,35 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>উপ মহাপরিচালক (পূর্ত)
-মহাপরিচালকের পক্ষে</Value>
+                              <Value>=Fields!DesignationB.Value</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
-                                <FontSize>11pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Recruitment.Value</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!onThePartOf.Value</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -833,8 +858,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsWorkOrder</DataSetName>
-        <Top>0.02778in</Top>
-        <Height>7.99305in</Height>
+        <Top>0.08335in</Top>
+        <Left>0.00001in</Left>
+        <Height>7.86805in</Height>
         <Width>7.14583in</Width>
         <Style>
           <Border>
@@ -935,7 +961,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
+                  <Value>=Fields!WorkOrderDateB.Value</Value>
                   <Style>
                     <FontFamily>SolaimanLipi</FontFamily>
                   </Style>
@@ -954,12 +980,23 @@
               </TextRuns>
               <Style />
             </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value />
+                  <Style>
+                    <FontFamily>SolaimanLipi</FontFamily>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.26528in</Top>
-          <Left>5.36806in</Left>
+          <Left>5.10973in</Left>
           <Height>1.04861in</Height>
-          <Width>1.77778in</Width>
+          <Width>2.03611in</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -1043,6 +1080,10 @@
           <DataField>WorkOrderDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="WorkOrderDateB">
+          <DataField>WorkOrderDateB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="StartDate">
           <DataField>StartDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
@@ -1071,10 +1112,26 @@
           <DataField>AgreementDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="AuthorityNameB">
+          <DataField>AuthorityNameB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DesignationB">
+          <DataField>DesignationB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Recruitment">
+          <DataField>Recruitment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="onThePartOf">
+          <DataField>onThePartOf</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>WPDataSet</rd:DataSetName>
-        <rd:SchemaPath>E:\Tactsoft Projects\BGB Project Mvc\Git Project\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>F:\Software Work\TactSoft\IDIMWorkBranch\wbpm\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
         <rd:TableName>ViewWorkOrder</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

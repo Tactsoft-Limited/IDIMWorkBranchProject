@@ -49,9 +49,17 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value> এর ১ম চলতি বিল (বিজিবি ফান্ডে জমাকৃত টাকা হতে আংশিক) পরিশোধ প্রসংগে</Value>
+                <Value xml:space="preserve"> </Value>
                 <Style>
                   <FontFamily>Nikosh</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>এর ১ম চলতি বিল (বিজিবি ফান্ডে জমাকৃত টাকা হতে আংশিক) পরিশোধ প্রসংগে</Value>
+                <Style>
+                  <FontFamily>SOlaimanLipi</FontFamily>
                   <FontWeight>Bold</FontWeight>
                   <TextDecoration>Underline</TextDecoration>
                 </Style>
@@ -139,7 +147,7 @@
                             <TextRun>
                               <Value>ক্র/নং</Value>
                               <Style>
-                                <FontFamily>Nikosh</FontFamily>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <TextDecoration>None</TextDecoration>
                               </Style>
                             </TextRun>
@@ -180,7 +188,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -194,7 +201,7 @@
                             <TextRun>
                               <Value>বিবরণ</Value>
                               <Style>
-                                <FontFamily>Nikosh</FontFamily>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
                               </Style>
@@ -236,7 +243,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -250,7 +256,7 @@
                             <TextRun>
                               <Value>মন্তব্য</Value>
                               <Style>
-                                <FontFamily>Nikosh</FontFamily>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
                               </Style>
@@ -292,7 +298,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -311,7 +316,7 @@
                             <TextRun>
                               <Value>১।</Value>
                               <Style>
-                                <FontFamily>Nikosh</FontFamily>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
                               </Style>
@@ -333,7 +338,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -347,7 +351,7 @@
                             <TextRun>
                               <Value>ঠিকাদারের আবেদনপত্র।</Value>
                               <Style>
-                                <FontFamily>Nikosh</FontFamily>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
                               </Style>
@@ -369,7 +373,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -383,7 +386,7 @@
                             <TextRun>
                               <Value>পকাতা-ক</Value>
                               <Style>
-                                <FontFamily>Nikosh</FontFamily>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
                               </Style>
@@ -405,7 +408,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -424,7 +426,7 @@
                             <TextRun>
                               <Value>২।</Value>
                               <Style>
-                                <FontFamily>Nikosh</FontFamily>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
                               </Style>
@@ -446,7 +448,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -460,7 +461,7 @@
                             <TextRun>
                               <Value>কাজের অগ্রগতির প্রতিবেদন।</Value>
                               <Style>
-                                <FontFamily>Nikosh</FontFamily>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
                               </Style>
@@ -482,7 +483,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -496,7 +496,7 @@
                             <TextRun>
                               <Value>পকাতা-খ</Value>
                               <Style>
-                                <FontFamily>Nikosh</FontFamily>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
                               </Style>
@@ -518,7 +518,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -537,7 +536,7 @@
                             <TextRun>
                               <Value>৩।</Value>
                               <Style>
-                                <FontFamily>Nikosh</FontFamily>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
                               </Style>
@@ -559,7 +558,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -573,7 +571,7 @@
                             <TextRun>
                               <Value>কাজের বর্ত্মানের অবস্থার স্থির চিত্র (ছবি)।</Value>
                               <Style>
-                                <FontFamily>Nikosh</FontFamily>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
                               </Style>
@@ -595,7 +593,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -609,7 +606,7 @@
                             <TextRun>
                               <Value>পকাতা-গ</Value>
                               <Style>
-                                <FontFamily>Nikosh</FontFamily>
+                                <FontFamily>SolaimanLipi</FontFamily>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
                               </Style>
@@ -631,7 +628,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

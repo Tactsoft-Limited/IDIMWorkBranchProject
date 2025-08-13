@@ -17,14 +17,16 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
     {
         private readonly IWorkOrderService _workOrderService;
         private readonly IProjectWorkService _projectWorkService;
+        private readonly ISignatoryAuthorityService _signatoryAuthorityService;
         private readonly IMapper _mapper;
         private readonly string fileStorePath = "Documents/WorkOrderFiles";
 
-        public WorkOrderController(IActivityLogService activityLogService, IWorkOrderService workOrderService, IProjectWorkService projectWorkService, IMapper mapper) : base(activityLogService)
+        public WorkOrderController(IActivityLogService activityLogService, IWorkOrderService workOrderService, IProjectWorkService projectWorkService, IMapper mapper, ISignatoryAuthorityService signatoryAuthorityService) : base(activityLogService)
         {
             _workOrderService = workOrderService;
             _projectWorkService = projectWorkService;
             _mapper = mapper;
+            _signatoryAuthorityService = signatoryAuthorityService;
         }
 
         // GET: WorkOrder
@@ -58,6 +60,12 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             {
                 ProjectWorkId = projectWork.ProjectWorkId,
                 ProjectWorkTitleB = projectWork.ProjectWorkTitleB,
+                HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
+                ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
+                SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
+                BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
+                OfficersDropdown= await _signatoryAuthorityService.GetDropdownAsync(),
+
             };
             return View(model);
         }
@@ -69,6 +77,11 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             if (!ModelState.IsValid)
             {
                 SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+                model.OfficersDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);
                 return View(model);
             }
             try
@@ -97,6 +110,11 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             catch (Exception exception)
             {
                 SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "Work Order", exception.Message), ResponseType.Error);
+                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+                model.OfficersDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);
                 return View(model);
             }
         }
@@ -107,6 +125,11 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             var model = _mapper.Map<WorkOrderVm>(await _workOrderService.GetByIdAsync(id));
             model.ProjectWorkId = projectWork.ProjectWorkId;
             model.ProjectWorkTitleB = projectWork.ProjectWorkTitleB;
+            model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+            model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+            model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+            model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+            model.OfficersDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);
             return View(model);
         }
         [HttpPost]
@@ -115,6 +138,11 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             if (!ModelState.IsValid)
             {
                 TempData["Message"] = Messages.InvalidInput(MessageType.Update.ToString());
+                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+                model.OfficersDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);
                 return View(model);
             }
             try

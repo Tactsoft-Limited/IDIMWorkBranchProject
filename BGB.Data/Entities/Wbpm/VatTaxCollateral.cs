@@ -36,9 +36,29 @@ namespace BGB.Data.Entities.Wbpm
         public string CodeNo { get; set; }
         public string EconomicCode { get; set; }
         public string VoucherNo { get; set; }
+        public int? HeadAssistantId { get; set; }
+        public int? ConcernedEngineerId { get; set; }
+        public int? SectionICId { get; set; }
+        public int? BranchClerkId { get; set; }
+        public int? OfficerId { get; set; }
 
         // Navigation Property
         [ForeignKey(nameof(ADPReceivePaymentId))]
         public ADPReceivePayment ADPReceivePayment { get; set; }
+
+        [ForeignKey(nameof(BranchClerkId))]
+        public virtual SignatoryAuthority BranchClerk { get; set; }
+
+        [ForeignKey(nameof(ConcernedEngineerId))]
+        public virtual SignatoryAuthority ConcernedEngineer { get; set; }
+
+        [ForeignKey(nameof(HeadAssistantId))]
+        public virtual SignatoryAuthority HeadAssistant { get; set; }
+
+        [ForeignKey(nameof(SectionICId))]
+        public virtual SignatoryAuthority SectionIC { get; set; }
+
+        [ForeignKey(nameof(OfficerId))]
+        public virtual SignatoryAuthority Officers { get; set; }
     }
 }

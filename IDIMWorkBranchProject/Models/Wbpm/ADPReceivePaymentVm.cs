@@ -79,8 +79,8 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [DisplayName("মন্তব্য")]
         public string Remarks { get; set; }
+        
         [DisplayName("প্রধান সহকারী")]
-
         public int? HeadAssistantId { get; set; }
 
         [DisplayName("প্রধান সহকারী")]
@@ -104,10 +104,17 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("শাখা করনিক")]
         public string BranchClerkName { get; set; }
 
+        [DisplayName("অফিসার")]
+        public int? OfficerId { get; set; }
+
+        [DisplayName("অফিসার")]
+        public string officerName { get; set; }
+
 
         public IEnumerable<SelectListItem> HeadAssistantDropdown { get; set; }
         public IEnumerable<SelectListItem> ConcernedEngineerDropdown { get; set; }
         public IEnumerable<SelectListItem> SectionICTDropdown { get; set; }
         public IEnumerable<SelectListItem> BranchClerkDropdown { get; set; }
+        public IEnumerable<SelectListItem> OfficersDropdown { get; set; }
     }
 }

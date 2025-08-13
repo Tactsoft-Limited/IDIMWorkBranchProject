@@ -23,7 +23,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Height>0.25in</Height>
-        <Width>7.50001in</Width>
+        <Width>7.17361in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -38,16 +38,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.53472in</Width>
+              <Width>0.45312in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.03473in</Width>
+              <Width>1.95313in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.27257in</Width>
+              <Width>0.19097in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.65799in</Width>
+              <Width>4.57639in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1655,8 +1655,8 @@
         </TablixRowHierarchy>
         <DataSetName>DsADPReceivePayment</DataSetName>
         <Top>0.84027in</Top>
-        <Height>2.90278in</Height>
-        <Width>7.50001in</Width>
+        <Height>2.90276in</Height>
+        <Width>7.17361in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -1758,8 +1758,8 @@
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>0.31944in</Top>
-        <Height>0.38889in</Height>
-        <Width>7.50001in</Width>
+        <Height>0.45139in</Height>
+        <Width>7.17361in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -1783,7 +1783,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1.73612in</Height>
+              <Height>2.49306in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1794,7 +1794,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>সংশ্লিষ্ট ইঞ্জিনিয়ারঃ     ............................................</Value>
+                              <Value>প্রধান সহকারীঃ     ............................................</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -1812,6 +1812,45 @@
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!HeadAssistant.Value</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>ইঞ্জিনিয়ার আইসিঃ  ............................................</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value xml:space="preserve">                          </Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>=Fields!ConcernedEngineer.Value</Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -1894,7 +1933,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>সংশ্লিষ্ট করণিকঃ       ........................................... </Value>
+                              <Value>প্রকল্প সহকারীঃ       ........................................... </Value>
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                               </Style>
@@ -1942,37 +1981,63 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+                              <Value>=Fields!AuthorityNameB.Value</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <FontSize>12pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!DesignationB.Value</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <FontSize>12pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Recruitment.Value</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <FontSize>12pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!onThePartOf.Value</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <FontSize>12pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
                               <Value />
-                              <Style>
-                                <FontFamily>SolaimanLipi</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>পরিচালক (পূর্ত)</Value>
-                              <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontFamily>SolaimanLipi</FontFamily>
-                                <FontWeight>Normal</FontWeight>
-                                <TextDecoration>None</TextDecoration>
-                                <Color>#000000</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>পূর্ত শাখা</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontFamily>SolaimanLipi</FontFamily>
@@ -2003,7 +2068,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.89583in</Height>
+              <Height>0.77083in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2054,7 +2119,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.95139in</Height>
+              <Height>0.58472in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2093,7 +2158,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>1.02777in</Height>
+              <Height>0.6361in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2132,7 +2197,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.97916in</Height>
+              <Height>0.68749in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2171,7 +2236,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.70833in</Height>
+              <Height>0.65833in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2229,7 +2294,7 @@
         </TablixRowHierarchy>
         <DataSetName>DsADPReceivePayment</DataSetName>
         <Top>4.71889in</Top>
-        <Height>6.2986in</Height>
+        <Height>5.83053in</Height>
         <Width>7.17362in</Width>
         <ZIndex>4</ZIndex>
         <Style>
@@ -2239,17 +2304,17 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>11.02443in</Height>
+    <Height>10.57443in</Height>
     <Style>
       <Border>
         <Style>Solid</Style>
       </Border>
     </Style>
   </Body>
-  <Width>7.50001in</Width>
+  <Width>7.19168in</Width>
   <Page>
     <PageHeader>
-      <Height>0.43194in</Height>
+      <Height>0.44444in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -2275,7 +2340,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Height>0.19444in</Height>
-          <Width>7.50001in</Width>
+          <Width>7.17362in</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2316,9 +2381,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>0.18194in</Top>
+          <Top>0.19444in</Top>
           <Height>0.25in</Height>
-          <Width>7.50001in</Width>
+          <Width>7.17362in</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -2367,7 +2432,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>TotalPages</rd:DefaultName>
-          <Top>0in</Top>
           <Left>5.03694in</Left>
           <Height>0.25in</Height>
           <Width>2.13667in</Width>
@@ -2500,6 +2564,22 @@
           <DataField>TotalReceiveAmountInWord</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="AuthorityNameB">
+          <DataField>AuthorityNameB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DesignationB">
+          <DataField>DesignationB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Recruitment">
+          <DataField>Recruitment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="onThePartOf">
+          <DataField>onThePartOf</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="HeadAssistant">
           <DataField>HeadAssistant</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -2519,7 +2599,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>WPDataSet</rd:DataSetName>
-        <rd:SchemaPath>F:\Software Work\TactSoft\IDIMWorkBranch\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>F:\Software Work\TactSoft\IDIMWorkBranch\wbpm\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
         <rd:TableName>ViewADPReceivePayments</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

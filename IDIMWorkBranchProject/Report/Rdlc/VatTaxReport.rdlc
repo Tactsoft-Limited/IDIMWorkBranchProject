@@ -1733,7 +1733,7 @@
           </Textbox>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Left>0.00276in</Left>
+        <Left>0.01801in</Left>
         <Height>5.52109in</Height>
         <Width>7.1897in</Width>
         <Style>
@@ -2422,7 +2422,7 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>14.204in</Top>
-        <Left>0.00276in</Left>
+        <Left>0.01801in</Left>
         <Height>4.86402in</Height>
         <Width>7.18969in</Width>
         <ZIndex>1</ZIndex>
@@ -3073,7 +3073,7 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>19.30431in</Top>
-        <Left>0.00276in</Left>
+        <Left>0.01801in</Left>
         <Height>5.13979in</Height>
         <Width>7.18969in</Width>
         <ZIndex>2</ZIndex>
@@ -4214,7 +4214,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DsVatTaxReport</DataSetName>
-            <Top>0.84198in</Top>
+            <Top>0.70865in</Top>
+            <Left>0.01245in</Left>
             <Height>0.25in</Height>
             <Width>7.18973in</Width>
             <ZIndex>3</ZIndex>
@@ -4243,7 +4244,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
-            <Top>1.37348in</Top>
+            <Top>1.02809in</Top>
+            <Left>0.01245in</Left>
             <Height>0.24157in</Height>
             <Width>7.15029in</Width>
             <ZIndex>4</ZIndex>
@@ -4447,7 +4449,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.475in</Height>
+                  <Height>0.28333in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -6380,8 +6382,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DsVatTaxReport</DataSetName>
-            <Top>1.88847in</Top>
-            <Height>6.00902in</Height>
+            <Top>1.3718in</Top>
+            <Height>5.81735in</Height>
             <Width>7.18417in</Width>
             <ZIndex>5</ZIndex>
             <Style>
@@ -6413,10 +6415,9 @@
           </Tablix>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>28.92575in</Top>
-        <Left>0.00276in</Left>
+        <Top>29.11741in</Top>
         <Height>14.09155in</Height>
-        <Width>7.18973in</Width>
+        <Width>7.20218in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -9131,6 +9132,7 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>36.85136in</Top>
+        <Left>0.01525in</Left>
         <Height>7.92615in</Height>
         <Width>7.19249in</Width>
         <ZIndex>4</ZIndex>
@@ -9698,7 +9700,7 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>5.59053in</Top>
-        <Left>0.00276in</Left>
+        <Left>0.01801in</Left>
         <Height>3.47218in</Height>
         <Width>7.18969in</Width>
         <ZIndex>5</ZIndex>
@@ -10312,7 +10314,7 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>9.25353in</Top>
-        <Left>0.00276in</Left>
+        <Left>0.01801in</Left>
         <Height>4.4977in</Height>
         <Width>7.18969in</Width>
         <ZIndex>6</ZIndex>
@@ -10322,11 +10324,417 @@
           </Border>
         </Style>
       </Rectangle>
+      <Rectangle Name="Rectangle8">
+        <ReportItems>
+          <Textbox Name="Textbox4">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>সদর দপ্তর বর্ডার গার্ড বাংলাদেশ
+পুর্ত শাখা, নির্মান পরিদপ্তর, ঢাকা
+দূরলাপনীঃ ৯৬৫০৩০১ বর্ধিত ২৪০৬</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>www.bgb.gov.bd</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!WorkOrderDateB.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Code.ConvertToBanglaDate(Fields!WorkOrderDate.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox4</rd:DefaultName>
+            <Left>4.74348in</Left>
+            <Height>1.01667in</Height>
+            <Width>2.46426in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox5">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!LetterNo.Value)</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox5</rd:DefaultName>
+            <Top>1.07222in</Top>
+            <Height>0.19167in</Height>
+            <Width>7.18969in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox6">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>মঞ্জুরী আদেশ</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>১।           "</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!ProjectTitle.Value</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>"</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>  শীর্ষক প্রকল্পের আওতায় </Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!ProjectWorkTitleB.Value</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> কাজের </Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!BillNumber.Value</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>ম চলতি বিল বাবদ  </Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!BillPaidAmount.Value)</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>(</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Code.ConvertToBangla(Fields!BillPaidAmountInWord.Value)</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>) টাকা </Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!FirmNameB.Value</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>, ম্যানেজিং ডাইরেক্টর -</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!OwnerNameB.Value</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>, অফিস - </Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!FirmAddressB.Value</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>'কে পরিশোধের নিমিত্তে মঞ্জুরী প্রদান করা হলো।</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>২।           ২০২৪ অর্থ বছরের "</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!BillPaymentSector.Value</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>" খাতে উক্ত টাকার বরাদ্দ আছে। এই মঞ্জুরী আদেশ মহাপরিচালক, বর্ডার গার্ড বাংলাদেশ এর সদয় অনুমদনক্রমে সুত্রপাত করা হলো।</Value>
+                    <Style>
+                      <FontFamily>solaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox5</rd:DefaultName>
+            <Top>1.33333in</Top>
+            <Left>0.00903in</Left>
+            <Height>1.175in</Height>
+            <Width>7.18969in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox9">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!AuthorityNameB.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve">
+</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!DesignationB.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!Recruitment.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!onThePartOf.Value</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox4</rd:DefaultName>
+            <Top>2.73055in</Top>
+            <Left>5.59146in</Left>
+            <Height>0.875in</Height>
+            <Width>1.40593in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox11">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>সংযুক্তঃ
+বিতরনঃ
+বহির্গমনঃ
+কার্যক্রমঃ
+
+চিফ একাউন্টস এন্ড ফিন্যান্স অফিসার এর কার্যালয়
+স্বরাষ্ট্র মন্ত্রনালয়, হিসাব ভবন
+সেগুনবাগিচা,ঢাকা-১০০০</Value>
+                    <Style>
+                      <FontFamily>SolaimanLipi</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox4</rd:DefaultName>
+            <Top>3.77917in</Top>
+            <Height>0.875in</Height>
+            <Width>7.16831in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>44.84695in</Top>
+        <Height>6.68333in</Height>
+        <Width>7.20774in</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
     </ReportItems>
-    <Height>44.78445in</Height>
+    <Height>51.69278in</Height>
     <Style />
   </Body>
-  <Width>7.19774in</Width>
+  <Width>7.24714in</Width>
   <Page>
     <PageHeader>
       <Height>0.38333in</Height>
@@ -10496,18 +10904,62 @@
           <DataField>BillPaidAmount</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="BillPaidAmountInWord">
+          <DataField>BillPaidAmountInWord</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="TotalDeductionAmountInWord">
           <DataField>TotalDeductionAmountInWord</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BillPaymentSector">
+          <DataField>BillPaymentSector</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LetterNo">
+          <DataField>LetterNo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="FirmNameB">
           <DataField>FirmNameB</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="FirmAddressB">
+          <DataField>FirmAddressB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OwnerNameB">
+          <DataField>OwnerNameB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AuthorityNameB">
+          <DataField>AuthorityNameB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DesignationB">
+          <DataField>DesignationB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Recruitment">
+          <DataField>Recruitment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="onThePartOf">
+          <DataField>onThePartOf</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="WorkOrderDate">
+          <DataField>WorkOrderDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="WorkOrderDateB">
+          <DataField>WorkOrderDateB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>WPDataSet</rd:DataSetName>
-        <rd:SchemaPath>F:\Software Work\TactSoft\IDIMWorkBranch\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>F:\Software Work\TactSoft\IDIMWorkBranch\wbpm\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
         <rd:TableName>ViewVatTaxReport</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

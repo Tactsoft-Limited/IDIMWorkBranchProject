@@ -28,10 +28,10 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("প্রাক্কলিত ব্যয়")]
         public decimal? EstimatedCost { get; set; }
 
-        [DisplayName("ট্যাক্স (%)")]
+        [DisplayName("আয়কর (%)")]
         public double EstimatedCostTaxPer { get; set; }
 
-        [DisplayName("ট্যাক্স পরিমান")]
+        [DisplayName("আয়কর পরিমান")]
         public decimal EstimatedCostTaxAmount { get; set; }
 
         [DisplayName("ভ্যাট (%)")]
@@ -58,10 +58,10 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("অগ্রগতি পরিমান")]
         public decimal ProgressAmount { get; set; }
 
-        [DisplayName("ট্যাক্স (%)")]
+        [DisplayName("আয়কর (%)")]
         public double ProgressTaxPer { get; set; }
 
-        [DisplayName("ট্যাক্স পরিমান")]
+        [DisplayName("আয়কর পরিমান")]
         public double ProgressTaxAmount { get; set; }
 
         [DisplayName("ভ্যাট (%)")]

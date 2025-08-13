@@ -7,7 +7,7 @@
 }
 <div class="page-title">
     <div class="pull-left">
-        <h3 class="title">ট্যাক্স/ভ্যাট/জামানত</h3>
+        <h3 class="title">আয়কর/ভ্যাট/জামানত</h3>
     </div>
     <div class="pull-right hidden-xs">
         <ol class="breadcrumb">
@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li class="active">
-                <strong>ট্যাক্স/ভ্যাট/জামানত সংযুক্ত করুন</strong>
+                <strong> আয়কর/ভ্যাট/জামানত সংযুক্ত করুন</strong>
             </li>
         </ol>
     </div>
@@ -29,7 +29,7 @@
 
 <section class="box">
     <header class="panel_header">
-        <h2 class="title pull-left">ট্যাক্স/ভ্যাট/জামানত সংযুক্ত করুন</h2>
+        <h2 class="title pull-left">আয়কর/ভ্যাট/জামানত সংযুক্ত করুন</h2>
         <div class="actions panel_actions pull-right">
             <a href="@Url.Action("List","VatTaxCollateral")" class="btn">
                 <i class="fa fa-list" aria-hidden="true"></i>
@@ -259,6 +259,49 @@
                                 </div>
                             </fieldset>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <fieldset>
+                                <legend>মঞ্জরী আদেশ </legend>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.OfficerId, new { @class = "col-md-3 form-label" })
+                                    <div class="col-md-9">
+                                        @Html.DropDownListFor(m => m.OfficerId, Model.OfficersDropdown, "Select One", new { @class = "select2" })
+                                        @Html.ValidationMessageFor(model => model.OfficerId)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.HeadAssistantId, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DropDownListFor(m => m.HeadAssistantId, Model.HeadAssistantDropdown, "Select One", new { @class = "select2" })
+                                        @Html.ValidationMessageFor(model => model.HeadAssistantId)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.ConcernedEngineerId, new { @class = "col-md-3 form-label" })
+                                    <div class="col-md-9">
+                                        @Html.DropDownListFor(m => m.ConcernedEngineerId, Model.ConcernedEngineerDropdown, "Select One", new { @class = "select2" })
+                                        @Html.ValidationMessageFor(model => model.ConcernedEngineerId)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.SectionICId, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.DropDownListFor(m => m.SectionICId, Model.SectionICTDropdown, "Select One", new { @class = "select2" })
+                                        @Html.ValidationMessageFor(model => model.SectionICId)
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.BranchClerkId, new { @class = "col-md-3 form-label" })
+                                    <div class="col-md-9">
+                                        @Html.DropDownListFor(m => m.BranchClerkId, Model.BranchClerkDropdown, "Select One", new { @class = "select2" })
+                                        @Html.ValidationMessageFor(model => model.BranchClerkId)
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
                     </div>
 
                     <div class="pull-right">

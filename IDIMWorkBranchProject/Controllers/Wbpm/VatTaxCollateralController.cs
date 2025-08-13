@@ -23,6 +23,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly IADPReceivePaymentService _aDPReceivePaymentService;
         private readonly IProjectWorkService _projectWorkService;
         private readonly IReportService _reportService;
+        private readonly ISignatoryAuthorityService _signatoryAuthorityService; 
         private readonly IMapper _mapper;
         public VatTaxCollateralController(
             IActivityLogService activityLogService,
@@ -30,13 +31,15 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             IMapper mapper,
             IADPReceivePaymentService aDPReceivePaymentService,
             IProjectWorkService projectWorkService,
-            IReportService reportService) : base(activityLogService)
+            IReportService reportService,
+            ISignatoryAuthorityService signatoryAuthorityService) : base(activityLogService)
         {
             _vatTaxCollateralService = vatTaxCollateralService;
             _mapper = mapper;
             _aDPReceivePaymentService = aDPReceivePaymentService;
             _projectWorkService = projectWorkService;
             _reportService = reportService;
+            _signatoryAuthorityService = signatoryAuthorityService;
         }
 
         // GET: VatTaxCollateral
@@ -83,6 +86,11 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 model.ReducedAllocatedAmountTillNow = data.ReducedAllocatedAmountTillNow;
                 model.RelatedWorkBillAmount = data.RelatedWorkBillAmount;
                 model.VoucherNo = data.VoucherNo;
+                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+                model.OfficersDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);
             }
             return View(model);
         }
@@ -94,6 +102,12 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             if (!ModelState.IsValid)
             {
                 SetResponseMessage(DefaultMsg.InvalidInput, ResponseType.Error);
+                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+                model.OfficersDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);
+
                 return View(model);
             }
             try
@@ -114,6 +128,11 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             catch (Exception ex)
             {
                 SetResponseMessage(string.Format(DefaultMsg.SaveFailed, "", ex.Message), ResponseType.Error);
+                model.HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.HeadAssistantId);
+                model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
+                model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
+                model.OfficersDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);
                 return View(model);
             }
 

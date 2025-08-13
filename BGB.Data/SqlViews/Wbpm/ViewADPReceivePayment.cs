@@ -32,6 +32,10 @@ namespace BGB.Data.SqlViews.Wbpm
         public double? TotalReceivePer { get; set; }
         public decimal? TotalReceiveAmount { get; set; }
         public string TotalReceiveAmountInWord { get; set; }
+        public string AuthorityNameB { get; set; }
+        public string Recruitment { get; set; }
+        public string DesignationB { get; set; }
+        public string onThePartOf { get; set; }
 
         public string HeadAssistant { get; set; }
         public string ConcernedEngineer { get; set; }

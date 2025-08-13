@@ -18,6 +18,7 @@ namespace BGB.Data.SqlViews.Wbpm
         public DateTime? NohaDate { get; set; }
         public string WorkOrderLetterNo { get; set; }
         public DateTime? WorkOrderDate { get; set; }
+        public string WorkOrderDateB { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public string FirmNameB { get; set; }
@@ -25,5 +26,9 @@ namespace BGB.Data.SqlViews.Wbpm
         public string OwnerDesignationB { get; set; }
         public string FirmAddressB { get; set; }
         public DateTime? AgreementDate { get; set; }
+        public string AuthorityNameB { get; set; }
+        public string Recruitment { get; set; }
+        public string DesignationB { get; set; }
+        public string onThePartOf { get; set; }
     }
 }

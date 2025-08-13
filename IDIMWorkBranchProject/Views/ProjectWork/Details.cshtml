@@ -119,7 +119,7 @@
                             <td>
                                 @if (!string.IsNullOrEmpty(Model.PerformanceSecurityDocument))
                                 {
-                                    <a href="@Url.Action("PreviewDocument", "Noha", new { fileName = Model.PerformanceSecurityDocument })" target="_blank">
+                                    <a href="@Url.Action("PreviewDocument", "PerformanceSecurity", new { fileName = Model.PerformanceSecurityDocument })" target="_blank">
                                         Preview Document
                                     </a>
                                 }
@@ -166,7 +166,7 @@
                             <td>
                                 @if (!string.IsNullOrEmpty(Model.AgreementDocument))
                                 {
-                                    <a href="@Url.Action("PreviewDocument", "Noha", new { fileName = Model.AgreementDocument })" target="_blank">
+                                    <a href="@Url.Action("PreviewDocument", "ContractAgreement", new { fileName = Model.AgreementDocument })" target="_blank">
                                         Preview Document
                                     </a>
                                 }
@@ -217,7 +217,19 @@
                                 <td>@item.WorkOrderDate.ToNullableShortDateString()</td>
                                 <td>@item.StartDate.ToNullableShortDateString()</td>
                                 <td>@item.EndDate.ToNullableShortDateString()</td>
-                                <td>@item.ScanDocument</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.ScanDocument))
+                                    {
+                                        <a href="@Url.Action("PreviewDocument", "WorkOrder", new { fileName = item.ScanDocument })" target="_blank">
+                                            Preview Document
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <span>No file uploaded</span>
+                                    }
+                                </td>
+                                @*<td>@item.ScanDocument</td>*@
                                 <td>
                                     <a href="@Url.Action("Edit", "WorkOrder", new { id = item.WorkOrderId })" class="btn btn-primary btn-xs">
                                         <i class="fa fa-pencil-square-o"></i> সংশোধন

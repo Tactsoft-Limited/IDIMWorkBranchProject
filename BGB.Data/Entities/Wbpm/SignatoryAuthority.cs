@@ -27,6 +27,10 @@ namespace BGB.Data.Entities.Wbpm
 
         public string DesignationB { get;set; } 
 
+        public string Recruitment { get; set; }
+
+        public string onThePartOf { get; set; }
+
 
         public ICollection<ADPReceivePayment> BranchClerks { get; set; }
         public ICollection<ADPReceivePayment> ConcernedEngineers { get; set; }

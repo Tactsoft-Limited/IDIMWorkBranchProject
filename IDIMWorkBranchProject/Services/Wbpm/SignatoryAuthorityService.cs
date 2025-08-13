@@ -70,7 +70,7 @@ namespace IDIMWorkBranchProject.Services.Wbpm
         {
             return await _context.SignatoryAuthorities.Select(e => new SelectListItem
             {
-                Text = e.DesignationB + " " + e.AuthorityNameB,
+                Text = e.DesignationB + " " + e.AuthorityNameB + " "+ e.Recruitment+ " "+ e.onThePartOf,
                 Value = e.SignatoryAuthorityId.ToString(),
                 Selected = e.SignatoryAuthorityId == selected
             }).ToListAsync();
@@ -107,6 +107,8 @@ namespace IDIMWorkBranchProject.Services.Wbpm
                     AuthorityNameB = x.AuthorityNameB,
                     Designation = x.Designation,
                     DesignationB = x.DesignationB,
+                    Recruitment = x.Recruitment,
+                    onThePartOf = x.onThePartOf
 
                 })
             };

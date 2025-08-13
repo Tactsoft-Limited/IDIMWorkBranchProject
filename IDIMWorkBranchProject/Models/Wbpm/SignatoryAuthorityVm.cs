@@ -21,11 +21,17 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [Display(Name = "পদবী বাংলা")]
         public string DesignationB { get; set; }
 
+        [Display(Name = "নিয়োগ")]
+        public string Recruitment { get; set; }
+
+        [Display(Name = "পক্ষে")]
+        public string onThePartOf { get; set; }
 
 
-       
-       
-       
-       
+
+
+
+
+
     }
 }
