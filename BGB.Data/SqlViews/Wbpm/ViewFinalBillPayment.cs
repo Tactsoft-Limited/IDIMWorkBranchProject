@@ -49,5 +49,9 @@ namespace BGB.Data.SqlViews.Wbpm
         public string ConcernedEngineer { get; set; }
         public string SectionIC { get; set; }
         public string BranchClerk { get; set; }
+        public string AuthorityNameB { get; set; }
+        public string Recruitment { get; set; }
+        public string DesignationB { get; set; }
+        public string onThePartOf { get; set; }
     }
 }

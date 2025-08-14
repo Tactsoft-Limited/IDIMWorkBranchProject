@@ -239,6 +239,7 @@ namespace IDIMWorkBranchProject.Data.Database
         public DbSet<FormalMeeting> FormalMeetings { get; set; }
         public DbSet<ProjectWork> ProjectWorks { get; set; }
         public DbSet<ADPReceivePayment> ADPReceivePayments { get; set; }
+        public DbSet<CurrentBillCheck> currentBillChecks { get; set; }
         public DbSet<BGBMiscellaneousFund> BGBMiscellaneousFunds { get; set; }
         public DbSet<ContractorCompanyPayment> ContractorCompanyPayments { get; set; }
         public DbSet<ContractAgreement> ContractAgreements { get; set; }

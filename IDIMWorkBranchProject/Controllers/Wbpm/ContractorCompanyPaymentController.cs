@@ -94,7 +94,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 HeadAssistantDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
                 ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
                 SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
-                BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync()
+                BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
+                OfficerDropdown = await _signatoryAuthorityService.GetDropdownAsync(),
             };
             return View(model);
         }
@@ -113,6 +114,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
                     model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
                     model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                    model.OfficerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);
                     return View(model);
                 }
 
@@ -128,6 +130,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
                 model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
                 model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                model.OfficerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);
                 return View(model);
             }
         }
@@ -146,6 +149,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
             model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
             model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+            model.OfficerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);
             return View(model);
         }
 
@@ -162,6 +166,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
                     model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
                     model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
+                    model.OfficerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);
                     return View(model);
                 }
 

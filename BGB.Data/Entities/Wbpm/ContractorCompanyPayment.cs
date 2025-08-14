@@ -51,6 +51,7 @@ namespace BGB.Data.Entities.Wbpm
         public int? ConcernedEngineerId { get; set; }
         public int? SectionICId { get; set; }
         public int? BranchClerkId { get; set; }
+        public int? OfficerId { get; set; }
 
 
         #region Navigation Property
@@ -67,6 +68,9 @@ namespace BGB.Data.Entities.Wbpm
 
         [ForeignKey(nameof(SectionICId))]
         public virtual SignatoryAuthority SectionIC { get; set; }
+
+        [ForeignKey(nameof(OfficerId))]
+        public virtual SignatoryAuthority Officer { get; set; }
         #endregion
     }
 }

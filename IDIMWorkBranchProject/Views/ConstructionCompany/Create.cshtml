@@ -127,6 +127,13 @@
                                         @Html.ValidationMessageFor(model => model.ExpiryDate)
                                     </div>
                                 </div>
+                                <div class="form-group col-md-6">
+                                    @Html.LabelFor(m => m.AccountNumber, new { @class = "col-md-4 form-label" })
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.AccountNumber, DateTime.Now.ToString("dd-MMM-yyy"), new { @class = "form-control datepicker" })
+                                        @Html.ValidationMessageFor(model => model.AccountNumber)
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

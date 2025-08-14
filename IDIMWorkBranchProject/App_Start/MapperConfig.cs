@@ -30,6 +30,9 @@ namespace IDIMWorkBranchProject
             CreateMap<RevenueNohaVm, RevenueNoha>();
             CreateMap<RevenueNoha, RevenueNohaVm>();
 
+            CreateMap<CurrentBillCheckVm, CurrentBillCheck>();
+            CreateMap<CurrentBillCheck, CurrentBillCheckVm>();
+
             CreateMap<HandoverApprovedVm, HandoverApproved>();
             CreateMap<HandoverApproved, HandoverApprovedVm>();
                 

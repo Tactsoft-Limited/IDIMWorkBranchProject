@@ -104,6 +104,8 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [DisplayName("শাখা করনিক")]
         public int? BranchClerkId { get; set; }
+        [DisplayName("অফিসার")]
+        public int? OfficerId { get; set; }
 
         #region navigation property
         public IEnumerable<SelectListItem> BGBFundDropdown { get; set; }
@@ -111,6 +113,7 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public IEnumerable<SelectListItem> ConcernedEngineerDropdown { get; set; }
         public IEnumerable<SelectListItem> SectionICTDropdown { get; set; }
         public IEnumerable<SelectListItem> BranchClerkDropdown { get; set; }
+        public IEnumerable<SelectListItem> OfficerDropdown { get; set; }
         #endregion
     }
 }

@@ -45,6 +45,7 @@ namespace BGB.Data.Entities.Wbpm
         public int? ConcernedEngineerId { get; set; }
         public int? SectionICId { get; set; }
         public int? BranchClerkId { get; set; }
+        public int? OfficerId { get; set; }
 
     }
 }

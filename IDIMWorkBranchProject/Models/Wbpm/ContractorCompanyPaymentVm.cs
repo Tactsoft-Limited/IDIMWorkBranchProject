@@ -157,10 +157,17 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         [DisplayName("শাখা করনিক")]
         public string BranchClerkName { get; set; }
 
+        [DisplayName("অফিসার")]
+        public int? OfficerId { get; set; }
+
+        [DisplayName("অফিসার")]
+        public string Officer { get; set; }
+
 
         public IEnumerable<SelectListItem> HeadAssistantDropdown { get; set; }
         public IEnumerable<SelectListItem> ConcernedEngineerDropdown { get; set; }
         public IEnumerable<SelectListItem> SectionICTDropdown { get; set; }
         public IEnumerable<SelectListItem> BranchClerkDropdown { get; set; }
+        public IEnumerable<SelectListItem> OfficerDropdown { get; set; }
     }
 }

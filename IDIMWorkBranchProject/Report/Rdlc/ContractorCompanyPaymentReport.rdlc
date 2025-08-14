@@ -43,7 +43,7 @@
               <TextRun>
                 <Value>=Fields!ProjectWorkTitleB.Value</Value>
                 <Style>
-                  <FontFamily>Nikosh</FontFamily>
+                  <FontFamily>SolaimanLipi</FontFamily>
                   <FontWeight>Bold</FontWeight>
                   <TextDecoration>Underline</TextDecoration>
                 </Style>
@@ -3900,8 +3900,47 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>=Fields!AuthorityNameB.Value</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!DesignationB.Value</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Recruitment.Value</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!onThePartOf.Value</Value>
+                              <Style>
+                                <FontFamily>SolaimanLipi</FontFamily>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3997,21 +4036,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>পরিচালক (পূর্ত)</Value>
-                              <Style>
-                                <FontFamily>SolaimanLipi</FontFamily>
-                                <TextDecoration>None</TextDecoration>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>পূর্ত শাখা</Value>
+                              <Value />
                               <Style>
                                 <FontFamily>SolaimanLipi</FontFamily>
                                 <TextDecoration>None</TextDecoration>
@@ -4538,6 +4563,22 @@
           <DataField>FirmNameB</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="AuthorityNameB">
+          <DataField>AuthorityNameB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DesignationB">
+          <DataField>DesignationB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Recruitment">
+          <DataField>Recruitment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="onThePartOf">
+          <DataField>onThePartOf</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="HeadAssistant">
           <DataField>HeadAssistant</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -4557,7 +4598,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>WPDataSet</rd:DataSetName>
-        <rd:SchemaPath>F:\Software Work\TactSoft\IDIMWorkBranch\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>F:\Software Work\TactSoft\IDIMWorkBranch\wbpm\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
         <rd:TableName>ViewContractorCompanyPayment</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

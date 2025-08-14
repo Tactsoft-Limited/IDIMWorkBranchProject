@@ -58,6 +58,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                         LicensingOrganization = HttpUtility.HtmlEncode(record.LicensingOrganization),
                         LicenceCategory = HttpUtility.HtmlEncode(record.LicenceCategory),
                         ExpiryDate = HttpUtility.HtmlEncode(record.ExpiryDate.ToNullableShortDateString()),
+                        AccountNumber= HttpUtility.HtmlEncode(record.AccountNumber),
                         Action = record.ConstructionCompanyId,
                     })
                 };

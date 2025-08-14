@@ -2862,7 +2862,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>মোহাম্মদ আরিফুজ্জামান</Value>
+                        <Value>=Fields!AuthorityNameB.Value</Value>
                         <Style>
                           <FontFamily>SolaimanLipi</FontFamily>
                         </Style>
@@ -2873,7 +2873,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>পরিচালক (পুর্ত)</Value>
+                        <Value>=Fields!Recruitment.Value</Value>
                         <Style>
                           <FontFamily>SolaimanLipi</FontFamily>
                         </Style>
@@ -2884,7 +2884,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>পুর্ত শাখা</Value>
+                        <Value>=Fields!onThePartOf.Value</Value>
                         <Style>
                           <FontFamily>SolaimanLipi</FontFamily>
                         </Style>
@@ -2895,7 +2895,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>জুলাই ২০২৪</Value>
+                        <Value />
                         <Style>
                           <FontFamily>SolaimanLipi</FontFamily>
                         </Style>
@@ -3836,6 +3836,22 @@
           <DataField>FirmNameB</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="AuthorityNameB">
+          <DataField>AuthorityNameB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DesignationB">
+          <DataField>DesignationB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Recruitment">
+          <DataField>Recruitment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="onThePartOf">
+          <DataField>onThePartOf</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="HeadAssistant">
           <DataField>HeadAssistant</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -3855,7 +3871,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>WPDataSet</rd:DataSetName>
-        <rd:SchemaPath>F:\Software Work\TactSoft\IDIMWorkBranch\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>F:\Software Work\TactSoft\IDIMWorkBranch\wbpm\IDIMWorkBranchProject\IDIMWorkBranchProject\Report\Data\WPDataSet.xsd</rd:SchemaPath>
         <rd:TableName>ViewFinalBillPayment</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
