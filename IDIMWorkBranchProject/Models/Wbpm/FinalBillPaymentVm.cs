@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
@@ -106,6 +107,12 @@ namespace IDIMWorkBranchProject.Models.Wbpm
         public int? BranchClerkId { get; set; }
         [DisplayName("অফিসার")]
         public int? OfficerId { get; set; }
+
+        [DisplayName("চুড়ান্ত বিল ডকুমেন্ট")]
+        public string FinalBillDocument { get; set; }
+
+        [DisplayName("চুড়ান্ত বিল ডকুমেন্ট")]
+        public HttpPostedFileBase DocumentFile { get; set; }
 
         #region navigation property
         public IEnumerable<SelectListItem> BGBFundDropdown { get; set; }

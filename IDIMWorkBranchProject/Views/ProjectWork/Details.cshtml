@@ -262,9 +262,10 @@
                             <th>পেমেন্ট সেকটর</th>
                             <th>বিল পরিশোধিত পরিমান</th>
                             @*<th>কর্তন (ট্যাক্স, ভ্যাট ও জামানত)</th>
-                                <th>বিবিধ জমা পরিমান</th>*@
+                            <th>বিবিধ জমা পরিমান</th>*@
                             <th style="width:120px;">সংশোধন</th>
                             <th style="width:120px;">প্রিন্ট করুন</th>
+                            <th style="width:120px;">ডকুমেন্ট প্রিভিউ</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -277,7 +278,7 @@
                                 <td>@item.BillPaymentSector</td>
                                 <td>@item.BillPaidAmount</td>
                                 @*<td>@item.TotalDeductionAmount</td>
-                                    <td>@item.DepositInBGBFund</td>*@
+        <td>@item.DepositInBGBFund</td>*@
 
                                 <td>
                                     <a href="@Url.Action("Create", "VatTaxCollateral", new { id = item.ADPReceivePaymentId })" class="btn btn-primary btn-xs">
@@ -290,8 +291,8 @@
                                         <i class="fa fa-pencil-square-o"></i> সংশোধন
                                     </a>
                                     @*<a href="@Url.Action("Delete", "ADPReceivePayment", new { id = item.ADPReceivePaymentId })" class="btn btn-danger btn-xs">
-                                            <i class="fa fa-trash-o"></i> অপসারণ
-                                        </a>*@
+                <i class="fa fa-trash-o"></i> অপসারণ
+            </a>*@
                                 </td>
                                 <td>
                                     <a href="@Url.Action("PrintADPReceivePayment", "ADPReceivePayment", new { id = item.ADPReceivePaymentId, type="pdf" })" class="btn btn-info btn-xs">
@@ -313,6 +314,18 @@
                                         <i class="fa fa-print"></i> বিজিবি বিবিধ ফান্ড প্রিন্ট word
                                     </a>
                                 </td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.ADPRecivedPayementDocument))
+                                    {
+                                        <a href="@Url.Action("PreviewDocument", "ADPReceivePayment", new { fileName = item.ADPRecivedPayementDocument })" target="_blank">
+                                            Preview Document
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <span>No file uploaded</span>
+                                    }
+                                </td>
                             </tr>
                         }
                     </tbody>
@@ -323,178 +336,224 @@
         <div class="panel panel-info">
             <div class="panel-heading" style="padding:10px;">
                 ঠিকাদার প্রতিষ্ঠানকে প্রদত্ত অর্থঃ
-            </div>
-            <div class="panel-body" style="padding:0px !important">
-                <table class="table table-striped table-bordered" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>লেটার নং</th>
-                            <th>প্রাক্কলিত ব্যয়</th>
-                            <th>পুর্বে পরিশোধ</th>
-                            <th>বর্তমান বিল পরিশোধ</th>
-                            <th>মোট পরিশোধ</th>
-                            <th style="width:120px;">প্রিন্ট করুন</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.ContractorCompanyPayments)
-                        {
-                            <tr>
-                                <td>@item.LetterNo</td>
-                                <td>@item.EstimatedCost</td>
-                                <td>@item.PreviouslyPaidAmount</td>
-                                <td>@item.FinalPaymentAmount</td>
-                                <td>@(item.PreviouslyPaidAmount+item.FinalPaymentAmount)</td>
-                                <td>
-                                    <a href="@Url.Action("Edit", "ContractorCompanyPayment", new { id = item.ContractorCompanyPaymentId })" class="btn btn-primary btn-xs">
-                                        <i class="fa fa-pencil-square-o"></i> সংশোধন
-                                    </a>
-                                    <a class="btn btn-danger btn-xs removeModal"
-                                       data-id='@item.ContractorCompanyPaymentId' data-entity='ContractorCompanyPayment'
-                                       data-toggle="modal" data-target="#modalRemove"
-                                       value='@item.ContractorCompanyPaymentId'>
-                                        <i class="fa fa-trash"></i> অপসারণ
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="@Url.Action("PrintContractorCompanyPaymentReport", "ContractorCompanyPayment", new { id = item.ContractorCompanyPaymentId, type="pdf" })" class="btn btn-info btn-xs">
-                                        <i class="fa fa-print"></i> ঠিকাদার প্রতিষ্ঠানকে প্রদত্ত অর্থ প্রিন্ট pdf
-                                    </a>
-                                    <a href="@Url.Action("PrintContractorCompanyPaymentReport", "ContractorCompanyPayment", new { id = item.ContractorCompanyPaymentId, type="word" })" class="btn btn-info btn-xs">
-                                        <i class="fa fa-print"></i> ঠিকাদার প্রতিষ্ঠানকে প্রদত্ত অর্থ প্রিন্ট word
-                                    </a>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        @if (Model.IsFurnitureIncluded)
-        {
-            <div class="panel panel-info">
-                <div class="panel-heading" style="padding:10px;">
-                    আসবাবপত্র বিল পরিশোধঃ
+                <div class="d-flex">
+                    @if (Model.IsNoahCompleted && Model.IsPerformanceSecuritySubmited && Model.IsAgreementCompleted && Model.IsWorkOrderCompleted)
+                    {
+                        <a href="@Url.Action("Create", "ContractorCompanyPayment", new { id = Model.ProjectWorkId })"
+                           class="btn btn-success btn-xs @(Model.IsFinalBillSubmitted ? "disabled" : "")">
+                            <i class="fa fa-money"></i> চলতি বিল
+                        </a>
+                        <a href="@Url.Action("Create", "FurnitureBillPayment", new { id = Model.ProjectWorkId })"
+                           class="btn btn-success btn-xs @(Model.IsFurnitureIncluded ? (Model.IsFinalBillSubmitted ? "disabled" : "") : "hidden")">
+                            <i class="fa fa-money"></i> আসবাবপত্র বিল
+                        </a>
+                        <a href="@Url.Action("Create", "HandoverApproved", new { id = Model.ProjectWorkId })" class="btn btn-success btn-xs">
+                            <i class="fa fa-money"></i> হস্তান্তর অনুমদন বিল
+                        </a>
+                        <a href="@Url.Action("Create", "FinalBillPayment", new { id = Model.ProjectWorkId })" class="btn btn-success btn-xs">
+                            <i class="fa fa-money"></i> চুড়ান্ত বিল
+                        </a>
+                        <a href="@Url.Action("Create", "CollateralReturn", new { id = Model.ProjectWorkId })"
+                           class="btn btn-success btn-xs @(Model.IsFinalBillSubmitted ? "" : "hidden")">
+                            <i class="fa fa-money"></i> ১০% জামানত ফেরত
+                        </a>
+                    }
                 </div>
+            </div>
+            <fieldset style="border:1px solid #ccc; padding:10px; border-radius:6px; margin-top:15px;">
+                <legend style="font-weight:bold; color:#333; padding:0 10px;">চলতি বিল</legend>
+
                 <div class="panel-body" style="padding:0px !important">
                     <table class="table table-striped table-bordered" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>লেটার নং</th>
-                                <th>আসবাব পত্রে বরাদ্দ</th>
-                                <th>বিজিবি বিবিধ ফান্ডে আছে</th>
-                                <th>বিজিবি বিবিধ ফান্ডে জমা থাকবে </th>
-                                <th>বিল পরিশোধের পরিমাণ </th>
-                                <th style="width:120px;">প্রিন্ট করুন</th>
+                                <th>প্রাক্কলিত ব্যয়</th>
+                                <th>পুর্বে পরিশোধ</th>
+                                <th>বর্তমান বিল পরিশোধ</th>
+                                <th>মোট পরিশোধ</th>
+                                <th style="width:120px;">সংশোধন/অপসারণ</th>
+                                <th style="width:180px;">প্রিন্ট করুন</th>
+                                <th style="width:120px;">ডকুমেন্ট প্রিভিউ</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model.FurnnitureBillPayments)
+                            @foreach (var item in Model.ContractorCompanyPayments)
                             {
                                 <tr>
                                     <td>@item.LetterNo</td>
-                                    <td>@item.AllocationToFurniture</td>
-                                    <td>@item.DepositsInFund</td>
-                                    <td>@item.DepositedInFund</td>
-                                    <td>@item.PaymentAmount</td>
-                                    <td>
-                                        <a href="@Url.Action("PrintFurnitureBillPayment", "Report", new { id = item.FurnitureBillPaymentId, type = "pdf" })" class="btn btn-info btn-xs">
-                                            <i class="fa fa-print"></i> আসবাবপত্র বিল প্রিন্ট pdf
-                                        </a>
-                                        <a href="@Url.Action("PrintFurnitureBillPayment", "Report", new { id = item.FurnitureBillPaymentId, type = "word" })" class="btn btn-info btn-xs">
-                                            <i class="fa fa-print"></i> আসবাবপত্র বিল প্রিন্ট word
-                                        </a>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        }
-
-        @if (Model.IsFinalBillSubmitted)
-        {
-            <div class="panel panel-info">
-                <div class="panel-heading" style="padding:10px;">
-                    চূড়ান্ত বিল পরিশোধঃ
-                </div>
-                <div class="panel-body" style="padding:0px !important">
-                    <table class="table table-striped table-bordered" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>লেটার নং</th>
-                                <th>চূড়ান্ত পরিমাপ অনুযায়ী মোট পরিমাণ</th>
-                                <th>পূর্বে পরিশোধিত চলতি বিলের পরিমাণ</th>
-                                <th>ইতি পূর্বে মোট পরিশোধ</th>
-                                <th>চূড়ান্ত বিলে ঠিকাদারকে নীট পরিশোধ করা যেতে পারে</th>
-                                <th style="width:120px;">প্রিন্ট করুন</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.FinalBillPayments)
-                            {
-                                <tr>
-                                    <td>@item.LetterNo</td>
-                                    <td>@item.NetAmountAsPerFinalMeasurement</td>
+                                    <td>@item.EstimatedCost</td>
                                     <td>@item.PreviouslyPaidAmount</td>
-                                    <td>@item.AdvancePaymentAmount</td>
-                                    <td>@item.PayableFinalBill </td>
+                                    <td>@item.FinalPaymentAmount</td>
+                                    <td>@(item.PreviouslyPaidAmount+item.FinalPaymentAmount)</td>
                                     <td>
-                                        <a href="@Url.Action("PrintFinalBillPayment", "Report", new { id = item.FinalBillPaymentId, type="pdf" })" class="btn btn-info btn-xs">
-                                            <i class="fa fa-print"></i> চূড়ান্ত বিল প্রিন্ট pdf
+                                        <a href="@Url.Action("Edit", "ContractorCompanyPayment", new { id = item.ContractorCompanyPaymentId })" class="btn btn-primary btn-xs">
+                                            <i class="fa fa-pencil-square-o"></i> সংশোধন
                                         </a>
-                                        <a href="@Url.Action("PrintFinalBillPayment", "Report", new { id = item.FinalBillPaymentId, type="word" })" class="btn btn-info btn-xs">
-                                            <i class="fa fa-print"></i> চূড়ান্ত বিল প্রিন্ট word
+                                        <a class="btn btn-danger btn-xs removeModal"
+                                           data-id='@item.ContractorCompanyPaymentId' data-entity='ContractorCompanyPayment'
+                                           data-toggle="modal" data-target="#modalRemove"
+                                           value='@item.ContractorCompanyPaymentId'>
+                                            <i class="fa fa-trash"></i> অপসারণ
                                         </a>
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("PrintContractorCompanyPaymentReport", "ContractorCompanyPayment", new { id = item.ContractorCompanyPaymentId, type="pdf" })" class="btn btn-info btn-xs">
+                                            <i class="fa fa-file-pdf-o"></i> প্রিন্ট (PDF)
+                                        </a>
+                                        <a href="@Url.Action("PrintContractorCompanyPaymentReport", "ContractorCompanyPayment", new { id = item.ContractorCompanyPaymentId, type="word" })" class="btn btn-info btn-xs">
+                                            <i class="fa fa-file-word-o"></i> প্রিন্ট (Word)
+                                        </a>
+                                    </td>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(item.ContractorCompanyPaymentDocument))
+                                        {
+                                            <a href="@Url.Action("PreviewDocument", "ContractorCompanyPayment", new { fileName = item.ContractorCompanyPaymentDocument })" target="_blank">
+                                                Preview Document
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <span>No file uploaded</span>
+                                        }
                                     </td>
                                 </tr>
                             }
                         </tbody>
                     </table>
                 </div>
-            </div>
-        }
+            </fieldset>
 
-        @if (Model.CollateralReturns.Any())
-        {
-            <div class="panel panel-info">
-                <div class="panel-heading" style="padding:10px;">
-                    ১০% জামানত ফেরত
-                </div>
-                <div class="panel-body" style="padding:0px !important">
-                    <table class="table table-striped table-bordered" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>লেটার নং</th>
-                                <th>প্রকল্পের নাম</th>
-
-                                <th style="width:120px;">প্রিন্ট করুন</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.FinalBillPayments)
-                            {
+            @if (Model.IsFurnitureIncluded)
+            {
+                <fieldset class="panel panel-info" style="border:1px solid #5bc0de; border-radius:6px; padding:10px;">
+                    <legend class="panel-heading" style="font-size:16px; font-weight:bold; color:#31708f; padding:5px 10px;">
+                        আসবাবপত্র বিল পরিশোধঃ
+                    </legend>
+                    <div class="panel-body" style="padding:0px !important">
+                        <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                            <thead>
                                 <tr>
-                                    <td>@item.LetterNo</td>
-                                    <td>@item.ProjectWorkName</td>
-                                    <td>
-                                        <a href="@Url.Action("PrintCollateralReturn", "Report", new { id = Model.ProjectWorkId, type="pdf" })" class="btn btn-info btn-xs">
-                                            <i class="fa fa-print"></i> ১০% জামানত ফেরত প্রিন্ট pdf
-                                        </a>
-                                        <a href="@Url.Action("PrintCollateralReturn", "Report", new { id = Model.ProjectWorkId, type="word" })" class="btn btn-info btn-xs">
-                                            <i class="fa fa-print"></i> ১০% জামানত ফেরত প্রিন্ট word
-                                        </a>
-                                    </td>
+                                    <th>লেটার নং</th>
+                                    <th>আসবাব পত্রে বরাদ্দ</th>
+                                    <th>বিজিবি বিবিধ ফান্ডে আছে</th>
+                                    <th>বিজিবি বিবিধ ফান্ডে জমা থাকবে</th>
+                                    <th>বিল পরিশোধের পরিমাণ</th>
+                                    <th style="width:120px;">প্রিন্ট করুন</th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        }
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.FurnnitureBillPayments)
+                                {
+                                    <tr>
+                                        <td>@item.LetterNo</td>
+                                        <td>@item.AllocationToFurniture</td>
+                                        <td>@item.DepositsInFund</td>
+                                        <td>@item.DepositedInFund</td>
+                                        <td>@item.PaymentAmount</td>
+                                        <td>
+                                            <a href="@Url.Action("PrintFurnitureBillPayment", "Report", new { id = item.FurnitureBillPaymentId, type = "pdf" })" class="btn btn-info btn-xs">
+                                                <i class="fa fa-print"></i> আসবাবপত্র বিল প্রিন্ট pdf
+                                            </a>
+                                            <a href="@Url.Action("PrintFurnitureBillPayment", "Report", new { id = item.FurnitureBillPaymentId, type = "word" })" class="btn btn-info btn-xs">
+                                                <i class="fa fa-print"></i> আসবাবপত্র বিল প্রিন্ট word
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </fieldset>
+            }
+
+            @if (Model.IsFinalBillSubmitted)
+            {
+                <fieldset style="border:1px solid #5bc0de; border-radius:5px; padding:10px; margin-bottom:15px;">
+                    <legend style="font-size:14px; font-weight:bold; color:#31708f;">
+                        চূড়ান্ত বিল পরিশোধঃ
+                    </legend>
+                    <div style="padding:0px !important">
+                        <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>লেটার নং</th>
+                                    <th>চূড়ান্ত পরিমাপ অনুযায়ী মোট পরিমাণ</th>
+                                    <th>পূর্বে পরিশোধিত চলতি বিলের পরিমাণ</th>
+                                    <th>ইতি পূর্বে মোট পরিশোধ</th>
+                                    <th>চূড়ান্ত বিলে ঠিকাদারকে নীট পরিশোধ করা যেতে পারে</th>
+                                    <th style="width:120px;">প্রিন্ট করুন</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.FinalBillPayments)
+                                {
+                                    <tr>
+                                        <td>@item.LetterNo</td>
+                                        <td>@item.NetAmountAsPerFinalMeasurement</td>
+                                        <td>@item.PreviouslyPaidAmount</td>
+                                        <td>@item.AdvancePaymentAmount</td>
+                                        <td>@item.PayableFinalBill </td>
+                                        <td>
+                                            <a href="@Url.Action("PrintFinalBillPayment", "Report", new { id = item.FinalBillPaymentId, type="pdf" })" class="btn btn-info btn-xs">
+                                                <i class="fa fa-print"></i> চূড়ান্ত বিল প্রিন্ট pdf
+                                            </a>
+                                            <a href="@Url.Action("PrintFinalBillPayment", "Report", new { id = item.FinalBillPaymentId, type="word" })" class="btn btn-info btn-xs">
+                                                <i class="fa fa-print"></i> চূড়ান্ত বিল প্রিন্ট word
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </fieldset>
+            }
+
+            @if (Model.CollateralReturns.Any())
+            {
+                <fieldset style="border:1px solid #ddd; padding:10px; margin-bottom:20px; border-radius:5px;">
+                    <legend style="font-size:16px; font-weight:bold; color:#31708f;">
+                        ১০% জামানত ফেরত
+                    </legend>
+
+                    <div class="panel panel-info">
+                        <div class="panel-body" style="padding:0px !important">
+                            <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>লেটার নং</th>
+                                        <th>প্রকল্পের নাম</th>
+                                        <th style="width:120px;">প্রিন্ট করুন</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.CollateralReturns)
+                                    {
+                                        <tr>
+                                            <td>@item.LetterNo</td>
+                                            <td>@item.ProjectWorkName</td>
+                                            <td>
+                                                <a href="@Url.Action("PrintCollateralReturn", "Report", new { id = item.CollateralReturnId, type = "pdf" })"
+                                                   class="btn btn-info btn-xs">
+                                                    <i class="fa fa-print"></i> ১০% জামানত ফেরত প্রিন্ট pdf
+                                                </a>
+                                                <a href="@Url.Action("PrintCollateralReturn", "Report", new { id = item.CollateralReturnId, type = "word" })"
+                                                   class="btn btn-info btn-xs">
+                                                    <i class="fa fa-print"></i> ১০% জামানত ফেরত প্রিন্ট word
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </fieldset>
+            }
+
+
+        </div>
 
         @if (Model.HandoverApproveds.Any())
         {

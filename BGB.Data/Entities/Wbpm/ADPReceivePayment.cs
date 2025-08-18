@@ -41,6 +41,7 @@ namespace BGB.Data.Entities.Wbpm
         public int? SectionICId { get; set; }
         public int? BranchClerkId { get; set; }
         public int? OfficerId { get; set; }
+        public string ADPRecivedPayementDocument { get; set; }
 
 
         #region Navigation Property

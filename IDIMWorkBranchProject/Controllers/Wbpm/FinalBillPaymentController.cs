@@ -6,8 +6,10 @@ using IDIMWorkBranchProject.Models.Wbpm;
 using IDIMWorkBranchProject.Services;
 using IDIMWorkBranchProject.Services.Wbpm;
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
@@ -23,6 +25,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly ISignatoryAuthorityService _signatoryAuthorityService;
         private readonly IADPReceivePaymentService _aDPReceivePaymentService;
         private readonly IMapper _mapper;
+        private readonly string fileStorePath = "Documents/FinalBillPaymentFiles";
 
         public FinalBillPaymentController(
             IActivityLogService activityLogService,
@@ -110,6 +113,19 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     await PopulateDropdownsAsync(model);
                     return View(model);
                 }
+                string fileName = null;
+
+                // Upload new file if provided
+                if (model.DocumentFile != null && model.DocumentFile.ContentLength > 0)
+                {
+                    fileName = HandleFileUpload(model.DocumentFile, model.FinalBillDocument);
+                    if (string.IsNullOrEmpty(fileName))
+                    {
+                        SetResponseMessage("File upload failed", ResponseType.Error);
+                        return View(model);
+                    }
+                    model.FinalBillDocument = fileName;
+                }
 
                 if (model.FinalBillPaymentId > 0)
                 {
@@ -182,6 +198,29 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
             model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
             model.OfficerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);
+        }
+
+        public ActionResult PreviewDocument(string fileName)
+        {
+            var filePath = Path.Combine(Server.MapPath($"~/{fileStorePath}/"), fileName);
+
+            if (System.IO.File.Exists(filePath))
+            {
+                return File(filePath, "application/pdf");
+            }
+
+            return HttpNotFound();
+        }
+
+        private string HandleFileUpload(HttpPostedFileBase file, string existingFileName)
+        {
+            if (file == null || file.ContentLength <= 0)
+                return null;
+
+            if (!string.IsNullOrWhiteSpace(existingFileName))
+                FileExtention.DeleteFile(existingFileName, fileStorePath);
+
+            return FileExtention.UploadFile(file, fileStorePath);
         }
     }
 }

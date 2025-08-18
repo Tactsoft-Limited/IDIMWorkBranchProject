@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
@@ -26,6 +27,8 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly ISignatoryAuthorityService _signatoryAuthorityService;
         private readonly IContractAgreementService _contractAgreementService;
         private readonly IMapper _mapper;
+
+        private readonly string fileStorePath = "Documents/ADPReceivePaymentFiles";
 
         public ADPReceivePaymentController(IActivityLogService activityLogService, IADPReceivePaymentService aDPReceivePaymentService, IProjectWorkService projectWorkService, IReportService reportService, ISignatoryAuthorityService signatoryAuthorityService, IContractAgreementService contractAgreementService, IMapper mapper) : base(activityLogService)
         {
@@ -161,6 +164,20 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
 
             try
             {
+                string fileName = null;
+
+                // Upload new file if provided
+                if (model.DocumentFile != null && model.DocumentFile.ContentLength > 0)
+                {
+                    fileName = HandleFileUpload(model.DocumentFile, model.ADPRecivedPayementDocument);
+                    if (string.IsNullOrEmpty(fileName))
+                    {
+                        SetResponseMessage("File upload failed", ResponseType.Error);
+                        return View(model);
+                    }
+                    model.ADPRecivedPayementDocument = fileName;
+                }
+
                 var entity = _mapper.Map<ADPReceivePayment>(model);
                 var result = await _aDPReceivePaymentService.UpdateAsync(entity);
                 SetResponseMessage(string.Format(DefaultMsg.UpdateSuccess, "Receive Payment"), ResponseType.Success);
@@ -223,5 +240,27 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             }
         }
 
+        public ActionResult PreviewDocument(string fileName)
+        {
+            var filePath = Path.Combine(Server.MapPath($"~/{fileStorePath}/"), fileName);
+
+            if (System.IO.File.Exists(filePath))
+            {
+                return File(filePath, "application/pdf");
+            }
+
+            return HttpNotFound();
+        }
+
+        private string HandleFileUpload(HttpPostedFileBase file, string existingFileName)
+        {
+            if (file == null || file.ContentLength <= 0)
+                return null;
+
+            if (!string.IsNullOrWhiteSpace(existingFileName))
+                FileExtention.DeleteFile(existingFileName, fileStorePath);
+
+            return FileExtention.UploadFile(file, fileStorePath);
+        }
     }
 }

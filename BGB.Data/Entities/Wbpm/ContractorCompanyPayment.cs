@@ -37,6 +37,7 @@ namespace BGB.Data.Entities.Wbpm
         public decimal PerformanceSecurityAmount { get; set; }
         public double ContactorProgressPer { get; set; }
         public decimal ContactorProgressAmount { get; set; }
+        public string ContractorCompanyPaymentDocument { get; set; }
         public int BillPaymentNumber { get; set; }
         public int PreviouslyTotalPaidNo { get; set; }
         public decimal PreviouslyPaidAmount { get; set; }

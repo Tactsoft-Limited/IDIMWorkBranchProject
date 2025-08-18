@@ -1,9 +1,10 @@
-﻿using System;
+﻿using FluentValidation.Attributes;
+using IDIMWorkBranchProject.Models.Validation.Wbpm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Web;
 using System.Web.Mvc;
-using FluentValidation.Attributes;
-using IDIMWorkBranchProject.Models.Validation.Wbpm;
 
 namespace IDIMWorkBranchProject.Models.Wbpm
 {
@@ -162,6 +163,12 @@ namespace IDIMWorkBranchProject.Models.Wbpm
 
         [DisplayName("অফিসার")]
         public string Officer { get; set; }
+
+        [DisplayName("ঠিকাদার প্রতিষ্ঠানকে প্রদত্ত অর্থের ডকুমেন্ট")]
+        public string ContractorCompanyPaymentDocument { get; set; }
+
+        [DisplayName("ঠিকাদার প্রতিষ্ঠানকে প্রদত্ত অর্থের ডকুমেন্ট")]
+        public HttpPostedFileBase DocumentFile { get; set; }
 
 
         public IEnumerable<SelectListItem> HeadAssistantDropdown { get; set; }

@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace IDIMWorkBranchProject.Controllers.Wbpm
@@ -28,6 +29,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
         private readonly ISignatoryAuthorityService _signatoryAuthorityService;
         private readonly IReportService _reportService;
         private readonly IContractAgreementService _contractAgreementService;
+        private readonly string fileStorePath = "Documents/ContractorCompanyPaymentDocuments";
 
         public ContractorCompanyPaymentController(IActivityLogService activityLogService, IContractorCompanyPaymentService contractorCompanyPaymentService, IMapper mapper, IProjectWorkService projectWorkService, IADPReceivePaymentService adpReceivePaymentService, IReportService reportService, IBGBMiscellaneousFundService bgbMiscellaneousFundService, ISignatoryAuthorityService signatoryAuthorityService, IContractAgreementService contractAgreementService) : base(activityLogService)
         {
@@ -149,7 +151,7 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
             model.BranchClerkDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.BranchClerkId);
             model.ConcernedEngineerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.ConcernedEngineerId);
             model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
-            model.OfficerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);
+            model.OfficerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);            
             return View(model);
         }
 
@@ -168,6 +170,19 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                     model.SectionICTDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.SectionICId);
                     model.OfficerDropdown = await _signatoryAuthorityService.GetDropdownAsync(model.OfficerId);
                     return View(model);
+                }
+                string fileName = null;
+
+                // Upload new file if provided
+                if (model.DocumentFile != null && model.DocumentFile.ContentLength > 0)
+                {
+                    fileName = HandleFileUpload(model.DocumentFile, model.ContractorCompanyPaymentDocument);
+                    if (string.IsNullOrEmpty(fileName))
+                    {
+                        SetResponseMessage("File upload failed", ResponseType.Error);
+                        return View(model);
+                    }
+                    model.ContractorCompanyPaymentDocument = fileName;
                 }
 
                 var entity = _mapper.Map<ContractorCompanyPayment>(model);
@@ -233,6 +248,30 @@ namespace IDIMWorkBranchProject.Controllers.Wbpm
                 // You can also throw a custom exception if you want
                 throw new InvalidOperationException("An error occurred while generating the report.", exception);
             }
+        }
+
+
+        public ActionResult PreviewDocument(string fileName)
+        {
+            var filePath = Path.Combine(Server.MapPath($"~/{fileStorePath}"), fileName);
+
+            if (System.IO.File.Exists(filePath))
+            {
+                return File(filePath, "application/pdf");
+            }
+
+            return HttpNotFound();
+        }
+
+        private string HandleFileUpload(HttpPostedFileBase file, string existingFileName)
+        {
+            if (file == null || file.ContentLength <= 0)
+                return null;
+
+            if (!string.IsNullOrWhiteSpace(existingFileName))
+                FileExtention.DeleteFile(existingFileName, fileStorePath);
+
+            return FileExtention.UploadFile(file, fileStorePath);
         }
 
     }

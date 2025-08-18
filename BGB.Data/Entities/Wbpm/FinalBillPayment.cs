@@ -41,6 +41,8 @@ namespace BGB.Data.Entities.Wbpm
         public string RemainingDepositsInBgbFundWordB { get; set; }
         public decimal? DuePaidAmount { get; set; }
 
+        public string FinalBillDocument { get; set; }
+
         public int? HeadAssistantId { get; set; }
         public int? ConcernedEngineerId { get; set; }
         public int? SectionICId { get; set; }
